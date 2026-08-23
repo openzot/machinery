@@ -323,5 +323,35 @@
     ],
     "tagline": "Dips on the grandmaster, never by walking the arcs.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "skerravy-light",
+    "name": "Skerravy Light - Optic Driving & Fog-Signal Machinery",
+    "kind": "rock lighthouse optic-drive and fog-signal machine room",
+    "domain": "marine",
+    "era": "1920s",
+    "design": "white-enamelled cast-iron frame with engraved brass roman-cap plates and a verdigris copper hood, glazed slate tower-section mimic with falling weight and revolving lens drum, brass-bezel Bourdon dials, drop-flag annunciators, lit by daylight with only the beam itself for glow",
+    "interaction": "hoisting the driving weight by hand at a two-hand winding crank while the governor trims flash period, running lamp-cell changeovers on a five-position carousel selector and speaking the fog trumpet through a three-position air cock",
+    "palette": [
+      "#ece7d8",
+      "#3e7c66",
+      "#bf2b1d"
+    ],
+    "controls": [
+      "WINDING CRANK",
+      "DRIVE CLUTCH",
+      "GOVERNOR",
+      "OPTIC CELL SELECTOR",
+      "FOG AIR COCK",
+      "FAULT TEST SWITCHES",
+      "BELL SILENCE"
+    ],
+    "faults": [
+      "governor slip",
+      "filament burnout",
+      "air main leak"
+    ],
+    "tagline": "Wind her to the top, keep her at forty-five, and let the trumpet do the talking.",
+    "created": "2026-08-23"
   }
 ]

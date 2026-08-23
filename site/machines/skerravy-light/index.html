@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skerravy Light — Optic Driving &amp; Fog-Signal Machinery</title>
+    <meta
+      name="description"
+      content="Machine-room console of the Skerravy Rock lighthouse, 1924: weight-driven optic, electric lamp carousel and compressed-air fog signal."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <a class="catalogue-link" href="../../">&larr; Machine catalogue</a>
+
+    <main class="console" id="console">
+      <!-- ======================== head frame ======================== -->
+      <header class="headframe">
+        <div class="nameplate">
+          <span class="np-station"
+            >Commissioners of Northern Lights &mdash; Station No.&nbsp;41</span
+          >
+          <h1 class="np-name">SKERRAVY LIGHT</h1>
+          <span class="np-duty"
+            >Optic Driving &amp; Fog-Signal Machinery &mdash; Machine Room</span
+          >
+        </div>
+        <div class="beam-lamps">
+          <span class="jewel jewel-ruby" data-lamp="alarm-bell"></span>
+          <span class="jewel jewel-clear" data-lamp="machine-turns"></span>
+        </div>
+        <button
+          class="book-btn"
+          type="button"
+          data-action="manual"
+          aria-label="Open the standing orders manual"
+        >
+          Standing Orders
+        </button>
+      </header>
+
+      <!-- ======================= left driving bay ==================== -->
+      <section class="bay bay-drive" aria-label="Driving machinery">
+        <h2 class="bay-title">Driving Machinery</h2>
+
+        <div class="crank-assembly">
+          <button
+            class="crank"
+            type="button"
+            data-control="WINDING CRANK"
+            aria-label="Winding crank — hold to hoist the driving weight"
+          >
+            <span class="crank-arm">
+              <span class="crank-grip"></span>
+            </span>
+            <span class="crank-hub"></span>
+          </button>
+          <span class="engraving">Wind to&nbsp;hoist<br />the&nbsp;weight</span>
+        </div>
+
+        <div class="clutch-row">
+          <button
+            class="clutch-lever"
+            type="button"
+            data-control="DRIVE CLUTCH"
+            aria-pressed="false"
+            aria-label="Drive clutch — press to engage or disengage the train"
+          >
+            <span class="clutch-track"></span>
+            <span class="clutch-handle"></span>
+          </button>
+          <span class="clutch-labels" aria-hidden="true">
+            <span>OUT</span><span>IN</span>
+          </span>
+          <span class="engraving">Clutch</span>
+        </div>
+
+        <div class="governor-row">
+          <div
+            class="knob governor-knob"
+            role="slider"
+            tabindex="0"
+            data-control="GOVERNOR"
+            aria-label="Governor — optic revolution period"
+            aria-valuemin="30"
+            aria-valuemax="60"
+            aria-valuenow="45"
+            aria-valuetext="45 seconds per revolution"
+          >
+            <span class="knob-skirt"></span>
+            <span class="knob-pointer"></span>
+          </div>
+          <span class="engraving">Governor<br /><em>sec. per rev.</em></span>
+        </div>
+
+        <div class="counter-assembly">
+          <span class="engraving">Revolutions</span>
+          <output
+            class="rev-counter"
+            data-readout="revolutions"
+            aria-label="Total optic revolutions"
+            >000000</output
+          >
+        </div>
+      </section>
+
+      <!-- ===================== centre tower mimic ==================== -->
+      <section class="bay bay-mimic" aria-label="Tower section, glazed mimic">
+        <h2 class="bay-title">Tower Section</h2>
+        <div class="mimic-frame">
+          <div class="mimic" data-mimic>
+            <div class="sea"></div>
+
+            <!-- lantern -->
+            <div class="lantern">
+              <span class="mullion mullion-v"></span>
+              <span class="mullion mullion-h"></span>
+              <div class="optic-drum" data-optic>
+                <span class="facet facet-a"></span>
+                <span class="facet facet-b"></span>
+                <span class="facet facet-c"></span>
+                <span class="facet facet-d"></span>
+                <span class="lamp-dot" data-lampdot></span>
+              </div>
+              <span class="beam" data-beam></span>
+            </div>
+            <div class="gallery"></div>
+            <div class="drive-shaft"></div>
+
+            <!-- gear train -->
+            <div class="gear gear-big" data-gear-big></div>
+            <div class="gear gear-small" data-gear-small></div>
+
+            <!-- weight well -->
+            <div class="well-scale" aria-hidden="true">
+              <span>0&prime;</span><span>12</span><span>24</span
+              ><span>36&prime;</span>
+            </div>
+            <div class="well">
+              <div class="chain" data-chain></div>
+              <div class="weight-block" data-weight>
+                <span class="weight-eye"></span>
+              </div>
+              <div class="chain-coil coil-1"></div>
+              <div class="chain-coil coil-2"></div>
+              <div class="chain-coil coil-3"></div>
+            </div>
+
+            <!-- fog trumpet -->
+            <div class="trumpet" data-trumpet>
+              <span class="trumpet-cone"></span>
+              <span class="fog-puff puff-1" data-fog-puff></span>
+              <span class="fog-puff puff-2" data-fog-puff></span>
+              <span class="fog-puff puff-3" data-fog-puff></span>
+            </div>
+
+            <span class="mimic-label lab-lantern">Lantern</span>
+            <span class="mimic-label lab-weight">Driving weight</span>
+            <span class="mimic-label lab-trumpet">Fog trumpet</span>
+            <span class="mimic-label lab-train">Train</span>
+
+            <!-- weather glazing -->
+            <div class="haze" data-haze></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================== right lamp & fog bays =================== -->
+      <section class="bay bay-lamp" aria-label="Lamp and optic cells">
+        <h2 class="bay-title">Lamp &amp; Cells</h2>
+
+        <div
+          class="cell-selector"
+          role="radiogroup"
+          aria-label="Optic cell selector"
+          data-control="OPTIC CELL SELECTOR"
+        >
+          <span class="selector-plate" aria-hidden="true">
+            <span class="sel-mark">I</span><span class="sel-mark">II</span
+            ><span class="sel-mark">III</span><span class="sel-mark">IV</span
+            ><span class="sel-mark sel-auto">AUTO</span>
+          </span>
+          <button
+            class="sel-pos"
+            type="button"
+            role="radio"
+            aria-checked="true"
+            data-cell="1"
+          >
+            <span class="sel-pos-ring"></span>I
+          </button>
+          <button
+            class="sel-pos"
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-cell="2"
+          >
+            <span class="sel-pos-ring"></span>II
+          </button>
+          <button
+            class="sel-pos"
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-cell="3"
+          >
+            <span class="sel-pos-ring"></span>III
+          </button>
+          <button
+            class="sel-pos"
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-cell="4"
+          >
+            <span class="sel-pos-ring"></span>IV
+          </button>
+          <button
+            class="sel-pos"
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-cell="auto"
+          >
+            <span class="sel-pos-ring"></span>AUTO
+          </button>
+        </div>
+
+        <div class="cell-windows" data-cells>
+          <span class="cell-window" data-cell-window="1"
+            ><i class="filament"></i
+          ></span>
+          <span class="cell-window" data-cell-window="2"
+            ><i class="filament"></i
+          ></span>
+          <span class="cell-window" data-cell-window="3"
+            ><i class="filament"></i
+          ></span>
+          <span class="cell-window" data-cell-window="4"
+            ><i class="filament"></i
+          ></span>
+        </div>
+
+        <div class="volts-assembly">
+          <span class="engraving">Lamp volts</span>
+          <div class="dial dial-small dial-no-danger" data-dial="volts">
+            <span class="dial-face"><b class="needle" data-needle></b></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bay bay-fog" aria-label="Fog signal">
+        <h2 class="bay-title">Fog Signal</h2>
+
+        <div class="air-assembly">
+          <span class="engraving">Air receivers, lb/in&sup2;</span>
+          <div class="dial" data-dial="air">
+            <span class="dial-face"
+              ><i class="danger-arc"></i><b class="needle" data-needle></b
+            ></span>
+          </div>
+        </div>
+
+        <div class="cock-row">
+          <button
+            class="cock-lever"
+            type="button"
+            role="slider"
+            data-control="FOG AIR COCK"
+            tabindex="0"
+            aria-label="Fog air cock — charge, hold or blow"
+            aria-valuemin="0"
+            aria-valuemax="2"
+            aria-valuenow="1"
+            aria-valuetext="HOLD"
+          >
+            <span class="cock-quadrant"></span>
+            <span class="cock-handle"></span>
+          </button>
+          <span class="cock-labels" aria-hidden="true">
+            <span>CHARGE</span><span>HOLD</span><span>BLOW</span>
+          </span>
+          <span class="engraving">Air cock</span>
+        </div>
+
+        <div class="visibility-assembly">
+          <span class="engraving">Sea visibility</span>
+          <div class="vis-scale">
+            <span class="vis-pointer" data-vis-pointer></span>
+            <span class="vis-marks" aria-hidden="true">
+              <span>CLEAR</span><span>MIST</span><span>FOG</span
+              ><span>DENSE</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== alarm & test strip =================== -->
+      <section class="strip" aria-label="Alarms and station tests">
+        <div class="annunciators" role="list" aria-label="Alarm flags">
+          <div class="ann-window" role="listitem" data-ann="WEIGHT LOW">
+            <span class="ann-flag">WEIGHT LOW</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="OPTIC STOPPED">
+            <span class="ann-flag">OPTIC STOPPED</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="GOVERNOR OVERSPEED">
+            <span class="ann-flag">OVERSPEED</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="LAMP FAILED">
+            <span class="ann-flag">LAMP FAILED</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="NO SPARE CELL">
+            <span class="ann-flag">NO SPARE CELL</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="AIR PRESSURE LOW">
+            <span class="ann-flag">AIR PRESSURE LOW</span>
+          </div>
+          <div class="ann-window" role="listitem" data-ann="FOG SILENT">
+            <span class="ann-flag">FOG SILENT</span>
+          </div>
+        </div>
+
+        <button
+          class="bell-btn"
+          type="button"
+          data-control="BELL SILENCE"
+          aria-label="Silence the alarm bell"
+        >
+          Bell<br />silence
+        </button>
+
+        <div class="test-tray" data-control="FAULT TEST SWITCHES">
+          <button
+            class="tray-cover"
+            type="button"
+            data-tray-cover
+            aria-expanded="false"
+            aria-label="Open the fault test switch tray"
+          >
+            Fault tests &mdash; keep closed
+          </button>
+          <div class="tray-switches" data-tray>
+            <button
+              class="fault-toggle"
+              type="button"
+              aria-pressed="false"
+              data-inject="governor slip"
+            >
+              Gov.<br />slip
+            </button>
+            <button
+              class="fault-toggle"
+              type="button"
+              aria-pressed="false"
+              data-inject="filament burnout"
+            >
+              Lamp<br />burn
+            </button>
+            <button
+              class="fault-toggle"
+              type="button"
+              aria-pressed="false"
+              data-inject="air main leak"
+            >
+              Air<br />leak
+            </button>
+          </div>
+        </div>
+
+        <p class="station-log" data-log>Station log &mdash; all clear.</p>
+      </section>
+
+      <footer class="skirt">
+        <span class="maker-plate">
+          J.&nbsp;Cuningham&nbsp;&amp;&nbsp;Sons, Engineers, Leith &mdash; 1924
+          &mdash; No.&nbsp;7
+        </span>
+      </footer>
+    </main>
+
+    <!-- ========================== manual book ======================= -->
+    <dialog
+      class="manual-dialog"
+      data-manual
+      aria-label="Standing Orders manual"
+    >
+      <div class="manual-chrome">
+        <span class="manual-title">Standing Orders &mdash; Skerravy Light</span>
+        <button class="book-btn" type="button" data-action="close-manual">
+          Close book
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Skerravy Light standing orders manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
