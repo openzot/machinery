@@ -60,6 +60,66 @@ jobs:
         if: steps.staffed.outputs.staffed == 'true'
         with:
           ref: ${{ github.ref_name }}
+          # full history: the shift works on a branch of its own and lands it
+          # with a squash merge, and recovering a stranded branch needs the
+          # merge base to exist locally
+          fetch-depth: 0
+
+      # The shift works on a branch, never on main, and pushes a snapshot of
+      # the working tree to it every five minutes while the model works. A
+      # runner that dies - job timeout, cancellation, infrastructure - loses
+      # at most five minutes: the snapshots are already on the remote, and the
+      # next shift finds the stranded branch and folds it back in below.
+      - name: Open the shift branch
+        if: steps.staffed.outputs.staffed == 'true'
+        id: branch
+        run: |
+          set -u
+          git config user.name 'zot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          branch="shift/${GITHUB_RUN_ID}"
+          echo "name=$branch" >> "$GITHUB_OUTPUT"
+
+          # Recover work stranded by a shift that never got to merge: squash
+          # each leftover shift/* (or legacy rescue/shift-*) branch into this
+          # shift's working tree, so the tree carries the half-built machine
+          # forward and this shift's own merge takes it home. A branch that no
+          # longer merges cleanly is left where it is, loudly.
+          git fetch -q origin '+refs/heads/shift/*:refs/remotes/origin/shift/*'                              '+refs/heads/rescue/*:refs/remotes/origin/rescue/*' 2>/dev/null || true
+          for stranded in $(git for-each-ref --format='%(refname:short)'               refs/remotes/origin/shift refs/remotes/origin/rescue); do
+            if git merge --squash -q "$stranded" 2>/dev/null; then
+              if ! git diff --cached --quiet; then
+                git commit -q -m "shift: recovered stranded work from ${stranded#origin/}"
+                echo "recovered ${stranded#origin/}"
+              else
+                git reset -q --hard
+              fi
+              git push -q origin ":refs/heads/${stranded#origin/}" || true
+            else
+              git reset -q --hard
+              echo "::warning::${stranded#origin/} does not merge cleanly; left in place for a human"
+            fi
+          done
+
+          git checkout -q -b "$branch"
+          git push -q origin "HEAD:refs/heads/$branch"
+
+      - name: Keep snapshots flowing
+        if: steps.staffed.outputs.staffed == 'true'
+        env:
+          BRANCH: ${{ steps.branch.outputs.name }}
+        run: |
+          nohup bash -c '
+            while sleep 300; do
+              git add -A >/dev/null 2>&1 || continue
+              if ! git diff --cached --quiet 2>/dev/null; then
+                git commit -q -m "snapshot: $(date -u +%H:%M:%SZ)" 2>/dev/null                   && git push -q origin "HEAD:refs/heads/$BRANCH" 2>/dev/null                   || true
+              fi
+            done
+          ' > /tmp/snapshotter.log 2>&1 &
+          echo $! > /tmp/snapshotter.pid
+          disown
 
       # the toolbox for the shift. zot commissions the machine it writes -
       # screenshots it, looks at it, drives its controls - so it needs a
@@ -148,25 +208,43 @@ jobs:
         continue-on-error: true
         run: scripts/probe.sh
 
-      - name: Commit the shift
-        if: steps.staffed.outputs.staffed == 'true'
+      # The machine already lives on the shift branch - the snapshots saw to
+      # that. What is left is to land it on main as one clean commit: a squash
+      # merge, so five-minute snapshots never reach main's history. If main
+      # will not take it, the branch simply stays - it *is* the rescue - and
+      # the next shift folds it back in.
+      - name: Land the shift
+        if: always() && steps.staffed.outputs.staffed == 'true'
         id: commit
         env:
           OUTCOME: ${{ steps.zot.outputs.outcome }}
           SUMMARY: ${{ steps.zot.outputs.summary }}
+          BRANCH: ${{ steps.branch.outputs.name }}
         run: |
-          # `set +e` against the runner's default of `bash -e`: a failed rebase
-          # or push must reach the rescue at the bottom, not abort the step and
-          # take half an hour of finished work with it.
+          # `set +e` against the runner's default of `bash -e`: a failed merge
+          # or push must reach the verdict at the bottom, not abort the step
+          # and strand half an hour of finished work.
           set +e
           set -u
 
-          git config user.name 'zot'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          # the branch step never ran (checkout failed, cancelled early):
+          # there is nothing on the runner worth saving, and nothing was lost
+          if [ -z "${BRANCH:-}" ]; then
+            echo "no shift branch; nothing to land"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
+          kill "$(cat /tmp/snapshotter.pid 2>/dev/null)" 2>/dev/null
+
+          # the final state of the tree, snapshotted like any other
+          git add -A
+          git diff --cached --quiet || git commit -q -m "snapshot: end of shift"
+          git push -q origin "HEAD:refs/heads/$BRANCH"
+
+          if git diff --quiet "origin/${GITHUB_REF_NAME}...HEAD" 2>/dev/null; then
+            echo "nothing to land"
+            git push -q origin ":refs/heads/$BRANCH" || true
             echo "committed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -179,59 +257,53 @@ jobs:
             subject="shift: work in progress (${OUTCOME:-no outcome})"
           fi
 
-          if ! git commit -q -m "$subject" -m "${SUMMARY:-}" -m "run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"; then
-            echo "::error::the shift could not be committed"
-            echo "committed=false" >> "$GITHUB_OUTPUT"
-            exit 1
-          fi
-
-          # The machine now exists as a local commit. Everything below is
-          # about getting it somewhere durable, and losing it is not one of
-          # the options.
-          #
           # Three attempts, because the two ways this fails want different
-          # answers. A push rejected after a clean rebase means somebody landed
-          # between our fetch and our push - a genuine race, and trying again is
-          # exactly right. A rebase that *conflicts* will conflict again however
-          # many times we ask, so that one leaves the loop at once for the
-          # rescue below.
+          # answers. A push rejected after a clean squash means somebody
+          # landed between our fetch and our push - a genuine race, and trying
+          # again is exactly right. A squash that *conflicts* will conflict
+          # again however many times we ask, so that one leaves the loop at
+          # once and the branch stays as the rescue.
           landed=false
 
           for attempt in 1 2 3; do
-            if ! git pull --rebase -q origin "${GITHUB_REF_NAME}"; then
-              echo "rebase onto ${GITHUB_REF_NAME} conflicted (attempt ${attempt})"
-              git rebase --abort 2>/dev/null
+            git fetch -q origin "${GITHUB_REF_NAME}"
+            git checkout -q -B landing "origin/${GITHUB_REF_NAME}"
+
+            if ! git merge --squash -q "$BRANCH" 2>/dev/null; then
+              echo "squash of ${BRANCH} onto ${GITHUB_REF_NAME} conflicted (attempt ${attempt})"
+              git reset -q --hard
               break
             fi
 
-            if git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
+            if git diff --cached --quiet; then
+              echo "nothing to land after all"
+              landed=true
+              break
+            fi
+
+            git commit -q -m "$subject" -m "${SUMMARY:-}" -m "run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+            if git push -q origin "landing:${GITHUB_REF_NAME}"; then
               landed=true
               break
             fi
 
             echo "push rejected; ${GITHUB_REF_NAME} moved under us (attempt ${attempt})"
+            git checkout -q "$BRANCH"
           done
 
           if [ "$landed" = true ]; then
+            git push -q origin ":refs/heads/$BRANCH" || true
             echo "committed=true" >> "$GITHUB_OUTPUT"
             echo "$subject"
             exit 0
           fi
 
-          # Could not land it. A shift is half an hour of model time and the
-          # machine exists nowhere else, so park it on a branch of its own
-          # rather than letting the runner be torn down with it. Recovering it
-          # is then a merge someone can do at leisure - and the run still fails
-          # loudly, so somebody knows to.
-          rescue="rescue/shift-${GITHUB_RUN_ID}"
-
-          if git push -q origin "HEAD:refs/heads/${rescue}"; then
-            echo "::warning::${GITHUB_REF_NAME} would not take this shift; the machine is preserved on ${rescue}"
-            echo "rescued=${rescue}" >> "$GITHUB_OUTPUT"
-          else
-            echo "::error::the shift could not be pushed anywhere and is lost"
-          fi
-
+          # Could not land it. The work is already safe on the branch - every
+          # snapshot pushed as it happened - so nothing is lost: say so
+          # loudly, and the next shift's recovery folds it back in.
+          echo "::warning::${GITHUB_REF_NAME} would not take this shift; the work is preserved on ${BRANCH}"
+          echo "rescued=${BRANCH}" >> "$GITHUB_OUTPUT"
           echo "committed=false" >> "$GITHUB_OUTPUT"
 
       # The conversation that made the machine is the more interesting record,
@@ -316,14 +388,11 @@ jobs:
             echo "| machine probe | ${PROBE} |"
             echo "| committed | ${COMMITTED:-false} |"
             if [ -n "${RESCUED:-}" ]; then
-              echo "| rescued to | \`${RESCUED}\` |"
+              echo "| preserved on | \`${RESCUED}\` |"
               echo
-              echo "> This shift finished a machine but \`${GITHUB_REF_NAME}\` would not take it."
-              echo "> The work is on \`${RESCUED}\` - merge it rather than rerunning the shift."
-              echo ">"
-              echo "> \`\`\`"
-              echo "> git fetch origin ${RESCUED} && git merge FETCH_HEAD"
-              echo "> \`\`\`"
+              echo "> This shift's work would not land on \`${GITHUB_REF_NAME}\`. Nothing is lost:"
+              echo "> every snapshot is on \`${RESCUED}\`, and the next shift folds it back in"
+              echo "> automatically. Merge it by hand only if it says the merge conflicts."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
