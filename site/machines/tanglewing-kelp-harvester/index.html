@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tanglewing Kelp Harvester — Cut &amp; Winch Console</title>
+    <meta
+      name="description"
+      content="Deck console of MV Tanglewing, a far-north subsea kelp harvester: winch the cutter into the canopy, haul the bank, keep the oil sweet."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="desk">
+      <!-- ======================= FASCIA ======================= -->
+      <header class="fascia">
+        <div class="builder-plate" aria-hidden="true">
+          <span class="bp-line">HAVSVART MARINE SYSTEMS · ÅLESUND</span>
+          <span class="bp-line bp-sub"
+            >DECK OUTFIT NO. HMS-84/CW-0331 · CLASS NK·2084</span
+          >
+        </div>
+
+        <div class="nameplate">
+          <h1>MV TANGLEWING</h1>
+          <p class="np-sub">KELP HARVESTER · CUT &amp; WINCH CONSOLE</p>
+        </div>
+
+        <div class="fascia-right">
+          <div class="voyage-window" role="group" aria-label="Voyage readouts">
+            <div class="vw-cell">
+              <span class="vw-lab">RUN&nbsp;TIME</span
+              ><output id="ro-clock" class="piezo">00:00</output>
+            </div>
+            <div class="vw-cell">
+              <span class="vw-lab">BANK&nbsp;POS.</span
+              ><output id="ro-pos" class="piezo">0000&nbsp;m</output>
+            </div>
+            <div class="vw-cell">
+              <span class="vw-lab">STATUS</span
+              ><output id="ro-status" class="piezo">COLD</output>
+            </div>
+          </div>
+          <nav class="fascia-links">
+            <button
+              type="button"
+              class="pb pb-fascia"
+              data-action="manual"
+              data-control="MANUAL"
+              aria-haspopup="dialog"
+            >
+              OPERATING<br />MANUAL
+            </button>
+            <a class="pb pb-fascia pb-link" href="../../"
+              >SHIP&nbsp;CATALOGUE</a
+            >
+          </nav>
+        </div>
+      </header>
+
+      <!-- ======================= ANNUNCIATOR STRIP ======================= -->
+      <section class="annunc-strip" aria-label="Alarm annunciator">
+        <div class="ann-tile" id="an-cutter-foul" data-alarm="cutter-foul">
+          <span>CUTTER&nbsp;FOUL</span>
+        </div>
+        <div class="ann-tile" id="an-brake-slip" data-alarm="brake-slip">
+          <span>BRAKE&nbsp;SLIP</span>
+        </div>
+        <div class="ann-tile" id="an-hyd-leak" data-alarm="hyd-leak">
+          <span>HYD&nbsp;LEAK</span>
+        </div>
+        <div class="ann-tile" id="an-tension" data-alarm="tension">
+          <span>TENSION</span>
+        </div>
+        <div class="ann-tile" id="an-oil-hot" data-alarm="oil-hot">
+          <span>OIL&nbsp;HOT</span>
+        </div>
+        <div class="ann-tile" id="an-canopy" data-alarm="off-canopy">
+          <span>OFF&nbsp;CANOPY</span>
+        </div>
+        <div class="ann-tile" id="an-hold-full" data-alarm="hold-full">
+          <span>HOLD&nbsp;FULL</span>
+        </div>
+        <div class="ann-tile ann-trip" id="an-lockout" data-alarm="lockout">
+          <span>LOCKOUT</span>
+        </div>
+        <div class="ann-actions">
+          <button
+            type="button"
+            class="pb pb-amber"
+            id="btn-ack"
+            data-control="ALARM ACK"
+          >
+            ALARM&nbsp;ACK
+          </button>
+          <button
+            type="button"
+            class="pb"
+            id="btn-lamptest"
+            data-control="LAMP TEST"
+          >
+            LAMP&nbsp;TEST
+          </button>
+        </div>
+      </section>
+
+      <!-- ======================= THE BENCH ======================= -->
+      <main class="bench">
+        <!-- ========== LEFT BAY : POWER & HYDRAULICS ========== -->
+        <section class="bay bay-power" aria-label="Power and hydraulics">
+          <h2 class="bay-title">POWER · HYDRAULICS</h2>
+
+                <g class="rg-scale"></g>
+                <path class="rg-redarc-zone" d=""></path>
+                <line
+                  x1="60"
+
+              <button
+                type="button"
+                class="toggle toggle-bus"
+                id="sw-bus"
+                data-control="SYSTEM BUS"
+                role="switch"
+                aria-checked="false"
+                aria-label="System bus breaker"
+              >
+                <span class="toggle-track"
+                  ><span class="toggle-knob"></span
+                ></span>
+                <span class="sw-marks" aria-hidden="true"
+                  ><i>OFF</i><i>ON</i></span
+                >
+              </button>
+            </div>
+
+            <div class="lamp-cluster">
+              <span class="jewel" id="lp-power"><i></i><em>BUS</em></span>
+              <span class="jewel" id="lp-hyd"><i></i><em>HYD&nbsp;PR</em></span>
+              <span class="jewel" id="lp-cutter"><i></i><em>CUTTER</em></span>
+              <span class="jewel" id="lp-wash"><i></i><em>WASH</em></span>
+            </div>
+          </div>
+
+          <div class="ctl-row ctl-selectors">
+            <div class="rotary-block">
+              <span class="sw-legend">HYD CIRCUIT</span>
+              <div
+                class="rotary"
+                id="rot-hyd"
+                data-control="HYD CIRCUIT"
+                role="slider"
+                tabindex="0"
+                aria-label="Hydraulic circuit selector"
+                aria-valuemin="0"
+                aria-valuemax="2"
+                aria-valuenow="0"
+                aria-valuetext="SHUT, index 0 of 2"
+              >
+                <span class="rot-dial"></span><span class="rot-pointer"></span>
+                <span class="rot-tick rot-t0">SHUT</span
+                ><span class="rot-tick rot-t1">MAIN</span
+                ><span class="rot-tick rot-t2">STBY</span>
+              </div>
+            </div>
+            <div class="rotary-block">
+              <span class="sw-legend">TRIM SELECTOR</span>
+              <div
+                class="rotary"
+                id="rot-trim"
+                data-control="TRIM SELECTOR"
+                role="slider"
+                tabindex="0"
+                aria-label="Trim selector"
+                aria-valuemin="0"
+                aria-valuemax="2"
+                aria-valuenow="1"
+                aria-valuetext="LEVEL, index 1 of 2"
+              >
+                <span class="rot-dial"></span><span class="rot-pointer"></span>
+                <span class="rot-tick rot-t0">BOW</span
+                ><span class="rot-tick rot-t1">LEVEL</span
+                ><span class="rot-tick rot-t2">STERN</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gauge-row">
+            <div class="round-gauge">
+              <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                <circle cx="60" cy="60" r="56" class="rg-bezel"></circle>
+                <circle cx="60" cy="60" r="49" class="rg-face"></circle>
+                <g class="rg-scale"></g>
+                <line
+                  x1="60"
+                  y1="60"
+                  x2="60"
+                  y2="24"
+                  class="rg-needle"
+                  id="needle-press"
+                ></line>
+                <circle cx="60" cy="60" r="4" class="rg-hub"></circle>
+                <text x="60" y="86" class="rg-unit">bar ×10</text>
+                <text x="60" y="42" class="rg-name">HYD PRESSURE</text>
+              </svg>
+              <output id="ro-press" class="piezo piezo-sm">0</output>
+            </div>
+
+            <div class="stack-gauges">
+              <div
+                class="bargraph"
+                id="bg-temp"
+                role="img"
+                aria-label="Hydraulic oil temperature"
+              >
+                <span class="bg-lab">OIL&nbsp;°C</span>
+                <span class="bg-mask"
+                  ><span class="bg-fill"></span><span class="bg-zones"></span
+                ></span>
+                <output class="piezo piezo-xs" id="ro-temp">12</output>
+              </div>
+              <div
+                class="sightglass"
+                id="sg-oil"
+                role="img"
+                aria-label="Hydraulic oil reservoir level"
+              >
+                <span class="sg-lab">OIL&nbsp;LVL</span>
+                <span class="sg-tube"><span class="sg-fill"></span></span>
+                <output class="piezo piezo-xs" id="ro-level">100</output>
+              </div>
+            </div>
+          </div>
+
+          <p class="service-note">SERVICE FLUID ISO-HM 68 · RESERVOIR 90 L</p>
+        </section>
+
+        <!-- ========== CENTRE BAY : THE WATER COLUMN ========== -->
+        <section
+          class="bay bay-column"
+          aria-label="Bank profile echosounder and winch"
+        >
+          <h2 class="bay-title">BANK PROFILE · CUTTER DEPTH</h2>
+
+          <div class="scope-frame">
+            <svg
+              id="scope"
+              viewBox="0 0 340 430"
+              preserveAspectRatio="none"
+              role="img"
+              aria-label="Echosounder picture: cutter sled position against kelp canopy band and seabed"
+            >
+              <defs>
+                <clipPath id="scope-clip">
+                  <rect x="26" y="14" width="306" height="380"></rect>
+                </clipPath>
+              </defs>
+              <rect
+                x="8"
+                y="6"
+                width="324"
+                height="396"
+                class="sc-bezel"
+              ></rect>
+              <rect
+                x="26"
+                y="14"
+                width="306"
+                height="380"
+                class="sc-ground"
+              ></rect>
+              <g clip-path="url(#scope-clip)">
+                <polygon id="sc-seabed" class="sc-seabed" points=""></polygon>
+                <polygon id="sc-canopy" class="sc-canopy" points=""></polygon>
+                <g id="sc-stipes" class="sc-stipes"></g>
+                <polygon id="sc-fan" class="sc-fan" points=""></polygon>
+                <polyline
+                  id="sc-surface"
+                  class="sc-surface"
+                  points="26,34 332,34"
+                ></polyline>
+                <path class="sc-hull" d="M40 12 h74 v14 l-12 8 h-52 z"></path>
+                <circle cx="128" cy="30" r="5" class="sc-sheave"></circle>
+                <line
+                  id="sc-cable"
+                  class="sc-cable"
+                  x1="128"
+                  y1="30"
+                  x2="150"
+                  y2="200"
+                ></line>
+                <g id="sc-sled">
+                  <path
+                    class="sc-sledbody"
+                    d="M-13 -6 L13 -6 L17 2 L9 9 L-9 9 L-17 2 Z"
+                  ></path>
+                  <line class="sc-blade" x1="-15" y1="9" x2="15" y2="9"></line>
+                  <circle class="sc-skid" cx="-9" cy="9" r="2"></circle>
+                  <circle class="sc-skid" cx="9" cy="9" r="2"></circle>
+                </g>
+                <g id="sc-bug">
+                  <path d="M330 0 l-9 6 9 6 z"></path>
+                </g>
+                <g id="sc-ruler" class="sc-ruler"></g>
+              </g>
+              <g class="sc-drum">
+                <circle cx="46" cy="366" r="21" class="drum-rim"></circle>
+                <g id="drum-spokes">
+                  <line x1="46" y1="347" x2="46" y2="385"></line>
+                  <line x1="27" y1="366" x2="65" y2="366"></line>
+                  <line x1="32.5" y1="352.5" x2="59.5" y2="379.5"></line>
+                  <line x1="59.5" y1="352.5" x2="32.5" y2="379.5"></line>
+                </g>
+                <circle cx="46" cy="366" r="4" class="drum-hub"></circle>
+                <text x="46" y="404" class="drum-cap">WINCH DRUM</text>
+              </g>
+              <text x="292" y="416" class="sc-caption">SONAR · AHEAD</text>
+            </svg>
+            <span class="scope-tag">ECHOSOUNDER 208 kHz · AMBER</span>
+          </div>
+
+          <div class="depth-reads">
+            <div class="dr-cell">
+              <span class="vw-lab">CMD</span
+              ><output id="ro-depthcmd" class="piezo">11.0 m</output>
+            </div>
+            <div class="dr-cell">
+              <span class="vw-lab">ACTUAL</span
+              ><output id="ro-depthact" class="piezo">0.0 m</output>
+            </div>
+            <div class="dr-cell">
+              <span class="vw-lab">ERR</span
+              ><output id="ro-deptherr" class="piezo piezo-warn">+11.0</output>
+            </div>
+            <div class="dr-cell">
+              <span class="vw-lab">CANOPY</span
+              ><output id="ro-band" class="piezo">—/—</output>
+            </div>
+          </div>
+
+          <div class="wheel-bench">
+            <div class="wheel-block">
+              <span class="sw-legend">DEPTH WHEEL</span>
+              <div
+                class="handwheel"
+                id="wheel"
+                data-control="DEPTH WHEEL"
+                role="slider"
+                tabindex="0"
+                aria-label="Winch depth handwheel — command depth in metres"
+                aria-valuemin="4"
+                aria-valuemax="18"
+                aria-valuenow="11"
+                aria-valuetext="11.0 metres"
+              >
+                <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                  <g id="hw-rotor">
+                    <circle cx="60" cy="60" r="50" class="hw-rim"></circle>
+                    <circle cx="60" cy="60" r="44" class="hw-inner"></circle>
+                    <g class="hw-spokes">
+                      <line x1="60" y1="12" x2="60" y2="108"></line>
+                      <line x1="12" y1="60" x2="108" y2="60"></line>
+                      <line x1="25" y1="25" x2="95" y2="95"></line>
+                      <line x1="95" y1="25" x2="25" y2="95"></line>
+                    </g>
+                    <circle cx="60" cy="60" r="12" class="hw-hub"></circle>
+                    <circle cx="60" cy="14" r="6" class="hw-handle"></circle>
+                  </g>
+                </svg>
+              </div>
+              <span class="sw-sub">PAY ±&nbsp;/&nbsp;HOLD</span>
+            </div>
+
+            <button
+              type="button"
+              class="brake-bar"
+              id="brake"
+              data-control="DRUM BRAKE"
+              aria-label="Drum brake — hold to hold the winch drum"
+            >
+              <span class="bb-pad">DRUM BRAKE</span>
+              <span class="bb-sub">HOLD TO SET</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ========== RIGHT BAY : HARVEST ========== -->
+        <section class="bay bay-harvest" aria-label="Harvest drive and load">
+          <h2 class="bay-title">HAUL · CUT · HOLD</h2>
+
+          <div class="harvest-grid">
+            <div class="quadrant-block">
+              <span class="sw-legend">HARVEST LEVER</span>
+              <div
+                class="quadrant"
+                id="lever"
+                data-control="HARVEST LEVER"
+                role="slider"
+                tabindex="0"
+                aria-label="Harvest haul lever"
+                aria-valuemin="0"
+                aria-valuemax="3"
+                aria-valuenow="0"
+                aria-valuetext="STOP, notch 0 of 3"
+              >
+                <span class="qd-plate"></span>
+                <span class="qd-notch qd-n0">STOP</span
+                ><span class="qd-notch qd-n1">SLOW</span>
+                <span class="qd-notch qd-n2">HALF</span
+                ><span class="qd-notch qd-n3">FULL</span>
+                <span class="qd-arm" id="qd-arm"
+                  ><span class="qd-knob"></span
+                ></span>
+              </div>
+            </div>
+
+            <div class="engage-stack">
+              <div class="guarded" id="guard-box">
+                <span class="chevrons" aria-hidden="true"></span>
+                <button
+                  type="button"
+                  class="toggle toggle-engage"
+                  id="sw-engage"
+                  data-control="CUTTER ENGAGE"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Cutter engage — lift guard then switch"
+                >
+                  <span class="toggle-track"
+                    ><span class="toggle-knob"></span
+                  ></span>
+                </button>
+                <span class="guarded-legend">CUTTER ENGAGE</span>
+                <span class="guard-flap" id="guard-flap" aria-hidden="true"
+                  ><em>LIFT</em></span
+                >
+              </div>
+
+              <div
+                class="wash-block"
+                role="radiogroup"
+                aria-label="Debris wash mode"
+                data-control="DEBRIS WASH"
+                id="wash"
+              >
+                <span class="sw-legend">DEBRIS WASH</span>
+                <div class="rockers">
+                  <button
+                    type="button"
+                    class="rocker"
+                    data-wash="purge"
+                    role="radio"
+                    aria-checked="false"
+                  >
+                    PURGE
+                  </button>
+                  <button
+                    type="button"
+                    class="rocker"
+                    data-wash="off"
+                    role="radio"
+                    aria-checked="true"
+                  >
+                    OFF
+                  </button>
+                  <button
+                    type="button"
+                    class="rocker"
+                    data-wash="wash"
+                    role="radio"
+                    aria-checked="false"
+                  >
+                    WASH
+                  </button>
+                </div>
+                <span class="sw-sub">PURGE = REVERSE 5 s</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="load-row">
+            <div
+              class="bargraph bg-wide"
+              id="bg-torque"
+              role="img"
+              aria-label="Cutter torque percent"
+            >
+              <span class="bg-lab">TORQUE&nbsp;%</span>
+              <span class="bg-mask"
+                ><span class="bg-fill"></span><span class="bg-zones"></span
+              ></span>
+              <output class="piezo piezo-xs" id="ro-torque">0</output>
+            </div>
+            <div
+              class="bargraph bg-wide"
+              id="bg-tension"
+              role="img"
+              aria-label="Cable tension kilonewtons"
+            >
+              <span class="bg-lab">TENSION&nbsp;kN</span>
+              <span class="bg-mask"
+                ><span class="bg-fill"></span><span class="bg-zones"></span
+              ></span>
+              <output class="piezo piezo-xs" id="ro-tension">0</output>
+            </div>
+          </div>
+
+          <div class="hold-row">
+            <div
+              class="hold-glass"
+              id="hg-hold"
+              role="img"
+              aria-label="Hold fill percent"
+            >
+              <span class="hg-lab">HOLD</span>
+              <span class="hg-tube"><span class="hg-fill"></span></span>
+              <output class="piezo piezo-xs" id="ro-hold">0.0&nbsp;t</output>
+            </div>
+            <button
+              type="button"
+              class="pb pb-transfer"
+              id="btn-transfer"
+              data-control="HOLD TRANSFER"
+            >
+              HOLD&nbsp;TRANSFER
+              <span class="pb-sub">PUMP ASHORE</span>
+            </button>
+          </div>
+
+          <div class="maint" id="maint-box">
+            <button
+              type="button"
+              class="maint-latch"
+              id="maint-latch"
+              aria-expanded="false"
+              aria-controls="maint-tests"
+            >
+              MAINTENANCE · FAULT TESTS
+              <span class="ml-sub">CREW ONLY</span>
+            </button>
+            <div
+              class="maint-tests"
+              id="maint-tests"
+              data-control="FAULT TESTS"
+              hidden
+            >
+              <button
+                type="button"
+                class="pb pb-test"
+                id="ft-foul"
+                aria-label="Inject test fault: cutter fouling"
+              >
+                FOUL
+              </button>
+              <button
+                type="button"
+                class="pb pb-test"
+                id="ft-slip"
+                aria-label="Inject test fault: winch brake slip"
+              >
+                SLIP
+              </button>
+              <button
+                type="button"
+                class="pb pb-test"
+                id="ft-leak"
+                aria-label="Inject test fault: hydraulic fluid leak"
+              >
+                LEAK
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ======================= SKIRT ======================= -->
+      <footer class="skirt">
+        <span class="sk-plate"
+          >CONSOLE CW-0331 · 400 V SHIP BUS · ISO-HM 68 · DRY-WEIGHT 214
+          KG</span
+        >
+        <button
+          type="button"
+          class="sound-rocker"
+          id="sound"
+          data-control="SOUND"
+          role="switch"
+          aria-checked="false"
+          aria-label="Console sound"
+        >
+          <span>SOUND</span><i></i>
+        </button>
+      </footer>
+    </div>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual id="manual-dialog" aria-labelledby="manual-title">
+      <div class="dlg-chrome">
+        <span class="dlg-title" id="manual-title"
+          >OPERATING MANUAL M-2084 · CUT &amp; WINCH CONSOLE</span
+        >
+        <button type="button" class="pb pb-close" data-action="close-manual">
+          CLOSE&nbsp;✕
+        </button>
+      </div>
+      <iframe src="manual.html" title="Operating manual M-2084"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
