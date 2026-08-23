@@ -45,11 +45,20 @@ pages  push to site/ ──▶ scripts/check.sh ──▶ deploy site/
   anything resembling an existing entry, and build the most different one.
   Uniqueness is checked on `kind`, on `domain + era`, on `design`, on
   `interaction`, on the name, and on the chassis + accent colours.
-- **One shift, one commit.** Whatever zot leaves in the tree is committed -
-  `shift: <Machine> - <tagline>` when the order settled, `shift: work in
-  progress` when it was cut short. A machine only appears on the site once it
-  is in `machines.json`, which the order says to do last, so an unfinished
-  machine is invisible until a later shift finishes it.
+- **One shift, one commit - via a branch.** The shift never works on `main`:
+  it opens `shift/<run-id>` first and pushes a snapshot of the working tree to
+  it every five minutes while the model works, so a runner that dies - job
+  timeout, cancellation, infrastructure - loses at most five minutes. At the
+  end the branch is squash-merged onto `main` as one commit - `shift:
+  <Machine> - <tagline>` when the order settled, `shift: work in progress`
+  when it was cut short - and deleted; the snapshots never reach `main`'s
+  history. If the merge will not land, the branch simply stays: it is the
+  rescue. The next shift starts by folding any stranded `shift/*` branch back
+  into its working tree, so stranded work is finished rather than lost - only
+  a branch that no longer merges cleanly is left for a human, loudly. A
+  machine only appears on the site once it is in `machines.json`, which the
+  order says to do last, so an unfinished machine is invisible until a later
+  shift finishes it.
 - **Shifts do not overlap.** A concurrency group makes a due shift wait for the
   running one. A shift that hits the 50-minute step timeout is committed as is,
   and because session logs are kept in the Actions cache, the next shift
