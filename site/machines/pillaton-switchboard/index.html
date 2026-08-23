@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pillaton Manual Exchange — Position No. 1</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <header class="head">
+        <div class="crownplate" aria-hidden="true">
+          <svg viewBox="0 0 44 30" class="crown">
+            <path
+              d="M4 24 L8 10 L15 18 L22 6 L29 18 L36 10 L40 24 Z"
+              fill="currentColor"
+            />
+            <rect x="4" y="25.5" width="36" height="3" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="head-plate">
+          <span class="hp-title">PILLATON TELEPHONE EXCHANGE</span>
+          <span class="hp-sub"
+            >GENERAL POST OFFICE · MANUAL SWITCHBOARD POSITION No.&nbsp;1 · SER
+            No P/218/0041</span
+          >
+        </div>
+        <div class="duty-plate">
+          <span class="duty-label">DUTY</span>
+          <span class="duty-clock" id="dutyClock">08:30</span>
+        </div>
+        <button
+          type="button"
+          class="bakelite"
+          id="manualBtn"
+          data-action="manual"
+        >
+          OPERATING INSTRUCTIONS
+        </button>
+        <button type="button" class="bakelite" id="resetBtn">
+          POSITION RESET
+        </button>
+        <a class="directory-link" href="../../">EXCHANGE DIRECTORY</a>
+      </header>
+
+      <main class="position">
+        <!-- ==================== LEFT BAY : RING GENERATOR & BATTERY ==================== -->
+        <section
+          class="bay bay-generator"
+          aria-label="Ring generator and battery bay"
+        >
+          <h2 class="bay-title">RING GENERATOR &amp; CB BATTERY</h2>
+
+          <div class="meter-row">
+            <div class="meter meter-volts">
+              <div class="meter-face">
+                <svg viewBox="0 0 100 58" aria-hidden="true">
+                  <path
+                    d="M8 52 A42 42 0 0 1 92 52"
+                    fill="none"
+                    stroke="#efe6cd"
+                    stroke-width="2"
+                  />
+                  <g stroke="#efe6cd" stroke-width="1.4">
+                    <line x1="50" y1="10" x2="50" y2="17" />
+                    <line x1="20" y1="26" x2="25" y2="31" />
+                    <line x1="80" y1="26" x2="75" y2="31" />
+                    <line x1="11" y1="41" x2="17" y2="44" />
+                    <line x1="89" y1="41" x2="83" y2="44" />
+                  </g>
+                  <text x="12" y="55" class="dial-txt">30</text>
+                  <text x="45" y="9" class="dial-txt">50</text>
+                  <text x="80" y="55" class="dial-txt">70</text>
+                </svg>
+                <div class="needle" id="voltNeedle"></div>
+                <div class="needle-hub" aria-hidden="true"></div>
+              </div>
+              <label class="meter-label">BUS VOLTS</label>
+            </div>
+            <div class="meter meter-rpm">
+              <div class="meter-face">
+                <svg viewBox="0 0 100 58" aria-hidden="true">
+                  <path
+                    d="M8 52 A42 42 0 0 1 92 52"
+                    fill="none"
+                    stroke="#efe6cd"
+                    stroke-width="2"
+                  />
+                  <g stroke="#efe6cd" stroke-width="1.4">
+                    <line x1="50" y1="10" x2="50" y2="17" />
+                    <line x1="20" y1="26" x2="25" y2="31" />
+                    <line x1="80" y1="26" x2="75" y2="31" />
+                    <line x1="11" y1="41" x2="17" y2="44" />
+                    <line x1="89" y1="41" x2="83" y2="44" />
+                  </g>
+                  <text x="8" y="55" class="dial-txt">0</text>
+                  <text x="42" y="9" class="dial-txt">750</text>
+                  <text x="72" y="55" class="dial-txt">1500</text>
+                </svg>
+                <div class="needle needle-red" id="rpmNeedle"></div>
+                <div class="needle-hub" aria-hidden="true"></div>
+              </div>
+              <label class="meter-label">FLYWHEEL RPM</label>
+            </div>
+          </div>
+
+          <div class="neon-strip">
+            <span class="neon-lamp" id="neonLamp" aria-hidden="true"></span>
+            <span class="printed">RECTIFIER LIVE</span>
+          </div>
+
+          <div class="gen-controls">
+            <button
+              type="button"
+              class="selector"
+              id="genSelector"
+              data-control="RING GENERATOR SELECTOR"
+              aria-label="Ring generator selector, currently OFF. Operate to switch between OFF and MOTOR RUN."
+            >
+              <span class="selector-dial" aria-hidden="true">
+                <span class="selector-pointer"></span>
+                <i class="sel-mark sel-off">OFF</i
+                ><i class="sel-mark sel-run">RUN</i>
+              </span>
+              <span class="selector-legend">MOTOR SELECTOR</span>
+            </button>
+
+            <button
+              type="button"
+              class="crank"
+              id="handCrank"
+              data-control="HAND CRANK"
+              aria-label="Hand crank: press or hold to turn the flywheel by hand"
+            >
+              <span class="crank-wheel" aria-hidden="true"
+                ><span class="crank-spoke"></span
+                ><span class="crank-knob"></span
+              ></span>
+              <span class="selector-legend">HAND CRANK<br />HOLD TO TURN</span>
+            </button>
+
+            <button
+              type="button"
+              class="fuseclip"
+              id="fuseClip"
+              data-control="SPARE FUSE CLIP"
+              aria-label="Spare fuse clip: press twice to fit the spare main fuse"
+            >
+              <span class="fuse-carrier" aria-hidden="true"
+                ><span class="fuse-glass"></span
+              ></span>
+              <span class="selector-legend"
+                >SPARE MAIN FUSE<br />TWO PRESSES TO FIT</span
+              >
+            </button>
+
+            <button
+              type="button"
+              class="tensioner"
+              id="beltLever"
+              data-control="BELT TENSION LEVER"
+              aria-pressed="false"
+              aria-label="Belt tension lever, currently SLACK. Operate to swing to TIGHT."
+            >
+              <span class="tension-quadrant" aria-hidden="true">
+                <span class="tension-lever-arm"></span>
+                <i class="tens-mark tens-slack">SLACK</i
+                ><i class="tens-mark tens-tight">TIGHT</i>
+              </span>
+              <span class="selector-legend">BELT TENSION LEVER</span>
+            </button>
+          </div>
+
+          <p class="printed printed-note" id="genNote">
+            Motor off — flywheel standing.
+          </p>
+        </section>
+
+        <!-- ==================== CENTRE : THE MULTIPLE BOARD ==================== -->
+        <section class="board-frame" aria-label="Line multiple board">
+          <div class="board-head printed">
+            <span>SUBSCRIBERS' MULTIPLE — PILLATON 218 GROUP</span>
+            <span class="bh-right">FRONT JACK ANSWERS · REAR JACK CALLS</span>
+          </div>
+
+          <div class="multiple" id="multiple">
+            <!-- 12 line columns generated by machine.js:
+             lamp button, directory strip, front jack, rear jack -->
+          </div>
+
+          <svg class="cordsvg" id="cordSvg" aria-hidden="true"></svg>
+
+          <div class="keyshelf" data-control="PAIR KEYS">
+            <div class="pair-station" data-control="CORD PAIR 1" data-pair="1">
+              <div class="wells">
+                <button
+                  type="button"
+                  class="well well-answer"
+                  data-plug="1a"
+                  aria-label="Cord pair 1 answering plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-a" aria-hidden="true"></span>
+                </button>
+                <button
+                  type="button"
+                  class="well well-call"
+                  data-plug="1b"
+                  aria-label="Cord pair 1 calling plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-b" aria-hidden="true"></span>
+                </button>
+              </div>
+              <button
+                type="button"
+                class="leverkey"
+                data-key="1"
+                aria-label="Pair 1 lever key, at STANDBY"
+              >
+                <span class="lk-plate" aria-hidden="true">
+                  <span class="lk-lever"></span>
+                  <i class="lk-mark lk-ring">RING</i
+                  ><i class="lk-mark lk-talk">TALK</i
+                  ><i class="lk-mark lk-sby">STBY</i>
+                </span>
+              </button>
+            </div>
+            <div class="pair-station" data-control="CORD PAIR 2" data-pair="2">
+              <div class="wells">
+                <button
+                  type="button"
+                  class="well well-answer"
+                  data-plug="2a"
+                  aria-label="Cord pair 2 answering plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-a" aria-hidden="true"></span>
+                </button>
+                <button
+                  type="button"
+                  class="well well-call"
+                  data-plug="2b"
+                  aria-label="Cord pair 2 calling plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-b" aria-hidden="true"></span>
+                </button>
+              </div>
+              <button
+                type="button"
+                class="leverkey"
+                data-key="2"
+                aria-label="Pair 2 lever key, at STANDBY"
+              >
+                <span class="lk-plate" aria-hidden="true">
+                  <span class="lk-lever"></span>
+                  <i class="lk-mark lk-ring">RING</i
+                  ><i class="lk-mark lk-talk">TALK</i
+                  ><i class="lk-mark lk-sby">STBY</i>
+                </span>
+              </button>
+            </div>
+            <div class="pair-station" data-control="CORD PAIR 3" data-pair="3">
+              <div class="wells">
+                <button
+                  type="button"
+                  class="well well-answer"
+                  data-plug="3a"
+                  aria-label="Cord pair 3 answering plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-a" aria-hidden="true"></span>
+                </button>
+                <button
+                  type="button"
+                  class="well well-call"
+                  data-plug="3b"
+                  aria-label="Cord pair 3 calling plug, resting in its well"
+                >
+                  <span class="well-mouth" aria-hidden="true"></span>
+                  <span class="braid braid-b" aria-hidden="true"></span>
+                </button>
+              </div>
+              <button
+                type="button"
+                class="leverkey"
+                data-key="3"
+                aria-label="Pair 3 lever key, at STANDBY"
+              >
+                <span class="lk-plate" aria-hidden="true">
+                  <span class="lk-lever"></span>
+                  <i class="lk-mark lk-ring">RING</i
+                  ><i class="lk-mark lk-talk">TALK</i
+                  ><i class="lk-mark lk-sby">STBY</i>
+                </span>
+              </button>
+            </div>
+
+            <div class="ticket-pad">
+              <div class="pad-paper">
+                <div class="pad-rule"></div>
+                <ol class="tickets" id="tickets"></ol>
+              </div>
+              <span class="pad-caption printed"
+                >TICKETS — WRITE EVERY CALL</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== RIGHT BAY : SUPERVISOR'S CORNER ==================== -->
+        <section
+          class="bay bay-supervisor"
+          aria-label="Supervisor's corner and maintenance tests"
+        >
+          <h2 class="bay-title">SUPERVISOR'S CORNER</h2>
+
+          <div class="sup-lamps">
+            <span class="alarm-lamp" id="lampSupervisor"
+              ><span class="lens" aria-hidden="true"></span
+              ><em>SUPERVISOR</em></span
+            >
+            <span class="alarm-lamp" id="lampNightCall"
+              ><span class="lens" aria-hidden="true"></span
+              ><em>NIGHT CALL</em></span
+            >
+            <span class="alarm-lamp" id="lampPower"
+              ><span class="lens" aria-hidden="true"></span
+              ><em>POWER FAIL</em></span
+            >
+          </div>
+
+          <label class="toggle-row" data-control="NIGHT SERVICE KEY">
+            <input type="checkbox" id="nightService" />
+            <span class="toggle-body" aria-hidden="true"
+              ><span class="toggle-nub"></span
+            ></span>
+            <span class="toggle-name">NIGHT SERVICE KEY</span>
+          </label>
+
+          <div class="counter-row">
+            <div class="counter">
+              <span class="counter-num" id="cntAnswered">0</span
+              ><span class="counter-name">CALLS HANDLED</span>
+            </div>
+            <div class="counter counter-missed">
+              <span class="counter-num" id="cntMissed">0</span
+              ><span class="counter-name">ABANDONED</span>
+            </div>
+          </div>
+
+          <div class="push-row">
+            <button
+              type="button"
+              class="pushbtn"
+              id="buzzerCut"
+              data-control="BUZZER CUT-OFF"
+            >
+              BUZZER<br />CUT-OFF
+            </button>
+            <button
+              type="button"
+              class="pushbtn"
+              id="lampsTest"
+              data-control="LAMPS TEST"
+            >
+              LAMPS<br />TEST
+            </button>
+          </div>
+
+          <h3 class="printed sub-title" data-control="FAULT TEST SWITCHES">
+            MAINTENANCE — FAULT TEST SWITCHES
+          </h3>
+          <div class="fault-tests" id="faultTests">
+            <div class="ftest" data-fault="generator belt slip">
+              <button
+                type="button"
+                class="guard"
+                aria-expanded="false"
+                aria-label="Open guard for belt slip test switch"
+              ></button>
+              <input
+                type="checkbox"
+                id="ftBelt"
+                aria-label="Inject test fault: generator belt slip"
+              />
+              <span class="ft-name">GEN BELT SLIP</span>
+            </div>
+            <div class="ftest" data-fault="battery fuse blown">
+              <button
+                type="button"
+                class="guard"
+                aria-expanded="false"
+                aria-label="Open guard for fuse test switch"
+              ></button>
+              <input
+                type="checkbox"
+                id="ftFuse"
+                aria-label="Inject test fault: battery fuse blown"
+              />
+              <span class="ft-name">MAIN FUSE</span>
+            </div>
+            <div class="ftest" data-fault="reversed cord pair">
+              <button
+                type="button"
+                class="guard"
+                aria-expanded="false"
+                aria-label="Open guard for reversed cord test switch"
+              ></button>
+              <input
+                type="checkbox"
+                id="ftCord"
+                aria-label="Inject test fault: reversed cord pair"
+              />
+              <span class="ft-name">CORD REVERSAL</span>
+            </div>
+          </div>
+
+          <div class="annunciator" id="annunciator" aria-live="polite">
+            <span class="ann-title printed">ALARM LENSES</span>
+            <div class="ann-lenses" id="annLenses"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="skirt">
+        <span class="printed"
+          >MANUFACTURED BY G.P.O. FACTORIES, DULWICH · 1962 · WIRING DIAGRAM
+          KE&nbsp;1142 — DO NOT REMOVE THIS PANEL</span
+        >
+      </footer>
+    </div>
+
+    <dialog data-manual id="manualDialog" aria-label="Operating manual">
+      <div class="dialog-chrome">
+        <span class="chrome-title"
+          >OPERATING INSTRUCTIONS — POSITION No. 1</span
+        >
+        <button
+          type="button"
+          class="bakelite bakelite-small"
+          data-action="close-manual"
+        >
+          CLOSE BOOK
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Pillaton Manual Exchange operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
