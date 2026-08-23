@@ -62,5 +62,38 @@
     ],
     "tagline": "Keep the cross on her funnel and the drums will do the arithmetic.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "verity-anaesthetic-apparatus",
+    "name": "Verity Anaesthetic Apparatus Mk. II",
+    "kind": "operating-theatre anaesthetic gas apparatus",
+    "domain": "medical",
+    "era": "1950s",
+    "design": "polished-nickel trolley with white vitreous legend plates, black bakelite knobs and knurled skirts, tapered-glass rotameters with steel bobbins, a leather-edged rebreathing bag, lit by daylight alone",
+    "interaction": "trim two multi-turn needle valves until the floats sit on their scribe lines, set the halothane percent dial, ride the pop-off against the manometer and watch the bag breathe",
+    "palette": [
+      "#b6bbbd",
+      "#1d5c50",
+      "#d0342c"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "YOKE CHANGEOVER LEVER",
+      "OXYGEN NEEDLE VALVE",
+      "NITROUS OXIDE NEEDLE VALVE",
+      "HALOTHANE PERCENT DIAL",
+      "POP-OFF VALVE",
+      "EMERGENCY OXYGEN FLUSH",
+      "CANISTER SWING BOLTS",
+      "WORKS TEST SWITCHES",
+      "ALARM WHISTLE CUTOUT"
+    ],
+    "faults": [
+      "oxygen cylinder depletion",
+      "vaporizer leak",
+      "soda lime exhaustion"
+    ],
+    "tagline": "Two floats on the line, one and a half percent, and the bag breathes itself.",
+    "created": "2026-08-23"
   }
 ]

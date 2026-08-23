@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verity Anaesthetic Apparatus Mk. II</title>
+    <meta
+      name="description"
+      content="A 1958 operating-theatre continuous-flow anaesthetic machine, live simulated."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="theatre">
+      <div class="apparatus" id="apparatus" data-power="off">
+        <!-- ======================= maker's plate ======================= -->
+        <header class="nameplate">
+          <div class="maker-block">
+            <span class="maker"
+              >Verity Medical Instruments &middot; Sheffield</span
+            >
+            <h1>Anaesthetic Apparatus Mk.&nbsp;II</h1>
+            <span class="serial"
+              >SER&nbsp;No&nbsp;58&ndash;0417 &middot; CIRCLE CIRCUIT &middot;
+              DRAW-OVER VAPOURISER</span
+            >
+          </div>
+          <nav class="plate-links">
+            <a class="catalogue-link" href="../../">All machines</a>
+            <button class="manual-tab" type="button" data-action="manual">
+              Operating manual
+            </button>
+          </nav>
+        </header>
+
+        <!-- ======================= alarm rail ======================= -->
+        <section class="alarm-rail" aria-label="Alarm lenses">
+          <div class="lens" id="lens-mains" data-lamp="mains">
+            <span class="jewel"></span><span class="lens-name">MAINS</span>
+          </div>
+          <div class="lens" id="lens-oxygen" data-lamp="oxygen-failure">
+            <span class="jewel"></span
+            ><span class="lens-name">OXYGEN FAILURE</span>
+          </div>
+          <div class="lens" id="lens-vapour" data-lamp="vapour-loss">
+            <span class="jewel"></span
+            ><span class="lens-name">VAPOUR LOSS</span>
+          </div>
+          <div class="lens" id="lens-co2" data-lamp="co2-rebreathing">
+            <span class="jewel"></span
+            ><span class="lens-name">CO&#8322; REBREATH</span>
+          </div>
+          <div class="lens" id="lens-airway" data-lamp="airway-pressure">
+            <span class="jewel"></span
+            ><span class="lens-name">AIRWAY PRESSURE</span>
+          </div>
+          <div class="lens" id="lens-crisis" data-lamp="patient-crisis">
+            <span class="jewel"></span
+            ><span class="lens-name">PATIENT CRISIS</span>
+          </div>
+          <button
+            class="rail-button"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            data-control="ALARM WHISTLE CUTOUT"
+            id="cutout"
+          >
+            WHISTLE<br />CUT-OUT
+          </button>
+        </section>
+
+        <!-- ======================= working deck ======================= -->
+        <section class="deck">
+          <!-- cylinder yokes -->
+          <div class="bay bay-yokes">
+            <h2 class="bay-title">CYLINDER YOKES</h2>
+            <div class="yoke-row">
+              <figure class="yoke">
+                <div
+                  class="gauge gauge-bar"
+                  id="gauge-duty"
+                  data-min="0"
+                  data-max="140"
+                  data-unit="bar"
+                  data-ticks="8"
+                ></div>
+                <figcaption>DUTY O&#8322;<br />CYLINDER</figcaption>
+                <span class="yoke-pin" aria-hidden="true"></span>
+              </figure>
+              <figure class="yoke">
+                <div
+                  class="gauge gauge-bar"
+                  id="gauge-reserve"
+                  data-min="0"
+                  data-max="140"
+                  data-unit="bar"
+                  data-ticks="8"
+                ></div>
+                <figcaption>RESERVE O&#8322;<br />CYLINDER</figcaption>
+                <span class="yoke-pin" aria-hidden="true"></span>
+              </figure>
+            </div>
+            <button
+              class="changeover"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Yoke changeover lever: duty or reserve cylinder"
+              data-control="YOKE CHANGEOVER LEVER"
+              id="yoke"
+            >
+              <span class="lever-track" aria-hidden="true">
+                <span class="lever-word">DUTY</span>
+                <span class="lever-word">RESERVE</span>
+                <span class="lever-handle"></span>
+              </span>
+              <span class="lever-caption">CHANGEOVER</span>
+            </button>
+          </div>
+
+          <!-- rotameter bank -->
+          <div class="bay bay-flow">
+            <h2 class="bay-title">FLOW METERS</h2>
+            <div class="flow-row">
+              <div class="flow-column">
+                <div class="rotameter" id="tube-oxygen">
+                  <span
+                    class="scribe"
+                    style="--at: 20%"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="bobbin" aria-hidden="true"><i></i></span>
+                  <span class="tube-scale" aria-hidden="true">
+                    <b>10</b><b>8</b><b>6</b><b>4</b><b>2</b><b>0</b>
+                  </span>
+                </div>
+                <p class="gas-name">OXYGEN L/MIN</p>
+                <button
+                  class="valve-knob"
+                  type="button"
+                  role="slider"
+                  aria-label="Oxygen needle valve, litres per minute"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                  aria-valuetext="0 litres per minute"
+                  data-control="OXYGEN NEEDLE VALVE"
+                  id="valve-oxygen"
+                >
+                  <span class="knob-face" aria-hidden="true"></span>
+                </button>
+                <p class="turns-hint" id="hint-oxygen">&frac34; turn open</p>
+              </div>
+              <div class="flow-column">
+                <div class="rotameter" id="tube-nitrous">
+                  <span class="bobbin" aria-hidden="true"><i></i></span>
+                  <span class="tube-scale" aria-hidden="true">
+                    <b>10</b><b>8</b><b>6</b><b>4</b><b>2</b><b>0</b>
+                  </span>
+                </div>
+                <p class="gas-name">NITROUS OXIDE L/MIN</p>
+                <button
+                  class="valve-knob"
+                  type="button"
+                  role="slider"
+                  aria-label="Nitrous oxide needle valve, litres per minute"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                  aria-valuetext="0 litres per minute"
+                  data-control="NITROUS OXIDE NEEDLE VALVE"
+                  id="valve-nitrous"
+                >
+                  <span class="knob-face" aria-hidden="true"></span>
+                </button>
+                <p class="turns-hint" id="hint-nitrous">closed</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- vaporiser -->
+          <div class="bay bay-vapour">
+            <h2 class="bay-title">VAPOURISER</h2>
+            <div class="vapour-body">
+              <div class="percent-window" id="vapour-window">
+                <span id="vapour-readout">0.0</span><span class="unit">%</span>
+              </div>
+              <button
+                class="vapour-dial"
+                type="button"
+                role="slider"
+                aria-label="Halothane percent dial, zero to four percent"
+                aria-valuemin="0"
+                aria-valuemax="4"
+                aria-valuenow="0"
+                aria-valuetext="0 percent"
+                data-control="HALOTHANE PERCENT DIAL"
+                id="dial-vapour"
+              >
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="dial-ring" cx="60" cy="60" r="56" />
+                  <g id="vapour-ticks" class="dial-ticks"></g>
+                  <g id="vapour-pointer" class="dial-pointer">
+                    <polygon points="60,14 56,26 64,26" />
+                    <line x1="60" y1="26" x2="60" y2="44" />
+                  </g>
+                </svg>
+                <span class="knob-skirt" aria-hidden="true"></span>
+              </button>
+              <p class="agent-note">
+                CALIBRATED FOR HALOTHANE<br />TEMPERATURE COMPENSATED
+              </p>
+              <span
+                class="mini-jewel"
+                id="jewel-leak"
+                aria-hidden="true"
+              ></span>
+            </div>
+          </div>
+
+          <!-- patient circuit -->
+          <div class="bay bay-patient">
+            <h2 class="bay-title">PATIENT CIRCUIT</h2>
+            <div class="patient-grid">
+              <div class="airway-block">
+                <div
+                  class="gauge gauge-cmh2o"
+                  id="gauge-airway"
+                  data-min="-5"
+                  data-max="60"
+                  data-unit="cmH&#8322;O"
+                  data-ticks="7"
+                ></div>
+                <p class="gas-name">AIRWAY PRESSURE</p>
+                <button
+                  class="popoff-knob"
+                  type="button"
+                  role="slider"
+                  aria-label="Adjustable pop-off valve, airway relief"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                  aria-valuetext="relief setting 0"
+                  data-control="POP-OFF VALVE"
+                  id="valve-popoff"
+                >
+                  <span class="knob-face" aria-hidden="true"></span>
+                </button>
+                <p class="turns-hint" id="hint-popoff">closed</p>
+              </div>
+              <div class="bag-block">
+                <span class="bag-mount" aria-hidden="true"></span>
+                <div class="bag" id="bag" aria-hidden="true"><i></i></div>
+                <p class="gas-name">REBREATHING BAG&nbsp;&middot;&nbsp;2 L</p>
+              </div>
+              <div class="patient-meters">
+                <div class="meter-pair">
+                  <div
+                    class="gauge gauge-depth"
+                    id="gauge-depth"
+                    data-min="0"
+                    data-max="4"
+                    data-unit="% ALV"
+                    data-ticks="5"
+                  ></div>
+                  <p class="gas-name">DEPTH</p>
+                </div>
+                <div class="meter-pair">
+                  <div
+                    class="gauge gauge-sat"
+                    id="gauge-saturation"
+                    data-min="50"
+                    data-max="100"
+                    data-unit="% SAT"
+                    data-ticks="6"
+                  ></div>
+                  <p class="gas-name">SATURATION</p>
+                </div>
+              </div>
+              <div
+                class="canister-block"
+                data-control="CANISTER SWING BOLTS"
+                id="canister"
+              >
+                <p class="gas-name canister-title">SODA-LIME CANISTER</p>
+                <div class="canister-window">
+                  <span
+                    class="charge-disc"
+                    id="charge-disc"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="charge-life" id="charge-life">FRESH</span>
+                </div>
+                <div class="bolts">
+                  <button
+                    class="bolt"
+                    type="button"
+                    aria-label="Canister swing bolt one"
+                    id="bolt-a"
+                  >
+                    <span aria-hidden="true"></span>
+                  </button>
+                  <button
+                    class="bolt"
+                    type="button"
+                    aria-label="Canister swing bolt two"
+                    id="bolt-b"
+                  >
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= lower shelf ======================= -->
+        <section class="shelf">
+          <div class="shelf-station">
+            <button
+              class="mains-toggle"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Mains switch"
+              data-control="MAINS SWITCH"
+              id="mains"
+            >
+              <span class="toggle-lever" aria-hidden="true"></span>
+            </button>
+            <p class="station-label">MAINS<br />ON &middot; OFF</p>
+          </div>
+
+          <div class="shelf-station">
+            <button
+              class="flush-button"
+              type="button"
+              aria-label="Emergency oxygen flush"
+              data-control="EMERGENCY OXYGEN FLUSH"
+              id="flush"
+            >
+              O&#8322;
+            </button>
+            <p class="station-label">EMERGENCY<br />FLUSH</p>
+          </div>
+
+          <div
+            class="works-drawer"
+            data-control="WORKS TEST SWITCHES"
+            id="works"
+          >
+            <p class="drawer-title">WORKS TEST ONLY</p>
+            <div class="test-switches">
+              <button
+                class="test-switch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Works test: drain oxygen supply"
+                id="test-oxygen"
+              >
+                <span class="test-guard" aria-hidden="true"></span>
+                <span class="test-label">O&#8322; SUPPLY</span>
+              </button>
+              <button
+                class="test-switch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Works test: open vapouriser leak"
+                id="test-vapour"
+              >
+                <span class="test-guard" aria-hidden="true"></span>
+                <span class="test-label">VAPOUR SEAL</span>
+              </button>
+              <button
+                class="test-switch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Works test: exhaust soda lime"
+                id="test-sodalime"
+              >
+                <span class="test-guard" aria-hidden="true"></span>
+                <span class="test-label">SODA-LIME</span>
+              </button>
+            </div>
+            <button class="service-reset" type="button" id="service-reset">
+              SERVICE RESET
+            </button>
+          </div>
+        </section>
+
+        <!-- trolley -->
+        <div class="trolley" aria-hidden="true">
+          <span class="leg leg-l"></span><span class="leg leg-r"></span>
+          <span class="caster caster-l"></span
+          ><span class="caster caster-r"></span>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======================= the manual ======================= -->
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="dialog-chrome">
+        <span class="chrome-title">VERITY MK. II &mdash; OPERATING MANUAL</span>
+        <button class="close-manual" type="button" data-action="close-manual">
+          CLOSE BOOK
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Verity Anaesthetic Apparatus operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
