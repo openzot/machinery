@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manual M-2084 · Tanglewing Cut &amp; Winch Console</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <div class="manual-wrap">
+      <header class="mn-head">
+        <span class="mn-org"
+          >HAVSVART MARINE SYSTEMS · ÅLESUND · DRAWING CW-0331-M</span
+        >
+        <h1>MV TANGLEWING — CUT &amp; WINCH CONSOLE</h1>
+        <p class="mn-doc">
+          Operating Manual M-2084 · firmware 84.7.2 · for the kelp harvester
+          outfit CW-0331 as fitted aboard the vessel.
+        </p>
+        <span class="mn-stamp">APPROVED · CREW USE</span>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        The console drives the Tanglewing's subsea harvest gear: a cutter sled
+        that rides a winch cable through the farmed <em>Laminaria</em> canopy
+        while the vessel crawls the bank. One operator runs the whole chain from
+        this desk — ship bus, hydraulic circuit, winch depth, cutter engagement,
+        haul speed and the debris wash — against the amber echosounder picture
+        of the bank.
+      </p>
+      <p>
+        The sled works best inside the canopy band drawn on the sounder. Cut too
+        shallow and you take water and weed-tips; touch the seabed and you take
+        sand, stones and torque. Everything the sled does comes back to the desk
+        as cable tension, cutter torque and oil temperature. Keep the first two
+        out of their red arcs and the third below 92&nbsp;°C, and the gear will
+        fill the hold all shift.
+      </p>
+
+      <h2>Controls</h2>
+      <table>
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Action and positions</th>
+        </tr>
+        <tr>
+          <td>SYSTEM BUS</td>
+          <td>Guarded breaker toggle</td>
+          <td>
+            Powers the console and both hydraulic circuits. OFF / ON. Dropping
+            it stops the haul and the cutter at once.
+          </td>
+        </tr>
+        <tr>
+          <td>HYD CIRCUIT</td>
+          <td>Three-position rotary</td>
+          <td>
+            SHUT — circuits depressurised; MAIN — full 205&nbsp;bar working
+            circuit; STBY — reduced 168&nbsp;bar standby circuit. Passing
+            through SHUT re-seats the main quick-release coupling.
+          </td>
+        </tr>
+        <tr>
+          <td>TRIM SELECTOR</td>
+          <td>Three-position rotary</td>
+          <td>
+            BOW / LEVEL / STERN pump transfer. LEVEL is the harvesting attitude;
+            use BOW or STERN in short nudges only.
+          </td>
+        </tr>
+        <tr>
+          <td>DEPTH WHEEL</td>
+          <td>Spoked handwheel</td>
+          <td>
+            Commands the winch depth, 4–18&nbsp;m. The wheel spins as you pay;
+            the drum below the sounder turns as the wire actually pays out.
+            Arrow keys work in 0.2&nbsp;m steps, with Shift for 1&nbsp;m.
+          </td>
+        </tr>
+        <tr>
+          <td>CUTTER ENGAGE</td>
+          <td>Guarded toggle under a perspex flap</td>
+          <td>
+            LIFT the flap, then switch ON to spin the cutter head. The switch is
+            dead while LOCKOUT is lit.
+          </td>
+        </tr>
+        <tr>
+          <td>HARVEST LEVER</td>
+          <td>Four-notch lever quadrant</td>
+          <td>
+            STOP / SLOW / HALF / FULL haul along the bank. The notch engages
+            only with bus on, pressure up and the cable intact.
+          </td>
+        </tr>
+        <tr>
+          <td>DEBRIS WASH</td>
+          <td>Three-way rocker group</td>
+          <td>
+            OFF / WASH — continuous seawater flush over the blade; PURGE —
+            five-second reverse blast that clears fouling, then drops back to
+            OFF by itself.
+          </td>
+        </tr>
+        <tr>
+          <td>DRUM BRAKE</td>
+          <td>Hold-on push bar</td>
+          <td>
+            Hold to lock the winch drum. Held while the brake is bleeding it
+            re-seats the brake lining (five seconds).
+          </td>
+        </tr>
+        <tr>
+          <td>HOLD TRANSFER</td>
+          <td>Momentary pushbutton</td>
+          <td>
+            Hold to pump the hold ashore or to the mother lighter, about one
+            tonne a second with pressure up.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACK</td>
+          <td>Pushbutton</td>
+          <td>
+            Steadies flashing alarm tiles and silences the horn. Held two
+            seconds with the gear lost overboard it re-rigs a replacement cable
+            (see Alarms).
+          </td>
+        </tr>
+        <tr>
+          <td>LAMP TEST</td>
+          <td>Pushbutton, hold</td>
+          <td>Lights every jewel lamp and alarm tile while held.</td>
+        </tr>
+        <tr>
+          <td>FAULT TESTS</td>
+          <td>Hinged maintenance cover, three buttons</td>
+          <td>
+            Crew-only injection of the three test faults: FOUL, SLIP, LEAK. Used
+            for drills; each behaves exactly like the real failure.
+          </td>
+        </tr>
+        <tr>
+          <td>SOUND</td>
+          <td>Rocker</td>
+          <td>
+            Enables the pump hum and the alarm horn. Sound never plays until you
+            first touch the console.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="proc">
+        <li>
+          <strong>Power up.</strong> Raise SYSTEM BUS to ON. The BUS jewel burns
+          green and the status window reads NO HYD PRESSURE.
+        </li>
+        <li>
+          <strong>Pressurise.</strong> Turn HYD CIRCUIT to MAIN. The gauge
+          climbs to about 205&nbsp;bar and the HYD PR jewel goes green. STBY
+          gives about 168&nbsp;bar and half cutting appetite — use it only to
+          limp home.
+        </li>
+        <li>
+          <strong>Trim.</strong> Set TRIM SELECTOR to LEVEL and let the boat
+          settle.
+        </li>
+        <li>
+          <strong>Open the wash.</strong> Set DEBRIS WASH to WASH. The WASH
+          jewel lights.
+        </li>
+        <li>
+          <strong>Command depth.</strong> Wheel DEPTH WHEEL until CMD reads
+          mid-canopy — normally 10–12&nbsp;m; read the band top/bottom figure
+          under the sounder. The orange bug on the ruler shows your command.
+        </li>
+        <li>
+          <strong>Engage the cutter.</strong> Lift the perspex guard and switch
+          CUTTER ENGAGE ON. Torque settles near ten per cent spinning free. The
+          drum pays out and ACTUAL walks down to the bug.
+        </li>
+        <li>
+          <strong>Haul away.</strong> Take HARVEST LEVER to SLOW. When the sled
+          is riding inside the dashed canopy band and TORQUE is steady below
+          sixty, step up to HALF — FULL only on thin, clean weed.
+        </li>
+        <li>
+          <strong>Watch the arc.</strong> Keep ACTUAL inside the band, TENSION
+          below 175&nbsp;kN, OIL below 92&nbsp;°C and TORQUE out of the red.
+          Wheel gently: every metre of command error adds thirty kilonewtons.
+        </li>
+        <li>
+          <strong>Empty the hold.</strong> At HOLD FULL, hold HOLD TRANSFER
+          against the lighter until the hold glass reads under 7&nbsp;t, then
+          resume. The cutter starves above eight tonnes.
+        </li>
+        <li>
+          <strong>Stopping.</strong> HARVEST LEVER to STOP; CUTTER ENGAGE OFF;
+          wheel the sled clear of the canopy; DEBRIS WASH to OFF; HYD CIRCUIT to
+          SHUT; SYSTEM BUS OFF.
+        </li>
+      </ol>
+
+      <div class="mn-caution">
+        <span class="mn-caution-tag">CAUTION</span>
+        Never wheel deeper than the seabed trace. Grounding the sled spikes
+        torque, heats the oil toward the trip point and blunts a crown of blades
+        you cannot change at sea.
+      </div>
+
+      <h2>Alarms</h2>
+      <p>
+        Tiles flash until ALARM ACK steadies them; they go out when the
+        condition clears. The horn repeats until acknowledged.
+      </p>
+      <table>
+        <tr>
+          <th>Tile</th>
+          <th>Meaning</th>
+          <th>What to do</th>
+        </tr>
+        <tr>
+          <td>CUTTER FOUL</td>
+          <td>
+            Rope, net or rag on the cutter head; torque high, yield falling.
+          </td>
+          <td>Purge it — see Faults and recovery.</td>
+        </tr>
+        <tr>
+          <td>BRAKE SLIP</td>
+          <td>
+            Winch brake bleeding; sled runs deeper than commanded, tension
+            climbing.
+          </td>
+          <td>Re-seat the brake — see Faults and recovery.</td>
+        </tr>
+        <tr>
+          <td>HYD LEAK</td>
+          <td>
+            Weep at the main coupling; reservoir falling on the MAIN circuit.
+          </td>
+          <td>Isolate the weep — see Faults and recovery.</td>
+        </tr>
+        <tr>
+          <td>TENSION</td>
+          <td>Cable load above 175&nbsp;kN, or the cable already parted.</td>
+          <td>
+            Ease haul, zero the depth error. If the cable has parted, follow
+            RE-RIG below.
+          </td>
+        </tr>
+        <tr>
+          <td>OIL HOT</td>
+          <td>Oil past 92&nbsp;°C and climbing to the 96&nbsp;°C trip.</td>
+          <td>
+            Stop the cut, ease haul to zero, keep WASH on, let it cool under
+            78&nbsp;°C, then ACK to arm restart.
+          </td>
+        </tr>
+        <tr>
+          <td>OFF CANOPY</td>
+          <td>
+            Sled more than half a metre outside the band, or near the seabed.
+          </td>
+          <td>
+            Wheel back into the band. Advisory only, but it is costing you
+            tonnage or blades.
+          </td>
+        </tr>
+        <tr>
+          <td>HOLD FULL</td>
+          <td>Eight tonnes aboard.</td>
+          <td>Hold HOLD TRANSFER until under seven tonnes.</td>
+        </tr>
+        <tr>
+          <td>LOCKOUT</td>
+          <td>
+            A trip is holding the gear dead: thermal trip, or parted cable.
+          </td>
+          <td>Thermal: cool and ACK. Parted: RE-RIG below.</td>
+        </tr>
+      </table>
+
+      <h3>LOCKOUT release</h3>
+      <ol class="plain">
+        <li>
+          Thermal trip: lever STOP, engage OFF; keep DEBRIS WASH on WASH. When
+          OIL reads under 78&nbsp;°C press ALARM ACK once — LOCKOUT goes out and
+          the engage will accept again.
+        </li>
+        <li>
+          Parted cable: the gear is gone overboard. Put SYSTEM BUS OFF, press
+          and hold ALARM ACK for two seconds — the console rigs the spare cable,
+          and LOCKOUT and TENSION go out. Return the bus to ON and start again
+          from step 4 of Normal operation.
+        </li>
+      </ol>
+
+      <h2>Faults and recovery</h2>
+
+      <h3>cutter fouling</h3>
+      <p>
+        <strong>You see:</strong> CUTTER FOUL flashing; TORQUE jumps sixty
+        points and stays there; the hold barely fills though the lever is on
+        notch; a slow pull on TENSION.
+      </p>
+      <p><strong>Recovery:</strong></p>
+      <ol class="plain">
+        <li>HARVEST LEVER to STOP.</li>
+        <li>
+          Set DEBRIS WASH to PURGE. The reverse blast runs five seconds by
+          itself, then drops to OFF.
+        </li>
+        <li>
+          Torque falls as the foul tears away. Below about thirty per cent,
+          re-engage CUTTER ENGAGE if it dropped out, and haul away again.
+        </li>
+        <li>
+          If you ignore it the trapped load grinds the oil hot and the console
+          will trip on temperature within a couple of minutes.
+        </li>
+      </ol>
+
+      <h3>winch brake slip</h3>
+      <p>
+        <strong>You see:</strong> BRAKE SLIP flashing; ACTUAL drifts deeper than
+        CMD whatever the wheel does; ERR grows negative; TENSION climbs toward
+        the red arc. Past 214&nbsp;kN for a breath the cable parts — TENSION and
+        LOCKOUT latch, the sled is lost.
+      </p>
+      <p><strong>Recovery, while the wire is still on the drum:</strong></p>
+      <ol class="plain">
+        <li>HARVEST LEVER to STOP.</li>
+        <li>
+          Wheel DOWN to bring CMD onto the running depth so ERR reads near zero
+          and TENSION falls under 175&nbsp;kN.
+        </li>
+        <li>
+          Press and hold DRUM BRAKE a full five seconds. The lining re-seats;
+          BRAKE SLIP steadies and goes out.
+        </li>
+        <li>
+          Wheel back to the working depth and resume. If the cable parted
+          instead, follow the RE-RIG procedure under Alarms.
+        </li>
+      </ol>
+
+      <h3>hydraulic fluid leak</h3>
+      <p>
+        <strong>You see:</strong> HYD LEAK flashing from the first weep; the OIL
+        LVL glass falls about one per cent a second on the MAIN circuit; under
+        about forty-five per cent the gauge collapses and the cutter fades to a
+        stop.
+      </p>
+      <p><strong>Recovery:</strong></p>
+      <ol class="plain">
+        <li>HARVEST LEVER to STOP and CUTTER ENGAGE OFF.</li>
+        <li>
+          Turn HYD CIRCUIT to SHUT. Bleeding down re-seats the main coupling and
+          the leak lamp goes out.
+        </li>
+        <li>
+          For the rest of the shift work on STBY: 168&nbsp;bar, gentler
+          appetite, and the level will make itself up from the reserve tank.
+        </li>
+        <li>Main circuit may be resumed once the level passes ninety.</li>
+      </ol>
+
+      <h2>Specifications</h2>
+      <table>
+        <tr>
+          <th colspan="2">Winch gear</th>
+        </tr>
+        <tr>
+          <td>Cable</td>
+          <td>
+            28&nbsp;mm galvanised, 240&nbsp;kN proof, parting detected at
+            214&nbsp;kN sustained 2.5&nbsp;s
+          </td>
+        </tr>
+        <tr>
+          <td>Pay rate</td>
+          <td>0.55&nbsp;m/s at full pressure</td>
+        </tr>
+        <tr>
+          <td>Depth range</td>
+          <td>
+            4–18&nbsp;m commanded; seabed limit enforced by software at
+            0.15&nbsp;m above bottom
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">Cutting sled</th>
+        </tr>
+        <tr>
+          <td>Cutter bar</td>
+          <td>3.1&nbsp;m twin reciprocating, hydraulic</td>
+        </tr>
+        <tr>
+          <td>Nominal torque</td>
+          <td>
+            40–95&nbsp;% in canopy; alarm at 120, gauge red beyond 125&nbsp;%
+          </td>
+        </tr>
+        <tr>
+          <td>Yield</td>
+          <td>up to 13.5&nbsp;t/h at HALF in medium weed</td>
+        </tr>
+        <tr>
+          <th colspan="2">Hydraulics</th>
+        </tr>
+        <tr>
+          <td>Working pressure</td>
+          <td>MAIN 205&nbsp;bar · STBY 168&nbsp;bar · SHUT 0</td>
+        </tr>
+        <tr>
+          <td>Reservoir</td>
+          <td>
+            90&nbsp;L ISO-HM 68; makeup from reserve at 0.22&nbsp;%/s when
+            isolated
+          </td>
+        </tr>
+        <tr>
+          <td>Temperature</td>
+          <td>
+            Alarm 92&nbsp;°C, trip 96&nbsp;°C, restart permitted under
+            78&nbsp;°C
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">Vessel &amp; hold</th>
+        </tr>
+        <tr>
+          <td>Advance speeds</td>
+          <td>SLOW 0.35 · HALF 0.72 · FULL 1.15&nbsp;m/s at full pressure</td>
+        </tr>
+        <tr>
+          <td>Hold</td>
+          <td>8.0&nbsp;t; transfer rate ≈0.95&nbsp;t/s with pressure up</td>
+        </tr>
+        <tr>
+          <td>Ship supply</td>
+          <td>400&nbsp;V, 50&nbsp;Hz, console dry weight 214&nbsp;kg</td>
+        </tr>
+      </table>
+
+      <footer class="mn-foot">
+        <a href="./">← Back to the console</a>
+        <span>HAVSVART MARINE SYSTEMS · MANUAL M-2084 · REV. C</span>
+        <a href="../../">Ship catalogue →</a>
+      </footer>
+    </div>
+  </body>
+</html>
