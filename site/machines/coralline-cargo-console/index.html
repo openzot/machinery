@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>M/T Coralline — Cargo Discharge Console</title>
+    <meta
+      name="description"
+      content="Operating console for the crude-oil cargo discharge plant of the ULCC Coralline, Helsingør, 1972."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="console">
+      <!-- ======================= TOP RAIL : identity + annunciator ======================= -->
+      <header class="top-rail">
+        <div class="nameplate-block">
+          <div class="nameplate">
+            <span class="np-ship">M/T&nbsp;CORALLINE</span>
+            <span class="np-role">CARGO DISCHARGE CONSOLE</span>
+            <span class="np-yard">HELSINGØR VÆRFT · 1972 · PANEL CCC-2</span>
+          </div>
+          <a class="catalogue-link" href="../../"
+            >&larr;&nbsp;THE&nbsp;MACHINERY</a
+          >
+        </div>
+
+        <div class="annunciator" role="group" aria-label="Annunciator windows">
+          <div class="ann-row">
+            <span class="ann" id="ann-oxygen-high"><i></i>OXYGEN HIGH</span>
+            <span class="ann" id="ann-line-pressure-high"
+              ><i></i>LINE PRESSURE</span
+            >
+            <span class="ann" id="ann-pump-cavitation"><i></i>CAVITATION</span>
+            <span class="ann" id="ann-level-low"><i></i>LEVEL LOW</span>
+          </div>
+          <div class="ann-row">
+            <span class="ann" id="ann-hull-stress-high"
+              ><i></i>STRESS HIGH</span
+            >
+            <span class="ann" id="ann-valve-jam"><i></i>VALVE JAM</span>
+            <span class="ann ann-red" id="ann-hull-damage"
+              ><i></i>HULL DAMAGE</span
+            >
+            <span class="ann ann-red" id="ann-vapour-event"
+              ><i></i>VAPOUR EVENT</span
+            >
+          </div>
+        </div>
+
+        <div class="top-right">
+          <div class="jewel-pair">
+            <span
+              class="jewel jewel-green"
+              id="jewel-ig"
+              aria-hidden="true"
+            ></span>
+            <span class="jewel-label">IG RUNNING</span>
+          </div>
+          <div class="jewel-pair">
+            <span
+              class="jewel jewel-amber"
+              id="jewel-shore"
+              aria-hidden="true"
+            ></span>
+            <span class="jewel-label">SHORE LINKED</span>
+          </div>
+          <button type="button" class="manual-btn" data-action="manual">
+            OPERATING MANUAL<br />M-117
+          </button>
+        </div>
+      </header>
+
+      <!-- ======================= CARGO DECK ======================= -->
+      <section class="cargo-deck" aria-label="Cargo plant">
+        <!-- ---- left bay : shore connection, pressures, inert gas ---- -->
+        <article class="bay bay-shore">
+          <h2 class="bay-title">SHORE CONNECTION &amp; INERT GAS</h2>
+
+          <div class="gauge-duo">
+            <div class="dial-wrap">
+              <div class="dial dial-pressure" id="dial-pressure">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <path class="dial-arc" d="M14 84 A44 44 0 1 1 86 84"></path>
+                  <line
+                    class="dial-tick t0"
+                    x1="50"
+                    y1="94"
+                    x2="50"
+                    y2="84"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="17"
+                    y1="63"
+                    x2="25"
+                    y2="67"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="83"
+                    y1="63"
+                    x2="75"
+                    y2="67"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="11"
+                    y1="34"
+                    x2="19"
+                    y2="37"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="89"
+                    y1="34"
+                    x2="81"
+                    y2="37"
+                  ></line>
+                  <line
+                    class="dial-tick red-tick"
+                    x1="22"
+                    y1="12"
+                    x2="28"
+                    y2="18"
+                  ></line>
+                  <line class="needle" x1="50" y1="55" x2="50" y2="16"></line>
+                  <circle class="dial-cap" cx="50" cy="55" r="5"></circle>
+                </svg>
+              </div>
+              <span class="dial-caption">SHORE LINE<br />bar</span>
+              <output class="readout mono" id="ro-pressure">0.0</output>
+            </div>
+
+            <div class="dial-wrap">
+              <div class="dial dial-oxygen" id="dial-oxygen">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <path class="dial-arc" d="M14 84 A44 44 0 1 1 86 84"></path>
+                  <line
+                    class="dial-tick"
+                    x1="50"
+                    y1="94"
+                    x2="50"
+                    y2="84"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="17"
+                    y1="63"
+                    x2="25"
+                    y2="67"
+                  ></line>
+                  <line
+                    class="dial-tick"
+                    x1="83"
+                    y1="63"
+                    x2="75"
+                    y2="67"
+                  ></line>
+                  <line
+                    class="dial-tick red-tick"
+                    x1="40"
+                    y1="7"
+                    x2="43"
+                    y2="15"
+                  ></line>
+                  <line class="needle" x1="50" y1="55" x2="50" y2="16"></line>
+                  <circle class="dial-cap" cx="50" cy="55" r="5"></circle>
+                </svg>
+              </div>
+              <span class="dial-caption"
+                >TANK ATMOS<br />%&nbsp;O<sub>2</sub>&nbsp;&nbsp;LIMIT&nbsp;8</span
+              >
+              <output class="readout mono" id="ro-oxygen">3.0</output>
+            </div>
+          </div>
+
+          <div class="plan-plate">
+            STRIP THE THREE CENTRE TANKS EVENLY · AUTO TRIM AGAINST THE POINTER
+            · A PUMP OPEN AGAINST A SHUT LINE CHOKES IN SECONDS
+          </div>
+
+          <div class="ig-strip">
+            <div
+              class="vent-selector"
+              data-control="VENT SELECTOR"
+              role="group"
+              aria-label="Tank vent selector"
+            >
+              <span class="vs-title">TANK VENT</span>
+              <div class="vs-positions">
+                <button
+                  type="button"
+                  class="vs-pos"
+                  data-vent="CLOSED"
+                  aria-pressed="false"
+                >
+                  CLOSED
+                </button>
+                <button
+                  type="button"
+                  class="vs-pos"
+                  data-vent="INERTED"
+                  aria-pressed="false"
+                >
+                  INERTED
+                </button>
+                <button
+                  type="button"
+                  class="vs-pos"
+                  data-vent="OPEN"
+                  aria-pressed="false"
+                >
+                  VENTED
+                </button>
+              </div>
+              <span class="vs-hint">INERTED BEFORE DISCHARGE</span>
+            </div>
+            <p class="plate-note">
+              KEEP O<sub>2</sub> BELOW 8 %. IF THE GENERATOR FAILS, SUSPEND
+              DISCHARGE UNTIL THE ATMOSPHERE IS RESTORED.
+            </p>
+          </div>
+        </article>
+
+        <!-- ---- centre bay : the cargo mimic ---- -->
+        <article class="bay bay-mimic">
+          <h2 class="bay-title">
+            CARGO LINE MIMIC — NO.1 / NO.3 / NO.5 CENTRE TANKS
+          </h2>
+
+          <div class="mimic" id="mimic">
+            <svg
+              class="pipes"
+              viewBox="0 0 100 74"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <!-- one shore lead running the full width; tanks drip into it -->
+              <path class="pipe" d="M2 64 H99"></path>
+              <!-- suction drops from each tank bottom to the line -->
+              <path class="pipe" d="M45.5 52 V64"></path>
+              <path class="pipe" d="M58.5 52 V64"></path>
+              <path class="pipe" d="M71.5 52 V64"></path>
+              <!-- flow highlights, driven by machine.js -->
+              <path class="flow" id="flow-shore" d="M31 64 H2"></path>
+              <path class="flow" id="flow-header" d="M45.5 64 H88"></path>
+              <path class="flow" id="flow-d1" d="M45.5 52 V64"></path>
+              <path class="flow" id="flow-d3" d="M58.5 52 V64"></path>
+              <path class="flow" id="flow-d5" d="M71.5 52 V64"></path>
+            </svg>
+
+            <!-- shore flange -->
+            <span class="flange" style="left: 0.6%; top: 70%" aria-hidden="true"
+              >SHORE</span
+            >
+
+            <!-- valves sitting on the lines -->
+            <button
+              type="button"
+              class="valve"
+              data-control="SEALINE VALVE"
+              data-valve="sealine"
+              style="left: 13%; top: 82.5%"
+              aria-pressed="false"
+              aria-label="Sealine shore isolation valve, closed"
+            >
+              <span></span><em>SEALINE</em>
+            </button>
+            <button
+              type="button"
+              class="valve"
+              data-control="RISER VALVE"
+              data-valve="riser"
+              style="left: 26%; top: 82.5%"
+              aria-pressed="false"
+              aria-label="Main cargo riser valve, closed"
+            >
+              <span></span><em>RISER</em>
+            </button>
+            <button
+              type="button"
+              class="valve"
+              data-control="TANK V1 SUCTION"
+              data-valve="v1"
+              style="left: 45.5%; top: 77.5%"
+              aria-pressed="false"
+              aria-label="No.1 fore tank suction valve, closed"
+            >
+              <span></span><em>V1</em>
+            </button>
+            <button
+              type="button"
+              class="valve"
+              data-control="TANK V3 SUCTION"
+              data-valve="v3"
+              style="left: 58.5%; top: 77.5%"
+              aria-pressed="false"
+              aria-label="No.3 middle tank suction valve, closed"
+            >
+              <span></span><em>V3</em>
+            </button>
+            <button
+              type="button"
+              class="valve"
+              data-control="TANK V5 SUCTION"
+              data-valve="v5"
+              style="left: 71.5%; top: 77.5%"
+              aria-pressed="false"
+              aria-label="No.5 aft tank suction valve, closed"
+            >
+              <span></span><em>V5</em>
+            </button>
+
+            <!-- tank sight glasses -->
+            <div class="tank" id="tank-1" style="left: 41%">
+              <span class="tank-name">NO.1 F</span>
+              <div class="tank-glass">
+                <div class="tank-fill"></div>
+                <div class="tank-ticks"></div>
+              </div>
+              <output class="tank-m3 mono">3072 m³</output>
+            </div>
+            <div class="tank" id="tank-3" style="left: 54%">
+              <span class="tank-name">NO.3 M</span>
+              <div class="tank-glass">
+                <div class="tank-fill"></div>
+                <div class="tank-ticks"></div>
+              </div>
+              <output class="tank-m3 mono">3072 m³</output>
+            </div>
+            <div class="tank" id="tank-5" style="left: 67%">
+              <span class="tank-name">NO.5 A</span>
+              <div class="tank-glass">
+                <div class="tank-fill"></div>
+                <div class="tank-ticks"></div>
+              </div>
+              <output class="tank-m3 mono">3072 m³</output>
+            </div>
+
+            <span class="mimic-note note-header" style="right: 1.5%; top: 90%"
+              >TO CARGO PUMPS</span
+            >
+          </div>
+
+          <!-- hull stress card -->
+          <div class="stress-card">
+            <div class="stress-head">
+              <span class="stress-title">HULL BENDING MOMENT</span>
+              <output class="readout mono big" id="ro-bm">+0 tm</output>
+            </div>
+            <div class="stress-scale" id="stress-scale">
+              <div class="zone zone-damage-l" style="width: 8.34%"></div>
+              <div
+                class="zone zone-alarm-l"
+                style="left: 8.34%; width: 8.33%"
+              ></div>
+              <div
+                class="zone zone-ok"
+                style="left: 16.67%; width: 66.66%"
+              ></div>
+              <div
+                class="zone zone-alarm-r"
+                style="left: 83.33%; width: 8.33%"
+              ></div>
+              <div
+                class="zone zone-damage-r"
+                style="left: 91.66%; width: 8.34%"
+              ></div>
+              <span class="stress-mark" style="left: 3%">&minus;9000</span>
+              <span class="stress-mark mark-warn-l" style="left: 16.67%"
+                >6000</span
+              >
+              <span class="stress-mark" style="left: 50%">0</span>
+              <span class="stress-mark mark-warn-r" style="left: 83.33%"
+                >6000</span
+              >
+              <span class="stress-mark" style="left: 97%">+9000</span>
+              <span class="stress-pointer" id="stress-pointer"></span>
+            </div>
+            <p class="stress-foot">
+              &larr; HOG &nbsp;&minus;7500&nbsp;tm &nbsp;·&nbsp; LIMITS
+              ±6000&nbsp;tm &nbsp;·&nbsp; +7500&nbsp;tm SAG &rarr; &nbsp;— KEEP
+              THE POINTER IN THE WHITE
+            </p>
+          </div>
+        </article>
+
+        <!-- ---- right bay : cargo pumps ---- -->
+        <article class="bay bay-pumps">
+          <h2 class="bay-title">CARGO PUMPS — STEAM TURBINE</h2>
+
+          <div class="pump" id="pump-1">
+            <div class="pump-head">
+              <span class="pump-name">CARGO PUMP NO.1</span>
+              <span class="jewel jewel-red pump-trip" aria-hidden="true"></span>
+              <span class="jewel-label">TRIP</span>
+            </div>
+            <div class="pump-body">
+              <div class="dial-wrap small">
+                <div class="dial dial-flow" aria-hidden="true">
+                  <svg viewBox="0 0 100 100">
+                    <path class="dial-arc" d="M14 84 A44 44 0 1 1 86 84"></path>
+                    <line
+                      class="dial-tick"
+                      x1="50"
+                      y1="94"
+                      x2="50"
+                      y2="84"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="17"
+                      y1="63"
+                      x2="25"
+                      y2="67"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="83"
+                      y1="63"
+                      x2="75"
+                      y2="67"
+                    ></line>
+                    <line class="needle" x1="50" y1="55" x2="50" y2="16"></line>
+                    <circle class="dial-cap" cx="50" cy="55" r="5"></circle>
+                  </svg>
+                </div>
+                <output class="readout mono" id="ro-flow-1">0.0</output>
+                <span class="dial-caption">m³/min</span>
+              </div>
+              <div
+                class="throttle"
+                data-control="PUMP 1 THROTTLE"
+                role="slider"
+                tabindex="0"
+                aria-label="Cargo pump 1 steam throttle, closed"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-valuetext="0 percent"
+              >
+                <div class="quadrant">
+                  <span>10</span><span>8</span><span>6</span><span>4</span
+                  ><span>2</span><span>0</span>
+                </div>
+                <div class="lever-stem"><div class="lever-handle"></div></div>
+              </div>
+            </div>
+            <div class="cav-bar">
+              <span class="cav-fill"></span><em>VIBRATION</em>
+            </div>
+          </div>
+
+          <div class="pump" id="pump-2">
+            <div class="pump-head">
+              <span class="pump-name">CARGO PUMP NO.2</span>
+              <span class="jewel jewel-red pump-trip" aria-hidden="true"></span>
+              <span class="jewel-label">TRIP</span>
+            </div>
+            <div class="pump-body">
+              <div class="dial-wrap small">
+                <div class="dial dial-flow" aria-hidden="true">
+                  <svg viewBox="0 0 100 100">
+                    <path class="dial-arc" d="M14 84 A44 44 0 1 1 86 84"></path>
+                    <line
+                      class="dial-tick"
+                      x1="50"
+                      y1="94"
+                      x2="50"
+                      y2="84"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="17"
+                      y1="63"
+                      x2="25"
+                      y2="67"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="83"
+                      y1="63"
+                      x2="75"
+                      y2="67"
+                    ></line>
+                    <line class="needle" x1="50" y1="55" x2="50" y2="16"></line>
+                    <circle class="dial-cap" cx="50" cy="55" r="5"></circle>
+                  </svg>
+                </div>
+                <output class="readout mono" id="ro-flow-2">0.0</output>
+                <span class="dial-caption">m³/min</span>
+              </div>
+              <div
+                class="throttle"
+                data-control="PUMP 2 THROTTLE"
+                role="slider"
+                tabindex="0"
+                aria-label="Cargo pump 2 steam throttle, closed"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-valuetext="0 percent"
+              >
+                <div class="quadrant">
+                  <span>10</span><span>8</span><span>6</span><span>4</span
+                  ><span>2</span><span>0</span>
+                </div>
+                <div class="lever-stem"><div class="lever-handle"></div></div>
+              </div>
+            </div>
+            <div class="cav-bar">
+              <span class="cav-fill"></span><em>VIBRATION</em>
+            </div>
+          </div>
+
+          <div class="pump" id="pump-3">
+            <div class="pump-head">
+              <span class="pump-name">CARGO PUMP NO.3</span>
+              <span class="jewel jewel-red pump-trip" aria-hidden="true"></span>
+              <span class="jewel-label">TRIP</span>
+            </div>
+            <div class="pump-body">
+              <div class="dial-wrap small">
+                <div class="dial dial-flow" aria-hidden="true">
+                  <svg viewBox="0 0 100 100">
+                    <path class="dial-arc" d="M14 84 A44 44 0 1 1 86 84"></path>
+                    <line
+                      class="dial-tick"
+                      x1="50"
+                      y1="94"
+                      x2="50"
+                      y2="84"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="17"
+                      y1="63"
+                      x2="25"
+                      y2="67"
+                    ></line>
+                    <line
+                      class="dial-tick"
+                      x1="89"
+                      y1="34"
+                      x2="81"
+                      y2="37"
+                    ></line>
+                    <line class="needle" x1="50" y1="55" x2="50" y2="16"></line>
+                    <circle class="dial-cap" cx="50" cy="55" r="5"></circle>
+                  </svg>
+                </div>
+                <output class="readout mono" id="ro-flow-3">0.0</output>
+                <span class="dial-caption">m³/min</span>
+              </div>
+              <div
+                class="throttle"
+                data-control="PUMP 3 THROTTLE"
+                role="slider"
+                tabindex="0"
+                aria-label="Cargo pump 3 steam throttle, closed"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-valuetext="0 percent"
+              >
+                <div class="quadrant">
+                  <span>10</span><span>8</span><span>6</span><span>4</span
+                  ><span>2</span><span>0</span>
+                </div>
+                <div class="lever-stem"><div class="lever-handle"></div></div>
+              </div>
+            </div>
+            <div class="cav-bar">
+              <span class="cav-fill"></span><em>VIBRATION</em>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="shelf-btn pump-reset"
+            data-control="PUMP RESET"
+          >
+            PUMP RESET
+          </button>
+        </article>
+      </section>
+
+      <!-- ======================= BOTTOM SHELF ======================= -->
+      <section
+        class="bottom-shelf"
+        aria-label="Ballast, records and maintenance"
+      >
+        <div class="ballast-box">
+          <span class="shelf-title">BALLAST</span>
+          <div
+            class="seg-selector"
+            data-control="BALLAST SELECTOR"
+            role="group"
+            aria-label="Ballast trim selector"
+          >
+            <button
+              type="button"
+              class="seg-pos"
+              data-ballast="HOLD"
+              aria-pressed="true"
+            >
+              HOLD
+            </button>
+            <button
+              type="button"
+              class="seg-pos"
+              data-ballast="AUTO"
+              aria-pressed="false"
+            >
+              AUTO TRIM
+            </button>
+          </div>
+          <output class="readout mono" id="ro-ballast">0 %</output>
+        </div>
+
+        <div class="counter-box">
+          <span class="shelf-title">DISCHARGED TO SHORE</span>
+          <div
+            class="drum-counter mono"
+            id="counter-discharged"
+            aria-label="Tonnes discharged this berth"
+          >
+            <span>00000</span><span>t</span>
+          </div>
+        </div>
+
+        <div class="accept-box">
+          <button
+            type="button"
+            class="round-btn accept-btn"
+            data-control="ALARM ACCEPT"
+          >
+            ALARM<br />ACCEPT
+          </button>
+          <button type="button" class="shelf-btn" data-control="LAMPS TEST">
+            LAMPS TEST
+          </button>
+        </div>
+
+        <div class="maint-box" data-control="FAULT TEST SWITCHES">
+          <span class="shelf-title maint-title"
+            >MAINTENANCE — AUTHORISED PERSONS ONLY</span
+          >
+          <div class="test-switches">
+            <button
+              type="button"
+              class="tswitch"
+              data-test="cavitation"
+              aria-pressed="false"
+              aria-label="Test switch: strainer fouling on pump 2"
+            >
+              <i></i>P2 STRAINER
+            </button>
+            <button
+              type="button"
+              class="tswitch"
+              data-test="jam"
+              aria-pressed="false"
+              aria-label="Test switch: hydraulic actuator jam on valve V3"
+            >
+              <i></i>V3 ACTUATOR JAM
+            </button>
+            <button
+              type="button"
+              class="tswitch"
+              data-test="igfail"
+              aria-pressed="false"
+              aria-label="Test switch: inert gas generator failure"
+            >
+              <i></i>I.G. GEN FAIL
+            </button>
+            <button
+              type="button"
+              class="shelf-btn console-reset"
+              data-control="CONSOLE RESET"
+            >
+              CONSOLE RESET
+            </button>
+          </div>
+          <span class="maint-note"
+            >SIMULATES PLANT DEFECTS — RETURN ALL TO NORMAL AFTER USE</span
+          >
+        </div>
+
+        <div class="drop-box" data-control="EMERGENCY DROP VALVE">
+          <span class="shelf-title">EMERGENCY</span>
+          <div class="drop-cluster">
+            <button
+              type="button"
+              class="drop-guard"
+              aria-pressed="false"
+              aria-label="Lift the guard over the emergency shutdown mushroom"
+            >
+              GUARD
+            </button>
+            <button
+              type="button"
+              class="drop-mushroom"
+              disabled
+              aria-label="Emergency cargo drop valve — shuts all valves and stops all pumps"
+            >
+              DROP
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="console-footer">
+        <span
+          >DISCHARGE PLAN: EVEN STRIPPING, AUTO BALLAST ON · TERMINAL: LONGANNET
+          POINT</span
+        >
+        <span class="sr-only" id="live-status" aria-live="polite"></span>
+      </footer>
+    </main>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual aria-label="Operating manual M-117">
+      <div class="manual-chrome">
+        <span class="manual-chrome-title"
+          >CORALLINE — OPERATING MANUAL M-117</span
+        >
+        <button type="button" class="manual-close" data-action="close-manual">
+          CLOSE&nbsp;&#10005;
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual M-117, M/T Coralline cargo discharge plant"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

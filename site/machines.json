@@ -208,5 +208,44 @@
     ],
     "tagline": "Answer inside forty seconds, or the supervisor reads about it.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "coralline-cargo-console",
+    "name": "Coralline Cargo Control - Crude Oil Discharge Console",
+    "kind": "tanker crude-oil cargo discharge console",
+    "domain": "marine",
+    "era": "1970s",
+    "design": "warm buff epoxy-painted steel with engraved traffolyte legends, backlit amber film cells behind quarter-turn cargo valves, etched tank sight-glasses, a printed hull-stress card with a brass pointer, incandescent jewels under daylight bridge lighting",
+    "interaction": "lining up a backlit cargo valve matrix and easing three notched steam throttles against a live hull-bending curve while holding the inert oxygen under eight percent",
+    "palette": [
+      "#d9cfb8",
+      "#c65a1c",
+      "#c22013"
+    ],
+    "controls": [
+      "VENT SELECTOR",
+      "SEALINE VALVE",
+      "RISER VALVE",
+      "TANK V1 SUCTION",
+      "TANK V3 SUCTION",
+      "TANK V5 SUCTION",
+      "PUMP 1 THROTTLE",
+      "PUMP 2 THROTTLE",
+      "PUMP 3 THROTTLE",
+      "BALLAST SELECTOR",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "PUMP RESET",
+      "CONSOLE RESET",
+      "FAULT TEST SWITCHES",
+      "EMERGENCY DROP VALVE"
+    ],
+    "faults": [
+      "cargo pump cavitation",
+      "valve actuator jam",
+      "inert gas generator failure"
+    ],
+    "tagline": "Empty her flat and easy - the hull bends before the gauges tell you.",
+    "created": "2026-08-23"
   }
 ]
