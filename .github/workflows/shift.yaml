@@ -163,7 +163,7 @@ jobs:
         uses: openzot/actions/run@v0
         # a step timeout: a shift cut short here still lands below and is
         # continued by the next shift (cache-sessions keeps the conversation).
-        # 85 rather than the arcade's 50: a machine is four files, a manual
+        # 85 rather than the original 50: a machine is four files, a manual
         # and a look-and-fix loop, and a third of 50-minute shifts ran out of
         # clock in the polish. The job cap is 110; landing, probing and
         # shipping need about ten.
