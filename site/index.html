@@ -181,57 +181,42 @@
       padding: 0 2px 10px;
     }
 
-    .list {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
       display: flex;
       flex-direction: column;
-      gap: 1px;
-      background: var(--stroke);
-      border: 1px solid var(--stroke);
-    }
-
-    .row {
-      background: var(--panel);
-      padding: 14px 16px 14px 14px;
-      display: grid;
-      grid-template-columns: auto 208px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 18px;
+      min-width: 0;
       text-decoration: none;
-      transition: background .2s;
+      transition: border-color .2s, box-shadow .2s;
     }
 
-    .row:hover {
-      background: var(--panel-2);
+    .card:hover {
+      border-color: var(--muted);
+      box-shadow: 0 2px 0 var(--stroke);
     }
 
-    .row .tagno {
-      font-size: 11px;
-      letter-spacing: .16em;
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      border-right: 1px solid var(--stroke-2);
-      padding: 2px 0;
-      align-self: stretch;
-      display: flex;
-      align-items: center;
-    }
-
+    /* the panel itself, front and centre, behind a bezel */
     .preview {
       position: relative;
-      width: 208px;
       aspect-ratio: 16 / 10;
       overflow: hidden;
       background: var(--panel-2);
-      border: 1px solid var(--stroke);
-      box-shadow: inset 0 0 0 3px var(--bg), inset 0 0 0 4px var(--stroke-2);
+      border-bottom: 1px solid var(--stroke);
+      box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 5px var(--stroke-2);
+      display: block;
     }
 
     .preview iframe {
       position: absolute;
-      top: 4px;
-      left: 4px;
+      top: 5px;
+      left: 5px;
       width: 1440px;
       height: 900px;
       border: 0;
@@ -240,10 +225,25 @@
       background: transparent;
     }
 
+    .preview .tagno {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 1;
+      font-size: 10px;
+      letter-spacing: .18em;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      background: var(--plate);
+      border: 1px solid var(--stroke);
+      padding: 2px 7px;
+      box-shadow: 0 1px 0 var(--stroke);
+    }
+
     .preview .lamp {
       position: absolute;
-      right: 7px;
-      bottom: 7px;
+      right: 12px;
+      top: 13px;
       width: 7px;
       height: 7px;
       border-radius: 50%;
@@ -252,37 +252,43 @@
       z-index: 1;
     }
 
-    .row .body {
+    .card .body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
       min-width: 0;
     }
 
-    .row h2 {
-      font-size: 19px;
-      margin: 0 0 2px;
-      line-height: 1.2;
+    .card h2 {
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.25;
       font-weight: 700;
     }
 
-    .row h2 small {
+    .card h2 small {
       font-size: 11px;
       letter-spacing: .12em;
       color: var(--muted);
       margin-left: 10px;
       font-weight: 400;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
-    .row .kind {
+    .card .kind {
       color: var(--muted);
-      margin: 0 0 6px;
+      margin: 0;
       font-size: 13px;
     }
 
-    .row .tag {
-      margin: 0 0 8px;
+    .card .tag {
+      margin: 2px 0 0;
     }
 
-    .row .meta {
+    .card .meta {
       font-size: 11px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -291,9 +297,10 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 4px 12px;
+      margin-top: 2px;
     }
 
-    .row .meta b {
+    .card .meta b {
       color: var(--accent);
       font-weight: 600;
     }
@@ -311,70 +318,30 @@
       box-shadow: 0 0 0 1px var(--stroke);
     }
 
-    .row .go {
+    .card .go {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-end;
+      align-items: center;
+      gap: 18px;
+      margin-top: auto;
+      padding-top: 12px;
       font-size: 11px;
       letter-spacing: .2em;
       white-space: nowrap;
     }
 
-    .row .go span {
+    .card .go span {
       color: var(--accent);
     }
 
-    .row .go em {
+    .card .go em {
       font-style: normal;
       color: var(--muted);
       border-bottom: 1px solid var(--stroke);
     }
 
-    .row .go em:hover {
+    .card .go em:hover {
       color: var(--text);
       border-color: var(--text);
-    }
-
-    @media (max-width: 760px) {
-      .plate {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat:last-child:nth-child(odd) {
-        grid-column: span 2;
-      }
-
-      .register-head span + span {
-        display: none;
-      }
-
-      .row {
-        grid-template-columns: auto minmax(0, 1fr);
-        grid-template-areas: "tag body" "tag preview" "tag go";
-        gap: 10px 14px;
-      }
-
-      .row .tagno {
-        grid-area: tag;
-      }
-
-      .row .body {
-        grid-area: body;
-      }
-
-      .preview {
-        grid-area: preview;
-        width: 100%;
-        max-width: 360px;
-      }
-
-      .row .go {
-        grid-area: go;
-        flex-direction: row;
-        gap: 18px;
-        align-items: center;
-      }
     }
 
     .empty {
@@ -424,9 +391,9 @@
     </div>
   </header>
   <main class="wrap">
-    <div class="register-head" id="register-head" hidden><span>Equipment register · newest first</span><span>tag · panel
-        · machine · operate</span></div>
-    <div id="machines" class="list" hidden></div>
+    <div class="register-head" id="register-head" hidden><span>Equipment register · newest first</span><span>live panels · click to
+        operate</span></div>
+    <div id="machines" class="grid" hidden></div>
     <div id="empty" class="empty" hidden>The first shift has not finished yet. Check back in half an hour.</div>
   </main>
   <footer>
@@ -466,16 +433,15 @@
         const href = `machines/${encodeURIComponent(m.slug)}/`;
         const n = String(machines.length - i).padStart(3, '0');
         return `
-    <a class="row" href="${href}">
-      <span class="tagno">M-${n}</span>
-      <span class="preview" data-src="${href}" aria-hidden="true"><span class="lamp"></span></span>
+    <a class="card" href="${href}">
+      <span class="preview" data-src="${href}" aria-hidden="true"><span class="tagno">M-${n}</span><span class="lamp"></span></span>
       <div class="body">
         <h2>${esc(m.name)}<small>${esc(m.created)}</small></h2>
         <p class="kind">${esc(m.kind)}</p>
         <p class="tag">${esc(m.tagline)}</p>
         <div class="meta"><span><b>${esc(m.domain)}</b></span><span>${esc(m.era)}</span><span>${esc((m.controls || []).length)} controls</span><span>${esc((m.faults || []).length)} faults</span><span class="swatches" title="${esc((m.palette || []).join(' '))}">${(m.palette || []).slice(0, 5).map(c => `<i style="background:${hex(c)}"></i>`).join('')}</span></div>
+        <div class="go"><span>OPERATE →</span><em data-href="${href}manual.html">manual</em></div>
       </div>
-      <span class="go"><span>OPERATE →</span><em data-href="${href}manual.html">manual</em></span>
     </a>`;
       }).join('');
       list.hidden = false;
@@ -490,7 +456,7 @@
       // Live previews: the panel itself, scaled into the row, loaded only while
       // it is near the viewport - a register of a hundred simulations would
       // otherwise all run at once.
-      const fit = (box, frame) => { frame.style.transform = `scale(${(box.clientWidth - 8) / 1440})`; };
+      const fit = (box, frame) => { frame.style.transform = `scale(${(box.clientWidth - 10) / 1440})`; };
       const show = box => {
         if (box.querySelector('iframe')) return;
         const f = document.createElement('iframe');
