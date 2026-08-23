@@ -161,9 +161,13 @@ jobs:
         if: steps.staffed.outputs.staffed == 'true'
         id: zot
         uses: openzot/actions/run@v0
-        # a step timeout: a shift cut short here is still committed below and
-        # continued by the next shift (cache-sessions keeps the conversation)
-        timeout-minutes: 50
+        # a step timeout: a shift cut short here still lands below and is
+        # continued by the next shift (cache-sessions keeps the conversation).
+        # 85 rather than the arcade's 50: a machine is four files, a manual
+        # and a look-and-fix loop, and a third of 50-minute shifts ran out of
+        # clock in the polish. The job cap is 110; landing, probing and
+        # shipping need about ten.
+        timeout-minutes: 85
         continue-on-error: true
         with:
           orders: orders/new-machine.yaml
