@@ -389,5 +389,45 @@
     ],
     "tagline": "Rock her onto phase before the drum tears the front off a depression.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "haverbrack-transmitter",
+    "name": "Haverbrack Transmitting Station - Transmitter No. 2",
+    "kind": "short-wave broadcast transmitter control panel",
+    "domain": "broadcast",
+    "era": "1940s",
+    "design": "polished black Vitrolite panels in a riveted steel angle frame with engraved cream-filled condensed legends, brass bezels and exposed copper busbars, ivory moving-coil meter faces, opal incandescent jewels, and twin mercury-arc rectifier columns burning cold blue-violet as the only glow in a daylight hall",
+    "interaction": "sequence breaker, blower and filaments, then lift a brass guard to raise eleven thousand volts and hunt resonance by hand on a flywheel tuning crank against a dipping anode ammeter, loading the feeder notch by notch until the aerial ammeter sits in its green sector",
+    "palette": [
+      "#17181b",
+      "#c8a558",
+      "#d22b1e"
+    ],
+    "controls": [
+      "MAIN BREAKER",
+      "BLOWER SWITCH",
+      "FILAMENT SWITCH",
+      "STANDBY PUMP SWITCH",
+      "HT START",
+      "HT TRIP RESET",
+      "RECTIFIER RESTORE",
+      "TANK TUNING CRANK",
+      "ANTENNA LOADING LEVER",
+      "DRIVE CONTROL",
+      "AERIAL SELECTOR",
+      "WAVECHANGE SELECTOR",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "MASTER RESET",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "rectifier arc-back",
+      "cooling water flow loss",
+      "main feeder fault"
+    ],
+    "tagline": "Tune for the dip of the anode, load for the lift of the aerial.",
+    "created": "2026-08-23"
   }
 ]
+

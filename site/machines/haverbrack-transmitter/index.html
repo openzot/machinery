@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haverbrack Transmitting Station — Transmitter No. 2</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="hall">
+      <!-- ======== nameplate row ======== -->
+      <header class="nameplate">
+        <div class="np-left">
+          <p class="np-station">Haverbrack Transmitting Station</p>
+          <h1 class="np-title">
+            Transmitter No.&nbsp;2 &mdash; 12&nbsp;kW Short&nbsp;Wave
+          </h1>
+        </div>
+        <div class="np-right">
+          <span class="onair-lamp" id="onair-lamp"><i></i><em>ON AIR</em></span>
+          <span class="trip-flag" id="trip-flag" hidden>TRIPPED</span>
+          <nav class="np-links">
+            <a href="../../" class="cat-link">Catalogue</a>
+            <button type="button" class="plate-btn" data-action="manual">
+              Operating Instructions
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <!-- ======== annunciator strip ======== -->
+      <section class="annunciator" aria-label="Alarm annunciator">
+        <div class="ann-rack">
+          <div class="ann-window" data-alarm="ARC BACK">
+            <span class="lens"></span><span class="cap">ARC&nbsp;BACK</span>
+          </div>
+          <div class="ann-window" data-alarm="WATER FLOW LOW">
+            <span class="lens"></span><span class="cap">WATER&nbsp;FLOW</span>
+          </div>
+          <div class="ann-window" data-alarm="WATER TEMP HIGH">
+            <span class="lens"></span><span class="cap">WATER&nbsp;TEMP</span>
+          </div>
+          <div class="ann-window" data-alarm="PA OVERLOAD">
+            <span class="lens"></span><span class="cap">PA&nbsp;OVERLOAD</span>
+          </div>
+          <div class="ann-window" data-alarm="FEEDER FAULT">
+            <span class="lens"></span><span class="cap">FEEDER&nbsp;FAULT</span>
+          </div>
+          <div class="ann-window" data-alarm="HT LOCKED OUT">
+            <span class="lens"></span><span class="cap">HT&nbsp;LOCKOUT</span>
+          </div>
+        </div>
+        <div class="ann-buttons">
+          <button
+            type="button"
+            class="push-btn brass"
+            data-control="ALARM ACCEPT"
+            id="btn-accept"
+          >
+            <span>ALARM<br />ACCEPT</span>
+          </button>
+          <button
+            type="button"
+            class="push-btn brass"
+            data-control="LAMPS TEST"
+            id="btn-lamps"
+          >
+            <span>LAMPS<br />TEST</span>
+          </button>
+          <button
+            type="button"
+            class="push-btn slate"
+            data-control="MASTER RESET"
+            id="btn-reset"
+          >
+            <span>MASTER<br />RESET</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ======== main bench : four bays left to right along the RF path ======== -->
+      <section class="bench">
+        <!-- bay 1 : SUPPLY -->
+        <div class="bay bay-supply">
+          <h2 class="bay-head">I &middot; Supply</h2>
+          <div class="knife-wrap">
+            <button
+              type="button"
+              class="knife"
+              data-control="MAIN BREAKER"
+              id="ctl-breaker"
+              role="switch"
+              aria-checked="false"
+              aria-label="Main breaker"
+            >
+              <span class="knife-arc"></span>
+              <span class="knife-arm">
+                <span class="knife-blade"></span>
+                <span class="knife-handle"></span>
+              </span>
+              <span class="knife-tag on">ON</span>
+              <span class="knife-tag off">OFF</span>
+            </button>
+            <span class="legend">MAIN BREAKER</span>
+          </div>
+          <div class="toggle-col">
+            <div class="toggle-wrap">
+              <button
+                type="button"
+                class="toggle"
+                data-control="BLOWER SWITCH"
+                id="ctl-blower"
+                role="switch"
+                aria-checked="false"
+                aria-label="Blower switch"
+              >
+                <span class="toggle-slot"></span
+                ><span class="toggle-lever"></span>
+              </button>
+              <span class="legend">BLOWER</span>
+            </div>
+            <div class="toggle-wrap">
+              <button
+                type="button"
+                class="toggle"
+                data-control="FILAMENT SWITCH"
+                id="ctl-filament"
+                role="switch"
+                aria-checked="false"
+                aria-label="Filament switch"
+              >
+                <span class="toggle-slot"></span
+                ><span class="toggle-lever"></span>
+              </button>
+              <span class="legend">FILAMENT</span>
+            </div>
+            <div class="toggle-wrap">
+              <button
+                type="button"
+                class="toggle"
+                data-control="STANDBY PUMP SWITCH"
+                id="ctl-pump"
+                role="switch"
+                aria-checked="false"
+                aria-label="Standby pump switch"
+              >
+                <span class="toggle-slot"></span
+                ><span class="toggle-lever"></span>
+              </button>
+              <span class="legend">STANDBY PUMP</span>
+            </div>
+          </div>
+          <div class="jewel-row" aria-hidden="false">
+            <span class="jewel" id="j-aux"><i></i><em>AUX LIVE</em></span>
+            <span class="jewel" id="j-blower"><i></i><em>BLOWER</em></span>
+            <span class="jewel" id="j-ready"
+              ><i></i><em>FIL&nbsp;READY</em></span
+            >
+            <span class="jewel" id="j-pump"><i></i><em>PUMP</em></span>
+          </div>
+          <div class="meter meter-small">
+            <span class="meter-cap">FILAMENT VOLTS</span>
+            <svg
+              data-meter="filament"
+              viewBox="0 0 200 118"
+              role="img"
+              aria-label="Filament voltmeter"
+            ></svg>
+          </div>
+        </div>
+
+        <!-- bay 2 : HIGH TENSION -->
+        <div class="bay bay-ht">
+          <h2 class="bay-head">II &middot; High Tension</h2>
+          <div class="rectifier-window" id="rectifier-window">
+            <span class="rect-guard"></span>
+            <span class="rect-col" id="rect-a"><i></i></span>
+            <span class="rect-col" id="rect-b"><i></i></span>
+            <span class="rect-cap">MERCURY-ARC RECTIFIERS</span>
+          </div>
+          <div class="meter meter-mid">
+            <span class="meter-cap">H.T. KILOVOLTS</span>
+            <svg
+              data-meter="ht"
+              viewBox="0 0 200 118"
+              role="img"
+              aria-label="High tension kilovoltmeter"
+            ></svg>
+          </div>
+          <div class="ht-controls">
+            <div class="guard-wrap">
+              <span class="guard" id="ht-guard"
+                ><i></i><em>GUARD — LIFT TO ARM</em></span
+              >
+              <button
+                type="button"
+                class="guarded-btn"
+                data-control="HT START"
+                id="ctl-htstart"
+                aria-label="High tension start"
+              >
+                <span>HT<br />START</span>
+              </button>
+            </div>
+            <div class="ht-small">
+              <button
+                type="button"
+                class="push-btn brass slim"
+                data-control="HT TRIP RESET"
+                id="ctl-tripreset"
+              >
+                <span>HT TRIP<br />RESET</span>
+              </button>
+              <button
+                type="button"
+                class="push-btn brass slim"
+                data-control="RECTIFIER RESTORE"
+                id="ctl-rectrestore"
+              >
+                <span>RECTIFIER<br />RESTORE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- bay 3 : OUTPUT -->
+        <div class="bay bay-output">
+          <h2 class="bay-head">III &middot; Output &amp; Tuning</h2>
+          <div class="rf-meters">
+            <div class="meter meter-big">
+              <span class="meter-cap">P.A. ANODE AMPS</span>
+              <svg
+                data-meter="pa"
+                viewBox="0 0 220 132"
+                role="img"
+                aria-label="Power amplifier anode ammeter"
+              ></svg>
+            </div>
+            <div class="meter meter-big">
+              <span class="meter-cap">AERIAL AMPS</span>
+              <svg
+                data-meter="aerial"
+                viewBox="0 0 220 132"
+                role="img"
+                aria-label="Aerial ammeter"
+              ></svg>
+            </div>
+          </div>
+          <div class="tuning-bench">
+            <div class="crank-wrap">
+              <button
+                type="button"
+                class="crank-wheel"
+                data-control="TANK TUNING CRANK"
+                id="ctl-crank"
+                role="slider"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="50"
+                aria-label="Tank tuning crank — arrow keys or drag"
+              >
+                <span class="crank-rim"></span>
+                <span class="crank-spokes"></span>
+                <span class="crank-hub"></span>
+                <span class="crank-handle"></span>
+              </button>
+              <div class="vernier" aria-hidden="true">
+                <span class="vernier-scale" id="vernier-scale"></span>
+                <span class="vernier-hair"></span>
+              </div>
+              <span class="legend">TANK TUNING CRANK</span>
+            </div>
+            <div class="load-knob-col">
+              <div class="quadrant-wrap">
+                <button
+                  type="button"
+                  class="quadrant"
+                  data-control="ANTENNA LOADING LEVER"
+                  id="ctl-loading"
+                  role="slider"
+                  aria-valuemin="0"
+                  aria-valuemax="4"
+                  aria-valuenow="0"
+                  aria-label="Antenna loading lever, notches 0 to 4"
+                >
+                  <span class="quad-face"></span>
+                  <span class="quad-arm"></span>
+                  <span class="quad-handle"></span>
+                </button>
+                <span class="quad-notches" aria-hidden="true"
+                  ><b></b><b></b><b></b><b></b><b></b
+                ></span>
+                <span class="legend">ANTENNA LOADING</span>
+              </div>
+              <div class="knob-wrap">
+                <button
+                  type="button"
+                  class="bakelite-knob"
+                  data-control="DRIVE CONTROL"
+                  id="ctl-drive"
+                  role="slider"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                  aria-label="Drive control, 0 to 10"
+                >
+                  <span class="knob-skirt"></span>
+                  <span class="knob-pointer"></span>
+                </button>
+                <span class="knob-dial" aria-hidden="true"
+                  ><b>0</b><b>2</b><b>4</b><b>6</b><b>8</b><b>10</b></span
+                >
+                <span class="legend">DRIVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bay 4 : AERIALS -->
+        <div class="bay bay-aerials">
+          <h2 class="bay-head">IV &middot; Aerial System</h2>
+          <div class="rotary-wrap">
+            <button
+              type="button"
+              class="rotary"
+              data-control="AERIAL SELECTOR"
+              id="ctl-aerial"
+              role="slider"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="0"
+              aria-label="Aerial selector: dummy load, dipole north, rhombic south, spare feeder"
+            >
+              <span class="rot-dial"></span>
+              <span class="rot-pointer"></span>
+            </button>
+            <ol class="rot-positions" aria-hidden="true">
+              <li>DUMMY</li>
+              <li>DIP N</li>
+              <li>RHOM S</li>
+              <li>SPARE</li>
+            </ol>
+            <span class="legend">AERIAL SELECTOR</span>
+          </div>
+          <div class="rotary-wrap">
+            <button
+              type="button"
+              class="rotary"
+              data-control="WAVECHANGE SELECTOR"
+              id="ctl-band"
+              role="slider"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="2"
+              aria-label="Wavechange selector, bands 31 to 61 metres"
+            >
+              <span class="rot-dial"></span>
+              <span class="rot-pointer"></span>
+            </button>
+            <ol class="rot-positions" aria-hidden="true">
+              <li>31&nbsp;m</li>
+              <li>41&nbsp;m</li>
+              <li>49&nbsp;m</li>
+              <li>61&nbsp;m</li>
+            </ol>
+            <span class="legend">WAVECHANGE</span>
+          </div>
+          <div class="meter meter-small">
+            <span class="meter-cap">REFLECTED WATTS</span>
+            <svg
+              data-meter="reflected"
+              viewBox="0 0 200 118"
+              role="img"
+              aria-label="Reflected power wattmeter"
+            ></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== engraved single-line schematic with live jewels ======== -->
+      <section class="schematic" aria-hidden="true">
+        <svg viewBox="0 0 1000 84" preserveAspectRatio="none">
+          <path
+            class="sch-line"
+            d="M20,52 H180 V24 H320 M360,24 H520 M560,24 H700 V52 H840 M880,52 H980"
+          />
+          <circle cx="180" cy="52" r="9" />
+          <text x="180" y="78">OSC</text>
+          <circle cx="340" cy="24" r="9" />
+          <text x="340" y="14">P.A.</text>
+          <circle cx="540" cy="24" r="9" />
+          <text x="540" y="14">TANK</text>
+          <circle cx="720" cy="24" r="9" />
+          <text x="720" y="14">COUPLER</text>
+          <circle cx="840" cy="52" r="9" />
+          <text x="840" y="78">FEEDER</text>
+          <path
+            class="sch-mast"
+            d="M980,52 L956,10 M980,52 L1004,10 M962,34 h36 M968,22 h24"
+          />
+          <text x="946" y="80">AERIAL</text>
+        </svg>
+        <span class="sch-jewel" id="sj-osc"></span>
+        <span class="sch-jewel" id="sj-pa"></span>
+        <span class="sch-jewel" id="sj-tank"></span>
+        <span class="sch-jewel" id="sj-coupler"></span>
+        <span class="sch-jewel" id="sj-feeder"></span>
+        <span class="sch-jewel" id="sj-aerial"></span>
+      </section>
+
+      <!-- ======== lower rail : water system and maintenance tray ======== -->
+      <section class="lower">
+        <div class="water-group">
+          <div class="meter meter-small">
+            <span class="meter-cap">DISTILLED WATER &deg;C</span>
+            <svg
+              data-meter="water"
+              viewBox="0 0 200 118"
+              role="img"
+              aria-label="Cooling water thermometer"
+            ></svg>
+          </div>
+          <div class="sightglass-wrap">
+            <span class="sightglass" id="sightglass"
+              ><i id="sightglass-fill"></i
+            ></span>
+            <span class="legend">FLOW</span>
+          </div>
+          <div class="water-note legend">
+            ANODE COOLING LOOP &mdash; KEEP BELOW <b>55&deg;</b>, TRIP AT
+            <b>68&deg;</b>
+          </div>
+        </div>
+        <div
+          class="fault-tray"
+          data-control="FAULT TEST SWITCHES"
+          id="fault-tray"
+        >
+          <span class="tray-tag">MAINTENANCE USE ONLY</span>
+          <div class="tray-buttons">
+            <button
+              type="button"
+              class="fault-test"
+              data-inject="rectifier arc-back"
+            >
+              ARC-BACK
+            </button>
+            <button
+              type="button"
+              class="fault-test"
+              data-inject="cooling water flow loss"
+            >
+              WATER SYS.
+            </button>
+            <button
+              type="button"
+              class="fault-test"
+              data-inject="main feeder fault"
+            >
+              FEEDER
+            </button>
+          </div>
+          <span class="tray-tag dim">FAULT TEST SWITCHES</span>
+        </div>
+      </section>
+
+      <footer class="skirt">
+        <span
+          >ENGINEERING DIVISION &middot; ERECTED 1943 &middot; JOB
+          No.&nbsp;E-2214</span
+        >
+        <span class="skirt-right"
+          ><a href="../../">Return to the machinery catalogue</a></span
+        >
+      </footer>
+    </main>
+
+    <!-- ======== operating instructions dialog ======== -->
+    <dialog data-manual id="manual-dialog" aria-label="Operating instructions">
+      <div class="dlg-chrome">
+        <span class="dlg-title"
+          >OPERATING INSTRUCTIONS &mdash; TRANSMITTER No.&nbsp;2</span
+        >
+        <button type="button" class="dlg-close" data-action="close-manual">
+          Close &#215;
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating instructions, Transmitter No. 2"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

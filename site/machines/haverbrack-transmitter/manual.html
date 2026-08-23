@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operating Instructions — Transmitter No. 2, Haverbrack</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-doc">
+    <article>
+      <header class="man-masthead">
+        <p class="man-org">
+          British Overseas Broadcasting &middot; Engineering Division
+        </p>
+        <h1>
+          Operating Instructions<br />Transmitter No.&nbsp;2 &mdash; 12&nbsp;kW
+          Short&nbsp;Wave
+        </h1>
+        <p class="man-meta">
+          HAVERBRACK TRANSMITTING STATION &middot; ENGINEERING INSTRUCTION
+          No.&nbsp;E.2214 &middot; SECOND ISSUE, MARCH&nbsp;1943
+        </p>
+        <p class="man-stamp">Not to be removed from the station</p>
+        <nav class="man-links">
+          <a href="./">Back to the control panel</a>
+          <a href="../../">Machinery catalogue</a>
+        </nav>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        Transmitter No.&nbsp;2 radiates the overseas programme on 31, 41, 49 or
+        61 metres at a carrier power of twelve kilowatts. Power is taken from
+        the station mains through the MAIN BREAKER; the mercury-arc rectifiers
+        deliver high tension at eleven thousand volts; a class-C power amplifier
+        is tuned by hand into the selected aerial system through the open-wire
+        feeders.
+      </p>
+      <p>
+        The transmitter asks three things of its operator. First, sequence:
+        filaments and cooling water before high tension, never the reverse.
+        Second, resonance: the tank is brought to tune by hand on the TANK
+        TUNING CRANK, and an untuned tank will cook its valve. Third, vigilance:
+        the cooling water carries away some eight kilowatts of anode heat, and a
+        lost pump becomes a ruined anode in two minutes if it is not met with
+        the standby.
+      </p>
+      <p>
+        An untuned tank, a sick feeder or a dead pump are all announced on the
+        six-window annunciator at the head of the panel. Every alarm demands
+        action; ignored alarms end in a trip, and a trip in daylight costs the
+        Corporation its evening audience.
+      </p>
+
+      <h2>Controls</h2>
+      <dl class="man-controls">
+        <dt>MAIN BREAKER</dt>
+        <dd>
+          Knife switch, left bay. ON connects station auxiliaries; OFF kills
+          everything downstream and drops high tension at once. AUX LIVE burns
+          when it is made.
+        </dd>
+
+        <dt>BLOWER SWITCH</dt>
+        <dd>
+          Toggle. Starts the cabinet blower and the main cooling pump. Both must
+          run before high tension may be asked for.
+        </dd>
+
+        <dt>FILAMENT SWITCH</dt>
+        <dd>
+          Toggle. Energises the valve heaters. Allow fifteen seconds for
+          FILAMENT VOLTS to reach its green sector and the amber FIL READY jewel
+          to light. High tension on cold filaments strips their thoria in
+          moments.
+        </dd>
+
+        <dt>STANDBY PUMP SWITCH</dt>
+        <dd>
+          Toggle. Starts the emergency cooling pump. It comes up to full
+          delivery in about six seconds and silences the WATER FLOW alarm.
+        </dd>
+
+        <dt>HT START</dt>
+        <dd>
+          Mushroom push under a hinged guard. Lift the guard to arm, press to
+          energise the rectifiers. Refuses unless the breaker is in, water is
+          flowing, filaments are ready, and no trip or arc-back stands.
+        </dd>
+
+        <dt>HT TRIP RESET</dt>
+        <dd>
+          Pushbutton. Clears a protective trip. Locked out after a thermal trip
+          until the water falls below 52&deg;C.
+        </dd>
+
+        <dt>RECTIFIER RESTORE</dt>
+        <dd>
+          Pushbutton. Resets a rectifier that has arc-backed. Dead until the HT
+          has collapsed; after restoring, clear the trip and restart.
+        </dd>
+
+        <dt>TANK TUNING CRANK</dt>
+        <dd>
+          Flywheel with vernier drum, 0 to 100. Rotates the tank capacitor.
+          Watch the P.A. ANODE AMMETER fall to its dip and the AERIAL AMMETER
+          rise to its peak: that is resonance. Arrow keys turn it; hold SHIFT
+          for coarse turns.
+        </dd>
+
+        <dt>ANTENNA LOADING LEVER</dt>
+        <dd>
+          Five-notch quadrant, 0 to 4. Selects tap changes on the coupler.
+          Notch&nbsp;2 suits Rhombic South; heavier loading drives more current
+          into the aerial but loads the valve harder.
+        </dd>
+
+        <dt>DRIVE CONTROL</dt>
+        <dd>
+          Bakelite knob, 0 to 10. Sets oscillator drive to the power amplifier.
+          Raise it last, watching both R.F. meters stay in their green sectors.
+        </dd>
+
+        <dt>AERIAL SELECTOR</dt>
+        <dd>
+          Rotary, four positions: DUMMY LOAD, DIP&nbsp;N, RHOM&nbsp;S, SPARE.
+          Changing it moves the resonance point on the drum &mdash; retune
+          afterwards. Taking it off DIP&nbsp;N or RHOM&nbsp;S isolates a faulty
+          main feeder.
+        </dd>
+
+        <dt>WAVECHANGE SELECTOR</dt>
+        <dd>
+          Rotary, four bands: 31, 41, 49, 61 metres. Changes tank taps; always
+          retune after changing waveband.
+        </dd>
+
+        <dt>ALARM ACCEPT</dt>
+        <dd>
+          Pushbutton. Stops the flashing of accepted alarms and the annunciator
+          buzzer. An alarm that is acknowledged but not cured stays lit.
+        </dd>
+
+        <dt>LAMPS TEST</dt>
+        <dd>
+          Pushbutton. Hold down to light every window and jewel on the panel.
+        </dd>
+
+        <dt>MASTER RESET</dt>
+        <dd>
+          Pushbutton. Returns the transmitter to cold, clears all faults, alarms
+          and trips. Used after maintenance, not as a cure in programme hours.
+        </dd>
+
+        <dt>FAULT TEST SWITCHES</dt>
+        <dd>
+          Maintenance tray, bottom right, behind the dashed border. Three
+          buttons apply the fault conditions ARC-BACK, WATER SYS. and FEEDER for
+          drill and demonstration. Not to be used in programme hours without the
+          Engineer-in-Charge's authority.
+        </dd>
+      </dl>
+
+      <h2>Normal operation</h2>
+      <ol class="man-proc">
+        <li>
+          Make the <b>MAIN BREAKER</b>. The AUX LIVE jewel lights and the mains
+          hum begins.
+        </li>
+        <li>
+          Put the <b>BLOWER SWITCH</b> ON. The BLOWER and PUMP jewels light and
+          the flow sight-glass fills.
+        </li>
+        <li>
+          Put the <b>FILAMENT SWITCH</b> ON. Wait some fifteen seconds until
+          FILAMENT VOLTS stands in its green sector and the amber FIL READY
+          jewel burns.
+        </li>
+        <li>
+          Select the aerial on the <b>AERIAL SELECTOR</b> (RHOM&nbsp;S for the
+          South American service) and the waveband on the
+          <b>WAVECHANGE SELECTOR</b>.
+        </li>
+        <li>
+          Lift the guard and press <b>HT START</b>. H.T. KILOVOLTS rises into
+          its green sector and the rectifier columns take their blue burn.
+        </li>
+        <li>
+          Advance the <b>DRIVE CONTROL</b> to about&nbsp;3 so the R.F. meters
+          respond.
+        </li>
+        <li>Set the <b>ANTENNA LOADING LEVER</b> to notch&nbsp;2.</li>
+        <li>
+          Turn the <b>TANK TUNING CRANK</b>, slowly, until P.A. ANODE AMPS shows
+          its dip and AERIAL AMPS its peak. If the amps run away, you are tuning
+          through too fast; back off and try again.
+        </li>
+        <li>
+          Raise the <b>DRIVE CONTROL</b> until AERIAL AMPS sits between
+          8&frac12; and 9&frac12; amperes in the green sector, with P.A. ANODE
+          AMPS below&nbsp;3.
+        </li>
+        <li>
+          Press <b>ALARM ACCEPT</b> to silence any standing announcement. When
+          the ON AIR lamp burns steady, advise the continuity announcer that
+          Haverbrack Second is radiating.
+        </li>
+      </ol>
+      <p class="man-note">
+        From cold to carrier takes forty seconds when it is done without
+        fumbling. Water temperature settles near 45&deg;C; anything climbing
+        through 60 is a matter for Section&nbsp;5 below, not for watching.
+      </p>
+
+      <h2>Alarms</h2>
+      <table class="man-table">
+        <tr>
+          <th>Window</th>
+          <th>Meaning</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>ARC BACK</td>
+          <td>
+            A rectifier column has struck back; high tension has collapsed.
+          </td>
+          <td>
+            Restore the rectifier, reset the trip, restart. See Fault&nbsp;1.
+          </td>
+        </tr>
+        <tr>
+          <td>WATER FLOW LOW</td>
+          <td>The main cooling pump has failed or is failing.</td>
+          <td>Start the STANDBY PUMP SWITCH at once. See Fault&nbsp;2.</td>
+        </tr>
+        <tr>
+          <td>WATER TEMP HIGH</td>
+          <td>Anode cooling water above 60&deg;C and climbing.</td>
+          <td>
+            Restore flow. At 68&deg;C the transmitter trips itself and locks out
+            until the water falls below 52&deg;C.
+          </td>
+        </tr>
+        <tr>
+          <td>PA OVERLOAD</td>
+          <td>
+            Anode current beyond rating &mdash; usually an untuned tank or a
+            failed feeder.
+          </td>
+          <td>Retune; check the feeder. Reset the trip before restarting.</td>
+        </tr>
+        <tr>
+          <td>FEEDER FAULT</td>
+          <td>Reflected power rising on a main feeder.</td>
+          <td>
+            Transfer the AERIAL SELECTOR to SPARE and retune. See Fault&nbsp;3.
+          </td>
+        </tr>
+        <tr>
+          <td>HT LOCKED OUT</td>
+          <td>
+            The thermal lockout is holding the transmitter off after a
+            water-temperature trip.
+          </td>
+          <td>Cool the water below 52&deg;C, then press HT TRIP RESET.</td>
+        </tr>
+      </table>
+      <p class="man-note">
+        New alarms flash and sound the buzzer; ALARM ACCEPT steadies them. An
+        alarm that is acknowledged but not cured remains lit, and the condition
+        behind it continues &mdash; a steady window is a fact, not a formality.
+      </p>
+
+      <h2>Faults and recovery</h2>
+
+      <h3>Fault 1 &mdash; Rectifier arc-back</h3>
+      <p>
+        <b>You see:</b> the rectifier glow dies, ARC BACK flashes, the TRIPPED
+        flag drops, H.T. KILOVOLTS falls to zero, and HT START refuses.
+      </p>
+      <p>
+        <b>To recover:</b> press <b>RECTIFIER RESTORE</b> once &mdash; the
+        window goes dark when the column has resettled. Press
+        <b>HT TRIP RESET</b>. Lift the guard and press <b>HT START</b> again.
+        The tank holds its tune throughout; no retuning is needed.
+      </p>
+
+      <h3>Fault 2 &mdash; Cooling water flow loss</h3>
+      <p>
+        <b>You see:</b> the flow sight-glass empties, WATER FLOW LOW flashes,
+        and the water thermometer begins its long climb towards the red sector.
+        Ignore it and the transmitter trips at 68&deg;C and locks itself out.
+      </p>
+      <p>
+        <b>To recover:</b> put the <b>STANDBY PUMP SWITCH</b> ON (the breaker
+        must be in). The standby comes up in six seconds, the alarm clears and
+        the thermometer falls. If the transmitter has already tripped, wait
+        until the water reads below 52&deg;C, press <b>HT TRIP RESET</b>, and
+        restart high tension. Tag the main pump for the millwrights; a MASTER
+        RESET puts matters right only after they have attended.
+      </p>
+
+      <h3>Fault 3 &mdash; Main feeder fault</h3>
+      <p>
+        <b>You see:</b> REFLECTED WATTS climbing into its red sector, AERIAL
+        AMPS falling away, P.A. ANODE AMPS rising, FEEDER FAULT flashing.
+        Ignored, this becomes a PA OVERLOAD trip.
+      </p>
+      <p>
+        <b>To recover:</b> turn the <b>AERIAL SELECTOR</b> off DIP&nbsp;N /
+        RHOM&nbsp;S to SPARE &mdash; this isolates the faulty feeder and
+        extinguishes the alarm. The spare tunes elsewhere on the drum: bring the
+        <b>TANK TUNING CRANK</b> round until the aerial ammeter peaks again,
+        then trim the <b>DRIVE CONTROL</b> back into the green. Report the
+        feeder to the line party; a MASTER RESET restores the selector scheme
+        after repair.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="man-table man-spec">
+        <tr>
+          <th colspan="2">Electrical</th>
+        </tr>
+        <tr>
+          <td>Frequency coverage</td>
+          <td>9.7 / 7.3 / 6.1 / 4.9 Mc/s (31, 41, 49, 61 m)</td>
+        </tr>
+        <tr>
+          <td>Carrier power to aerial</td>
+          <td>12 kW nominal</td>
+        </tr>
+        <tr>
+          <td>High tension</td>
+          <td>11,000 V from twin mercury-arc columns</td>
+        </tr>
+        <tr>
+          <td>P.A. anode current, rated</td>
+          <td>2.2 A d.c.; overload trip at 5.2 A</td>
+        </tr>
+        <tr>
+          <td>Aerial current, working</td>
+          <td>8&frac12;&ndash;9&frac12; A r.f. (green sector)</td>
+        </tr>
+        <tr>
+          <td>Reflected power limit</td>
+          <td>300 W</td>
+        </tr>
+        <tr>
+          <td>Valve filaments</td>
+          <td>33 V, thoriated tungsten, 15 s warming time</td>
+        </tr>
+        <tr>
+          <td>Modulation</td>
+          <td>high-level, up to 96 % on speech peaks</td>
+        </tr>
+        <tr>
+          <th colspan="2">Cooling</th>
+        </tr>
+        <tr>
+          <td>District of distilled water</td>
+          <td>45 litres per minute through both anodes</td>
+        </tr>
+        <tr>
+          <td>Inlet temperature</td>
+          <td>17.5&deg;C nominal</td>
+        </tr>
+        <tr>
+          <td>Normal running</td>
+          <td>about 45&deg;C</td>
+        </tr>
+        <tr>
+          <td>Alarm / thermal trip</td>
+          <td>60&deg;C / 68&deg;C; lockout released below 52&deg;C</td>
+        </tr>
+        <tr>
+          <th colspan="2">Mechanical</th>
+        </tr>
+        <tr>
+          <td>Panel</td>
+          <td>polished Vitrolite in mild-steel angle frame</td>
+        </tr>
+        <tr>
+          <td>Tuning scale</td>
+          <td>vernier drum 0&ndash;100, reduction 36 : 1</td>
+        </tr>
+        <tr>
+          <td>Erected</td>
+          <td>1943, Job No. E-2214</td>
+        </tr>
+      </table>
+
+      <footer class="man-foot">
+        <span>ENGINEERING DIVISION &middot; HAVERBRACK</span>
+        <span
+          ><a href="./">Control panel</a> &middot;
+          <a href="../../">Catalogue</a></span
+        >
+      </footer>
+    </article>
+  </body>
+</html>
