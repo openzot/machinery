@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "slug": "penarrow-signal-box",
+    "name": "Penarrow Junction Signal Box",
+    "kind": "mechanical railway signal box lever frame",
+    "domain": "rail",
+    "era": "1920s",
+    "design": "polished-oak fascia over a cast-iron six-lever interlocking frame, cream enamel legend plates and brass roundels, a black-steel mimic diagram with incandescent track-circuit jewels, daylight lit with no glow at all",
+    "interaction": "six levers pulled against a self-locking interlock in bell-offered sequence, with a single block-bell plunger to accept trains and obtain line clear",
+    "palette": ["#5f452c", "#c29a3b", "#b3201c"],
+    "controls": [
+      "UP HOME LEVER",
+      "UP DISTANT LEVER",
+      "MAIN STARTER LEVER",
+      "POINT LOCK LEVER",
+      "LOOP POINTS LEVER",
+      "LOOP STARTER LEVER",
+      "LINE BELL PLUNGER",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "points out of correspondence",
+      "track circuit failure",
+      "signal wire fracture"
+    ],
+    "tagline": "Six levers, one bell, and four minutes between trains.",
+    "created": "2026-08-23"
+  }
+]
