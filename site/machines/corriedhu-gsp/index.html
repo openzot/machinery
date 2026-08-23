@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corriedhu Grid Supply Point — 132/33&nbsp;kV Control Panel</title>
+    <meta
+      name="description"
+      content="Grid supply point control panel, 1994: close the incomers on the synchroscope, balance the taps, mind the Buchholz gas."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="cabinet">
+      <!-- ===== title rail ==================================================== -->
+      <header class="titlebar">
+        <div class="maker-plate">
+          CALDERBANK&nbsp;SWITCHGEAR&nbsp;LTD&nbsp;·&nbsp;GLASGOW
+        </div>
+        <div class="name-block">
+          <h1 class="nameplate">CORRIEDHU&nbsp;GRID&nbsp;SUPPLY&nbsp;POINT</h1>
+          <p class="subtitle">
+            132/33&nbsp;kV · CONTROL&nbsp;&amp;&nbsp;INDICATION&nbsp;PANEL CGP/2
+            · SER&nbsp;No&nbsp;CS/91/2043
+          </p>
+        </div>
+        <nav class="title-actions">
+          <a
+            class="catalogue-link"
+            href="../../"
+            title="Back to the factory shelf"
+            >SHELF</a
+          >
+          <button type="button" class="book-button" data-action="manual">
+            MANUAL
+          </button>
+          <button type="button" class="reset-button" data-action="reset">
+            RESET
+          </button>
+        </nav>
+      </header>
+
+      <!-- ===== annunciator rail ============================================== -->
+      <section class="annunciator" aria-label="Alarm annunciator">
+        <div class="ann-windows">
+          <div class="ann-window" data-ann="TEINDLAND LINE">
+            <span>TEINDLAND&nbsp;LINE</span>
+          </div>
+          <div class="ann-window" data-ann="TX1 GAS">
+            <span>TX1&nbsp;GAS</span>
+          </div>
+          <div class="ann-window" data-ann="TX1 WDG TEMP">
+            <span>TX1&nbsp;WDG&nbsp;TEMP</span>
+          </div>
+          <div class="ann-window" data-ann="TX OVERLOAD">
+            <span>TX&nbsp;OVERLOAD</span>
+          </div>
+          <div class="ann-window" data-ann="33KV U/V">
+            <span>33kV&nbsp;U/V</span>
+          </div>
+          <div class="ann-window" data-ann="TX2 OLTC JAM">
+            <span>TX2&nbsp;OLTC&nbsp;JAM</span>
+          </div>
+          <div class="ann-window" data-ann="SYNC BLOCK">
+            <span>SYNC&nbsp;BLOCK</span>
+          </div>
+          <div class="ann-window" data-ann="SUPPLY FAIL">
+            <span>SUPPLY&nbsp;FAIL</span>
+          </div>
+        </div>
+        <div class="ann-controls">
+          <button
+            type="button"
+            class="ann-button"
+            data-control="ALARM ACCEPT PUSHBUTTON"
+            data-act="accept"
+          >
+            ACCEPT
+          </button>
+          <button
+            type="button"
+            class="ann-button"
+            data-control="ALARM RESET PUSHBUTTON"
+            data-act="alarm-reset"
+          >
+            RESET
+          </button>
+          <button
+            type="button"
+            class="ann-button"
+            data-control="HORN SILENCE PUSHBUTTON"
+            data-act="silence"
+          >
+            HORN&nbsp;SILENCE
+          </button>
+          <button
+            type="button"
+            class="ann-button ann-lamps"
+            data-control="LAMPS TEST PUSHBUTTON"
+            data-act="lamp-test"
+          >
+            LAMPS&nbsp;TEST
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== working rail: mimic + RTU ===================================== -->
+      <main class="working-rail">
+        <!-- schematic board --------------------------------------------------- -->
+        <section class="mimic-board" aria-label="Single-line mimic diagram">
+          <svg
+            class="mimic"
+            viewBox="0 0 1040 432"
+            role="img"
+            aria-label="Single-line diagram: two 132 kV incoming circuits onto a 132 kV busbar, two transformers with on-load tap changers, a split 33 kV busbar with bus section, six outgoing feeders, voltmeters, ammeters and a synchroscope"
+          >
+            <!-- 132 kV incomers -->
+            <g class="circuit">
+              <text class="bay-label" x="170" y="14" text-anchor="middle">
+                TEINDLAND
+              </text>
+              <text class="volt-tag" x="170" y="27" text-anchor="middle">
+                132 kV
+              </text>
+              <line
+                class="conductor dead"
+                x1="170"
+                y1="32"
+                x2="170"
+                y2="46"
+                data-wire="tlnd-top"
+              />
+              <line
+                class="iso-blade"
+                x1="162"
+                y1="38"
+                x2="178"
+                y2="34"
+                data-iso="tlnd"
+              />
+              <rect
+                class="breaker"
+                x="161"
+                y="46"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="tlnd"
+              />
+              <circle class="node-led" cx="198" cy="55" r="5" data-led="tlnd" />
+              <line
+                class="conductor dead"
+                x1="170"
+                y1="64"
+                x2="170"
+                y2="88"
+                data-wire="tlnd-bot"
+              />
+            </g>
+            <g class="circuit">
+              <text class="bay-label" x="300" y="14" text-anchor="middle">
+                CAIRNBEATH
+              </text>
+              <text class="volt-tag" x="300" y="27" text-anchor="middle">
+                132 kV
+              </text>
+              <line
+                class="conductor dead"
+                x1="300"
+                y1="32"
+                x2="300"
+                y2="46"
+                data-wire="cbth-top"
+              />
+              <line
+                class="iso-blade"
+                x1="292"
+                y1="38"
+                x2="308"
+                y2="34"
+                data-iso="cbth"
+              />
+              <rect
+                class="breaker"
+                x="291"
+                y="46"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="cbth"
+              />
+              <circle class="node-led" cx="328" cy="55" r="5" data-led="cbth" />
+              <line
+                class="conductor dead"
+                x1="300"
+                y1="64"
+                x2="300"
+                y2="88"
+                data-wire="cbth-bot"
+              />
+            </g>
+
+            <!-- spare bays -->
+            <g class="spare-bay">
+              <line class="conductor thin" x1="400" y1="88" x2="400" y2="64" />
+              <rect x="392" y="46" width="16" height="16" rx="2" />
+              <text class="spare-tag" x="400" y="38" text-anchor="middle">
+                SPARE
+              </text>
+            </g>
+            <g class="spare-bay">
+              <line class="conductor thin" x1="456" y1="88" x2="456" y2="64" />
+              <rect x="448" y="46" width="16" height="16" rx="2" />
+              <text class="spare-tag" x="456" y="38" text-anchor="middle">
+                SPARE
+              </text>
+            </g>
+
+            <!-- 132 kV busbar -->
+            <line
+              class="busbar"
+              x1="130"
+              y1="88"
+              x2="930"
+              y2="88"
+              data-bus="e132"
+            />
+            <text class="bus-name" x="140" y="106">
+              132&nbsp;kV&nbsp;BUSBAR
+            </text>
+            <text
+              class="bus-value mono"
+              x="922"
+              y="106"
+              text-anchor="end"
+              data-val="kv132txt"
+            >
+              DEAD
+            </text>
+
+            <!-- voltmeter on the 132 kV bus -->
+            <g
+              class="dial"
+              transform="translate(995,58)"
+              data-dial="v132"
+              aria-hidden="true"
+            >
+              <circle class="dial-face" r="33" />
+              <g class="dial-ticks"></g>
+              <g class="dial-needle" data-needle="v132">
+                <line x1="0" y1="6" x2="0" y2="-25" />
+              </g>
+              <circle class="dial-hub" r="3.5" />
+              <text class="dial-caption" y="46">132&nbsp;kV VOLTS</text>
+            </g>
+            <line
+              class="conductor thin dead"
+              x1="930"
+              y1="88"
+              x2="978"
+              y2="88"
+              data-wire="pt132"
+            />
+            <line
+              class="conductor thin dead"
+              x1="978"
+              y1="88"
+              x2="978"
+              y2="76"
+              data-wire="pt132b"
+            />
+
+            <!-- transformer bays -->
+            <g class="tx-bay">
+              <line
+                class="conductor dead"
+                x1="530"
+                y1="88"
+                x2="530"
+                y2="122"
+                data-wire="t1a"
+              />
+              <rect
+                class="breaker"
+                x="521"
+                y="122"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="t1hv"
+              />
+              <circle
+                class="node-led"
+                cx="558"
+                cy="131"
+                r="5"
+                data-led="t1hv"
+              />
+              <line
+                class="conductor dead"
+                x1="530"
+                y1="140"
+                x2="530"
+                y2="168"
+                data-wire="t1b"
+              />
+              <g class="trafo">
+                <circle cx="519" cy="184" r="16" />
+                <circle cx="541" cy="184" r="16" />
+                <path class="oltc-arrow" d="M563 176 l14 0 l-4 -4 m4 4 l-4 4" />
+                <text class="oltc-tag" x="566" y="196">OLTC</text>
+              </g>
+              <line
+                class="conductor dead"
+                x1="530"
+                y1="200"
+                x2="530"
+                y2="232"
+                data-wire="t1c"
+              />
+              <rect
+                class="breaker"
+                x="521"
+                y="232"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="t1lv"
+              />
+              <circle
+                class="node-led"
+                cx="558"
+                cy="241"
+                r="5"
+                data-led="t1lv"
+              />
+              <line
+                class="conductor dead"
+                x1="530"
+                y1="250"
+                x2="530"
+                y2="286"
+                data-wire="t1d"
+              />
+              <text class="tx-tag" x="492" y="188" text-anchor="end">TX1</text>
+              <text
+                class="tx-load mono"
+                x="492"
+                y="204"
+                text-anchor="end"
+                data-val="t1mvatxt"
+              >
+                0.0&nbsp;MVA
+              </text>
+              <text class="tx-tap mono" x="568" y="216" data-val="t1taptxt">
+                TAP&nbsp;+0
+              </text>
+              <text
+                class="tx-temp mono"
+                x="492"
+                y="220"
+                text-anchor="end"
+                data-val="t1temptxt"
+              >
+                20°C
+              </text>
+            </g>
+            <g class="tx-bay">
+              <line
+                class="conductor dead"
+                x1="660"
+                y1="88"
+                x2="660"
+                y2="122"
+                data-wire="t2a"
+              />
+              <rect
+                class="breaker"
+                x="651"
+                y="122"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="t2hv"
+              />
+              <circle
+                class="node-led"
+                cx="688"
+                cy="131"
+                r="5"
+                data-led="t2hv"
+              />
+              <line
+                class="conductor dead"
+                x1="660"
+                y1="140"
+                x2="660"
+                y2="168"
+                data-wire="t2b"
+              />
+              <g class="trafo">
+                <circle cx="649" cy="184" r="16" />
+                <circle cx="671" cy="184" r="16" />
+                <path class="oltc-arrow" d="M693 176 l14 0 l-4 -4 m4 4 l-4 4" />
+                <text class="oltc-tag" x="696" y="196">OLTC</text>
+              </g>
+              <line
+                class="conductor dead"
+                x1="660"
+                y1="200"
+                x2="660"
+                y2="232"
+                data-wire="t2c"
+              />
+              <rect
+                class="breaker"
+                x="651"
+                y="232"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="t2lv"
+              />
+              <circle
+                class="node-led"
+                cx="688"
+                cy="241"
+                r="5"
+                data-led="t2lv"
+              />
+              <line
+                class="conductor dead"
+                x1="660"
+                y1="250"
+                x2="660"
+                y2="286"
+                data-wire="t2d"
+              />
+              <text class="tx-tag" x="694" y="188">TX2</text>
+              <text class="tx-load mono" x="694" y="204" data-val="t2mvatxt">
+                0.0&nbsp;MVA
+              </text>
+              <text
+                class="tx-tap mono"
+                x="598"
+                y="216"
+                text-anchor="end"
+                data-val="t2taptxt"
+              >
+                TAP&nbsp;+0
+              </text>
+              <text class="tx-temp mono" x="694" y="220" data-val="t2temptxt">
+                20°C
+              </text>
+            </g>
+
+            <!-- transformer ammeters -->
+            <g
+              class="dial"
+              transform="translate(448,182)"
+              data-dial="a1"
+              aria-hidden="true"
+            >
+              <circle class="dial-face" r="27" />
+              <g class="dial-ticks"></g>
+              <g class="dial-needle" data-needle="a1">
+                <line x1="0" y1="5" x2="0" y2="-20" />
+              </g>
+              <circle class="dial-hub" r="3" />
+              <text class="dial-caption" y="39">TX1&nbsp;AMPS</text>
+            </g>
+            <g
+              class="dial"
+              transform="translate(742,182)"
+              data-dial="a2"
+              aria-hidden="true"
+            >
+              <circle class="dial-face" r="27" />
+              <g class="dial-ticks"></g>
+              <g class="dial-needle" data-needle="a2">
+                <line x1="0" y1="5" x2="0" y2="-20" />
+              </g>
+              <circle class="dial-hub" r="3" />
+              <text class="dial-caption" y="39">TX2&nbsp;AMPS</text>
+            </g>
+            <line
+              class="conductor thin dead"
+              x1="500"
+              y1="184"
+              x2="473"
+              y2="184"
+              data-wire="ct1"
+            />
+            <line
+              class="conductor thin dead"
+              x1="690"
+              y1="184"
+              x2="717"
+              y2="184"
+              data-wire="ct2"
+            />
+
+            <!-- 33 kV split bus -->
+            <line
+              class="busbar thin"
+              x1="210"
+              y1="286"
+              x2="592"
+              y2="286"
+              data-bus="busA"
+            />
+            <line
+              class="busbar thin"
+              x1="648"
+              y1="286"
+              x2="930"
+              y2="286"
+              data-bus="busB"
+            />
+            <line
+              class="conductor dead"
+              x1="592"
+              y1="286"
+              x2="610"
+              y2="286"
+              data-wire="seca"
+            />
+            <rect
+              class="breaker horiz"
+              x="610"
+              y="277"
+              width="18"
+              height="18"
+              rx="2"
+              data-brk="section"
+            />
+            <line
+              class="conductor dead"
+              x1="628"
+              y1="286"
+              x2="648"
+              y2="286"
+              data-wire="secb"
+            />
+            <circle
+              class="node-led"
+              cx="619"
+              cy="264"
+              r="5"
+              data-led="section"
+            />
+            <text class="bus-name" x="218" y="304">
+              33&nbsp;kV&nbsp;BUS&nbsp;A
+            </text>
+            <text
+              class="bus-value mono"
+              x="586"
+              y="304"
+              text-anchor="end"
+              data-val="kvaTxt"
+            >
+              DEAD
+            </text>
+            <text class="bus-name" x="656" y="304">
+              33&nbsp;kV&nbsp;BUS&nbsp;B
+            </text>
+            <text
+              class="bus-value mono"
+              x="924"
+              y="304"
+              text-anchor="end"
+              data-val="kvbTxt"
+            >
+              DEAD
+            </text>
+
+            <!-- feeders, bus A -->
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="256"
+                y1="286"
+                x2="256"
+                y2="320"
+                data-wire="f1a"
+              />
+              <rect
+                class="breaker"
+                x="247"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f1"
+              />
+              <circle
+                class="node-led"
+                cx="274"
+                cy="329"
+                r="4.5"
+                data-led="f1"
+              />
+              <line
+                class="conductor dead"
+                x1="256"
+                y1="338"
+                x2="256"
+                y2="360"
+                data-wire="f1b"
+              />
+              <path class="arrow-head" d="M250 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="256" y="384" text-anchor="middle">
+                F1&nbsp;DALNAHAIRD
+              </text>
+            </g>
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="356"
+                y1="286"
+                x2="356"
+                y2="320"
+                data-wire="f2a"
+              />
+              <rect
+                class="breaker"
+                x="347"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f2"
+              />
+              <circle
+                class="node-led"
+                cx="374"
+                cy="329"
+                r="4.5"
+                data-led="f2"
+              />
+              <line
+                class="conductor dead"
+                x1="356"
+                y1="338"
+                x2="356"
+                y2="360"
+                data-wire="f2b"
+              />
+              <path class="arrow-head" d="M350 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="356" y="384" text-anchor="middle">
+                F2&nbsp;CORRIEMORE
+              </text>
+            </g>
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="456"
+                y1="286"
+                x2="456"
+                y2="320"
+                data-wire="f3a"
+              />
+              <rect
+                class="breaker"
+                x="447"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f3"
+              />
+              <circle
+                class="node-led"
+                cx="474"
+                cy="329"
+                r="4.5"
+                data-led="f3"
+              />
+              <line
+                class="conductor dead"
+                x1="456"
+                y1="338"
+                x2="456"
+                y2="360"
+                data-wire="f3b"
+              />
+              <path class="arrow-head" d="M450 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="456" y="384" text-anchor="middle">
+                F3&nbsp;BLAR&nbsp;BEAG
+              </text>
+            </g>
+            <!-- feeders, bus B -->
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="714"
+                y1="286"
+                x2="714"
+                y2="320"
+                data-wire="f4a"
+              />
+              <rect
+                class="breaker"
+                x="705"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f4"
+              />
+              <circle
+                class="node-led"
+                cx="732"
+                cy="329"
+                r="4.5"
+                data-led="f4"
+              />
+              <line
+                class="conductor dead"
+                x1="714"
+                y1="338"
+                x2="714"
+                y2="360"
+                data-wire="f4b"
+              />
+              <path class="arrow-head" d="M708 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="714" y="384" text-anchor="middle">
+                F4&nbsp;GLEN&nbsp;DORCHA
+              </text>
+            </g>
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="814"
+                y1="286"
+                x2="814"
+                y2="320"
+                data-wire="f5a"
+              />
+              <rect
+                class="breaker"
+                x="805"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f5"
+              />
+              <circle
+                class="node-led"
+                cx="832"
+                cy="329"
+                r="4.5"
+                data-led="f5"
+              />
+              <line
+                class="conductor dead"
+                x1="814"
+                y1="338"
+                x2="814"
+                y2="360"
+                data-wire="f5b"
+              />
+              <path class="arrow-head" d="M808 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="814" y="384" text-anchor="middle">
+                F5&nbsp;PORT&nbsp;SRUITH
+              </text>
+            </g>
+            <g class="feeder">
+              <line
+                class="conductor dead"
+                x1="894"
+                y1="286"
+                x2="894"
+                y2="320"
+                data-wire="f6a"
+              />
+              <rect
+                class="breaker"
+                x="885"
+                y="320"
+                width="18"
+                height="18"
+                rx="2"
+                data-brk="f6"
+              />
+              <circle
+                class="node-led"
+                cx="874"
+                cy="329"
+                r="4.5"
+                data-led="f6"
+              />
+              <line
+                class="conductor dead"
+                x1="894"
+                y1="338"
+                x2="894"
+                y2="360"
+                data-wire="f6b"
+              />
+              <path class="arrow-head" d="M888 358 l6 9 l6 -9" />
+              <text class="feeder-name" x="894" y="384" text-anchor="middle">
+                F6&nbsp;BÀGH&nbsp;SHIAR
+              </text>
+            </g>
+
+            <!-- synchroscope, bottom left -->
+            <g
+              class="synchro"
+              transform="translate(102,368)"
+              data-synchro
+              aria-hidden="true"
+            >
+              <circle class="dial-face" r="40" />
+              <line class="sync-mark" x1="0" y1="-40" x2="0" y2="-31" />
+              <line class="sync-mark" x1="0" y1="31" x2="0" y2="40" />
+              <circle
+                class="sync-lamp"
+                cx="0"
+                cy="-22"
+                r="4.5"
+                data-sync-lamp="a"
+              />
+              <circle
+                class="sync-lamp"
+                cx="0"
+                cy="22"
+                r="4.5"
+                data-sync-lamp="b"
+              />
+              <g class="sync-rotor" data-sync-rotor>
+                <line x1="0" y1="8" x2="0" y2="-33" />
+                <circle cx="0" cy="8" r="3" />
+              </g>
+              <text class="sync-lamp-tag" x="0" y="-46" text-anchor="middle">
+                LAMP&nbsp;A
+              </text>
+              <text class="sync-lamp-tag" x="0" y="56" text-anchor="middle">
+                LAMP&nbsp;B
+              </text>
+            </g>
+            <text class="scope-caption" x="102" y="426" text-anchor="middle">
+              SYNCHROSCOPE&nbsp;·&nbsp;TEINDLAND/CAIRNBEATH
+            </text>
+
+            <!-- earth + title block -->
+            <g class="earth" transform="translate(168,404)">
+              <line x1="0" y1="-8" x2="0" y2="4" />
+              <line x1="-8" y1="4" x2="8" y2="4" />
+              <line x1="-5" y1="8" x2="5" y2="8" />
+              <line x1="-2" y1="12" x2="2" y2="12" />
+              <text x="14" y="10">PANEL&nbsp;EARTH</text>
+            </g>
+            <text class="titleblock" x="1030" y="424" text-anchor="end">
+              SCHEMATIC&nbsp;CGP/2-SL1&nbsp;·&nbsp;CALDERBANK&nbsp;SWITCHGEAR&nbsp;·&nbsp;NOT&nbsp;TO&nbsp;SCALE
+            </text>
+          </svg>
+        </section>
+
+        <!-- RTU bay ------------------------------------------------------------ -->
+        <aside class="rtu-bay" aria-label="Telemonitoring RTU bay">
+          <div class="rtu-plate">
+            RTU&nbsp;7&nbsp;·&nbsp;TELEMETERING&nbsp;(1993&nbsp;RETROFIT)
+          </div>
+          <div class="crt-frame">
+            <div class="crt" aria-live="polite" aria-label="RTU event log">
+              <div class="crt-lines" data-crt></div>
+              <div class="crt-cursor" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="readout-row">
+            <div class="lcd-readout">
+              <span class="lcd-label">STATION CLOCK</span>
+              <span class="lcd-value" data-readout="clock">16:32:00</span>
+            </div>
+            <div class="lcd-readout">
+              <span class="lcd-label">FREQ</span>
+              <span class="lcd-value"
+                ><span data-readout="freq">50.00</span>&nbsp;Hz</span
+              >
+            </div>
+            <div class="lcd-readout">
+              <span class="lcd-label">DEMAND</span>
+              <span class="lcd-value"
+                ><span data-readout="demand">0.0</span>&nbsp;MW</span
+              >
+            </div>
+          </div>
+          <div class="rtu-foot">
+            <button
+              type="button"
+              class="key-switch"
+              data-control="TELEMETRY ISOLATION KEY"
+              aria-label="Telemetry isolation key: ENTER toggles between TELEMETRY ON and ISOLATED"
+              aria-pressed="true"
+            >
+              <span class="key-scale" aria-hidden="true"
+                ><i>ON</i><i>ISOLATED</i></span
+              >
+              <span class="key-head" aria-hidden="true"
+                ><span class="key-slot"></span
+              ></span>
+            </button>
+            <div class="rtu-lamps">
+              <span class="rtu-lamp"
+                ><i class="led led-off" data-led="scan"></i>SCAN</span
+              >
+              <span class="rtu-lamp"
+                ><i class="led led-off" data-led="comms"></i>COMMS</span
+              >
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <!-- ===== control desk =================================================== -->
+      <section class="control-desk" aria-label="Control desk">
+        <div class="desk-bays">
+          <div class="bay-group">
+            <span class="group-label">132&nbsp;kV&nbsp;INCOMERS</span>
+            <div class="group-row">
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="TEINDLAND CONTROL SWITCH"
+                  aria-label="Teindland incomer control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.tlnd"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">TEINDLAND<br />INCOMER</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="CAIRNBEATH CONTROL SWITCH"
+                  aria-label="Cairnbeath incomer control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.cbth"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">CAIRNBEATH<br />INCOMER</span>
+              </div>
+            </div>
+          </div>
+          <div class="bay-group">
+            <span class="group-label">TRANSFORMERS&nbsp;45&nbsp;MVA</span>
+            <div class="group-row">
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="TX1 CONTROL SWITCH"
+                  aria-label="Transformer 1 control switch: closes HV then LV. ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.t1lv"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">TX1<br />45&nbsp;MVA</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="TX2 CONTROL SWITCH"
+                  aria-label="Transformer 2 control switch: closes HV then LV. ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.t2lv"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">TX2<br />45&nbsp;MVA</span>
+              </div>
+            </div>
+          </div>
+          <div class="bay-group">
+            <span class="group-label"
+              >33&nbsp;kV&nbsp;BUS&nbsp;&amp;&nbsp;FEEDERS</span
+            >
+            <div class="group-row">
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="33kV BUS SECTION CONTROL SWITCH"
+                  aria-label="33 kV bus section control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.section"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">BUS<br />SECTION</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 1 CONTROL SWITCH"
+                  aria-label="Feeder 1 Dalnahaird control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f1"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F1&nbsp;DALNAHAIRD</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 2 CONTROL SWITCH"
+                  aria-label="Feeder 2 Corriemore control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f2"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F2&nbsp;CORRIEMORE</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 3 CONTROL SWITCH"
+                  aria-label="Feeder 3 Blar Beag control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f3"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F3&nbsp;BLAR&nbsp;BEAG</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 4 CONTROL SWITCH"
+                  aria-label="Feeder 4 Glen Dorcha control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f4"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F4&nbsp;GLEN&nbsp;DORCHA</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 5 CONTROL SWITCH"
+                  aria-label="Feeder 5 Port Sruith control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f5"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F5&nbsp;PORT&nbsp;SRUITH</span>
+              </div>
+              <div class="bay">
+                <button
+                  type="button"
+                  class="ctrl-switch"
+                  data-control="FEEDER 6 CONTROL SWITCH"
+                  aria-label="Feeder 6 Bàgh Shiar control switch: ENTER or right arrow CLOSE, left arrow TRIP"
+                >
+                  <span class="esc-scale" aria-hidden="true"
+                    ><i>T</i><i>C</i></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><span class="knob-line"></span
+                  ></span>
+                  <i
+                    class="led led-green"
+                    data-deskled="brk.f6"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+                <span class="bay-name">F6&nbsp;BÀGH&nbsp;SHIAR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="desk-cluster">
+          <div class="oltc-block">
+            <button
+              type="button"
+              class="oltc-rocker"
+              data-control="TX1 OLTC RAISE-LOWER"
+              aria-label="Transformer 1 tap changer rocker: ENTER or up arrow raises one tap, down arrow lowers one tap"
+            >
+              <span class="rocker-top" aria-hidden="true"
+                >&#9650;&nbsp;RAISE</span
+              >
+              <span class="rocker-bottom" aria-hidden="true"
+                >LOWER&nbsp;&#9660;</span
+              >
+            </button>
+            <span class="bay-name">TX1&nbsp;OLTC</span>
+          </div>
+          <div class="oltc-block">
+            <button
+              type="button"
+              class="oltc-rocker"
+              data-control="TX2 OLTC RAISE-LOWER"
+              aria-label="Transformer 2 tap changer rocker: ENTER or up arrow raises one tap, down arrow lowers one tap"
+            >
+              <span class="rocker-top" aria-hidden="true"
+                >&#9650;&nbsp;RAISE</span
+              >
+              <span class="rocker-bottom" aria-hidden="true"
+                >LOWER&nbsp;&#9660;</span
+              >
+            </button>
+            <span class="bay-name">TX2&nbsp;OLTC</span>
+          </div>
+          <div class="sel-block">
+            <button
+              type="button"
+              class="rotary-selector"
+              data-control="VOLTAGE REGULATOR SELECTOR"
+              aria-label="Voltage regulator selector: OFF, AUTO, MANUAL. Click or use left and right arrows to turn"
+            >
+              <span class="sel-scale sel3" aria-hidden="true"
+                ><i data-pos="0">OFF</i><i data-pos="1">AUTO</i
+                ><i data-pos="2">MAN</i></span
+              >
+              <span class="sel-pointer" aria-hidden="true"></span>
+            </button>
+            <span class="bay-name">VOLTAGE<br />REGULATOR</span>
+          </div>
+          <div class="sel-block">
+            <button
+              type="button"
+              class="rotary-selector sel2pos"
+              data-control="SYNCHRO-CHECK SELECTOR"
+              aria-label="Synchro-check selector: OFF, ON. Click or use left and right arrows to turn"
+            >
+              <span class="sel-scale sel2" aria-hidden="true"
+                ><i data-pos="0">OFF</i><i data-pos="1">ON</i></span
+              >
+              <span class="sel-pointer" aria-hidden="true"></span>
+            </button>
+            <span class="bay-name">SYNCHRO-<br />CHECK</span>
+          </div>
+        </div>
+
+        <div class="maintenance" data-control="FAULT TEST BUTTONS">
+          <button
+            type="button"
+            class="flap-lid"
+            data-flap-toggle
+            aria-expanded="false"
+            aria-controls="flap-well"
+          >
+            MAINTENANCE&nbsp;·&nbsp;FAULT&nbsp;TEST
+            <span class="fastener" aria-hidden="true"></span>
+          </button>
+          <div class="flap-well collapsed" id="flap-well">
+            <button
+              type="button"
+              class="fault-btn"
+              data-inject="transformer gas accumulation"
+            >
+              GAS&nbsp;RELAY&nbsp;TEST<br />TX1
+            </button>
+            <button
+              type="button"
+              class="fault-btn"
+              data-inject="tap changer mechanism jam"
+            >
+              OLTC&nbsp;JAM&nbsp;TEST<br />TX2
+            </button>
+            <button
+              type="button"
+              class="fault-btn"
+              data-inject="incomer line trip"
+            >
+              LINE&nbsp;TRIP&nbsp;TEST<br />TEINDLAND
+            </button>
+            <button
+              type="button"
+              class="fault-btn service-btn"
+              data-service="gas-relay-reset"
+            >
+              GAS&nbsp;RELAY&nbsp;RESET
+            </button>
+            <button
+              type="button"
+              class="fault-btn service-btn"
+              data-service="oltc-override"
+            >
+              OLTC&nbsp;OVERRIDE
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== manual dialog ================================================== -->
+      <dialog data-manual class="manual-dialog">
+        <header class="manual-bar">
+          <span>OPERATING&nbsp;INSTRUCTION&nbsp;MI/CGP/2</span>
+          <button type="button" class="close-manual" data-action="close-manual">
+            CLOSE&nbsp;&#10005;
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Operating instruction MI/CGP/2"
+        ></iframe>
+      </dialog>
+    </div>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
