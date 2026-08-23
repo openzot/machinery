@@ -286,5 +286,42 @@
     ],
     "tagline": "Set twelve bits, press DEPOSIT, and keep the core stack under sixty-five.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "hawthorne-dimmer-board",
+    "name": "Hawthorne Grand Theatre - Dimmer Board No. 1",
+    "kind": "theatre resistance-dimmer stage-lighting board",
+    "domain": "theatre",
+    "era": "1940s",
+    "design": "forest-green crackle-finish steel with copper dimmer arcs, engraved ivory enamel legend plates, tungsten jewel annunciators, liquid cage thermometers and a live proscenium mimic, lit by daylight from the fly-floor louvres",
+    "interaction": "six cranked handles walked along resistance arcs against a full-width counterweighted grandmaster lever, dipping the whole stage by hand while watching two cage thermometers and a hot-iron ammeter",
+    "palette": [
+      "#17382e",
+      "#c07a3e",
+      "#d33a26"
+    ],
+    "controls": [
+      "SUPPLY SELECTOR",
+      "MAINS BREAKER",
+      "GRANDMASTER",
+      "DIMMER 1",
+      "DIMMER 2",
+      "DIMMER 3",
+      "DIMMER 4",
+      "DIMMER 5",
+      "DIMMER 6",
+      "SPARE FEED",
+      "THERMAL RESET",
+      "WORKING LIGHT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "dimmer bank overheat",
+      "mains overload trip",
+      "stage circuit failure"
+    ],
+    "tagline": "Dips on the grandmaster, never by walking the arcs.",
+    "created": "2026-08-23"
   }
 ]

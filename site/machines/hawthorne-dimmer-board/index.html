@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Hawthorne Grand Theatre — Dimmer Board No. 1 — Stage Lighting Control
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <main
+        class="board"
+        aria-label="Hawthorne Grand Theatre Dimmer Board No. 1"
+      >
+        <header class="head">
+          <div class="title-block">
+            <span class="house">THE HAWTHORNE GRAND THEATRE</span>
+            <h1>STAGE LIGHTING CONTROL · DIMMER BOARD No.&nbsp;1</h1>
+          </div>
+          <nav class="head-links">
+            <a class="catalogue-link" href="../../">CATALOGUE</a>
+            <button class="manual-btn" type="button" data-action="manual">
+              OPERATING MANUAL
+            </button>
+          </nav>
+        </header>
+
+        <section class="annunciator" aria-label="Annunciator">
+          <div class="jewels">
+            <span class="jewel-unit">
+              <i class="jewel mains" data-jewel="mains"></i>
+              <em>MAINS</em>
+            </span>
+            <span class="jewel-unit">
+              <i class="jewel overload" data-jewel="overload"></i>
+              <em>OVERLOAD</em>
+            </span>
+            <span class="jewel-unit">
+              <i class="jewel overheat" data-jewel="overheat"></i>
+              <em>OVERHEAT</em>
+            </span>
+            <span class="jewel-unit">
+              <i class="jewel circuit" data-jewel="circuit"></i>
+              <em>CIRCUIT</em>
+            </span>
+          </div>
+          <div class="annun-buttons">
+            <button
+              class="push dark"
+              type="button"
+              data-control="LAMPS TEST"
+              id="lamps-test"
+            >
+              LAMPS&nbsp;TEST
+            </button>
+            <button class="push dark" type="button" id="alarm-ack">
+              ACKNOWLEDGE
+            </button>
+          </div>
+        </section>
+
+        <div class="deck">
+          <!-- ==================== SUPPLY ==================== -->
+          <section class="bay supply" aria-label="Supply bay">
+            <h2 class="bay-title">SUPPLY</h2>
+
+            <div class="selector-block">
+              <em class="ctl-label">SUPPLY SELECTOR</em>
+              <div class="selector-dial">
+                <span class="pos pos-a">OFF</span>
+                <span class="pos pos-b">MAINS</span>
+                <span class="pos pos-c">AUX&nbsp;PLANT</span>
+                <button
+                  class="knob"
+                  type="button"
+                  id="supply-knob"
+                  data-control="SUPPLY SELECTOR"
+                  aria-label="SUPPLY SELECTOR, rotary: OFF, MAINS or AUX PLANT"
+                >
+                  <i class="pointer"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="breaker-block">
+              <button
+                class="breaker"
+                type="button"
+                data-control="MAINS BREAKER"
+                id="mains-breaker"
+                role="switch"
+                aria-checked="false"
+                aria-label="MAINS BREAKER, guarded lever: open or closed"
+              >
+                <span class="guard"></span>
+                <span class="blade"></span>
+                <em class="b-open">OPEN</em>
+                <em class="b-close">CLOSE</em>
+              </button>
+              <em class="ctl-label">MAINS<br />BREAKER</em>
+            </div>
+
+            <div class="meters">
+              <figure class="meter">
+                <svg viewBox="0 0 120 84" aria-hidden="true">
+                  <g class="dial-face">
+                    <path class="scale" d="M14 72 A52 52 0 0 1 106 72" />
+                    <g class="ticks" data-meter="volts-ticks"></g>
+                    <text x="60" y="28" class="range">0 – 260</text>
+                    <text x="60" y="40" class="unit">VOLTS</text>
+                    <line
+                      class="needle"
+                      data-meter="volts-needle"
+                      x1="60"
+                      y1="70"
+                      x2="60"
+                      y2="24"
+                    />
+                    <circle class="hub" cx="60" cy="70" r="4" />
+                  </g>
+                </svg>
+                <figcaption>VOLTS</figcaption>
+              </figure>
+              <figure class="meter">
+                <svg viewBox="0 0 120 84" aria-hidden="true">
+                  <g class="dial-face">
+                    <path class="scale" d="M14 72 A52 52 0 0 1 106 72" />
+                    <path class="ol-arc" d="M78.5 26 A52 52 0 0 1 106 72" />
+                    <g class="ticks" data-meter="amps-ticks"></g>
+                    <text x="60" y="28" class="range">0 – 100</text>
+                    <text x="60" y="40" class="unit">AMPERES</text>
+                    <line
+                      class="needle"
+                      data-meter="amps-needle"
+                      x1="60"
+                      y1="70"
+                      x2="60"
+                      y2="24"
+                    />
+                    <circle class="hub" cx="60" cy="70" r="4" />
+                  </g>
+                </svg>
+                <figcaption>BOARD CURRENT</figcaption>
+              </figure>
+            </div>
+
+            <p class="rating-plate">
+              PEEL &amp; VANNER LTD · HACKNEY N.E. · SERIAL 1948-HG-117<br />
+              SUPPLY 240v 50~ · BREAKER 80A · DO NOT OIL THE PIVOTS
+            </p>
+          </section>
+
+          <!-- ==================== DIMMERS ==================== -->
+          <section class="bay dimmer-bay" aria-label="Resistance dimmers">
+            <h2 class="bay-title">RESISTANCE DIMMERS</h2>
+
+            <div class="arc-row">
+              <div class="thermo" aria-hidden="true">
+                <em>BANK&nbsp;A</em>
+                <span class="tube"><i class="fluid" data-thermo="A"></i></span>
+                <em class="t-scale">18·95·150</em>
+              </div>
+
+              <div class="arcs">
+                <div class="arc">
+                  <em class="arc-no">1</em>
+                  <div
+                    class="slot"
+                    data-dimmer="1"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 1, BATTEN LEFT: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 1"></b>
+                  </div>
+                  <em class="arc-name">BATTEN&nbsp;L</em>
+                </div>
+                <div class="arc">
+                  <em class="arc-no">2</em>
+                  <div
+                    class="slot"
+                    data-dimmer="2"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 2, BATTEN RIGHT: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 2"></b>
+                  </div>
+                  <em class="arc-name">BATTEN&nbsp;R</em>
+                </div>
+                <div class="arc">
+                  <em class="arc-no">3</em>
+                  <div
+                    class="slot"
+                    data-dimmer="3"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 3, CYC: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 3"></b>
+                  </div>
+                  <em class="arc-name">CYC</em>
+                </div>
+                <div class="arc">
+                  <em class="arc-no">4</em>
+                  <div
+                    class="slot"
+                    data-dimmer="4"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 4, TABS: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 4"></b>
+                  </div>
+                  <em class="arc-name">TABS</em>
+                </div>
+                <div class="arc">
+                  <em class="arc-no">5</em>
+                  <div
+                    class="slot"
+                    data-dimmer="5"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 5, FOOTLIGHTS: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 5"></b>
+                  </div>
+                  <em class="arc-name">FOOTS</em>
+                </div>
+                <div class="arc">
+                  <em class="arc-no">6</em>
+                  <div
+                    class="slot"
+                    data-dimmer="6"
+                    role="slider"
+                    tabindex="0"
+                    aria-orientation="vertical"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                    aria-label="DIMMER 6, THE GODS: 0 to 10"
+                  >
+                    <b class="handle" data-control="DIMMER 6"></b>
+                  </div>
+                  <em class="arc-name">GODS</em>
+                </div>
+              </div>
+
+              <div class="thermo" aria-hidden="true">
+                <em>BANK&nbsp;B</em>
+                <span class="tube"><i class="fluid" data-thermo="B"></i></span>
+                <em class="t-scale">18·95·150</em>
+              </div>
+            </div>
+
+            <div class="bank-strip">
+              <button
+                class="push amber"
+                type="button"
+                data-control="THERMAL RESET"
+                id="thermal-reset"
+              >
+                THERMAL&nbsp;RESET
+              </button>
+              <p class="bank-note">
+                CAGES RUN HOT BY DESIGN · TRIP AT 150°C · RESTORE BELOW 95°C
+                ONLY
+              </p>
+            </div>
+          </section>
+
+          <!-- ==================== STAGE ==================== -->
+          <section class="bay stage-bay" aria-label="Stage circuits and mimic">
+            <h2 class="bay-title">CIRCUITS · STAGE MIMIC</h2>
+
+            <svg
+              class="mimic"
+              viewBox="0 0 340 300"
+              role="img"
+              aria-label="Proscenium mimic: battens, cyc, tabs, footlights and the gods"
+            >
+              <rect class="wall" x="0" y="0" width="340" height="300" />
+              <g data-mimic="house">
+                <circle cx="22" cy="54" r="7" />
+                <circle cx="318" cy="54" r="7" />
+              </g>
+              <rect
+                class="cyc-lit"
+                data-mimic="cyc"
+                x="66"
+                y="66"
+                width="208"
+                height="140"
+              />
+              <path
+                class="tabs"
+                data-mimic="tab-l"
+                d="M66 66 Q88 136 74 206 L66 206 Z"
+              />
+              <path
+                class="tabs"
+                data-mimic="tab-r"
+                d="M274 66 Q252 136 266 206 L274 206 Z"
+              />
+              <rect class="pelmet" x="66" y="58" width="208" height="10" />
+              <line class="bar" x1="80" y1="46" x2="260" y2="46" />
+              <g class="battens" data-mimic="batten-l">
+                <circle cx="92" cy="46" r="5" />
+                <circle cx="116" cy="46" r="5" />
+                <circle cx="140" cy="46" r="5" />
+              </g>
+              <g class="battens" data-mimic="batten-r">
+                <circle cx="200" cy="46" r="5" />
+                <circle cx="224" cy="46" r="5" />
+                <circle cx="248" cy="46" r="5" />
+              </g>
+              <g class="foots" data-mimic="footlights">
+                <circle cx="96" cy="212" r="4" />
+                <circle cx="128" cy="214" r="4" />
+                <circle cx="160" cy="215" r="4" />
+                <circle cx="192" cy="215" r="4" />
+                <circle cx="224" cy="214" r="4" />
+                <circle cx="256" cy="212" r="4" />
+              </g>
+              <rect class="boards" x="56" y="218" width="228" height="9" />
+              <path class="arch" d="M44 236 L44 34 Q170 -8 296 34 L296 236" />
+              <g class="gods" data-mimic="gods">
+                <rect x="20" y="252" width="300" height="15" rx="3" />
+                <circle cx="52" cy="248" r="4" />
+                <circle cx="96" cy="248" r="4" />
+                <circle cx="140" cy="248" r="4" />
+                <circle cx="184" cy="248" r="4" />
+                <circle cx="228" cy="248" r="4" />
+                <circle cx="272" cy="248" r="4" />
+              </g>
+              <text class="mimic-word" x="170" y="292">
+                THE HAWTHORNE · STAGE
+              </text>
+            </svg>
+
+            <div class="pilots" aria-label="Circuit pilot lamps">
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="1"></i>
+                <em>1</em>
+              </span>
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="2"></i>
+                <em>2</em>
+              </span>
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="3"></i>
+                <em>3</em>
+              </span>
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="4"></i>
+                <em>4</em>
+              </span>
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="5"></i>
+                <em>5</em>
+              </span>
+              <span class="pilot-unit">
+                <i class="pilot" data-pilot="6"></i>
+                <em>6</em>
+              </span>
+            </div>
+
+            <div class="stage-controls">
+              <div class="spare-block">
+                <button
+                  class="spare-lever"
+                  type="button"
+                  data-control="SPARE FEED"
+                  id="spare-feed"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="SPARE FEED lever: NORMAL or SPARE way for circuit 4"
+                >
+                  <i class="spare-handle"></i>
+                </button>
+                <em class="ctl-label">SPARE FEED<br />NORM / SPARE</em>
+              </div>
+              <div class="work-block">
+                <button
+                  class="toggle"
+                  type="button"
+                  data-control="WORKING LIGHT"
+                  id="working-light"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="WORKING LIGHT toggle: electrician's desk lamp"
+                >
+                  <i></i>
+                </button>
+                <em class="ctl-label">WORKING<br />LIGHT</em>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ==================== GRANDMASTER ==================== -->
+        <section class="grand" aria-label="Grandmaster lever">
+          <div
+            class="gm-slot"
+            id="grandmaster"
+            role="slider"
+            tabindex="0"
+            aria-orientation="horizontal"
+            aria-valuemin="0"
+            aria-valuemax="10"
+            aria-valuenow="0"
+            aria-label="GRANDMASTER: master level for every circuit, 0 to 10"
+            data-control="GRANDMASTER"
+          >
+            <span class="gm-track"></span>
+            <span class="gm-scale"></span>
+            <i class="gm-handle" id="gm-handle"><b></b><u></u></i>
+          </div>
+          <em class="gm-word">GRANDMASTER</em>
+        </section>
+
+        <!-- ==================== MAINTENANCE FLAP ==================== -->
+        <section class="maint" aria-label="Maintenance fault test switches">
+          <button
+            class="flap-face"
+            type="button"
+            data-control="FAULT TEST SWITCHES"
+            id="flap-toggle"
+            aria-expanded="false"
+            aria-label="FAULT TEST SWITCHES: open the maintenance flap"
+          >
+            <span>MAINTENANCE</span>
+            <i class="flap-lamp" data-flap-lamp></i>
+            <span class="flap-hint">FAULT TEST SWITCHES</span>
+          </button>
+          <div class="flap-well" id="flap-well" hidden>
+            <label class="ftest">
+              <input type="checkbox" id="ft-overheat" />
+              <span class="fswitch"></span>
+              <em
+                >SCENERY ON CAGE&nbsp;B<br /><small
+                  >(dimmer bank overheat)</small
+                ></em
+              >
+            </label>
+            <label class="ftest">
+              <input type="checkbox" id="ft-overload" />
+              <span class="fswitch"></span>
+              <em
+                >SCENE-DOCK KETTLES<br /><small
+                  >(mains overload trip)</small
+                ></em
+              >
+            </label>
+            <label class="ftest">
+              <input type="checkbox" id="ft-circuit" />
+              <span class="fswitch"></span>
+              <em
+                >TABS FILAMENT OPEN<br /><small
+                  >(stage circuit failure)</small
+                ></em
+              >
+            </label>
+          </div>
+        </section>
+
+        <footer class="tail">
+          <span
+            >SLOW HANDS ON THE ARCS — THE RESISTORS SMELL WHEN THEY ARE
+            HAPPY.</span
+          >
+          <a href="../../index.html">← MACHINES CATALOGUE</a>
+        </footer>
+      </main>
+    </div>
+
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <header class="manual-head">
+          <span>HAWTHORNE GRAND · DIMMER BOARD No. 1 · OPERATING MANUAL</span>
+          <button class="push dark" type="button" data-action="close-manual">
+            CLOSE
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Operating manual — Hawthorne Grand Dimmer Board No. 1"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
