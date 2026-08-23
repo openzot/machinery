@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fire Director Mk. IV — Fort Dunstan Coast Battery</title>
+    <meta
+      name="description"
+      content="Coast artillery fire director, 1943: track the ship, let the drums compute, mind your barrel temperature."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="cabinet">
+      <!-- ===== title rail ===================================================== -->
+      <header class="titlebar">
+        <div class="maker-plate">RAVENCROFT ORDNANCE WORKS LTD.</div>
+        <h1 class="nameplate">FIRE DIRECTOR&nbsp;&nbsp;Mk.&nbsp;IV</h1>
+        <div class="serial-plate">
+          WD REF&nbsp;FD/4419&ensp;·&ensp;FORT DUNSTAN COAST
+          BATTERY&ensp;·&ensp;1943
+        </div>
+        <nav class="title-actions">
+          <a
+            class="catalogue-link"
+            href="../../"
+            title="Back to the factory shelf"
+            >SHELF</a
+          >
+          <button type="button" class="book-button" data-action="manual">
+            OPERATING MANUAL
+          </button>
+        </nav>
+      </header>
+
+      <!-- ===== working rail =================================================== -->
+      <main class="working-rail">
+        <!-- 1 · power ---------------------------------------------------------- -->
+        <section class="station station-power" aria-label="Power plant">
+          <h2 class="station-title">
+            <span class="step-no">1</span> MOTOR&nbsp;GENERATOR
+          </h2>
+
+          <div class="mg-block">
+            <button
+              type="button"
+              class="guarded-toggle mg-switch"
+              data-control="MOTOR-GENERATOR SWITCH"
+              aria-pressed="false"
+              aria-label="Motor-generator switch, OFF and ON"
+            >
+              <span class="guard" aria-hidden="true"></span>
+              <span class="bat-lever" aria-hidden="true"></span>
+              <span class="tg-scale" aria-hidden="true"
+                ><i>OFF</i><i>ON</i></span
+              >
+            </button>
+            <p class="tg-caption">M-G SET<br />STARTER</p>
+          </div>
+
+          <figure class="voltmeter">
+            <svg
+              viewBox="0 0 120 78"
+              role="img"
+              aria-label="Generator voltmeter"
+            >
+              <path
+                class="vm-scale"
+                d="M14 66 A48 48 0 0 1 106 66"
+                fill="none"
+              ></path>
+              <g class="vm-marks" stroke-linecap="round"></g>
+              <line class="vm-needle" x1="60" y1="66" x2="60" y2="22"></line>
+              <circle class="vm-pivot" cx="60" cy="66" r="5"></circle>
+              <text x="18" y="76">0</text>
+              <text x="52" y="12">500</text>
+              <text x="94" y="76">V</text>
+            </svg>
+            <figcaption>GENERATOR VOLTS</figcaption>
+          </figure>
+
+          <div class="gyro-block">
+            <span class="gyro-disc" aria-hidden="true"><i></i></span>
+            <label class="jewel-lamp lamp-ready">
+              <input
+                type="checkbox"
+                class="lamp-io"
+                data-lamp="gyroReady"
+                disabled
+              />
+              <span class="jewel" aria-hidden="true"></span>
+              <span class="lamp-text">GYRO<br />READY</span>
+            </label>
+          </div>
+          <p class="station-note">
+            ALLOW 20 SEC SPIN-UP BEFORE TRUSTING THE DRUMS.
+          </p>
+        </section>
+
+        <!-- 2 · sighting ------------------------------------------------------- -->
+        <section class="station station-sighting" aria-label="Tracking head">
+          <h2 class="station-title">
+            <span class="step-no">2</span> TRACKING HEAD
+          </h2>
+
+          <figure class="optical-head">
+            <svg
+              viewBox="0 0 340 190"
+              role="img"
+              aria-label="Optical tracking sight: keep the reticle on the target ship"
+            >
+              <defs>
+                <radialGradient id="ohVignette" cx="50%" cy="52%" r="72%">
+                  <stop offset="0%" stop-color="#000" stop-opacity="0"></stop>
+                  <stop offset="78%" stop-color="#000" stop-opacity="0"></stop>
+                  <stop
+                    offset="100%"
+                    stop-color="#0a0d10"
+                    stop-opacity=".55"
+                  ></stop>
+                </radialGradient>
+              </defs>
+              <rect class="oh-sky" x="0" y="0" width="340" height="118"></rect>
+              <rect class="oh-sea" x="0" y="118" width="340" height="72"></rect>
+              <g class="oh-waves" aria-hidden="true">
+                <path
+                  d="M0 126 Q20 122 40 126 T80 126 T120 126 T160 126 T200 126 T240 126 T280 126 T320 126 T360 126"
+                ></path>
+                <path
+                  d="M0 148 Q24 144 48 148 T96 148 T144 148 T192 148 T240 148 T288 148 T336 148 T384 148"
+                ></path>
+                <path
+                  d="M0 170 Q30 167 60 170 T120 170 T180 170 T240 170 T300 170 T360 170"
+                ></path>
+              </g>
+              <g class="oh-target" id="ohTarget">
+                <path
+                  d="M-34 6 L-26 -4 L14 -4 L22 2 L34 2 L34 8 L-34 8 Z M-8 -4 L-8 -16 L6 -16 L6 -4 Z M-2 -16 L-2 -23 L2 -23 L2 -16 Z"
+                ></path>
+              </g>
+              <line class="oh-horizon" x1="0" y1="118" x2="340" y2="118"></line>
+              <g class="oh-scale" aria-hidden="true">
+                <line x1="330" y1="40" x2="338" y2="40"></line>
+                <line x1="333" y1="64" x2="338" y2="64"></line>
+                <line x1="330" y1="88" x2="338" y2="88"></line>
+                <line x1="333" y1="112" x2="338" y2="112"></line>
+                <line x1="330" y1="136" x2="338" y2="136"></line>
+                <text x="296" y="44">16000</text>
+                <text x="304" y="92">8000</text>
+              </g>
+              <rect
+                class="oh-vig"
+                x="0"
+                y="0"
+                width="340"
+                height="190"
+                fill="url(#ohVignette)"
+                pointer-events="none"
+              ></rect>
+              <g
+                class="oh-reticle"
+                id="ohReticle"
+                filter="drop-shadow(0 0 1px rgba(20,20,16,.9))"
+              >
+                <line x1="-46" y1="0" x2="-12" y2="0"></line>
+                <line x1="12" y1="0" x2="46" y2="0"></line>
+                <line x1="0" y1="-40" x2="0" y2="-12"></line>
+                <line x1="0" y1="12" x2="0" y2="40"></line>
+                <circle cx="0" cy="0" r="7"></circle>
+              </g>
+              <text class="oh-tag" x="8" y="184">
+                OPTICAL HEAD — PRISM STOPPED
+              </text>
+            </svg>
+          </figure>
+
+          <label class="jewel-lamp lamp-match">
+            <input
+              type="checkbox"
+              class="lamp-io"
+              data-lamp="matched"
+              disabled
+            />
+            <span class="jewel" aria-hidden="true"></span>
+            <span class="lamp-text">ON&nbsp;TARGET</span>
+          </label>
+
+          <div class="wheel-bench">
+            <div class="wheel-unit">
+              <div
+                class="handwheel"
+                id="wheelAzimuth"
+                data-control="AZIMUTH HANDWHEEL"
+                tabindex="0"
+                role="slider"
+                aria-label="Azimuth handwheel — arrow keys or drag to train onto the target"
+                aria-valuemin="-180"
+                aria-valuemax="180"
+                aria-valuenow="0"
+                aria-valuetext="tracking bearing 0 degrees"
+              >
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="hw-rotor">
+                    <circle cx="50" cy="50" r="42" class="hw-rim"></circle>
+                    <circle cx="50" cy="50" r="10" class="hw-hub"></circle>
+                    <line x1="50" y1="12" x2="50" y2="88"></line>
+                    <line x1="12" y1="50" x2="88" y2="50"></line>
+                    <line x1="23" y1="23" x2="77" y2="77"></line>
+                    <line x1="77" y1="23" x2="23" y2="77"></line>
+                  </g>
+                  <rect
+                    x="47"
+                    y="4"
+                    width="6"
+                    height="10"
+                    rx="1.5"
+                    class="hw-index"
+                  ></rect>
+                </svg>
+              </div>
+              <p class="wheel-name">TRAINING<br />(BEARING)</p>
+              <output class="wheel-readout" id="readAzimuth">000.0&deg;</output>
+            </div>
+
+            <div class="wheel-unit">
+              <div
+                class="handwheel"
+                id="wheelRange"
+                data-control="RANGE HANDWHEEL"
+                tabindex="0"
+                role="slider"
+                aria-label="Range handwheel — arrow keys or drag to range onto the target"
+                aria-valuemin="800"
+                aria-valuemax="16000"
+                aria-valuenow="8000"
+                aria-valuetext="tracking range 8000 yards"
+              >
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="hw-rotor">
+                    <circle cx="50" cy="50" r="42" class="hw-rim"></circle>
+                    <circle cx="50" cy="50" r="10" class="hw-hub"></circle>
+                    <line x1="50" y1="12" x2="50" y2="88"></line>
+                    <line x1="12" y1="50" x2="88" y2="50"></line>
+                    <line x1="23" y1="23" x2="77" y2="77"></line>
+                    <line x1="77" y1="23" x2="23" y2="77"></line>
+                  </g>
+                  <rect
+                    x="47"
+                    y="4"
+                    width="6"
+                    height="10"
+                    rx="1.5"
+                    class="hw-index"
+                  ></rect>
+                </svg>
+              </div>
+              <p class="wheel-name">RANGE<br />(YARDS)</p>
+              <output class="wheel-readout" id="readRange">08000</output>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 · computer ------------------------------------------------------- -->
+        <section
+          class="station station-computer"
+          aria-label="Solution computer"
+        >
+          <h2 class="station-title">
+            <span class="step-no">3</span> SOLUTION DRUMS
+          </h2>
+
+          <div class="mode-block">
+            <div
+              class="rotary-selector"
+              id="modeSelector"
+              data-control="MODE SELECTOR"
+            >
+              <svg viewBox="0 0 90 90" aria-hidden="true">
+                <circle cx="45" cy="45" r="36" class="rs-bezel"></circle>
+                <g class="rs-knob" id="rsKnob">
+                  <circle cx="45" cy="45" r="27" class="rs-face"></circle>
+                  <line
+                    class="rs-pointer"
+                    x1="45"
+                    y1="45"
+                    x2="45"
+                    y2="14"
+                  ></line>
+                  <circle cx="45" cy="45" r="6" class="rs-cap"></circle>
+                </g>
+              </svg>
+              <div
+                class="rs-legends"
+                role="radiogroup"
+                aria-label="Mode selector: off, track, compute"
+              >
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="true"
+                  data-mode="off"
+                  class="rs-leg"
+                >
+                  OFF
+                </button>
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="false"
+                  data-mode="track"
+                  class="rs-leg"
+                >
+                  TRACK
+                </button>
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="false"
+                  data-mode="compute"
+                  class="rs-leg"
+                >
+                  COMPUTE
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="drum-stack">
+            <div class="drum-row">
+              <span class="drum-label">GUN BEARING</span>
+              <output class="drum-window" id="drumBearing">---.-&deg;</output>
+            </div>
+            <div class="drum-row">
+              <span class="drum-label">QUAD. ELEVATION</span>
+              <output class="drum-window" id="drumElevation">--.--&deg;</output>
+            </div>
+            <div class="drum-row">
+              <span class="drum-label">PREDICTED RANGE</span>
+              <output class="drum-window" id="drumRange">----- YD</output>
+            </div>
+          </div>
+
+          <label class="jewel-lamp lamp-valid">
+            <input
+              type="checkbox"
+              class="lamp-io"
+              data-lamp="ordersValid"
+              disabled
+            />
+            <span class="jewel" aria-hidden="true"></span>
+            <span class="lamp-text">ORDERS VALID</span>
+          </label>
+
+          <div class="cage-block">
+            <button
+              type="button"
+              class="guarded-toggle cage-switch"
+              data-control="GYRO CAGE SWITCH"
+              aria-pressed="false"
+              aria-label="Gyro cage switch, FREE and CAGE"
+            >
+              <span class="guard" aria-hidden="true"></span>
+              <span class="bat-lever" aria-hidden="true"></span>
+              <span class="tg-scale" aria-hidden="true"
+                ><i>CAGE</i><i>FREE</i></span
+              >
+            </button>
+            <p class="tg-caption">GYRO<br />CAGE</p>
+          </div>
+        </section>
+
+        <!-- 4 · gunnery -------------------------------------------------------- -->
+        <section class="station station-gunnery" aria-label="Gunnery">
+          <h2 class="station-title"><span class="step-no">4</span> GUNNERY</h2>
+
+          <div class="fire-block">
+            <button
+              type="button"
+              class="fire-key"
+              data-control="FIRE KEY"
+              aria-label="Fire key — fires one round when orders are valid"
+            >
+              <span class="fk-guard" aria-hidden="true"></span>
+              <span class="fk-button" aria-hidden="true">FIRE</span>
+            </button>
+            <p class="tg-caption">BOTH GUNS<br />SALVO</p>
+          </div>
+
+          <div class="gun-data">
+            <div class="counter-row">
+              <span class="counter-label">ROUNDS FIRED</span>
+              <output class="drum-window small" id="drumRounds">0000</output>
+            </div>
+            <div
+              class="heat-gauge"
+              role="img"
+              aria-label="Barrel temperature gauge"
+            >
+              <span class="hg-tube"
+                ><span class="hg-fill" id="heatFill"></span
+              ></span>
+              <span class="hg-scale" aria-hidden="true"
+                ><i>COLD</i><i>HOT</i></span
+              >
+              <span class="hg-caption">BARREL HEAT</span>
+            </div>
+          </div>
+
+          <p class="interlock-note" id="interlockNote">
+            INTERLOCK: NO ORDER — DRUMS IDLE
+          </p>
+        </section>
+      </main>
+
+      <!-- ===== bottom rail ==================================================== -->
+      <footer class="bottom-rail">
+        <div class="annunciator-strip" aria-label="Alarm annunciators">
+          <span class="ann-title">ANNUNCIATOR</span>
+          <span class="ann-window" data-alarm="LOW VOLTAGE">LOW VOLTAGE</span>
+          <span class="ann-window" data-alarm="GYRO DRIFT">GYRO DRIFT</span>
+          <span class="ann-window" data-alarm="RANGE SERVO">RANGE SERVO</span>
+          <span class="ann-window" data-alarm="OVERHEAT">OVERHEAT</span>
+          <span class="ann-window" data-alarm="TRACK LOST">TRACK LOST</span>
+          <button
+            type="button"
+            class="silence-btn"
+            data-control="ALARM SILENCE"
+            aria-label="Silence the alarm buzzer"
+          >
+            SILENCE
+          </button>
+        </div>
+
+        <div class="test-panel" aria-label="Maintenance fault test panel">
+          <span class="tp-title">MAINTENANCE — FAULT TEST</span>
+          <button
+            type="button"
+            class="guarded-toggle test-toggle"
+            data-control="GYRO DRIFT TEST"
+            aria-pressed="false"
+            aria-label="Fault test: gyro drift"
+          >
+            <span class="guard" aria-hidden="true"></span>
+            <span class="bat-lever" aria-hidden="true"></span>
+            <span class="tg-label">GYRO DRIFT</span>
+          </button>
+          <button
+            type="button"
+            class="guarded-toggle test-toggle"
+            data-control="GENERATOR OVERLOAD TEST"
+            aria-pressed="false"
+            aria-label="Fault test: generator overload"
+          >
+            <span class="guard" aria-hidden="true"></span>
+            <span class="bat-lever" aria-hidden="true"></span>
+            <span class="tg-label">GEN OVERLOAD</span>
+          </button>
+          <button
+            type="button"
+            class="guarded-toggle test-toggle"
+            data-control="RANGE SERVO TEST"
+            aria-pressed="false"
+            aria-label="Fault test: range transmission failure"
+          >
+            <span class="guard" aria-hidden="true"></span>
+            <span class="bat-lever" aria-hidden="true"></span>
+            <span class="tg-label">RANGE SERVO</span>
+          </button>
+          <button
+            type="button"
+            class="reset-btn"
+            id="systemReset"
+            aria-label="Reset the director to cold and alarm-free"
+          >
+            SYSTEM&nbsp;RESET
+          </button>
+        </div>
+
+        <p class="rating-plate">
+          SUPPLY 415&thinsp;V 3-PH 50&thinsp;c/s · DIRECTOR WT 6½ cwt · DO NOT
+          OIL CAMS · PATENT PENDING No.&nbsp;512044
+        </p>
+      </footer>
+    </div>
+
+    <!-- ===== manual dialog ==================================================== -->
+    <dialog class="manual-dialog" data-manual aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="manual-chrome-title"
+          >ORDNANCE HANDBOOK — FIRE DIRECTOR Mk.&nbsp;IV</span
+        >
+        <button type="button" class="manual-close" data-action="close-manual">
+          CLOSE BOOK
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Fire Director Mk. IV operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

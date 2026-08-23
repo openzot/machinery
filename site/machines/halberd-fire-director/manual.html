@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Handbook — Fire Director Mk. IV</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="handbook">
+    <div class="hb-page">
+      <header class="hb-cover">
+        <p class="hb-stamp">RESTRICTED — B.R. 934A(43) — FOR BATTERY USE</p>
+        <h1>The Fire Director Mark IV</h1>
+        <p class="hb-sub">
+          HANDBOOK OF INSTRUCTIONS FOR THE CARE AND OPERATION OF THE<br />
+          FIRE DIRECTOR, COAST ARTILLERY, TWIN 6-INCH MOUNTINGS
+        </p>
+        <p class="hb-maker">
+          RAVENCROFT ORDNANCE WORKS LTD., IRONGATE FOUNDRY &nbsp;·&nbsp; 1943
+        </p>
+        <nav class="hb-nav">
+          <a href="./">&#8592; BACK TO THE PANEL</a>
+          <a href="../../">FACTORY SHELF &#8594;</a>
+        </nav>
+      </header>
+
+      <h2 id="overview">Overview</h2>
+      <p>
+        The Director is a computing instrument. Its duty is to watch a moving
+        ship through its optical head, measure her bearing and range
+        continuously, and convert those measurements — allowing for the time of
+        flight of the projectile — into firing orders for the twin 6-inch guns
+        of the battery.
+      </p>
+      <p>
+        It does not think for itself. The drums will follow any fool at the
+        wheels; they will also follow a drifting gyro or a sagging generator
+        without complaint. The operator's craft is to keep the reticle on the
+        target, to know when the drums are lying, and to put right what the test
+        panel shows broken before the next salvo goes out on false data.
+      </p>
+
+      <h2 id="controls">Controls</h2>
+      <dl class="hb-controls">
+        <dt>MOTOR-GENERATOR SWITCH</dt>
+        <dd>
+          Guarded toggle under a wire guard, power station, left of panel. ON
+          starts the motor-generator set and energises the 415-volt bus. OFF
+          stops it; three seconds at rest also resets an overloaded breaker.
+        </dd>
+
+        <dt>Gyro voltmeter</dt>
+        <dd>
+          Dial instrument beside the switch. Red sector below 350 volts: do not
+          trust the drums there. Needle should stand near V on the scale.
+        </dd>
+
+        <dt>GYRO CAGE SWITCH</dt>
+        <dd>
+          Guarded toggle in the computer station. FREE is the working position.
+          CAGE locks the gyroscope against precession; hold CAGE for at least
+          three seconds to re-cage after drift, then return to FREE.
+        </dd>
+
+        <dt>MODE SELECTOR</dt>
+        <dd>
+          Bakelite knob with three legend positions beneath it. OFF: drums
+          parked, servo re-syncing. TRACK: tracker live, quality building while
+          you match. COMPUTE: orders flow when quality and gyro conditions are
+          satisfied.
+        </dd>
+
+        <dt>AZIMUTH HANDWHEEL</dt>
+        <dd>
+          Nickelled spoked wheel, left of the tracking bench. Turn to train the
+          optical head onto the ship until she sits under the vertical wire of
+          the reticle.
+        </dd>
+
+        <dt>RANGE HANDWHEEL</dt>
+        <dd>
+          Twin of the training wheel, right of the bench. Turn to keep the
+          waterline of the ship on the horizontal wire. When both wires hold
+          her, the amber ON TARGET jewel lights.
+        </dd>
+
+        <dt>FIRE KEY</dt>
+        <dd>
+          Brass plunger in a red collar, gunnery station. Fires one salvo from
+          both guns, but only when the ORDERS VALID jewel is lit and the
+          barrel-heat gauge is out of the red. Each round adds heat; the liner
+          takes minutes, not seconds, to cool.
+        </dd>
+
+        <dt>ALARM SILENCE</dt>
+        <dd>
+          Small black push-button in the annunciator strip. Stops the buzzer and
+          steadies the flashing windows. It silences nothing else: a lit window
+          stays lit until its cause is cleared.
+        </dd>
+
+        <dt>GYRO DRIFT TEST</dt>
+        <dt>GENERATOR OVERLOAD TEST</dt>
+        <dt>RANGE SERVO TEST</dt>
+        <dd>
+          Three guarded toggles behind the MAINTENANCE plate on the bottom rail.
+          They put the named defect onto the machine exactly as action would.
+          Use them in training until recovery is routine; leave them OFF at all
+          other times.
+        </dd>
+
+        <dt>SYSTEM RESET</dt>
+        <dd>
+          Ivory button at the end of the maintenance plate. Returns the whole
+          director to cold: power off, drums parked, alarms dark, faults
+          cleared, guns cold.
+        </dd>
+      </dl>
+
+      <h2 id="normal-operation">Normal operation</h2>
+      <ol class="hb-procedure">
+        <li>
+          Inspect that all fault-test toggles are OFF and the MODE SELECTOR
+          stands at OFF. Switch MOTOR-GENERATOR SWITCH to ON.
+        </li>
+        <li>
+          Watch the voltmeter climb to about 415 volts and wait for the green
+          GYRO READY jewel — roughly twenty seconds of spin-up. Do not hurry
+          this; the drums cannot compute on a lazy flywheel.
+        </li>
+        <li>Set the MODE SELECTOR to TRACK.</li>
+        <li>
+          Take station at the wheels. Turn the AZIMUTH HANDWHEEL until the ship
+          rides the vertical wire; turn the RANGE HANDWHEEL until her waterline
+          sits on the horizontal wire. She will not stay put — anticipate her.
+        </li>
+        <li>
+          When the amber ON TARGET jewel lights and stays lit, hold the match.
+          The quality of your track is building; five steady seconds is enough.
+        </li>
+        <li>
+          Set the MODE SELECTOR to COMPUTE. The solution drums run up to gun
+          bearing, quadrant elevation and predicted range, and the ORDERS VALID
+          jewel lights.
+        </li>
+        <li>
+          Check the interlock note reads ORDERS FLOWING. Press the FIRE KEY once
+          per ordered salvo.
+        </li>
+        <li>
+          Watch BARREL HEAT after each round. If it enters the red sector, cease
+          fire and let it fall below the mark before resuming.
+        </li>
+      </ol>
+
+      <h2 id="alarms">Alarms</h2>
+      <table class="hb-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Meaning</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LOW VOLTAGE</td>
+            <td>
+              Bus below 380 volts — overloaded set, tripped breaker, or the
+              overload defect itself.
+            </td>
+            <td>
+              Orders are already invalid. Put the M-G switch OFF, count three,
+              ON again. If the window relights, shed everything non-essential
+              and send for the electrical artificer.
+            </td>
+          </tr>
+          <tr>
+            <td>GYRO DRIFT</td>
+            <td>
+              The gyroscope is precessing; the bearing drum follows the drift
+              and lays wide.
+            </td>
+            <td>
+              Orders are plausible and wrong. Throw GYRO CAGE SWITCH to CAGE,
+              hold three seconds with the bus healthy, return to FREE, and
+              re-establish your match before trusting the drums.
+            </td>
+          </tr>
+          <tr>
+            <td>RANGE SERVO</td>
+            <td>
+              The range-data transmission has jammed; the range counter will not
+              answer its wheel.
+            </td>
+            <td>
+              Stop ranging. Set MODE SELECTOR to OFF, leave it there five
+              seconds for the servo to re-sync, then resume at TRACK.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERHEAT</td>
+            <td>
+              Barrel heat has passed 100 on the gauge. The interlock holds fire
+              automatically.
+            </td>
+            <td>
+              Cease fire entirely. Do not touch the key until the gauge falls
+              below the cool mark and the window goes dark by itself.
+            </td>
+          </tr>
+          <tr>
+            <td>TRACK LOST</td>
+            <td>
+              In COMPUTE the match has been held too poorly for too long; the
+              plot is stale.
+            </td>
+            <td>
+              Go back to TRACK, re-match on the wheels, and only then return to
+              COMPUTE. Firing on a stale plot wastes the magazine.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="faults">Faults and recovery</h2>
+      <ol class="hb-faults">
+        <li>
+          <strong>gyro drift.</strong> <em>You see:</em> GYRO DRIFT window lit;
+          the gun-bearing drum walks slowly off the ship even though ON TARGET
+          is lit. <em>Do:</em> confirm bus volts above the red sector; throw the
+          GYRO CAGE SWITCH to CAGE and hold it three full seconds; release to
+          FREE; re-match on the wheels until ON TARGET burns steady; return to
+          COMPUTE and watch the bearing drum settle back. If drift returns
+          within the hour, the gyro is due the workshop — report it.
+        </li>
+        <li>
+          <strong>generator overload.</strong> <em>You see:</em> the voltmeter
+          falls into the red sector, lamps dim, LOW VOLTAGE lights, ORDERS VALID
+          goes out. Ignore it long enough and the breaker trips the set
+          completely. <em>Do:</em> MOTOR-GENERATOR SWITCH to OFF; wait three
+          seconds by the sweep of the second hand (less accomplishes nothing);
+          switch ON; verify 415 volts and GYRO READY before recomputing.
+        </li>
+        <li>
+          <strong>range transmission failure.</strong> <em>You see:</em> RANGE
+          SERVO window lit; the range handwheel spins free but the range counter
+          and the ship's image along the horizontal wire refuse to move.
+          <em>Do:</em> stop ranging at once; set MODE SELECTOR to OFF for five
+          seconds to let the servo re-sync; the RANGE SERVO window drops; resume
+          at TRACK, rebuild the match, then COMPUTE.
+        </li>
+      </ol>
+      <p>
+        Every one of these defects may be practised safely from the maintenance
+        plate: throw the matching TEST toggle, work the recovery above, and
+        confirm the window extinguishes.
+      </p>
+
+      <h2 id="specifications">Specifications</h2>
+      <table class="hb-table">
+        <tbody>
+          <tr>
+            <th>Supply</th>
+            <td>415 V, 3-phase, 50 c/s, from battery M-G set</td>
+          </tr>
+          <tr>
+            <th>Bus limits</th>
+            <td>Normal 415 V · compute floor 380 V · red sector below 350 V</td>
+          </tr>
+          <tr>
+            <th>Gyroscope</th>
+            <td>
+              Air-damped, 20-second run-up to ready; cage hold 3 s minimum
+            </td>
+          </tr>
+          <tr>
+            <th>Tracking errors allowed</th>
+            <td>
+              &plusmn;0.8&deg; in bearing &middot; &plusmn;90 yd in range, for a
+              matched sight
+            </td>
+          </tr>
+          <tr>
+            <th>Range scale</th>
+            <td>800 to 16,000 yards</td>
+          </tr>
+          <tr>
+            <th>Time of flight assumed</th>
+            <td>Predicted range divided by 866 yd/s, iterated thrice</td>
+          </tr>
+          <tr>
+            <th>Quadrant elevation</th>
+            <td>0.4&deg; to 25&deg; by range law</td>
+          </tr>
+          <tr>
+            <th>Barrel heat</th>
+            <td>
+              +16 units per salvo · cooling 1.15 units/s · interlock at 100 ·
+              liner ruin at 118
+            </td>
+          </tr>
+          <tr>
+            <th>Rounds per engagement</th>
+            <td>
+              As ordered; the drums do not ration you, the heat gauge does
+            </td>
+          </tr>
+          <tr>
+            <th>Director weight</th>
+            <td>6&frac12; cwt, shock-mounted</td>
+          </tr>
+          <tr>
+            <th>Servicing</th>
+            <td>Cams sealed — DO NOT OIL. Annual strip by armourer only.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="hb-foot">
+        <p>
+          Printed by the Works Press, Irongate. Amendments to be pasted over the
+          table in red ink.<br />
+          <a href="./">&#8592; BACK TO THE PANEL</a> &nbsp;·&nbsp;
+          <a href="../../">FACTORY SHELF &#8594;</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
