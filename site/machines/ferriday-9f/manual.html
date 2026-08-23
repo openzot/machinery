@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ferriday 9/F Process Computer — Operating Manual</title>
+    <meta
+      name="description"
+      content="Operating manual for the Ferriday 9/F process computer: controls, start-up procedure, alarms, fault recovery and specifications."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <div class="manual-sheet">
+      <header class="man-head">
+        <p class="man-house">
+          FERRIDAY INSTRUMENT CO LTD &middot; READING &middot; ENGLAND
+        </p>
+        <h1>TYPE 9/F PROCESS COMPUTER<br />OPERATING MANUAL</h1>
+        <p class="man-pub">
+          PUBLICATION 9F&#8209;MAN&#8209;003 &middot; ISSUE 2 &middot; MARCH
+          1974
+        </p>
+        <p class="man-note">
+          For operators and maintenance engineers. Read Section&nbsp;3 before
+          setting the machine to work. This manual is bolted to the cabinet
+          door; leave it there.
+        </p>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        The Type&nbsp;9/F is a twelve-bit digital process computer with 4096
+        words of magnetic-core store. It was built to stand in a factory annex
+        and hold a paper mill, a substation telemetry scheme or a chemical batch
+        on its own for weeks at a time. Everything the operator needs is on the
+        front panel: the register lamps that show what the processor holds, four
+        nixie clusters that read out address, memory buffer and program output
+        in octal, two banks of twelve paddle switches, and the keys that load,
+        examine, deposit, start and stop her.
+      </p>
+      <p>
+        The resident diagnostic sweeps odd words for primality and posts each
+        prime it finds to the PROGRAM OUTPUT cluster; she will run it for as
+        long as you care to watch. The machine asks little of you: keep the
+        +5&nbsp;V rail inside its green arc, keep the core stack out of its
+        amber band, and answer the horn when she raises one of the six
+        annunciators. The CLOCK RATE knob is a bargain struck between speed and
+        heat &mdash; every tenth of a megahertz above the nominal mark costs you
+        degrees, and the core remembers every degree you spend.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Type</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MAINS BREAKER</td>
+            <td>guarded toggle</td>
+            <td>
+              Lift the clear guard and throw to ON to energise the supply.
+              Throwing to OFF strips all power.
+            </td>
+          </tr>
+          <tr>
+            <td>MODE SELECTOR</td>
+            <td>rotary, five positions</td>
+            <td>
+              OFF dead; STANDBY powered, clocked but idle; LOAD for depositing
+              core by hand; RUN frees the clock; MAINT for single-step work.
+            </td>
+          </tr>
+          <tr>
+            <td>CLOCK RATE</td>
+            <td>rotary fine-rate knob</td>
+            <td>
+              Sets the beat, 0&middot;2&ndash;1&middot;6 MHz. Arrows or wheel
+              work it from the keyboard. Nominal mark 1&middot;2.
+            </td>
+          </tr>
+          <tr>
+            <td>ADDRESS SWITCHES</td>
+            <td>twelve paddles</td>
+            <td>
+              Sets an address word. Paddle up is a ONE. Bit 11 is at the left.
+            </td>
+          </tr>
+          <tr>
+            <td>DATA SWITCHES</td>
+            <td>twelve paddles</td>
+            <td>Sets a data word for DEPOSIT.</td>
+          </tr>
+          <tr>
+            <td>ADDRESS LOAD</td>
+            <td>key</td>
+            <td>
+              Takes the address switches into the address register; the ADDRESS
+              nixie follows.
+            </td>
+          </tr>
+          <tr>
+            <td>EXAMINE</td>
+            <td>key</td>
+            <td>
+              Reads core at the addressed word into the MEMORY BUFFER display.
+            </td>
+          </tr>
+          <tr>
+            <td>DEPOSIT</td>
+            <td>key</td>
+            <td>
+              Writes the data switches into core at the addressed word, then
+              steps the address on by one.
+            </td>
+          </tr>
+          <tr>
+            <td>CLEAR</td>
+            <td>key</td>
+            <td>
+              Zeros accumulator, multiplier-quotient and link. Also purges a
+              memory scramble and restores the protected core image.
+            </td>
+          </tr>
+          <tr>
+            <td>START</td>
+            <td>key</td>
+            <td>
+              Frees the clock at the loaded address. Lives only in RUN mode, and
+              refuses while a trip stands.
+            </td>
+          </tr>
+          <tr>
+            <td>STOP</td>
+            <td>key</td>
+            <td>
+              Holds the clock. The HALT jewel lights when the processor stands.
+            </td>
+          </tr>
+          <tr>
+            <td>SINGLE STEP</td>
+            <td>key</td>
+            <td>One instruction per press, in RUN or MAINT.</td>
+          </tr>
+          <tr>
+            <td>BLOWER</td>
+            <td>guarded toggle</td>
+            <td>
+              The core-stack cooling fan. Cycling it OFF then ON restarts a
+              tripped motor.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM ACKNOWLEDGE</td>
+            <td>key</td>
+            <td>
+              Silences the horn and steadies the flashing lenses. Accepts the
+              thermal trip once she has cooled.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMPS TEST</td>
+            <td>key, hold down</td>
+            <td>
+              While held, every lamp, lens and nixie digit lights. Hold for two
+              seconds each shift.
+            </td>
+          </tr>
+          <tr>
+            <td>MAINTENANCE TESTS</td>
+            <td>hinged tray</td>
+            <td>
+              Opens the fault-injector tray: PARITY TEST, DC LOAD TEST and
+              BLOWER TRIP TEST latching switches and the PARITY CLEAR key.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="man-proc">
+        <li>
+          Inspect: MODE SELECTOR at OFF, MAINS BREAKER OFF and guarded, BLOWER
+          ON.
+        </li>
+        <li>
+          Lift the breaker guard and throw MAINS BREAKER ON. The POWER jewel
+          lights and the DC LOW lens shows while the rails rise; it must go dark
+          within three seconds.
+        </li>
+        <li>
+          Turn MODE SELECTOR to STANDBY and listen for the blower. AIRFLOW LOSS
+          must stay dark.
+        </li>
+        <li>Set CLOCK RATE to the nominal mark, 1&middot;2 MHz.</li>
+        <li>
+          Set the ADDRESS SWITCHES to the diagnostic entry, octal 7600: paddles
+          11, 10, 9 up; the rest down. The factory leaves them set thus.
+        </li>
+        <li>Press ADDRESS LOAD. The ADDRESS nixie reads 7600.</li>
+        <li>
+          Press EXAMINE once to confirm core reads back, then press CLEAR.
+        </li>
+        <li>
+          Turn MODE SELECTOR to RUN and press START. The RUN jewel lights, the
+          register lamps dance, and primes begin to post on PROGRAM OUTPUT.
+        </li>
+        <li>
+          After five minutes, read the meters: +5&nbsp;V RAIL in its green arc
+          between 4&middot;9 and 5&middot;3 volts; CORE STACK settling in the
+          mid-fifties with OVERTEMPERATURE dark.
+        </li>
+        <li>
+          To stop for the night: press STOP, turn MODE SELECTOR to STANDBY, and
+          leave the blower running until CORE STACK falls below forty degrees.
+          Then MODE to OFF and throw MAINS BREAKER OFF.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Lens</th>
+            <th>Meaning</th>
+            <th>Immediate action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PARITY ERROR</td>
+            <td>
+              A core word failed its sweep check. She halts where she stood and
+              the halt address sits in the ADDRESS nixie.
+            </td>
+            <td>
+              Silence the horn, go to Section&nbsp;5, parity recovery. She does
+              not restart herself.
+            </td>
+          </tr>
+          <tr>
+            <td>DC LOW</td>
+            <td>+5&nbsp;V rail out of its green arc, on load or on test.</td>
+            <td>
+              Check the meter. If the rail is genuinely low, shed load: CLOCK
+              RATE down a mark, or STOP. Ignored, she scrambles memory.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERTEMPERATURE</td>
+            <td>Core stack past 65&nbsp;&deg;C and climbing.</td>
+            <td>
+              Confirm blower running, CLOCK RATE back towards 0&middot;6. If
+              ignored she trips herself at 80&nbsp;&deg;C.
+            </td>
+          </tr>
+          <tr>
+            <td>THERMAL TRIP</td>
+            <td>
+              Core stack reached 80&nbsp;&deg;C; the clock has been stripped and
+              she is halted.
+            </td>
+            <td>
+              Let her cool below 55&nbsp;&deg;C, then press ALARM ACKNOWLEDGE to
+              rearm, and restart per Section&nbsp;3.
+            </td>
+          </tr>
+          <tr>
+            <td>AIRFLOW LOSS</td>
+            <td>
+              The plenum switch feels no air: blower tripped, or thrown off with
+              the machine powered.
+            </td>
+            <td>
+              Cycle the BLOWER breaker OFF then ON. If the lens holds, do not
+              run the clock; call maintenance.
+            </td>
+          </tr>
+          <tr>
+            <td>MEMORY SCRAMBLE</td>
+            <td>
+              The rail sagged too long and core wrote badly. Registers are
+              refuse and she is halted.
+            </td>
+            <td>
+              MODE to STANDBY, press CLEAR to restore the protected core image,
+              acknowledge, then repeat the start-up procedure from
+              paragraph&nbsp;6.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="man-small">
+        A new alarm flashes until accepted; accepted alarms burn steady until
+        their condition clears. The horn runs only while a flashing lens stands.
+        Jewels: POWER amber, BLOWER ivory, RUN green, HALT red &mdash;
+        indicators, not alarms.
+      </p>
+
+      <h2>Faults and recovery</h2>
+      <h3>Core memory parity error</h3>
+      <p>
+        <em>You see:</em> PARITY ERROR flashing, the horn sounding, HALT jewel
+        lit and the RUN jewel dark. The ADDRESS nixie holds the failing word.
+        The machine will not restart until the error is cleared &mdash; this is
+        deliberate; a doubtful word is worse than a stopped one.
+      </p>
+      <ol class="man-proc">
+        <li>
+          Press ALARM ACKNOWLEDGE to steady the lens and silence the horn.
+        </li>
+        <li>
+          If the PARITY TEST switch in the maintenance tray stands latched,
+          release it.
+        </li>
+        <li>Turn MODE SELECTOR to MAINT.</li>
+        <li>
+          Press PARITY CLEAR. The lens goes dark and the failing bit is
+          rewritten.
+        </li>
+        <li>
+          Return MODE SELECTOR to RUN and press START. She resumes at the
+          diagnostic entry.
+        </li>
+      </ol>
+      <h3>Power supply undervoltage</h3>
+      <p>
+        <em>You see:</em> DC LOW flashing and the +5&nbsp;V needle fallen out of
+        its green arc. If the sag stands below 4&middot;55 volts for some
+        eighteen seconds the MEMORY SCRAMBLE lens joins it, the registers fill
+        with refuse and she halts.
+      </p>
+      <ol class="man-proc">
+        <li>
+          Release the DC LOAD TEST switch if it stands latched in the
+          maintenance tray.
+        </li>
+        <li>
+          Shed load: CLOCK RATE down a mark, or press STOP, until the needle
+          sits in its green arc.
+        </li>
+        <li>
+          Acknowledge DC LOW once the rail holds 4&middot;9 or better for a
+          minute.
+        </li>
+        <li>
+          If MEMORY SCRAMBLE lit: MODE to STANDBY, press CLEAR &mdash; the
+          protected core image is restored &mdash; acknowledge, then repeat
+          Section&nbsp;3 from paragraph&nbsp;6.
+        </li>
+      </ol>
+      <h3>Blower failure</h3>
+      <p>
+        <em>You see:</em> AIRFLOW LOSS at once, then CORE STACK climbing through
+        the amber band; OVERTEMPERATURE follows, and at 80&nbsp;&deg;C she trips
+        herself and halts with THERMAL TRIP burning.
+      </p>
+      <ol class="man-proc">
+        <li>
+          Throw the guarded BLOWER breaker OFF, count three, throw it ON. The
+          motor restarts and AIRFLOW LOSS goes dark.
+        </li>
+        <li>
+          Release the BLOWER TRIP TEST switch if it stands latched in the
+          maintenance tray.
+        </li>
+        <li>
+          Hold CLOCK RATE at or below the nominal mark until CORE STACK falls
+          under 55&nbsp;&deg;C.
+        </li>
+        <li>
+          Press ALARM ACKNOWLEDGE to rearm the thermal trip, then press START.
+        </li>
+        <li>
+          If the motor will not turn, leave her stopped and call the Ferriday
+          service engineer. Do not run the clock on a dead plenum.
+        </li>
+      </ol>
+      <p class="man-small">
+        Note on the injector: the test switches drive the detector lines
+        upstream of the DC interlock, which is why a latched test shows its lens
+        even on a cold machine. They are for proving the alarm chain at each
+        shift handover, not for amusing visitors.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="man-table man-specs">
+        <tbody>
+          <tr>
+            <th>Word length</th>
+            <td>12 bits</td>
+          </tr>
+          <tr>
+            <th>Store</th>
+            <td>4096 words, magnetic core, 3&nbsp;&micro;s full cycle</td>
+          </tr>
+          <tr>
+            <th>Clock</th>
+            <td>0&middot;2&ndash;1&middot;6 MHz, nominal 1&middot;2 MHz</td>
+          </tr>
+          <tr>
+            <th>Instruction rate</th>
+            <td>approximately 133&nbsp;000 operations per second at nominal</td>
+          </tr>
+          <tr>
+            <th>Supplies</th>
+            <td>
+              +5&nbsp;V 6&nbsp;A regulated; rails must hold
+              4&middot;9&ndash;5&middot;3&nbsp;V on load
+            </td>
+          </tr>
+          <tr>
+            <th>Core stack limits</th>
+            <td>
+              OVERTEMPERATURE at 65&nbsp;&deg;C; thermal trip at 80&nbsp;&deg;C;
+              rearm below 55&nbsp;&deg;C
+            </td>
+          </tr>
+          <tr>
+            <th>Cooling</th>
+            <td>one 230&nbsp;V plenum blower, airflow sensed at the stack</td>
+          </tr>
+          <tr>
+            <th>Mains</th>
+            <td>
+              200&ndash;250&nbsp;V ~ 50&nbsp;Hz, single phase, 380&nbsp;VA
+            </td>
+          </tr>
+          <tr>
+            <th>Room conditions</th>
+            <td>
+              5&ndash;40&nbsp;&deg;C, 20&ndash;80% relative humidity, free of
+              grit
+            </td>
+          </tr>
+          <tr>
+            <th>Cabinet</th>
+            <td>
+              crinkle-enamelled steel,
+              1850&nbsp;&times;760&nbsp;&times;640&nbsp;mm, 295&nbsp;lb
+            </td>
+          </tr>
+          <tr>
+            <th>Diagnostic entry</th>
+            <td>octal 07600, resident, protected against scramble</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="man-foot">
+        <span
+          >FERRIDAY INSTRUMENT CO LTD &middot; SERVICE DEPT READING 3147
+          &middot; PRINTED IN ENGLAND</span
+        >
+        <span class="man-links"
+          ><a href="./">Back to the panel</a> &middot;
+          <a href="../../">Machinery catalogue</a></span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

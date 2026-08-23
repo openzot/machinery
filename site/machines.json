@@ -247,5 +247,44 @@
     ],
     "tagline": "Empty her flat and easy - the hull bends before the gauges tell you.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "ferriday-9f",
+    "name": "Ferriday 9/F Process Computer - Operator's Front Panel",
+    "kind": "process-control minicomputer front panel",
+    "domain": "data-centre",
+    "era": "1970s",
+    "design": "warm brown crinkle-enamel chassis with brushed-aluminium trim, white silk-screened condensed capitals, frosted amber register lamps in chrome rims, four glowing orange nixie clusters, backlit annunciator lens strips, a cream-faced moving-coil meter pair and a hinged fault-injector tray, lit entirely by room light except the machine's own tubes",
+    "interaction": "twelve-paddle ADDRESS and DATA banks worked with ADDRESS LOAD, EXAMINE and DEPOSIT keys against live nixie readouts, freed by a guarded START and traded against core-stack heat on a CLOCK RATE knob, single-stepped in MAINT",
+    "palette": [
+      "#5a4b3e",
+      "#fb7d1c",
+      "#e03a28"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "MODE SELECTOR",
+      "CLOCK RATE",
+      "ADDRESS SWITCHES",
+      "DATA SWITCHES",
+      "ADDRESS LOAD",
+      "EXAMINE",
+      "DEPOSIT",
+      "CLEAR",
+      "START",
+      "STOP",
+      "SINGLE STEP",
+      "BLOWER",
+      "ALARM ACKNOWLEDGE",
+      "LAMPS TEST",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "core memory parity error",
+      "power supply undervoltage",
+      "blower failure"
+    ],
+    "tagline": "Set twelve bits, press DEPOSIT, and keep the core stack under sixty-five.",
+    "created": "2026-08-23"
   }
 ]
