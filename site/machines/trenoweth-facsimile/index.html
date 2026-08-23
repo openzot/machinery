@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trenoweth Facsimile Chart Receiver Mk. III</title>
+    <meta
+      name="description"
+      content="Operating position for a 1950s weather-office facsimile chart receiver: bring her onto phase and take the morning analysis off the wire."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="bench">
+      <header class="head">
+        <svg class="crest" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" />
+          <path d="M32 6v52M6 32h52M14 14l36 36M50 14L14 50" />
+          <path
+            d="M32 18l4.5 12.5L49 35l-12.5 4.5L32 52l-4.5-12.5L15 35l12.5-4.5z"
+            class="crest-star"
+          />
+        </svg>
+        <div class="nameplate">
+          <h1>FACSIMILE CHART RECEIVER&nbsp;&nbsp;MK.&nbsp;III</h1>
+          <p>
+            TRENOWETH REGIONAL FORECAST OFFICE &middot; THE BUREAU &middot; TAKE
+            THE MORNING ANALYSIS OFF THE WIRE
+          </p>
+        </div>
+        <div class="serialplate">
+          <span>SERIAL No.</span>
+          <strong>F&nbsp;/&nbsp;51194</strong>
+          <span>PELL &amp; SON, INSTRUMENT MAKERS, BRISTOL</span>
+        </div>
+        <button type="button" class="headbtn" data-action="manual">
+          OPERATING MANUAL
+        </button>
+      </header>
+
+      <main class="panel">
+        <!-- ============ LEFT BAY : LINE AND POWER ===================== -->
+        <section class="bay bay-line" aria-label="Line and power">
+          <div class="baylabel">LINE &amp; POWER</div>
+
+          <div class="module mod-power">
+            <span class="modname">MAINS</span>
+            <div class="guardwrap">
+              <span class="guard" aria-hidden="true"><i>LIFT</i></span>
+              <button
+                type="button"
+                class="toggleswitch"
+                id="power"
+                role="switch"
+                aria-checked="false"
+                data-control="POWER SWITCH"
+                aria-label="POWER SWITCH"
+              ></button>
+            </div>
+            <span class="jewel" id="lamp-power" title="Mains on"
+              ><i></i><em>MAINS</em></span
+            >
+          </div>
+
+          <div class="module">
+            <span class="modname">LINE VOLTS</span>
+            <span
+              class="counter"
+              id="volts-counter"
+              aria-label="Line volts readout"
+              >000</span
+            >
+          </div>
+
+          <fieldset class="module rotary" data-control="CIRCUIT SELECTOR">
+            <legend class="sr-only">CIRCUIT SELECTOR</legend>
+            <span class="modname">CIRCUIT</span>
+            <span class="seldial" aria-hidden="true"
+              ><i id="circuit-pointer"></i
+            ></span>
+            <span class="sellabels">
+              <label
+                ><input type="radio" name="circuit" value="main" checked /><b
+                  >MAIN LINE</b
+                ></label
+              >
+              <label
+                ><input type="radio" name="circuit" value="standby" /><b
+                  >STANDBY LINE</b
+                ></label
+              >
+              <label
+                ><input type="radio" name="circuit" value="tone" /><b
+                  >TEST TONE</b
+                ></label
+              >
+            </span>
+          </fieldset>
+
+          <div class="module">
+            <span class="modname">GAIN</span>
+            <div class="knobwrap">
+              <span class="knob" id="knob-gain" aria-hidden="true"
+                ><i></i
+              ></span>
+              <input
+                type="range"
+                id="gain"
+                min="-15"
+                max="15"
+                step="1"
+                value="0"
+                data-control="GAIN CONTROL"
+                aria-label="GAIN CONTROL, decibels"
+              />
+            </div>
+            <span class="scalemark" aria-hidden="true"
+              ><b>-15</b><b>+15&nbsp;dB</b></span
+            >
+          </div>
+
+          <div class="module mod-meter">
+            <span class="modname">SIGNAL LEVEL&nbsp;&nbsp;-&nbsp;dB</span>
+            <span class="meter" aria-hidden="true">
+              <i class="needle" id="needle-signal"></i>
+              <u class="band"></u>
+              <u class="ticks"></u>
+            </span>
+            <span class="meterscale" aria-hidden="true"
+              ><b>50</b><b>30</b><b>20</b><b>10</b><b>0</b></span
+            >
+          </div>
+        </section>
+
+        <!-- ============ CENTRE BAY : SYNCHRONISING ==================== -->
+        <section class="bay bay-sync" aria-label="Synchronising">
+          <div class="baylabel">SYNCHRONISING</div>
+
+          <fieldset class="module rotary" data-control="INDEX SELECTOR">
+            <legend class="sr-only">INDEX SELECTOR</legend>
+            <span class="modname">INDEX</span>
+            <span class="seldial" aria-hidden="true"
+              ><i id="index-pointer"></i
+            ></span>
+            <span class="sellabels">
+              <label
+                ><input type="radio" name="index" value="60" /><b
+                  >60&nbsp;/&nbsp;92</b
+                ></label
+              >
+              <label
+                ><input type="radio" name="index" value="90" checked /><b
+                  >90&nbsp;/&nbsp;132</b
+                ></label
+              >
+              <label
+                ><input type="radio" name="index" value="120" /><b
+                  >120&nbsp;/&nbsp;176</b
+                ></label
+              >
+            </span>
+          </fieldset>
+
+          <div class="module">
+            <span class="modname">PHASE</span>
+            <div class="knobwrap">
+              <span class="knob" id="knob-phase" aria-hidden="true"
+                ><i></i
+              ></span>
+              <input
+                type="range"
+                id="phase"
+                min="-60"
+                max="60"
+                step="1"
+                value="0"
+                data-control="PHASE CONTROL"
+                aria-label="PHASE CONTROL, degrees"
+              />
+            </div>
+            <span class="scalemark" aria-hidden="true"
+              ><b>LAG</b><b>LEAD</b></span
+            >
+          </div>
+
+          <div class="module mod-meter">
+            <span class="modname">PHASE ERROR&nbsp;&nbsp;&plusmn;DEG</span>
+            <span class="meter" aria-hidden="true">
+              <i class="needle" id="needle-phase"></i>
+              <u class="ticks"></u>
+            </span>
+            <span class="meterscale" aria-hidden="true"
+              ><b>60</b><b>30</b><b>0</b><b>30</b><b>60</b></span
+            >
+          </div>
+
+          <div class="module mod-eye">
+            <span class="modname">ON SYNC</span>
+            <span class="eye" id="sync-eye" aria-hidden="true"><i></i></span>
+            <span class="eyenote">STEADY WHEN LOCKED</span>
+          </div>
+
+          <div class="module mod-meter">
+            <span class="modname">DRUM SPEED&nbsp;&nbsp;RPM</span>
+            <span class="meter" aria-hidden="true">
+              <i class="needle" id="needle-rpm"></i>
+              <u class="ticks"></u>
+            </span>
+            <span class="meterscale" aria-hidden="true"
+              ><b>0</b><b>45</b><b>90</b><b>135</b></span
+            >
+          </div>
+
+          <div class="module mod-lever">
+            <span class="modname">CLUTCH</span>
+            <span class="quadrant" aria-hidden="false">
+              <input
+                type="range"
+                id="clutch"
+                min="0"
+                max="1"
+                step="1"
+                value="0"
+                data-control="CLUTCH LEVER"
+                aria-label="CLUTCH LEVER, stop or run"
+                aria-valuetext="STOP"
+              />
+            </span>
+            <span class="levermarks" aria-hidden="true"
+              ><b>STOP</b><b>RUN</b></span
+            >
+          </div>
+        </section>
+
+        <!-- ============ RIGHT : THE RECORDER ITSELF =================== -->
+        <section class="recorder" aria-label="Recorder">
+          <div class="baylabel">RECORDER &middot; STRIP CHART</div>
+
+          <div class="window">
+            <canvas id="paper" width="1320" height="384">
+              <p>The received chart would draw here.</p>
+            </canvas>
+            <span class="carriage" id="carriage" aria-hidden="true"
+              ><i></i><i></i
+            ></span>
+            <span class="glazing" aria-hidden="true"></span>
+            <span class="statusplate" id="chart-status">NO CHART</span>
+          </div>
+
+          <div class="reccontrols">
+            <div class="module">
+              <span class="modname">DENSITY</span>
+              <div class="knobwrap">
+                <span class="knob" id="knob-density" aria-hidden="true"
+                  ><i></i
+                ></span>
+                <input
+                  type="range"
+                  id="density"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="4"
+                  data-control="DENSITY CONTROL"
+                  aria-label="DENSITY CONTROL"
+                />
+              </div>
+              <span class="scalemark" aria-hidden="true"
+                ><b>1</b><b>10</b></span
+              >
+            </div>
+
+            <div class="module mod-temp">
+              <span class="modname">STYLUS TEMP&nbsp;&deg;C</span>
+              <span class="thermo" aria-hidden="true">
+                <u class="thermo-red"></u>
+                <i class="thermo-fill" id="thermo-fill"></i>
+                <em>95</em>
+              </span>
+              <span class="thermonotes" aria-hidden="true"
+                ><b>20</b><b>130</b></span
+              >
+            </div>
+
+            <div class="module mod-lever">
+              <span class="modname">CHART</span>
+              <span class="quadrant">
+                <input
+                  type="range"
+                  id="chartlever"
+                  min="0"
+                  max="1"
+                  step="1"
+                  value="0"
+                  data-control="CHART LEVER"
+                  aria-label="CHART LEVER, release or thread"
+                  aria-valuetext="RELEASE"
+                />
+              </span>
+              <span class="levermarks" aria-hidden="true"
+                ><b>RELEASE</b><b>THREAD</b></span
+              >
+            </div>
+
+            <div class="module">
+              <span class="modname">STYLUS</span>
+              <button
+                type="button"
+                class="pushbtn"
+                id="cleaner"
+                data-control="STYLUS CLEANER"
+              >
+                CLEANER
+              </button>
+              <span class="subnote" id="cleaner-note">STOPPED ONLY</span>
+            </div>
+
+            <div class="module">
+              <span class="modname">CHARTS TAKEN</span>
+              <span
+                class="counter counter-big"
+                id="count-good"
+                aria-label="Charts received"
+                >0000</span
+              >
+              <span class="modname">WASTED</span>
+              <span
+                class="counter counter-red"
+                id="count-waste"
+                aria-label="Charts wasted"
+                >00</span
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ============ ANNUNCIATOR RAIL =============================== -->
+      <footer class="rail">
+        <div class="flags" role="list" aria-label="Alarms">
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-siglow"
+            data-flag="SIGNAL LOW"
+            ><b>SIGNAL LOW</b></span
+          >
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-offphase"
+            data-flag="OFF PHASE"
+            ><b>OFF PHASE</b></span
+          >
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-hotstylus"
+            data-flag="STYLUS OVERHEAT"
+            ><b>STYLUS OVERHEAT</b></span
+          >
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-drivefault"
+            data-flag="DRIVE FAULT"
+            ><b>DRIVE FAULT</b></span
+          >
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-chartend"
+            data-flag="CHART END"
+            ><b>CHART END</b></span
+          >
+          <span
+            class="flag"
+            role="listitem"
+            id="flag-wasted"
+            data-flag="CHART WASTED"
+            ><b>CHART WASTED</b></span
+          >
+        </div>
+
+        <div class="railbtns">
+          <button
+            type="button"
+            class="pushbtn"
+            id="accept"
+            data-control="ALARM ACCEPT"
+          >
+            ACCEPT
+          </button>
+          <button
+            type="button"
+            class="pushbtn"
+            id="lampstest"
+            data-control="LAMPS TEST"
+          >
+            LAMPS TEST
+          </button>
+        </div>
+
+        <div class="drawer" id="drawer">
+          <button
+            type="button"
+            class="drawerlid"
+            id="drawerlid"
+            aria-expanded="true"
+          >
+            MAINTENANCE &middot; FAULT INJECTION &middot; KEEP FASTENED
+          </button>
+          <div class="drawerguts">
+            <span data-control="FAULT TEST SWITCHES" class="faultrow">
+              <span class="fcell">
+                <button
+                  type="button"
+                  class="toggleswitch ts-small"
+                  id="ft-line"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Inject line dropout"
+                ></button>
+                <b>LINE DROP</b>
+              </span>
+              <span class="fcell">
+                <button
+                  type="button"
+                  class="toggleswitch ts-small"
+                  id="ft-burn"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Inject stylus burnout"
+                ></button>
+                <b>STYLUS BURN</b>
+              </span>
+              <span class="fcell">
+                <button
+                  type="button"
+                  class="toggleswitch ts-small"
+                  id="ft-belt"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Inject drive belt slip"
+                ></button>
+                <b>BELT SLIP</b>
+              </span>
+            </span>
+
+            <button
+              type="button"
+              class="pushbtn pb-warn"
+              id="conreset"
+              data-control="CONSOLE RESET"
+            >
+              CONSOLE RESET
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <footer class="pagefoot">
+        <span
+          >Pell &amp; Son facsimile apparatus &middot; worked from the
+          instruction card F/17</span
+        >
+        <nav aria-label="Site">
+          <a href="../../">CATALOGUE OF MACHINES</a>
+          <a href="./">THIS PANEL</a>
+        </nav>
+      </footer>
+    </div>
+
+    <dialog data-manual>
+      <div class="manchrome">
+        <button type="button" class="headbtn" data-action="close-manual">
+          CLOSE THE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Facsimile Chart Receiver Mk. III"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

@@ -353,5 +353,41 @@
     ],
     "tagline": "Wind her to the top, keep her at forty-five, and let the trumpet do the talking.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "trenoweth-facsimile",
+    "name": "Trenoweth Weather Office - Facsimile Chart Receiver",
+    "kind": "weather-chart facsimile recorder position",
+    "domain": "weather",
+    "era": "1950s",
+    "design": "baked-ivory enamel office machine with oxblood two-tone skirt and bezels, nickelled trim and black bakelite knobs, transfer-printed grotesque legends, flip-flag annunciators, a daylight bench whose only glow is one amber neon sync eye",
+    "interaction": "raise gain until the signal needle stands in the band, rock the centre-zero phase knob against the tearing drum until the neon eye burns steady, drop the clutch lever and nurse density against the stylus thermometer",
+    "palette": [
+      "#e9dfc6",
+      "#7c2d26",
+      "#c22a1e"
+    ],
+    "controls": [
+      "POWER SWITCH",
+      "CIRCUIT SELECTOR",
+      "GAIN CONTROL",
+      "PHASE CONTROL",
+      "INDEX SELECTOR",
+      "CLUTCH LEVER",
+      "DENSITY CONTROL",
+      "CHART LEVER",
+      "STYLUS CLEANER",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "line dropout",
+      "stylus burnout",
+      "drive belt slip"
+    ],
+    "tagline": "Rock her onto phase before the drum tears the front off a depression.",
+    "created": "2026-08-23"
   }
 ]
