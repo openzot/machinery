@@ -1,0 +1,8 @@
+# zot's book. The ledger records which orders have settled, and committing it
+# would retire the standing order after its first shift - a recurring order
+# must never be satisfied. (The workflow also passes rerun: true, so this is
+# belt and braces.) The machinery's own order is committed under orders/.
+.zot/
+.DS_Store
+__pycache__/
+node_modules/

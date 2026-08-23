@@ -1,0 +1,63 @@
+# zot work order - the machinery's standing order, run every shift.
+#
+# Every run of this order must produce one NEW machine: a working control panel
+# for a machine that does not exist, with the manual that teaches you to run
+# it. The order never changes; what changes is the catalogue it reads first,
+# which is how each shift knows what has already been built - and what it must
+# not look like.
+
+objective: |-
+  Design and build one brand-new machine for the machinery - a control panel
+  for a machine that is not already on the shelf, with a live simulation behind
+  it, faults you can trigger and recover from, and an operating manual that
+  opens from the panel - and publish it to the catalogue.
+
+  Start by reading site/machines.json: it lists every machine made so far
+  (kind, domain, era, design, interaction, palette, controls, faults). Look at
+  the most recent three with your own eyes: run
+  `node scripts/probe.js <slug> --shots-only` for each and view the screenshots
+  it writes, so you know what the shelf already looks like. Then write down at
+  least ten candidate machines that span different domains, eras and design
+  languages, strike out every candidate that resembles an existing entry in
+  kind, in domain + era, in design language, in the way it is operated, or in
+  colour, and build the one that is most unlike everything already there.
+
+  A machine here is a specific thing from a specific place and time - a 1950s
+  grain-elevator motor room, a 2020s desalination skid, a speculative
+  deep-sea kelp harvester - and its panel must look like it was built there, by
+  the people who would have built it: the chassis material, the legends, the
+  lamps, the typography and the controls all belong to that one machine. Write
+  the design brief before the markup (AGENTS.md says what it must decide). Do
+  not make a dashboard. Do not make a generic dark UI with glowing tiles. Make
+  a panel somebody could stand in front of.
+
+  Build it as four files - markup, then style, then behaviour, then the
+  manual - then commission it: run scripts/probe.sh on it, view the desktop,
+  phone and manual screenshots it writes, judge the panel against the brief
+  and against the three machines you looked at first, and change what does not
+  hold up. A machine is not done until you have looked at it at least twice
+  and it looks like the brief - and like nothing else on the shelf.
+
+acceptance:
+  - 'site/machines/<slug>/ contains exactly four files - index.html, machine.css, machine.js and manual.html - and nothing else.'
+  - 'index.html holds only document structure: it links the stylesheet with <link rel="stylesheet" href="machine.css"> and loads the script with <script src="machine.js"></script> at the end of <body>, and contains no inline <style> block and no inline <script> block. All CSS is in machine.css; all JavaScript is in machine.js; manual.html links the same machine.css and has no inline style or script either.'
+  - 'The panel is a working simulation: machine.js models the machine as a system of at least three coupled quantities that evolve over time, rendered live on the panel (gauges, lamps, recorders, readouts, animation - whatever the machine would really have), and driven by the controls. Following the Normal operation procedure in the manual takes the machine from cold to its nominal running state; ignoring an alarm has a consequence (a trip, a shutdown, a damaged state); the machine can be reset without reloading the page.'
+  - 'machine.js exposes the fixed API window.machine = { name, faults, state(), tick(seconds), inject(fault), reset() }: faults is the list of named faults (at least two), state() returns a plain object that includes alarms (an array of the names of the alarms currently active), tick(seconds) advances the simulation deterministically by that many seconds and is the same function the animation loop uses, inject(fault) triggers that fault, and reset() returns the machine to its cold, alarm-free state. Every fault can also be triggered by a visitor from the panel itself (a maintenance, test or fault-injection control), and every fault has a recovery procedure in the manual that actually clears it.'
+  - 'Every control named in the catalogue entry is a real element on the panel carrying data-control="<that name>" and is visible on a 1440x900 screen; the panel has at least four controls of at least three different kinds (for example a guarded switch, a rotary selector and a lever - not four buttons).'
+  - 'The manual opens in the panel: a control with data-action="manual" opens a <dialog data-manual> that holds <iframe src="manual.html">, a control with data-action="close-manual" closes it, and the dialog is closed on load. manual.html also works on its own, links back to the panel (href="./") and to the catalogue (../../), and is written in the machine''s own design language - it is the document that would be bolted to the cabinet.'
+  - 'manual.html has, as <h2> sections in this order: Overview, Controls, Normal operation, Alarms, Faults and recovery, Specifications. Normal operation is a numbered <ol> procedure that works when followed; Controls names every control on the panel; Faults and recovery names every fault and says how to clear it.'
+  - 'The machine is entirely self-contained and relative-linked: no external requests of any kind, no build step, no framework, no npm, no fonts, images or sounds fetched from the network. It runs when opened straight from disk (file://) and from GitHub Pages.'
+  - 'index.html links back to the catalogue with a relative link (../../ or ../../index.html).'
+  - 'The panel fits without sideways scrolling at 1440px and at 390px wide, and the manual control is reachable on a phone.'
+  - 'You ran scripts/probe.sh <slug> and it exited 0, and you viewed the desktop, phone and manual screenshots it wrote and changed the design at least once in response to what you saw.'
+  - 'site/machines.json has exactly one new entry appended with the fields slug, name, kind, domain, era, design, interaction, palette, controls, faults, tagline and created (today, YYYY-MM-DD); the file is still valid JSON; domain and era are words from the lists in AGENTS.md; palette lists the chassis, accent and alarm colours first; controls and faults match what is on the panel and in machine.js; and no existing entry shares the new entry''s kind, its domain + era, its design, its interaction, its name, or its chassis + accent colours.'
+  - 'scripts/check.sh exits 0.'
+  - 'Nothing outside site/machines/<slug>/ and site/machines.json was changed - unless scripts/check.sh was already failing when the run began, in which case the catalogue was repaired first and that repair is the only other change.'
+
+constraints:
+  - 'Vanilla HTML, CSS and JavaScript only. No npm, no CDN, no web fonts; all art is drawn in code (CSS, SVG, canvas) or embedded as data URIs you generate yourself, and any sound is synthesised with the Web Audio API and only plays after a visitor''s gesture.'
+  - 'Exactly four files per machine - index.html, machine.css, machine.js, manual.html - together under about 160 KB. Do not create any other file in the machine directory: no assets, no modules, no README, no scratch files. Scratch work, design briefs and screenshots go in /tmp.'
+  - 'machine.js is a classic script, not an ES module: no import/export, no type="module". Load it at the end of <body> (or with defer), wrap it in an IIFE, and assign window.machine from inside it.'
+  - 'Follow the design brief discipline in AGENTS.md: decide the machine, the place, the era, the chassis material, the legend typography, the lighting model and the signature control before writing markup, and reject the slop tells listed there. Colours, type and controls belong to the machine, not to a house style.'
+  - 'Do not modify site/index.html, scripts/, orders/, the workflow, or any existing machine. Do not git commit, push or tag - the workflow commits the shift.'
+  - 'Commission your own work: lint each file with the tool that understands it (prettier, htmlhint, quick-lint-js, node --check), run scripts/probe.sh, and look at the screenshots with the view tool before declaring success. A machine you have not looked at is not finished.'

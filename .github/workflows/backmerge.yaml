@@ -1,0 +1,50 @@
+# Backmerge releases from main to next
+#
+# This workflow ensures that any commits on `main` (releases, version bumps)
+# are automatically merged back into `next` to keep branches in sync.
+#
+# This prevents divergence where main has commits that next doesn't have.
+
+name: Backmerge to next
+
+on:
+  push:
+    branches: [main]
+
+  # A push made with GITHUB_TOKEN raises no events, so the shift's own commit
+  # never triggers the push above. The shift dispatches this instead.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  backmerge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge main into next
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if ! git ls-remote --exit-code --heads origin next >/dev/null; then
+            echo "No 'next' branch on origin. Nothing to backmerge."
+            exit 0
+          fi
+
+          git fetch origin main next
+          git checkout -B next origin/next
+
+          if git merge-base --is-ancestor origin/main HEAD; then
+            echo "next already contains all commits from main. Nothing to merge."
+            exit 0
+          fi
+
+          git merge origin/main -m "chore: backmerge from main"
+          git push origin next
