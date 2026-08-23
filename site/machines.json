@@ -7,7 +7,11 @@
     "era": "1920s",
     "design": "polished-oak fascia over a cast-iron six-lever interlocking frame, cream enamel legend plates and brass roundels, a black-steel mimic diagram with incandescent track-circuit jewels, daylight lit with no glow at all",
     "interaction": "six levers pulled against a self-locking interlock in bell-offered sequence, with a single block-bell plunger to accept trains and obtain line clear",
-    "palette": ["#5f452c", "#c29a3b", "#b3201c"],
+    "palette": [
+      "#5f452c",
+      "#c29a3b",
+      "#b3201c"
+    ],
     "controls": [
       "UP HOME LEVER",
       "UP DISTANT LEVER",
@@ -24,6 +28,39 @@
       "signal wire fracture"
     ],
     "tagline": "Six levers, one bell, and four minutes between trains.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "halberd-fire-director",
+    "name": "Halberd Fire Director Mk. IV",
+    "kind": "coastal artillery fire-director computer",
+    "domain": "military",
+    "era": "1940s",
+    "design": "olive-grey hammer-finish enamel over riveted steel, stencilled white capitals and engraved brass data plates, incandescent jewel lamps on a daylight panel, ivory counter drums and a nickelled tracking bench",
+    "interaction": "twin spoked handwheels that hold an optical reticle on a moving ship until the amber match lamp burns steady, then a brass fire key under a red collar and an overheat interlock",
+    "palette": [
+      "#55604a",
+      "#e8e0c6",
+      "#c23a24"
+    ],
+    "controls": [
+      "MOTOR-GENERATOR SWITCH",
+      "GYRO CAGE SWITCH",
+      "MODE SELECTOR",
+      "AZIMUTH HANDWHEEL",
+      "RANGE HANDWHEEL",
+      "FIRE KEY",
+      "ALARM SILENCE",
+      "GYRO DRIFT TEST",
+      "GENERATOR OVERLOAD TEST",
+      "RANGE SERVO TEST"
+    ],
+    "faults": [
+      "gyro drift",
+      "generator overload",
+      "range transmission failure"
+    ],
+    "tagline": "Keep the cross on her funnel and the drums will do the arithmetic.",
     "created": "2026-08-23"
   }
 ]
