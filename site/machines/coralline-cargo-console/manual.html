@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Operating Manual M-117 — M/T Coralline Cargo Discharge Console
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-page">
+    <div class="manual-sheet">
+      <header class="manual-header">
+        <div class="mh-left">
+          <span class="mh-yard">HELSINGØR VÆRFT · INSTRUMENTS DEPARTMENT</span>
+          <h1>M/T CORALLINE<br />CARGO DISCHARGE CONSOLE</h1>
+          <span class="mh-doc"
+            >OPERATING MANUAL M-117 · PANEL CCC-2 · SECOND EDITION</span
+          >
+        </div>
+        <div class="mh-stamp">
+          <span>APPROVED</span>
+          <span>DNV·77&nbsp;C4</span>
+          <span>1972-03-14</span>
+        </div>
+      </header>
+
+      <nav class="manual-links">
+        <a href="./">&larr; BACK TO THE CONSOLE</a>
+        <a href="../../">THE MACHINERY CATALOGUE &rarr;</a>
+      </nav>
+
+      <h2 id="overview">Overview</h2>
+      <p>
+        This console governs discharge of crude cargo from the three centre
+        tanks of the motor tanker <em>Coralline</em> — 212,000 tonnes
+        deadweight, Helsingør build, 1972 — to a shore terminal through two
+        isolation valves, a common suction header and three steam-turbine cargo
+        pumps.
+      </p>
+      <p>
+        The plant is a whole, not a collection of gauges. What you take out of a
+        tank moves the ship's weight; where the weight sits bends the hull; how
+        hard the pumps work raises the pressure in the shore line; and the fire
+        that does not happen is kept from happening by the inert gas plant,
+        whose generator holds the tank atmosphere under 8 % oxygen. The console
+        exists so that one officer, standing here with coffee in hand, can see
+        all of these quantities argue with each other — and settle them before
+        the shore does it for you.
+      </p>
+      <p>
+        Three defects are provided for on the maintenance plate: a fouled
+        strainer on No.&nbsp;2 pump (which cavitates her once she is worked), a
+        jammed hydraulic actuator on valve V3, and failure of the inert gas
+        generator. Each has its recovery procedure in
+        <em>Faults and recovery</em>. Ignore what the annunciator tells you at
+        your peril: an unaccepted alarm left ringing becomes a tripped pump, and
+        a red lamp left burning long enough becomes a bent ship.
+      </p>
+
+      <h2 id="controls">Controls</h2>
+      <dl class="controls-list">
+        <dt>
+          TANK VENT selector <span data-control-note>(VENT SELECTOR)</span>
+        </dt>
+        <dd>
+          Three-position rotary: <strong>CLOSED</strong> seals the tanks;
+          <strong>INERTED</strong> admits inert gas from the generator and holds
+          the oxygen down; <strong>VENTED</strong> opens the tanks to atmosphere
+          for cleaning or entry. Discharge is only permitted with the selector
+          at INERTED.
+        </dd>
+
+        <dt>SEALINE VALVE</dt>
+        <dd>
+          Quarter-turn knob on the mimic. Isolates the shore hose from the
+          ship's lines. Open (knob index across the line, cell lit) before any
+          pump is turned up.
+        </dd>
+
+        <dt>RISER VALVE</dt>
+        <dd>
+          Quarter-turn knob. The ship's manifold valve between the header and
+          the sealine. Both this and the sealine must be open or the line chokes
+          and the pressure climbs.
+        </dd>
+
+        <dt>TANK V1 SUCTION · TANK V3 SUCTION · TANK V5 SUCTION</dt>
+        <dd>
+          Three quarter-turn knobs beneath the tank sight-glasses, one per
+          centre tank. Every open tank shares the flow equally; strip them
+          evenly or answer to the stress card.
+        </dd>
+
+        <dt>PUMP 1 THROTTLE · PUMP 2 THROTTLE · PUMP 3 THROTTLE</dt>
+        <dd>
+          Notched lever and quadrant per cargo pump, 0–10 turns of steam. Ease
+          them up in stages; a pump slammed open against a cold line will be
+          heard in the vibration bar.
+        </dd>
+
+        <dt>
+          BALLAST SELECTOR <span data-control-note>(BALLAST SELECTOR)</span>
+        </dt>
+        <dd>
+          <strong>HOLD</strong> leaves the ballast as it lies.
+          <strong>AUTO TRIM</strong> pumps ballast fore and aft automatically
+          against the bending moment, within ±72 % capacity.
+        </dd>
+
+        <dt>ALARM ACCEPT</dt>
+        <dd>
+          Ivory mushroom, bottom shelf. Stops the buzzer and pins a flashing
+          window steady while its condition lasts.
+        </dd>
+
+        <dt>LAMPS TEST</dt>
+        <dd>
+          Lights every annunciator window for inspection. Hold-and-release;
+          restores itself.
+        </dd>
+
+        <dt>PUMP RESET</dt>
+        <dd>
+          Re-arms a tripped cargo pump after its cause has been found and cured.
+        </dd>
+
+        <dt>
+          FAULT TEST SWITCHES <span data-control-note>(maintenance plate)</span>
+        </dt>
+        <dd>
+          Behind the yellow-and-black header, authorised persons only: P2
+          STRAINER, V3 ACTUATOR JAM and I.G. GEN FAIL inject the three standing
+          defects. Return all switches to normal after use.
+        </dd>
+
+        <dt>CONSOLE RESET</dt>
+        <dd>
+          Returns panel and plant to the cold, arrived-loaded condition. Used
+          after a latched event has been investigated and cleared by the chief
+          officer.
+        </dd>
+
+        <dt>EMERGENCY DROP VALVE</dt>
+        <dd>
+          Red mushroom under a yellow guard. Lift the guard, then strike DROP:
+          every cargo valve shuts and every pump trips. For loss of hose, fire
+          at the manifold, or any emergency faster than thought.
+        </dd>
+      </dl>
+
+      <h2 id="normal-operation">Normal operation</h2>
+      <ol class="procedure">
+        <li>
+          Console cold: all valves shut, throttles at zero, vent selector
+          CLOSED, ballast HOLD, no windows lit. Read the tank glasses — each
+          centre tank should show 3149 m³.
+        </li>
+        <li>
+          Turn the TANK VENT selector to <strong>INERTED</strong>. Confirm the
+          green IG RUNNING jewel lights and the O<sub>2</sub> gauge reads below
+          5 % and falling.
+        </li>
+        <li>Set the BALLAST SELECTOR to <strong>AUTO TRIM</strong>.</li>
+        <li>
+          Open <strong>SEALINE VALVE</strong>, then
+          <strong>RISER VALVE</strong>. The amber SHORE LINKED jewel lights when
+          both are made.
+        </li>
+        <li>
+          Open the tank suction valves <strong>V1</strong>,
+          <strong>V3</strong> and <strong>V5</strong> — all three, so the
+          stripping stays even.
+        </li>
+        <li>
+          Ease <strong>PUMP 1 THROTTLE</strong> up to about 5 on the quadrant
+          and watch the shore line pressure settle near 2–3 bar. Then bring up
+          PUMP 2 and PUMP 3 the same way.
+        </li>
+        <li>
+          Take the total flow to whatever the terminal allows — three pumps at
+          full gate give about 34 m³/min and some 9 bar. Keep the stress pointer
+          in the white; auto trim will hold it there while the middle tank runs
+          down ahead of the wings.
+        </li>
+        <li>
+          As each tank strips below 8 % the LEVEL LOW window warns you; shut
+          that tank's suction valve and let the other two carry, easing their
+          throttles if the vibration bar creeps.
+        </li>
+        <li>
+          When all three tanks read empty, close V1/V3/V5, throttle the pumps to
+          zero, close RISER then SEALINE, return the vent selector to CLOSED and
+          the ballast to HOLD.
+        </li>
+        <li>
+          Accept the final alarms, note the drum counter, and log the berth
+          against Manual M-117 page 44.
+        </li>
+      </ol>
+
+      <h2 id="alarms">Alarms</h2>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Meaning</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OXYGEN HIGH</td>
+            <td>Tank atmosphere above 8 % O<sub>2</sub>.</td>
+            <td>
+              Suspend discharge; verify IG RUNNING; if the generator has failed
+              see Faults. Do not pump with air in the tanks.
+            </td>
+          </tr>
+          <tr>
+            <td>LINE PRESSURE</td>
+            <td>
+              Shore line above 8½ bar — usually a valve shut the wrong way.
+            </td>
+            <td>
+              Check SEALINE and RISER open. At 10 bar the pumps trip themselves;
+              find the closure, press PUMP RESET, ease up again.
+            </td>
+          </tr>
+          <tr>
+            <td>CAVITATION</td>
+            <td>
+              A pump is starving or her strainer is fouling — vibration bar
+              climbing.
+            </td>
+            <td>
+              Throttle back the offending pump, close up on an empty-tank valve,
+              or clear the strainer (see Faults).
+            </td>
+          </tr>
+          <tr>
+            <td>LEVEL LOW</td>
+            <td>An open suction is drawing on less than 8 % in its tank.</td>
+            <td>Shut that tank's valve; redistribute the throttles.</td>
+          </tr>
+          <tr>
+            <td>STRESS HIGH</td>
+            <td>Bending moment beyond ±6000 tm.</td>
+            <td>
+              Open a wing tank suction or check AUTO TRIM. Beyond ±7500 tm held
+              forty seconds the hull suffers — permanently.
+            </td>
+          </tr>
+          <tr>
+            <td>VALVE JAM</td>
+            <td>V3 actuator stalled half-open.</td>
+            <td>See Faults and recovery.</td>
+          </tr>
+          <tr>
+            <td>HULL DAMAGE</td>
+            <td>Overstress held too long. Latched.</td>
+            <td>
+              All pumps tripped, valves shut. Investigate, then CONSOLE RESET.
+            </td>
+          </tr>
+          <tr>
+            <td>VAPOUR EVENT</td>
+            <td>
+              Pumped against air in the tanks; flammable mixture found a spark.
+              Latched.
+            </td>
+            <td>
+              Inert the tanks, restore the atmosphere, then CONSOLE RESET.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="faults">Faults and recovery</h2>
+      <ol class="fault-list">
+        <li>
+          <strong>Cargo pump cavitation</strong> (P2 STRAINER test switch). What
+          you see: the fouling builds over about ten seconds, the CAVITATION
+          window lights, No.&nbsp;2 pump's flow dial sags and, once her throttle
+          passes half, the vibration bar climbs. Left alone at high gate she
+          trips inside two minutes.<br />
+          Recovery: throttle PUMP 2 back below 40 %, return the P2 STRAINER
+          switch to NORMAL, and stand by while the strainer clears itself —
+          health returns over roughly half a minute. The alarm drops out as the
+          differential falls. Then open her up again gently.
+        </li>
+
+        <li>
+          <strong>Valve actuator jam</strong> (V3 ACTUATOR JAM test switch).
+          What you see: the VALVE JAM window lights at once; V3 sits jammed
+          half-open (its knob shows the jam ring), so No.&nbsp;3 tank gives only
+          half her share and the header runs short if you rely on her alone.<br />
+          Recovery: return the V3 ACTUATOR JAM switch to NORMAL to restore oil
+          pressure to the actuator, then cycle V3 — press it closed, press it
+          open again — to reseat the gate. Confirm the drop highlight flows and
+          the share evens out.
+        </li>
+
+        <li>
+          <strong>Inert gas generator failure</strong> (I.G. GEN FAIL test
+          switch). What you see: the IG RUNNING jewel goes dark; with the vent
+          selector at INERTED the O<sub>2</sub> gauge now climbs about one point
+          every seven seconds. The OXYGEN HIGH window lights at 8 %; if you go
+          on pumping past 13 % the VAPOUR EVENT follows and the plant shuts
+          herself down — latched.<br />
+          Recovery: suspend discharge (throttles to zero), return the I.G. GEN
+          FAIL switch to NORMAL, keep the vent selector at INERTED and watch the
+          oxygen fall back below 5 %. If the vapour event latched, investigate,
+          then CONSOLE RESET and begin again from Normal operation step 1.
+        </li>
+      </ol>
+
+      <h2 id="specifications">Specifications</h2>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Cargo pumps</th>
+            <td>3 × steam turbine, 11.5 m³/min each at full gate</td>
+          </tr>
+          <tr>
+            <td>Centre tanks served</td>
+            <td>
+              No.1 fore, No.3 middle, No.5 aft — 3280 m³ each, 96 % loaded on
+              arrival
+            </td>
+          </tr>
+          <tr>
+            <td>Total discharge rate</td>
+            <td>34 m³/min maximum, terminal limited</td>
+          </tr>
+          <tr>
+            <td>Shore line pressure</td>
+            <td>2.2 bar + 0.075 bar per m³/min; alarm 8.5 bar; trip 10 bar</td>
+          </tr>
+          <tr>
+            <td>Tank atmosphere</td>
+            <td>
+              Inert gas, O<sub>2</sub> ≤ 5 % working, 8 % limit, 13 % hazardous
+              when pumping
+            </td>
+          </tr>
+          <tr>
+            <td>Hull bending moment</td>
+            <td>
+              Working limits ±6000 tm; damage threshold ±7500 tm held 40 s
+            </td>
+          </tr>
+          <tr>
+            <td>Ballast trim</td>
+            <td>±72 % capacity, automatic trim against the bending moment</td>
+          </tr>
+          <tr>
+            <td>Cargo valves</td>
+            <td>
+              Hydraulically actuated, quarter-turn indication, amber film cells
+            </td>
+          </tr>
+          <tr>
+            <td>Ambient conditions</td>
+            <td>
+              Bridge wing, daylight lit; console lighting by incandescent jewel
+              and backlit film only
+            </td>
+          </tr>
+          <tr>
+            <th>Panel supply</th>
+            <td>220 V DC ships' service, 50 V annunciator bus</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="manual-footer">
+        <span
+          >HELSINGØR VÆRFT · PUBLICATION M-117 · PROPERTY OF THE MASTER</span
+        >
+      </footer>
+    </div>
+  </body>
+</html>
