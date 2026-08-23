@@ -173,5 +173,40 @@
     ],
     "tagline": "Left hand brake, right hand power, eyes on the drum.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "pillaton-switchboard",
+    "name": "Pillaton Manual Exchange - Position No. 1",
+    "kind": "manual telephone exchange switchboard position",
+    "domain": "telecom",
+    "era": "1960s",
+    "design": "petrol-blue crystalline-enamel steel over an oak-edged writing shelf, transfer-printed cream legends, a brass lamp-and-jack multiple worked by cloth-braided cords, tungsten ivory lamp caps in a daylight room with one amber rectifier neon",
+    "interaction": "lift a cord pair's plugs from their wells, seat them front-and-rear across the twelve-line multiple and throw the pair's RING-TALK lever key against a flywheel ring generator while the ticket pad writes itself",
+    "palette": [
+      "#1d4e57",
+      "#8a3b2a",
+      "#ea7d1a"
+    ],
+    "controls": [
+      "CORD PAIR 1",
+      "CORD PAIR 2",
+      "CORD PAIR 3",
+      "PAIR KEYS",
+      "RING GENERATOR SELECTOR",
+      "HAND CRANK",
+      "NIGHT SERVICE KEY",
+      "BUZZER CUT-OFF",
+      "SPARE FUSE CLIP",
+      "BELT TENSION LEVER",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "generator belt slip",
+      "battery fuse blown",
+      "reversed cord pair"
+    ],
+    "tagline": "Answer inside forty seconds, or the supervisor reads about it.",
+    "created": "2026-08-23"
   }
 ]
