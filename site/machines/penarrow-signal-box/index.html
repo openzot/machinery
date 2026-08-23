@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Penarrow Junction Signal Box</title>
+    <meta
+      name="description"
+      content="A 1923 Cornish branch-line signal box: six interlocked levers, a block bell and a live railway to work."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+
+  <body>
+    <div class="room">
+      <!-- ===================== header: nameplate, clock, manual ===================== -->
+      <header class="header">
+        <a
+          class="index-link"
+          href="../../"
+          aria-label="Back to the machinery catalogue"
+          >Machinery Index</a
+        >
+        <div class="nameplate">
+          <h1>PENARROW JUNCTION</h1>
+          <p>
+            SIGNAL BOX &mdash; UP SIDE &mdash; OPENED 1908, RE-SIGNALLED 1923
+          </p>
+        </div>
+        <div class="clock-wrap">
+          <svg
+            class="clock"
+            viewBox="0 0 100 100"
+            role="img"
+            aria-label="Station clock"
+          >
+            <circle cx="50" cy="50" r="47" class="clock-face"></circle>
+            <g class="clock-ticks" aria-hidden="true">
+              <line x1="50" y1="6" x2="50" y2="13"></line>
+              <line x1="94" y1="50" x2="87" y2="50"></line>
+              <line x1="50" y1="94" x2="50" y2="87"></line>
+              <line x1="6" y1="50" x2="13" y2="50"></line>
+              <line x1="72.2" y1="14.4" x2="68.7" y2="20.4"></line>
+              <line x1="85.6" y1="27.8" x2="79.6" y2="31.3"></line>
+              <line x1="85.6" y1="72.2" x2="79.6" y2="68.7"></line>
+              <line x1="72.2" y1="85.6" x2="68.7" y2="79.6"></line>
+              <line x1="27.8" y1="85.6" x2="31.3" y2="79.6"></line>
+              <line x1="14.4" y1="72.2" x2="20.4" y2="68.7"></line>
+              <line x1="14.4" y1="27.8" x2="20.4" y2="31.3"></line>
+              <line x1="27.8" y1="14.4" x2="31.3" y2="20.4"></line>
+            </g>
+            <line
+              id="clock-hour"
+              x1="50"
+              y1="50"
+              x2="50"
+              y2="28"
+              class="hand-hour"
+            ></line>
+            <line
+              id="clock-minute"
+              x1="50"
+              y1="50"
+              x2="50"
+              y2="15"
+              class="hand-minute"
+            ></line>
+            <circle cx="50" cy="50" r="3" class="clock-pin"></circle>
+          </svg>
+        </div>
+        <button type="button" class="plate-button" data-action="manual">
+          Operating Manual
+        </button>
+      </header>
+
+      <!-- ===================== working floor: diagram + frame + block shelf ========= -->
+      <main class="floor">
+        <!-- ---------- the mimic diagram ---------- -->
+        <section class="diagram-card" aria-label="Mimic diagram of the up line">
+          <div class="diagram-head">
+            <span class="diagram-title">MIMIC DIAGRAM &mdash; UP LINE</span>
+            <span class="diagram-note"
+              >LAMPS: RED = OCCUPIED &nbsp;&bull;&nbsp; ARMS OFF = LINE
+              CLEAR</span
+            >
+          </div>
+          <svg
+            id="mimic"
+            viewBox="0 0 880 292"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Track diagram: up home and distant signals, facing points number five to a loop road, two starters into the section ahead"
+          >
+            <!-- plate engraving: ends of the line -->
+            <text x="18" y="248" class="d-engrave">FROM TREGONY</text>
+            <text x="862" y="248" class="d-engrave" text-anchor="end">
+              TO PENDOWER
+            </text>
+
+            <!-- ======== track: approach, section A ======== -->
+            <path class="rail" d="M12 216 H292"></path>
+            <path class="rail" d="M12 222 H292"></path>
+            <rect
+              x="12"
+              y="212.5"
+              width="268"
+              height="13"
+              rx="2"
+              class="tc-fill"
+              id="tc-A"
+            ></rect>
+
+            <!-- ======== track: loop road, section B2 ======== -->
+            <path
+              class="rail"
+              d="M304 216 C 330 216 334 138 372 138 H594"
+            ></path>
+            <path
+              class="rail"
+              d="M304 222 C 332 222 340 144 372 144 H594"
+            ></path>
+            <rect
+              x="368"
+              y="134.5"
+              width="228"
+              height="13"
+              rx="2"
+              class="tc-fill"
+              id="tc-B2"
+            ></rect>
+
+            <!-- ======== track: main road, section B1 ======== -->
+            <path class="rail" d="M304 216 H594"></path>
+            <path class="rail" d="M304 222 H594"></path>
+            <rect
+              x="304"
+              y="212.5"
+              width="292"
+              height="13"
+              rx="2"
+              class="tc-fill"
+              id="tc-B1"
+            ></rect>
+
+            <!-- ======== track: convergence and section ahead, D ======== -->
+            <path
+              class="rail"
+              d="M606 138 C 656 138 664 216 706 216 H868"
+            ></path>
+            <path
+              class="rail"
+              d="M606 144 C 652 144 662 222 706 222 H868"
+            ></path>
+            <path class="rail" d="M606 216 H868"></path>
+            <path class="rail" d="M606 222 H868"></path>
+            <rect
+              x="700"
+              y="212.5"
+              width="168"
+              height="13"
+              rx="2"
+              class="tc-fill"
+              id="tc-D"
+            ></rect>
+
+            <!-- point blades at No. 5 -->
+            <g id="blade-main">
+              <line
+                x1="306"
+                y1="219"
+                x2="344"
+                y2="219"
+                class="blade blade-closed"
+              ></line>
+            </g>
+            <g id="blade-loop" class="hidden">
+              <line
+                x1="306"
+                y1="217"
+                x2="342"
+                y2="194"
+                class="blade blade-closed"
+              ></line>
+              <line
+                x1="308"
+                y1="222"
+                x2="344"
+                y2="199"
+                class="blade blade-open"
+              ></line>
+            </g>
+            <text x="300" y="252" class="d-engrave">PTS. No. 5</text>
+
+            <!-- trailing catch points at the convergence -->
+            <line
+              x1="648"
+              y1="134"
+              x2="668"
+              y2="150"
+              class="blade blade-static"
+            ></line>
+            <text x="648" y="124" class="d-engrave">CATCH PTS.</text>
+
+            <!-- ======== signals ======== -->
+            <!-- Up Distant (lever 2), ringed arm, worked with the home -->
+            <g id="sig-UD" class="signal">
+              <line x1="96" y1="216" x2="96" y2="152" class="mast"></line>
+              <g class="arm-group" id="arm-UD">
+                <rect
+                  x="98"
+                  y="147.5"
+                  width="30"
+                  height="9"
+                  class="arm arm-dist"
+                ></rect>
+                <circle cx="113" cy="152" r="4.5" class="arm-ring"></circle>
+              </g>
+              <circle
+                cx="88"
+                cy="146"
+                r="3.5"
+                class="lamp lamp-dist"
+                id="lamp-UD"
+              ></circle>
+              <text x="96" y="136" class="d-siglabel">U.DIST</text>
+            </g>
+
+            <!-- Up Home (lever 1) protecting the facing points -->
+            <g id="sig-UH" class="signal">
+              <line x1="256" y1="216" x2="256" y2="134" class="mast"></line>
+              <g class="arm-group" id="arm-UH">
+                <rect
+                  x="258"
+                  y="129.5"
+                  width="32"
+                  height="9"
+                  class="arm arm-stop"
+                ></rect>
+              </g>
+              <circle
+                cx="248"
+                cy="128"
+                r="3.5"
+                class="lamp lamp-stop"
+                id="lamp-UH"
+              ></circle>
+              <text x="256" y="118" class="d-siglabel">U.HOME</text>
+            </g>
+
+            <!-- Up Loop Starter (lever 6) -->
+            <g id="sig-USl" class="signal">
+              <line x1="600" y1="141" x2="600" y2="80" class="mast"></line>
+              <g class="arm-group" id="arm-USl">
+                <rect
+                  x="602"
+                  y="75.5"
+                  width="30"
+                  height="8"
+                  class="arm arm-stop"
+                ></rect>
+              </g>
+              <circle
+                cx="592"
+                cy="72"
+                r="3.5"
+                class="lamp lamp-stop"
+                id="lamp-USl"
+              ></circle>
+              <text x="586" y="60" class="d-siglabel">LOOP STRT</text>
+            </g>
+
+            <!-- Up Main Starter (lever 3) -->
+            <g id="sig-USm" class="signal">
+              <line x1="600" y1="219" x2="600" y2="158" class="mast"></line>
+              <g class="arm-group" id="arm-USm">
+                <rect
+                  x="602"
+                  y="153.5"
+                  width="30"
+                  height="8"
+                  class="arm arm-stop"
+                ></rect>
+              </g>
+              <circle
+                cx="592"
+                cy="150"
+                r="3.5"
+                class="lamp lamp-stop"
+                id="lamp-USm"
+              ></circle>
+              <text x="584" y="196" class="d-siglabel">MAIN STRT</text>
+            </g>
+
+            <!-- points out of correspondence plate -->
+            <g id="pts-wrong" class="hidden">
+              <rect
+                x="270"
+                y="166"
+                width="92"
+                height="16"
+                rx="2"
+                class="spad-plate"
+              ></rect>
+              <text x="316" y="178" text-anchor="middle" class="spad-text">
+                PTS WRONG
+              </text>
+            </g>
+
+            <!-- road names -->
+            <text x="452" y="126" class="d-roadname">LOOP ROAD</text>
+            <text x="430" y="206" class="d-roadname">MAIN ROAD (PLATFORM)</text>
+
+            <!-- ======== track circuit jewels ======== -->
+            <g class="jewels">
+              <circle
+                cx="146"
+                cy="266"
+                r="6"
+                id="jewel-A"
+                class="jewel"
+              ></circle>
+              <text x="146" y="287" class="d-jewellabel">A</text>
+              <circle
+                cx="450"
+                cy="266"
+                r="6"
+                id="jewel-B1"
+                class="jewel"
+              ></circle>
+              <text x="450" y="287" class="d-jewellabel">B1</text>
+              <circle
+                cx="482"
+                cy="266"
+                r="6"
+                id="jewel-B2"
+                class="jewel"
+              ></circle>
+              <text x="482" y="287" class="d-jewellabel">B2</text>
+              <circle
+                cx="784"
+                cy="266"
+                r="6"
+                id="jewel-D"
+                class="jewel"
+              ></circle>
+              <text x="784" y="287" class="d-jewellabel">D</text>
+            </g>
+
+            <!-- the train itself -->
+            <g id="train" class="hidden" aria-hidden="true">
+              <rect
+                x="-46"
+                y="-11"
+                width="92"
+                height="17"
+                rx="3"
+                class="train-body"
+              ></rect>
+              <rect
+                x="-38"
+                y="-19"
+                width="26"
+                height="9"
+                rx="2"
+                class="train-load"
+              ></rect>
+              <circle cx="-26" cy="7" r="4" class="train-wheel"></circle>
+              <circle cx="0" cy="7" r="4" class="train-wheel"></circle>
+              <circle cx="26" cy="7" r="4" class="train-wheel"></circle>
+            </g>
+
+            <!-- SPAD marker -->
+            <g id="spad-flag" class="hidden">
+              <rect
+                x="-52"
+                y="-46"
+                width="104"
+                height="17"
+                rx="2"
+                class="spad-plate"
+              ></rect>
+              <text x="0" y="-33.5" text-anchor="middle" class="spad-text">
+                PASSED AT DANGER
+              </text>
+            </g>
+          </svg>
+        </section>
+
+        <!-- ---------- the lever frame ---------- -->
+        <section class="frame-card" aria-label="Six-lever interlocking frame">
+          <div class="frame-head">
+            <span class="frame-title"
+              >INTERLOCKING FRAME &mdash; SIX LEVERS, 2&frac12;-INCH PITCH</span
+            >
+            <span class="frame-hint" id="frame-hint"
+              >PULL IN SEQUENCE &mdash; THE FRAME LOCKS ITSELF</span
+            >
+          </div>
+          <div class="frame-bed">
+            <button
+              type="button"
+              class="lever"
+              data-control="UP HOME LEVER"
+              data-lever="1"
+              aria-label="Lever 1, up home signal, currently normal"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">1</span>
+              <span class="lever-legend">UP HOME</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+            <button
+              type="button"
+              class="lever"
+              data-control="UP DISTANT LEVER"
+              data-lever="2"
+              aria-label="Lever 2, up distant signal, currently normal"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">2</span>
+              <span class="lever-legend">UP DISTANT</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+            <button
+              type="button"
+              class="lever"
+              data-control="MAIN STARTER LEVER"
+              data-lever="3"
+              aria-label="Lever 3, main starter signal, currently normal"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">3</span>
+              <span class="lever-legend">MAIN STARTER</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+            <button
+              type="button"
+              class="lever lever-fpl"
+              data-control="POINT LOCK LEVER"
+              data-lever="4"
+              aria-label="Lever 4, facing point lock, currently normal"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">4</span>
+              <span class="lever-legend">POINT LOCK</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+            <button
+              type="button"
+              class="lever lever-points"
+              data-control="LOOP POINTS LEVER"
+              data-lever="5"
+              aria-label="Lever 5, loop points, normal is main road, reverse is loop road"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">5</span>
+              <span class="lever-legend">LOOP PTS.</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+            <button
+              type="button"
+              class="lever"
+              data-control="LOOP STARTER LEVER"
+              data-lever="6"
+              aria-label="Lever 6, loop starter signal, currently normal"
+            >
+              <span class="lever-lamp" aria-hidden="true"></span>
+              <span class="lever-slot" aria-hidden="true">
+                <span class="lever-arm"><span class="lever-knob"></span></span>
+              </span>
+              <span class="lever-roundel" aria-hidden="true">6</span>
+              <span class="lever-legend">LOOP STARTER</span>
+              <span class="lever-lockflag" aria-hidden="true">LOCKED</span>
+            </button>
+          </div>
+          <div class="sequence-strip">
+            <span class="seq-step" id="seq-1">1&middot;BELL</span>
+            <span class="seq-arrow" aria-hidden="true">&#8594;</span>
+            <span class="seq-step" id="seq-2">2&middot;ROAD 4+5</span>
+            <span class="seq-arrow" aria-hidden="true">&#8594;</span>
+            <span class="seq-step" id="seq-3">3&middot;DIST+HOME 2+1</span>
+            <span class="seq-arrow" aria-hidden="true">&#8594;</span>
+            <span class="seq-step" id="seq-4">4&middot;OFFER BELL</span>
+            <span class="seq-arrow" aria-hidden="true">&#8594;</span>
+            <span class="seq-step" id="seq-5">5&middot;STARTER 3/6</span>
+          </div>
+        </section>
+
+        <!-- ---------- the block shelf ---------- -->
+        <aside
+          class="shelf-card"
+          aria-label="Block shelf: bell instrument and annunciators"
+        >
+          <div class="shelf-head">
+            <span class="shelf-title">BLOCK SHELF</span>
+            <span class="shelf-sub"
+              >SINGLE-NEEDLE INSTRUMENT,
+              TREGONY&ndash;PENARROW&ndash;PENDOWER</span
+            >
+          </div>
+
+          <div class="block-row">
+            <svg
+              class="block-dial"
+              viewBox="0 0 130 130"
+              role="img"
+              aria-label="Block instrument needle"
+            >
+              <circle cx="65" cy="65" r="58" class="dial-face"></circle>
+              <text x="30" y="32" class="dial-label">LINE</text>
+              <text x="30" y="44" class="dial-label">BLOCKED</text>
+              <text x="74" y="32" class="dial-label">LINE</text>
+              <text x="74" y="44" class="dial-label">CLEAR</text>
+              <text x="65" y="114" text-anchor="middle" class="dial-label">
+                TRAIN ON LINE
+              </text>
+              <line
+                id="block-needle"
+                x1="65"
+                y1="65"
+                x2="65"
+                y2="18"
+                class="dial-needle"
+              ></line>
+              <circle cx="65" cy="65" r="4.5" class="dial-pin"></circle>
+            </svg>
+
+            <div class="bell-station">
+              <button
+                type="button"
+                class="plunger"
+                data-control="LINE BELL PLUNGER"
+                aria-label="Line bell plunger: accept an offered train or request line clear from Pendower"
+              >
+                <span class="plunger-dome" aria-hidden="true"></span>
+                <span class="plunger-collar" aria-hidden="true"></span>
+              </button>
+              <span class="plunger-legend">LINE BELL<br />ACCEPT / OFFER</span>
+              <span class="bell-prompt" id="bell-prompt">STANDING BY</span>
+            </div>
+          </div>
+
+          <div class="annunciators" aria-label="Annunciator tiles">
+            <div class="tile" id="tile-offered"><span>TRAIN OFFERED</span></div>
+            <div class="tile" id="tile-approaching">
+              <span>TRAIN APPROACHING</span>
+            </div>
+            <div class="tile" id="tile-out"><span>OUT OF SECTION</span></div>
+          </div>
+
+          <div class="ticket" aria-label="Current train ticket">
+            <div class="ticket-clip" aria-hidden="true"></div>
+            <div class="ticket-paper">
+              <span class="ticket-line" id="ticket-main"
+                >NOTHING ON THE SPIKE</span
+              >
+              <span class="ticket-line small" id="ticket-route">&mdash;</span>
+            </div>
+          </div>
+
+          <div class="register">
+            <span id="reg-passed">PASSED: 0</span>
+            <span id="reg-delay">DELAY: 0 MIN</span>
+            <span id="reg-shift">SHIFT: 09:12</span>
+          </div>
+        </aside>
+      </main>
+
+      <!-- ===================== maintenance drawer ===================== -->
+      <section
+        class="maintenance"
+        aria-label="Maintenance drawer, test purposes only"
+      >
+        <details open>
+          <summary>
+            MAINTENANCE DRAWER &mdash; TEST APPARATUS, NOT FOR TRAFFIC HOURS
+          </summary>
+          <div class="maintenance-row" data-control="FAULT TEST SWITCHES">
+            <div class="testswitch-wrap">
+              <button
+                type="button"
+                class="guard-toggle"
+                id="ts-clutch"
+                role="switch"
+                aria-checked="false"
+                aria-label="Test switch one: slip the number five point clutch"
+              >
+                <span class="gt-slot" aria-hidden="true"
+                  ><span class="gt-handle"></span
+                ></span>
+                <span class="gt-legend">TEST&nbsp;1 CLUTCH SLIP</span>
+              </button>
+            </div>
+            <div class="testswitch-wrap">
+              <button
+                type="button"
+                class="guard-toggle"
+                id="ts-tc"
+                role="switch"
+                aria-checked="false"
+                aria-label="Test switch two: fail track circuit D"
+              >
+                <span class="gt-slot" aria-hidden="true"
+                  ><span class="gt-handle"></span
+                ></span>
+                <span class="gt-legend">TEST&nbsp;2 TRACK CKT&nbsp;D</span>
+              </button>
+            </div>
+            <div class="testswitch-wrap">
+              <button
+                type="button"
+                class="guard-toggle"
+                id="ts-wire"
+                role="switch"
+                aria-checked="false"
+                aria-label="Test switch three: slacken the home signal wire"
+              >
+                <span class="gt-slot" aria-hidden="true"
+                  ><span class="gt-handle"></span
+                ></span>
+                <span class="gt-legend">TEST&nbsp;3 WIRE SLACK</span>
+              </button>
+            </div>
+            <button
+              type="button"
+              class="reseat-plunger"
+              id="reseat-btn"
+              aria-label="Reseat track circuit D relay"
+            >
+              <span class="rp-cap" aria-hidden="true"></span>
+              <span class="rp-legend">RESEAT TC&nbsp;D</span>
+            </button>
+            <button
+              type="button"
+              class="restore-button"
+              id="restore-btn"
+              aria-label="Restore frame: return the simulation to cold"
+            >
+              <span>RESTORE FRAME</span>
+            </button>
+          </div>
+        </details>
+      </section>
+
+      <footer class="footer">
+        <span
+          >PENARROW JUNCTION SIGNAL BOX &mdash; WORKED UNDER THE ABSOLUTE BLOCK
+          REGULATIONS OF 1923</span
+        >
+        <a href="../../">CATALOGUE</a>
+      </footer>
+    </div>
+
+    <!-- ===================== the manual dialog ===================== -->
+    <dialog data-manual class="manual-dialog">
+      <div class="manual-chrome">
+        <span class="manual-chrome-title"
+          >PENARROW JUNCTION &mdash; BOOK OF RULES EXTRACT</span
+        >
+        <button
+          type="button"
+          class="plate-button close-manual"
+          data-action="close-manual"
+        >
+          Close the Book
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Penarrow Junction signal box operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
