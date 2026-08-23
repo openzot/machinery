@@ -95,5 +95,49 @@
     ],
     "tagline": "Two floats on the line, one and a half percent, and the bag breathes itself.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "corriedhu-gsp",
+    "name": "Corriedhu Grid Supply Point - 132/33 kV Control Panel",
+    "kind": "grid substation control and mimic panel",
+    "domain": "power-grid",
+    "era": "1990s",
+    "design": "light-grey powder-coat steel with slate-blue fascia band, engraved traffolyte legends, LED indication centres, a mosaic single-line mimic with moving-iron dials, and a green-phosphor RTU screen as the only glow in the room",
+    "interaction": "spring-return rotary control switches worked against a live synchroscope for the reclose, twin OLTC rockers balanced by an AUTO regulator, and an eight-window annunciator that must be accepted before it is believed",
+    "palette": [
+      "#d6d8d3",
+      "#27518d",
+      "#c8102e"
+    ],
+    "controls": [
+      "LAMPS TEST PUSHBUTTON",
+      "SYNCHRO-CHECK SELECTOR",
+      "TEINDLAND CONTROL SWITCH",
+      "CAIRNBEATH CONTROL SWITCH",
+      "TX1 CONTROL SWITCH",
+      "TX2 CONTROL SWITCH",
+      "33kV BUS SECTION CONTROL SWITCH",
+      "FEEDER 1 CONTROL SWITCH",
+      "FEEDER 2 CONTROL SWITCH",
+      "FEEDER 3 CONTROL SWITCH",
+      "FEEDER 4 CONTROL SWITCH",
+      "FEEDER 5 CONTROL SWITCH",
+      "FEEDER 6 CONTROL SWITCH",
+      "TX1 OLTC RAISE-LOWER",
+      "TX2 OLTC RAISE-LOWER",
+      "VOLTAGE REGULATOR SELECTOR",
+      "ALARM ACCEPT PUSHBUTTON",
+      "ALARM RESET PUSHBUTTON",
+      "HORN SILENCE PUSHBUTTON",
+      "TELEMETRY ISOLATION KEY",
+      "FAULT TEST BUTTONS"
+    ],
+    "faults": [
+      "transformer gas accumulation",
+      "tap changer mechanism jam",
+      "incomer line trip"
+    ],
+    "tagline": "Close her on the synchroscope, not on hope.",
+    "created": "2026-08-23"
   }
 ]

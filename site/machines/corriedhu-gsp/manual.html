@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MI/CGP/2 — Corriedhu Grid Supply Point Operating Instruction</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="manual-doc">
+      <header class="doc-head">
+        <p class="doc-org">NORTHERN SUPPLY BOARD · WORKS DEPARTMENT</p>
+        <h1>Corriedhu Grid Supply Point</h1>
+        <p class="doc-ref">
+          OPERATING INSTRUCTION MI/CGP/2 · ISSUE 3 · AUG 1994 · PANEL REF CGP/2
+          · FOR OPERATION OF THE 132/33 kV CONTROL &amp; INDICATION PANEL
+        </p>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        Corriedhu Grid Supply Point takes bulk power from the 132 kV network by
+        two circuits, Teindland and Cairnbeath, and feeds it into the local 33
+        kV system through two 45 MVA transformers fitted with on-load tap
+        changers. The 33 kV busbar is run split: Bus A feeds feeders F1 to F3
+        from TX1, Bus B feeds feeders F4 to F6 from TX2, and the bus section
+        between them is left open. This panel is the control point for every
+        circuit breaker on the site, for both tap changers, and for the alarm
+        annunciator. It was assembled by the Board's Works Department around
+        Calderbank Switchgear gearwork, with telemetry RTU 7 retrofitted in
+        1993.
+      </p>
+      <p>
+        The mimic diagram at the centre of the panel is worked live: red breaker
+        symbols are closed, green are open, solid lines are alive and dashed
+        lines are dead. Read the mimic before you touch anything, and leave it
+        telling the truth after you have finished.
+      </p>
+
+      <h2>Controls</h2>
+      <p>
+        All switches are operable from the desk by hand and from the keyboard
+        when focused: a control switch CLOSES on ENTER, SPACE or RIGHT ARROW,
+        and TRIPS on LEFT ARROW (or right-click); an OLTC rocker RAISES on ENTER
+        or UP ARROW and LOWERS on DOWN ARROW; rotary selectors turn one position
+        per click or arrow press.
+      </p>
+      <table>
+        <tr>
+          <th>Control</th>
+          <th>Kind</th>
+          <th>Action and positions</th>
+        </tr>
+        <tr>
+          <td>LAMPS TEST PUSHBUTTON</td>
+          <td>momentary push</td>
+          <td>
+            Held pressed, lights every annunciator window and indicator LED.
+            Prove lamps at handover and before trusting any dark window.
+          </td>
+        </tr>
+        <tr>
+          <td>SYNCHRO-CHECK SELECTOR</td>
+          <td>rotary selector</td>
+          <td>
+            OFF / ON. Enables the check on both incomer closes and starts the
+            synchroscope when line and bus voltages stand either side of an open
+            breaker. No incomer will close while OFF.
+          </td>
+        </tr>
+        <tr>
+          <td>TEINDLAND CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE, spring return to OFF. Closes or trips the Teindland
+            132 kV circuit breaker, subject to synchro-check.
+          </td>
+        </tr>
+        <tr>
+          <td>CAIRNBEATH CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            As above for the Cairnbeath 132 kV circuit. Normally left open as
+            the standing reserve.
+          </td>
+        </tr>
+        <tr>
+          <td>TX1 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            CLOSE energises the TX1 HV breaker and then, automatically, the LV
+            breaker one second later. TRIP opens both, LV first.
+          </td>
+        </tr>
+        <tr>
+          <td>TX2 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>The same sequence for TX2.</td>
+        </tr>
+        <tr>
+          <td>33kV BUS SECTION CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            Closes the section breaker to backfeed a dead half from the live
+            half. A parallel interlock refuses the close while BOTH halves are
+            live; never parallel the transformers through this panel.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 1 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F1 Dalnahaird. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 2 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F2 Corriemore. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 3 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F3 Blar Beag. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 4 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F4 Glen Dorcha. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 5 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F5 Port Sruith. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>FEEDER 6 CONTROL SWITCH</td>
+          <td>spring-return rotary</td>
+          <td>
+            TRIP–OFF–CLOSE for F6 Bàgh Shiar. A close is refused against a dead
+            bus.
+          </td>
+        </tr>
+        <tr>
+          <td>TX1 OLTC RAISE-LOWER</td>
+          <td>guarded rocker</td>
+          <td>
+            Raises or lowers the TX1 tap changer one step (±1.67% each).
+            Operates only with the VOLTAGE REGULATOR SELECTOR at MANUAL.
+          </td>
+        </tr>
+        <tr>
+          <td>TX2 OLTC RAISE-LOWER</td>
+          <td>guarded rocker</td>
+          <td>The same for TX2.</td>
+        </tr>
+        <tr>
+          <td>VOLTAGE REGULATOR SELECTOR</td>
+          <td>rotary selector</td>
+          <td>
+            OFF / AUTO / MANUAL. AUTO trims each tapchanger every six seconds to
+            hold its half of the busbar near 33 kV. OFF isolates the drive;
+            MANUAL hands the rockers to you.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACCEPT PUSHBUTTON</td>
+          <td>momentary push</td>
+          <td>Steadies flashing windows and silences the horn.</td>
+        </tr>
+        <tr>
+          <td>ALARM RESET PUSHBUTTON</td>
+          <td>momentary push</td>
+          <td>Extinguishes windows whose condition has cleared.</td>
+        </tr>
+        <tr>
+          <td>HORN SILENCE PUSHBUTTON</td>
+          <td>momentary push</td>
+          <td>Silences the horn until the next new alarm.</td>
+        </tr>
+        <tr>
+          <td>TELEMETRY ISOLATION KEY</td>
+          <td>key switch</td>
+          <td>
+            ON / ISOLATED. Isolating RTU 7 freezes the event log and scan lamps.
+            Local indication, alarms and switching are unaffected.
+          </td>
+        </tr>
+        <tr>
+          <td>FAULT TEST BUTTONS</td>
+          <td>guarded flap, red buttons</td>
+          <td>
+            Under the hinged MAINTENANCE · FAULT TEST flap: GAS RELAY TEST TX1,
+            OLTC JAM TEST TX2, LINE TRIP TEST TEINDLAND for proving the
+            annunciator, plus GAS RELAY RESET and OLTC OVERRIDE for the
+            recoveries in section 5.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol>
+        <li>
+          Panel cold: every breaker open, mimic dashed, taps reading +0. Press
+          LAMPS TEST PUSHBUTTON and prove every window and lamp.
+        </li>
+        <li>
+          Turn the SYNCHRO-CHECK SELECTOR to ON. The synchroscope is now live
+          whenever an incoming circuit stands either side of an open breaker.
+        </li>
+        <li>
+          Command the TEINDLAND CONTROL SWITCH to CLOSE. With the bus dead the
+          synchro-check admits the close at once; the 132 kV busbar goes solid
+          and the voltmeter should read 140–142 kV.
+        </li>
+        <li>
+          Command the TX1 CONTROL SWITCH to CLOSE. Watch HV close, then LV a
+          second behind it; Bus A comes alive and the transformer begins to hum.
+        </li>
+        <li>
+          Command the TX2 CONTROL SWITCH to CLOSE. Bus B comes alive. Leave
+          CAIRNBEATH open as the reserve circuit.
+        </li>
+        <li>
+          Turn the VOLTAGE REGULATOR SELECTOR to AUTO. Within two or three tap
+          movements the halves should settle at 32.5–33.5 kV.
+        </li>
+        <li>
+          Close FEEDER 1 through FEEDER 6 in order, watching each half's loading
+          stay inside about 40 MVA (the ammeters read roughly 700 A at full
+          rated current).
+        </li>
+        <li>
+          Standing watch: winding temperatures settling below 80°C, no windows
+          lit, RTU scanning. At the evening peak expect 55–65 MW total demand
+          shared evenly across the two units.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table>
+        <tr>
+          <th>Window</th>
+          <th>Means</th>
+          <th>Do</th>
+        </tr>
+        <tr>
+          <td>TEINDLAND LINE</td>
+          <td>Teindland breaker open on protection or out of service.</td>
+          <td>Confirm reserve; reclose per section 5, fault 3.</td>
+        </tr>
+        <tr>
+          <td>TX1 GAS</td>
+          <td>
+            Buchholz gas in the TX1 conservator: stage 1 alarm, escalating if
+            ignored.
+          </td>
+          <td>Section 5, fault 1. Do not reset and walk away.</td>
+        </tr>
+        <tr>
+          <td>TX1 WDG TEMP</td>
+          <td>TX1 winding hot-spot above 115°C.</td>
+          <td>Reduce loading; a trip follows at 140°C.</td>
+        </tr>
+        <tr>
+          <td>TX OVERLOAD</td>
+          <td>A unit above 105% continuous rating.</td>
+          <td>Shift or shed load; mind the remaining unit.</td>
+        </tr>
+        <tr>
+          <td>33KV U/V</td>
+          <td>A bus half below 90% for four seconds.</td>
+          <td>
+            Trim taps or find the lost source; below 45% the feeders release
+            themselves.
+          </td>
+        </tr>
+        <tr>
+          <td>TX2 OLTC JAM</td>
+          <td>Tapchanger drive seized mid-movement.</td>
+          <td>Section 5, fault 2.</td>
+        </tr>
+        <tr>
+          <td>SYNC BLOCK</td>
+          <td>
+            A close was attempted outside the synchronism window, or with the
+            check off.
+          </td>
+          <td>Wait for the scope and try again properly.</td>
+        </tr>
+        <tr>
+          <td>SUPPLY FAIL</td>
+          <td>Both 33 kV halves dead after having been in service.</td>
+          <td>Rebuild per section 4; find why before reclosing everything.</td>
+        </tr>
+      </table>
+
+      <h2>Faults and recovery</h2>
+      <div class="warnbox">
+        <strong>MAINTENANCE FLAP:</strong> the FAULT TEST BUTTONS exist so the
+        duty operator can prove the panel. They put real conditions on real
+        plant. Recoveries follow.
+      </div>
+
+      <h3>1. Transformer gas accumulation (TX1)</h3>
+      <p>
+        <strong>You see:</strong> TX1 GAS flashing almost as soon as the relay
+        test is pressed Ignored, gas keeps rising and the Buchholz surge contact
+        operates within about half a minute: TX1 trips, Bus A dies, and its
+        feeders drop off on undervoltage release. The whole site then hangs on
+        TX2, which will overload at teatime demand and eventually trip on
+        winding temperature.
+      </p>
+      <p>
+        <strong>Recover:</strong> ACCEPT the alarm. Open the TX1 CONTROL SWITCH
+        to TRIP (both breakers). Close the 33kV BUS SECTION CONTROL SWITCH to
+        backfeed Bus A from TX2 — the parallel interlock allows this because
+        only one half is live. Re-close only the feeders that must run, and shed
+        the rest so TX2 stays under about 42 MVA. With TX1 proven isolated (both
+        breakers open), open the maintenance flap and press GAS RELAY RESET; the
+        window extinguishes on ALARM RESET PUSHBUTTON once the condition has
+        cleared. TX1 may then be returned to service and the section opened
+        again.
+      </p>
+
+      <h3>2. Tap changer mechanism jam (TX2)</h3>
+      <p>
+        <strong>You see:</strong> TX2 OLTC JAM lit immediately; further raise or
+        lower commands, automatic or local, are refused and logged. Bus B
+        voltage drifts away from 33 kV because the AUTO regulator can no longer
+        trim TX2.
+      </p>
+      <p>
+        <strong>Recover:</strong> take the VOLTAGE REGULATOR SELECTOR to MANUAL
+        (or OFF) so the auto sequence stops flogging a seized drive. Hold Bus B
+        voltage as best you can with local control where available, then press
+        OLTC OVERRIDE on the maintenance flap — the drive resets and the window
+        clears on the next ALARM RESET PUSHBUTTON. Return the selector to AUTO.
+        The override is deliberately refused while the selector stands at AUTO.
+      </p>
+
+      <h3>3. Incomer line trip (Teindland)</h3>
+      <p>
+        <strong>You see:</strong> TEINDLAND LINE flashing, the Teindland breaker
+        green on the mimic, the 132 kV busbar dead if Cairnbeath was standing
+        open. Everything downstream collapses unless the reserve circuit is
+        brought in.
+      </p>
+      <p>
+        <strong>Recover:</strong> confirm SYNCHRO-CHECK SELECTOR at ON — the
+        check refuses any incomer close without it and raises SYNC BLOCK. If the
+        bus is being carried by Cairnbeath, watch the synchroscope: command
+        TEINDLAND CONTROL SWITCH to CLOSE only as the rotor passes twelve
+        o'clock, inside the ±18° window; outside it the sync-check blocks you
+        and says so. On a dead bus the close is admitted at once. The window
+        extinguishes when the circuit restores; RESET clears it.
+      </p>
+
+      <h2>Specifications</h2>
+      <table>
+        <tr>
+          <th colspan="2">Primary plant</th>
+        </tr>
+        <tr>
+          <td>Nominal voltages</td>
+          <td>132 kV / 33 kV, three-phase 50 Hz</td>
+        </tr>
+        <tr>
+          <td>Incoming circuits</td>
+          <td>2 × 132 kV, Teindland and Cairnbeath, 800 A breakers</td>
+        </tr>
+        <tr>
+          <td>Transformers</td>
+          <td>2 × 45 MVA ONAF, impedance 12.5%, vector YNd1</td>
+        </tr>
+        <tr>
+          <td>Tap ranges</td>
+          <td>±10 steps of 1.67% on the LV side, on load</td>
+        </tr>
+        <tr>
+          <td>33 kV switchgear</td>
+          <td>Bus section + 6 feeders, 1200 A bus, 630 A feeders</td>
+        </tr>
+        <tr>
+          <td>Current transformers</td>
+          <td>Tx bays 800/1 A; meters scaled 0–1300 A</td>
+        </tr>
+        <tr>
+          <th colspan="2">Protection and limits</th>
+        </tr>
+        <tr>
+          <td>Sustained loading alarm</td>
+          <td>105% of rating per unit</td>
+        </tr>
+        <tr>
+          <td>Winding hot-spot</td>
+          <td>alarm 115°C, trip 140°C</td>
+        </tr>
+        <tr>
+          <td>Buchholz stages</td>
+          <td>gas alarm, then surge trip</td>
+        </tr>
+        <tr>
+          <td>Undervoltage release</td>
+          <td>feeders released after 3 s below 45%</td>
+        </tr>
+        <tr>
+          <td>Sync-check window</td>
+          <td>±18°, slip approx. 0.11 Hz on screen</td>
+        </tr>
+        <tr>
+          <th colspan="2">Panel and RTU</th>
+        </tr>
+        <tr>
+          <td>Panel</td>
+          <td>Calderbank Switchgear CS/91/2043, powder-coat finish</td>
+        </tr>
+        <tr>
+          <td>Annunciator</td>
+          <td>8 windows, ISA flush pattern, amber backlighting</td>
+        </tr>
+        <tr>
+          <td>RTU 7</td>
+          <td>1993 retrofit, 21 points, event log on green phosphor CRT</td>
+        </tr>
+        <tr>
+          <td>Battery</td>
+          <td>110 V DC, 24 Ah, trickle charged</td>
+        </tr>
+      </table>
+
+      <div class="doc-links">
+        <a href="./">Return to the Corriedhu panel</a>
+        <a href="../../">Back to the factory shelf</a>
+      </div>
+    </div>
+  </body>
+</html>
