@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kettleby Colliery No. 2 Winder — Driver's Console</title>
+    <meta
+      name="description"
+      content="Operating console for the No. 2 friction winder, Kettleby Colliery, 1987."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+
+  <body>
+    <header class="nameplate">
+      <div class="plate-id">
+        <h1>KETTLEBY COLLIERY &mdash; NO.&thinsp;2 WINDER</h1>
+        <p class="sub">
+          DRIVER'S CONSOLE &middot; SOUTH SHAFT &middot; FRICTION WHEEL &middot;
+          300&thinsp;m &middot; WORKS No. KB/2/87
+        </p>
+      </div>
+      <nav class="plate-actions">
+        <a class="plate-link" href="../../">WORKS LIST</a>
+        <button class="plate-btn" type="button" data-action="manual">
+          OPERATING&nbsp;INSTRUCTIONS
+        </button>
+      </nav>
+    </header>
+
+    <main class="desk">
+      <!-- ================= LEFT BAY : POWER & MOTOR ================= -->
+      <section class="bay bay-drive" aria-label="Drive and motor">
+        <h2 class="bayhead">DRIVE</h2>
+
+        <div class="keyrow">
+          <div
+            class="keyswitch"
+            id="masterkey"
+            data-control="MASTER KEY"
+            role="switch"
+            tabindex="0"
+            aria-checked="false"
+            aria-label="Master key — drive supply"
+          >
+            <span class="key-escutcheon"></span>
+            <span class="key-handle"></span>
+          </div>
+          <p class="keycap">MASTER<br />KEY</p>
+        </div>
+
+        <ul class="lamplist">
+          <li>
+            <span class="lamp white" id="l-mains"></span><span>MAINS</span>
+          </li>
+          <li>
+            <span class="lamp green" id="l-driveon"></span><span>DRIVE ON</span>
+          </li>
+          <li>
+            <span class="lamp amber" id="l-ready"></span><span>AUTO READY</span>
+          </li>
+          <li>
+            <span class="lamp green" id="l-landing"></span><span>ON MARK</span>
+          </li>
+        </ul>
+
+        <div class="instrument">
+          <svg
+            id="g-amps"
+            viewBox="0 0 130 130"
+            role="img"
+            aria-label="Motor amperes gauge"
+          ></svg>
+          <p class="ilabel">ARMATURE<br />AMPERES</p>
+        </div>
+
+        <div class="tempblock">
+          <div
+            class="tempgauge"
+            id="tempstrip"
+            role="img"
+            aria-label="Motor winding temperature"
+          >
+            <div class="temp-fill" id="tempfill"></div>
+            <div class="temp-mark" style="--y: 52%"></div>
+            <div class="temp-mark red" style="--y: 74%"></div>
+          </div>
+          <div class="tempdata">
+            <p class="bignum" id="tempnum">38</p>
+            <p class="unit">&deg;C WINDING</p>
+            <p class="fine">BLOWER ON<br />LIMIT 150 / TRIP 175</p>
+          </div>
+        </div>
+
+        <p class="stencil">K.B. ELEC. DEPT &middot; PANEL 2 &middot; 1987</p>
+      </section>
+
+      <!-- ================= CENTRE BAY : THE SHAFT ================= -->
+      <section class="bay bay-shaft" aria-label="Shaft indication">
+        <h2 class="bayhead">SHAFT &mdash; SOUTH</h2>
+
+        <div class="shaftwrap">
+          <svg
+            id="shaftscene"
+            viewBox="0 0 380 540"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Shaft section: friction wheel, rope, cage and counterweight"
+          >
+            <!-- headframe -->
+            <rect x="46" y="26" width="292" height="10" class="steel" />
+            <path d="M70 36 L96 140 L88 140 L62 38 Z" class="steel" />
+            <path d="M314 36 L288 140 L296 140 L322 38 Z" class="steel" />
+            <!-- friction wheel -->
+            <g id="wheelpos" transform="translate(110,92)">
+              <circle r="54" class="wheel-rim" />
+              <circle r="44" class="wheel-face" />
+              <g id="wheel">
+                <circle r="43" class="wheel-tyre" />
+                <line x1="-40" y1="0" x2="40" y2="0" class="spoke" />
+                <line x1="0" y1="-40" x2="0" y2="40" class="spoke" />
+                <line x1="-28" y1="-28" x2="28" y2="28" class="spoke" />
+                <line x1="-28" y1="28" x2="28" y2="-28" class="spoke" />
+                <circle cx="34" cy="0" r="4.5" class="wheel-pin" />
+              </g>
+              <polygon points="-7,-66 7,-66 0,-56" class="wheel-pointer" />
+              <circle r="7" class="hub" />
+            </g>
+            <!-- ropes -->
+            <path id="ropeR" class="rope" d="" />
+            <path id="ropeL" class="rope" d="" />
+            <path id="tailrope" class="rope tail" d="" />
+            <!-- landings -->
+            <rect x="196" y="146" width="104" height="7" class="landing-mark" />
+            <text x="308" y="152" class="scaletext">SURFACE 300</text>
+            <rect x="196" y="472" width="104" height="7" class="landing-mark" />
+            <text x="308" y="478" class="scaletext">BANK 0</text>
+            <!-- guides -->
+            <line x1="204" y1="153" x2="204" y2="472" class="guide" />
+            <line x1="244" y1="153" x2="244" y2="472" class="guide" />
+            <line x1="256" y1="153" x2="256" y2="472" class="guide" />
+            <line x1="296" y1="153" x2="296" y2="472" class="guide" />
+            <!-- depth scale -->
+            <g id="depthscale"></g>
+            <!-- counterweight -->
+            <g id="cw">
+              <rect x="210" y="0" width="28" height="42" class="cweight" />
+              <text x="224" y="26" class="cwtext">CW</text>
+            </g>
+            <!-- cage -->
+            <g id="cage">
+              <rect x="260" y="0" width="32" height="50" class="cage-body" />
+              <line x1="260" y1="12" x2="292" y2="12" class="cage-bar" />
+              <line x1="260" y1="24" x2="292" y2="24" class="cage-bar" />
+              <line x1="260" y1="36" x2="292" y2="36" class="cage-bar" />
+            </g>
+          </svg>
+
+          <div class="counterblock" aria-label="Depth counter">
+            <span class="counter-cap">DEPTH&nbsp;m</span>
+            <span class="drum-digit" id="d-h">0</span
+            ><span class="drum-digit" id="d-t">0</span
+            ><span class="drum-digit" id="d-u">0</span
+            ><span class="drum-dot">&middot;</span
+            ><span class="drum-digit tenth" id="d-x">0</span>
+            <span class="stencil-v"
+              >KB&nbsp;&middot;&nbsp;2&nbsp;&middot;&nbsp;87</span
+            >
+          </div>
+        </div>
+
+        <div class="gaugerow">
+          <div class="instrument">
+            <svg
+              id="g-speed"
+              viewBox="0 0 130 130"
+              role="img"
+              aria-label="Drum speed gauge"
+            ></svg>
+            <p class="ilabel">ROPE SPEED<br />m/s</p>
+          </div>
+          <div class="instrument">
+            <svg
+              id="g-brake"
+              viewBox="0 0 130 130"
+              role="img"
+              aria-label="Brake pressure gauge"
+            ></svg>
+            <p class="ilabel">BRAKE P<br />bar</p>
+          </div>
+        </div>
+
+        <div class="annunciator" role="list" aria-label="Alarm annunciator">
+          <div class="ann" role="listitem" id="ann-OVERSPEED" data-lit="off">
+            <span class="cap">OVER&#8209;SPEED</span>
+          </div>
+          <div class="ann" role="listitem" id="ann-OVERWIND" data-lit="off">
+            <span class="cap">OVER&#8209;WIND</span>
+          </div>
+          <div class="ann" role="listitem" id="ann-BRAKE" data-lit="off">
+            <span class="cap">BRAKE&nbsp;FAULT</span>
+          </div>
+          <div class="ann" role="listitem" id="ann-TEMP" data-lit="off">
+            <span class="cap">TEMP&nbsp;HIGH</span>
+          </div>
+          <div class="ann" role="listitem" id="ann-DEPTH" data-lit="off">
+            <span class="cap">DEPTH&nbsp;FAULT</span>
+          </div>
+          <div class="ann" role="listitem" id="ann-WINDER" data-lit="off">
+            <span class="cap">WINDER&nbsp;TRIPPED</span>
+          </div>
+        </div>
+
+        <div class="annrow">
+          <button
+            class="pushbtn"
+            type="button"
+            data-control="ALARM ACCEPT"
+            id="b-accept"
+          >
+            ACCEPT
+          </button>
+          <button
+            class="pushbtn"
+            type="button"
+            data-control="HORN CUT"
+            id="b-horn"
+          >
+            HORN CUT
+          </button>
+          <button
+            class="pushbtn trip"
+            type="button"
+            data-control="TRIP RESET"
+            id="b-reset"
+          >
+            TRIP RESET
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= RIGHT BAY : DRIVER ================= -->
+      <section class="bay bay-driver" aria-label="Driver's controls">
+        <h2 class="bayhead">DRIVER</h2>
+
+        <div class="moderow">
+          <div
+            class="rotary"
+            id="modesel"
+            data-control="MODE SELECTOR"
+            role="radiogroup"
+            aria-label="Mode selector"
+            tabindex="0"
+          >
+            <span class="rot-pointer" id="rotpointer"></span>
+            <span class="rot-knob"></span>
+          </div>
+          <div class="rotlabels" id="rotlabels">
+            <button
+              type="button"
+              class="rotlab"
+              role="radio"
+              aria-checked="false"
+              data-mode="INSPECT"
+            >
+              INSPECT
+            </button>
+            <button
+              type="button"
+              class="rotlab"
+              role="radio"
+              aria-checked="true"
+              data-mode="MANUAL"
+            >
+              MANUAL
+            </button>
+            <button
+              type="button"
+              class="rotlab"
+              role="radio"
+              aria-checked="false"
+              data-mode="AUTO"
+            >
+              AUTO
+            </button>
+          </div>
+        </div>
+
+        <div class="leverbench">
+          <div class="lever-unit">
+            <div
+              class="lever bail"
+              id="brakelever"
+              data-control="BRAKE LEVER"
+              role="slider"
+              tabindex="0"
+              aria-label="Brake lever — pull to release"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="applied"
+              aria-orientation="vertical"
+            >
+              <div class="slot">
+                <div class="slot-lamp top"></div>
+                <div class="slot-lamp bot"></div>
+              </div>
+              <div class="handle bail-handle" id="brakehandle">
+                <span class="stem"></span><span class="crossbar"></span>
+              </div>
+            </div>
+            <p class="levercap">
+              BRAKE<br /><span class="fine">PULL&nbsp;=&nbsp;OFF</span>
+            </p>
+          </div>
+
+          <div class="lever-unit grow">
+            <svg
+              id="quadrant"
+              data-control="POWER QUADRANT"
+              viewBox="0 0 210 230"
+              tabindex="0"
+              role="slider"
+              aria-label="Power quadrant — forward for power"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="zero power"
+            >
+              <path
+                d="M105 222 L9 58 A110 110 0 0 1 201 58 Z"
+                class="quad-edge"
+              />
+              <path
+                d="M105 218 L15 60 A105 105 0 0 1 195 60 Z"
+                class="quad-plate"
+              />
+              <text x="36" y="126" class="quad-word" text-anchor="middle">
+                LOWER
+              </text>
+              <text x="174" y="126" class="quad-word" text-anchor="middle">
+                RAISE
+              </text>
+              <g id="quadnotches"></g>
+              <g id="quadlever">
+                <path d="M0 0 L0 -86" class="q-stem" />
+                <circle cx="0" cy="-94" r="11" class="q-ball" />
+              </g>
+              <circle cx="105" cy="218" r="13" class="q-pivot" />
+            </svg>
+            <p class="levercap">
+              POWER<br /><span class="fine">FORWARD&nbsp;=&nbsp;UP</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="bellrow">
+          <button
+            class="bellplunger"
+            type="button"
+            data-control="BELL PLUNGER"
+            id="b-bell"
+            aria-label="Signal bell plunger"
+          >
+            <span class="bellcap"></span>
+          </button>
+          <div class="tally" aria-live="polite">
+            <p class="tally-count" id="tallynum">&mdash;</p>
+            <p class="tally-meaning" id="tallymeaning">SIGNAL</p>
+          </div>
+          <div class="callcol">
+            <button
+              class="callbtn"
+              type="button"
+              data-control="BANK CALL"
+              id="b-bank"
+            >
+              <span class="cl" id="cl-bank"></span>BANK CALL
+            </button>
+            <button
+              class="callbtn"
+              type="button"
+              data-control="SURFACE CALL"
+              id="b-surface"
+            >
+              <span class="cl" id="cl-surface"></span>SURFACE CALL
+            </button>
+          </div>
+        </div>
+
+        <div class="maintpanel closed" id="maintpanel">
+          <button
+            class="maint-cover"
+            type="button"
+            data-control="MAINTENANCE TESTS"
+            id="maintcover"
+            aria-expanded="false"
+            aria-label="Maintenance test cover — open to reach test buttons"
+          >
+            <span>MAINTENANCE TESTS &mdash; OPEN</span>
+          </button>
+          <div class="maint-buttons">
+            <button type="button" class="testbtn" id="t-brake">
+              <span class="tl" id="tl-brake"></span>BRK HYD LEAK
+            </button>
+            <button type="button" class="testbtn" id="t-rope">
+              <span class="tl" id="tl-rope"></span>ROPE SLIP
+            </button>
+            <button type="button" class="testbtn" id="t-temp">
+              <span class="tl" id="tl-temp"></span>MOTOR HEAT
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="plinth">
+      <div class="hazard"></div>
+      <p class="worksplate">
+        N.C.B. AREA WORKS &middot; WINDER HOUSE INSTRUCTIONS No.&nbsp;2/87 MUST
+        BE READ BEFORE WINDING &middot; MEN RIDING LIMIT 8&nbsp;m/s
+      </p>
+    </footer>
+
+    <dialog data-manual id="manualdialog" aria-labelledby="manualtitle">
+      <header class="dlg-head">
+        <span id="manualtitle"> WINDER HOUSE INSTRUCTIONS No.&nbsp;2/87 </span>
+        <button
+          type="button"
+          class="dlg-close"
+          data-action="close-manual"
+          aria-label="Close the manual"
+        >
+          CLOSE &#215;
+        </button>
+      </header>
+      <iframe
+        src="manual.html"
+        title="Kettleby Colliery No. 2 Winder operating instructions"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

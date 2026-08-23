@@ -139,5 +139,39 @@
     ],
     "tagline": "Close her on the synchroscope, not on hope.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "kettleby-winder",
+    "name": "Kettleby Colliery No. 2 Winder - Driver's Console",
+    "kind": "colliery mine winder driver's console",
+    "domain": "mining",
+    "era": "1980s",
+    "design": "riveted black-iron plate with machined bright edges, safety-yellow lever handles and quadrant, engraved white-on-black traffolyte plates, incandescent wedge-lens annunciators, a drawn shaft section with friction wheel as the centrepiece, lit by caged strip light",
+    "interaction": "two-hand driving: left palm on a bail brake lever pulled to release, right hand walking a notched bidirectional power quadrant, landing the cage by eye on the depth counter and rope drum",
+    "palette": [
+      "#26282b",
+      "#e8b31a",
+      "#cf2b1e"
+    ],
+    "controls": [
+      "MASTER KEY",
+      "MODE SELECTOR",
+      "POWER QUADRANT",
+      "BRAKE LEVER",
+      "BELL PLUNGER",
+      "BANK CALL",
+      "SURFACE CALL",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "TRIP RESET",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "brake hydraulic leak",
+      "rope slip",
+      "motor overtemperature"
+    ],
+    "tagline": "Left hand brake, right hand power, eyes on the drum.",
+    "created": "2026-08-23"
   }
 ]
