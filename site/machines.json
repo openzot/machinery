@@ -659,5 +659,50 @@
     ],
     "tagline": "Minus twelve on the brine, frost under ten millimetres, defrost between periods.",
     "created": "2026-08-24"
+  },
+  {
+    "slug": "deeping-filter-gallery",
+    "name": "Deeping Valley Water Board - Filter Gallery Control Bench No. 2",
+    "kind": "rapid gravity water-treatment filter gallery control bench",
+    "domain": "water",
+    "era": "1960s",
+    "design": "seafoam glazed-tile fascia with transfer-printed legends and satin-bronze angles, chrome-bezel dry-dial gauges, inclined mercury manometers, effluent sight glasses and a chlorine residual colour comparator in a daylight gallery",
+    "interaction": "isolate a blinding bed on multi-turn handwheels and a quarter-turn waste cock, then wind the cam-timer crank spring through drain, air scour, water wash and refill while three beds carry the town against the rate quadrant",
+    "palette": [
+      "#aabfb6",
+      "#86652e",
+      "#b81f2d"
+    ],
+    "controls": [
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "BED 1 INLET",
+      "BED 1 WASTE",
+      "BED 1 OUTLET",
+      "BED 2 INLET",
+      "BED 2 WASTE",
+      "BED 2 OUTLET",
+      "BED 3 INLET",
+      "BED 3 WASTE",
+      "BED 3 OUTLET",
+      "BED 4 INLET",
+      "BED 4 WASTE",
+      "BED 4 OUTLET",
+      "WASH TIMER CRANK",
+      "BLOWER START",
+      "BLOWER RESET",
+      "CHLORINE DOSE",
+      "EJECTOR SELECTOR",
+      "RATE LEVER",
+      "FAULT TEST SWITCHES",
+      "GALLERY RESET"
+    ],
+    "faults": [
+      "filter bed breakthrough",
+      "chlorine ejector vacuum loss",
+      "backwash blower overload"
+    ],
+    "tagline": "Two turns open, two metres to the wash, and never a drop without her residual.",
+    "created": "2026-08-24"
   }
 ]

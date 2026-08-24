@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Deeping Valley Water Board — Filter Gallery Control Bench No. 2
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="bench">
+      <!-- ======================= TOP RAIL ======================= -->
+      <header class="toprail">
+        <div class="nameplate">
+          <h1>Deeping Valley Water Board</h1>
+          <p class="sub">
+            Filter Gallery Control Bench No.&nbsp;2 — Works&nbsp;No. 1962/DV/114
+          </p>
+          <p class="maker">
+            Glynne &amp; Porter Ltd., Ipswich · engineered to the Consulting
+            Engineer's drawing F/41
+          </p>
+        </div>
+
+        <div class="annunciator" aria-label="Annunciator: eight alarm windows">
+          <div class="ann-row" id="annunciator">
+            <span class="ann" data-ann="HIGH LOSS OF HEAD"
+              >High loss of head</span
+            >
+            <span class="ann" data-ann="TURBIDITY BREAKTHROUGH"
+              >Turbidity breakthrough</span
+            >
+            <span class="ann" data-ann="CHLORINE RESIDUAL LOW"
+              >Chlorine residual low</span
+            >
+            <span class="ann" data-ann="CLEAR WELL LOW">Clear well low</span>
+            <span class="ann" data-ann="BACKWASH FAULT">Backwash fault</span>
+            <span class="ann" data-ann="RAW WATER SPATE">Raw water spate</span>
+            <span class="ann" data-ann="SUPPLY OFF">Supply off</span>
+            <span class="ann" data-ann="PUBLIC NOTICE">Public notice</span>
+          </div>
+          <div class="ann-controls">
+            <button
+              type="button"
+              class="pb pb-small"
+              data-control="ALARM ACCEPT"
+              id="acceptBtn"
+            >
+              Accept
+            </button>
+            <button
+              type="button"
+              class="pb pb-small"
+              data-control="LAMPS TEST"
+              id="lampsBtn"
+            >
+              Lamps test
+            </button>
+          </div>
+        </div>
+
+        <div class="topright">
+          <div class="mains">
+            <span class="neon" id="mainsNeon" aria-hidden="true"></span>
+            <span class="legend-xs">Mains healthy</span>
+          </div>
+          <div class="works-clock">
+            <span class="legend-xs">Works time</span>
+            <span class="clock" id="clock">00:00</span>
+          </div>
+          <button type="button" class="pb pb-manual" data-action="manual">
+            Operating manual
+          </button>
+        </div>
+      </header>
+
+      <!-- ======================= PROCESS FLOW ======================= -->
+      <main class="process">
+        <!-- Raw main -->
+        <section class="stage stage-raw" aria-label="Raw water main">
+          <h2 class="stage-title">River Deeping raw main</h2>
+          <div
+            class="dial"
+            id="dialRaw"
+            aria-label="Raw water turbidity, nephelos units"
+          ></div>
+          <p class="readout-label">Raw turbidity · NTU</p>
+          <p class="note">
+            Drawn off above the weir. In spate the river carries grit and the
+            beds blind early — ease the rate lever back.
+          </p>
+        </section>
+
+        <!-- Four filter beds -->
+        <section class="beds" aria-label="Filter beds one to four">
+          <article class="bed" data-bed="1">
+            <header class="bed-head">
+              <h2 class="bed-name">Bed 1</h2>
+              <span class="bed-lamps">
+                <i class="lamp lamp-duty" title="Duty"></i>
+                <i class="lamp lamp-wash" title="Washing"></i>
+                <i class="lamp lamp-isol" title="Isolated"></i>
+              </span>
+            </header>
+            <figure class="manometer">
+              <figcaption>Loss of head · m</figcaption>
+            </figure>
+            <div class="sightglass" aria-hidden="true">
+              <div class="water"></div>
+              <div class="bubbles"></div>
+            </div>
+            <p class="glass-caption">Effluent</p>
+            <div class="valve-row">
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 1 INLET"
+                  aria-label="Bed 1 inlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Inlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="cock"
+                  data-control="BED 1 WASTE"
+                  aria-label="Bed 1 waste valve quarter-turn cock"
+                >
+                  <i class="cock-lever"></i>
+                </button>
+                <span class="vlabel">Waste</span>
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 1 OUTLET"
+                  aria-label="Bed 1 outlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Outlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="bed" data-bed="2">
+            <header class="bed-head">
+              <h2 class="bed-name">Bed 2</h2>
+              <span class="bed-lamps">
+                <i class="lamp lamp-duty" title="Duty"></i>
+                <i class="lamp lamp-wash" title="Washing"></i>
+                <i class="lamp lamp-isol" title="Isolated"></i>
+              </span>
+            </header>
+            <figure class="manometer">
+              <figcaption>Loss of head · m</figcaption>
+            </figure>
+            <div class="sightglass" aria-hidden="true">
+              <div class="water"></div>
+              <div class="bubbles"></div>
+            </div>
+            <p class="glass-caption">Effluent</p>
+            <div class="valve-row">
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 2 INLET"
+                  aria-label="Bed 2 inlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Inlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="cock"
+                  data-control="BED 2 WASTE"
+                  aria-label="Bed 2 waste valve quarter-turn cock"
+                >
+                  <i class="cock-lever"></i>
+                </button>
+                <span class="vlabel">Waste</span>
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 2 OUTLET"
+                  aria-label="Bed 2 outlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Outlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="bed" data-bed="3">
+            <header class="bed-head">
+              <h2 class="bed-name">Bed 3</h2>
+              <span class="bed-lamps">
+                <i class="lamp lamp-duty" title="Duty"></i>
+                <i class="lamp lamp-wash" title="Washing"></i>
+                <i class="lamp lamp-isol" title="Isolated"></i>
+              </span>
+            </header>
+            <figure class="manometer">
+              <figcaption>Loss of head · m</figcaption>
+            </figure>
+            <div class="sightglass" aria-hidden="true">
+              <div class="water"></div>
+              <div class="bubbles"></div>
+            </div>
+            <p class="glass-caption">Effluent</p>
+            <div class="valve-row">
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 3 INLET"
+                  aria-label="Bed 3 inlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Inlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="cock"
+                  data-control="BED 3 WASTE"
+                  aria-label="Bed 3 waste valve quarter-turn cock"
+                >
+                  <i class="cock-lever"></i>
+                </button>
+                <span class="vlabel">Waste</span>
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 3 OUTLET"
+                  aria-label="Bed 3 outlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Outlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="bed" data-bed="4">
+            <header class="bed-head">
+              <h2 class="bed-name">Bed 4</h2>
+              <span class="bed-lamps">
+                <i class="lamp lamp-duty" title="Duty"></i>
+                <i class="lamp lamp-wash" title="Washing"></i>
+                <i class="lamp lamp-isol" title="Isolated"></i>
+              </span>
+            </header>
+            <figure class="manometer">
+              <figcaption>Loss of head · m</figcaption>
+            </figure>
+            <div class="sightglass" aria-hidden="true">
+              <div class="water"></div>
+              <div class="bubbles"></div>
+            </div>
+            <p class="glass-caption">Effluent</p>
+            <div class="valve-row">
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 4 INLET"
+                  aria-label="Bed 4 inlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Inlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="cock"
+                  data-control="BED 4 WASTE"
+                  aria-label="Bed 4 waste valve quarter-turn cock"
+                >
+                  <i class="cock-lever"></i>
+                </button>
+                <span class="vlabel">Waste</span>
+              </div>
+              <div class="valver">
+                <button
+                  type="button"
+                  class="wheel"
+                  data-control="BED 4 OUTLET"
+                  aria-label="Bed 4 outlet penstock handwheel"
+                ></button>
+                <span class="vlabel"
+                  >Outlet<br /><b class="turncount">0</b> turns</span
+                >
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Chlorination -->
+        <section class="stage stage-chlorine" aria-label="Chlorination">
+          <h2 class="stage-title">Chlorination</h2>
+
+          <div class="comparator" aria-hidden="true">
+            <div class="comp-swatches">
+              <i data-tint="0.0"></i><i data-tint="0.1"></i
+              ><i data-tint="0.2"></i> <i data-tint="0.3"></i
+              ><i data-tint="0.5"></i>
+            </div>
+            <div class="comp-sample" id="compSample"></div>
+            <div class="comp-pointer" id="compPointer"></div>
+          </div>
+          <p class="readout-label">Residual comparator · mg/l</p>
+
+          <div
+            class="dial dial-small"
+            id="dialEjector"
+            aria-label="Ejector vacuum, inches of mercury"
+          ></div>
+          <p class="readout-label">Ejector vacuum · in Hg</p>
+
+          <div class="chlor-controls">
+            <div class="knobster">
+              <button
+                type="button"
+                class="knob knob-dose"
+                data-control="CHLORINE DOSE"
+                aria-label="Chlorine dose setting, zero to six milligrams per litre"
+              ></button>
+              <span class="vlabel">Dose<br /><b id="doseLabel">0</b> mg/l</span>
+            </div>
+            <div class="selectorster">
+              <button
+                type="button"
+                class="selector"
+                data-control="EJECTOR SELECTOR"
+                aria-label="Ejector selector: duty or standby"
+              ></button>
+              <span class="sel-scale"><b>DUTY</b><b>STBY</b></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Clear well -->
+        <section class="stage stage-well" aria-label="Clear well">
+          <h2 class="stage-title">Clear well</h2>
+          <div class="levelglass" aria-hidden="true">
+            <div class="water"></div>
+            <div class="graduations">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <p class="readout-label">Level · <b id="levelPct">—</b>%</p>
+          <div class="well-dials">
+            <div
+              class="dial dial-mini"
+              id="dialFlow"
+              aria-label="Gallery output, megalitres per day"
+            ></div>
+            <div
+              class="dial dial-mini"
+              id="dialDemand"
+              aria-label="Town demand, megalitres per day"
+            ></div>
+          </div>
+          <p class="readout-label">Output / town demand · ML/d</p>
+        </section>
+      </main>
+
+      <!-- ======================= BOTTOM RAIL ======================= -->
+      <footer class="bottomrail">
+        <section class="washbay" aria-label="Backwash bay">
+          <h2 class="rail-title">Backwash bay</h2>
+          <div class="wash-stage" id="washStage">
+            <span class="stagelamp" data-stage="IDLE">Ready</span>
+            <span class="stagelamp" data-stage="DRAIN">Drain</span>
+            <span class="stagelamp" data-stage="SCOUR">Air scour</span>
+            <span class="stagelamp" data-stage="WASH">Water wash</span>
+            <span class="stagelamp" data-stage="REFILL">Refill</span>
+          </div>
+          <p class="wash-note" id="washNote">
+            No bed in the wash. Isolate a bed, open its waste cock, then wind
+            the timer spring.
+          </p>
+          <div class="wash-controls">
+            <button
+              type="button"
+              class="crank"
+              data-control="WASH TIMER CRANK"
+              aria-label="Wash timer crank: hold to wind the sequence timer"
+            >
+              <svg viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="40" r="34" class="crank-ring"></circle>
+                <g class="crank-arm">
+                  <rect x="36" y="6" width="8" height="26" rx="3"></rect>
+                  <circle cx="40" cy="9" r="7"></circle>
+                </g>
+                <circle cx="40" cy="40" r="8" class="crank-boss"></circle>
+              </svg>
+            </button>
+            <span class="vlabel">Timer<br />crank</span>
+            <div class="blower-group">
+              <button
+                type="button"
+                class="pb pb-guarded"
+                data-control="BLOWER START"
+                id="blowerBtn"
+              >
+                <span>Blower start</span>
+              </button>
+              <button
+                type="button"
+                class="pb pb-small"
+                data-control="BLOWER RESET"
+                id="blowerResetBtn"
+              >
+                Blower reset
+              </button>
+              <i
+                class="lamp lamp-blower"
+                id="blowerLamp"
+                title="Blower running"
+              ></i>
+            </div>
+          </div>
+        </section>
+
+        <section class="rateset" aria-label="Gallery rate setting">
+          <h2 class="rail-title">Rate setting</h2>
+          <div class="quadrant">
+            <div class="quadrant-scale" aria-hidden="true">
+              <b>60</b><b>80</b><b>100</b><b>120</b>
+            </div>
+            <button
+              type="button"
+              class="ratelever"
+              data-control="RATE LEVER"
+              aria-label="Rate lever: gallery output sixty to one hundred and twenty percent"
+            >
+              <i class="lever-arm"></i>
+            </button>
+          </div>
+          <p class="readout-label">Rate · <b id="ratePct">80</b>%</p>
+        </section>
+
+        <section class="testbay" aria-label="Maintenance tests and reset">
+          <h2 class="rail-title">Fitters' bay</h2>
+          <div class="drawer" data-control="FAULT TEST SWITCHES">
+            <button
+              type="button"
+              class="drawer-cover"
+              id="drawerCover"
+              aria-expanded="false"
+            >
+              Fault test switches — lift lid
+            </button>
+            <div class="drawer-tray" id="drawerTray" hidden>
+              <button
+                type="button"
+                class="pb pb-test"
+                data-fault="filter bed breakthrough"
+              >
+                Test bed breakthrough
+              </button>
+              <button
+                type="button"
+                class="pb pb-test"
+                data-fault="chlorine ejector vacuum loss"
+              >
+                Test ejector vacuum loss
+              </button>
+              <button
+                type="button"
+                class="pb pb-test"
+                data-fault="backwash blower overload"
+              >
+                Test blower overload
+              </button>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="pb pb-reset"
+            data-control="GALLERY RESET"
+            id="resetBtn"
+          >
+            Gallery reset
+          </button>
+          <p class="fineprint">
+            <a href="../../" class="catlink">Return to the catalogue</a> · Works
+            telephone: Deeping 214 · Board offices, Wharf Road
+          </p>
+        </section>
+      </footer>
+    </div>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual id="manualDialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="manual-title"
+          >Operating manual — Filter Gallery Control Bench No. 2</span
+        >
+        <button type="button" class="pb pb-small" data-action="close-manual">
+          Close
+        </button>
+      </div>
+      <iframe src="manual.html" title="Operating manual"></iframe>
+    </dialog>
+
+    <noscript
+      ><p class="noscript">
+        The bench needs JavaScript to run its simulation.
+      </p></noscript
+    >
+    <script src="machine.js"></script>
+  </body>
+</html>
