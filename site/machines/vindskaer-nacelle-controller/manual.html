@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vindskær V-62 · Operating Manual Mk.2</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="paper-body">
+    <div class="sheet">
+      <header class="man-head">
+        <div>
+          <p class="man-brand">
+            Vindskær Energi A/S · Serviceafdelingen · Herning
+          </p>
+          <h1 class="man-title">
+            V-62 Nacelle Controller<br />Operating Manual
+          </h1>
+        </div>
+        <p class="man-doc">
+          DOC VK-V62-HB MK.2<br />
+          REV. 3 · 2003-03<br />
+          GÆLDER FRA SER.NR 03-1000
+        </p>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        This manual covers the VINDSKÆR V-62 nacelle service controller, type
+        6210, as fitted to the 1300 kW grid turbine of the same name. The
+        controller is the door panel inside the tower head: it starts and stops
+        the machine, trims the blades and the nacelle by hand for service work,
+        secures the rotor on the mechanical lock pin, watches the drive train,
+        and stands between the North Sea wind and the 690&nbsp;V grid.
+      </p>
+      <p>
+        The V-62 is a pitch-regulated, three-blade machine. Above rated wind
+        (13&nbsp;m/s) the controller spills surplus gusts by feathering the
+        blades a few degrees; above the cut-out (24&nbsp;m/s) it shuts itself
+        down in an orderly way. Everything on the panel is keyed or interlocked
+        because the person standing in front of it is usually alone, ninety
+        metres up, with one hand occupied.
+      </p>
+      <div class="warnbox">
+        <strong>ADVARSEL / WARNING.</strong> Work inside the nacelle only with
+        the key at STOP, the hydraulic pump off, the ROTOR BRAKE applied and the
+        ROTOR LOCK PIN fully engaged (tag reading INDSATT · IN). Never release
+        the brake with the pin withdrawn unless the blades are feathered and
+        nobody is near the hub.
+      </div>
+
+      <h2>Controls</h2>
+      <table class="man-table">
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Action and positions</th>
+        </tr>
+        <tr>
+          <td>MODE KEY</td>
+          <td>3-position key switch</td>
+          <td>
+            STOP — everything released, blades spring to feather, brake applied.
+            SERVICE — jogs and pumps enabled, grid closed interlocked out. AUTO
+            — automatic running; the GRID CONTACTOR may close. The key cycles
+            through the three positions in order.
+          </td>
+        </tr>
+        <tr>
+          <td>HYD PUMP</td>
+          <td>Illuminated toggle</td>
+          <td>
+            Runs the 160 bar power pack for brake, pitch accumulator and lock
+            pin circuits. Works only out of STOP. Pressure shows on the bar
+            gauge; expect full pressure in about ten seconds.
+          </td>
+        </tr>
+        <tr>
+          <td>ROTOR LOCK PIN</td>
+          <td>Spring pin with yellow tag</td>
+          <td>
+            Engages the mechanical rotor lock. Withdraw (UDTAGET · OUT) only
+            when the rotor is stopped and the brake is applied; re-engage before
+            leaving the nacelle.
+          </td>
+        </tr>
+        <tr>
+          <td>ROTOR BRAKE</td>
+          <td>Guarded toggle</td>
+          <td>
+            Applies (I) or releases (O) the disc brake. Needs more than
+            90&nbsp;bar to develop full torque; below that it only damps. Lift
+            the yellow guard flap to reach the lever.
+          </td>
+        </tr>
+        <tr>
+          <td>GRID CONTACTOR</td>
+          <td>Pushbutton under hinged cover</td>
+          <td>
+            Closes the turbine to the network (AUTO mode only, lock pin out, no
+            trips). Press again to open. The converter pre-charges below
+            12&nbsp;rpm, so closing during spool-up is safe.
+          </td>
+        </tr>
+        <tr>
+          <td>PITCH JOG</td>
+          <td>Twin rocker</td>
+          <td>
+            Feathers (▲) or flattens (FINE ▼) the blades in 4° steps, SERVICE
+            mode only. Watch the PITCH figure in the mimic diagram.
+          </td>
+        </tr>
+        <tr>
+          <td>YAW JOG</td>
+          <td>CW / CCW push pair</td>
+          <td>
+            Slewes the nacelle 6° per press, SERVICE mode only. Every degree of
+            yaw winds or unwinds the loop cable: watch the TWIST counter.
+          </td>
+        </tr>
+        <tr>
+          <td>COOLING SELECTOR</td>
+          <td>Rotary selector</td>
+          <td>
+            OFF — oil cooler stopped. AUTO — cooler follows gearbox temperature.
+            FORCED — cooler runs continuously, used when the oil runs hot.
+          </td>
+        </tr>
+        <tr>
+          <td>SENSOR HEATER</td>
+          <td>Illuminated toggle</td>
+          <td>
+            Warms the anemometer and wind vane. About forty seconds of heating
+            clears rime ice from the sensors.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACK</td>
+          <td>Grey pushbutton</td>
+          <td>
+            Acknowledges new alarms: the flashing window stops flashing and the
+            horn falls silent. An alarm that is still present stays lit steady.
+          </td>
+        </tr>
+        <tr>
+          <td>LAMP TEST</td>
+          <td>Black pushbutton</td>
+          <td>
+            Lights every LED, annunciator window and stack-light lamp while held
+            for two seconds.
+          </td>
+        </tr>
+        <tr>
+          <td>SERVICE TESTS</td>
+          <td>Bay of three test buttons under cover</td>
+          <td>
+            Injects a test fault — ANEMO (anemometer icing), OLIE (gearbox oil
+            overheating) or TVIST (yaw cable twist) — so the technician can
+            prove the alarms and the recovery drills without waiting for winter.
+          </td>
+        </tr>
+        <tr>
+          <td>RESET</td>
+          <td>Blue pushbutton</td>
+          <td>
+            Clears a latched trip once its cause has gone: rotor below
+            23.5&nbsp;rpm after OVERSPEED, oil below 75&nbsp;°C, twist unwound
+            below 300°. Returns the key logic to STOP.
+          </td>
+        </tr>
+        <tr>
+          <td>EMERGENCY STOP</td>
+          <td>Red mushroom on yellow collar</td>
+          <td>
+            Opens the contactor, feathers the blades and latches an EMERGENCY
+            STOP trip. Twist to release, then press RESET before restarting.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="step-list">
+        <li>
+          Confirm the LCD shows MODE:STOP and the stack light is dark. Turn the
+          <span class="kbd">MODE KEY</span> one step to SERVICE.
+        </li>
+        <li>
+          Switch <span class="kbd">HYD PUMP</span> on and watch the hydraulic
+          gauge climb into its green arc (about 160&nbsp;bar).
+        </li>
+        <li>
+          With the rotor stationary and the brake lever at I, withdraw the
+          <span class="kbd">ROTOR LOCK PIN</span>; the tag must read UDTAGET ·
+          OUT.
+        </li>
+        <li>
+          Lift the guard on the <span class="kbd">ROTOR BRAKE</span> and release
+          the brake (lever O). The rotor may idle slowly against the generator
+          windage.
+        </li>
+        <li>
+          Turn the <span class="kbd">MODE KEY</span> to AUTO. The blades trim to
+          fine and the rotor soft-spools to roughly 13&nbsp;rpm idling speed;
+          the LCD shows KLAR - CLOSE CONTACTOR.
+        </li>
+        <li>
+          Raise the cover and press <span class="kbd">GRID CONTACTOR</span>. The
+          converter pre-charges, the rotor comes up to 19&nbsp;rpm and the kW
+          readout climbs. The LCD confirms PÅ NETTET / ON GRID and the stack
+          light turns green.
+        </li>
+        <li>
+          Set the <span class="kbd">COOLING SELECTOR</span> to AUTO and check
+          the gearbox oil gauge settles between 55 and 75&nbsp;°C.
+        </li>
+        <li>
+          Leave the machine in AUTO. Use <span class="kbd">PITCH JOG</span>,
+          <span class="kbd">YAW JOG</span> or the test bay only with the key at
+          SERVICE.
+        </li>
+        <li>
+          To shut down: press <span class="kbd">GRID CONTACTOR</span> again (or
+          turn the key to STOP), let the rotor stop, apply the
+          <span class="kbd">ROTOR BRAKE</span>, switch the
+          <span class="kbd">HYD PUMP</span> off, re-engage the
+          <span class="kbd">ROTOR LOCK PIN</span> and return the key to STOP.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="man-table">
+        <tr>
+          <th>Window</th>
+          <th>Meaning</th>
+          <th>Immediate action</th>
+        </tr>
+        <tr>
+          <td>OVERSPEED</td>
+          <td>
+            Rotor above 23.5 rpm. Automatic feathering begins; at 26.5 rpm the
+            machine trips.
+          </td>
+          <td>
+            Press ALARM ACK, stand clear, let the trip do its work. After RESET
+            investigate pitch response before restarting.
+          </td>
+        </tr>
+        <tr>
+          <td>OIL TEMP</td>
+          <td>Gearbox oil above 82 °C. Trip follows at 95 °C.</td>
+          <td>
+            <span class="kbd">COOLING SELECTOR</span> to FORCED, shed load
+            (feather via SERVICE), watch for the fall below 78 °C.
+          </td>
+        </tr>
+        <tr>
+          <td>HYD PRESS</td>
+          <td>Pressure below 115 bar with the pump expected to run.</td>
+          <td>
+            Check HYD PUMP is on. Below 90 bar the brake cannot hold: feather
+            first, then brake.
+          </td>
+        </tr>
+        <tr>
+          <td>TWIST</td>
+          <td>Loop cable wound past ±540°.</td>
+          <td>
+            Key to SERVICE and unwind with YAW JOG until the counter reads under
+            ±300°.
+          </td>
+        </tr>
+        <tr>
+          <td>ANEMO</td>
+          <td>Anemometer disagreeing with the machine — typically rime ice.</td>
+          <td>
+            Switch SENSOR HEATER on for at least forty seconds. Until the
+            reading recovers the governor is blind: feather early. Unchecked
+            blindness ends in a SENSOR FAIL trip.
+          </td>
+        </tr>
+        <tr>
+          <td>TRIP</td>
+          <td>
+            A protection has latched the machine out (see LCD line 1 for the
+            cause).
+          </td>
+          <td>
+            Clear the cause, then RESET. The LCD names the trip: OVERSPEED,
+            GEARBOX TEMP, TWIST LIMIT or EMERGENCY STOP.
+          </td>
+        </tr>
+      </table>
+      <p>
+        New alarms flash and sound the horn; <span class="kbd">ALARM ACK</span>
+        steadies them. A window that stays lit after acknowledgement still
+        demands attention before the next start.
+      </p>
+
+      <h2>Faults and recovery</h2>
+      <h3>Anemometer icing</h3>
+      <p>
+        <strong>You see:</strong> the wind gauge frozen low or falling although
+        the rotor behaves as if blown hard; ANEMO flashing; in AUTO the governor
+        holds the blades too fine because it believes the wind has dropped — the
+        road to OVERSPEED.<br />
+        <strong>To clear:</strong> switch <span class="kbd">SENSOR HEATER</span>
+        on. After about forty heated seconds the reading jumps back to the true
+        wind and the alarm drops out. If the machine has already tripped on
+        overspeed, wait for the rotor to slow below 23.5&nbsp;rpm, press
+        <span class="kbd">RESET</span>, and repeat the start-up procedure.
+      </p>
+      <h3>Gearbox oil overheating</h3>
+      <p>
+        <strong>You see:</strong> the oil gauge climbing fast and far — the
+        cooler appears not to cope; OIL TEMP flashing above 82&nbsp;°C; a
+        GEARBOX TEMP trip follows at 95&nbsp;°C.<br />
+        <strong>To clear:</strong> set the
+        <span class="kbd">COOLING SELECTOR</span> to FORCED and take load off
+        (feather with PITCH JOG in SERVICE, or accept the controlled shutdown).
+        When the oil falls below 78&nbsp;°C the fault clears itself; a machine
+        that has tripped may be reset once the oil is below 75&nbsp;°C.
+      </p>
+      <h3>Yaw cable twist</h3>
+      <p>
+        <strong>You see:</strong> the TWIST counter winding up steadily; TWIST
+        flashing beyond ±540°; at ±720° a TWIST LIMIT trip stops the machine —
+        the cable would soon be wrung like a dishcloth.<br />
+        <strong>To clear:</strong> key to SERVICE and jog
+        <span class="kbd">YAW JOG</span> against the winding direction until the
+        counter reads within ±300°; the fault then releases. After a TWIST LIMIT
+        trip unwind below 300° and press <span class="kbd">RESET</span>.
+      </p>
+      <div class="notebox">
+        All three faults can be reheated on demand from the
+        <span class="kbd">SERVICE TESTS</span> bay: ANEMO injects anemometer
+        icing, OLIE injects gearbox oil overheating, TVIST injects yaw cable
+        twist. Prove each alarm and its recovery drill after every control
+        system intervention.
+      </div>
+
+      <h2>Specifications</h2>
+      <table class="man-table">
+        <tr>
+          <th>Item</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Rated power</td>
+          <td>1 300 kW (10-minute rating 1 320 kW) at 690 V, 50 Hz</td>
+        </tr>
+        <tr>
+          <td>Rotor</td>
+          <td>Ø 62 m, three blades, swept area 3 019 m²</td>
+        </tr>
+        <tr>
+          <td>Speeds</td>
+          <td>
+            rated 19 rpm · soft-start idle 13 rpm · overspeed alarm 23.5 rpm ·
+            trip 26.5 rpm
+          </td>
+        </tr>
+        <tr>
+          <td>Winds</td>
+          <td>cut-in 3.2 m/s · rated 13 m/s · cut-out 24 m/s</td>
+        </tr>
+        <tr>
+          <td>Pitch range</td>
+          <td>−2° … +90°, service rate 6.5°/s, accumulator back-feed 2.4°/s</td>
+        </tr>
+        <tr>
+          <td>Yaw</td>
+          <td>
+            slew 0.5°/s · cable twist warn ±540° · trip ±720° · release ±300°
+          </td>
+        </tr>
+        <tr>
+          <td>Hydraulics</td>
+          <td>
+            preset 160 bar · low alarm 115 bar · minimum brake pressure 90 bar ·
+            brake torque 320 kNm
+          </td>
+        </tr>
+        <tr>
+          <td>Gearbox thermal</td>
+          <td>
+            alarm 82 °C · trip 95 °C · restart permitted below 75 °C · base loss
+            8 kW + 2.1 % of throughput
+          </td>
+        </tr>
+        <tr>
+          <td>Drive train inertia</td>
+          <td>260 000 kg·m² referred to high-speed shaft</td>
+        </tr>
+        <tr>
+          <td>Supply</td>
+          <td>24 V DC control, 230 V AC service outlet, panel to IP54</td>
+        </tr>
+        <tr>
+          <td>Panel</td>
+          <td>
+            type 6210 door controller · mass 14 kg · DOC VK-V62-HB MK.2 rev. 3
+          </td>
+        </tr>
+      </table>
+
+      <footer class="man-foot">
+        <p>
+          Vindskær Energi A/S · Hasselagervej 7, Herning · Service hotline 86 12
+          40 00 (24 t)
+        </p>
+        <nav>
+          <a href="./">Back to the panel / Tilbage til pulten</a>
+          ·
+          <a href="../../">Machine catalogue / Maskinkatalog</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

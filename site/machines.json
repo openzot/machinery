@@ -502,5 +502,42 @@
     ],
     "tagline": "Withdraw by tens, keep the period long, and never trust a meter you have not lamp-tested.",
     "created": "2026-08-24"
+  },
+  {
+    "slug": "vindskaer-nacelle-controller",
+    "name": "Vindskær V-62 - Nacelle Service Controller",
+    "kind": "grid wind turbine nacelle service controller",
+    "domain": "energy",
+    "era": "2000s",
+    "design": "off-white gelcoat-and-galvanised steel door panel, screen-printed charcoal DIN legends, safety-orange accents and hazard yellow, one amber-backlit character LCD, LED stack light, moving-needle gauges over a drivetrain mimic, cool nacelle strip light",
+    "interaction": "three-position mode key with guarded grid-contactor push, pitch jogged against its dial by a rocker, yaw walked off a cable-twist counter and the rotor secured on a yellow lock pin",
+    "palette": [
+      "#e9e6dd",
+      "#e07b12",
+      "#c22013"
+    ],
+    "controls": [
+      "MODE KEY",
+      "HYD PUMP",
+      "ROTOR LOCK PIN",
+      "ROTOR BRAKE",
+      "GRID CONTACTOR",
+      "PITCH JOG",
+      "YAW JOG",
+      "COOLING SELECTOR",
+      "SENSOR HEATER",
+      "ALARM ACK",
+      "LAMP TEST",
+      "SERVICE TESTS",
+      "RESET",
+      "EMERGENCY STOP"
+    ],
+    "faults": [
+      "anemometer icing",
+      "gearbox oil overheating",
+      "yaw cable twist"
+    ],
+    "tagline": "Feather before the gust - the anemometer lies when it ices.",
+    "created": "2026-08-24"
   }
 ]
