@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aldersund Planetarium · Projector Console No. 1</title>
+    <meta
+      name="description"
+      content="Operator's console of the Nordstjärnan Type 63-S opto-mechanical planetarium projector, Aldersund Civic Planetarium lecture theatre, 1964. Twin carbon arc, drum gear trains, a latitude crank and the six-hours-west re-cage."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="console">
+      <!-- ============================== plate rail ============================== -->
+      <header class="plate-rail">
+        <div class="maker-block">
+          <p class="maker">NORDSTJÄRNAN OPTISKA VERKEN · NORRKÖPING</p>
+          <h1 class="title">
+            Aldersund Planetarium
+            <span class="title-sub"
+              >— Föreläsningskupol · Projector Console No.&nbsp;1</span
+            >
+          </h1>
+        </div>
+
+        <div class="drums-block" aria-label="Clocks and hours run">
+          <span class="drum-unit">
+            <span class="drum-label">STJÄRNTID<br />SIDEREAL</span>
+            <span class="drum-face" data-drum-sidereal>04:12:00</span>
+          </span>
+          <span class="drum-unit">
+            <span class="drum-label">CIVIL<br />TID</span>
+            <span class="drum-face" data-drum-civil>19:00</span>
+          </span>
+          <span class="drum-unit">
+            <span class="drum-label">BOG-TIMMAR<br />ARC HOURS</span>
+            <span class="drum-face" data-drum-hours>0000.0</span>
+          </span>
+        </div>
+
+        <div class="rail-actions">
+          <button type="button" class="key key-wide" data-action="manual">
+            MANUAL<br /><span class="key-sub">HANDBOKEN</span>
+          </button>
+          <button
+            type="button"
+            class="key"
+            data-sound-button
+            aria-pressed="false"
+            aria-label="Arm or silence console sound"
+          >
+            LJUD<br /><span class="key-sub">SOUND OFF</span>
+          </button>
+          <a class="catalogue-link" href="../../">TILL KATALOGEN&nbsp;↩</a>
+        </div>
+      </header>
+
+      <!-- ================================ deck ================================= -->
+      <section class="deck">
+        <!-- LEFT BAY : power and the arc -->
+        <section class="bay bay-power" aria-label="Power and arc lamp run-up">
+          <header class="bay-head">
+            <h2>KRAFT &amp; LJUSBOG · POWER &amp; ARC</h2>
+          </header>
+
+          <div class="switch-row">
+            <div class="switch-unit" data-control="MAINS SWITCH">
+              <button
+                type="button"
+                class="paddle"
+                role="switch"
+                aria-checked="false"
+                data-mains
+              >
+                <span class="paddle-slot"
+                  ><span class="paddle-thumb"></span
+                ></span>
+                <span class="switch-caption">AV&nbsp;/&nbsp;PÅ</span>
+              </button>
+              <span class="unit-label">HUVUDSTRÖM<br />MAINS SWITCH</span>
+              <span
+                class="pilot pilot-amber"
+                data-pilot-mains
+                aria-hidden="true"
+              ></span>
+            </div>
+
+            <div class="switch-unit" data-control="BLOWER SWITCH">
+              <button
+                type="button"
+                class="paddle paddle-small"
+                role="switch"
+                aria-checked="false"
+                data-blower
+              >
+                <span class="paddle-slot"
+                  ><span class="paddle-thumb"></span
+                ></span>
+                <span class="switch-caption">AV&nbsp;/&nbsp;PÅ</span>
+              </button>
+              <span class="unit-label">FLÄKT<br />BLOWER SWITCH</span>
+              <span
+                class="pilot pilot-green"
+                data-pilot-blower
+                aria-hidden="true"
+              ></span>
+            </div>
+          </div>
+
+          <div class="current-block">
+            <div class="knob-unit" data-control="LAMP CURRENT">
+              <div
+                class="knob"
+                role="slider"
+                tabindex="0"
+                data-knob-current
+                aria-label="Arc lamp current, zero to forty amperes"
+                aria-valuemin="0"
+                aria-valuemax="40"
+                aria-valuenow="0"
+                aria-valuetext="0 amperes"
+              >
+                <span class="knob-skirt"></span>
+                <span class="knob-face"
+                  ><span class="knob-pointer"></span
+                ></span>
+              </div>
+              <span class="unit-label">BÅGSTRÖM<br />LAMP CURRENT</span>
+            </div>
+
+            <div class="ammeter" aria-hidden="true">
+              <svg viewBox="0 0 120 78" class="ammeter-svg">
+                <path class="dial-arc" d="M14 66 A 48 48 0 0 1 106 66" />
+                <path
+                  class="dial-band"
+                  d="M38.9 25.7 A 48 48 0 0 1 81.1 25.7"
+                />
+                <line class="dial-tick" x1="60" y1="18" x2="60" y2="26" />
+                <line
+                  class="dial-tick"
+                  x1="26.6"
+                  y1="37.4"
+                  x2="32.3"
+                  y2="42.6"
+                />
+                <line
+                  class="dial-tick"
+                  x1="93.4"
+                  y1="37.4"
+                  x2="87.7"
+                  y2="42.6"
+                />
+              </svg>
+              <span class="needle" data-needle-current></span>
+              <span class="dial-pin"></span>
+              <span class="dial-text">A</span>
+            </div>
+          </div>
+
+          <div class="rule" aria-hidden="true">
+            <span>VÄRME &amp; LUFT</span>
+          </div>
+
+          <div class="strip-gauges">
+            <div
+              class="thermometer"
+              role="img"
+              aria-label="Arc lamp temperature"
+              data-thermo
+            >
+              <span class="thermo-tube"
+                ><span class="thermo-fill" data-thermo-fill></span
+              ></span>
+              <span class="thermo-scale">
+                <i>110°</i><i>75°</i><i>45°</i>
+              </span>
+              <span class="unit-label">BÅGVÄRME<br />LAMP TEMP °C</span>
+            </div>
+
+            <div
+              class="bar-meter"
+              role="img"
+              aria-label="Blower airflow"
+              data-airflow
+            >
+              <span class="bar-track"
+                ><span class="bar-fill" data-airflow-fill></span
+              ></span>
+              <span class="unit-label">LUFTFLÖDE<br />AIRFLOW %</span>
+            </div>
+          </div>
+
+          <p class="tape-note" aria-hidden="true">
+            LÖP 30 A · HÅLL NÅLEN I GRÖNA FÄLTET
+          </p>
+        </section>
+
+        <!-- CENTRE BAY : the sky itself -->
+        <section
+          class="bay bay-sky"
+          aria-label="Dome view, clocks and latitude"
+        >
+          <header class="bay-head">
+            <h2>KUPOLGENOMSYN · DOME PORT</h2>
+            <span class="bay-side" data-show-lamp>LIVE</span>
+          </header>
+
+          <div class="port-bezel">
+            <canvas
+              data-port
+              width="720"
+              height="720"
+              aria-label="View into the auditorium dome: projected stars, sun and horizon ring"
+            ></canvas>
+            <span class="port-cardinal port-n">N</span>
+            <span class="port-cardinal port-s">S</span>
+            <span class="port-vignette" aria-hidden="true"></span>
+          </div>
+
+          <div class="crank-row">
+            <div class="crank-unit" data-control="LATITUDE CRANK">
+              <div
+                class="crank"
+                role="slider"
+                tabindex="0"
+                data-crank
+                aria-label="Projection latitude, ten to seventy degrees north"
+                aria-valuemin="10"
+                aria-valuemax="70"
+                aria-valuenow="59"
+                aria-valuetext="59 degrees north"
+              >
+                <span class="crank-wheel"
+                  ><span class="crank-spoke h"></span
+                  ><span class="crank-spoke v"></span
+                  ><span class="crank-handle"></span
+                ></span>
+              </div>
+              <span class="unit-label">POLHÖJD<br />LATITUDE CRANK</span>
+            </div>
+
+            <div class="quadrant" aria-hidden="true">
+              <svg viewBox="0 0 190 96" class="quadrant-svg">
+                <path class="quad-arc" d="M10 88 A 84 84 0 0 1 178 88" />
+                <line
+                  class="quad-tick"
+                  x1="24.4"
+                  y1="49.9"
+                  x2="31.2"
+                  y2="53.8"
+                />
+                <line class="quad-tick" x1="47" y1="28.4" x2="51.6" y2="34.7" />
+                <line class="quad-tick" x1="94" y1="16" x2="94" y2="23.6" />
+                <line
+                  class="quad-tick"
+                  x1="141"
+                  y1="28.4"
+                  x2="136.4"
+                  y2="34.7"
+                />
+                <line
+                  class="quad-tick"
+                  x1="163.6"
+                  y1="49.9"
+                  x2="156.8"
+                  y2="53.8"
+                />
+              </svg>
+              <span class="quad-pointer" data-quadrant-pointer></span>
+              <span class="quad-readout"
+                ><span data-latitude-value>59</span>°N</span
+              >
+              <span class="quad-cap">10° … 70° N</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT BAY : motion and closure -->
+        <section
+          class="bay bay-motion"
+          aria-label="Motion, shutter and console keys"
+        >
+          <header class="bay-head">
+            <h2>DRIFT &amp; SPÄRR · MOTION &amp; CAGE</h2>
+          </header>
+
+          <div class="motion-grid">
+            <div class="selector-unit" data-control="RATE SELECTOR">
+              <div
+                class="selector"
+                role="slider"
+                tabindex="0"
+                data-selector
+                aria-label="Daily motion rate selector, four positions"
+                aria-valuemin="0"
+                aria-valuemax="3"
+                aria-valuenow="0"
+                aria-valuetext="STOP"
+              >
+                <span class="selector-flange"></span>
+                <span class="selector-barrel"
+                  ><span class="selector-pointer"></span
+                ></span>
+              </div>
+              <span class="selector-legend">
+                <b data-rate-label data-pos="0" class="on">STOP</b>
+                <b data-rate-label data-pos="1">STJÄRNA</b>
+                <b data-rate-label data-pos="2">SOL</b>
+                <b data-rate-label data-pos="3">DEMO</b>
+              </span>
+              <span class="unit-label">DAGSRATEL<br />RATE SELECTOR</span>
+            </div>
+
+            <div class="cage-unit" data-control="RE-CAGE LEVER">
+              <div class="cage-frame">
+                <button
+                  type="button"
+                  class="cage-guard"
+                  data-cage-guard
+                  aria-expanded="false"
+                  aria-label="Lift or close the re-cage lever guard"
+                >
+                  <span class="guard-hinge"></span>
+                </button>
+                <button
+                  type="button"
+                  class="cage-lever"
+                  role="switch"
+                  aria-checked="false"
+                  data-cage-lever
+                  disabled
+                >
+                  <span class="lever-track"
+                    ><span class="lever-thumb"></span
+                  ></span>
+                </button>
+                <span class="lever-tag top">CAGE</span>
+                <span class="lever-tag bottom">RUN</span>
+              </div>
+              <span class="unit-label"
+                >OMKOPPLINGSHEVARM<br />RE-CAGE LEVER</span
+              >
+            </div>
+
+            <div class="shutter-unit" data-control="SHUTTER KEYS">
+              <span class="key-column">
+                <button type="button" class="key" data-shutter-open>
+                  ÖPPNA<br /><span class="key-sub">SHUTTER OPEN</span>
+                </button>
+                <button type="button" class="key" data-shutter-close>
+                  STÄNG<br /><span class="key-sub">SHUTTER CLOSE</span>
+                </button>
+              </span>
+              <span class="shutter-state">
+                <i class="state-dot" data-shutter-dot></i>
+                <em data-shutter-word>CLOSED</em>
+              </span>
+              <span class="unit-label">KUPELLUCKA<br />SHUTTER KEYS</span>
+            </div>
+
+            <div class="house-unit" data-control="HOUSE LIGHTS">
+              <div
+                class="slide"
+                role="slider"
+                tabindex="0"
+                data-house
+                aria-label="Auditorium house lights, zero to one hundred percent"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="30"
+                aria-valuetext="30 percent"
+              >
+                <span class="slide-track"
+                  ><span class="slide-fill"></span
+                  ><span class="slide-thumb"></span
+                ></span>
+              </div>
+              <span class="unit-label">SALBELYSNING<br />HOUSE LIGHTS</span>
+            </div>
+          </div>
+
+          <div class="key-bench">
+            <button
+              type="button"
+              class="key key-red"
+              data-control="ALARM ACCEPT"
+              data-alarm-accept
+            >
+              KVITTERA<br /><span class="key-sub">ALARM ACCEPT</span>
+            </button>
+            <button
+              type="button"
+              class="key"
+              data-control="LAMPS TEST"
+              data-lamps-test
+            >
+              PROVA<br /><span class="key-sub">LAMPS TEST</span>
+            </button>
+            <button
+              type="button"
+              class="key"
+              data-control="CONSOLE RESET"
+              data-console-reset
+            >
+              NOLLSTÄLL<br /><span class="key-sub">CONSOLE RESET</span>
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ============================ annunciator strip ======================== -->
+      <section class="annunciators" aria-label="Annunciator windows">
+        <span class="tile" data-alarm="overtemp"
+          ><b>OVERTEMP</b><i>ÖVERVÄRME</i></span
+        >
+        <span class="tile" data-alarm="airloss"
+          ><b>AIR LOSS</b><i>LUFTBORTFALL</i></span
+        >
+        <span class="tile" data-alarm="arcunstable"
+          ><b>ARC UNSTABLE</b><i>LJUSBÅGE</i></span
+        >
+        <span class="tile" data-alarm="strain"
+          ><b>DRUM STRAIN</b><i>DRIVPÅDRAG</i></span
+        >
+        <span class="tile tile-advisory" data-alarm="cageat6"
+          ><b>CAGE AT SIX</b><i>OMKOPPLA SÖDER</i></span
+        >
+        <span class="tile" data-alarm="heatsoak"
+          ><b>HEAT SOAK</b><i>LUKEN STÄNGD</i></span
+        >
+        <span class="tile" data-alarm="jam"
+          ><b>GEAR JAM</b><i>DRIVSPÄRR</i></span
+        >
+        <span class="breaker-flag" data-breaker-flag hidden
+          >FAN BREAKER TRIPPED</span
+        >
+      </section>
+
+      <!-- ============================= maintenance tray ======================== -->
+      <section class="tray" aria-label="Maintenance tray">
+        <p class="tray-caption">UNDERHÅLL · MAINTENANCE</p>
+
+        <div class="tray-group" data-control="FAULT TESTS">
+          <span class="tray-label">PROVNING<br />FAULT TESTS</span>
+          <button
+            type="button"
+            class="key key-test"
+            data-inject="blower failure"
+          >
+            TEST FLÄKT<br /><span class="key-sub">BLOWER FAILURE</span>
+          </button>
+          <button
+            type="button"
+            class="key key-test"
+            data-inject="arc instability"
+          >
+            TEST LJUSBÅGE<br /><span class="key-sub">ARC INSTABILITY</span>
+          </button>
+          <button
+            type="button"
+            class="key key-test"
+            data-inject="gear train jam"
+          >
+            TEST DRIVNING<br /><span class="key-sub">GEAR TRAIN JAM</span>
+          </button>
+        </div>
+
+        <div class="tray-group">
+          <span class="tray-label">HERSTÄLLNING<br />RECOVERY</span>
+          <button
+            type="button"
+            class="key key-recover"
+            data-control="FAN BREAKER"
+            data-fan-breaker
+          >
+            BRYTARE<br /><span class="key-sub">FAN BREAKER</span>
+          </button>
+          <button
+            type="button"
+            class="key key-recover"
+            data-control="JOG RELEASE"
+            data-jog-release
+            aria-label="Hold to jog the drum gears free"
+          >
+            LOSSNING<br /><span class="key-sub">HOLD · JOG RELEASE</span>
+          </button>
+          <button
+            type="button"
+            class="key key-recover"
+            data-control="TRIP RESET"
+            data-trip-reset
+          >
+            LOSS SPÄRR<br /><span class="key-sub">TRIP RESET</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- =============================== manual dialog ========================== -->
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <header class="manual-chrome">
+        <span class="manual-chrome-title"
+          >HANDBOK M-63/S · OPERATING MANUAL</span
+        >
+        <button type="button" class="key" data-action="close-manual">
+          STÄNG<br /><span class="key-sub">CLOSE</span>
+        </button>
+      </header>
+      <iframe
+        src="manual.html"
+        title="Aldersund Planetarium operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

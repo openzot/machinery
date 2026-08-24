@@ -704,5 +704,41 @@
     ],
     "tagline": "Two turns open, two metres to the wash, and never a drop without her residual.",
     "created": "2026-08-24"
+  },
+  {
+    "slug": "aldersund-planetarium",
+    "name": "Aldersund Planetarium - Projector Console No. 1",
+    "kind": "opto-mechanical planetarium projector lecture console",
+    "domain": "theatre",
+    "era": "1960s",
+    "design": "oxblood-brown moulded bakelite in a brushed-aluminium frame, engraved ivory-filled condensed legends, tungsten-lit key roundels and amber pilot neons, backlit drum counters, a fisheye dome port with a living star field, dark until the arc is struck",
+    "interaction": "walking the carbon arc onto thirty amperes in its green field, then re-caging the drum gears at six hours west under a red guard while the latitude crank tips the whole star cage live in the port",
+    "palette": [
+      "#5e2b22",
+      "#f2e3b0",
+      "#d0342a"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "BLOWER SWITCH",
+      "LAMP CURRENT",
+      "RATE SELECTOR",
+      "LATITUDE CRANK",
+      "RE-CAGE LEVER",
+      "SHUTTER KEYS",
+      "HOUSE LIGHTS",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TESTS",
+      "TRIP RESET",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "blower failure",
+      "arc instability",
+      "gear train jam"
+    ],
+    "tagline": "Keep the needle in the green field and cage her drums at six hours west.",
+    "created": "2026-08-24"
   }
 ]
