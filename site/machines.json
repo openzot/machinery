@@ -428,6 +428,41 @@
     ],
     "tagline": "Tune for the dip of the anode, load for the lift of the aerial.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "fenn-crossroads",
+    "name": "Fenn Crossroads Automatic Signal Controller Mk III",
+    "kind": "electromechanical traffic-signal controller",
+    "domain": "road",
+    "era": "1950s",
+    "design": "grey-green stove-enamel steel in a borough street cabinet, bright chromate-zinc mechanism plate, screen-printed cream condensed capitals, incandescent jewels and glowing signal lenses under daylight, three re-timeable cams on an open camshaft",
+    "interaction": "pull-and-turn cam clutch drums to retime the greens while the synchronous motor keeps cycling, a folding hand crank and police pushbutton to walk intervals at HAND",
+    "palette": [
+      "#687065",
+      "#cf7a10",
+      "#bf2318"
+    ],
+    "controls": [
+      "MAINS ISOLATOR",
+      "MODE SELECTOR",
+      "INTERVAL CRANK",
+      "MAIN GREEN CAM",
+      "SIDE GREEN CAM",
+      "WALK CAM",
+      "POLICE PUSHBUTTON",
+      "EMERGENCY FLASH KEY",
+      "TREADLE TEST",
+      "LAMP RESTORE",
+      "BELL CUT",
+      "MAINTENANCE TESTS",
+      "PLANT RESET"
+    ],
+    "faults": [
+      "signal lamp failure",
+      "cam clutch slip",
+      "treadle stuck closed"
+    ],
+    "tagline": "Thirty for Fenn Road, twenty for Carrow Lane - timed by cams, kept by mercury.",
+    "created": "2026-08-23"
   }
 ]
-

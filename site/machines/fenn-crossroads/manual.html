@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      M.I. 1147 — Operating Manual — Fenn Crossroads Automatic Signal Controller
+      Mk III
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <div class="doc">
+      <header class="doc-head">
+        <div class="doc-ref">
+          MIDSHIRE COUNTY BOROUGH&nbsp;&middot;&nbsp;TRAFFIC ENGINEERING
+          DEPARTMENT<br />INSTRUCTION No.
+          M.I.&nbsp;1147&nbsp;&middot;&nbsp;ISSUE 2&nbsp;&middot;&nbsp;MARCH
+          1955
+        </div>
+        <h1>OPERATING MANUAL<br />AUTOMATIC SIGNAL CONTROLLER MK III</h1>
+        <div class="doc-sub">
+          AS FITTED AT THE FENN CROSSROADS JUNCTION, FENN RD. &times; CARROW
+          LN.<br />CABINET TYPE M3/240 &mdash; KEEP THIS BOOK IN THE CABINET
+          POCKET
+        </div>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        The Mk III controller works the traffic signals at the Fenn Crossroads
+        entirely by machinery. A synchronous motor, fed from the mains through
+        the MAINS ISOLATOR, drives a reduction gear and a camshaft; three
+        adjustable cams &mdash; the MAIN GREEN CAM, the SIDE GREEN CAM and the
+        WALK CAM &mdash; open and close mercury switches in strict order and so
+        step the junction through its intervals. Vehicle treadles laid across
+        each approach register demand calls on the ratchet counters beside the
+        mechanism, and a conflict monitor watches the lamps themselves.
+      </p>
+      <p>
+        If a filament fails, or if traffic stands beyond the capacity of the
+        timing for ninety seconds together, the monitor drops the junction on to
+        alternating red flash, lights the ON TRANSFER pilot and rings the
+        striker bell until it is answered. The delivered condition of the plant
+        &mdash; and the condition reached by pressing PLANT RESET &mdash; is
+        supply on, selector at AUTO, timings
+        30&thinsp;/&thinsp;20&thinsp;/&thinsp;8 seconds, counters at zero and no
+        alarms standing.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="spec">
+        <tr>
+          <th>Control</th>
+          <th>Positions</th>
+          <th>Duty</th>
+        </tr>
+        <tr>
+          <td>MAINS ISOLATOR</td>
+          <td>OFF&nbsp;/&nbsp;ON</td>
+          <td>
+            Connects or disconnects the mains supply to the whole cabinet.
+            Isolate before touching a lamp.
+          </td>
+        </tr>
+        <tr>
+          <td>MODE SELECTOR</td>
+          <td>FLASH&nbsp;/&nbsp;AUTO&nbsp;/&nbsp;HAND</td>
+          <td>
+            Picks alternating red flash, ordinary automatic working, or hand
+            control of every interval.
+          </td>
+        </tr>
+        <tr>
+          <td>INTERVAL CRANK</td>
+          <td>wound / stowed</td>
+          <td>
+            Winds the camshaft forward by hand while the selector stands at
+            HAND. Hold it turned; the shaft follows the crank.
+          </td>
+        </tr>
+        <tr>
+          <td>MAIN GREEN CAM</td>
+          <td>15&ndash;60&thinsp;s, 5&thinsp;s steps</td>
+          <td>
+            Sets the length of the Fenn Road green. Pull the knurled clutch knob
+            towards you, turn the drum to the wanted mark, release to re-engage.
+          </td>
+        </tr>
+        <tr>
+          <td>SIDE GREEN CAM</td>
+          <td>10&ndash;40&thinsp;s, 5&thinsp;s steps</td>
+          <td>
+            Sets the length of the Carrow Lane green by the same pull-and-turn.
+          </td>
+        </tr>
+        <tr>
+          <td>WALK CAM</td>
+          <td>5&ndash;15&thinsp;s, 1&thinsp;s steps</td>
+          <td>
+            Sets how long the pedestrian WALK lamp burns inside the Carrow Lane
+            green. Never more than side green less three seconds.
+          </td>
+        </tr>
+        <tr>
+          <td>POLICE PUSHBUTTON</td>
+          <td>momentary</td>
+          <td>
+            In HAND working, steps the junction to the start of the next
+            interval. For police use at point duty.
+          </td>
+        </tr>
+        <tr>
+          <td>EMERGENCY FLASH KEY</td>
+          <td>vertical / turned</td>
+          <td>
+            Put the junction on alternating red flash on the word of police or
+            fire, whatever the selector reads.
+          </td>
+        </tr>
+        <tr>
+          <td>TREADLE TEST</td>
+          <td>press</td>
+          <td>
+            Registers one artificial Carrow Lane call to prove detectors,
+            counters and change of stage. A press also frees a sticking treadle
+            iron.
+          </td>
+        </tr>
+        <tr>
+          <td>LAMP RESTORE</td>
+          <td>press</td>
+          <td>
+            Re-arms the conflict monitor after a lamp has been replaced and
+            releases the forced flash.
+          </td>
+        </tr>
+        <tr>
+          <td>BELL CUT</td>
+          <td>in / out</td>
+          <td>
+            Silences the striker bell while an alarm is attended. Leave out
+            (armed) at all other times.
+          </td>
+        </tr>
+        <tr>
+          <td>MAINTENANCE TESTS</td>
+          <td>guarded LAMP FAIL, CLUTCH SLIP, TREADLE STICK</td>
+          <td>
+            Works-test switches under hinged guards. They reproduce the three
+            recognised faults for instruction; leave all down and guarded after
+            use.
+          </td>
+        </tr>
+        <tr>
+          <td>PLANT RESET</td>
+          <td>press</td>
+          <td>
+            Returns the controller to its delivered condition: running, timed
+            30&thinsp;/&thinsp;20&thinsp;/&thinsp;8, alarms cleared, counters at
+            zero.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol>
+        <li>
+          Press PLANT RESET to bring the works to its delivered condition, or
+          begin from a cabinet just energised: the POWER jewel should be lit,
+          the voltmeter should stand between 230 and 250 volts, and the flywheel
+          should be turning steadily.
+        </li>
+        <li>
+          Confirm the MODE SELECTOR stands at AUTO. The interval jewels should
+          read, in order, MAIN GREEN, MAIN AMBER, ALL&nbsp;RED, SIDE GREEN (or
+          WALK), SIDE AMBER, ALL&nbsp;RED, and back to MAIN GREEN.
+        </li>
+        <li>
+          Watch one full revolution of the CYCLE TIMER needle against the
+          coloured sectors. The amber sector should span the MAIN GREEN CAM
+          setting, the green sector the SIDE GREEN CAM setting, counting the
+          scale in seconds.
+        </li>
+        <li>
+          Prove the detectors: press TREADLE TEST once. The CARROW LN. CALLS
+          counter advances one figure, the Carrow Lane treadle marks light, and
+          Carrow Lane receives its green at the next change of stage.
+        </li>
+        <li>
+          To re-time, take hold of the wanted cam knob &mdash; MAIN GREEN CAM,
+          SIDE GREEN CAM or WALK CAM &mdash; pull it towards you against the
+          clutch, turn the drum to the new mark and let it spring back. The
+          CYCLE TIMER sectors redraw to the new timings at once. Log the new
+          settings in the site register.
+        </li>
+        <li>
+          Leave the INTERVAL CRANK stowed unless the selector is at HAND; at
+          HAND, wind the crank to drive the intervals, or use the POLICE
+          PUSHBUTTON to step them.
+        </li>
+        <li>
+          Use the EMERGENCY FLASH KEY only on the word of police or fire. To
+          return, turn the key back and confirm the selector is at AUTO.
+        </li>
+        <li>
+          Leave BELL CUT out (bell armed) when leaving the cabinet. Silence it
+          only while an alarm is being attended.
+        </li>
+        <li>
+          Close the cabinet. Working plant shows: POWER jewel lit, ON TRANSFER
+          dark, voltmeter steady, flywheel turning, and no alarm standing.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="spec">
+        <tr>
+          <th>Indication</th>
+          <th>Meaning</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>CONFLICT<br />(ON TRANSFER lit, junction flashing)</td>
+          <td>
+            The conflict monitor has seen a commanded aspect go dark: a filament
+            has failed while its street held right of way.
+          </td>
+          <td>
+            Attend. Clear the cause per Faults, press LAMP RESTORE, return the
+            junction to service with the MODE SELECTOR.
+          </td>
+        </tr>
+        <tr>
+          <td>CYCLE DRIFT</td>
+          <td>
+            A cam clutch is slipping: the cycle runs longer than the dials
+            promise.
+          </td>
+          <td>
+            Work any cam knob &mdash; pull, turn, release &mdash; to re-seat the
+            clutch. Check the CYCLE TIMER against the settings before leaving.
+          </td>
+        </tr>
+        <tr>
+          <td>SATURATION</td>
+          <td>
+            Queues have stood past thirteen vehicles a approach. At twenty
+            seconds the bell gives warning; at ninety the controller flashes.
+          </td>
+          <td>
+            Extend the greens with the cam knobs or clear the obstruction, then
+            take the MODE SELECTOR to FLASH and back to AUTO to reset the trip.
+          </td>
+        </tr>
+        <tr>
+          <td>DEMAND STUCK</td>
+          <td>
+            A Carrow Lane treadle has stood closed above half a minute; Fenn
+            Road is held to minimum green meanwhile.
+          </td>
+          <td>
+            Press TREADLE TEST once to free the contact. If the alarm stands,
+            put the TREADLE STICK test down and report the detector.
+          </td>
+        </tr>
+        <tr>
+          <td>MAINS LOW<br />(voltmeter under 216)</td>
+          <td>
+            The supply is sagging; the motor slows and every interval stretches.
+          </td>
+          <td>
+            Examine the supply fuses and the isolator connections. The
+            controller keeps time proportionally and recovers itself when the
+            volts return.
+          </td>
+        </tr>
+        <tr>
+          <td>Striker bell ringing</td>
+          <td>An alarm stands and BELL CUT is armed.</td>
+          <td>
+            Answer it. Cut the bell only while you attend; always arm it again
+            when you leave.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Faults and recovery</h2>
+
+      <h3>1. Signal lamp failure</h3>
+      <p class="lead">
+        <b>What you see:</b> a Carrow Lane red lens stands dark while Fenn Road
+        holds its green; within a second the conflict monitor drops the junction
+        to alternating red flash, lights ON TRANSFER, and raises the CONFLICT
+        alarm with the bell.
+      </p>
+      <p class="lead"><b>Recovery:</b></p>
+      <ol>
+        <li>
+          Open the MAINTENANCE TESTS guard and return the LAMP FAIL test switch
+          to its down position (a genuine failure: isolate with the MAINS
+          ISOLATOR and change the lamp).
+        </li>
+        <li>
+          Press LAMP RESTORE. The monitor re-arms and the forced flash is
+          released.
+        </li>
+        <li>
+          If the selector has been moved, return it to AUTO and watch one full
+          cycle.
+        </li>
+      </ol>
+
+      <h3>2. Cam clutch slip</h3>
+      <p class="lead">
+        <b>What you see:</b> the cycle grows longer than the CYCLE TIMER sectors
+        promise, the slip factor climbs, and the CYCLE DRIFT alarm stands.
+        Queues build behind the stretched intervals and, if left, the SATURATION
+        timer will flash the junction.
+      </p>
+      <p class="lead"><b>Recovery:</b></p>
+      <ol>
+        <li>Return the CLUTCH SLIP test switch to its down position.</li>
+        <li>
+          Re-seat the clutch: pull any cam knob towards you, turn it a little,
+          and release it home. This alone clears the fault and the CYCLE DRIFT
+          alarm.
+        </li>
+        <li>
+          Check the cycle against the dial sectors. If the saturation timer has
+          flashed the junction, take the MODE SELECTOR to FLASH and back to AUTO
+          to reset the trip.
+        </li>
+      </ol>
+
+      <h3>3. Treadle stuck closed</h3>
+      <p class="lead">
+        <b>What you see:</b> the Carrow Lane treadle marks never extinguish and
+        the calls counter races. After twenty-five seconds the DEMAND STUCK
+        alarm stands and the controller cuts Fenn Road to minimum green every
+        cycle; the main street queue builds and can end in a SATURATION flash.
+      </p>
+      <p class="lead"><b>Recovery:</b></p>
+      <ol>
+        <li>
+          Press TREADLE TEST once. The tap frees the stuck contact; the alarm
+          clears at the next change of stage.
+        </li>
+        <li>
+          If the marks still stand, open the MAINTENANCE TESTS guard, return the
+          TREADLE STICK switch to its down position, and report the detector for
+          attention.
+        </li>
+        <li>
+          If the saturation timer has tripped the junction, restore with the
+          MODE SELECTOR: to FLASH and back to AUTO.
+        </li>
+      </ol>
+
+      <h2>Specifications</h2>
+      <table class="spec">
+        <tr>
+          <th colspan="2">Electrical</th>
+        </tr>
+        <tr>
+          <td>Mains supply</td>
+          <td>240&thinsp;V, 50&thinsp;c/s, single phase</td>
+        </tr>
+        <tr>
+          <td>Motor</td>
+          <td>synchronous, geared 1&nbsp;rev. of camshaft per cycle</td>
+        </tr>
+        <tr>
+          <td>Signal load</td>
+          <td>
+            4 heads &times; 3 aspects, 60&thinsp;W lamps, plus 2 pedestrian
+            units
+          </td>
+        </tr>
+        <tr>
+          <td>Low-voltage notice</td>
+          <td>alarm below 216&thinsp;V; motor stalls below 178&thinsp;V</td>
+        </tr>
+        <tr>
+          <th colspan="2">Timing</th>
+        </tr>
+        <tr>
+          <td>Main green (MAIN GREEN CAM)</td>
+          <td>15&ndash;60&thinsp;s in 5&thinsp;s steps</td>
+        </tr>
+        <tr>
+          <td>Side green (SIDE GREEN CAM)</td>
+          <td>10&ndash;40&thinsp;s in 5&thinsp;s steps</td>
+        </tr>
+        <tr>
+          <td>Walk (WALK CAM)</td>
+          <td>5&ndash;15&thinsp;s, never beyond side green less 3&thinsp;s</td>
+        </tr>
+        <tr>
+          <td>Amber / clearance</td>
+          <td>3&thinsp;s amber each street; 2&thinsp;s all-red each change</td>
+        </tr>
+        <tr>
+          <td>Cycle, extremes of setting</td>
+          <td>35&ndash;110&thinsp;s</td>
+        </tr>
+        <tr>
+          <td>Emergency flash</td>
+          <td>alternating red, 0.7&thinsp;s each way</td>
+        </tr>
+        <tr>
+          <th colspan="2">Protection</th>
+        </tr>
+        <tr>
+          <td>Conflict monitor</td>
+          <td>operates 0.8&thinsp;s after a commanded aspect goes dark</td>
+        </tr>
+        <tr>
+          <td>Saturation timer</td>
+          <td>
+            warns at 20&thinsp;s, trips to flash at 90&thinsp;s beyond a
+            13-vehicle queue
+          </td>
+        </tr>
+        <tr>
+          <td>Detector supervision</td>
+          <td>DEMAND STUCK after 25&thinsp;s of continuous call</td>
+        </tr>
+        <tr>
+          <th colspan="2">Construction</th>
+        </tr>
+        <tr>
+          <td>Cabinet</td>
+          <td>stove-enamelled steel, type M3/240, grey-green</td>
+        </tr>
+        <tr>
+          <td>Controller, complete</td>
+          <td>
+            c. 210&thinsp;lb; floor-mounted; I.E.E. Regulations 1954 apply
+          </td>
+        </tr>
+      </table>
+
+      <footer class="doc-foot">
+        <span
+          >M.I.&nbsp;1147 ISSUE 2 &mdash; SUPERSEDES ALL PREVIOUS ISSUES</span
+        >
+        <span
+          ><a href="./">RETURN TO THE CONTROLLER</a>&nbsp;&middot;&nbsp;<a
+            href="../../index.html"
+            >CATALOGUE OF PLANT</a
+          ></span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

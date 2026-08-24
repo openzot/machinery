@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fenn Crossroads — Automatic Signal Controller Mk III</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <main class="cabinet" aria-label="Automatic signal controller cabinet">
+        <header class="head">
+          <div class="nameplate">
+            <h1>
+              MIDSHIRE COUNTY BOROUGH&nbsp;&middot;&nbsp;TRAFFIC ENGINEERING
+            </h1>
+            <p class="np-title">AUTOMATIC SIGNAL CONTROLLER MK III</p>
+            <p class="np-sub">
+              FENN CROSSROADS&nbsp;&middot;&nbsp;FENN RD. &times; CARROW
+              LN.&nbsp;&middot;&nbsp;TYPE M3/240&nbsp;&middot;&nbsp;SER. NO.
+              1955-B/114
+            </p>
+          </div>
+          <div class="head-tools">
+            <a
+              class="tag-link"
+              href="../../index.html"
+              title="Back to the plant register"
+              >&larr;&nbsp;PLANT REGISTER</a
+            >
+            <button type="button" class="manual-card" data-action="manual">
+              OPERATING MANUAL<br />M.I.&nbsp;1147
+            </button>
+          </div>
+        </header>
+
+        <section class="mimic-block" aria-label="Junction mimic, live">
+          <div class="plate-label">JUNCTION MIMIC &mdash; FENN CROSSROADS</div>
+          <svg
+            id="mimicSvg"
+            viewBox="0 0 980 312"
+            role="img"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="Plan of the crossroads with signal heads and vehicle queues"
+          >
+            <rect x="0" y="0" width="980" height="312" class="mm-board" />
+            <rect x="0" y="118" width="980" height="76" class="mm-road" />
+            <rect x="448" y="0" width="84" height="312" class="mm-road" />
+            <line x1="0" y1="118" x2="980" y2="118" class="mm-kerb" />
+            <line x1="0" y1="194" x2="980" y2="194" class="mm-kerb" />
+            <line x1="448" y1="0" x2="448" y2="312" class="mm-kerb" />
+            <line x1="532" y1="0" x2="532" y2="312" class="mm-kerb" />
+            <line x1="20" y1="156" x2="430" y2="156" class="mm-dash" />
+            <line x1="550" y1="156" x2="960" y2="156" class="mm-dash" />
+            <line x1="490" y1="20" x2="490" y2="106" class="mm-dash" />
+            <line x1="490" y1="206" x2="490" y2="292" class="mm-dash" />
+            <rect x="436" y="157" width="5" height="35" class="mm-stop" />
+            <rect x="539" y="120" width="5" height="35" class="mm-stop" />
+            <rect x="491" y="107" width="38" height="5" class="mm-stop" />
+            <rect x="451" y="200" width="38" height="5" class="mm-stop" />
+
+            <g class="mm-treadle" id="tr-E">
+              <rect x="248" y="158" width="46" height="32" />
+              <text x="271" y="178">TREADLE</text>
+            </g>
+            <g class="mm-treadle" id="tr-W">
+              <rect x="686" y="122" width="46" height="32" />
+              <text x="709" y="142">TREADLE</text>
+            </g>
+            <g class="mm-treadle" id="tr-S">
+              <rect x="493" y="28" width="38" height="34" />
+              <text x="512" y="49">TREADLE</text>
+            </g>
+            <g class="mm-treadle" id="tr-N">
+              <rect x="449" y="250" width="38" height="34" />
+              <text x="468" y="271">TREADLE</text>
+            </g>
+
+            <g class="cars" id="carsE"></g>
+            <g class="cars" id="carsW"></g>
+            <g class="cars" id="carsS"></g>
+            <g class="cars" id="carsN"></g>
+
+            <text x="120" y="110" class="mm-street">FENN ROAD</text>
+            <text x="476" y="306" class="mm-street mm-vlabel">CARROW LANE</text>
+
+            <g class="head-g" id="hd-E" transform="translate(398,204)">
+              <line x1="0" y1="-8" x2="0" y2="-18" class="hh-pole" />
+              <rect
+                x="-14"
+                y="-8"
+                width="28"
+                height="66"
+                rx="5"
+                class="hh-box"
+              />
+              <circle cx="0" cy="4" r="8" class="lp-r" />
+              <circle cx="0" cy="21" r="8" class="lp-a" />
+              <circle cx="0" cy="38" r="8" class="lp-g" />
+            </g>
+            <g class="head-g" id="hd-W" transform="translate(582,52)">
+              <line x1="0" y1="58" x2="0" y2="68" class="hh-pole" />
+              <rect
+                x="-14"
+                y="-8"
+                width="28"
+                height="66"
+                rx="5"
+                class="hh-box"
+              />
+              <circle cx="0" cy="4" r="8" class="lp-r" />
+              <circle cx="0" cy="21" r="8" class="lp-a" />
+              <circle cx="0" cy="38" r="8" class="lp-g" />
+            </g>
+            <g class="head-g" id="hd-S" transform="translate(414,42)">
+              <rect
+                x="-8"
+                y="-14"
+                width="66"
+                height="28"
+                rx="5"
+                class="hh-box"
+              />
+              <circle cx="58" cy="0" r="8" class="lp-r" />
+              <circle cx="41" cy="0" r="8" class="lp-a" />
+              <circle cx="24" cy="0" r="8" class="lp-g" />
+            </g>
+            <g class="head-g" id="hd-N" transform="translate(566,270)">
+              <rect
+                x="-58"
+                y="-14"
+                width="66"
+                height="28"
+                rx="5"
+                class="hh-box"
+              />
+              <circle cx="-50" cy="0" r="8" class="lp-r" />
+              <circle cx="-33" cy="0" r="8" class="lp-a" />
+              <circle cx="-16" cy="0" r="8" class="lp-g" />
+            </g>
+
+            <g class="ped-g" id="ped-W1" transform="translate(360,236)">
+              <rect
+                x="-24"
+                y="-12"
+                width="48"
+                height="26"
+                rx="4"
+                class="hh-box"
+              />
+              <text x="-18" y="9" class="ped-t">WALK</text>
+              <circle cx="16" cy="1" r="7" class="lp-walk" />
+            </g>
+            <g class="ped-g" id="ped-D1" transform="translate(620,236)">
+              <rect
+                x="-24"
+                y="-12"
+                width="48"
+                height="26"
+                rx="4"
+                class="hh-box"
+              />
+              <circle cx="-18" cy="1" r="7" class="lp-dw" />
+              <text x="-6" y="9" class="ped-t">WAIT</text>
+            </g>
+          </svg>
+        </section>
+
+        <section class="deck">
+          <div class="mech">
+            <div class="plate-label">
+              TIMING MECHANISM &mdash; MOTOR, BELT &amp; CAMSHAFT
+            </div>
+            <div class="mech-row">
+              <div class="motor-bay">
+                <div class="motor-plate">
+                  SYNCHRONOUS MOTOR<br />240&thinsp;V&nbsp;50&thinsp;c/s
+                </div>
+                <div class="flywheel-wrap">
+                  <div class="flywheel" id="flywheel"><i></i><i></i></div>
+                </div>
+                <div class="belt" id="belt"><i></i><i></i></div>
+                <div class="transfer-relay" id="relayBox">
+                  <span class="rl-arm"></span
+                  ><span class="rl-txt">FLASH RELAY</span>
+                </div>
+              </div>
+              <div class="camstack">
+                <div class="cam-row" id="camRowMG">
+                  <div class="cam-disc" id="discMG">
+                    <i class="lobe"></i><b class="idx"></b>
+                  </div>
+                  <div class="follower" id="folMG">
+                    <span class="roller"></span><span class="capsule"></span>
+                  </div>
+                  <button
+                    type="button"
+                    class="cam-knob"
+                    id="knobMG"
+                    data-control="MAIN GREEN CAM"
+                    role="slider"
+                    aria-label="MAIN GREEN CAM — pull and turn to set main-green seconds"
+                    aria-valuemin="15"
+                    aria-valuemax="60"
+                    aria-valuenow="30"
+                    aria-valuetext="30 seconds"
+                  >
+                    <span class="ck-grip"></span><span class="ck-cap"></span>
+                  </button>
+                  <output class="cam-read" id="readMG" for="knobMG"
+                    >MAIN GREEN&nbsp;<b>30</b>&thinsp;s</output
+                  >
+                </div>
+                <div class="cam-row" id="camRowSG">
+                  <div class="cam-disc" id="discSG">
+                    <i class="lobe lobe-mid"></i><b class="idx"></b>
+                  </div>
+                  <div class="follower" id="folSG">
+                    <span class="roller"></span><span class="capsule"></span>
+                  </div>
+                  <button
+                    type="button"
+                    class="cam-knob"
+                    id="knobSG"
+                    data-control="SIDE GREEN CAM"
+                    role="slider"
+                    aria-label="SIDE GREEN CAM — pull and turn to set side-green seconds"
+                    aria-valuemin="10"
+                    aria-valuemax="40"
+                    aria-valuenow="20"
+                    aria-valuetext="20 seconds"
+                  >
+                    <span class="ck-grip"></span><span class="ck-cap"></span>
+                  </button>
+                  <output class="cam-read" id="readSG" for="knobSG"
+                    >SIDE GREEN&nbsp;<b>20</b>&thinsp;s</output
+                  >
+                </div>
+                <div class="cam-row" id="camRowWK">
+                  <div class="cam-disc" id="discWK">
+                    <i class="lobe lobe-small"></i><b class="idx"></b>
+                  </div>
+                  <div class="follower" id="folWK">
+                    <span class="roller"></span><span class="capsule"></span>
+                  </div>
+                  <button
+                    type="button"
+                    class="cam-knob"
+                    id="knobWK"
+                    data-control="WALK CAM"
+                    role="slider"
+                    aria-label="WALK CAM — pull and turn to set walking seconds"
+                    aria-valuemin="5"
+                    aria-valuemax="15"
+                    aria-valuenow="8"
+                    aria-valuetext="8 seconds"
+                  >
+                    <span class="ck-grip"></span><span class="ck-cap"></span>
+                  </button>
+                  <output class="cam-read" id="readWK" for="knobWK"
+                    >WALK&nbsp;<b>8</b>&thinsp;s</output
+                  >
+                </div>
+                <div class="crank-line">
+                  <button
+                    type="button"
+                    class="crank"
+                    id="crank"
+                    data-control="INTERVAL CRANK"
+                    aria-label="INTERVAL CRANK — press and hold to wind the camshaft forward by hand"
+                  >
+                    <span class="cr-arm"></span><span class="cr-handle"></span>
+                  </button>
+                  <span class="cr-note"
+                    >HAND WIND &mdash; SELECTOR AT HAND</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="jewel-row" role="list" aria-label="Interval lamps">
+              <span class="jewel" id="jMG" role="listitem"
+                ><i></i>MAIN GREEN</span
+              >
+              <span class="jewel" id="jMA" role="listitem"
+                ><i></i>MAIN AMBER</span
+              >
+              <span class="jewel" id="jAR" role="listitem"
+                ><i></i>ALL&nbsp;RED</span
+              >
+              <span class="jewel" id="jSG" role="listitem"
+                ><i></i>SIDE GREEN</span
+              >
+              <span class="jewel" id="jSA" role="listitem"
+                ><i></i>SIDE AMBER</span
+              >
+              <span class="jewel" id="jWK" role="listitem"><i></i>WALK</span>
+            </div>
+          </div>
+
+          <div class="instr-col">
+            <div class="instr-pair">
+              <div class="instr">
+                <div class="plate-label">CYCLE TIMER</div>
+                <svg
+                  id="cycleDial"
+                  viewBox="0 0 210 210"
+                  role="img"
+                  aria-label="Cycle position dial, one revolution per cycle"
+                ></svg>
+              </div>
+              <div class="instr">
+                <div class="plate-label">MAINS VOLTS</div>
+                <svg
+                  id="voltMeter"
+                  viewBox="0 0 210 132"
+                  role="img"
+                  aria-label="Mains voltmeter"
+                ></svg>
+              </div>
+            </div>
+            <div class="counters">
+              <div class="counter">
+                <div class="plate-label">MAIN ST. CALLS</div>
+                <div class="drum-window" id="drumMain" aria-live="off">
+                  <span>0</span><span>0</span><span>0</span><span>0</span>
+                </div>
+              </div>
+              <div class="counter">
+                <div class="plate-label">CARROW LN. CALLS</div>
+                <div class="drum-window" id="drumSide" aria-live="off">
+                  <span>0</span><span>0</span><span>0</span><span>0</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="pushbtn pb-small"
+                id="treadleTest"
+                data-control="TREADLE TEST"
+                aria-label="TREADLE TEST — register a Carrow Lane demand call"
+              >
+                TREADLE TEST
+              </button>
+            </div>
+            <div class="pilots">
+              <span class="jewel sm" id="jPower"><i></i>POWER</span>
+              <span class="jewel sm" id="jTransfer"><i></i>ON TRANSFER</span>
+              <span class="jewel sm" id="jBell"><i></i>BELL CUT</span>
+              <div class="bell" id="bell">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bench">
+          <div class="cluster power-cluster">
+            <div class="plate-label">SUPPLY &amp; CONTROL</div>
+            <div class="ctl">
+              <button
+                type="button"
+                class="rotary isolator"
+                id="isolator"
+                data-control="MAINS ISOLATOR"
+                aria-pressed="true"
+                aria-label="MAINS ISOLATOR — currently ON. Press to switch off, again for on."
+              >
+                <span class="rt-dial"><span class="rt-pointer"></span></span>
+                <span class="rt-scale two"><b>OFF</b><b>ON</b></span>
+              </button>
+              <span class="ctl-name">MAINS ISOLATOR</span>
+            </div>
+            <div class="ctl">
+              <button
+                type="button"
+                class="rotary selector"
+                id="modeSel"
+                data-control="MODE SELECTOR"
+                aria-label="MODE SELECTOR — currently AUTO. Left arrow for FLASH, right arrow for HAND."
+                aria-valuetext="AUTO"
+              >
+                <span class="rt-dial"><span class="rt-pointer"></span></span>
+                <span class="rt-scale three"
+                  ><b>FLASH</b><b>AUTO</b><b>HAND</b></span
+                >
+              </button>
+              <span class="ctl-name">MODE SELECTOR</span>
+            </div>
+            <div class="ctl">
+              <button
+                type="button"
+                class="keysw"
+                id="flashKey"
+                data-control="EMERGENCY FLASH KEY"
+                aria-pressed="false"
+                aria-label="EMERGENCY FLASH KEY — turn to put the junction on alternating red flash"
+              >
+                <span class="kw-barrel"><span class="kw-slot"></span></span>
+              </button>
+              <span class="ctl-name">EMERGENCY FLASH KEY</span>
+            </div>
+            <div class="ctl">
+              <button
+                type="button"
+                class="pushbtn pb-brass"
+                id="policeBtn"
+                data-control="POLICE PUSHBUTTON"
+                aria-label="POLICE PUSHBUTTON — step to the next interval while the selector stands at HAND"
+              >
+                POLICE
+              </button>
+              <span class="ctl-name"
+                >POLICE PUSHBUTTON<em>(steps intervals at HAND)</em></span
+              >
+            </div>
+          </div>
+
+          <div class="cluster test-cluster">
+            <div class="plate-label">MAINTENANCE &mdash; WORKS TESTS</div>
+            <div
+              class="guarded-bank"
+              id="testBank"
+              data-control="MAINTENANCE TESTS"
+              role="group"
+              aria-label="Maintenance fault test switches under guards"
+            >
+              <div class="guard-sw" id="gsLamp">
+                <button
+                  type="button"
+                  class="guard"
+                  aria-expanded="false"
+                  aria-label="Open guard over LAMP FAIL test switch"
+                >
+                  <i class="gd-lid"></i>
+                </button>
+                <button
+                  type="button"
+                  class="toggle-lever"
+                  aria-pressed="false"
+                  aria-label="LAMP FAIL test switch"
+                  disabled
+                >
+                  <i class="tl-knob"></i>
+                </button>
+                <span class="gs-name">LAMP FAIL</span>
+              </div>
+              <div class="guard-sw" id="gsClutch">
+                <button
+                  type="button"
+                  class="guard"
+                  aria-expanded="false"
+                  aria-label="Open guard over CLUTCH SLIP test switch"
+                >
+                  <i class="gd-lid"></i>
+                </button>
+                <button
+                  type="button"
+                  class="toggle-lever"
+                  aria-pressed="false"
+                  aria-label="CLUTCH SLIP test switch"
+                  disabled
+                >
+                  <i class="tl-knob"></i>
+                </button>
+                <span class="gs-name">CLUTCH SLIP</span>
+              </div>
+              <div class="guard-sw" id="gsTreadle">
+                <button
+                  type="button"
+                  class="guard"
+                  aria-expanded="false"
+                  aria-label="Open guard over TREADLE STICK test switch"
+                >
+                  <i class="gd-lid"></i>
+                </button>
+                <button
+                  type="button"
+                  class="toggle-lever"
+                  aria-pressed="false"
+                  aria-label="TREADLE STICK test switch"
+                  disabled
+                >
+                  <i class="tl-knob"></i>
+                </button>
+                <span class="gs-name">TREADLE STICK</span>
+              </div>
+            </div>
+            <div class="test-btns">
+              <button
+                type="button"
+                class="pushbtn pb-red"
+                id="lampRestore"
+                data-control="LAMP RESTORE"
+                aria-label="LAMP RESTORE — re-arm the conflict monitor after a lamp is replaced"
+              >
+                LAMP RESTORE
+              </button>
+              <button
+                type="button"
+                class="bat-toggle"
+                id="bellCut"
+                data-control="BELL CUT"
+                aria-pressed="false"
+                aria-label="BELL CUT — silence the alarm striker"
+              >
+                <i class="bt-handle"></i><span>BELL CUT</span>
+              </button>
+              <button
+                type="button"
+                class="pushbtn pb-small"
+                id="plantReset"
+                data-control="PLANT RESET"
+                aria-label="PLANT RESET — return the controller to its delivered, alarm-free condition"
+              >
+                PLANT RESET
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <footer class="foot">
+          <span
+            >MONTHLY RE-TIME AT THE DEPOT &mdash; LOG ALL SETTINGS IN THE SITE
+            REGISTER</span
+          >
+          <span class="foot-right"
+            >I.E.E. REGS. 1954 APPLY&nbsp;&middot;&nbsp;<a
+              href="../../index.html"
+              >CATALOGUE OF PLANT</a
+            ></span
+          >
+        </footer>
+
+        <dialog data-manual id="manualDialog" aria-label="Operating manual">
+          <div class="dlg-bar">
+            <span>OPERATING MANUAL M.I.&nbsp;1147</span>
+            <button
+              type="button"
+              class="dlg-close"
+              data-action="close-manual"
+              aria-label="Close the operating manual"
+            >
+              CLOSE &times;
+            </button>
+          </div>
+          <iframe src="manual.html" title="Operating manual M.I. 1147"></iframe>
+        </dialog>
+      </main>
+    </div>
+    <script src="machine.js"></script>
+  </body>
+</html>
