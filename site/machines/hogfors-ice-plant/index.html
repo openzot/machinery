@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Högfors Isstadion · Ice Plant Machine Room</title>
+    <meta
+      name="description"
+      content="Refrigeration machine room console of the Högfors Isstadion municipal ice arena, 1974. Twin R22 compressors, calcium brine under the slab, frost to keep under the line."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="cabinet">
+      <!-- ============================ plate rail ============================ -->
+      <header class="plate-rail">
+        <div class="brand-block">
+          <p class="brand">AKTIEBOLAGET NORDKYL · MALMÖ</p>
+          <h1 class="model">
+            Högfors Isstadion
+            <span class="model-sub"
+              >— Isplanens kylmaskinrum · Ice Plant Machine Room</span
+            >
+          </h1>
+        </div>
+        <div class="serial-plate" aria-hidden="true">
+          ANLÄGGNING NR 74-3117 · KÖLDMEDIUM R22 · BRINE CaCl₂ · 380 V 3~ 50 Hz
+          <br />
+          TILLVERKAD 1974 · TRYCKET 1974-11 · BLAD 1 AV 1
+        </div>
+        <div class="clock-block">
+          <span class="clock-label">SIMULERAD TID</span>
+          <span class="clock-face" data-clock="--:--">--:--</span>
+          <span class="hour-meter" title="Compressor hours run">
+            <span class="hm-label">TIMRÄKNARE</span>
+            <span class="hm-drum" data-hours="000000">000000</span>
+          </span>
+        </div>
+        <div class="plate-actions">
+          <button type="button" class="push push-slate" data-action="manual">
+            MANUAL<br /><span class="push-sub">HANDBOKEN</span>
+          </button>
+          <button
+            type="button"
+            class="push push-slate sound-toggle"
+            data-sound-button
+            aria-pressed="false"
+            aria-label="Enable or disable machine sound"
+          >
+            LJUD<br /><span class="push-sub">SOUND OFF</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ============================== bench ============================== -->
+      <section class="bench">
+        <!-- LEFT BAY : the slab and its brine -->
+        <section class="bay bay-rink" aria-label="Ice slab and brine circuit">
+          <header class="bay-head">
+            <h2>ISPLAN · ICE SLAB</h2>
+            <span class="bay-sub"
+              >brinkret under planen — brine circuit, 24 m³/h</span
+            >
+          </header>
+
+          <div class="slab-frame">
+            <svg
+              id="rinkSvg"
+              viewBox="0 0 560 320"
+              role="img"
+              aria-label="Top view of the ice slab. White patches grow with frost depth; a wet band sweeps the ice when the resurfacer is out."
+            >
+              <defs>
+                <radialGradient id="iceGrad" cx="50%" cy="42%" r="75%">
+                  <stop offset="0%" stop-color="#f2fafd" />
+                  <stop offset="70%" stop-color="#e2eff4" />
+                  <stop offset="100%" stop-color="#d3e4ec" />
+                </radialGradient>
+                <filter
+                  id="frostBlur"
+                  x="-40%"
+                  y="-40%"
+                  width="180%"
+                  height="180%"
+                >
+                  <feGaussianBlur stdDeviation="7" />
+                </filter>
+              </defs>
+              <!-- boards -->
+              <rect
+                x="14"
+                y="10"
+                width="532"
+                height="300"
+                rx="52"
+                fill="#20262a"
+              />
+              <rect
+                x="22"
+                y="18"
+                width="516"
+                height="284"
+                rx="46"
+                fill="url(#iceGrad)"
+                stroke="#a9bfca"
+                stroke-width="1.5"
+              />
+              <!-- under-slab headers -->
+              <path id="brineFlowPath" d="M40 296 H 520" class="brine-main" />
+              <path d="M40 306 H 520" class="brine-main dim" />
+              <!-- markings -->
+              <g class="rink-marks" fill="none" stroke-width="3">
+                <line
+                  x1="196"
+                  y1="24"
+                  x2="196"
+                  y2="296"
+                  stroke="#1f6fb2"
+                  opacity="0.55"
+                />
+                <line
+                  x1="364"
+                  y1="24"
+                  x2="364"
+                  y2="296"
+                  stroke="#1f6fb2"
+                  opacity="0.55"
+                />
+                <line
+                  x1="280"
+                  y1="24"
+                  x2="280"
+                  y2="296"
+                  stroke="#c23a2c"
+                  opacity="0.55"
+                />
+                <circle
+                  cx="280"
+                  cy="160"
+                  r="58"
+                  stroke="#1f6fb2"
+                  opacity="0.55"
+                />
+                <circle
+                  cx="280"
+                  cy="160"
+                  r="4"
+                  fill="#c23a2c"
+                  stroke="none"
+                  opacity="0.7"
+                />
+                <g fill="#c23a2c" stroke="none" opacity="0.5">
+                  <circle cx="96" cy="88" r="4" />
+                  <circle cx="96" cy="232" r="4" />
+                  <circle cx="464" cy="88" r="4" />
+                  <circle cx="464" cy="232" r="4" />
+                  <circle cx="196" cy="112" r="4" />
+                  <circle cx="196" cy="208" r="4" />
+                  <circle cx="364" cy="112" r="4" />
+                  <circle cx="364" cy="208" r="4" />
+                </g>
+              </g>
+              <!-- frost blooms -->
+              <g id="frostGroup" filter="url(#frostBlur)" fill="#ffffff">
+                <ellipse class="frost-patch" cx="70" cy="60" rx="60" ry="42" />
+                <ellipse class="frost-patch" cx="492" cy="64" rx="58" ry="44" />
+                <ellipse class="frost-patch" cx="76" cy="256" rx="64" ry="40" />
+                <ellipse
+                  class="frost-patch"
+                  cx="486"
+                  cy="252"
+                  rx="62"
+                  ry="44"
+                />
+                <ellipse
+                  class="frost-patch"
+                  cx="280"
+                  cy="34"
+                  rx="120"
+                  ry="26"
+                />
+                <ellipse
+                  class="frost-patch"
+                  cx="280"
+                  cy="288"
+                  rx="130"
+                  ry="24"
+                />
+              </g>
+              <!-- resurfacer wet sheen -->
+              <rect
+                id="sheenBand"
+                x="-40"
+                y="18"
+                width="120"
+                height="284"
+                fill="#bfe6f2"
+                opacity="0"
+              />
+              <!-- resurfacer marker -->
+              <g id="resurfacerGlyph" opacity="0">
+                <rect
+                  x="-16"
+                  y="-10"
+                  width="32"
+                  height="20"
+                  rx="4"
+                  fill="#274b5c"
+                />
+                <rect
+                  x="-11"
+                  y="-6"
+                  width="10"
+                  height="12"
+                  rx="2"
+                  fill="#bcd9e4"
+                />
+              </g>
+            </svg>
+            <span class="corner-screw cs-tl"></span
+            ><span class="corner-screw cs-tr"></span>
+            <span class="corner-screw cs-bl"></span
+            ><span class="corner-screw cs-br"></span>
+            <span class="slab-tag">PLANYTA −7 °C · 40 mm IS</span>
+          </div>
+
+          <div class="rink-strip">
+            <figure class="thermo" data-thermo="out">
+              <svg
+                viewBox="0 0 46 168"
+                role="img"
+                aria-label="Brine supply thermometer"
+              >
+                <g class="thermo-ticks" data-ticks></g>
+                <rect
+                  class="thermo-bore"
+                  x="17"
+                  y="8"
+                  width="12"
+                  height="122"
+                  rx="6"
+                />
+                <rect
+                  class="thermo-col"
+                  x="19.5"
+                  y="10"
+                  width="7"
+                  height="118"
+                  rx="3.5"
+                  data-mercury
+                />
+                <circle class="thermo-bulb" cx="23" cy="146" r="13" />
+                <circle
+                  class="thermo-bulb-in"
+                  cx="23"
+                  cy="146"
+                  r="8"
+                  data-bulb
+                />
+              </svg>
+              <figcaption>TILLFÖRE<br />BRINE OUT</figcaption>
+            </figure>
+            <figure class="thermo" data-thermo="ret">
+              <svg
+                viewBox="0 0 46 168"
+                role="img"
+                aria-label="Brine return thermometer"
+              >
+                <g class="thermo-ticks" data-ticks></g>
+                <rect
+                  class="thermo-bore"
+                  x="17"
+                  y="8"
+                  width="12"
+                  height="122"
+                  rx="6"
+                />
+                <rect
+                  class="thermo-col"
+                  x="19.5"
+                  y="10"
+                  width="7"
+                  height="118"
+                  rx="3.5"
+                  data-mercury
+                />
+                <circle class="thermo-bulb" cx="23" cy="146" r="13" />
+                <circle
+                  class="thermo-bulb-in"
+                  cx="23"
+                  cy="146"
+                  r="8"
+                  data-bulb
+                />
+              </svg>
+              <figcaption>RETUR<br />RETURN</figcaption>
+            </figure>
+
+            <div class="digital-meter">
+              <span class="dm-title">BRINE UT · SUPPLY TEMP</span>
+              <svg
+                class="seven-seg"
+                viewBox="0 0 168 46"
+                data-seg
+                role="img"
+                aria-label="Digital brine temperature readout"
+              ></svg>
+              <span class="dm-note">NORDKYL DIGITAL 74 · RÖD LED</span>
+            </div>
+
+            <figure
+              class="dial dial-ice"
+              data-gauge="quality"
+              data-min="0"
+              data-max="100"
+              data-unit="%"
+              data-green="70,100"
+              data-red="0,40"
+              data-caption="ISTSKICK · ICE CONDITION"
+            ></figure>
+          </div>
+        </section>
+
+        <!-- CENTRE BAY : compressor bank -->
+        <section
+          class="bay bay-comp"
+          aria-label="Compressor bank and capacity lever"
+        >
+          <header class="bay-head">
+            <h2>KYLKOMPRESSORER · No.1 / No.2</h2>
+            <span class="bay-sub"
+              >två cylindermaskiner R22 — reciprocating, 90 kW each</span
+            >
+          </header>
+
+          <div class="gauge-row">
+            <figure
+              class="dial"
+              data-gauge="suction"
+              data-min="-1"
+              data-max="6"
+              data-unit="bar"
+              data-green="1.2,3.4"
+              data-red="-1,0.8"
+              data-caption="SUGTRYCK · SUCTION"
+            ></figure>
+            <figure
+              class="dial"
+              data-gauge="discharge"
+              data-min="0"
+              data-max="20"
+              data-unit="bar"
+              data-green="8,12"
+              data-red="14,20"
+              data-caption="TRYCKGAS · DISCHARGE"
+            ></figure>
+            <figure
+              class="dial"
+              data-gauge="oil"
+              data-min="0"
+              data-max="8"
+              data-unit="bar"
+              data-green="2.5,6.5"
+              data-red="0,1.5"
+              data-caption="OLJETRYCK · OIL PRESS"
+            ></figure>
+            <figure
+              class="dial"
+              data-gauge="amps"
+              data-min="0"
+              data-max="120"
+              data-unit="A"
+              data-green="30,62"
+              data-red="68,120"
+              data-caption="MOTSTRÖM · MOTOR AMPS"
+            ></figure>
+          </div>
+
+          <div class="comp-row">
+            <figure class="comp-cut" data-comp="1">
+              <svg
+                viewBox="0 0 190 120"
+                role="img"
+                aria-label="Cutaway of compressor number one, crank and piston"
+              >
+                <rect
+                  x="18"
+                  y="34"
+                  width="154"
+                  height="70"
+                  rx="10"
+                  class="comp-body"
+                />
+                <rect
+                  x="30"
+                  y="12"
+                  width="34"
+                  height="46"
+                  rx="6"
+                  class="comp-barrel"
+                />
+                <rect
+                  x="34"
+                  y="14"
+                  width="26"
+                  height="20"
+                  rx="3"
+                  class="comp-piston"
+                  data-piston
+                />
+                <line
+                  class="comp-rod"
+                  data-rod
+                  x1="47"
+                  y1="34"
+                  x2="95"
+                  y2="82"
+                />
+                <circle class="comp-crank-outer" cx="95" cy="82" r="26" />
+                <g class="comp-web" data-web>
+                  <line x1="95" y1="82" x2="117" y2="66" stroke-width="9" />
+                </g>
+                <circle class="comp-crank-pin" cx="95" cy="82" r="6" />
+                <path class="comp-pipe" d="M172 44 h14 v-18" />
+                <path class="comp-pipe" d="M18 44 h-14 v-18" />
+                <text x="95" y="116" text-anchor="middle" class="comp-name">
+                  MASKIN No.1
+                </text>
+              </svg>
+              <span class="jewel jewel-green" data-lamp="run1"
+                ><i></i>MASKIN No.1 IGÅNG</span
+              >
+            </figure>
+            <figure class="comp-cut" data-comp="2">
+              <svg
+                viewBox="0 0 190 120"
+                role="img"
+                aria-label="Cutaway of compressor number two, crank and piston"
+              >
+                <rect
+                  x="18"
+                  y="34"
+                  width="154"
+                  height="70"
+                  rx="10"
+                  class="comp-body"
+                />
+                <rect
+                  x="126"
+                  y="12"
+                  width="34"
+                  height="46"
+                  rx="6"
+                  class="comp-barrel"
+                />
+                <rect
+                  x="130"
+                  y="14"
+                  width="26"
+                  height="20"
+                  rx="3"
+                  class="comp-piston"
+                  data-piston
+                />
+                <line
+                  class="comp-rod"
+                  data-rod
+                  x1="143"
+                  y1="34"
+                  x2="95"
+                  y2="82"
+                />
+                <circle class="comp-crank-outer" cx="95" cy="82" r="26" />
+                <g class="comp-web" data-web>
+                  <line x1="95" y1="82" x2="73" y2="66" stroke-width="9" />
+                </g>
+                <circle class="comp-crank-pin" cx="95" cy="82" r="6" />
+                <path class="comp-pipe" d="M172 44 h14 v-18" />
+                <path class="comp-pipe" d="M18 44 h-14 v-18" />
+                <text x="95" y="116" text-anchor="middle" class="comp-name">
+                  MASKIN No.2
+                </text>
+              </svg>
+              <span class="jewel jewel-green" data-lamp="run2"
+                ><i></i>MASKIN No.2 IGÅNG</span
+              >
+            </figure>
+
+            <div class="lever-assembly">
+              <div class="lever-scale" aria-hidden="true">
+                <span>25</span><span>50</span><span>75</span><span>100</span>
+              </div>
+              <div class="lever-track">
+                <span class="lever-notch" style="--n: 0"></span>
+                <span class="lever-notch" style="--n: 1"></span>
+                <span class="lever-notch" style="--n: 2"></span>
+                <span class="lever-notch" style="--n: 3"></span>
+                <div
+                  class="lever-handle"
+                  role="slider"
+                  tabindex="0"
+                  data-control="CAPACITY LEVER"
+                  aria-label="Capacity lever, compressor unloading, percent"
+                  aria-valuemin="25"
+                  aria-valuemax="100"
+                  aria-valuenow="25"
+                  aria-orientation="vertical"
+                >
+                  <span class="lever-grip"></span>
+                  <span class="lever-pointer"></span>
+                </div>
+                <span class="lever-cap" aria-hidden="true"></span>
+              </div>
+              <figcaption class="lever-caption">
+                LASTREGULATOR<br />CAPACITY LEVER · %
+              </figcaption>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT BAY : condenser, receiver, recorder -->
+        <section
+          class="bay bay-plant"
+          aria-label="Condenser, receiver and chart recorder"
+        >
+          <header class="bay-head">
+            <h2>KONDENSOR · MOTTAGARE</h2>
+            <span class="bay-sub"
+              >fan bank, liquid receiver, chart recorder</span
+            >
+          </header>
+
+          <div class="plant-grid">
+            <figure class="condenser">
+              <svg
+                viewBox="0 0 120 120"
+                role="img"
+                aria-label="Condenser fan, spinning when the plant rejects heat"
+              >
+                <circle cx="60" cy="60" r="54" class="cond-ring" />
+                <circle cx="60" cy="60" r="46" class="cond-coil" />
+                <g class="cond-fan" data-fan>
+                  <path d="M60 60 L60 16 Q74 38 60 60 Z" class="cond-blade" />
+                  <path d="M60 60 L104 60 Q82 74 60 60 Z" class="cond-blade" />
+                  <path d="M60 60 L60 104 Q46 82 60 60 Z" class="cond-blade" />
+                  <path d="M60 60 L16 60 Q38 46 60 60 Z" class="cond-blade" />
+                </g>
+                <circle cx="60" cy="60" r="7" class="cond-hub" />
+              </svg>
+              <figcaption>VERTILATORER<br />CONDENSER FANS</figcaption>
+            </figure>
+
+            <figure class="sightglass">
+              <svg
+                viewBox="0 0 60 132"
+                role="img"
+                aria-label="Receiver liquid sight glass, level shows refrigerant charge"
+              >
+                <rect
+                  x="21"
+                  y="4"
+                  width="18"
+                  height="112"
+                  rx="9"
+                  class="sg-body"
+                />
+                <clipPath id="sgClip">
+                  <rect x="23" y="6" width="14" height="108" rx="7" />
+                </clipPath>
+                <rect
+                  class="sg-liquid"
+                  data-sg-liquid
+                  x="23"
+                  y="6"
+                  width="14"
+                  height="108"
+                  rx="7"
+                  clip-path="url(#sgClip)"
+                />
+                <g class="sg-bubbles" data-sg-bubbles clip-path="url(#sgClip)">
+                  <circle cx="27" r="2.2" cy="110" />
+                  <circle cx="33" r="1.7" cy="114" />
+                  <circle cx="30" r="1.4" cy="118" />
+                </g>
+                <rect
+                  x="21"
+                  y="4"
+                  width="18"
+                  height="112"
+                  rx="9"
+                  class="sg-glass"
+                />
+                <path d="M14 116 h32 M14 16 h32" class="sg-flange" />
+              </svg>
+              <figcaption>MOTTAGARGLAS<br />CHARGE GLASS</figcaption>
+              <span class="jewel jewel-amber" data-lamp="bubbles"
+                ><i></i>GAS I GLASET</span
+              >
+            </figure>
+
+            <figure class="recorder">
+              <svg
+                viewBox="0 0 178 178"
+                role="img"
+                aria-label="Circular chart recorder tracing brine supply temperature"
+              >
+                <circle cx="89" cy="89" r="84" class="rec-disc" />
+                <g class="rec-grid">
+                  <circle cx="89" cy="89" r="66" />
+                  <circle cx="89" cy="89" r="48" />
+                  <circle cx="89" cy="89" r="30" />
+                  <circle cx="89" cy="89" r="12" />
+                  <line x1="89" y1="5" x2="89" y2="173" />
+                  <line x1="5" y1="89" x2="173" y2="89" />
+                </g>
+                <polyline class="rec-trace" data-rec-trace points="" />
+                <g class="rec-arm" data-rec-arm>
+                  <line x1="89" y1="89" x2="89" y2="18" />
+                  <circle cx="89" cy="18" r="3.4" class="rec-pen" />
+                </g>
+                <circle cx="89" cy="89" r="5" class="rec-hub" />
+              </svg>
+              <figcaption>SKRIVARE · BRINE UT<br />24-timmars skiva</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+
+      <!-- ============================= fascia ============================= -->
+      <section class="fascia" aria-label="Alarm fascia and controls">
+        <div
+          class="annunciator"
+          role="group"
+          aria-label="Alarm annunciator windows"
+        >
+          <span class="ann-window ann-amber" data-ann="LOW CHARGE"
+            >LÅG LADDNING<br />LOW CHARGE</span
+          >
+          <span class="ann-window ann-amber" data-ann="LOW SUCTION"
+            >LÅGT SUG<br />LOW SUCTION</span
+          >
+          <span class="ann-window ann-amber" data-ann="HIGH DISCHARGE"
+            >HÖGT TRYCK<br />HIGH DISCHARGE</span
+          >
+          <span class="ann-window ann-amber" data-ann="BRINE FLOW"
+            >FLÖDES BORT<br />BRINE FLOW</span
+          >
+          <span class="ann-window ann-amber" data-ann="ICE TEMP HIGH"
+            >ISVÄRME<br />ICE TEMP HIGH</span
+          >
+          <span class="ann-window ann-amber" data-ann="FROST LIMIT"
+            >RIMFROST<br />FROST LIMIT</span
+          >
+          <span class="ann-window ann-amber" data-ann="COMPRESSOR KNOCK"
+            >VÄLTING<br />COMP KNOCK</span
+          >
+          <span class="ann-window ann-amber" data-ann="MOTOR OVERLOAD"
+            >ÖVERSTRÖM<br />MOTOR OVERLOAD</span
+          >
+          <span class="ann-window ann-red" data-ann="ICE FAULT"
+            >ISFEL<br />ICE FAULT</span
+          >
+          <span class="ann-window ann-red" data-ann="SAFETY TRIP"
+            >SKYDD UTLÖST<br />SAFETY TRIP</span
+          >
+        </div>
+
+        <div class="fascia-clusters">
+          <div class="cluster cluster-start">
+            <h3>Maskinval · Start</h3>
+            <div class="cluster-body">
+              <div class="rotary" data-rotary="compressor">
+                <button
+                  type="button"
+                  class="rot-knob"
+                  data-control="COMPRESSOR SELECTOR"
+                  aria-label="Compressor selector. Positions: No.1, No.2."
+                  aria-live="polite"
+                >
+                  <span class="rot-flag"></span>
+                </button>
+                <ol class="rot-legends">
+                  <li data-pos="No.1">No.1</li>
+                  <li data-pos="No.2">No.2</li>
+                </ol>
+                <span class="rot-plate">MASKINVAL</span>
+              </div>
+              <div class="push-stack">
+                <button
+                  type="button"
+                  class="push push-green"
+                  data-control="COMPRESSOR START"
+                >
+                  IGÅNG<br /><span class="push-sub">START</span>
+                </button>
+                <button
+                  type="button"
+                  class="push push-red"
+                  data-control="COMPRESSOR STOP"
+                >
+                  STOPP<br /><span class="push-sub">STOP</span>
+                </button>
+              </div>
+              <p class="cluster-note" data-start-note aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="cluster cluster-brine">
+            <h3>Brinpumpar</h3>
+            <div class="cluster-body">
+              <div class="rotary" data-rotary="pump">
+                <button
+                  type="button"
+                  class="rot-knob rot-knob-wide"
+                  data-control="BRINE PUMP SELECTOR"
+                  aria-label="Brine pump selector. Positions: OFF, DUTY, DUTY PLUS AUX."
+                  aria-live="polite"
+                >
+                  <span class="rot-flag"></span>
+                </button>
+                <ol class="rot-legends rot-legends-three">
+                  <li data-pos="OFF">OFF</li>
+                  <li data-pos="DUTY">DUTY</li>
+                  <li data-pos="DUTY+AUX">DUTY+AUX</li>
+                </ol>
+                <span class="rot-plate">PUMPVAL</span>
+              </div>
+              <div class="jewel-col">
+                <span class="jewel jewel-green" data-lamp="pump1"
+                  ><i></i>PUMP A</span
+                >
+                <span class="jewel jewel-green" data-lamp="pump2"
+                  ><i></i>PUMP B</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cluster cluster-defrost">
+            <h3>Avinning · Resurfacer</h3>
+            <div class="cluster-body">
+              <div class="guard-box" data-guard-box>
+                <button
+                  type="button"
+                  class="guard-lid"
+                  data-guard-lid
+                  aria-expanded="false"
+                  aria-label="Open the defrost key guard"
+                >
+                  <span class="guard-stripes"></span>
+                  <span class="guard-text">LYFT SKYDD<br />LIFT GUARD</span>
+                </button>
+                <button
+                  type="button"
+                  class="key-switch"
+                  data-control="DEFROST KEY"
+                  aria-label="Defrost key. Hot gas defrost of the slab. Turn to DEFROST or back to NORMAL."
+                  disabled
+                >
+                  <span class="key-head"><span class="key-slot"></span></span>
+                  <span class="key-legends"><i>NORMAL</i><i>AVINNING</i></span>
+                </button>
+              </div>
+              <button
+                type="button"
+                class="push push-blue"
+                data-control="RESURFACER CALL"
+              >
+                ISMASKIN<br /><span class="push-sub">RESURFACER CALL</span>
+              </button>
+              <p class="cluster-note" data-resurf-note aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="cluster cluster-alarm">
+            <h3>Larm</h3>
+            <div class="cluster-body">
+              <div class="push-grid">
+                <button
+                  type="button"
+                  class="push push-grey"
+                  data-control="ALARM ACCEPT"
+                >
+                  KVITTERA<br /><span class="push-sub">ALARM ACCEPT</span>
+                </button>
+                <button
+                  type="button"
+                  class="push push-grey"
+                  data-control="HORN CUT"
+                >
+                  SIGNAL<br /><span class="push-sub">HORN CUT</span>
+                </button>
+                <button
+                  type="button"
+                  class="push push-grey"
+                  data-control="LAMPS TEST"
+                >
+                  PROVA<br /><span class="push-sub">LAMPS TEST</span>
+                </button>
+                <button
+                  type="button"
+                  class="push push-amber"
+                  data-control="TRIP RESET"
+                >
+                  ÅTERSTÄLL<br /><span class="push-sub">TRIP RESET</span>
+                </button>
+              </div>
+              <span class="jewel jewel-red jewel-big" data-lamp="horn"
+                ><i></i>SIGNALHORN</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="fascia-bottom">
+          <aside
+            class="maint-tray"
+            aria-label="Maintenance tests and repair actions"
+          >
+            <h3>MEKANIKERTRAY · MAINTENANCE</h3>
+            <div class="tray-grid">
+              <button
+                type="button"
+                class="mini mini-test"
+                data-control="TEST REFRIGERANT LEAK"
+              >
+                PROVA LÄCKA<span>TEST REFRIGERANT LEAK</span>
+              </button>
+              <button
+                type="button"
+                class="mini mini-test"
+                data-control="TEST BRINE FLOW LOSS"
+              >
+                PROVA FLÖDE<span>TEST BRINE FLOW LOSS</span>
+              </button>
+              <button
+                type="button"
+                class="mini mini-test"
+                data-control="TEST COMPRESSOR KNOCK"
+              >
+                PROVA VÄLTING<span>TEST COMPRESSOR KNOCK</span>
+              </button>
+              <button
+                type="button"
+                class="mini mini-fix"
+                data-control="ISOLATE LEAK"
+              >
+                TÄTTA LÄCKAN<span>ISOLATE LEAK</span>
+              </button>
+              <button
+                type="button"
+                class="mini mini-fix"
+                data-control="TOP UP CHARGE"
+              >
+                PÅFYLLNING<span>TOP UP CHARGE +12 kg</span>
+              </button>
+            </div>
+            <p class="tray-note" data-tray-note>
+              R22 flaskvikt kopplad — charging cylinder stowed.
+            </p>
+          </aside>
+
+          <div class="log-strip" aria-label="Plant log">
+            <h3>LOGG</h3>
+            <ol class="log-lines" data-log reversed>
+              <li>— loggen är tom —</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <footer class="skirt">
+        <a class="back-link" href="../../"
+          >&larr; Alla maskiner · Machine catalogue</a
+        >
+        <span class="skirt-note"
+          >Nordkyl AB serviceavdelning · ritning NK-3117-E · blad 1</span
+        >
+      </footer>
+    </main>
+
+    <!-- ========================= manual dialog ========================= -->
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="manual-title"
+          >HÖGFORS ISSTADION · DRIFTBOK — OPERATING MANUAL</span
+        >
+        <button
+          type="button"
+          class="push push-slate"
+          data-action="close-manual"
+        >
+          STÄNG<br /><span class="push-sub">CLOSE</span>
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Högfors Isstadion ice plant"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

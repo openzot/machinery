@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Högfors Isstadion · Driftbok — Operating Manual</title>
+    <meta
+      name="description"
+      content="Operating manual for the Högfors Isstadion ice plant machine room, Nordkyl AB 1974."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <main class="manual-page">
+      <header class="manual-head">
+        <p class="brand">AKTIEBOLAGET NORDKYL · MALMÖ · SERVICEAVDELNINGEN</p>
+        <h1>DRIFTBOK<br />Högfors Isstadion — kylmaskinrum</h1>
+        <p class="manual-meta">
+          Anläggning nr 74-3117 · Kylmedium R22 · Brine CaCl₂ · Blad 1 av 1
+          <br />
+          Denna bok är fast bultad vid skåpet. Lämna den inte i kafeterian.
+        </p>
+        <div class="manual-links">
+          <a href="./">&larr; Till panelen · To the panel</a>
+          <a href="../../">Alla maskiner · Machine catalogue &uarr;</a>
+        </div>
+      </header>
+
+      <section class="man-sec">
+        <h2>Overview</h2>
+        <p>
+          This is the machine room console of the Högfors Isstadion municipal
+          ice arena. Behind the wall there is 1800 m² of ice on a concrete slab;
+          under the slab, ninety-six circuits of steel pipe in calcium-brine;
+          out here, you and two R22 compressors. The plant's whole purpose is to
+          hold the brine at −12 °C so that the ice stays at −7 °C, night after
+          night, between hockey and public skating.
+        </p>
+        <p>
+          The room is built around one fact: frost. Moist air finds every cold
+          surface, and the slab grows a blanket of it that strangles the
+          cooling. The Nordkyl plant is therefore run as a rhythm — freeze hard,
+          watch the frost line, give the slab hot gas between periods, and never
+          let the brine run away while you do it. The panel tells you everything
+          twice: once in glass and ink, once in sound.
+        </p>
+        <p class="man-warn">
+          R22 under pressure. Brine at minus twelve wets like any water and
+          freezes like a grudge. If the horn sounds, silence it only after you
+          have read why.
+        </p>
+      </section>
+
+      <section class="man-sec">
+        <h2>Controls</h2>
+        <dl class="man-controls">
+          <dt data-control-name="COMPRESSOR START">COMPRESSOR START</dt>
+          <dd>
+            Green push. Starts the selected machine against its flow interlock.
+            The start is blocked, and a note shown, if the brine pumps are not
+            proving flow.
+          </dd>
+          <dt data-control-name="COMPRESSOR STOP">COMPRESSOR STOP</dt>
+          <dd>
+            Red push. Unloads and stops the selected machine. Normal stop.
+          </dd>
+          <dt data-control-name="COMPRESSOR SELECTOR">COMPRESSOR SELECTOR</dt>
+          <dd>
+            Two-position rotary: No.1 / No.2. Selects which machine answers the
+            START push. Turning it while running takes that machine off line —
+            changeover is a stop, a select, and a fresh START.
+          </dd>
+          <dt data-control-name="CAPACITY LEVER">CAPACITY LEVER</dt>
+          <dd>
+            Notched slide lever, four steps: 25 · 50 · 75 · 100 %. Works the
+            cylinder unloaders. Full capacity pulls hardest but loads the motor;
+            drop a step or two once the brine reaches −12 °C. During defrost,
+            work the lever down to 25 % to keep the discharge pressure civil.
+          </dd>
+          <dt data-control-name="BRINE PUMP SELECTOR">BRINE PUMP SELECTOR</dt>
+          <dd>
+            Three-position rotary: OFF · DUTY (one pump) · DUTY+AUX (both
+            pumps). The plant may only run with flow proven. AUX also carries
+            the loop if the duty pump trips.
+          </dd>
+          <dt data-control-name="DEFROST KEY">DEFROST KEY</dt>
+          <dd>
+            Key switch under a yellow-striped lift guard. NORMAL sends
+            compressor discharge to the condenser; AVINNING (defrost) diverts
+            hot gas through the slab instead, melting the frost. Watch the
+            discharge gauge the whole time it is over.
+          </dd>
+          <dt data-control-name="RESURFACER CALL">RESURFACER CALL</dt>
+          <dd>
+            Sends the ice resurfacer out: eight seconds to the door, forty-six
+            seconds across the ice laying hot water, eight seconds home. The
+            flood is a heat load — expect the brine to warm and the amps to
+            move.
+          </dd>
+          <dt data-control-name="ALARM ACCEPT">ALARM ACCEPT</dt>
+          <dd>
+            Steadies every flashing annunciator window and silences the horn. It
+            accepts nothing away: the window stays lit until the condition
+            clears.
+          </dd>
+          <dt data-control-name="HORN CUT">HORN CUT</dt>
+          <dd>Silences the horn only. Windows keep flashing until accepted.</dd>
+          <dt data-control-name="LAMPS TEST">LAMPS TEST</dt>
+          <dd>
+            Hold down: every jewel, window and segment lights. Anything dark is
+            a dead lamp — log it.
+          </dd>
+          <dt data-control-name="TRIP RESET">TRIP RESET</dt>
+          <dd>
+            Clears the safety trip latch after the cause has been put right. It
+            refuses to reset — and says so — while charge is still low or a
+            pressure is still out of bounds.
+          </dd>
+          <dt data-control-name="TEST REFRIGERANT LEAK">
+            TEST REFRIGERANT LEAK
+          </dt>
+          <dd>Mechanic's test: simulates a leak on the suction line.</dd>
+          <dt data-control-name="TEST BRINE FLOW LOSS">TEST BRINE FLOW LOSS</dt>
+          <dd>
+            Mechanic's test: drops the flow proof as if the strainer bagged up.
+          </dd>
+          <dt data-control-name="TEST COMPRESSOR KNOCK">
+            TEST COMPRESSOR KNOCK
+          </dt>
+          <dd>
+            Mechanic's test: a developing mechanical knock on the running frame.
+          </dd>
+          <dt data-control-name="ISOLATE LEAK">ISOLATE LEAK</dt>
+          <dd>Clamps the leaking section. First half of the leak repair.</dd>
+          <dt data-control-name="TOP UP CHARGE">TOP UP CHARGE</dt>
+          <dd>
+            Feeds 16 kg of R22 from the charging cylinder into the receiver.
+            Repeat until the sight glass runs full and the window goes dark.
+          </dd>
+        </dl>
+      </section>
+
+      <section class="man-sec">
+        <h2>Normal operation</h2>
+        <ol class="man-steps">
+          <li>
+            <strong>Lamps.</strong> Press and hold LAMPS TEST. Every window lit,
+            both machines' jewels, the digital meter showing 8s. Release.
+          </li>
+          <li>
+            <strong>Pumps first.</strong> Turn BRINE PUMP SELECTOR to DUTY. The
+            PUMP A jewel lights and the flow dashes on the slab mimic begin to
+            travel.
+          </li>
+          <li>
+            <strong>Select the machine.</strong> COMPRESSOR SELECTOR to No.1
+            (No.2 is the standby frame).
+          </li>
+          <li>
+            <strong>Start.</strong> Press COMPRESSOR START. The machine's jewel
+            lights, the oil-pressure needle climbs off the pin, and suction
+            begins to fall.
+          </li>
+          <li>
+            <strong>Load her.</strong> Take CAPACITY LEVER to 100 % for
+            pull-down while the hall fills. Watch motor amps stay under the red
+            sector.
+          </li>
+          <li>
+            <strong>Settle.</strong> As the digital meter passes about −12 °C,
+            step CAPACITY LEVER back to 75 %. Brine should hold between −11 and
+            −13 °C; suction around 1.5–2 bar; discharge below 10.
+          </li>
+          <li>
+            <strong>Between periods:</strong> when FROST LIMIT lights — or
+            before it does, roughly each hour of running — open the guard and
+            turn the DEFROST KEY to AVINNING. Drop CAPACITY LEVER to 25 % first.
+            Frost falls from the slab mimic inside two minutes; return the key
+            to NORMAL and reload the lever.
+          </li>
+          <li>
+            <strong>Flooding:</strong> after the Zamboni-shaped machine has been
+            called and gone home, expect a wet band across the mimic and a short
+            brine rise. Nothing is wrong. It recovers in a minute or two.
+          </li>
+          <li>
+            <strong>Handover:</strong> leave the book open on the current
+            shift's page. Note the hour-meter reading and anything the windows
+            told you.
+          </li>
+        </ol>
+      </section>
+
+      <section class="man-sec">
+        <h2>Alarms</h2>
+        <table class="man-table">
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Meaning</th>
+              <th>What to do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LOW CHARGE</td>
+              <td>
+                Refrigerant has left the circuit; the charge glass bubbles.
+              </td>
+              <td>
+                ISOLATE LEAK, then TOP UP CHARGE until the glass runs full.
+              </td>
+            </tr>
+            <tr>
+              <td>LOW SUCTION</td>
+              <td>
+                Suction pressure under 1.15 bar with the machine running.
+                Starved evaporator — usually the charge.
+              </td>
+              <td>
+                Find the starvation. If LOW CHARGE shows, fix the charge;
+                otherwise reduce capacity. Sustained, this trips the plant.
+              </td>
+            </tr>
+            <tr>
+              <td>HIGH DISCHARGE</td>
+              <td>
+                Discharge over 13.4 bar — defrost left on too long or at too
+                much capacity.
+              </td>
+              <td>
+                CAPACITY LEVER to 25 % or take the key back to NORMAL.
+                Sustained, this trips.
+              </td>
+            </tr>
+            <tr>
+              <td>BRINE FLOW</td>
+              <td>
+                The flow proof has dropped: pumps dead or the strainer blocked.
+              </td>
+              <td>
+                If pumping was intended, stop the pumps for five seconds and
+                re-select DUTY — the restart surge lifts the debris. Start AUX
+                if the duty pump is the trouble.
+              </td>
+            </tr>
+            <tr>
+              <td>ICE TEMP HIGH</td>
+              <td>Ice surface warmer than −2.8 °C: the ice is softening.</td>
+              <td>
+                Restore cooling — check flow, capacity and charge — and stay off
+                the ice until it returns to −5 °C or colder.
+              </td>
+            </tr>
+            <tr>
+              <td>FROST LIMIT</td>
+              <td>Frost blanket past 10 mm; the slab is insulating itself.</td>
+              <td>
+                Run a defrost at the next break in play. Do not wait for ICE
+                FAULT.
+              </td>
+            </tr>
+            <tr>
+              <td>COMPRESSOR KNOCK</td>
+              <td>
+                Mechanical knock on the running frame; oil pressure sags with
+                it.
+              </td>
+              <td>
+                Select the other machine, then restart. A knocking frame must be
+                inspected before it runs again.
+              </td>
+            </tr>
+            <tr>
+              <td>MOTOR OVERLOAD</td>
+              <td>Motor current above 66 A — knock, or abuse of the lever.</td>
+              <td>
+                Unload or swap machines. Above 72 A sustained, the plant trips
+                itself.
+              </td>
+            </tr>
+            <tr>
+              <td>ICE FAULT</td>
+              <td>
+                Ice quality lost below 42 %: soft, snow-covered, unplayable.
+              </td>
+              <td>
+                Fix the cause — warmth or frost — let quality rebuild past 55 %,
+                then TRIP RESET and refreeze.
+              </td>
+            </tr>
+            <tr>
+              <td>SAFETY TRIP</td>
+              <td>
+                The plant has latched off: low suction, high discharge or
+                overload held too long.
+              </td>
+              <td>
+                Read the cause on the log, clear it, press TRIP RESET, restart
+                per Normal operation.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="man-sec">
+        <h2>Faults and recovery</h2>
+        <h3>refrigerant leak</h3>
+        <p>
+          <em>You see:</em> the charge sight glass filling with bubbles, LOW
+          CHARGE within about twenty seconds, then LOW SUCTION as the evaporator
+          starves; cooling fades though the machine sounds busy. Ignored, the
+          plant trips on low suction.
+        </p>
+        <p>
+          <em>Recovery:</em> press ISOLATE LEAK to clamp the section. Then TOP
+          UP CHARGE — five strokes of the cylinder brings the charge back above
+          the alarm line. Let suction settle above 1.5 bar, press TRIP RESET,
+          and restart per Normal operation. Recovery is complete when all
+          windows are dark and the glass runs clear.
+        </p>
+        <h3>brine flow loss</h3>
+        <p>
+          <em>You see:</em> the flow dashes on the slab mimic stop, BRINE FLOW
+          lights at once, and the brine begins to warm because nothing is being
+          cooled. Ice temperature follows within minutes.
+        </p>
+        <p>
+          <em>Recovery:</em> turn BRINE PUMP SELECTOR to OFF and let it stand
+          five seconds — the header tank settles the debris. Return it to DUTY;
+          the restart surge lifts the strainer and flow is proved again. If the
+          fault was a dead duty pump, DUTY+AUX brings the standby in instead.
+          Accept the window when the dashes run.
+        </p>
+        <h3>compressor knock</h3>
+        <p>
+          <em>You see:</em> the running machine's jewel flickers, oil pressure
+          sags toward 1.5 bar, motor amps pulse. COMPRESSOR KNOCK lights within
+          ten seconds. Run it longer and the overload trip does what you should
+          have done.
+        </p>
+        <p>
+          <em>Recovery:</em> turn COMPRESSOR SELECTOR to the other frame — the
+          knocking machine comes off duty for inspection. TRIP RESET if the
+          overload latched, press COMPRESSOR START, bring the lever back up in
+          steps. Log the frame number for the mechanic.
+        </p>
+      </section>
+
+      <section class="man-sec">
+        <h2>Specifications</h2>
+        <table class="man-table man-specs">
+          <tbody>
+            <tr>
+              <th>Compressors</th>
+              <td>
+                2 × six-cylinder reciprocating, R22, 90 kW refrigeration each at
+                nominal
+              </td>
+            </tr>
+            <tr>
+              <th>Motor rating</th>
+              <td>55 kW each, 380 V 3~ 50 Hz, star-delta start</td>
+            </tr>
+            <tr>
+              <th>Nominal charge</th>
+              <td>340 kg R22 (receiver sized for full hold-up)</td>
+            </tr>
+            <tr>
+              <th>Brine</th>
+              <td>
+                Calcium chloride, 24 m³ loop, duty + standby centrifugal pumps
+              </td>
+            </tr>
+            <tr>
+              <th>Brine design temps</th>
+              <td>
+                supply −12 °C nominal, alarm window −11 … −13 °C, limits −16.5 …
+                +12 °C
+              </td>
+            </tr>
+            <tr>
+              <th>Suction, normal</th>
+              <td>
+                1.4 – 2.0 bar(g); alarm &lt; 1.15 bar; trip &lt; 0.95 bar held
+                25 s
+              </td>
+            </tr>
+            <tr>
+              <th>Discharge, normal</th>
+              <td>
+                8.5 – 10 bar(g); alarm &gt; 13.4 bar; trip &gt; 14.8 bar held 20
+                s
+              </td>
+            </tr>
+            <tr>
+              <th>Oil pressure</th>
+              <td>3.3 – 3.7 bar running; below 2 bar indicates distress</td>
+            </tr>
+            <tr>
+              <th>Motor current</th>
+              <td>
+                46 A at 75 % capacity, 58 A full; alarm &gt; 66 A, trip &gt; 72
+                A held 22 s
+              </td>
+            </tr>
+            <tr>
+              <th>Slab</th>
+              <td>1800 m², 40 mm ice, surface −7 °C design</td>
+            </tr>
+            <tr>
+              <th>Frost policy</th>
+              <td>
+                hot-gas defrost between periods; alarm at 10 mm; ice damage
+                beyond ~14 mm
+              </td>
+            </tr>
+            <tr>
+              <th>Defrost discipline</th>
+              <td>
+                capacity 25 % during defrost; discharge checked continuously
+              </td>
+            </tr>
+            <tr>
+              <th>Resurfacer event</th>
+              <td>
+                62 s cycle, ≈400 l hot water, brine load ≈52 kW during pass
+              </td>
+            </tr>
+            <tr>
+              <th>Panel supply</th>
+              <td>380/220 V, control 24 V DC, jewels 24 V incandescent</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="manual-foot">
+        <p>
+          NORDKYL AB · Malmö · Ritning NK-3117-E · Tryckt 1974 — ändringar
+          endast via serviceavdelningen.
+        </p>
+        <div class="manual-links">
+          <a href="./">&larr; Till panelen · To the panel</a>
+          <a href="../../">Alla maskiner · Machine catalogue &uarr;</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

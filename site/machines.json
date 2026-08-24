@@ -505,7 +505,7 @@
   },
   {
     "slug": "vindskaer-nacelle-controller",
-    "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
+    "name": "Vindskær V-62 - Nacelle Service Controller",
     "kind": "grid wind turbine nacelle service controller",
     "domain": "energy",
     "era": "2000s",
@@ -619,6 +619,45 @@
       "dryer flame failure"
     ],
     "tagline": "Feed her easy, keep the dust down, and mind the boot - the leg tells you everything twice.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "hogfors-ice-plant",
+    "name": "Högfors Isstadion - Ice Plant Machine Room",
+    "kind": "municipal ice-rink refrigeration machine room",
+    "domain": "cold-chain",
+    "era": "1970s",
+    "design": "chalk-white stove-enamel steel with brushed-aluminium bezels, silk-screened petrol-blue legends, incandescent jewels under daylight louvres, one red seven-segment panel meter, a living top-view ice slab with growing frost blooms and a 24-hour chart recorder",
+    "interaction": "notched capacity slide lever worked against motor amps while a guarded defrost key diverts hot gas under the slab and a resurfacer call dumps warm water across the ice",
+    "palette": [
+      "#edeff0",
+      "#17879e",
+      "#cf2a1c"
+    ],
+    "controls": [
+      "COMPRESSOR START",
+      "COMPRESSOR STOP",
+      "COMPRESSOR SELECTOR",
+      "CAPACITY LEVER",
+      "BRINE PUMP SELECTOR",
+      "DEFROST KEY",
+      "RESURFACER CALL",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "LAMPS TEST",
+      "TRIP RESET",
+      "TEST REFRIGERANT LEAK",
+      "TEST BRINE FLOW LOSS",
+      "TEST COMPRESSOR KNOCK",
+      "ISOLATE LEAK",
+      "TOP UP CHARGE"
+    ],
+    "faults": [
+      "refrigerant leak",
+      "brine flow loss",
+      "compressor knock"
+    ],
+    "tagline": "Minus twelve on the brine, frost under ten millimetres, defrost between periods.",
     "created": "2026-08-24"
   }
 ]
