@@ -464,5 +464,43 @@
     ],
     "tagline": "Thirty for Fenn Road, twenty for Carrow Lane - timed by cams, kept by mercury.",
     "created": "2026-08-23"
+  },
+  {
+    "slug": "netherford-zero-energy-pile",
+    "name": "Netherford Zero-Energy Pile No. 2 - Start-up Console",
+    "kind": "zero-energy research pile start-up console",
+    "domain": "nuclear",
+    "era": "1960s",
+    "design": "pale sage-green stove-enamel steel with brushed-brass bezels and screen-printed ivory condensed legends, mirror-scale moving-coil meters, amber counting neons and a paper pen-recorder, a daylight instrument hall where only the instruments are alight",
+    "interaction": "walking the shim rod out by a braked handwheel against a centre-zero reactivity meter while keeping the period needle out of its red sector, freed by a full-width red scram bar within reach of both hands",
+    "palette": [
+      "#a7b295",
+      "#b98a3c",
+      "#c22e20"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "CHART MOTOR",
+      "DETECTOR SELECTOR",
+      "DETECTOR HT",
+      "MODE SELECTOR",
+      "SHIM ROD HANDWHEEL",
+      "DRIVE CLUTCH",
+      "REGULATING CRANK",
+      "COOLING VALVE",
+      "SCRAM BAR",
+      "TRIP RESET",
+      "COLD RESET",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "detector high-voltage failure",
+      "control-rod clutch slip",
+      "coolant flow loss"
+    ],
+    "tagline": "Withdraw by tens, keep the period long, and never trust a meter you have not lamp-tested.",
+    "created": "2026-08-24"
   }
 ]

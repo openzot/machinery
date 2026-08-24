@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operating Manual M·2/62 — Netherford Zero-Energy Pile No. 2</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manualpage">
+    <header class="man-head">
+      <p class="man-org">NETHERFORD ATOMIC ENERGY ESTABLISHMENT</p>
+      <h1>
+        ZERO-ENERGY PILE No.&nbsp;2<br /><span
+          >OPERATING MANUAL M&middot;2/62</span
+        >
+      </h1>
+      <p class="man-meta">
+        Reactor Group &middot; Instrument Annex &middot; Panel ZEP&middot;2
+        &middot; Issue 3, March 1962<br />
+        For authorised operators. Read &sect;4 before the first start-up of a
+        shift.
+      </p>
+    </header>
+
+    <nav class="man-contents">
+      <span>&sect;1 Overview</span><span>&sect;2 Controls</span
+      ><span>&sect;3 Normal operation</span> <span>&sect;4 Alarms</span
+      ><span>&sect;5 Faults and recovery</span
+      ><span>&sect;6 Specifications</span>
+    </nav>
+
+    <h2 id="overview">Overview</h2>
+    <section>
+      <p>
+        Pile No.&nbsp;2 is a zero-energy, pool-type research reactor.
+        Twenty-eight enriched-uranium aluminium-alloy elements hang in an open
+        aluminium tank of light water; the water moderates, reflects and cools.
+        The pile is rated 10&nbsp;kW of heat, and is worked far below that for
+        most experiments &mdash; its business is a steady, measurable neutron
+        flux, not power.
+      </p>
+      <p>
+        The start-up console puts the whole plant in front of one operator. On
+        the left, the counting chain: a boron-trifluoride counter on channel A
+        or B, its log count-rate meter, period meter and the neon decades. In
+        the middle, the sectioned mimic of the tank and the shim-rod drive
+        &mdash; a braked handwheel through a magnetic clutch, with the
+        regulating-rod vernier beside it. On the right, heat removal: fuel and
+        bulk-water thermometers, the loop-flow sight glass and the cooling
+        valve. Below everything, within reach of both hands, the red scram bar.
+      </p>
+      <p>
+        The pile has no dangerous habits if it is brought up slowly. It has one
+        unforgiving one: a fast doubling. Keep the period long, keep the fuel
+        cool, and the pile will sit at criticality all afternoon like a well-set
+        watch.
+      </p>
+    </section>
+
+    <h2 id="controls">Controls</h2>
+    <section>
+      <table class="controltable">
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>MAINS BREAKER</td>
+          <td>guarded toggle</td>
+          <td>
+            Energises the console, drive motor, pumps and counting chain. Guard
+            raised to operate.
+          </td>
+        </tr>
+        <tr>
+          <td>LAMPS TEST</td>
+          <td>mushroom button, hold</td>
+          <td>
+            Holds every annunciator window and decade neon alight while pressed.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACCEPT</td>
+          <td>mushroom button</td>
+          <td>
+            Stops the flash of acknowledged alarms; they burn steady until the
+            condition clears.
+          </td>
+        </tr>
+        <tr>
+          <td>CHART MOTOR</td>
+          <td>toggle</td>
+          <td>Drives the pen-recorder paper. RUN / OFF.</td>
+        </tr>
+        <tr>
+          <td>DETECTOR SELECTOR</td>
+          <td>rotary, 3 positions</td>
+          <td>
+            OFF / A / B &mdash; selects counter channel. Position B routes to
+            the spare EHT unit no.&nbsp;2.
+          </td>
+        </tr>
+        <tr>
+          <td>DETECTOR HT</td>
+          <td>guarded toggle</td>
+          <td>High tension to the selected counter. OFF / HT&nbsp;ON.</td>
+        </tr>
+        <tr>
+          <td>MODE SELECTOR</td>
+          <td>rotary, 3 positions</td>
+          <td>
+            SAFE drives the shim rod home. MANUAL frees the handwheel. AUTO
+            engages the regulator, which holds 5&nbsp;kW on the regulating rod.
+          </td>
+        </tr>
+        <tr>
+          <td>SHIM ROD HANDWHEEL</td>
+          <td>spoked handwheel</td>
+          <td>
+            Withdraws (anti-clockwise, drag up) or inserts the shim rod. Turns
+            free when the clutch is OUT.
+          </td>
+        </tr>
+        <tr>
+          <td>DRIVE CLUTCH</td>
+          <td>lever</td>
+          <td>
+            IN couples the handwheel to the drive screw; OUT frees it and resets
+            a slipped screw.
+          </td>
+        </tr>
+        <tr>
+          <td>REGULATING CRANK</td>
+          <td>notched crank</td>
+          <td>
+            Trims the regulating rod &plusmn;120&nbsp;pcm for fine criticality.
+            The regulator owns it in AUTO.
+          </td>
+        </tr>
+        <tr>
+          <td>COOLING VALVE</td>
+          <td>red hand wheel</td>
+          <td>
+            Opens the loop 0&ndash;100%. Opening hard past 85% resets the
+            circulator after FLOW LOSS.
+          </td>
+        </tr>
+        <tr>
+          <td>SCRAM BAR</td>
+          <td>full-width red bar</td>
+          <td>
+            Strikes the trip relay: shim rod dumps home by spring in 1.1&nbsp;s.
+            Works even on a dead panel.
+          </td>
+        </tr>
+        <tr>
+          <td>TRIP RESET</td>
+          <td>red button</td>
+          <td>
+            Clears a scram once power is under 2&nbsp;kW and fuel temperature
+            under 92&deg;C.
+          </td>
+        </tr>
+        <tr>
+          <td>COLD RESET</td>
+          <td>button</td>
+          <td>
+            Returns the whole panel to cold and alarm-free without re-energising
+            anything.
+          </td>
+        </tr>
+        <tr>
+          <td>MAINTENANCE TESTS</td>
+          <td>three guarded test toggles</td>
+          <td>
+            Engineers only. Marked T simulate EHT failure, clutch slip and flow
+            loss; restore to N after test and follow &sect;5.
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <h2 id="normal-operation">Normal operation</h2>
+    <section>
+      <ol class="procedure">
+        <li>
+          Walk the panel. Confirm MODE SELECTOR at SAFE, DRIVE CLUTCH OUT,
+          DETECTOR SELECTOR OFF, COOLING VALVE SHUT, SCRAM BAR latched and
+          un-struck.
+        </li>
+        <li>
+          Raise the guard and put the MAINS BREAKER ON. The supervisory strip
+          lights; the period meter falls to rest. Press LAMPS TEST briefly and
+          satisfy yourself that every window burns.
+        </li>
+        <li>
+          Put the CHART MOTOR to RUN. Sign the chart edge with date and shift.
+        </li>
+        <li>
+          Turn the DETECTOR SELECTOR to A, then raise the DETECTOR HT guard and
+          switch HT&nbsp;ON. Source counts of twenty to thirty per second should
+          stand on the log meter &mdash; the pile is asleep, not dead. If the
+          meter stays dead, see &sect;5, detector high-voltage failure.
+        </li>
+        <li>
+          Turn the MODE SELECTOR to MANUAL. Engage the DRIVE CLUTCH lever IN.
+        </li>
+        <li>
+          Withdraw the shim rod with the handwheel in stages of ten percent,
+          pausing at each stage until the period needle settles back toward
+          infinity and the CRITICAL eye stays dark. Never let the period needle
+          enter the red sector: below twenty seconds, stop withdrawing; below
+          eight seconds the trip will do it for you.
+        </li>
+        <li>
+          Watch the REACTIVITY meter as you work. As it swings positive of
+          +50&nbsp;pcm the count-rate will climb steadily &mdash; approach
+          criticality in smaller steps now.
+        </li>
+        <li>
+          On the first steady rise past one kilowatt, open the COOLING VALVE to
+          about sixty percent. Check the loop flow pellet lifts and FUEL TEMP
+          settles near fifty-five degrees.
+        </li>
+        <li>
+          Pass through criticality: the CRITICAL lamp lights when the reactivity
+          meter crosses zero with power stable. Trim about the point with the
+          REGULATING CRANK, a notch at a time.
+        </li>
+        <li>
+          For a held level, turn the MODE SELECTOR to AUTO. The regulator takes
+          the vernier and holds 5&nbsp;kW. Log the run and let the chart tell
+          the story.
+        </li>
+        <li>
+          To shut down: strike the SCRAM BAR, or take MODE to SAFE and let the
+          rod drive home. When power is under two kilowatts and fuel temperature
+          under ninety-two, press TRIP RESET, close the cooling valve, switch HT
+          OFF, CHART OFF, and leave the MAINS BREAKER ON only if the next shift
+          follows at once.
+        </li>
+      </ol>
+    </section>
+
+    <h2 id="alarms">Alarms</h2>
+    <section>
+      <table class="alarmtable">
+        <tr>
+          <th>Window</th>
+          <th>Means</th>
+          <th>Do</th>
+        </tr>
+        <tr>
+          <td>SOURCE</td>
+          <td>
+            The selected counting chain has lost high tension; you are flying
+            blind.
+          </td>
+          <td>
+            Select detector channel B (EHT unit no.&nbsp;2). If neither chain
+            lives, shut down and send for instruments.
+          </td>
+        </tr>
+        <tr>
+          <td>PERIOD</td>
+          <td>
+            Doubling time under twenty seconds. The pile is running away from
+            you.
+          </td>
+          <td>
+            Stop withdrawing. Hold the wheel or ease it in until the needle
+            recovers past twenty. Under eight seconds the trip scrams by itself.
+          </td>
+        </tr>
+        <tr>
+          <td>FUEL TEMP</td>
+          <td>
+            Element temperature above 82&deg;C; above 97&deg;C the pile trips
+            itself and flags possible element damage.
+          </td>
+          <td>
+            Open the COOLING VALVE. Reduce power. After a temperature trip,
+            inspect per &sect;5 before the next start-up.
+          </td>
+        </tr>
+        <tr>
+          <td>FLOW</td>
+          <td>Loop circulation lost or starved with power on the pile.</td>
+          <td>
+            Open the COOLING VALVE; if flow does not return, reduce power
+            immediately and treat as &sect;5, coolant flow loss.
+          </td>
+        </tr>
+        <tr>
+          <td>DRIVE</td>
+          <td>
+            The drive screw is slipping; the shim rod is creeping home
+            uncommanded.
+          </td>
+          <td>
+            Drop the clutch OUT to reset the screw, re-engage IN, and re-drive
+            to level. See &sect;5.
+          </td>
+        </tr>
+        <tr>
+          <td>SCRAM</td>
+          <td>
+            Trip relay struck &mdash; bar, short period, power excursion or fuel
+            temperature.
+          </td>
+          <td>
+            Let the rod lie in. Find the reason. Clear with TRIP RESET only when
+            power is under two kilowatts and fuel under ninety-two degrees.
+          </td>
+        </tr>
+      </table>
+      <p>
+        A flashing window is unacknowledged. ALARM ACCEPT stops the flash but
+        never the condition; the window burns steady until the fault is actually
+        cleared.
+      </p>
+    </section>
+
+    <h2 id="faults">Faults and recovery</h2>
+    <section>
+      <h3>Detector high-voltage failure</h3>
+      <p>
+        <em>You see:</em> the count-rate meter collapses toward background
+        whatever the pile is doing; inside a few seconds the SOURCE window
+        flashes. Power readings from the heat side are your only truth meanwhile
+        &mdash; if fuel temperature is still climbing, the pile is not shutting
+        itself down.
+      </p>
+      <p>
+        <em>Clear it:</em> turn the DETECTOR SELECTOR to B, which hands the
+        counter to spare EHT unit no.&nbsp;2. Counts return at once and SOURCE
+        extinguishes when accepted. Channel A stays out of service until the
+        instrument section changes the tube; COLD RESET clears the simulated
+        fault for training runs.
+      </p>
+
+      <h3>Control-rod clutch slip</h3>
+      <p>
+        <em>You see:</em> the DRIVE window flashes and the shim rod creeps
+        inward at about two percent a second though nobody is turning the wheel
+        &mdash; power droops, reactivity falls.
+      </p>
+      <p>
+        <em>Clear it:</em> throw the DRIVE CLUTCH lever OUT; this resets the
+        slipped screw. Engage IN again and drive back to level with the
+        handwheel, watching the period needle as always. If the slip returns
+        twice in one shift, tag the drive OUT OF SERVICE and use SAFE mode.
+      </p>
+
+      <h3>Coolant flow loss</h3>
+      <p>
+        <em>You see:</em> the FLOW window flashes, the sight-glass pellet drops,
+        and fuel temperature begins a slow climb that negative feedback only
+        partly checks. Ignored above ninety-seven degrees the pile trips itself,
+        latches FUEL TEMP, and the run is written off pending inspection.
+      </p>
+      <p>
+        <em>Clear it:</em> open the COOLING VALVE fully &mdash; past eighty-five
+        percent the hard opening resets the circulator contactor &mdash; and
+        confirm the pellet lifts. Ease back to sixty percent. After any genuine
+        flow loss, verify fuel temperature falling before resuming power.
+      </p>
+    </section>
+
+    <h2 id="specifications">Specifications</h2>
+    <section>
+      <table class="spectable">
+        <tr>
+          <th colspan="2">Reactor</th>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>
+            Pool-type thermal reactor, light-water moderated and reflected
+          </td>
+        </tr>
+        <tr>
+          <td>Fuel</td>
+          <td>28 elements, uranium-aluminium alloy, 20% enriched</td>
+        </tr>
+        <tr>
+          <td>Rated power</td>
+          <td>10 kW (thermal); normal working level 5 kW</td>
+        </tr>
+        <tr>
+          <td>Neutron source</td>
+          <td>Ra-Be, 0.05 W equivalent, fixed in reflector</td>
+        </tr>
+        <tr>
+          <td colspan="2">Reactivity</td>
+        </tr>
+        <tr>
+          <td>Shim rod worth</td>
+          <td>900 pcm, full travel, spring-dump 1.1 s</td>
+        </tr>
+        <tr>
+          <td>Core excess reactivity</td>
+          <td>800 pcm cold and clean; held down by the shim rod</td>
+        </tr>
+        <tr>
+          <td>Regulating rod worth</td>
+          <td>&plusmn;120 pcm</td>
+        </tr>
+        <tr>
+          <td>Fuel temperature coefficient</td>
+          <td>&minus;3 pcm/&deg;C above 30&deg;C</td>
+        </tr>
+        <tr>
+          <td colspan="2">Protection</td>
+        </tr>
+        <tr>
+          <td>Period trip</td>
+          <td>8 s sustained 2 s</td>
+        </tr>
+        <tr>
+          <td>Power trip</td>
+          <td>12 kW</td>
+        </tr>
+        <tr>
+          <td>Fuel temperature trip</td>
+          <td>97&deg;C, latching, flags element inspection</td>
+        </tr>
+        <tr>
+          <td>Alarm annunciation</td>
+          <td>SOURCE, PERIOD, FUEL TEMP, FLOW, DRIVE, SCRAM</td>
+        </tr>
+        <tr>
+          <td colspan="2">Instrumentation</td>
+        </tr>
+        <tr>
+          <td>Counting channels</td>
+          <td>
+            BF&#8323; counters A and B, EHT units 1 and 2, log scale
+            1&ndash;10&#8310; cps
+          </td>
+        </tr>
+        <tr>
+          <td>Period meter range</td>
+          <td>5 s to infinity</td>
+        </tr>
+        <tr>
+          <td>Recorder</td>
+          <td>Pen recorder, log power, 160-sample roll</td>
+        </tr>
+        <tr>
+          <td colspan="2">Heat removal</td>
+        </tr>
+        <tr>
+          <td>Loop</td>
+          <td>
+            Natural-circulation coil to heat exchanger, 0&ndash;100% valve
+          </td>
+        </tr>
+        <tr>
+          <td>Bulk water temperature</td>
+          <td>22&deg;C nominal, 40&deg;C limit</td>
+        </tr>
+      </table>
+      <p class="man-colophon">
+        PARNELL &amp; RIDLER, INSTRUMENT MAKERS, CAMBRIDGE &mdash; PANEL
+        ZEP&middot;2 No. 047, 1962. This manual is bolted to the console. Do not
+        remove it to prop open the annex door.
+      </p>
+    </section>
+
+    <footer class="man-foot">
+      <a href="./">&#9668; Back to the console</a>
+      <a href="../../">&#9668; Machine catalogue</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netherford Zero-Energy Pile No. 2 — Start-up Console</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="hall">
+      <!-- ============================ THE CONSOLE ============================ -->
+      <div class="console" aria-label="Zero-Energy Pile No. 2 start-up console">
+        <!-- Head: maker's plates, title, manual -->
+        <header class="head">
+          <div class="crest" aria-hidden="true">
+            <svg
+              viewBox="0 0 64 64"
+              role="img"
+              aria-label="Establishment crest"
+            >
+              <circle cx="32" cy="32" r="29" class="crest-ring" />
+              <circle cx="32" cy="32" r="24.5" class="crest-ring thin" />
+              <ellipse cx="32" cy="32" rx="7.5" ry="27" class="crest-orbit" />
+              <ellipse
+                cx="32"
+                cy="32"
+                rx="27"
+                ry="9"
+                class="crest-orbit"
+                transform="rotate(-28 32 32)"
+              />
+              <ellipse
+                cx="32"
+                cy="32"
+                rx="27"
+                ry="9"
+                class="crest-orbit"
+                transform="rotate(28 32 32)"
+              />
+              <circle cx="32" cy="32" r="4.6" class="crest-nucleus" />
+            </svg>
+          </div>
+          <div class="nameplate">
+            <h1>NETHERFORD ATOMIC ENERGY ESTABLISHMENT</h1>
+            <p class="sub">
+              ZERO-ENERGY PILE No.&nbsp;2 &mdash; START-UP
+              CONSOLE&nbsp;&nbsp;&middot;&nbsp;&nbsp;RATING 10&nbsp;kW
+              (TH)&nbsp;&middot;&nbsp;POOL TYPE
+            </p>
+          </div>
+          <div class="makerplate">
+            <p>PARNELL &amp; RIDLER<br />INSTRUMENT MAKERS<br />CAMBRIDGE</p>
+            <p>
+              SERIES ZEP&middot;2<br />PANEL 1 OF 1<br />1962 &middot; No. 047
+            </p>
+          </div>
+          <div class="head-actions">
+            <a
+              class="catlink"
+              href="../../"
+              title="Back to the machine catalogue"
+              >CATALOGUE &#9668;</a
+            >
+            <button
+              type="button"
+              class="pushbtn manual-btn"
+              data-action="manual"
+            >
+              OPERATING&nbsp;MANUAL
+            </button>
+          </div>
+        </header>
+
+        <!-- Annunciator strip -->
+        <section class="alarmstrip" aria-label="Annunciator">
+          <span class="strip-label">SUPERVISORY</span>
+          <div class="windows">
+            <div class="window" data-alarm-window="SOURCE">
+              <i></i><span>SOURCE</span>
+            </div>
+            <div class="window" data-alarm-window="PERIOD">
+              <i></i><span>PERIOD</span>
+            </div>
+            <div class="window" data-alarm-window="FUEL&nbsp;TEMP">
+              <i></i><span>FUEL&nbsp;TEMP</span>
+            </div>
+            <div class="window" data-alarm-window="FLOW">
+              <i></i><span>FLOW</span>
+            </div>
+            <div class="window" data-alarm-window="DRIVE">
+              <i></i><span>DRIVE</span>
+            </div>
+            <div class="window" data-alarm-window="SCRAM">
+              <i></i><span>SCRAM</span>
+            </div>
+          </div>
+          <div class="strip-controls">
+            <button
+              type="button"
+              class="pushbtn"
+              data-control="ALARM ACCEPT"
+              aria-label="Accept alarm"
+            >
+              ALARM&#160;ACCEPT
+            </button>
+            <button
+              type="button"
+              class="pushbtn"
+              data-control="LAMPS TEST"
+              aria-label="Test lamps"
+            >
+              LAMPS&#160;TEST
+            </button>
+            <button
+              type="button"
+              class="toggle guarded"
+              data-control="MAINS BREAKER"
+              id="mainsToggle"
+              aria-pressed="false"
+              aria-label="Mains breaker, guard and toggle"
+            >
+              <span class="guard"></span>
+              <span class="toggle-body"
+                ><i class="bat"></i><em>ON</em><em>OFF</em></span
+              >
+              <span class="tag">MAINS<br />BREAKER</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Three bays -->
+        <div class="bays">
+          <!-- ===== Bay 1: detection & records ===== -->
+          <section class="bay bay-detect" aria-label="Detection and records">
+            <h2 class="baytitle">NEUTRON DETECTION &mdash; LOOP 4</h2>
+
+            <div class="meterpair">
+              <figure class="meter" id="countMeter">
+                <figcaption>COUNT-RATE&nbsp;&middot; CPS</figcaption>
+                <svg
+                  viewBox="0 0 120 92"
+                  role="img"
+                  aria-label="Logarithmic count-rate meter"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="116"
+                    height="88"
+                    rx="4"
+                    class="meter-face"
+                  />
+                  <path
+                    d="M18 74 A46 46 0 0 1 102 74"
+                    fill="none"
+                    class="scale-arc"
+                  />
+                  <g class="ticks" stroke-width="1"></g>
+                  <text x="14" y="84" class="dial-num">10&#8300;</text>
+                  <text x="60" y="16" class="dial-num mid">10&sup3;</text>
+                  <text x="96" y="84" class="dial-num">10&#8310;</text>
+                  <path d="M60 70 L60 76" class="scale-mark" />
+                  <line
+                    id="countNeedle"
+                    x1="60"
+                    y1="72"
+                    x2="60"
+                    y2="22"
+                    class="needle"
+                  />
+                  <circle cx="60" cy="72" r="3.4" class="pivot" />
+                </svg>
+                <output id="countsReadout" class="readout" for="countMeter"
+                  >&mdash;</output
+                >
+              </figure>
+
+              <figure class="meter" id="periodMeter">
+                <figcaption>PERIOD&nbsp;&middot; SECONDS</figcaption>
+                <svg
+                  viewBox="0 0 120 92"
+                  role="img"
+                  aria-label="Reactor period meter"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="116"
+                    height="88"
+                    rx="4"
+                    class="meter-face"
+                  />
+                  <path
+                    d="M18 74 A46 46 0 0 1 102 74"
+                    fill="none"
+                    class="scale-arc"
+                  />
+                  <path
+                    d="M26 66 A38 38 0 0 1 44 34"
+                    fill="none"
+                    class="arc-red"
+                  />
+                  <g class="pticks"></g>
+                  <text x="20" y="86" class="dial-num">5</text>
+                  <text x="55" y="16" class="dial-num mid">&#8734;</text>
+                  <text x="94" y="86" class="dial-num">100</text>
+                  <line
+                    id="periodNeedle"
+                    x1="60"
+                    y1="72"
+                    x2="60"
+                    y2="22"
+                    class="needle"
+                  />
+                  <circle cx="60" cy="72" r="3.4" class="pivot" />
+                </svg>
+                <output id="periodReadout" class="readout">SEC</output>
+              </figure>
+            </div>
+
+            <div class="decades" aria-label="Counting decade neons">
+              <span class="deconame">COUNTING&nbsp;DECADES</span>
+              <div class="decolamps" id="decadeLamps">
+                <i data-d="0" data-label="1"></i
+                ><i data-d="1" data-label="10"></i
+                ><i data-d="2" data-label="100"></i
+                ><i data-d="3" data-label="1k"></i>
+                <i data-d="4" data-label="10k"></i
+                ><i data-d="5" data-label="100k"></i
+                ><i data-d="6" data-label="1M"></i>
+              </div>
+            </div>
+
+            <figure class="recorder">
+              <figcaption>PEN RECORDER &mdash; LOG&nbsp;POWER</figcaption>
+              <canvas id="chartPaper" width="330" height="104"></canvas>
+              <div class="chartcontrols">
+                <button
+                  type="button"
+                  class="toggle small"
+                  data-control="CHART MOTOR"
+                  aria-pressed="false"
+                  aria-label="Chart motor switch"
+                >
+                  <span class="toggle-body"
+                    ><i class="bat"></i><em>RUN</em><em>OFF</em></span
+                  >
+                  <span class="tag">CHART<br />MOTOR</span>
+                </button>
+                <div class="detrow">
+                  <span class="minitag">DETECTOR</span>
+                  <div
+                    class="rotary"
+                    id="detectorSelector"
+                    data-control="DETECTOR SELECTOR"
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Detector selector: off, channel A, channel B"
+                    aria-valuemin="0"
+                    aria-valuemax="2"
+                    aria-valuenow="0"
+                    aria-valuetext="OFF"
+                  >
+                    <svg viewBox="0 0 80 56">
+                      <circle cx="40" cy="36" r="21" class="knob" />
+                      <line
+                        id="detPointer"
+                        x1="40"
+                        y1="36"
+                        x2="40"
+                        y2="17"
+                        class="pointer"
+                      />
+                      <text x="12" y="52" class="posnum">OFF</text>
+                      <text x="37" y="52" class="posnum">A</text>
+                      <text x="61" y="52" class="posnum">B</text>
+                    </svg>
+                  </div>
+                  <button
+                    type="button"
+                    class="toggle guarded"
+                    data-control="DETECTOR HT"
+                    aria-pressed="false"
+                    aria-label="Detector high tension, guard and toggle"
+                  >
+                    <span class="guard"></span>
+                    <span class="toggle-body"
+                      ><i class="bat"></i><em>HT&nbsp;ON</em><em>OFF</em></span
+                    >
+                    <span class="tag">DETECTOR<br />EHT</span>
+                  </button>
+                </div>
+              </div>
+            </figure>
+          </section>
+
+          <!-- ===== Bay 2: reactor & reactivity control ===== -->
+          <section
+            class="bay bay-reactor"
+            aria-label="Reactor and reactivity control"
+          >
+            <h2 class="baytitle">REACTOR TANK &mdash; SECTION</h2>
+
+            <div class="mimicwrap">
+              <svg
+                id="poolMimic"
+                viewBox="0 0 340 210"
+                role="img"
+                aria-label="Section through the reactor pool: tank, core, shim rod, chimney and cooling coil"
+              >
+                <!-- bridge & chimney -->
+                <rect x="18" y="8" width="304" height="8" class="mm-bridge" />
+                <rect
+                  x="150"
+                  y="16"
+                  width="40"
+                  height="52"
+                  class="mm-chimney"
+                />
+                <rect
+                  x="144"
+                  y="8"
+                  width="52"
+                  height="10"
+                  class="mm-chimneycap"
+                />
+                <!-- tank -->
+                <rect x="42" y="30" width="256" height="164" class="mm-tank" />
+                <rect x="50" y="38" width="240" height="148" class="mm-water" />
+                <!-- thermal column -->
+                <rect
+                  x="238"
+                  y="70"
+                  width="44"
+                  height="108"
+                  class="mm-column"
+                />
+                <!-- core box -->
+                <rect x="106" y="112" width="76" height="58" class="mm-core" />
+                <g class="mm-elements">
+                  <line x1="114" y1="118" x2="114" y2="164" />
+                  <line x1="128" y1="118" x2="128" y2="164" />
+                  <line x1="142" y1="118" x2="142" y2="164" />
+                  <line x1="156" y1="118" x2="156" y2="164" />
+                  <line x1="170" y1="118" x2="170" y2="164" />
+                </g>
+                <rect
+                  id="coreGlow"
+                  x="106"
+                  y="112"
+                  width="76"
+                  height="58"
+                  class="mm-glow"
+                />
+                <!-- shim rod drive tube + rod -->
+                <rect x="138" y="24" width="12" height="90" class="mm-tube" />
+                <rect
+                  id="shimRod"
+                  x="140"
+                  y="30"
+                  width="8"
+                  height="54"
+                  class="mm-shimrod"
+                />
+                <text x="158" y="46" class="mm-label">SHIM ROD</text>
+                <!-- regulating rod -->
+                <rect
+                  x="196"
+                  y="24"
+                  width="8"
+                  height="80"
+                  class="mm-tube slim"
+                />
+                <rect
+                  id="regRod"
+                  x="198"
+                  y="34"
+                  width="4"
+                  height="26"
+                  class="mm-regrod"
+                />
+                <text x="186" y="46" class="mm-label sm">REG</text>
+                <!-- cooling coil + valve -->
+                <path d="M60 176 h30 v-64 q0 -12 12 -12 h18" class="mm-pipe" />
+                <circle
+                  id="valveWheel"
+                  cx="98"
+                  cy="100"
+                  r="9"
+                  class="mm-valve"
+                />
+                <line
+                  id="valveDisc"
+                  x1="98"
+                  y1="93"
+                  x2="98"
+                  y2="107"
+                  class="mm-valvedisc"
+                />
+                <text x="52" y="192" class="mm-label">COOLING LOOP</text>
+                <!-- pool level & floor -->
+                <line x1="50" y1="182" x2="290" y2="182" class="mm-floor" />
+                <text x="288" y="196" class="mm-caption">
+                  CRITICAL ASSEMBLY 28 EL &#183; AL-TANK
+                </text>
+              </svg>
+              <div class="rodrail" aria-hidden="true">
+                <div class="rodscale">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                  ><i></i><i></i>
+                  <span class="rodpin" id="shimPin"></span>
+                </div>
+                <output id="shimReadout" class="readout tall">0%</output>
+              </div>
+            </div>
+
+            <div class="drivebench">
+              <figure class="meter small" id="rhoMeter">
+                <figcaption>REACTIVITY &middot; pcm</figcaption>
+                <svg
+                  viewBox="0 0 120 78"
+                  role="img"
+                  aria-label="Centre-zero reactivity meter"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="116"
+                    height="74"
+                    rx="4"
+                    class="meter-face"
+                  />
+                  <path
+                    d="M20 62 A42 42 0 0 1 100 62"
+                    fill="none"
+                    class="scale-arc"
+                  />
+                  <path
+                    d="M32 51 A30 30 0 0 1 48 35"
+                    fill="none"
+                    class="arc-red"
+                  />
+                  <path
+                    d="M88 51 A30 30 0 0 0 72 35"
+                    fill="none"
+                    class="arc-red"
+                  />
+                  <g class="rticks"></g>
+                  <text x="12" y="74" class="dial-num">200&#8722;</text>
+                  <text x="53" y="22" class="dial-num mid">0</text>
+                  <text x="82" y="74" class="dial-num">+200</text>
+                  <line
+                    id="rhoNeedle"
+                    x1="60"
+                    y1="60"
+                    x2="60"
+                    y2="18"
+                    class="needle"
+                  />
+                  <circle cx="60" cy="60" r="3.2" class="pivot" />
+                </svg>
+              </figure>
+
+              <div class="handwheel-unit">
+                <div
+                  class="handwheel"
+                  id="shimHandwheel"
+                  data-control="SHIM ROD HANDWHEEL"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Shim rod drive handwheel: arrow keys or drag to move the shim rod"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                >
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <g id="hwSpin">
+                      <circle cx="60" cy="60" r="46" class="hw-rim" />
+                      <circle cx="60" cy="60" r="12" class="hw-hub" />
+                      <circle cx="60" cy="19" r="6.5" class="hw-spoke" />
+                      <circle cx="95" cy="39.5" r="6.5" class="hw-spoke" />
+                      <circle cx="95" cy="80.5" r="6.5" class="hw-spoke" />
+                      <circle cx="60" cy="101" r="6.5" class="hw-spoke" />
+                      <circle cx="25" cy="80.5" r="6.5" class="hw-spoke" />
+                      <circle cx="25" cy="39.5" r="6.5" class="hw-spoke" />
+                      <line x1="60" y1="60" x2="60" y2="19" class="hw-arm" />
+                      <line x1="60" y1="60" x2="95" y2="39.5" class="hw-arm" />
+                      <line x1="60" y1="60" x2="95" y2="80.5" class="hw-arm" />
+                      <line x1="60" y1="60" x2="60" y2="101" class="hw-arm" />
+                      <line x1="60" y1="60" x2="25" y2="80.5" class="hw-arm" />
+                      <line x1="60" y1="60" x2="25" y2="39.5" class="hw-arm" />
+                      <line
+                        id="hwIndex"
+                        x1="60"
+                        y1="14"
+                        x2="60"
+                        y2="4"
+                        class="hw-index"
+                      />
+                    </g>
+                  </svg>
+                  <span class="wheeltag">SHIM&nbsp;ROD<br />HANDWHEEL</span>
+                </div>
+                <div class="clutchcol">
+                  <button
+                    type="button"
+                    class="lever"
+                    data-control="DRIVE CLUTCH"
+                    aria-pressed="false"
+                    aria-label="Rod drive clutch lever: engaged or out"
+                  >
+                    <span class="lever-slot"><i class="lever-knob"></i></span>
+                    <span class="lever-tags"><em>OUT</em><em>IN</em></span>
+                    <span class="tag">DRIVE<br />CLUTCH</span>
+                  </button>
+                  <div class="lamp critical-lamp">
+                    <i id="criticalLamp"></i><span>CRITICAL</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modes">
+                <div
+                  class="rotary big"
+                  id="modeSelector"
+                  data-control="MODE SELECTOR"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Mode selector: safe, manual, automatic"
+                  aria-valuemin="0"
+                  aria-valuemax="2"
+                  aria-valuenow="0"
+                  aria-valuetext="SAFE"
+                >
+                  <svg viewBox="0 0 96 76">
+                    <circle cx="48" cy="46" r="26" class="knob" />
+                    <line
+                      id="modePointer"
+                      x1="48"
+                      y1="46"
+                      x2="48"
+                      y2="23"
+                      class="pointer"
+                    />
+                    <text x="6" y="72" class="posnum">SAFE</text>
+                    <text x="38" y="72" class="posnum">MAN</text>
+                    <text x="68" y="72" class="posnum">AUTO</text>
+                  </svg>
+                </div>
+                <div class="crankunit">
+                  <button
+                    type="button"
+                    class="crank"
+                    data-control="REGULATING CRANK"
+                    aria-label="Regulating rod vernier crank: arrows trim regulating rod"
+                  >
+                    <svg viewBox="0 0 64 64" aria-hidden="true">
+                      <rect
+                        x="8"
+                        y="26"
+                        width="48"
+                        height="12"
+                        rx="6"
+                        class="crank-bar"
+                      />
+                      <line
+                        id="crankArm"
+                        x1="32"
+                        y1="32"
+                        x2="32"
+                        y2="8"
+                        class="crank-arm"
+                      />
+                      <circle cx="32" cy="32" r="7" class="crank-hub" />
+                    </svg>
+                    <span class="tag">REG&nbsp;ROD<br />VERNIER</span>
+                  </button>
+                  <output id="regReadout" class="readout">C</output>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Bay 3: heat removal & tests ===== -->
+          <section
+            class="bay bay-thermal"
+            aria-label="Heat removal and maintenance"
+          >
+            <h2 class="baytitle">HEAT REMOVAL &mdash; LOOP 7</h2>
+
+            <div class="thermo-row">
+              <figure class="thermo">
+                <figcaption>FUEL</figcaption>
+                <div class="thermotube">
+                  <div class="tbulb" id="fuelBulb"></div>
+                  <i class="tred"></i>
+                  <span class="tmarks"
+                    ><b>120</b><b>85</b><b>50</b><b>20&#8202;&#176;C</b></span
+                  >
+                </div>
+                <output id="fuelTempReadout" class="readout">20&#176;</output>
+              </figure>
+              <figure class="thermo">
+                <figcaption>BULK&nbsp;H&#8322;O</figcaption>
+                <div class="thermotube short">
+                  <div class="tbulb" id="poolBulb"></div>
+                  <span class="tmarks"
+                    ><b>60</b><b>40</b><b>20&#8202;&#176;C</b></span
+                  >
+                </div>
+                <output id="poolTempReadout" class="readout">22&#176;</output>
+              </figure>
+              <figure class="sightglass">
+                <figcaption>LOOP&nbsp;FLOW</figcaption>
+                <div class="flowtube"><i id="flowPellet"></i></div>
+                <output id="flowReadout" class="readout">0%</output>
+              </figure>
+
+              <figure class="valveunit">
+                <figcaption>COOLING&nbsp;VALVE</figcaption>
+                <div
+                  class="valvewheel"
+                  id="coolingValve"
+                  data-control="COOLING VALVE"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Cooling loop valve: arrow keys or drag to open and shut"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                >
+                  <svg viewBox="0 0 110 110" aria-hidden="true">
+                    <g id="cvSpin">
+                      <circle cx="55" cy="55" r="42" class="vw-rim" />
+                      <circle cx="55" cy="55" r="10" class="vw-hub" />
+                      <line x1="55" y1="13" x2="55" y2="97" class="vw-spoke" />
+                      <line x1="13" y1="55" x2="97" y2="55" class="vw-spoke" />
+                      <line x1="26" y1="26" x2="84" y2="84" class="vw-spoke" />
+                      <line x1="84" y1="26" x2="26" y2="84" class="vw-spoke" />
+                    </g>
+                  </svg>
+                </div>
+                <output id="valveReadout" class="readout">SHUT</output>
+              </figure>
+            </div>
+
+            <div class="testtray" aria-label="Maintenance test tray">
+              <h3 class="traytitle">
+                MAINTENANCE TESTS &mdash; ENGINEERS ONLY
+              </h3>
+              <div class="trayswitches" data-control="MAINTENANCE TESTS">
+                <button
+                  type="button"
+                  class="toggle mini guarded"
+                  data-fault="detector high-voltage failure"
+                  aria-pressed="false"
+                  aria-label="Test switch: detector high-voltage failure"
+                >
+                  <span class="guard"></span>
+                  <span class="toggle-body"
+                    ><i class="bat"></i><em>T</em><em>N</em></span
+                  >
+                  <span class="tag">EHT<br />FAIL</span>
+                </button>
+                <button
+                  type="button"
+                  class="toggle mini guarded"
+                  data-fault="control-rod clutch slip"
+                  aria-pressed="false"
+                  aria-label="Test switch: control-rod clutch slip"
+                >
+                  <span class="guard"></span>
+                  <span class="toggle-body"
+                    ><i class="bat"></i><em>T</em><em>N</em></span
+                  >
+                  <span class="tag">CLUTCH<br />SLIP</span>
+                </button>
+                <button
+                  type="button"
+                  class="toggle mini guarded"
+                  data-fault="coolant flow loss"
+                  aria-pressed="false"
+                  aria-label="Test switch: coolant flow loss"
+                >
+                  <span class="guard"></span>
+                  <span class="toggle-body"
+                    ><i class="bat"></i><em>T</em><em>N</em></span
+                  >
+                  <span class="tag">FLOW<br />LOSS</span>
+                </button>
+              </div>
+              <p class="traynote">
+                Switches marked T simulate plant faults. Restore N and clear per
+                manual &sect;5.
+              </p>
+              <div class="traybuttons">
+                <button
+                  type="button"
+                  class="pushbtn red"
+                  data-control="TRIP RESET"
+                  aria-label="Reset trip"
+                >
+                  TRIP&#160;RESET
+                </button>
+                <button
+                  type="button"
+                  class="pushbtn"
+                  data-control="COLD RESET"
+                  aria-label="Return console to cold start"
+                >
+                  COLD&#160;RESET
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Scram rail -->
+        <footer class="scramrail">
+          <span class="scramlegend"
+            >&#9668;&nbsp;EMERGENCY SHUTDOWN&nbsp;&mdash; STRIKE TO DUMP SHIM
+            ROD&nbsp;&#9658;</span
+          >
+          <button
+            type="button"
+            class="scrambar"
+            data-control="SCRAM BAR"
+            aria-label="Scram bar: strike to shut down"
+          >
+            SCRAM
+          </button>
+          <span class="scramnote"
+            >TRIP RELAY 2/BS7 &middot; SPRING ASSIST &middot; 1.1 s FULL
+            IN</span
+          >
+        </footer>
+      </div>
+
+      <!-- Manual dialog -->
+      <dialog class="manualdlg" data-manual aria-label="Operating manual">
+        <div class="manbar">
+          <span class="mantitle"
+            >PILE No.&nbsp;2 &mdash; OPERATING MANUAL M&middot;2/62</span
+          >
+          <button type="button" class="pushbtn" data-action="close-manual">
+            CLOSE&nbsp;&#10005;
+          </button>
+        </div>
+        <iframe
+          src="manual.html"
+          title="Operating manual, Zero-Energy Pile No. 2"
+        ></iframe>
+      </dialog>
+    </main>
+    <script src="machine.js"></script>
+  </body>
+</html>
