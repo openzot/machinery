@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Halcyon H.86 Meridian — Flight Engineer's Station</title>
+    <meta
+      name="description"
+      content="Working flight engineer's station of a 1954 four-radial long-range airliner: power quadrant, engine analyser, cowl flaps, crossfeed and feather buttons over a live simulation."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="flightdeck">
+      <!-- ============ coaming rail: windscreen strip above the panel ============ -->
+      <header class="coaming">
+        <div class="windscreen" aria-hidden="true">
+          <span class="sky"></span>
+          <span class="glare"></span>
+          <span class="post post-l"></span>
+          <span class="post post-r"></span>
+          <span class="centre-post"></span>
+          <span class="wiper wiper-l"></span>
+          <span class="wiper wiper-r"></span>
+          <span class="cloud cloud-a"></span>
+          <span class="cloud cloud-b"></span>
+          <span class="cloud cloud-c"></span>
+        </div>
+        <div class="coaming-rail">
+          <div class="type-plate">
+            <span class="maker"
+              >HALCYON AIRCRAFT LTD&nbsp;&nbsp;·&nbsp;&nbsp;WOODFORD</span
+            >
+            <h1>
+              MERIDIAN H.86<span class="sep">—</span>FLIGHT ENGINEER'S STATION
+            </h1>
+            <span class="serial"
+              >WORKS No. 86-1047 &nbsp;·&nbsp; TYPE RECORD No. 9 &nbsp;·&nbsp;
+              1954</span
+            >
+          </div>
+          <div class="rail-actions">
+            <button
+              type="button"
+              class="plaque plaque-red"
+              data-action="manual"
+              aria-label="Open the operating manual"
+            >
+              OPERATING<br />MANUAL
+            </button>
+            <button
+              type="button"
+              class="plaque"
+              data-control="SECURE RESET"
+              id="secure-reset"
+              aria-label="Secure aircraft and reset station"
+            >
+              SECURE<br />RESET
+            </button>
+            <a
+              class="catalogue-link"
+              href="../../"
+              aria-label="Back to the machinery catalogue"
+              >CATALOGUE</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <!-- ============================ main instrument deck ============================ -->
+      <main class="deck">
+        <!-- ---- flight bay: what the airframe is doing ---- -->
+        <section class="bay flight-bay" aria-label="Flight instruments">
+          <h2 class="strip-title">SHIP'S CONDITION</h2>
+          <div
+            class="gauge-slot big-gauge"
+            id="g-altimeter"
+            data-gauge="altimeter"
+            aria-label="Altimeter, zero to twenty thousand feet, with digital drum"
+          ></div>
+          <div class="gauge-duo">
+            <div
+              class="gauge-slot"
+              id="g-vsi"
+              data-gauge="vsi"
+              aria-label="Vertical speed indicator"
+            ></div>
+            <div
+              class="gauge-slot"
+              id="g-asi"
+              data-gauge="asi"
+              aria-label="Air speed indicator"
+            ></div>
+          </div>
+          <div
+            class="gauge-slot slim-gauge"
+            id="g-oat"
+            data-gauge="oat"
+            aria-label="Outside air temperature"
+          ></div>
+          <p class="bay-note" id="phase-note" aria-live="polite">
+            AIRFRAME AT SHANNON RAMP · ENGINES COLD
+          </p>
+        </section>
+
+        <!-- ---- engine bay: four radial engines ---- -->
+        <section class="bay engine-bay" aria-label="Engine instruments">
+          <h2 class="strip-title">
+            ENGINE BAY — FOUR HALCYON KESTREL-9 RADIALS
+          </h2>
+          <div class="engine-row" id="engine-row">
+            <!-- four engine columns built by machine.js -->
+          </div>
+          <div
+            class="feather-rack"
+            data-control="FEATHER BUTTONS"
+            aria-label="Feather buttons, one per engine, under red guards"
+          >
+            <span class="rack-caption"
+              >FEATHERING BUTTONS — BREAK GUARD, HOLD 3 s</span
+            >
+            <!-- four guarded buttons appended by machine.js -->
+          </div>
+        </section>
+
+        <!-- ---- systems bay: fuel schematic, annunciators, analyser ---- -->
+        <section
+          class="bay systems-bay"
+          aria-label="Fuel system and annunciators"
+        >
+          <h2 class="strip-title">FUEL &amp; WARNING</h2>
+          <div
+            class="fuel-schematic"
+            id="fuel-schematic"
+            aria-label="Fuel tank schematic with contents"
+          ></div>
+
+          <div
+            class="rotary-unit"
+            data-control="CROSSFEED SELECTOR"
+            id="crossfeed-selector"
+            aria-label="Crossfeed selector"
+          ></div>
+
+          <div class="annunciator-cluster" aria-label="Central warning cluster">
+            <div
+              class="master-caution"
+              id="master-caution"
+              aria-live="assertive"
+            >
+              <span class="mc-lens">MASTER CAUTION</span>
+            </div>
+            <div class="annunc-grid" id="annunc-grid">
+              <!-- windows appended by machine.js -->
+            </div>
+            <div class="annunc-actions">
+              <button
+                type="button"
+                class="push push-wide"
+                data-control="ANNUNCIATOR ACCEPT"
+                id="alarm-accept"
+              >
+                ACCEPT
+              </button>
+              <button
+                type="button"
+                class="push push-wide"
+                data-control="LAMPS TEST"
+                id="lamps-test"
+              >
+                LAMPS TEST
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="analyser"
+            data-control="ENGINE ANALYSER"
+            id="engine-analyser"
+            aria-label="Engine analyser: selector and thermocouple meter"
+          >
+            <div
+              class="gauge-slot analyser-meter"
+              id="g-analyser"
+              data-gauge="analyser"
+              aria-label="Engine analyser thermocouple meter"
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ============================ power quadrant ============================ -->
+      <section class="quadrant-deck" aria-label="Power quadrant">
+        <div
+          class="quadrant-frame"
+          data-control="POWER QUADRANT"
+          id="power-quadrant"
+        >
+          <h2 class="strip-title strip-title-left">POWER QUADRANT</h2>
+          <svg
+            class="quadrant-scale"
+            viewBox="0 0 620 120"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          ></svg>
+          <!-- throttle levers appended by machine.js -->
+        </div>
+        <div class="aux-levers">
+          <div
+            class="lever-group"
+            data-control="PROPELLER GOVERNOR"
+            id="prop-governor"
+            aria-label="Propeller governor lever"
+          ></div>
+          <div
+            class="lever-group pair"
+            data-control="COWL FLAPS"
+            id="cowl-flaps"
+            aria-label="Cowl flap levers, port and starboard"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ======================= lower tray: switches and tests ======================= -->
+      <section
+        class="lower-tray"
+        aria-label="Master switches, starter and maintenance tray"
+      >
+        <div class="tray-cell master-cell">
+          <span class="cell-caption">ELECTRICAL SUPPLY</span>
+          <button
+            type="button"
+            class="bat-toggle"
+            data-control="MASTER SWITCH"
+            id="master-switch"
+            aria-pressed="false"
+            aria-label="Master switch"
+          >
+            MASTER<br />SWITCH
+          </button>
+        </div>
+
+        <div
+          class="tray-cell pumps-cell"
+          data-control="FUEL PUMP SWITCHES"
+          aria-label="Tank boost pump switches, one per engine"
+        >
+          <span class="cell-caption">BOOST PUMPS — TANKS 1 TO 4</span>
+          <div class="toggle-bank" id="pump-bank">
+            <!-- four toggles appended by machine.js -->
+          </div>
+        </div>
+
+        <div class="tray-cell starter-cell">
+          <span class="cell-caption">STARTER MOTOR</span>
+          <div
+            class="rotary-unit"
+            data-control="STARTER SELECTOR"
+            id="starter-selector"
+            aria-label="Starter selector"
+          ></div>
+          <span class="cell-hint">CRANK UNTIL FIRING, THEN TO OFF</span>
+        </div>
+
+        <div
+          class="tray-cell test-cell"
+          data-control="FAULT TEST SWITCHES"
+          aria-label="Maintenance fault test switches"
+        >
+          <span class="cell-caption">MAINTENANCE — FAULT TEST SWITCHES</span>
+          <div class="guarded-bank" id="fault-bank">
+            <!-- three guarded toggles appended by machine.js -->
+          </div>
+        </div>
+
+        <div
+          class="tray-cell repair-cell"
+          data-control="REPAIR ACTIONS"
+          aria-label="Engineering repair actions"
+        >
+          <span class="cell-caption">ENGINEERING — REPAIR ACTIONS</span>
+          <div class="repair-bank" id="repair-bank">
+            <!-- three repair buttons appended by machine.js -->
+          </div>
+        </div>
+      </section>
+
+      <footer class="footline">
+        <span
+          >HALCYON H.86 MERIDIAN · SECOND OFFICER'S STATION · APPROVED FOR
+          TRAINING USE · FORM H.86/F.E.2</span
+        >
+      </footer>
+    </div>
+
+    <!-- ============================ operating manual ============================ -->
+    <dialog
+      data-manual
+      id="manual-dialog"
+      class="manual-dialog"
+      aria-label="Operating manual"
+    >
+      <div class="manual-chrome">
+        <header class="manual-head">
+          <span class="manual-ref">FORM H.86/F.E.2 — OPERATING MANUAL</span>
+          <button
+            type="button"
+            class="plaque plaque-small"
+            data-action="close-manual"
+            aria-label="Close the operating manual"
+          >
+            CLOSE MANUAL
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Halcyon H.86 Meridian flight engineer's operating manual"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
