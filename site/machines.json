@@ -505,7 +505,7 @@
   },
   {
     "slug": "vindskaer-nacelle-controller",
-    "name": "Vindskær V-62 - Nacelle Service Controller",
+    "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
     "kind": "grid wind turbine nacelle service controller",
     "domain": "energy",
     "era": "2000s",
@@ -575,6 +575,50 @@
       "filament burnout"
     ],
     "tagline": "Prove the vacuum before you flash the filament - air eats them in four seconds.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "carselby-elevator",
+    "name": "Carselby Co-operative Elevator - Leg House Control",
+    "kind": "country grain elevator leg-house control panel",
+    "domain": "agriculture",
+    "era": "1950s",
+    "design": "machine-green baked porcelain-enamel steel in a black-iron angle frame, stencilled paper-white condensed legends and a brass maker's plate, incandescent jewel lamps under prairie daylight, a living cutaway mimic of pit, leg and six annex bins trimmed in harvest gold",
+    "interaction": "notching the pit-gate lever against boot flood while sending the electric distributor spout bin to bin on its position bell, winding the belt take-up by hand when the leg runs slack, and nursing the burner valve onto grade",
+    "palette": [
+      "#294a34",
+      "#f2efe2",
+      "#c9251b",
+      "#e0a32e"
+    ],
+    "controls": [
+      "MAIN BREAKER",
+      "LEG MOTOR START",
+      "LEG MOTOR STOP",
+      "PIT GATE",
+      "DISTRIBUTOR SELECTOR",
+      "CYCLONE FAN",
+      "BURNER VALVE",
+      "BURNER IGNITER",
+      "FLAME EYE CLEAN",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "LAMPS TEST",
+      "PLANT RESET",
+      "BELT TAKE-UP",
+      "BOOT KNOCKER",
+      "OIL CUP",
+      "MAINTENANCE TESTS",
+      "TEST BELT SLIP",
+      "TEST HOT BEARING",
+      "TEST FLAME SCAN"
+    ],
+    "faults": [
+      "leg belt slip",
+      "hot head-shaft bearing",
+      "dryer flame failure"
+    ],
+    "tagline": "Feed her easy, keep the dust down, and mind the boot - the leg tells you everything twice.",
     "created": "2026-08-24"
   }
 ]

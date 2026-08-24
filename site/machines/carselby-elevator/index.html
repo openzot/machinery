@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carselby Co-operative Elevator - Leg House Control</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <header id="masthead">
+      <div class="makerplate" aria-hidden="true">
+        <span class="mk-top"
+          >MANITOBA BRIDGE &amp; BOILER WORKS LTD. · BRANDON</span
+        >
+        <span class="mk-mid">CARSelby CO-OPERATIVE GRAIN COMPANY</span>
+        <span class="mk-bot">SERIAL 1954-0718 · 110 V D.C. SUPPLY</span>
+      </div>
+      <h1>LEG HOUSE CONTROL</h1>
+      <nav class="head-actions">
+        <a class="catalogue-link" href="../../">CATALOGUE</a>
+        <button type="button" class="pb pb-manual" data-action="manual">
+          OPERATING<br />MANUAL
+        </button>
+      </nav>
+    </header>
+
+    <main id="panel">
+      <!-- ================= LEFT COLUMN : ELECTRICAL ================= -->
+      <section id="electrical" aria-label="Electrical supply and leg motor">
+        <h2 class="sec-title">POWER &amp; LEG DRIVE</h2>
+
+        <div class="ctl breaker-wrap">
+          <span class="legend">MAIN BREAKER</span>
+          <button
+            type="button"
+            id="c-breaker"
+            data-control="MAIN BREAKER"
+            class="breaker"
+            aria-pressed="false"
+            aria-label="Main breaker, pull on or push off"
+          >
+            <span class="breaker-slot"
+              ><span class="breaker-handle"></span
+            ></span>
+            <span class="breaker-marks" aria-hidden="true"
+              ><i>OFF</i><i>ON</i></span
+            >
+          </button>
+        </div>
+
+        <div class="lamp-row">
+          <span class="jewel jewel-line" id="lamp-power"
+            ><i></i><em>SUPPLY</em></span
+          >
+          <span class="jewel jewel-green" id="lamp-run"
+            ><i></i><em>LEG RUN</em></span
+          >
+          <span class="jewel jewel-red" id="lamp-trip"
+            ><i></i><em>TRIP</em></span
+          >
+        </div>
+
+        <div class="ctl startstop">
+          <button
+            type="button"
+            id="c-start"
+            data-control="LEG MOTOR START"
+            class="pb pb-green"
+            aria-label="Leg motor start"
+          >
+            START
+          </button>
+          <button
+            type="button"
+            id="c-stop"
+            data-control="LEG MOTOR STOP"
+            class="pb pb-red-mushroom"
+            aria-label="Leg motor stop"
+          >
+            STOP
+          </button>
+        </div>
+
+        <div class="dial" data-gauge="speed">
+          <span class="face"
+            ><span class="arc arc-speed"></span><span class="needle"></span
+            ><span class="hub"></span
+          ></span>
+          <span class="dial-name">LEG SPEED&nbsp;&middot;&nbsp;FT/MIN</span>
+          <b class="dial-val" id="ro-speed">0</b>
+        </div>
+
+        <div class="dial" data-gauge="amps">
+          <span class="face"
+            ><span class="arc arc-amps"></span><span class="needle"></span
+            ><span class="hub"></span
+          ></span>
+          <span class="dial-name">LEG MOTOR&nbsp;&middot;&nbsp;AMPS</span>
+          <b class="dial-val" id="ro-amps">0</b>
+        </div>
+
+        <p class="note">
+          DO NOT START UNDER LOAD.<br />PIT GATE TO ZERO FIRST.
+        </p>
+      </section>
+
+      <!-- ================= CENTRE : THE MIMIC ================= -->
+      <section
+        id="mimic"
+        aria-label="Elevator mimic: pit, boot, leg, scale and distributor"
+      >
+        <h2 class="sec-title">PIT &middot; BOOT &middot; LEG &middot; HEAD</h2>
+
+        <div class="mh-upper">
+          <div class="scale-head" aria-hidden="true">
+            <div class="scale-dial">
+              <span class="face"
+                ><span class="needle"></span><span class="hub"></span
+              ></span>
+              <span class="scale-mark">BU</span>
+            </div>
+            <div class="register" role="img" aria-label="Total bushels weighed">
+              <span class="reg-title">BUSHELS</span>
+              <span class="reg-windows" id="reg-bushels">00000</span>
+            </div>
+          </div>
+
+          <div class="dist-assembly" data-control="DISTRIBUTOR SELECTOR">
+            <div class="dist-dial">
+              <span class="spout-arm" id="spout-arm"></span>
+              <span class="spout-hub"></span>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="1"
+                aria-label="Distributor position 1"
+              >
+                1
+              </button>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="2"
+                aria-label="Distributor position 2"
+              >
+                2
+              </button>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="3"
+                aria-label="Distributor position 3"
+              >
+                3
+              </button>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="4"
+                aria-label="Distributor position 4"
+              >
+                4
+              </button>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="5"
+                aria-label="Distributor position 5"
+              >
+                5
+              </button>
+              <button
+                type="button"
+                class="dist-stud"
+                data-pos="6"
+                aria-label="Distributor position 6"
+              >
+                6
+              </button>
+            </div>
+            <span class="dist-caption"
+              >ROTARY DISTRIBUTOR &middot; ANNEX BINS</span
+            >
+          </div>
+        </div>
+
+        <div class="mh-leg" aria-hidden="true">
+          <div class="leg-casing">
+            <span class="pulley pulley-head"></span>
+            <span class="pulley pulley-tail"></span>
+            <span class="belt-return"></span>
+            <div class="belt-window">
+              <div class="cup-train" id="cup-train"></div>
+            </div>
+            <span class="vent-flag" id="vent-flag">VENT<br />BLOWN</span>
+            <span class="smoke" id="smoke"></span>
+          </div>
+          <div class="leg-instruments">
+            <span
+              class="thermo"
+              role="img"
+              aria-label="Head shaft bearing temperature"
+            >
+              <i class="thermo-col" id="thermo-bearing"></i>
+              <em>BEARING&nbsp;&deg;C</em>
+            </span>
+            <span class="boot-glass" role="img" aria-label="Boot grain depth">
+              <i class="boot-fill" id="boot-fill"></i>
+              <em>BOOT</em>
+            </span>
+          </div>
+        </div>
+
+        <div class="mh-bottom">
+          <div class="pit">
+            <span class="pit-grate" aria-hidden="true"></span>
+            <span class="legend">RECEIVING PIT</span>
+          </div>
+
+          <div class="ctl gate-wrap" id="gate-wrap">
+            <span class="legend">PIT GATE</span>
+            <div
+              class="lever"
+              id="c-gate"
+              data-control="PIT GATE"
+              role="slider"
+              tabindex="0"
+              aria-label="Pit gate, zero to ten"
+              aria-valuemin="0"
+              aria-valuemax="10"
+              aria-valuenow="0"
+            >
+              <span class="lever-quadrant"
+                ><i class="notch" style="--n: 0"></i
+                ><i class="notch" style="--n: 1"></i
+                ><i class="notch" style="--n: 2"></i
+                ><i class="notch" style="--n: 3"></i
+                ><i class="notch" style="--n: 4"></i
+                ><i class="notch" style="--n: 5"></i
+                ><i class="notch" style="--n: 6"></i
+                ><i class="notch" style="--n: 7"></i
+                ><i class="notch" style="--n: 8"></i
+                ><i class="notch" style="--n: 9"></i
+                ><i class="notch" style="--n: 10"></i
+              ></span>
+              <span class="lever-arm"><b class="lever-knob"></b></span>
+            </div>
+            <b class="ro" id="ro-gate">0</b>
+          </div>
+
+          <div class="flow-readout" aria-hidden="true">
+            <span>FEED <b id="ro-feed">0.0</b> BU/MIN</span>
+            <span>LIFT <b id="ro-lift">0.0</b> BU/MIN</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= RIGHT OF MIMIC : ANNEX BINS ================= -->
+      <section id="annex" aria-label="Annex bins one to six">
+        <h2 class="sec-title">ANNEX BINS &middot; 3500 BU EACH</h2>
+        <div class="bin-rack">
+          <div class="bin" data-bin="1">
+            <span class="bin-num">1</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-1"></i></span
+            ><em class="bin-bu" id="bin-bu-1">0</em
+            ><span class="bin-full-lamp" id="bin-full-1">FULL</span>
+          </div>
+          <div class="bin" data-bin="2">
+            <span class="bin-num">2</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-2"></i></span
+            ><em class="bin-bu" id="bin-bu-2">0</em
+            ><span class="bin-full-lamp" id="bin-full-2">FULL</span>
+          </div>
+          <div class="bin" data-bin="3">
+            <span class="bin-num">3</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-3"></i></span
+            ><em class="bin-bu" id="bin-bu-3">0</em
+            ><span class="bin-full-lamp" id="bin-full-3">FULL</span>
+          </div>
+          <div class="bin" data-bin="4">
+            <span class="bin-num">4</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-4"></i></span
+            ><em class="bin-bu" id="bin-bu-4">0</em
+            ><span class="bin-full-lamp" id="bin-full-4">FULL</span>
+          </div>
+          <div class="bin" data-bin="5">
+            <span class="bin-num">5</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-5"></i></span
+            ><em class="bin-bu" id="bin-bu-5">0</em
+            ><span class="bin-full-lamp" id="bin-full-5">FULL</span>
+          </div>
+          <div class="bin" data-bin="6">
+            <span class="bin-num">6</span
+            ><span class="bin-window"
+              ><i class="bin-fill" id="bin-fill-6"></i></span
+            ><em class="bin-bu" id="bin-bu-6">0</em
+            ><span class="bin-full-lamp" id="bin-full-6">FULL</span>
+          </div>
+        </div>
+        <p class="note">
+          MOVE THE SPOUT BEFORE A BIN<br />RUNS FULL. THE BELL RINGS WHEN<br />THE
+          SPOUT SETTLES.
+        </p>
+      </section>
+
+      <!-- ================= FAR RIGHT : DRYER & DUST ================= -->
+      <section id="process" aria-label="Dryer and dust plant">
+        <h2 class="sec-title">DRYER &amp; DUST PLANT</h2>
+
+        <div class="dryer-block">
+          <div class="dial dial-lg" data-gauge="temp">
+            <span class="face"
+              ><span class="arc arc-temp"></span><span class="needle"></span
+              ><span class="hub"></span
+            ></span>
+            <span class="dial-name">DISCHARGE&nbsp;&deg;F</span>
+            <b class="dial-val" id="ro-temp">--</b>
+          </div>
+          <span class="jewel jewel-amber" id="lamp-flame"
+            ><i></i><em>FLAME EYE</em></span
+          >
+
+          <div class="ctl knob-wrap">
+            <span class="legend">BURNER VALVE</span>
+            <div
+              class="knob"
+              id="c-burner"
+              data-control="BURNER VALVE"
+              role="slider"
+              tabindex="0"
+              aria-label="Burner valve, percent open"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <span class="knob-skirt"><span class="knob-pointer"></span></span>
+            </div>
+            <b class="ro" id="ro-burner">0%</b>
+          </div>
+
+          <button
+            type="button"
+            id="c-igniter"
+            data-control="BURNER IGNITER"
+            class="pb pb-amber-hold"
+            aria-label="Burner igniter, press and hold to light"
+          >
+            IGNITER&nbsp;&mdash;&nbsp;HOLD
+          </button>
+          <button
+            type="button"
+            id="c-eyeclean"
+            data-control="FLAME EYE CLEAN"
+            class="pb pb-slate-hold"
+            aria-label="Flame eye clean, press and hold to wipe the scanner window"
+          >
+            CLEAN&nbsp;FLAME&nbsp;EYE&nbsp;&mdash;&nbsp;HOLD
+          </button>
+        </div>
+
+        <div class="dust-block">
+          <div class="ctl fan-wrap">
+            <span class="legend">CYCLONE FAN</span>
+            <div
+              class="fan-selector"
+              id="c-fan"
+              data-control="CYCLONE FAN"
+              role="radiogroup"
+              aria-label="Cyclone fan speed"
+            >
+              <button
+                type="button"
+                class="fan-pos is-on"
+                data-fan="0"
+                aria-pressed="true"
+              >
+                OFF
+              </button>
+              <button
+                type="button"
+                class="fan-pos"
+                data-fan="1"
+                aria-pressed="false"
+              >
+                LOW
+              </button>
+              <button
+                type="button"
+                class="fan-pos"
+                data-fan="2"
+                aria-pressed="false"
+              >
+                HIGH
+              </button>
+            </div>
+          </div>
+          <div class="dial" data-gauge="dust">
+            <span class="face"
+              ><span class="arc arc-dust"></span><span class="needle"></span
+              ><span class="hub"></span
+            ></span>
+            <span class="dial-name"
+              >DUST IN AIR&nbsp;&middot;&nbsp;MAX .30</span
+            >
+            <b class="dial-val" id="ro-dust">0.00</b>
+          </div>
+        </div>
+
+        <div class="ctl tension-wrap">
+          <span class="legend">BELT TENSION</span>
+          <div class="dial" data-gauge="tension">
+            <span class="face"
+              ><span class="arc arc-tension"></span><span class="needle"></span
+              ><span class="hub"></span
+            ></span>
+            <span class="dial-name" id="tension-word"
+              >TAKE-UP&nbsp;&middot;&nbsp;SET</span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= BOTTOM STRIP : ANNUNCIATOR & MAINTENANCE ================= -->
+    <footer id="strip">
+      <div class="annunciator" role="list" aria-label="Alarm annunciator">
+        <span class="ann" id="ann-highboot" role="listitem">HIGH BOOT</span>
+        <span class="ann" id="ann-slip" role="listitem">LEG SLIP</span>
+        <span class="ann" id="ann-overload" role="listitem">OVERLOAD</span>
+        <span class="ann" id="ann-binfull" role="listitem">BIN FULL</span>
+        <span class="ann" id="ann-dust" role="listitem">DUST HIGH</span>
+        <span class="ann" id="ann-bearing" role="listitem">BEARING HEAT</span>
+        <span class="ann" id="ann-flamefail" role="listitem">FLAME FAIL</span>
+        <span class="ann" id="ann-scorch" role="listitem">SCORCH</span>
+        <span class="ann" id="ann-vent" role="listitem">VENT BLOWN</span>
+      </div>
+
+      <div class="strip-controls">
+        <button
+          type="button"
+          id="c-accept"
+          data-control="ALARM ACCEPT"
+          class="pb pb-black"
+        >
+          ALARM<br />ACCEPT
+        </button>
+        <button
+          type="button"
+          id="c-horn"
+          data-control="HORN CUT"
+          class="pb pb-black"
+        >
+          HORN<br />CUT
+        </button>
+        <button
+          type="button"
+          id="c-lamps"
+          data-control="LAMPS TEST"
+          class="pb pb-black"
+        >
+          LAMPS<br />TEST
+        </button>
+        <button
+          type="button"
+          id="c-reset"
+          data-control="PLANT RESET"
+          class="pb pb-key"
+          aria-label="Plant reset, keyed"
+        >
+          PLANT<br />RESET
+        </button>
+      </div>
+
+      <div class="repairs">
+        <div class="ctl crank-wrap">
+          <span class="legend">BELT TAKE-UP</span>
+          <button
+            type="button"
+            id="c-crank"
+            data-control="BELT TAKE-UP"
+            class="crank"
+            aria-label="Belt take-up crank, hold to wind"
+          >
+            <span class="crank-disc"
+              ><span class="crank-arm" id="crank-arm"
+                ><b class="crank-handle"></b></span
+            ></span>
+            <em>HOLD&nbsp;TO&nbsp;WIND</em>
+          </button>
+        </div>
+        <button
+          type="button"
+          id="c-knocker"
+          data-control="BOOT KNOCKER"
+          class="pb pb-slate"
+          aria-label="Boot knocker, tap to free a choked boot"
+        >
+          BOOT<br />KNOCKER
+        </button>
+        <button
+          type="button"
+          id="c-oil"
+          data-control="OIL CUP"
+          class="pb pb-slate-hold"
+          aria-label="Oil cup, hold to lubricate the head shaft bearing"
+        >
+          OIL CUP<br />&mdash;&nbsp;HOLD
+        </button>
+      </div>
+
+      <div class="test-bay" data-control="MAINTENANCE TESTS">
+        <span class="guard-flap" aria-hidden="true">MAINTENANCE TESTS</span>
+        <div class="toggle-row">
+          <button
+            type="button"
+            id="c-testslip"
+            data-control="TEST BELT SLIP"
+            class="gtoggle"
+            aria-pressed="false"
+            aria-label="Maintenance test: belt slip"
+          >
+            <i class="g-guard"></i><em>BELT SLIP</em>
+          </button>
+          <button
+            type="button"
+            id="c-testbear"
+            data-control="TEST HOT BEARING"
+            class="gtoggle"
+            aria-pressed="false"
+            aria-label="Maintenance test: hot bearing"
+          >
+            <i class="g-guard"></i><em>HOT BEARING</em>
+          </button>
+          <button
+            type="button"
+            id="c-testflame"
+            data-control="TEST FLAME SCAN"
+            class="gtoggle"
+            aria-pressed="false"
+            aria-label="Maintenance test: flame scan"
+          >
+            <i class="g-guard"></i><em>FLAME SCAN</em>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="manual-shell">
+        <header class="manual-bar">
+          <span
+            >CARSELBY CO-OPERATIVE ELEVATOR &middot; OPERATING MANUAL No.
+            54-C</span
+          >
+          <button type="button" class="pb pb-black" data-action="close-manual">
+            CLOSE
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Operating manual, Carselby leg house control"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
