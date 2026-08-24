@@ -539,5 +539,42 @@
     ],
     "tagline": "Feather before the gust - the anemometer lies when it ices.",
     "created": "2026-08-24"
+  },
+  {
+    "slug": "wrayburn-vacuum-bench",
+    "name": "Wrayburn High-Vacuum Evaporating Bench Mk. III",
+    "kind": "laboratory high-vacuum metal-evaporation coating bench",
+    "domain": "laboratory",
+    "era": "1940s",
+    "design": "slate-blue stove-enamel instrument steel with patinated bronze fittings and black phenolic legend plates, engraved ivory-filled small-cap legends, serif-numeral mirror dials, a glass bell jar lit only by its own filament and a cherry-red heater viewer under north skylight",
+    "interaction": "tilt the McLeod by hand to prove the vacuum, walk the pump selector through roughing and backing, ease the geared baffle and boiler up against the Pirani needle, then open the shutter on a white-hot filament while the optical monitor climbs",
+    "palette": [
+      "#77879a",
+      "#7d6134",
+      "#b02c20"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "COOLING WATER COCK",
+      "PUMP SELECTOR",
+      "BAFFLE VALVE",
+      "AIR ADMIT VALVE",
+      "DIFFUSION PUMP HEATER",
+      "FILAMENT CURRENT",
+      "SHUTTER LEVER",
+      "MCLEOD TILT LEVER",
+      "ALARM ACCEPT",
+      "INDICATOR LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "REPAIR ACTIONS",
+      "MASTER RESET"
+    ],
+    "faults": [
+      "bell jar crack",
+      "foreline valve passing",
+      "filament burnout"
+    ],
+    "tagline": "Prove the vacuum before you flash the filament - air eats them in four seconds.",
+    "created": "2026-08-24"
   }
 ]

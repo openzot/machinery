@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wrayburn High-Vacuum Evaporating Bench Mk. III</title>
+    <meta
+      name="description"
+      content="Operating panel of a 1940s laboratory high-vacuum metal-evaporation coating bench."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="maker-plate">
+        <span class="maker-rule"></span>
+        <span class="maker-name">Wrayburn Instrument Works · Sheffield</span>
+        <span class="maker-rule"></span>
+      </div>
+      <h1>
+        High-Vacuum Evaporating Bench&nbsp;&nbsp;<abbr title="Mark">Mk.</abbr
+        >&nbsp;III
+      </h1>
+      <div class="masthead-side">
+        <span class="order-card" data-batch-card>
+          LAST FILM <em data-thick-last>—</em> <i data-film-quality>NO BATCH</i>
+        </span>
+        <button type="button" class="manual-button" data-action="manual">
+          MANUAL
+        </button>
+      </div>
+    </header>
+
+    <main class="bench">
+      <!-- ================= LEFT : SUPPLIES & ROUGHING PUMP ================= -->
+      <section class="supplies" aria-label="Supplies and roughing pump">
+        <h2 class="section-plate">Supplies &amp; Roughing Pump</h2>
+
+        <div class="mains-block">
+          <span class="guard" data-guard>
+            <button
+              type="button"
+              class="toggle-mains"
+              data-control="MAINS SWITCH"
+              aria-label="Mains switch, off"
+              disabled
+            >
+              <span class="toggle-base">
+                <span class="toggle-lever"></span>
+              </span>
+              <span class="toggle-mark on">ON</span>
+              <span class="toggle-mark off">OFF</span>
+            </button>
+          </span>
+          <button
+            type="button"
+            class="guard-flip"
+            data-guard-handle
+            aria-expanded="false"
+          >
+            GUARD
+          </button>
+          <span class="legend">MAINS<br />SWITCH</span>
+          <span class="jewel pilot mains-pilot" data-pilot-mains><i></i></span>
+        </div>
+
+        <div class="water-block">
+          <button
+            type="button"
+            class="cock"
+            data-control="COOLING WATER COCK"
+            aria-label="Cooling water cock, closed"
+          >
+            <span class="cock-body"><span class="cock-lever"></span></span>
+          </button>
+          <span class="legend">COOLING<br />WATER COCK</span>
+          <span class="sight-glass" data-water-glass>
+            <span class="bubble b1"></span><span class="bubble b2"></span
+            ><span class="bubble b3"></span>
+          </span>
+          <span class="mini-scale">FLOW</span>
+        </div>
+
+        <figure class="roughing-pump" aria-hidden="true">
+          <svg viewBox="0 0 220 190" role="img">
+            <title>Rotary oil pump, belt-driven</title>
+            <ellipse cx="110" cy="178" rx="96" ry="7" class="shadow" />
+            <rect
+              x="34"
+              y="86"
+              width="104"
+              height="62"
+              rx="6"
+              class="pump-body"
+            />
+            <circle cx="60" cy="117" r="20" class="flywheel" data-flywheel />
+            <circle cx="60" cy="117" r="6" class="hub" />
+            <path d="M60 97 L60 137 M40 117 L80 117" class="spokes" />
+            <path d="M84 100 Q118 66 152 92" class="belt" data-belt />
+            <rect x="138" y="78" width="52" height="44" rx="8" class="motor" />
+            <rect
+              x="146"
+              y="88"
+              width="36"
+              height="24"
+              rx="3"
+              class="motor-fins"
+            />
+            <rect x="52" y="70" width="18" height="18" class="oil-window" />
+            <path d="M61 70 L61 56 L98 56" class="pipe-exhaust" />
+            <path d="M138 148 L138 168 L96 168" class="pipe-fore" />
+          </svg>
+          <figcaption class="legend">PUMP No. 1 · ROTARY OIL TYPE</figcaption>
+        </figure>
+
+        <div
+          class="selector-block"
+          role="radiogroup"
+          aria-label="Pump selector"
+        >
+          <span class="selector-dial">
+            <span class="selector-pointer" data-selector-pointer></span>
+          </span>
+          <button
+            type="radio"
+            class="selector-pos"
+            data-value="off"
+            data-control="PUMP SELECTOR"
+            aria-checked="true"
+            role="radio"
+          >
+            OFF
+          </button>
+          <button
+            type="radio"
+            class="selector-pos"
+            data-value="roughing"
+            aria-checked="false"
+            role="radio"
+          >
+            ROUGHING
+          </button>
+          <button
+            type="radio"
+            class="selector-pos"
+            data-value="backing"
+            aria-checked="false"
+            role="radio"
+          >
+            BACKING
+          </button>
+          <span class="legend selector-legend">PUMP SELECTOR</span>
+        </div>
+
+        <div class="hours-block">
+          <span class="drum-counter" data-hours>00000</span>
+          <span class="legend">RUN<br />HOURS</span>
+        </div>
+      </section>
+
+      <!-- ================= CENTRE : THE PUMP STAND ================= -->
+      <section class="stand" aria-label="Vacuum pump stand">
+        <h2 class="section-plate">Pump Stand</h2>
+
+        <div class="stand-art">
+          <div class="bell-jar" data-jar>
+            <div class="jar-glare"></div>
+            <div class="chamber">
+              <div class="substrate" data-substrate>
+                <span class="slide s1"></span><span class="slide s2"></span
+                ><span class="slide s3"></span>
+              </div>
+              <div class="shutter-blade" data-shutter-blade></div>
+              <div class="filament-glow" data-filament-glow></div>
+              <div class="filament">
+                <span class="post pl"></span>
+                <span class="wire" data-filament-wire></span>
+                <span class="post pr"></span>
+              </div>
+              <div class="vapor-haze" data-vapor></div>
+            </div>
+          </div>
+
+          <div class="baseplate">
+            <span class="plate-screw tl"></span
+            ><span class="plate-screw tr"></span>
+            <span class="air-admit-wrap">
+              <button
+                type="button"
+                class="air-cock"
+                data-control="AIR ADMIT VALVE"
+                aria-label="Air admit valve, closed"
+              >
+                <span class="air-lever"></span>
+              </button>
+              <span class="legend tiny">AIR ADMIT</span>
+            </span>
+            <span class="shutter-wrap">
+              <button
+                type="button"
+                class="shutter-lever"
+                data-control="SHUTTER LEVER"
+                aria-label="Shutter lever, closed"
+              >
+                <span class="shutter-slot"
+                  ><span class="shutter-knob"></span
+                ></span>
+              </button>
+              <span class="legend tiny">SHUTTER</span>
+            </span>
+          </div>
+
+          <div class="diffusion-pump">
+            <div class="boiler-jacket">
+              <div class="jet-cone" data-jet></div>
+              <div class="streak streak1"></div>
+              <div class="streak streak2"></div>
+            </div>
+            <span class="heater-window" data-heater-window><i></i></span>
+            <span class="legend tiny heater-legend">HEATER VIEWER</span>
+            <div class="water-coil" data-coil></div>
+          </div>
+
+          <div class="baffle-pipe">
+            <span class="pipe-elbow"></span>
+            <button
+              type="button"
+              class="baffle-lever"
+              data-control="BAFFLE VALVE"
+              aria-label="Baffle valve, closed"
+            >
+              <span class="baffle-arm" data-baffle-arm></span>
+              <span class="baffle-quadrant"></span>
+            </button>
+            <span class="legend tiny">BAFFLE VALVE</span>
+          </div>
+
+          <svg class="stand-lines" viewBox="0 0 320 520" aria-hidden="true">
+            <path d="M8 430 C60 430 60 380 96 380 L96 300" class="line-main" />
+            <path d="M8 452 C70 452 70 500 130 500" class="line-water" />
+            <path
+              d="M210 505 L268 505 C296 505 300 480 300 452"
+              class="line-water"
+            />
+            <path d="M160 132 L160 96" class="line-neck" />
+          </svg>
+        </div>
+
+        <p class="stand-note" data-contamination-note hidden>
+          Oil haze carried over - films will be cloudy until the pump oil is
+          changed.
+        </p>
+      </section>
+
+      <!-- ================= RIGHT : INSTRUMENT WALL ================= -->
+      <section class="fascia" aria-label="Instrument wall">
+        <h2 class="section-plate">Instruments</h2>
+
+        <div class="dial-row">
+          <div class="big-dial">
+            <svg viewBox="0 0 220 170" data-chamber-dial role="img">
+              <title>Chamber pressure, logarithmic scale</title>
+              <circle cx="110" cy="118" r="94" class="dial-face" />
+              <g data-ticks-log></g>
+              <g data-decade-labels></g>
+              <text x="110" y="64" class="dial-title">CHAMBER PRESSURE</text>
+              <text x="110" y="80" class="dial-sub">mm Hg · PIRANI TYPE</text>
+              <path d="M28 128 L192 128" class="dial-green" />
+              <line
+                x1="110"
+                y1="118"
+                x2="110"
+                y2="38"
+                class="needle"
+                data-needle-chamber
+              />
+              <circle cx="110" cy="118" r="7" class="needle-hub" />
+            </svg>
+          </div>
+          <div class="small-dial">
+            <svg viewBox="0 0 120 108" data-fore-dial role="img">
+              <title>Foreline pressure</title>
+              <circle cx="60" cy="72" r="46" class="dial-face" />
+              <g data-ticks-fore></g>
+              <text x="60" y="34" class="dial-title sm">FORELINE</text>
+              <line
+                x1="60"
+                y1="72"
+                x2="60"
+                y2="36"
+                class="needle"
+                data-needle-fore
+              />
+              <circle cx="60" cy="72" r="5" class="needle-hub" />
+            </svg>
+            <span class="mini-scale">TORR</span>
+          </div>
+        </div>
+
+        <div class="mcleod-block">
+          <div class="mcleod-glass" aria-hidden="true">
+            <div class="mcleod-scale">
+              <span>1.0</span><span>0.1</span><span>.01</span><span>.005</span
+              ><span>.001</span>
+            </div>
+            <div class="mcleod-tube">
+              <span class="capillary"></span>
+              <span class="bulb"></span>
+              <span class="mercury" data-mercury></span>
+              <span class="meniscus" data-meniscus></span>
+            </div>
+          </div>
+          <div class="mcleod-side">
+            <button
+              type="button"
+              class="tilt-lever"
+              data-control="MCLEOD TILT LEVER"
+              aria-label="McLeod gauge tilt lever - hold to take a reading"
+              aria-pressed="false"
+            >
+              <span class="tilt-arm" data-tilt-arm></span>
+              <span class="tilt-cam"></span>
+            </button>
+            <span class="legend">MCLEOD<br />TILT LEVER</span>
+            <span class="drum-counter wide" data-mcleod-read>— · —</span>
+            <span class="mini-scale">TRAPPED READING</span>
+          </div>
+        </div>
+
+        <div class="knob-row">
+          <div class="knob-unit">
+            <label class="range-wrap">
+              <input
+                type="range"
+                min="0"
+                max="450"
+                step="25"
+                value="0"
+                data-control="DIFFUSION PUMP HEATER"
+                data-heater-range
+                aria-label="Diffusion pump heater, watts"
+              />
+              <span class="knob-face"
+                ><span class="knob-pointer" data-heater-pointer></span
+              ></span>
+            </label>
+            <span class="legend">HEATER · WATTS</span>
+            <span class="readout-mini" data-heater-read>OFF</span>
+          </div>
+          <div class="knob-unit">
+            <label class="range-wrap">
+              <input
+                type="range"
+                min="0"
+                max="30"
+                step="0.5"
+                value="0"
+                data-control="FILAMENT CURRENT"
+                data-filament-range
+                aria-label="Filament current, amperes"
+              />
+              <span class="knob-face"
+                ><span class="knob-pointer" data-filament-pointer></span
+              ></span>
+            </label>
+            <span class="legend">FILAMENT · AMPS</span>
+            <span class="readout-mini" data-filament-read>0.0 A</span>
+          </div>
+        </div>
+
+        <div
+          class="annunciator-strip"
+          role="list"
+          aria-label="Alarm annunciators"
+        >
+          <span class="flag" role="listitem" data-flag="leak"
+            ><i></i>VACUUM LEAK</span
+          >
+          <span class="flag" role="listitem" data-flag="backing"
+            ><i></i>BACKING HIGH</span
+          >
+          <span class="flag" role="listitem" data-flag="water"
+            ><i></i>WATER LOSS</span
+          >
+          <span class="flag" role="listitem" data-flag="overheat"
+            ><i></i>PUMP OVERHEAT</span
+          >
+          <span class="flag" role="listitem" data-flag="filament"
+            ><i></i>FILAMENT O/C</span
+          >
+        </div>
+
+        <div class="strip-controls">
+          <button
+            type="button"
+            class="push"
+            data-control="ALARM ACCEPT"
+            aria-label="Alarm accept"
+          >
+            ACCEPT
+          </button>
+          <button
+            type="button"
+            class="push"
+            data-control="INDICATOR LAMPS TEST"
+            aria-label="Indicator lamps test"
+          >
+            LAMPS TEST
+          </button>
+          <span class="jewel monitor-jewel" data-monitor-jewel><i></i></span>
+          <span class="legend tiny">DEPOSITING</span>
+          <button
+            type="button"
+            class="master-reset"
+            data-control="MASTER RESET"
+            aria-label="Master reset, returns the bench to its cold state"
+          >
+            MASTER<br />RESET
+          </button>
+        </div>
+
+        <div class="monitor-row">
+          <div class="optical-meter">
+            <svg viewBox="0 0 150 96" role="img">
+              <title>Optical film thickness monitor</title>
+              <circle cx="75" cy="86" r="66" class="dial-face" />
+              <path d="M32 58 A48 48 0 0 1 118 58" class="arc-track" />
+              <path d="M55 33 A48 48 0 0 1 95 33" class="arc-green" />
+              <text x="22" y="74" class="tick-num sm">0</text>
+              <text x="68" y="16" class="tick-num sm">150</text>
+              <text x="122" y="74" class="tick-num sm">300</text>
+              <line
+                x1="75"
+                y1="86"
+                x2="75"
+                y2="30"
+                class="needle"
+                data-needle-optical
+              />
+              <circle cx="75" cy="86" r="5" class="needle-hub" />
+            </svg>
+            <span class="legend tiny">OPTICAL MONITOR · nm</span>
+          </div>
+          <div class="thickness-drums">
+            <span class="drum-counter" data-thick-now>000.0</span>
+            <span class="legend">FILM<br />THICKNESS</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="maintenance-tray">
+        <span class="tray-title">MAINTENANCE TRAY</span>
+        <fieldset class="tray-group" data-control="FAULT TEST SWITCHES">
+          <legend>FAULT TEST SWITCHES</legend>
+          <label class="test-switch"
+            ><input type="checkbox" data-inject="bell jar crack" /><i></i>JAR
+            CRACK</label
+          >
+          <label class="test-switch"
+            ><input
+              type="checkbox"
+              data-inject="foreline valve passing"
+            /><i></i>VALVE PASSING</label
+          >
+          <label class="test-switch"
+            ><input type="checkbox" data-inject="filament burnout" /><i></i
+            >FILAMENT BURN</label
+          >
+        </fieldset>
+        <fieldset class="tray-group repairs" data-control="REPAIR ACTIONS">
+          <legend>REPAIR ACTIONS</legend>
+          <button type="button" class="push repair" data-repair="jar-replaced">
+            JAR REPLACED
+          </button>
+          <button
+            type="button"
+            class="push repair"
+            data-repair="valve-reseated"
+          >
+            VALVE RESEATED
+          </button>
+          <button
+            type="button"
+            class="push repair"
+            data-repair="filament-replaced"
+          >
+            FILAMENT REPLACED
+          </button>
+          <button type="button" class="push repair" data-repair="oil-changed">
+            PUMP OIL CHANGED
+          </button>
+        </fieldset>
+        <div class="tray-note">
+          Fault test switches are for instruction only. Every repair is entered
+          in the bench book.
+        </div>
+      </div>
+    </main>
+
+    <footer class="skirt">
+      <a href="../../">&larr; Back to the machinery catalogue</a>
+      <span class="plate-no">Pattern No. WB-1119 · Instruction Book 47b</span>
+    </footer>
+
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <div class="manual-bar">
+        <span>INSTRUCTION BOOK No. 47b</span>
+        <button type="button" class="push" data-action="close-manual">
+          CLOSE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual for the evaporating bench"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

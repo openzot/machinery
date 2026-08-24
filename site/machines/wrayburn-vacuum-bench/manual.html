@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instruction Book No. 47b - Evaporating Bench Mk. III</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <header class="manual-head">
+      <span class="works"
+        >Wrayburn Instrument Works · Sheffield · Instruction Book No. 47b</span
+      >
+      <h1>High-Vacuum Evaporating Bench Mk. III</h1>
+      <p class="subtitle">
+        Instructions for the care and operation of Pattern WB-1119, as installed
+        in the University laboratory. Issued to the Operator with the bench; a
+        second copy is kept in the bench book.
+      </p>
+    </header>
+
+    <h2 id="overview">Overview</h2>
+    <p>
+      The bench deposits thin metal films upon glass by evaporation in high
+      vacuum. Inside the bell jar hangs a carriage of glasswork above an
+      electrically heated filament charged with slugs of metal. When the air is
+      withdrawn - first by the rotary oil pump, then by the boiling-oil
+      diffusion pump beneath the jar - the filament is run up to a dull white
+      heat. Metal leaves it in straight lines, at the speed of a gas molecule,
+      and buries whatever the shutter is pleased to uncover.
+    </p>
+    <p>
+      The work is wanted for lens contracts: a quarter-wave of fluorite or a
+      film of metal, laid evenly enough that a whole crate of objectives behaves
+      alike. The vacuum is the whole art. A film laid at a poor vacuum is
+      cloudy, and a filament flashed in air is gone in four seconds - the
+      Ministry does not extend contracts for either reason.
+    </p>
+    <p>
+      Three gauges tell the story. The <strong>chamber dial</strong> reads the
+      jar over nine decades; the small <strong>foreline dial</strong> watches
+      the pipe between diffusion pump and rotary pump, where a diffusion pump
+      drowns if neglected; and the McLeod gauge - a column of mercury in glass
+      which the Operator tilts by hand - is the court of appeal when a meter is
+      doubted.
+    </p>
+
+    <h2 id="controls">Controls</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MAINS SWITCH</td>
+          <td>guarded toggle</td>
+          <td>
+            Energises the panel, the pump motor and the heaters. The sheet-metal
+            guard must be swung open (press GUARD) before the toggle can be
+            moved; closing the guard trips the switch.
+          </td>
+        </tr>
+        <tr>
+          <td>COOLING WATER COCK</td>
+          <td>quarter-turn lever</td>
+          <td>
+            Admits cooling water to the diffusion-pump jacket and condenser.
+            Watch the sight glass: bubbles should ride steadily while the cock
+            is open. Water flows whenever the cock is open, mains or no mains.
+          </td>
+        </tr>
+        <tr>
+          <td>PUMP SELECTOR</td>
+          <td>rotary switch, three positions</td>
+          <td>
+            OFF leaves everything sealed. ROUGHING connects the rotary pump to
+            the bell jar and to the foreline together. BACKING disconnects the
+            jar and lets the rotary pump hold the foreline only, freeing the
+            diffusion pump to work against it.
+          </td>
+        </tr>
+        <tr>
+          <td>BAFFLE VALVE</td>
+          <td>slow-throw lever</td>
+          <td>
+            Opens the line from jar to diffusion pump. Geared, and slow on
+            purpose: allow the full travel before expecting the chamber gauge to
+            answer.
+          </td>
+        </tr>
+        <tr>
+          <td>AIR ADMIT VALVE</td>
+          <td>small cock</td>
+          <td>
+            Lets dry air into the jar for taking off lids and changing work.
+            Open it only when the heater is cold or standing low.
+          </td>
+        </tr>
+        <tr>
+          <td>DIFFUSION PUMP HEATER</td>
+          <td>rotary knob, 0-450 W</td>
+          <td>
+            Fires the oil boiler. Below some 150&nbsp;W the pump only dreams;
+            working heat is 350-450&nbsp;W. Standby heat (150&nbsp;W) may be
+            held overnight.
+          </td>
+        </tr>
+        <tr>
+          <td>FILAMENT CURRENT</td>
+          <td>rotary knob, 0-30 A</td>
+          <td>
+            Heats the evaporation filament. Some 6&nbsp;A degasses the charge;
+            22-26&nbsp;A evaporates it. Above 10<sup>-3</sup>&nbsp;mm&nbsp;Hg a
+            hot filament burns; see Faults and recovery.
+          </td>
+        </tr>
+        <tr>
+          <td>SHUTTER LEVER</td>
+          <td>slide lever</td>
+          <td>
+            Passes or intercepts the metal stream between filament and
+            glasswork. Open it only for timed deposition; close it to end the
+            batch.
+          </td>
+        </tr>
+        <tr>
+          <td>MCLEOD TILT LEVER</td>
+          <td>hold-to-read lever</td>
+          <td>
+            Tilts the McLeod gauge so the mercury climbs and traps a charge of
+            gas in the closed limb; hold it while the reading is taken from the
+            drum window, release and the mercury falls home. The gauge reads
+            nothing until it is tilted.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACCEPT</td>
+          <td>pushbutton</td>
+          <td>
+            Dims the illuminated annunciator flags once they have been seen. It
+            silences nothing and cures nothing; an alarm still lit after
+            acceptance is still true.
+          </td>
+        </tr>
+        <tr>
+          <td>INDICATOR LAMPS TEST</td>
+          <td>pushbutton</td>
+          <td>
+            Lights every flag and jewel at once. Test at the start of each
+            shift.
+          </td>
+        </tr>
+        <tr>
+          <td>FAULT TEST SWITCHES</td>
+          <td>three toggles under the tray flap</td>
+          <td>
+            Instruction rig: puts a JAR CRACK, VALVE PASSING or FILAMENT BURN
+            condition on the bench without harming it. Switch off, or clear by
+            the repairs, after the drill.
+          </td>
+        </tr>
+        <tr>
+          <td>REPAIR ACTIONS</td>
+          <td>four pushbuttons</td>
+          <td>
+            Enter the steward's remedy: JAR REPLACED after a new jar is bedded,
+            VALVE RESEATED after grinding the foreline valve, FILAMENT REPLACED
+            after fitting a fresh filament, PUMP OIL CHANGED after the diffusion
+            oil has been run out and refilled.
+          </td>
+        </tr>
+        <tr>
+          <td>MASTER RESET</td>
+          <td>mushroom push</td>
+          <td>
+            Returns the bench to its cold state: heaters off, filament fresh,
+            faults cleared, jar stored under rough vacuum. Used between teaching
+            sessions; never as a shortcut during a batch.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="normal-operation">Normal operation</h2>
+    <ol>
+      <li>
+        Bench book open. Last entry read. INDICATOR LAMPS TEST pressed; every
+        flag and jewel answered.
+      </li>
+      <li>
+        Open the guard, put the MAINS SWITCH ON. Pump-motor pulley turns freely.
+      </li>
+      <li>Open the COOLING WATER COCK and confirm flow in the sight glass.</li>
+      <li>
+        Put the PUMP SELECTOR to ROUGHING. The jar falls from its stored rough
+        vacuum toward two thousandths of a millimetre over some minutes. Do not
+        hurry it.
+      </li>
+      <li>
+        When the foreline dial stands below one tenth, move the PUMP SELECTOR to
+        BACKING. The rotary pump now serves the foreline alone.
+      </li>
+      <li>Throw the BAFFLE VALVE fully open; wait out its travel.</li>
+      <li>
+        Raise the DIFFUSION PUMP HEATER to 400-450&nbsp;W. The viewer shows
+        cherry red, the jet cone stands, and the chamber dial runs down through
+        the decades toward 10<sup>-5</sup>&nbsp;mm&nbsp;Hg. This fall takes
+        minutes; talk to it and it goes slower.
+      </li>
+      <li>
+        Prove the vacuum: hold the MCLEOD TILT LEVER down, read the drum,
+        compare with the dial. If they disagree by more than a factor of two,
+        believe the McLeod and stop.
+      </li>
+      <li>
+        Charge set? Run the FILAMENT CURRENT to 6&nbsp;A for fifteen seconds to
+        drive off damp; the chamber will bump - let it settle again below
+        10<sup>-4</sup>.
+      </li>
+      <li>
+        Raise FILAMENT CURRENT to the working figure (22-26&nbsp;A) with the
+        SHUTTER LEVER still closed. Confirm the DEPOSITING jewel stays dark and
+        the chamber holds.
+      </li>
+      <li>
+        Open the SHUTTER LEVER and hold time by the watch; the optical monitor
+        and thickness drums climb. Close the SHUTTER LEVER at the figure wanted.
+      </li>
+      <li>
+        Run FILAMENT CURRENT back to zero. Drop the DIFFUSION PUMP HEATER to
+        zero (or to standby), keep water running until the viewer is black,
+        close the BAFFLE VALVE, and only then admit air by the AIR ADMIT VALVE
+        to change work.
+      </li>
+      <li>
+        Enter jar number, filament current, thickness and time in the bench
+        book.
+      </li>
+    </ol>
+
+    <h2 id="alarms">Alarms</h2>
+    <table class="alarm-table">
+      <thead>
+        <tr>
+          <th>Flag</th>
+          <th>Meaning</th>
+          <th>To do</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VACUUM LEAK</td>
+          <td>
+            The jar is losing ground faster than outgassing explains - a cracked
+            jar, a lifted lid-seal. If the AIR ADMIT VALVE was opened on purpose
+            the flag is kept dark.
+          </td>
+          <td>
+            Stop deposition at once. Isolate with the BAFFLE VALVE if the leak
+            is violent; find and cure, then re-rough. A confirmed jar goes to
+            the REPAIR ACTIONS press marked JAR REPLACED once the new jar is
+            bedded.
+          </td>
+        </tr>
+        <tr>
+          <td>BACKING PRESSURE HIGH</td>
+          <td>
+            The foreline has run past about a fifth of a millimetre. The
+            diffusion pump is near drowning and will spit oil into the jar if
+            worked so.
+          </td>
+          <td>
+            Restore pumping: selector to BACKING or roughing as the case
+            deserves. If a film was being laid, condemn it - the monitor will
+            show haze. Persistent rise means the foreline valve passes; grind
+            and use VALVE RESEATED.
+          </td>
+        </tr>
+        <tr>
+          <td>COOLING WATER LOSS</td>
+          <td>
+            The heater is firing but the jacket is dry - cock shut, or the
+            supply failed.
+          </td>
+          <td>
+            Open the COOLING WATER COCK. If supply is lost outright, take the
+            DIFFUSION PUMP HEATER to zero and wait the pump cold before
+            restarting water.
+          </td>
+        </tr>
+        <tr>
+          <td>PUMP OVERHEAT</td>
+          <td>
+            Body past 88&deg;C: the trip has cut the heater, and it stays cut
+            until the pump cools near 46&deg;C.
+          </td>
+          <td>
+            Water on; heater to zero; accept the flag and wait. Repeated
+            overheating means the coil is furred - report it.
+          </td>
+        </tr>
+        <tr>
+          <td>FILAMENT O/C</td>
+          <td>
+            The filament is burnt open - flashed in a poor vacuum, or worn out
+            at last.
+          </td>
+          <td>
+            Nothing will bring it back. Current to zero, fit a new filament and
+            slug, press FILAMENT REPLACED, re-evacuate, and begin the batch
+            again.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="warnbox">
+      An accepted flag is not an absence of alarm. ALARM ACCEPT dims the lamp;
+      the condition remains until it is cured, and the lamp relights bright on
+      any new event.
+    </div>
+
+    <h2 id="faults-and-recovery">Faults and recovery</h2>
+    <h3>Bell jar crack</h3>
+    <p>
+      <strong>You see:</strong> the VACUUM LEAK flag; the chamber dial climbing
+      although the pumps run true; hiss at the seal if you listen.
+      <br />
+      <strong>Recovery:</strong> close the SHUTTER LEVER, run FILAMENT CURRENT
+      to zero, and swing the BAFFLE VALVE closed so a violent leak cannot drown
+      the diffusion pump. Take the jar off, bed a sound jar on its gasket, press
+      JAR REPLACED among the REPAIR ACTIONS, and re-rough from step 4 of Normal
+      operation. The MASTER RESET also clears the fault, but wastes the
+      session's heat.
+    </p>
+    <h3>Foreline valve passing</h3>
+    <p>
+      <strong>You see:</strong> BACKING PRESSURE HIGH with everything shut; the
+      foreline dial creeping up hour by hour even at cold.
+      <br />
+      <strong>Recovery:</strong> run the PUMP SELECTOR to BACKING and confirm
+      the dial comes back; grind the valve at the next opportunity, then press
+      VALVE RESEATED. Until ground, expect the flag again within the half-hour
+      of any standstill.
+    </p>
+    <h3>Filament burnout</h3>
+    <p>
+      <strong>You see:</strong> FILAMENT O/C immediately; the wire in the jar
+      gone at its brightest point; if it burned mid-batch, the thickness drums
+      stop and the film is likely hazy besides.
+      <br />
+      <strong>Recovery:</strong> FILAMENT CURRENT to zero. Fit the new filament
+      and charge, press FILAMENT REPLACED, and return to Normal operation step
+      7. Remember why it went: above 10<sup>-3</sup>&nbsp;mm&nbsp;Hg a working
+      filament oxidises away in seconds - the vacuum is proved before the
+      current is raised, never after.
+    </p>
+    <p>
+      Oil contamination (cloudy films, a pump that will not reach
+      10<sup>-5</sup>) follows from ignoring BACKING PRESSURE HIGH while the
+      boiler is hot. Run the oil out, refill clean, and enter it with PUMP OIL
+      CHANGED.
+    </p>
+
+    <h2 id="specifications">Specifications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ultimate pressure, clean and dry</td>
+          <td>about 2 &times; 10<sup>-5</sup> mm Hg</td>
+        </tr>
+        <tr>
+          <td>Working range for deposition</td>
+          <td>below 1 &times; 10<sup>-4</sup> mm Hg</td>
+        </tr>
+        <tr>
+          <td>Chamber volume</td>
+          <td>30 litres; Pyrex jar 22 cm bore</td>
+        </tr>
+        <tr>
+          <td>Diffusion pump speed (at plate)</td>
+          <td>22 litres per second at working heat</td>
+        </tr>
+        <tr>
+          <td>Critical backing pressure</td>
+          <td>0.12 mm Hg; alarm at 0.22</td>
+        </tr>
+        <tr>
+          <td>Rotary pump displacement</td>
+          <td>6 litres per second at atmosphere</td>
+        </tr>
+        <tr>
+          <td>Boiler heater</td>
+          <td>0-450 W; standby 150 W; working 350-450 W</td>
+        </tr>
+        <tr>
+          <td>Filament current</td>
+          <td>0-30 A; degas 6 A; evaporating 22-26 A</td>
+        </tr>
+        <tr>
+          <td>Filament life at good vacuum</td>
+          <td>not less than 25 hours of flashing</td>
+        </tr>
+        <tr>
+          <td>Cooling water</td>
+          <td>2 pints per minute; drain when standing frozen</td>
+        </tr>
+        <tr>
+          <td>Deposition rate at 26 A</td>
+          <td>4-7 nanometres per second at the plate</td>
+        </tr>
+        <tr>
+          <td>Baffle valve travel</td>
+          <td>two and a half seconds, geared</td>
+        </tr>
+        <tr>
+          <td>Mains supply</td>
+          <td>230 V, 50 cycles, single phase, 15 A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav class="manual-return">
+      <a href="./">Return to the bench panel</a>
+      <a href="../../">The machinery catalogue</a>
+    </nav>
+  </body>
+</html>
