@@ -505,7 +505,7 @@
  },
  {
   "slug": "vindskaer-nacelle-controller",
-  "name": "Vindskær V-62 - Nacelle Service Controller",
+  "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
   "kind": "grid wind turbine nacelle service controller",
   "domain": "energy",
   "era": "2000s",
@@ -623,7 +623,7 @@
  },
  {
   "slug": "hogfors-ice-plant",
-  "name": "Högfors Isstadion - Ice Plant Machine Room",
+  "name": "H\u00f6gfors Isstadion - Ice Plant Machine Room",
   "kind": "municipal ice-rink refrigeration machine room",
   "domain": "cold-chain",
   "era": "1970s",
@@ -818,6 +818,42 @@
    "transmitter overload"
   ],
   "tagline": "Faders at seven for the join, delay armed before the mic, and nothing dead on the line.",
+  "created": "2026-08-25"
+ },
+ {
+  "slug": "dunlin-saturation",
+  "name": "Dunlin Sentinel - Saturation Control Console",
+  "kind": "saturation diving life-support control console",
+  "domain": "deep-sea",
+  "era": "1980s",
+  "design": "international-orange painted steel over black instrument bays, stencilled condensed legends with Dymo amendments, backlit milk-glass gauges, twin LED oxygen bargraphs, one amber neon and a chamber CCTV porthole under fluorescent shack light",
+  "interaction": "walking the guarded quad-bank selector against falling bank needles while trimming an oxygen micrometer by eighths of a turn and holding a mushroom bypass to walk the depth needle onto its yellow ghost",
+  "palette": [
+   "#c24910",
+   "#ece5da",
+   "#d81f1a"
+  ],
+  "controls": [
+   "MAINS ISOLATOR",
+   "QUAD SELECTOR",
+   "O2 INJECT",
+   "MAKE-UP ISOLATOR",
+   "MAKE-UP BYPASS",
+   "CHAMBER VENT",
+   "DEPTH SET",
+   "SCRUBBER FANS",
+   "ALARM ACCEPT",
+   "LAMPS TEST",
+   "TRIP RESET",
+   "PANEL RESET",
+   "FAULT TESTS"
+  ],
+  "faults": [
+   "scrubber fan stall",
+   "quad bank depletion",
+   "make-up valve passing"
+  ],
+  "tagline": "Fourteen bar outside; mind your oxygen like it is the last litre.",
   "created": "2026-08-25"
  }
 ]

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dunlin Sentinel — Saturation Control Console</title>
+    <meta
+      name="description"
+      content="Saturation diving life-support control console, diving support vessel Dunlin Sentinel, North Sea, 1983."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="shack">
+      <main class="console" aria-label="Saturation control console">
+        <!-- ======= title rail ======= -->
+        <header class="titlerail">
+          <div class="makerplate">
+            <span class="maker">NORDSEA ENGINEERING LTD · ABERDEEN</span>
+            <span class="plantno">PLANT No. DS-83/114</span>
+          </div>
+          <div class="titleblock">
+            <p class="over-title">
+              DIVING SUPPORT VESSEL <em>DUNLIN SENTINEL</em>
+            </p>
+            <h1>SATURATION CONTROL — CHAMBER 1</h1>
+          </div>
+          <div class="titleright">
+            <span class="neon-case" data-live="supplyNeon" aria-hidden="true"
+              ><i class="neon"></i><b>SUPPLY LIVE</b></span
+            >
+            <button type="button" class="manualtab" data-action="manual">
+              WORKING INSTRUCTION&nbsp;WS-83/2
+            </button>
+            <a class="catlink" href="../../">MACHINE CATALOGUE</a>
+          </div>
+        </header>
+
+        <!-- ======= annunciator row ======= -->
+        <section class="annunciator" aria-label="Alarm annunciator">
+          <ol class="windows">
+            <li data-lamp="o2high">
+              <i></i><span>PP&nbsp;O<sub>2</sub> HIGH</span>
+            </li>
+            <li data-lamp="o2low">
+              <i></i><span>PP&nbsp;O<sub>2</sub> LOW</span>
+            </li>
+            <li data-lamp="co2high">
+              <i></i><span>CO<sub>2</sub> HIGH</span>
+            </li>
+            <li data-lamp="depthdev"><i></i><span>DEPTH DEV.</span></li>
+            <li data-lamp="supplylow"><i></i><span>SUPPLY LOW</span></li>
+            <li data-lamp="fanfail"><i></i><span>FAN FAIL</span></li>
+            <li data-lamp="o2cyllow">
+              <i></i><span>O<sub>2</sub> CYL LOW</span>
+            </li>
+            <li data-lamp="mkuppass"><i></i><span>MK-UP PASSING</span></li>
+          </ol>
+          <div class="annbtns">
+            <button
+              type="button"
+              class="push amber"
+              data-control="ALARM ACCEPT"
+              id="btn-accept"
+            >
+              <span>ALARM<br />ACCEPT</span>
+            </button>
+            <button
+              type="button"
+              class="push slate"
+              data-control="LAMPS TEST"
+              id="btn-lamps"
+            >
+              <span>LAMPS<br />TEST</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ======= the deck: process flow left to right ======= -->
+        <div class="deck">
+          <!-- ---- left bay: storage gas ---- -->
+          <section class="bay bay-supply" aria-label="Gas storage">
+            <h2 class="bayplate">QUAD STORAGE — HELIOX</h2>
+
+            <div
+              class="bankrow"
+              role="group"
+              aria-label="Quad bank pressures, bar"
+            >
+              <figure class="smalldial" data-dial="bankA">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="scale" data-from="0" data-to="300"></g>
+                  <path class="needle" d="M50 54 L50 16" />
+                </svg>
+                <figcaption>BANK&nbsp;A</figcaption>
+                <output data-readout="bankA">—</output>
+              </figure>
+              <figure class="smalldial" data-dial="bankB">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="scale" data-from="0" data-to="300"></g>
+                  <path class="needle" d="M50 54 L50 16" />
+                </svg>
+                <figcaption>BANK&nbsp;B</figcaption>
+                <output data-readout="bankB">—</output>
+              </figure>
+              <figure class="smalldial" data-dial="bankC">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="scale" data-from="0" data-to="300"></g>
+                  <path class="needle" d="M50 54 L50 16" />
+                </svg>
+                <figcaption>BANK&nbsp;C</figcaption>
+                <output data-readout="bankC">—</output>
+              </figure>
+              <figure class="smalldial" data-dial="bankD">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="scale" data-from="0" data-to="300"></g>
+                  <path class="needle" d="M50 54 L50 16" />
+                </svg>
+                <figcaption>BANK&nbsp;D</figcaption>
+                <output data-readout="bankD">—</output>
+              </figure>
+            </div>
+
+            <div class="quadselector">
+              <span class="dyemo">SELECT FEED BANK</span>
+              <div class="guard-ring">
+                <div
+                  class="rotary big"
+                  id="quad-knob"
+                  role="slider"
+                  tabindex="0"
+                  data-control="QUAD SELECTOR"
+                  aria-label="Quad feed bank selector, positions A B C D"
+                  aria-valuemin="1"
+                  aria-valuemax="4"
+                  aria-valuenow="1"
+                  aria-valuetext="Bank A"
+                >
+                  <i class="knobface"></i><b class="pointer"></b>
+                </div>
+                <ol class="positions" aria-hidden="true">
+                  <li>A</li>
+                  <li>B</li>
+                  <li>C</li>
+                  <li>D</li>
+                </ol>
+              </div>
+              <span class="feedtag"
+                >FEEDING&nbsp;<output data-readout="feeding">A</output></span
+              >
+            </div>
+
+            <aside class="ordercard">
+              <h3>STANDING ORDER No. 4</h3>
+              <p>
+                CHANGE BANKS ON THE GUARD, ONE HAND FOR THE NEEDLES. NEVER LET
+                THE FEED DIE WITH MEN AT DEPTH.
+              </p>
+            </aside>
+
+            <div class="oxygenbay">
+              <h3 class="subplate">OXYGEN INJECTION</h3>
+              <figure class="twinmeter" data-dial="o2cyl">
+                <svg viewBox="0 0 200 110" aria-hidden="true">
+                  <g class="scale half" data-from="0" data-to="250"></g>
+                  <path class="needle" d="M100 96 L100 26" />
+                </svg>
+                <figcaption>O<sub>2</sub> CYLINDERS · bar</figcaption>
+              </figure>
+              <div class="micrometer">
+                <span class="dyemo">O<sub>2</sub> INJECT · TURNS OPEN</span>
+                <div
+                  class="valve-knob"
+                  id="o2-knob"
+                  role="slider"
+                  tabindex="0"
+                  data-control="O2 INJECT"
+                  aria-label="Oxygen injection needle valve, 0 to 8 turns open"
+                  aria-valuemin="0"
+                  aria-valuemax="8"
+                  aria-valuenow="0"
+                  aria-valuetext="0 turns open"
+                >
+                  <i class="knurl"></i><b class="indexline"></b>
+                </div>
+                <output class="counter" data-readout="turns">000</output>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---- centre bay: the chamber itself ---- -->
+          <section class="bay bay-chamber" aria-label="Chamber depth control">
+            <h2 class="bayplate">CHAMBER 1 — DEPTH CONTROL</h2>
+
+            <figure class="bigdial" data-dial="depth">
+              <svg viewBox="0 0 220 220" aria-hidden="true">
+                <g
+                  class="scale"
+                  data-from="0"
+                  data-to="120"
+                  data-major="10"
+                  data-minor="5"
+                ></g>
+                <path class="ghost" d="M110 122 L110 24" />
+                <path class="needle main" d="M110 126 L110 18" />
+                <circle class="hub" cx="110" cy="112" r="7" />
+              </svg>
+              <figcaption>
+                CHAMBER DEPTH · METRES SEAWATER<span class="legend-swatch"
+                  ><i class="sw-set"></i>SET&nbsp;&nbsp;<i class="sw-act"></i
+                  >ACTUAL</span
+                >
+              </figcaption>
+              <output data-readout="depthm">0 m</output>
+            </figure>
+
+            <div class="setrow">
+              <div
+                class="pot"
+                id="setdepth-knob"
+                role="slider"
+                tabindex="0"
+                data-control="DEPTH SET"
+                aria-label="Depth setpoint, 0 to 120 metres"
+                aria-valuemin="0"
+                aria-valuemax="120"
+                aria-valuenow="0"
+                aria-valuetext="0 metres"
+              >
+                <i class="knobface"></i><b class="pointer"></b>
+              </div>
+              <label class="dyeplate" for="setdepth-knob"
+                >DEPTH SET · mSW</label
+              >
+            </div>
+
+            <div class="stackview">
+              <canvas
+                id="cctv"
+                width="276"
+                height="150"
+                aria-label="Closed-circuit television: chamber 1 interior"
+              ></canvas>
+              <span class="cctv-tag">CCTV · CHAMBER INTERNAL</span>
+            </div>
+
+            <div class="chamberops">
+              <div class="guarded-toggle" id="mkup-guard">
+                <span class="dyemo">AUTO MK-UP VALVE</span>
+                <label class="flipcover">
+                  <input
+                    type="checkbox"
+                    id="mkup-isol"
+                    data-control="MAKE-UP ISOLATOR"
+                    aria-label="Make-up isolator, closed to shut the automatic valve"
+                  />
+                  <i class="lid"></i
+                  ><b class="togglebody"><u class="bat"></u></b>
+                </label>
+                <ol class="pos2" aria-hidden="true">
+                  <li>SHUT</li>
+                  <li>AUTO</li>
+                </ol>
+              </div>
+              <button
+                type="button"
+                class="mushroom"
+                data-control="MAKE-UP BYPASS"
+                id="btn-bypass"
+                aria-label="Manual make-up bypass — hold to admit helium"
+              >
+                <span>HOLD<br />MANUAL<br />MAKE-UP</span>
+              </button>
+              <div class="ventblock">
+                <div
+                  class="vent-knob"
+                  id="vent-knob"
+                  role="slider"
+                  tabindex="0"
+                  data-control="CHAMBER VENT"
+                  aria-label="Chamber vent valve, 0 to 10 turns open"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                  aria-valuetext="0 turns open"
+                >
+                  <i class="knurl"></i><b class="indexline"></b>
+                </div>
+                <label class="dyeplate">VENT · TURNS OPEN</label>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---- right bay: life support ---- -->
+          <section class="bay bay-life" aria-label="Life support">
+            <h2 class="bayplate">LIFE SUPPORT — ATMOSPHERE</h2>
+
+            <div
+              class="bargraphs"
+              role="group"
+              aria-label="Oxygen partial pressure bargraph meters"
+            >
+              <div class="bargraph">
+                <h3 class="subplate">PP&nbsp;O<sub>2</sub> · %</h3>
+                <div class="tube" data-meter="ppo2">
+                  <i class="seg"></i><i class="seg"></i><i class="seg"></i
+                  ><i class="seg"></i><i class="seg"></i><i class="seg"></i>
+                  <i class="seg"></i><i class="seg"></i><i class="seg"></i
+                  ><i class="seg"></i><i class="seg"></i><i class="seg"></i>
+                  <i class="seg"></i><i class="seg"></i><i class="seg"></i
+                  ><i class="seg"></i><i class="seg"></i><i class="seg"></i>
+                  <i class="seg"></i><i class="seg"></i><i class="seg"></i
+                  ><i class="seg"></i><i class="seg"></i><i class="seg"></i>
+                  <b class="band lo"></b><b class="band ok"></b
+                  ><b class="band hi"></b>
+                </div>
+                <ol class="scalemarks" aria-hidden="true">
+                  <li>12</li>
+                  <li>16</li>
+                  <li>20</li>
+                  <li>24</li>
+                  <li>28</li>
+                </ol>
+                <output data-readout="ppo2">—</output>
+              </div>
+            </div>
+
+            <figure class="arcmeter" data-dial="ppco2">
+              <svg viewBox="0 0 240 140" aria-hidden="true">
+                <g class="scale arc" data-from="0" data-to="60"></g>
+                <path class="redarc" d="" />
+                <path class="needle flat" d="M120 118 L120 34" />
+                <circle class="hub" cx="120" cy="116" r="6" />
+              </svg>
+              <figcaption>
+                PP&nbsp;CO<sub>2</sub> · mbar SURFACE EQUIV.
+              </figcaption>
+              <output data-readout="ppco2">—</output>
+            </figure>
+
+            <div class="fansel">
+              <span class="dyemo">SCRUBBER FANS</span>
+              <div
+                class="rotary"
+                id="fan-knob"
+                role="slider"
+                tabindex="0"
+                data-control="SCRUBBER FANS"
+                aria-label="Scrubber fan selector, positions off, low, high, standby fan"
+                aria-valuemin="0"
+                aria-valuemax="3"
+                aria-valuenow="0"
+                aria-valuetext="Off"
+              >
+                <i class="knobface"></i><b class="pointer"></b>
+              </div>
+              <ol class="positions v" aria-hidden="true">
+                <li>OFF</li>
+                <li>LOW</li>
+                <li>HIGH</li>
+                <li>STBY</li>
+              </ol>
+            </div>
+
+            <figure class="tempdial smalldial" data-dial="temp">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <g class="scale" data-from="0" data-to="40"></g>
+                <path class="needle" d="M50 54 L50 16" />
+              </svg>
+              <figcaption>CHAMBER °C</figcaption>
+              <output data-readout="tempc">—</output>
+            </figure>
+
+            <button
+              type="button"
+              class="tripbar"
+              data-control="TRIP RESET"
+              id="btn-tripreset"
+            >
+              <span>LIFE-SUPPORT TRIP — RESET</span>
+              <output data-readout="tripstate">CLEAR</output>
+            </button>
+          </section>
+        </div>
+
+        <!-- ======= bottom rail: worked left to right on start-up ======= -->
+        <footer class="bottomrail" aria-label="Supply, test and maintenance">
+          <div class="keysuite">
+            <span class="stencil">MAINS ISOLATOR</span>
+            <div
+              class="keyswitch"
+              id="mains-key"
+              role="switch"
+              tabindex="0"
+              aria-checked="false"
+              data-control="MAINS ISOLATOR"
+              aria-label="Mains isolator key switch"
+            >
+              <i class="keyway"></i><b class="key"></b>
+            </div>
+            <ol class="pos2 wide" aria-hidden="true">
+              <li>OFF</li>
+              <li>ON</li>
+            </ol>
+          </div>
+
+          <div class="faultsuite">
+            <span class="stencil">FAULT TESTS — MAINTENANCE ONLY</span>
+            <div class="testcover" data-control="FAULT TESTS">
+              <ul class="testswitches">
+                <li>
+                  <input
+                    type="checkbox"
+                    id="ft-fans"
+                    aria-label="Inject fault: scrubber fan stall"
+                  /><i></i><label for="ft-fans">FAN</label>
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    id="ft-quads"
+                    aria-label="Inject fault: quad bank depletion"
+                  /><i></i><label for="ft-quads">BANK</label>
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    id="ft-mkup"
+                    aria-label="Inject fault: make-up valve passing"
+                  /><i></i><label for="ft-mkup">VALVE</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="push bone"
+            data-control="PANEL RESET"
+            id="btn-panelreset"
+          >
+            <span>PANEL<br />RESET</span>
+          </button>
+
+          <p class="notice">
+            NO SMOKING · PRESSURISED HELIOX SYSTEM · TREAT EVERY NEEDLE AS LIVE
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <dialog data-manual aria-label="Working instruction WS-83/2">
+      <div class="manualchrome">
+        <header>
+          <b>NORDSEA ENGINEERING — WORKING INSTRUCTION WS-83/2</b>
+          <button
+            type="button"
+            data-action="close-manual"
+            aria-label="Close the manual"
+          >
+            CLOSE ✕
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Operating manual: Saturation Control Console WS-83/2"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

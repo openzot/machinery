@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WS-83/2 — Saturation Control Console — Working Instruction</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manualpage">
+    <div class="sheet">
+      <header class="docband">
+        <p class="docorg">
+          Nordsea Engineering Ltd. · Abandon Yard, Aberdeen · Diving Systems
+          Division
+        </p>
+        <h1>Working Instruction WS-83/2 — Saturation Control Console</h1>
+        <div class="docmeta">
+          <span><b>DOC</b>WS-83/2</span>
+          <span><b>REV.</b>B</span>
+          <span><b>PLANT</b>DS-83/114</span>
+          <span><b>VESSEL</b>DSV Dunlin Sentinel</span>
+          <span><b>DATE</b>MAR 1983</span>
+        </div>
+      </header>
+
+      <div class="stamp">
+        Controlled Copy<small>Do not remove from shack</small>
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        This console runs the atmosphere of the
+        <em>Dunlin Sentinel's</em> saturation complex: the living chamber, the
+        transfer lock beneath it, and the gas that keeps six men alive at
+        storage depth. The chamber sits at depth for weeks at a time. The men do
+        not come up to you; everything they breathe is your doing, from this
+        rack, on this deck, under this fluorescent light.
+      </p>
+      <p>
+        The console does four things and nothing else. It holds chamber depth
+        against a setpoint by admitting heliox from one of the four quad banks.
+        It holds oxygen partial pressure between 16 and 25 per cent by a
+        needle-valve injection from the cylinder pair. It holds carbon dioxide
+        down by washing the chamber atmosphere through scrubber canisters on two
+        electric fans. It tells you, loudly, when any of those three things is
+        slipping.
+      </p>
+      <div class="warnbox">
+        <b>BREATHING GAS.</b> Everything aft of the isolator is at up to 230
+        bar, and everything forward of it is at storage depth pressure. Heliox
+        under pressure strips the air out of a space faster than a man can walk
+        through the door. Work the vent before you work anything else, and never
+        trust a gauge until the LAMPS TEST has proved the panel.
+      </div>
+
+      <h2>Controls</h2>
+      <table class="ctrltable">
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Positions / range</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>MAINS ISOLATOR</td>
+          <td>key switch</td>
+          <td>OFF · ON</td>
+          <td>
+            Energises the console. OFF drops indication only; the chamber vent
+            is mechanical and works regardless.
+          </td>
+        </tr>
+        <tr>
+          <td>LAMPS TEST</td>
+          <td>momentary push</td>
+          <td>press</td>
+          <td>
+            Lights every annunciator window. Prove the panel before every shift.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACCEPT</td>
+          <td>push</td>
+          <td>press</td>
+          <td>
+            Steadies flashing windows so new events still catch the eye. Does
+            not clear any condition.
+          </td>
+        </tr>
+        <tr>
+          <td>PANEL RESET</td>
+          <td>push</td>
+          <td>press</td>
+          <td>
+            Returns the console to its cold state: chamber at surface, setpoint
+            zero, fans off, alarms clear, faults cleared.
+          </td>
+        </tr>
+        <tr>
+          <td>SCRUBBER FANS</td>
+          <td>rotary selector</td>
+          <td>OFF · LOW · HIGH · STBY</td>
+          <td>
+            CO<sub>2</sub> scrubber duty. HIGH is the running position. STBY
+            starts the standby fan train when the duty train has failed.
+          </td>
+        </tr>
+        <tr>
+          <td>QUAD SELECTOR</td>
+          <td>guarded rotary</td>
+          <td>A · B · C · D</td>
+          <td>
+            Selects which quad bank feeds make-up. Change over with the guard
+            raised, watching the bank needles.
+          </td>
+        </tr>
+        <tr>
+          <td>O2 INJECT</td>
+          <td>micrometer needle valve</td>
+          <td>0 – 8 turns</td>
+          <td>
+            Trims oxygen partial pressure upward. A quarter turn moves ppO<sub
+              >2</sub
+            >
+            about six points an hour; watch the bargraph minute to minute. Count
+            the turns on the drum.
+          </td>
+        </tr>
+        <tr>
+          <td>MAKE-UP ISOLATOR</td>
+          <td>guarded toggle</td>
+          <td>SHUT · AUTO</td>
+          <td>
+            LINES UP or ISOLATES the automatic make-up valve. SHUT is also the
+            stop for a passing valve.
+          </td>
+        </tr>
+        <tr>
+          <td>MAKE-UP BYPASS</td>
+          <td>mushroom, hold-down</td>
+          <td>hold</td>
+          <td>
+            Admits helium manually while held, bypassing the auto valve. Use
+            after isolating a passing valve, or to top the last metres.
+          </td>
+        </tr>
+        <tr>
+          <td>CHAMBER VENT</td>
+          <td>vernier knob</td>
+          <td>0 – 10 turns</td>
+          <td>
+            Vents gas to sea to shallow the chamber. Below ten metres the
+            outflow carries the atmosphere with it: full vent flushes carbon
+            dioxide fast and strips oxygen with it — watch the bargraph fall as
+            the CO<sub>2</sub> does. Mechanical: it works with the panel dead.
+          </td>
+        </tr>
+        <tr>
+          <td>DEPTH SET</td>
+          <td>pot dial</td>
+          <td>0 – 120 mSW</td>
+          <td>
+            Storage-depth setpoint. The yellow ghost needle on the big gauge
+            shows where you have asked her to sit.
+          </td>
+        </tr>
+        <tr>
+          <td>TRIP RESET</td>
+          <td>push</td>
+          <td>press</td>
+          <td>
+            Rearms the life-support trip after the cause has been cleared.
+            Refuses while CO<sub>2</sub> or oxygen is still out of band.
+          </td>
+        </tr>
+        <tr>
+          <td>FAULT TESTS</td>
+          <td>three toggles under cover</td>
+          <td>FAN · BANK · VALVE</td>
+          <td>
+            Maintenance injection of each fault for drill and proof of the alarm
+            chain. Return all to centre-down after use.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <p>
+        From cold (PANEL RESET state, chamber at surface) to sitting on storage
+        depth with a clean board:
+      </p>
+      <ol class="procedure">
+        <li>
+          Confirm the board cold: no window lit, TRIP RESET reading CLEAR, both
+          verniers closed, DEPTH SET at zero.
+        </li>
+        <li>
+          Press LAMPS TEST. Every window lights amber or red; release and prove
+          all went out.
+        </li>
+        <li>
+          Turn MAINS ISOLATOR ON if it is not already. The SUPPLY LIVE neon
+          burns; the needles wake.
+        </li>
+        <li>
+          Put SCRUBBER FANS to HIGH. The blower hum comes up through the frame.
+        </li>
+        <li>
+          Raise the QUAD SELECTOR guard and read the four bank needles. Feed
+          from the fullest bank; leave the thinnest bank for the bell run.
+          Select it.
+        </li>
+        <li>Confirm MAKE-UP ISOLATOR is lined up AUTO.</li>
+        <li>
+          Set DEPTH SET to storage depth — one hundred metres for this charter.
+          The yellow ghost needle swings; the black needle walks the chamber
+          down at not more than a third of a metre a second. Expect the chamber
+          temperature to rise a degree or two on the way down.
+        </li>
+        <li>
+          As the depth passes forty metres, open O2 INJECT about half a turn and
+          trim to hold ppO<sub>2</sub> at twenty per cent on the bargraph. Small
+          turns. Watch it for five minutes before you touch it again.
+        </li>
+        <li>
+          When the black needle sits on the ghost, ease SCRUBBER FANS to LOW for
+          quiet hours if CO<sub>2</sub> stays under ten millibars.
+        </li>
+        <li>
+          Accept any standing alarm with ALARM ACCEPT once you have understood
+          it, and log bank pressures hourly. The banks tell you the story of the
+          dive before anything else does.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="alarmtable">
+        <tr>
+          <th>Window</th>
+          <th>Lens</th>
+          <th>Means</th>
+          <th>Do</th>
+        </tr>
+        <tr>
+          <td>PP O2 HIGH</td>
+          <td><span class="lens red"></span>red</td>
+          <td>
+            Oxygen above 25 % — injection overshooting or cylinders leaking into
+            the line.
+          </td>
+          <td>
+            Close O2 INJECT. Vent if above 28 %. Above 31 % sustained the trip
+            fires itself.
+          </td>
+        </tr>
+        <tr>
+          <td>PP O2 LOW</td>
+          <td><span class="lens red"></span>red</td>
+          <td>Oxygen below 16 % — consumption outrunning injection.</td>
+          <td>
+            Open O2 INJECT a quarter turn and watch the bargraph climb. Below 13
+            % sustained the men go to sleep before you can blink.
+          </td>
+        </tr>
+        <tr>
+          <td>CO2 HIGH</td>
+          <td><span class="lens red"></span>red</td>
+          <td>Carbon dioxide above 30 mbar surface equivalent.</td>
+          <td>
+            SCRUBBER FANS to HIGH. If it will not turn over, see FAN FAIL. At 50
+            mbar for a minute the life-support trip drops everything.
+          </td>
+        </tr>
+        <tr>
+          <td>DEPTH DEV.</td>
+          <td><span class="lens amber"></span>amber</td>
+          <td>Chamber more than three metres off setpoint.</td>
+          <td>
+            Check SUPPLY LOW first, then the isolator lineup. Hold MAKE-UP
+            BYPASS or ease CHAMBER VENT to bring her back by hand.
+          </td>
+        </tr>
+        <tr>
+          <td>SUPPLY LOW</td>
+          <td><span class="lens amber"></span>amber</td>
+          <td>Selected quad bank below 40 bar.</td>
+          <td>
+            Change QUAD SELECTOR to a full bank. Never let the feed die with men
+            at depth.
+          </td>
+        </tr>
+        <tr>
+          <td>FAN FAIL</td>
+          <td><span class="lens amber"></span>amber</td>
+          <td>Duty scrubber train tripped on overload.</td>
+          <td>
+            SCRUBBER FANS to STBY. The standby train carries the chamber until
+            the electricians earn their keep.
+          </td>
+        </tr>
+        <tr>
+          <td>O2 CYL LOW</td>
+          <td><span class="lens amber"></span>amber</td>
+          <td>Cylinder pair below 50 bar.</td>
+          <td>
+            Line up the reserve rack per the gas officer's plan; this console
+            takes either pair on its own manifold.
+          </td>
+        </tr>
+        <tr>
+          <td>MK-UP PASSING</td>
+          <td><span class="lens amber"></span>amber</td>
+          <td>Flow seen past the automatic valve with no demand.</td>
+          <td>
+            Flip MAKE-UP ISOLATOR to SHUT. Recover depth on MAKE-UP BYPASS and
+            CHAMBER VENT until the fitters change the seat.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Faults and recovery</h2>
+      <h3>Scrubber fan stall</h3>
+      <p>
+        <strong>You see:</strong> FAN FAIL within seconds; then CO<sub>2</sub>
+        HIGH climbing as the wash dies, and the chamber TV fogging as the
+        temperature stratifies. Ignored, at fifty millibars the life-support
+        trip drops the duty fans and locks compression — the TRIP RESET reads
+        TRIPPED · CO2. Only the standby position still turns, on its own
+        feeders.
+      </p>
+      <p>
+        <strong>Recovery:</strong> put SCRUBBER FANS to STBY; the standby train
+        picks up the wash and CO<sub>2</sub> falls. When the board is clean
+        below thirty millibars, press TRIP RESET — it refuses while the cause
+        stands, and it is meant to.
+      </p>
+
+      <h3>Quad bank depletion</h3>
+      <p>
+        <strong>You see:</strong> the selected bank needle falling far faster
+        than the makeup rate explains, SUPPLY LOW at forty bar, then DEPTH DEV.
+        as the feed starves and the chamber drifts shallow.
+      </p>
+      <p>
+        <strong>Recovery:</strong> raise the QUAD SELECTOR guard and select a
+        live bank. The drain stops with the selection; the fault lamp on FAULT
+        TESTS clears. Re-establish depth against the ghost needle and log the
+        flat bank OUT OF SERVICE on the slate.
+      </p>
+
+      <h3>Make-up valve passing</h3>
+      <p>
+        <strong>You see:</strong> MK-UP PASSING immediately — flow where there
+        should be none — then DEPTH DEV. as she creeps past setpoint toward the
+        stops, and O2 CYL LOW later if the dilution drags the oxygen down with
+        it.
+      </p>
+      <p>
+        <strong>Recovery:</strong> flip the MAKE-UP ISOLATOR guard down to SHUT;
+        the passing stops with the line. Bring the depth back by hand: hold
+        MAKE-UP BYPASS to add metres, ease CHAMBER VENT to lose them, until the
+        black needle kisses the ghost. Leave the isolator SHUT and run manual
+        until the fitters have the seat changed.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="spec">
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>Rated storage depth</td>
+          <td class="num">120 mSW</td>
+          <td>setpoint span of DEPTH SET</td>
+        </tr>
+        <tr>
+          <td>Chamber relief limit</td>
+          <td class="num">140 mSW</td>
+          <td>console clamps beyond this</td>
+        </tr>
+        <tr>
+          <td>Compression rate, auto</td>
+          <td class="num">≤ 0.32 m/s</td>
+          <td>auto valve full stroke</td>
+        </tr>
+        <tr>
+          <td>Compression rate, bypass</td>
+          <td class="num">≈ 0.26 m/s</td>
+          <td>while MAKE-UP BYPASS held</td>
+        </tr>
+        <tr>
+          <td>Vent rate</td>
+          <td class="num">0 – 1.1 m/s</td>
+          <td>CHAMBER VENT, 10 turns</td>
+        </tr>
+        <tr>
+          <td>Heliox quad banks</td>
+          <td class="num">4 × 12 × 44½ gal, ≤ 230 bar</td>
+          <td>working charge ≈ 210 bar</td>
+        </tr>
+        <tr>
+          <td>Oxygen cylinder pair</td>
+          <td class="num">2 × 90 ft³, ≤ 230 bar</td>
+          <td>duty + reserve on one manifold</td>
+        </tr>
+        <tr>
+          <td>Oxygen band</td>
+          <td class="num">16 – 25 %</td>
+          <td>alarm band, surface equivalent</td>
+        </tr>
+        <tr>
+          <td>CO<sub>2</sub> alarm / trip</td>
+          <td class="num">30 / 50 mbar</td>
+          <td>surface equivalent, 60 s integrate</td>
+        </tr>
+        <tr>
+          <td>Scrubber duty, HIGH</td>
+          <td class="num">≈ 165 mbar/h absorbed</td>
+          <td>per canister pair, fresh sodasorb</td>
+        </tr>
+        <tr>
+          <td>Oxygen hypoxia trip</td>
+          <td class="num">13 % for 45 s</td>
+          <td>life-support trip, latching</td>
+        </tr>
+        <tr>
+          <td>Depth deviation alarm</td>
+          <td class="num">± 3 m</td>
+          <td>off DEPTH SET</td>
+        </tr>
+        <tr>
+          <td>Supply low alarm</td>
+          <td class="num">40 bar</td>
+          <td>selected bank</td>
+        </tr>
+        <tr>
+          <td>Vent atmosphere exchange</td>
+          <td class="num">≈ 1.8 mbar CO<sub>2</sub>/s</td>
+          <td>
+            full vent, depth below 10 mSW; dilutes ppO<sub>2</sub> with it
+          </td>
+        </tr>
+        <tr>
+          <td>Mains supply</td>
+          <td class="num">415 V 3φ 50 Hz</td>
+          <td>indication only; vent is mechanical</td>
+        </tr>
+      </table>
+
+      <div class="backlinks">
+        <a href="./">◄ Back to the Saturation Control Console</a>
+        <a href="../../">Machine Catalogue</a>
+      </div>
+
+      <p class="revnote">
+        WS-83/2 Rev. B — supersedes Rev. A of Jan 1983. Amendments in this
+        issue: STBY fan procedure rewritten after the Dunlin incident of
+        February; MK-UP PASSING recovery now requires the isolator SHUT, not the
+        old two-turn trick. Printed aboard, distributed to the shack and the
+        office. NORDSEA ENGINEERING LTD., ABERDEEN.
+      </p>
+    </div>
+  </body>
+</html>

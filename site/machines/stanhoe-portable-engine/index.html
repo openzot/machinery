@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stanhoe &amp; Bright Portable Engine No. 1284 · Fireman's Backhead</title>
+    <meta
+      name="description"
+      content="Fireman's backhead of a Norfolk farm portable steam engine, works number 1284, belted to a threshing drum. Fire, water and one hundred pounds of steam, indicated by brass needles and lead glass alone."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="yard">
+      <!-- ============================ works plates ============================ -->
+      <header class="plate-rail">
+        <div class="brand-block">
+          <p class="brand">STANHOE &amp; BRIGHT Ltd &middot; AGRICULTURAL ENGINEERS &middot; KING'S LYNN</p>
+          <h1 class="model">
+            Portable Engine No. 1284
+            <span class="model-sub">&mdash; fireman's backhead &middot; threshing drive</span>
+          </h1>
+        </div>
+        <div class="serial-plate" aria-hidden="true">
+          WORKS No. 1284 &middot; BOILER 30&Prime;&times;7&#8242;6&Prime; &middot; 145 LB PER SQ IN
+          <br />
+          BELTED TO No. 3 THRESHING DRUM &middot; SET HER BY THE GLASS, NOT THE GAUGE
+        </div>
+        <div class="plate-actions">
+          <button type="button" class="plaque" data-action="manual">Operating instructions</button>
+          <a class="plaque plaque-quiet" href="../../">All machines</a>
+        </div>
+      </header>
+
+      <!-- ======================= sectional working diagram ==================== -->
+      <section class="diagram-rail" aria-label="Sectional working diagram of the engine">
+        <div class="diagram-frame">
+          <svg viewBox="0 0 980 190" role="img" aria-labelledby="diagram-title">
+            <title id="diagram-title">
+              Sectional diagram: firebox, boiler water line, fluethroughs, regulator branch and belt flywheel
+            </title>
+            <!-- masonry / setting -->
+            <rect x="10" y="60" width="150" height="120" class="dg-setting" />
+            <!-- firebox -->
+            <rect x="26" y="96" width="118" height="66" rx="4" class="dg-firebox" />
+            <g data-dg="firebed">
+              <rect x="32" y="132" width="106" height="24" rx="3" class="dg-firebed" />
+            </g>
+            <g data-dg="flames" opacity="0"></g>
+            <!-- grate -->
+            <rect x="28" y="158" width="114" height="5" class="dg-grate" />
+            <rect x="20" y="163" width="130" height="17" class="dg-ashpan" />
+            <!-- barrel -->
+            <rect x="160" y="46" width="430" height="134" rx="14" class="dg-shell" />
+            <!-- water -->
+            <clipPath id="barrelClip"><rect x="162" y="48" width="426" height="130" rx="13" /></clipPath>
+            <g clip-path="url(#barrelClip)">
+              <rect x="160" y="0" width="430" height="190" class="dg-steam-space" />
+              <rect data-dg="water" x="160" y="110" width="430" height="80" class="dg-water" />
+              <g data-dg="steam-wisp" opacity="0.55">
+                <ellipse cx="300" cy="60" rx="34" ry="9" class="dg-wisp" />
+                <ellipse cx="420" cy="52" rx="44" ry="10" class="dg-wisp" />
+              </g>
+            </g>
+            <!-- water line scale -->
+            <g class="dg-scale" font-size="9">
+              <line x1="590" y1="62" x2="590" y2="178" class="dg-scale-line" />
+              <text x="594" y="66">GLASS TOP</text>
+              <text x="594" y="112">WORKING LINE</text>
+              <text x="594" y="176">FOOT OF GLASS</text>
+            </g>
+            <!-- fluethrough -->
+            <rect x="170" y="140" width="400" height="26" rx="12" class="dg-flue" />
+            <path d="M180 153 h380" class="dg-flue-gas" data-dg="fluegas" />
+            <!-- smokebox + funnel -->
+            <rect x="588" y="40" width="54" height="144" rx="8" class="dg-smokebox" />
+            <rect x="600" y="8" width="30" height="36" class="dg-funnel" />
+            <g data-dg="funnel-smoke" opacity="0"></g>
+            <!-- regulator dome & branch to cylinder -->
+            <circle cx="500" cy="46" r="16" class="dg-dome" />
+            <path d="M500 42 q60 -18 120 -6 l0 22" class="dg-pipe" />
+            <!-- cylinder + flywheel -->
+            <rect x="618" y="58" width="58" height="64" rx="6" class="dg-cylinder" />
+            <line x1="647" y1="122" x2="647" y2="146" class="dg-rod" />
+            <g transform="translate(770,108)">
+              <circle r="72" class="dg-fly-rim" />
+              <g data-dg="fly-spokes">
+                <line x1="-66" y1="0" x2="66" y2="0" class="dg-spoke" />
+                <line x1="0" y1="-66" x2="0" y2="66" class="dg-spoke" />
+                <line x1="-47" y1="-47" x2="47" y2="47" class="dg-spoke" />
+                <line x1="-47" y1="47" x2="47" y2="-47" class="dg-spoke" />
+              </g>
+              <circle r="12" class="dg-hub" />
+              <text y="92" text-anchor="middle" class="dg-caption">BELT FLYWHEEL</text>
+            </g>
+            <!-- belt to drum -->
+            <line x1="700" y1="76" x2="900" y2="30" class="dg-belt-top" />
+            <line x1="700" y1="140" x2="900" y2="186" class="dg-belt-bottom" />
+            <g transform="translate(920,108)">
+              <circle r="78" class="dg-drum-rim" />
+              <g data-dg="drum-spokes">
+                <line x1="-72" y1="0" x2="72" y2="0" class="dg-spoke dg-spoke-thin" />
+                <line x1="0" y1="-72" x2="0" y2="72" class="dg-spoke dg-spoke-thin" />
+                <line x1="-51" y1="-51" x2="51" y2="51" class="dg-spoke dg-spoke-thin" />
+                <line x1="-51" y1="51" x2="51" y2="-51" class="dg-spoke dg-spoke-thin" />
+              </g>
+              <circle r="10" class="dg-hub" />
+              <text y="98" text-anchor="middle" class="dg-caption">No. 3 DRUM</text>
+            </g>
+            <!-- live labels -->
+            <text x="85" y="86" text-anchor="middle" class="dg-label">FIREBOX</text>
+            <text x="330" y="100" text-anchor="middle" class="dg-label" data-dg="psi-note">BOILER</text>
+          </svg>
+          <div class="diagram-legend">
+            <span>SECTIONAL DIAGRAM &mdash; working parts</span>
+            <span class="dg-readout">DRUM <b data-readout="drum">0</b> rev/min</span>
+            <span class="dg-readout">FIRE <b data-readout="firetemp">cold</b></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= backhead ============================== -->
+      <div class="backhead">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FIRE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="bay bay-fire" aria-label="Fire: door, damper, grate and coal">
+          <h2 class="bay-title">The Fire</h2>
+
+          <div class="firedoor-wrap">
+            <button
+              type="button"
+              class="firedoor"
+              data-control="FIRE DOOR"
+              aria-pressed="false"
+              aria-label="Firehole door — press to open or shut"
+            >
+              <span class="door-leaf" aria-hidden="true">
+                <span class="door-ring"></span>
+                <span class="door-hinge dh-top"></span>
+                <span class="door-hinge dh-bottom"></span>
+                <span class="door-handle"></span>
+                <span class="door-damper-slot"></span>
+              </span>
+              <span class="door-mouth" aria-hidden="true">
+                <span class="coals"></span>
+                <span class="coals coals-2"></span>
+                <span class="fire-glow"></span>
+              </span>
+            </button>
+            <p class="keynote">Firehole door &mdash; air to the bed when open</p>
+          </div>
+
+          <div class="quadrant-row">
+            <div
+              class="quadrant quadrant-damper"
+              data-control="DAMPER QUADRANT"
+              role="slider"
+              tabindex="0"
+              aria-label="Damper quadrant — air to the fire"
+              aria-valuemin="0"
+              aria-valuemax="10"
+              aria-valuenow="3"
+              aria-valuetext="Damper 3 of 10"
+            >
+              <span class="quad-arc" aria-hidden="true"></span>
+              <span class="quad-notches" aria-hidden="true"></span>
+              <span class="quad-lever" aria-hidden="true"></span>
+              <span class="quad-knob" aria-hidden="true"></span>
+            </div>
+            <p class="keynote"><b>Damper quadrant.</b> Down shuts the plate, up opens it. Ten notches.</p>
+          </div>
+
+          <div class="fire-aids">
+            <button type="button" class="brass-btn" data-control="COAL SCUTTLE">
+              Throw coal
+            </button>
+            <button type="button" class="brass-btn brass-btn-shake" data-control="GRATE SHAKER">
+              Shake the grate
+            </button>
+            <div class="coal-scale" aria-hidden="true">
+              <span class="coal-scale-label">Coal box</span>
+              <span class="coal-scale-track"><span class="coal-scale-fill"></span></span>
+            </div>
+            <p class="clinker-note keynote">Clinker on the grate: <b data-readout="clinker">none</b></p>
+          </div>
+        </section>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BOILER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="bay bay-boiler" aria-label="Boiler: gauge, glasses, cocks and safety valve">
+          <h2 class="bay-title">The Boiler</h2>
+
+          <div class="gauge-crown">
+            <div class="pressure-gauge">
+              <svg viewBox="0 0 320 200" role="img" aria-labelledby="pg-title">
+                <title id="pg-title">
+                  Steam pressure gauge, 0 to 200 pounds, red from 145. Needle reads
+                  <span data-gauge-say>zero</span>.
+                </title>
+                <g class="gauge-case">
+                  <circle cx="160" cy="172" r="150" class="gauge-bezel" />
+                  <circle cx="160" cy="172" r="138" class="gauge-face" />
+                </g>
+                <g class="gauge-ticks" data-gauge="ticks"></g>
+                <g class="gauge-numerals" data-gauge="numerals"></g>
+                <path data-gauge="redarc" d="" class="gauge-red-arc" />
+                <text x="86" y="206" class="gauge-red-word">RED AT 145</text>
+                <text x="160" y="120" text-anchor="middle" class="gauge-maker">STANHOE &amp; BRIGHT</text>
+                <text x="160" y="136" text-anchor="middle" class="gauge-sub">LBS PER SQ IN</text>
+                <g data-gauge="needle" class="gauge-needle-g">
+                  <line x1="160" y1="172" x2="160" y2="56" class="gauge-needle" />
+                  <circle cx="160" cy="172" r="11" class="gauge-boss" />
+                </g>
+              </svg>
+            </div>
+            <div class="safety-stack">
+              <div class="safety-valve" aria-hidden="true">
+                <span class="sv-body"></span><span class="sv-lever-arm"></span><span class="sv-steam"></span>
+              </div>
+              <button
+                type="button"
+                class="easing-guard"
+                data-control="SAFETY EASING LEVER"
+                aria-expanded="false"
+                aria-label="Safety valve easing lever — lift guard, then pull to ease the valve"
+              >
+                <span class="guard-lid" aria-hidden="true">GUARD</span>
+                <span class="easing-lever" aria-hidden="true"></span>
+                <span class="easing-tag">EASE</span>
+              </button>
+              <button type="button" class="lanyard" data-control="WHISTLE LANYARD" aria-pressed="false">
+                <span class="lanyard-cord" aria-hidden="true"></span>
+                <span class="lanyard-ring" aria-hidden="true"></span>
+                Whistle
+              </button>
+            </div>
+          </div>
+
+          <div class="glass-bench">
+            <div class="water-glass wg-left">
+              <span class="wg-top-cock"></span>
+              <span class="wg-tube"><span class="wg-water"></span><span class="wg-shine"></span></span>
+              <span class="wg-bottom-cock"></span>
+              <span class="wg-drip" aria-hidden="true"></span>
+            </div>
+            <div class="glass-scale" aria-hidden="true">
+              <span class="gs-tick gs-danger-top"></span>
+              <span class="gs-line"></span>
+              <span class="gs-tick gs-danger-bottom"></span>
+              <span class="gs-word gs-word-top">HIGH</span>
+              <span class="gs-word gs-word-mid">WORKING LINE</span>
+              <span class="gs-word gs-word-low">LOW &mdash; PLUG AT FOOT</span>
+            </div>
+            <div class="water-glass wg-right">
+              <span class="wg-top-cock"></span>
+              <span class="wg-tube"><span class="wg-water"></span><span class="wg-shine"></span></span>
+              <span class="wg-bottom-cock"></span>
+              <span class="wg-drip" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="cock-bench">
+            <fieldset class="cock-group" data-control="GAUGE COCKS">
+              <legend class="cock-legend">Gauge cocks</legend>
+              <button type="button" class="petcock is-open" data-cock="glass1" aria-pressed="true" aria-label="Left glass gauge cock — open">G1</button>
+              <button type="button" class="petcock is-open" data-cock="glass2" aria-pressed="true" aria-label="Right glass gauge cock — open">G2</button>
+            </fieldset>
+            <fieldset class="cock-group" data-control="TRY COCKS">
+              <legend class="cock-legend">Try cocks</legend>
+              <button type="button" class="petcock petcock-momentary" data-try="top" aria-label="Try cock, high — press to test">T</button>
+              <button type="button" class="petcock petcock-momentary" data-try="mid" aria-label="Try cock, middle — press to test">M</button>
+              <button type="button" class="petcock petcock-momentary" data-try="low" aria-label="Try cock, low — press to test">L</button>
+            </fieldset>
+            <button type="button" class="blowdown" data-control="GAUGE GLASS BLOW-DOWN" aria-pressed="false" aria-label="Blow through the glasses — press and hold">
+              Blow&nbsp;through
+            </button>
+          </div>
+
+          <div class="telltales" role="list" aria-label="Tell-tale flags">
+            <span class="tt-head" aria-hidden="true">TELL-TALES</span>
+            <span class="telltale" role="listitem" data-flag="LOW WATER"><i></i>Low water</span>
+            <span class="telltale" role="listitem" data-flag="HIGH WATER"><i></i>High water</span>
+            <span class="telltale" role="listitem" data-flag="PRIMING"><i></i>Priming</span>
+            <span class="telltale" role="listitem" data-flag="SAFETY VALVE BLOWING"><i></i>Safety blowing</span>
+            <span class="telltale" role="listitem" data-flag="FIRE DYING"><i></i>Fire dying</span>
+            <span class="telltale" role="listitem" data-flag="FUSIBLE PLUG DROPPED"><i></i>Fusible plug gone</span>
+            <span class="telltale" role="listitem" data-flag="GAUGE GLASS BROKEN"><i></i>Glass broken</span>
+            <span class="telltale" role="listitem" data-flag="INJECTOR CHOKED"><i></i>Injector choked</span>
+            <span class="telltale" role="listitem" data-flag="SAFETY VALVE LEAKING"><i></i>Seats leaking</span>
+            <span class="telltale" role="listitem" data-flag="CYLINDER DAMAGED"><i></i>Cylinder damaged</span>
+          </div>
+        </section>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ STEAM OFF AND FEED ~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="bay bay-steam" aria-label="Steam off: regulator, blower; feed: injector">
+          <h2 class="bay-title">Steam Off &mdash; Feed In</h2>
+
+          <div class="steam-row">
+            <div class="regulator-block">
+              <div
+                class="quadrant quadrant-regulator"
+                data-control="REGULATOR LEVER"
+                role="slider"
+                tabindex="0"
+                aria-label="Regulator lever — steam to the engine"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+                aria-valuetext="Regulator 0 of 10, shut"
+              >
+                <span class="quad-arc" aria-hidden="true"></span>
+                <span class="quad-notches" aria-hidden="true"></span>
+                <span class="quad-lever" aria-hidden="true"></span>
+                <span class="quad-knob" aria-hidden="true"></span>
+              </div>
+              <p class="keynote"><b>Regulator.</b> Notch her open against the drum. Notch shut before the belt comes off.</p>
+              <div class="drum-dial" aria-hidden="true">
+                <svg viewBox="0 0 140 90" class="drum-svg">
+                  <path d="M14 82 A58 58 0 0 1 126 82" fill="none" class="dd-arc" />
+                  <path d="M14 82 A58 58 0 0 1 45 33" fill="none" class="dd-green" />
+                  <path d="M104 38 A58 58 0 0 1 126 82" fill="none" class="dd-red" />
+                  <g data-drum="ticks"></g>
+                  <g data-drum="needle"><line x1="70" y1="82" x2="70" y2="34" class="dd-needle" /></g>
+                  <circle cx="70" cy="82" r="6" class="dd-boss" />
+                  <text x="70" y="74" text-anchor="middle" class="dd-word">DRUM</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="injector-block">
+              <div class="injector-cast" aria-hidden="true">
+                <span class="inj-body"></span>
+                <span class="inj-cone"></span>
+                <span class="inj-overflow-glass"><i class="inj-spill"></i></span>
+                <span class="inj-delivery"></span>
+                <span class="inj-label-plate">COMBINING CONE</span>
+              </div>
+              <div class="wheel-pair">
+                <div
+                  class="handwheel"
+                  data-control="INJECTOR WATER COCK"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Injector water cock — half turns open"
+                  aria-valuemin="0"
+                  aria-valuemax="8"
+                  aria-valuenow="0"
+                >
+                  <span class="hw-wheel" aria-hidden="true"></span>
+                  <span class="hw-count" data-readout="wturns">0</span>
+                  <span class="hw-name">WATER</span>
+                </div>
+                <div
+                  class="handwheel"
+                  data-control="INJECTOR STEAM COCK"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Injector steam cock — half turns open"
+                  aria-valuemin="0"
+                  aria-valuemax="8"
+                  aria-valuenow="0"
+                >
+                  <span class="hw-wheel" aria-hidden="true"></span>
+                  <span class="hw-count" data-readout="sturns">0</span>
+                  <span class="hw-name">STEAM</span>
+                </div>
+                <div
+                  class="handwheel handwheel-small"
+                  data-control="FEED CHECK CLACK"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Feed check clack on the delivery — turns to shut against the feed"
+                  aria-valuemin="0"
+                  aria-valuemax="6"
+                  aria-valuenow="0"
+                  aria-valuetext="Feed check shut"
+                >
+                  <span class="hw-wheel" aria-hidden="true"></span>
+                  <span class="hw-count" data-readout="cturns">SHUT</span>
+                  <span class="hw-name">CLACK</span>
+                </div>
+              </div>
+              <div class="aux-row">
+                <button
+                  type="button"
+                  class="aux-switch"
+                  data-control="AUXILIARY INJECTOR SELECTOR"
+                  role="switch"
+                  aria-checked="false"
+                >
+                  <span class="aux-pos aux-main">MAIN</span>
+                  <span class="aux-lever" aria-hidden="true"></span>
+                  <span class="aux-pos aux-aux">AUX</span>
+                </button>
+                <p class="overflow-keynote keynote">
+                  Overflow: <b data-readout="overflow">dry</b>
+                </p>
+              </div>
+            </div>
+
+            <div class="blower-block">
+              <div
+                class="handwheel handwheel-blower"
+                data-control="BLOWER VALVE"
+                role="slider"
+                tabindex="0"
+                aria-label="Blower valve — live steam jets in the funnel, half turns"
+                aria-valuemin="0"
+                aria-valuemax="6"
+                aria-valuenow="0"
+              >
+                <span class="hw-wheel" aria-hidden="true"></span>
+                <span class="hw-count" data-readout="bturns">0</span>
+                <span class="hw-name">BLOWER</span>
+              </div>
+              <p class="keynote"><b>Blower.</b> Steam jet in the funnel. Draws the fire when the door is shut &mdash; needs pressure to work.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ========================== fitter's trials ========================== -->
+      <footer class="fitters">
+        <div class="trials-plate" data-control="FITTER'S TRIALS">
+          <span class="trials-head">FITTER'S TRIALS &mdash; workshop only</span>
+          <span class="trials-keys">
+            <button type="button" class="trial-key trial-fault" data-trial="glass">Break glass</button>
+            <button type="button" class="trial-key trial-fault" data-trial="cone">Choke the cone</button>
+            <button type="button" class="trial-key trial-fault" data-trial="seats">Cut the seats</button>
+          </span>
+          <span class="trials-rule" aria-hidden="true"></span>
+          <span class="trials-repairs">
+            <button type="button" class="trial-key trial-fix" data-fix="glass">Fit new glass</button>
+            <button type="button" class="trial-key trial-fix" data-fix="cone">Clean the cone</button>
+            <button type="button" class="trial-key trial-fix" data-fix="plug">Refit fusible plug</button>
+            <button type="button" class="trial-key trial-fix" data-fix="cyl">Overhaul cylinder</button>
+          </span>
+        </div>
+        <button type="button" class="plaque plaque-reset" data-control="FITTER'S COLD RESET" id="cold-reset">
+          Cold standby &mdash; bank everything
+        </button>
+        <p class="colophon">
+          Stanhoe &amp; Bright Ltd., Blackfriars Road, King's Lynn. Works No. 1284, delivered 1911 to
+          Sedgeford Hall Farm. These standing instructions hang beside the door.
+        </p>
+      </footer>
+    </main>
+
+    <!-- ============================ manual dialog ============================ -->
+    <dialog data-manual class="manual-dialog" aria-label="Standing instructions for No. 1284">
+      <div class="manual-bar">
+        <span class="manual-bar-title">Stanhoe &amp; Bright &mdash; Standing Instructions, No.&nbsp;1284</span>
+        <button type="button" class="plaque" data-action="close-manual">Shut the book</button>
+      </div>
+      <iframe src="manual.html" title="Standing instructions for portable engine No. 1284"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
