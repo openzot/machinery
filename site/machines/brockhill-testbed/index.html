@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Bed No. 2 - Osprey Mk.IV Acceptance Console</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="bench">
+      <header class="titlerail">
+        <div class="makers" aria-hidden="true">
+          <span class="plate"
+            >BROCKHILL AERO ENGINES LTD &middot; ELSTREE WORKS</span
+          >
+          <span class="plate small"
+            >OSPREY Mk.IV RADIAL &middot; BED SER No 0142 &middot; 1944</span
+          >
+        </div>
+        <h1>TEST BED No.&nbsp;2 <em>ACCEPTANCE CONSOLE</em></h1>
+        <nav class="railbuttons">
+          <button
+            type="button"
+            class="push dark"
+            id="btn-lamps"
+            data-control="LAMPS TEST"
+          >
+            LAMPS TEST
+          </button>
+          <button
+            type="button"
+            class="push dark"
+            id="btn-silence"
+            data-control="ALARM SILENCE"
+          >
+            ALARM SILENCE
+          </button>
+          <button
+            type="button"
+            class="push dark"
+            id="btn-reset"
+            data-control="TEST BED RESET"
+          >
+            TEST BED RESET
+          </button>
+          <button type="button" class="push manual" data-action="manual">
+            MANUAL
+          </button>
+        </nav>
+      </header>
+
+      <section class="annunciators" aria-label="Annunciator strip">
+        <div class="cell" data-lamp="starter">
+          <i class="jewel"></i><span>STARTER</span>
+        </div>
+        <div class="cell" data-lamp="running">
+          <i class="jewel"></i><span>RUNNING</span>
+        </div>
+        <div class="cell warn" data-lamp="rough">
+          <i class="jewel"></i><span>ROUGH RUN</span>
+        </div>
+        <div class="cell alarm" data-lamp="oiltemp">
+          <i class="jewel"></i><span>OIL TEMP HOT</span>
+        </div>
+        <div class="cell alarm" data-lamp="headtemp">
+          <i class="jewel"></i><span>HEAD HOT</span>
+        </div>
+        <div class="cell alarm" data-lamp="oilpress">
+          <i class="jewel"></i><span>OIL PRESS LOW</span>
+        </div>
+        <div class="cell alarm" data-lamp="flood">
+          <i class="jewel"></i><span>CARB FLOOD</span>
+        </div>
+        <div class="cell alarm latch" data-lamp="seized">
+          <i class="jewel"></i><span>SEIZURE</span>
+        </div>
+      </section>
+
+      <div class="bays">
+        <section class="bay bay-starting">
+          <h2 class="baytitle">Starting</h2>
+
+          <div class="switchrow">
+            <label class="toggle" data-kind="toggle">
+              <input
+                type="checkbox"
+                id="sw-master"
+                data-control="MASTER SWITCH"
+              />
+              <span class="paddle" aria-hidden="true"></span>
+              <span class="legend">MASTER<br />SWITCH</span>
+            </label>
+            <label class="toggle" data-kind="toggle">
+              <input
+                type="checkbox"
+                id="sw-fuelpump"
+                data-control="FUEL PUMP"
+              />
+              <span class="paddle" aria-hidden="true"></span>
+              <span class="legend">FUEL PUMP</span>
+            </label>
+            <div class="pushwrap" data-kind="push">
+              <button
+                type="button"
+                class="push round"
+                id="btn-primer"
+                data-control="PRIMER"
+              >
+                PRIME
+              </button>
+              <span class="legend">PRIMER</span>
+            </div>
+          </div>
+
+          <div class="starterblock">
+            <div class="flywheel">
+              <svg
+                id="dial-flywheel"
+                viewBox="0 0 120 96"
+                role="img"
+                aria-label="Inertia starter flywheel speed"
+              ></svg>
+              <span class="legend small">FLYWHEEL</span>
+            </div>
+            <div class="pushwrap" data-kind="push">
+              <button
+                type="button"
+                class="push round big"
+                id="btn-spin"
+                data-control="STARTER SPIN"
+              >
+                SPIN
+              </button>
+              <span class="legend">HOLD TO WIND</span>
+            </div>
+            <div class="knobwrap" data-kind="pull">
+              <button
+                type="button"
+                class="pullknob"
+                id="knob-mesh"
+                data-control="STARTER MESH"
+                aria-label="Starter mesh: pull to engage flywheel"
+              >
+                MESH
+              </button>
+              <span class="legend">PULL TO ENGAGE</span>
+            </div>
+          </div>
+
+          <div class="rotarywrap" data-kind="rotary">
+            <svg
+              id="rot-mags"
+              viewBox="0 0 130 130"
+              role="img"
+              aria-label="Magneto selector: OFF, L, R or BOTH"
+            ></svg>
+            <span class="legend" data-control="MAGNETO SELECTOR"
+              >MAGNETO SELECTOR</span
+            >
+          </div>
+        </section>
+
+        <section class="bay bay-power">
+          <h2 class="baytitle">Power Plant</h2>
+
+          <div class="enginecluster">
+            <figure class="dial main">
+              <svg
+                id="dial-tach"
+                viewBox="0 0 220 190"
+                role="img"
+                aria-label="Engine speed, revolutions per minute"
+              ></svg>
+              <figcaption>REV / MIN &times;100</figcaption>
+            </figure>
+            <div class="smalldials">
+              <figure class="dial">
+                <svg
+                  id="dial-boost"
+                  viewBox="0 0 130 116"
+                  role="img"
+                  aria-label="Boost pressure, pounds per square inch"
+                ></svg>
+                <figcaption>BOOST lb/in&sup2;</figcaption>
+              </figure>
+              <figure class="dial">
+                <svg
+                  id="dial-bhp"
+                  viewBox="0 0 130 116"
+                  role="img"
+                  aria-label="Brake horsepower at the dynamometer"
+                ></svg>
+                <figcaption>B.H.P.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="powercontrols">
+            <div class="quadrant" data-kind="lever">
+              <div class="slot" aria-hidden="true">
+                <i class="notch" style="--n: 0"></i
+                ><i class="notch" style="--n: 1"></i
+                ><i class="notch" style="--n: 2"></i
+                ><i class="notch" style="--n: 3"></i
+                ><i class="notch" style="--n: 4"></i
+                ><i class="notch" style="--n: 5"></i
+                ><i class="notch" style="--n: 6"></i>
+              </div>
+              <input
+                type="range"
+                id="lever-throttle"
+                data-control="THROTTLE"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                aria-label="Throttle: closed to fully open"
+                aria-valuetext="closed"
+              />
+              <span class="legend small">THROTTLE</span>
+              <label class="friction">
+                <input
+                  type="checkbox"
+                  id="sw-friction"
+                  data-control="THROTTLE FRICTION"
+                />
+                <span class="clampring" aria-hidden="true"></span>
+                <span class="legend tiny">FRICTION</span>
+              </label>
+            </div>
+
+            <div class="rotarywrap" data-kind="rotary">
+              <svg
+                id="rot-mixture"
+                viewBox="0 0 130 130"
+                role="img"
+                aria-label="Mixture: idle cut-off, auto lean or auto rich"
+              ></svg>
+              <span class="legend" data-control="MIXTURE">MIXTURE</span>
+            </div>
+
+            <div class="gills" data-kind="lever">
+              <div class="gillslot" aria-hidden="true"></div>
+              <input
+                type="range"
+                id="lever-gills"
+                data-control="COOLING GILLS"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                aria-label="Cooling gills: shut to open"
+                aria-valuetext="shut"
+              />
+              <span class="legend small">COOLING GILLS</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="bay bay-trial">
+          <h2 class="baytitle">Trial Instruments</h2>
+
+          <div class="trialdials">
+            <figure class="dial">
+              <svg
+                id="dial-oilpress"
+                viewBox="0 0 130 116"
+                role="img"
+                aria-label="Oil inlet pressure, pounds per square inch"
+              ></svg>
+              <figcaption>OIL PRESS lb/in&sup2;</figcaption>
+            </figure>
+            <figure class="dial">
+              <svg
+                id="dial-oiltemp"
+                viewBox="0 0 130 116"
+                role="img"
+                aria-label="Oil inlet temperature, degrees Celsius"
+              ></svg>
+              <figcaption>OIL TEMP &deg;C</figcaption>
+            </figure>
+            <figure class="dial">
+              <svg
+                id="dial-fuelflow"
+                viewBox="0 0 130 116"
+                role="img"
+                aria-label="Fuel flow, gallons per hour"
+              ></svg>
+              <figcaption>FUEL gal/hr</figcaption>
+            </figure>
+          </div>
+
+          <div class="triallower">
+            <div class="thermo" data-kind="indicator">
+              <svg
+                id="bar-headtemp"
+                viewBox="0 0 60 170"
+                role="img"
+                aria-label="Cylinder head temperature, degrees Celsius"
+              ></svg>
+              <span class="legend small">HEAD TEMP &deg;C</span>
+            </div>
+
+            <div class="dyno">
+              <div class="rotarywrap" data-kind="rotary">
+                <svg
+                  id="rot-dyno"
+                  viewBox="0 0 130 130"
+                  role="img"
+                  aria-label="Dynamometer water brake load"
+                ></svg>
+                <span class="legend" data-control="DYNO LOAD">DYNO LOAD</span>
+              </div>
+              <div class="pushwrap" data-kind="guarded-push">
+                <button
+                  type="button"
+                  class="push round guard"
+                  id="btn-drain"
+                  data-control="CARB DRAIN"
+                >
+                  DRAIN
+                </button>
+                <span class="legend tiny">CARB BOWL<br />LIFT GUARD</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="bottomrail">
+        <div class="placard" aria-label="Running-in schedule">
+          <h2 class="placardtitle">Acceptance Schedule</h2>
+          <ol>
+            <li>Cold start, warm to oil 40&deg;C</li>
+            <li>1300 rev/min &mdash; magneto check</li>
+            <li>Five minutes at rated boost</li>
+            <li>Cooling trial, gills wide</li>
+          </ol>
+        </div>
+
+        <div class="faultgear">
+          <button
+            type="button"
+            class="guardcover"
+            id="fault-cover"
+            aria-expanded="false"
+          >
+            <span>MAINTENANCE</span>
+            <small>lift to test</small>
+          </button>
+          <div
+            class="faultswitches"
+            id="fault-switches"
+            data-control="FAULT TEST SWITCHES"
+            hidden
+          >
+            <label class="toggle mini"
+              ><input
+                type="checkbox"
+                id="ft-mag"
+                data-fault="magneto earth fault"
+              /><span class="paddle" aria-hidden="true"></span
+              ><span class="legend tiny">EARTHED MAG</span></label
+            >
+            <label class="toggle mini"
+              ><input
+                type="checkbox"
+                id="ft-cooler"
+                data-fault="oil cooler blockage"
+              /><span class="paddle" aria-hidden="true"></span
+              ><span class="legend tiny">BLOCKED COOLER</span></label
+            >
+            <label class="toggle mini"
+              ><input
+                type="checkbox"
+                id="ft-carb"
+                data-fault="float chamber flooding"
+              /><span class="paddle" aria-hidden="true"></span
+              ><span class="legend tiny">FLOODED FLOAT</span></label
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer class="skirt">
+        <a href="../../">&larr; Machinery catalogue</a>
+        <span
+          >Brockhill Test House No. 3 &middot; not to be operated without the
+          works manual</span
+        >
+      </footer>
+    </main>
+
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="manualchrome">
+        <button
+          type="button"
+          class="push dark close"
+          data-action="close-manual"
+        >
+          CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Osprey Mk.IV acceptance console operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

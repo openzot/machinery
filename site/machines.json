@@ -505,7 +505,7 @@
   },
   {
     "slug": "vindskaer-nacelle-controller",
-    "name": "Vindskær V-62 - Nacelle Service Controller",
+    "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
     "kind": "grid wind turbine nacelle service controller",
     "domain": "energy",
     "era": "2000s",
@@ -623,7 +623,7 @@
   },
   {
     "slug": "hogfors-ice-plant",
-    "name": "Högfors Isstadion - Ice Plant Machine Room",
+    "name": "H\u00f6gfors Isstadion - Ice Plant Machine Room",
     "kind": "municipal ice-rink refrigeration machine room",
     "domain": "cold-chain",
     "era": "1970s",
@@ -1004,6 +1004,45 @@
       "deluge water loss"
     ],
     "tagline": "Load her, press her, align her - and answer every red lamp before the clock answers for you.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "brockhill-testbed",
+    "name": "Brockhill Test Bed No. 2 - Osprey Mk.IV Acceptance Console",
+    "kind": "aero-engine acceptance test-house dynamometer console",
+    "domain": "aviation",
+    "era": "1940s",
+    "design": "red-oxide primed steel on a riveted angle-iron frame with stencilled white condensed legends and a brass maker's plate, ivory moving-coil dials under daylight, zinc-chromate yellow guards and quadrant, incandescent jewel annunciators, no glow but her own exhaust",
+    "interaction": "winding the inertia starter flywheel on a held button before pulling the MESH knob to crank, then working a friction-clamped throttle quadrant and gill lever against oil temperature while loading the water brake by hand",
+    "palette": [
+      "#93392a",
+      "#e8c93a",
+      "#cf1e14"
+    ],
+    "controls": [
+      "MASTER SWITCH",
+      "FUEL PUMP",
+      "PRIMER",
+      "STARTER SPIN",
+      "STARTER MESH",
+      "MAGNETO SELECTOR",
+      "THROTTLE",
+      "THROTTLE FRICTION",
+      "MIXTURE",
+      "COOLING GILLS",
+      "DYNO LOAD",
+      "CARB DRAIN",
+      "ALARM SILENCE",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "TEST BED RESET"
+    ],
+    "faults": [
+      "magneto earth fault",
+      "oil cooler blockage",
+      "float chamber flooding"
+    ],
+    "tagline": "Wind her past fourteen hundred, pull MESH, and mind the oil lamp - she will not warn you twice.",
     "created": "2026-08-25"
   }
 ]
