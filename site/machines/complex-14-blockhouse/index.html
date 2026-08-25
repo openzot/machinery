@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Complex 14 — Blockhouse Firing Console</title>
+    <meta
+      name="description"
+      content="Operating console for a 1962 Atlantic-coast missile blockhouse: terminal count, holds, recycles and aborts."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <!-- ======================= HEADER ======================= -->
+      <header class="header">
+        <div class="nameplate">
+          <h1>
+            Complex&nbsp;14 <span class="rule"></span> Blockhouse Firing Console
+          </h1>
+          <p class="sub">
+            GROUND ELECTRONIC SEQUENCE SYSTEM · TYPE GM-412/S &nbsp;·&nbsp;
+            <span class="stencil">P/N 14-BHC-1024-C</span>
+          </p>
+        </div>
+
+        <div class="clock-unit">
+          <div class="clock-caption">COUNT CLOCK</div>
+          <div class="clock" role="timer" aria-label="count clock">
+            <span class="t-sign" id="t-sign">T&#8722;</span>
+            <span class="digit" data-d="hm-tens"
+              ><i class="s a"></i><i class="s b"></i><i class="s c"></i
+              ><i class="s d"></i><i class="s e"></i><i class="s f"></i
+              ><i class="s g"></i
+            ></span>
+            <span class="digit" data-d="hm-ones"
+              ><i class="s a"></i><i class="s b"></i><i class="s c"></i
+              ><i class="s d"></i><i class="s e"></i><i class="s f"></i
+              ><i class="s g"></i
+            ></span>
+            <span class="digit colon"><i class="dot"></i></span>
+            <span class="digit" data-d="ms-tens"
+              ><i class="s a"></i><i class="s b"></i><i class="s c"></i
+              ><i class="s d"></i><i class="s e"></i><i class="s f"></i
+              ><i class="s g"></i
+            ></span>
+            <span class="digit" data-d="ms-ones"
+              ><i class="s a"></i><i class="s b"></i><i class="s c"></i
+              ><i class="s d"></i><i class="s e"></i><i class="s f"></i
+              ><i class="s g"></i
+            ></span>
+          </div>
+          <div class="clock-foot">
+            <span class="mini-lamp" id="lamp-hold">HOLD</span>
+            <span class="mini-lamp" id="lamp-seq">SEQUENCE</span>
+            <span class="mini-note" id="clock-mark">MARK T&#8722;180</span>
+          </div>
+        </div>
+
+        <div class="status-cluster">
+          <span class="jewel green" id="jw-bus"><b></b>BUS ENERGISED</span>
+          <span class="jewel" id="jw-clear"><b></b>PAD CLEAR</span>
+          <span class="jewel" id="jw-arms"><b></b>ARMS RETRACTED</span>
+          <span class="jewel" id="jw-deluge"><b></b>DELUGE READY</span>
+        </div>
+
+        <div class="top-actions">
+          <button
+            class="btn plate-btn"
+            type="button"
+            data-action="manual"
+            aria-haspopup="dialog"
+          >
+            &#9776;&nbsp;OPERATING MANUAL
+          </button>
+          <a class="catalogue-link" href="../../">CATALOGUE &#8599;</a>
+        </div>
+      </header>
+
+      <!-- ===================== ANNUNCIATOR ==================== -->
+      <section class="annunciator" aria-label="alarm annunciator">
+        <div class="ann" id="ann-pressure">
+          <span>TANK PRESSURE<br />LOW</span>
+        </div>
+        <div class="ann" id="ann-helium">
+          <span>HELIUM RESERVE<br />LOW</span>
+        </div>
+        <div class="ann" id="ann-guidance">
+          <span>GUIDANCE<br />FAILURE</span>
+        </div>
+        <div class="ann" id="ann-arm">
+          <span>ARM<br />INTERLOCK</span>
+        </div>
+        <div class="ann" id="ann-deluge">
+          <span>DELUGE WATER<br />LOSS</span>
+        </div>
+        <div class="ann" id="ann-abort">
+          <span>AUTO<br />ABORT</span>
+        </div>
+        <div class="ann" id="ann-destruct">
+          <span>RANGE<br />DESTRUCT</span>
+        </div>
+        <div class="horn-flag" id="horn-flag" title="horn unacknowledged">
+          <span>&#9670;</span>
+        </div>
+      </section>
+
+      <!-- ================== PERISCOPE + METERS ================= -->
+      <section class="mid">
+        <figure class="periscope">
+          <svg
+            id="padview"
+            viewBox="0 0 760 258"
+            preserveAspectRatio="xMidYMid slice"
+            role="img"
+            aria-label="periscope view of the launch pad: service tower, missile and flame trench"
+          >
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#9fb6c4" />
+                <stop offset=".72" stop-color="#c3d2d8" />
+                <stop offset="1" stop-color="#dfe4de" />
+              </linearGradient>
+              <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff3c2" />
+                <stop offset=".45" stop-color="#f5a231" />
+                <stop offset="1" stop-color="#d24a12" />
+              </linearGradient>
+              <radialGradient id="scorch" cx=".5" cy=".9" r="1">
+                <stop offset="0" stop-color="#43413a" />
+                <stop offset="1" stop-color="#6e6c62" />
+              </radialGradient>
+            </defs>
+
+            <rect width="760" height="258" fill="url(#sky)" />
+            <!-- distant dunes and sea -->
+            <path
+              d="M0 176 Q120 168 240 174 T520 172 T760 175 V258 H0 Z"
+              fill="#aab7ab"
+            />
+            <rect y="182" width="760" height="76" fill="#8fa08f" />
+            <!-- concrete pad -->
+            <rect x="40" y="196" width="680" height="30" fill="#b9b4a6" />
+            <rect x="40" y="193" width="680" height="5" fill="#cfcbc0" />
+            <!-- flame trench -->
+            <path d="M330 226 h100 l-16 -20 h-68 Z" fill="url(#scorch)" />
+
+            <!-- lightning masts -->
+            <g fill="#5c6660">
+              <path d="M92 196 l4 -128 4 128 z" />
+              <rect x="94" y="52" width="4" height="10" />
+              <path d="M664 196 l4 -128 4 128 z" />
+              <rect x="666" y="52" width="4" height="10" />
+            </g>
+
+            <!-- service tower -->
+            <g id="tower">
+              <rect x="150" y="46" width="58" height="152" fill="#75706a" />
+              <g stroke="#5d5852" stroke-width="2">
+                <line x1="150" y1="70" x2="208" y2="70" />
+                <line x1="150" y1="98" x2="208" y2="98" />
+                <line x1="150" y1="126" x2="208" y2="126" />
+                <line x1="150" y1="154" x2="208" y2="154" />
+                <line x1="150" y1="180" x2="208" y2="180" />
+              </g>
+              <rect x="146" y="38" width="66" height="10" fill="#67625c" />
+            </g>
+
+            <!-- swing arms: pivot at tower edge, rotate up when retracted -->
+            <g id="arm-a" transform="rotate(0 208 84)">
+              <rect x="208" y="81" width="86" height="7" fill="#8b857c" />
+              <circle cx="294" cy="84" r="5" fill="#6d675f" />
+            </g>
+            <g id="arm-b" transform="rotate(0 208 132)">
+              <rect x="208" y="129" width="74" height="7" fill="#8b857c" />
+              <circle cx="282" cy="132" r="5" fill="#6d675f" />
+            </g>
+
+            <!-- missile -->
+            <g id="missile">
+              <g id="airframe">
+                <path d="M356 44 q10 -18 20 0 v148 h-40 z" fill="#dcdcda" />
+                <rect x="332" y="192" width="68" height="6" fill="#b9b7ae" />
+                <rect x="340" y="198" width="52" height="8" fill="#8f8d84" />
+                <g fill="#9aa0a4">
+                  <path d="M336 206 l10 -14 v14 z" />
+                  <path d="M356 206 l10 -14 v14 z" />
+                  <path d="M376 206 l10 -14 v14 z" />
+                </g>
+                <rect x="352" y="60" width="28" height="3" fill="#b0512b" />
+                <rect x="352" y="120" width="28" height="3" fill="#b0512b" />
+              </g>
+              <!-- venting vapour during load / pressurisation -->
+              <g id="vent-puffs" opacity="0">
+                <circle cx="366" cy="52" r="7" fill="#eef2f2" opacity=".85" />
+                <circle cx="376" cy="42" r="5" fill="#eef2f2" opacity=".65" />
+                <circle cx="360" cy="34" r="4" fill="#f4f7f7" opacity=".45" />
+              </g>
+              <!-- ignition plume -->
+              <g id="plume" opacity="0">
+                <path
+                  id="plume-body"
+                  d="M352 210 q14 26 16 48 q2 -22 16 -48 z"
+                  fill="url(#flame)"
+                />
+                <ellipse
+                  cx="366"
+                  cy="228"
+                  rx="26"
+                  ry="10"
+                  fill="#efe6d2"
+                  opacity=".55"
+                />
+              </g>
+              <g id="wreck" opacity="0">
+                <path d="M340 200 l14 -10 6 12 -14 9 z" fill="#54524b" />
+                <path d="M370 202 l16 -6 4 12 -16 7 z" fill="#5f5d55" />
+                <path d="M352 186 l10 -16 8 6 -8 17 z" fill="#4a4842" />
+              </g>
+            </g>
+
+            <!-- smoke after liftoff/destruct -->
+            <ellipse
+              id="smoke"
+              cx="366"
+              cy="222"
+              rx="0"
+              ry="0"
+              fill="#d9d5cb"
+              opacity="0"
+            />
+
+            <!-- periscope furniture -->
+            <g pointer-events="none">
+              <rect
+                x="0"
+                y="0"
+                width="760"
+                height="258"
+                fill="none"
+                stroke="#101314"
+                stroke-width="10"
+              />
+              <g stroke="#20302e" stroke-width="1.4" opacity=".8">
+                <line x1="380" y1="30" x2="380" y2="228" />
+                <line x1="120" y1="129" x2="640" y2="129" />
+                <circle cx="380" cy="129" r="64" fill="none" />
+              </g>
+              <g
+                font-family="'Courier New',monospace"
+                font-size="11"
+                fill="#173038"
+              >
+                <text x="24" y="26">PERISCOPE No.2 &#183; PAD CAMERA</text>
+                <text x="600" y="26" id="cam-state">PAD SAFE</text>
+              </g>
+              <text
+                x="700"
+                y="244"
+                text-anchor="end"
+                font-family="'Courier New',monospace"
+                font-size="11"
+                fill="#173038"
+                id="cam-alt"
+              >
+                ALT --- KM
+              </text>
+            </g>
+          </svg>
+          <figcaption>
+            WALL PERISCOPE — PAD 14, LOOKING EAST. IMAGE UPRIGHT, MAGNIFICATION
+            6&#215;.
+          </figcaption>
+        </figure>
+
+        <div class="instruments">
+          <div class="ip-head">PROPULSION &#183; GUIDANCE &#183; FLIGHT</div>
+          <div class="ip-body">
+            <div class="ip-meters">
+              <div class="meter-cell">
+                <svg
+                  class="meter"
+                  viewBox="0 0 120 78"
+                  data-meter="lox"
+                  aria-hidden="true"
+                ></svg>
+                <label>LOX ULLAGE PSI</label>
+              </div>
+              <div class="meter-cell">
+                <svg
+                  class="meter"
+                  viewBox="0 0 120 78"
+                  data-meter="rp1"
+                  aria-hidden="true"
+                ></svg>
+                <label>RP-1 ULLAGE PSI</label>
+              </div>
+              <div class="meter-cell">
+                <svg
+                  class="meter"
+                  viewBox="0 0 120 78"
+                  data-meter="he"
+                  aria-hidden="true"
+                ></svg>
+                <label>HELIUM BOTTLE PSI</label>
+              </div>
+              <div class="meter-cell">
+                <svg
+                  class="meter"
+                  viewBox="0 0 120 78"
+                  data-meter="align"
+                  aria-hidden="true"
+                ></svg>
+                <label>GUID ALIGN PCT</label>
+              </div>
+            </div>
+            <div class="ip-drums">
+              <div class="drum-cell">
+                <label>LOX LOAD PCT</label>
+                <div class="drum" id="drum-lox" aria-hidden="true">
+                  <span>0</span><span>0</span><span>.</span><span>0</span>
+                </div>
+              </div>
+              <div class="drum-cell">
+                <label>RP-1 LOAD PCT</label>
+                <div class="drum" id="drum-rp1" aria-hidden="true">
+                  <span>0</span><span>0</span><span>.</span><span>0</span>
+                </div>
+              </div>
+              <div class="drum-cell">
+                <label>ALT KM</label>
+                <div class="drum" id="drum-alt" aria-hidden="true">
+                  <span>000</span>
+                </div>
+              </div>
+              <div class="drum-cell">
+                <label>VEL M/S</label>
+                <div class="drum" id="drum-vel" aria-hidden="true">
+                  <span>0000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== CONTROL DESK =================== -->
+      <section class="desk">
+        <fieldset class="bay bay-power">
+          <legend>POWER &amp; PAD</legend>
+          <div class="ctl">
+            <button
+              class="keyswitch"
+              type="button"
+              data-control="CONTROL BUS KEY"
+              id="ctl-bus"
+              aria-pressed="false"
+            >
+              <span class="key" aria-hidden="true"></span>
+              <span class="ks-scale"><i>OFF</i><i>ON</i></span>
+            </button>
+            <span class="ctl-name">CONTROL BUS</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="keyswitch"
+              type="button"
+              data-control="PAD CLEAR KEY"
+              id="ctl-clear"
+              aria-pressed="false"
+            >
+              <span class="key" aria-hidden="true"></span>
+              <span class="ks-scale"><i>OUT</i><i>CLEAR</i></span>
+            </button>
+            <span class="ctl-name">PAD CLEARANCE</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="toggle"
+              type="button"
+              data-control="SERVICE ARMS"
+              id="ctl-arms"
+              aria-pressed="true"
+            >
+              <span class="tog-slot"><span class="tog-lever"></span></span>
+              <span class="tog-legends"><i>RETRACT</i><i>CONNECT</i></span>
+            </button>
+            <span class="ctl-name">SERVICE ARMS</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="push small"
+              type="button"
+              data-control="LAMPS TEST"
+              id="ctl-lamps"
+            >
+              LAMPS<br />TEST
+            </button>
+            <span class="ctl-name">LAMP TEST</span>
+          </div>
+        </fieldset>
+
+        <fieldset class="bay bay-prop">
+          <legend>PROPELLANT &amp; PNEUMATICS</legend>
+          <div class="ctl">
+            <button
+              class="rotary"
+              type="button"
+              role="slider"
+              data-control="PROPELLANT SELECTOR"
+              id="ctl-sel"
+              aria-label="propellant selector"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="0"
+              aria-valuetext="OFF"
+            >
+              <span class="knob" aria-hidden="true"
+                ><i class="pointer"></i><i class="knurl"></i
+              ></span>
+              <span class="rot-scale r4"
+                ><i>OFF</i><i>LOAD</i><i>TOP&nbsp;OFF</i><i>PRESS</i></span
+              >
+            </button>
+            <span class="ctl-name">PROPELLANT SELECTOR</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="toggle"
+              type="button"
+              data-control="LOX VENT"
+              id="ctl-vent"
+              aria-pressed="false"
+            >
+              <span class="tog-slot"><span class="tog-lever"></span></span>
+              <span class="tog-legends"><i>OPEN</i><i>SHUT</i></span>
+            </button>
+            <span class="ctl-name">LOX VENT VALVE</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="toggle"
+              type="button"
+              data-control="DELUGE PUMP"
+              id="ctl-deluge"
+              aria-pressed="false"
+            >
+              <span class="tog-slot"><span class="tog-lever"></span></span>
+              <span class="tog-legends"><i>RUN</i><i>OFF</i></span>
+            </button>
+            <span class="ctl-name">DELUGE PUMP</span>
+          </div>
+          <div class="ctl">
+            <span class="guarded" id="guard-he">
+              <button
+                class="push guardable danger-momentary"
+                type="button"
+                data-control="HELIUM REPRESS"
+                id="ctl-he"
+                tabindex="-1"
+              >
+                EMERG<br />He
+              </button>
+              <button
+                class="guard-cover"
+                type="button"
+                aria-expanded="false"
+                aria-controls="ctl-he"
+                aria-label="lift helium repress guard"
+              >
+                <span>LIFT</span>
+              </button>
+            </span>
+            <span class="ctl-name">EMERGENCY REPRESS</span>
+          </div>
+        </fieldset>
+
+        <fieldset class="bay bay-guid">
+          <legend>GUIDANCE</legend>
+          <div class="ctl">
+            <button
+              class="rotary"
+              type="button"
+              role="slider"
+              data-control="GUIDANCE MODE"
+              id="ctl-gmode"
+              aria-label="guidance mode"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="0"
+              aria-valuetext="OFF"
+            >
+              <span class="knob brass" aria-hidden="true"
+                ><i class="pointer"></i><i class="knurl"></i
+              ></span>
+              <span class="rot-scale r4"
+                ><i>OFF</i><i>WARM&nbsp;UP</i><i>ALIGN</i><i>FLY</i></span
+              >
+            </button>
+            <span class="ctl-name">COMPUTER MODE</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="push small"
+              type="button"
+              data-control="GUIDANCE RESET"
+              id="ctl-greset"
+            >
+              GUID.<br />RESET
+            </button>
+            <span class="ctl-name">COMPUTER RESTART</span>
+          </div>
+          <p class="bay-note">
+            ALIGNMENT REQUIRES COMPUTER ON WARM-UP 5 SEC MIN., THEN ALIGN 25 SEC
+            TO 95 PCT MIN.
+          </p>
+        </fieldset>
+
+        <fieldset class="bay bay-seq">
+          <legend>SEQUENCING</legend>
+          <div class="ctl">
+            <button
+              class="rotary drum-select"
+              type="button"
+              role="slider"
+              data-control="RECYCLE SELECTOR"
+              id="ctl-recycle"
+              aria-label="recycle selector"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="0"
+              aria-valuetext="RUN"
+            >
+              <span class="knob dark" aria-hidden="true"
+                ><i class="pointer"></i><i class="knurl"></i
+              ></span>
+              <span class="rot-scale r4"
+                ><i>RUN</i><i>T&#8722;180</i><i>T&#8722;60</i
+                ><i>T&#8722;31</i></span
+              >
+            </button>
+            <span class="ctl-name">RECYCLE DRUM</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="push big"
+              type="button"
+              data-control="COUNT HOLD"
+              id="ctl-hold"
+            >
+              HOLD
+            </button>
+            <span class="ctl-name">COUNT HOLD / RESUME</span>
+          </div>
+          <div class="ctl">
+            <span class="collar-guard" id="guard-start">
+              <button
+                class="push seq-key guardable"
+                type="button"
+                data-control="SEQUENCE START"
+                id="ctl-start"
+                tabindex="-1"
+              >
+                SEQ<br />START
+              </button>
+              <button
+                class="guard-cover red"
+                type="button"
+                aria-expanded="false"
+                aria-controls="ctl-start"
+                aria-label="lift sequence start guard"
+              >
+                <span>LIFT RED COLLAR</span>
+              </button>
+            </span>
+            <span class="ctl-name">AUTO SEQUENCE START</span>
+          </div>
+          <div class="ctl">
+            <button
+              class="push small"
+              type="button"
+              data-control="ABORT RESET"
+              id="ctl-abortreset"
+            >
+              ABORT<br />RESET
+            </button>
+            <span class="ctl-name">ABORT LATCH</span>
+          </div>
+        </fieldset>
+
+        <fieldset class="bay bay-maint">
+          <legend>MAINTENANCE</legend>
+          <div class="maint-row">
+            <div class="ctl">
+              <button
+                class="push small"
+                type="button"
+                data-control="ALARM ACK"
+                id="ctl-ack"
+              >
+                ACK
+              </button>
+              <span class="ctl-name">ALARM ACK</span>
+            </div>
+            <div class="ctl">
+              <button
+                class="push small"
+                type="button"
+                data-control="PANEL RESET"
+                id="ctl-reset"
+              >
+                PANEL<br />RESET
+              </button>
+              <span class="ctl-name">COLD &amp; ALARM-FREE</span>
+            </div>
+            <div class="ctl fault-bank" data-control="FAULT TEST SWITCHES">
+              <span class="fault-cover" id="fault-lid">
+                <span class="fault-switches">
+                  <button
+                    class="ftoggle"
+                    type="button"
+                    data-fault="tank pressurisation loss"
+                    aria-pressed="false"
+                  >
+                    <i></i><em>PRESS LOSS</em>
+                  </button>
+                  <button
+                    class="ftoggle"
+                    type="button"
+                    data-fault="guidance computer dropout"
+                    aria-pressed="false"
+                  >
+                    <i></i><em>GUID DROP</em>
+                  </button>
+                  <button
+                    class="ftoggle"
+                    type="button"
+                    data-fault="deluge water loss"
+                    aria-pressed="false"
+                  >
+                    <i></i><em>DELUGE LOSS</em>
+                  </button>
+                </span>
+                <button
+                  class="lid"
+                  type="button"
+                  aria-expanded="false"
+                  aria-label="lift fault test cover"
+                >
+                  FAULT TESTS — LIFT
+                </button>
+              </span>
+              <span class="ctl-name">FLIGHT TEST INJECTORS</span>
+            </div>
+          </div>
+          <p class="bay-note maint-note">
+            TEST SWITCHES INJECT SERVICE-LIMIT FAILURES FOR BLOCKHOUSE DRILLS.
+            DESELECT AFTER USE.
+          </p>
+        </fieldset>
+      </section>
+
+      <footer class="strip">
+        <span
+          >GM-412/S &#183; CHANGE 3 &#183; PROPERTY OF THE AIR FORCE &#8212; NOT
+          TO BE REMOVED FROM BLOCKHOUSE</span
+        >
+        <a href="./">CONSOLE</a><i>|</i><a href="../../">MACHINERY CATALOGUE</a>
+      </footer>
+    </div>
+
+    <dialog data-manual id="manual-dialog" aria-label="operating manual">
+      <div class="dialog-chrome">
+        <span class="dialog-title">TECHNICAL MANUAL &#183; TYPE GM-412/S</span>
+        <button class="btn close-btn" type="button" data-action="close-manual">
+          CLOSE MANUAL &#10005;
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="operating manual for Complex 14 blockhouse firing console"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

@@ -965,5 +965,45 @@
     ],
     "tagline": "Judge the colour under the hood, not over your shoulder.",
     "created": "2026-08-25"
+  },
+  {
+    "slug": "complex-14-blockhouse",
+    "name": "Complex 14 - Blockhouse Firing Console",
+    "kind": "missile launch blockhouse firing console",
+    "domain": "space",
+    "era": "1960s",
+    "design": "grey-blue stove-enamel steel desks with black Formica instrument faces, screen-printed white condensed legends and traffolyte data plates, incandescent jewels behind a wedge annunciator strip, one warm amber seven-segment countdown clock as the windowless room's only glow, and a live wall-periscope view of the pad",
+    "interaction": "steering the count itself: loading and pressurising against ullage gauges, lifting the red collar to start the automatic sequence, holding the clock on a bad second, recycling the drum to a mark and answering every interlock before T-zero",
+    "palette": [
+      "#9fabb4",
+      "#e04b17",
+      "#cf1e1a"
+    ],
+    "controls": [
+      "CONTROL BUS KEY",
+      "PAD CLEAR KEY",
+      "SERVICE ARMS",
+      "LAMPS TEST",
+      "PROPELLANT SELECTOR",
+      "LOX VENT",
+      "DELUGE PUMP",
+      "HELIUM REPRESS",
+      "GUIDANCE MODE",
+      "GUIDANCE RESET",
+      "RECYCLE SELECTOR",
+      "COUNT HOLD",
+      "SEQUENCE START",
+      "ABORT RESET",
+      "ALARM ACK",
+      "PANEL RESET",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "tank pressurisation loss",
+      "guidance computer dropout",
+      "deluge water loss"
+    ],
+    "tagline": "Load her, press her, align her - and answer every red lamp before the clock answers for you.",
+    "created": "2026-08-25"
   }
 ]

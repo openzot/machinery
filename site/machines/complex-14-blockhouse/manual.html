@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Technical Manual — Type GM-412/S Blockhouse Firing Console</title>
+    <meta
+      name="description"
+      content="Operating instructions for the Complex 14 blockhouse firing console, type GM-412/S: controls, countdown procedure, alarms, faults and specifications."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <div class="sheet">
+      <header class="man-head">
+        <div class="man-stamp">
+          TECHNICAL MANUAL<br />NO. GM-412/S&#8209;TO&nbsp;2 &#183;
+          CHANGE&nbsp;3
+        </div>
+        <div class="man-title-block">
+          <p class="man-kicker">
+            UNITED STATES AIR FORCE &#8212; OPERATING INSTRUCTIONS
+          </p>
+          <h1>BLOCKHOUSE FIRING CONSOLE<br />TYPE GM&#8209;412/S</h1>
+          <p class="man-sub">
+            LAUNCH COMPLEX 14 &#183; GROUND ELECTRONIC SEQUENCE SYSTEM<br />
+            PUBLISHED BY DIRECTION OF THE SYSTEMS COMMAND &#183; 1 AUGUST 1962
+          </p>
+        </div>
+        <div class="man-plate">
+          <span>P/N 14-BHC-1024-C</span>
+          <span>SERIAL 008</span>
+          <span>CONTRACT AF&nbsp;04(647)&#8209;211</span>
+        </div>
+      </header>
+
+      <nav class="man-links">
+        <a href="./">&#8592; RETURN TO THE CONSOLE</a>
+        <a href="../../">MACHINERY CATALOGUE &#8599;</a>
+      </nav>
+
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          The Type GM-412/S console commands the terminal phase of a missile
+          launch from inside the reinforced blockhouse: pad clearing,
+          service-arm withdrawal, liquid-oxygen and RP-1 transfer, helium
+          pressurisation, inertial-guidance alignment, and the automatic
+          sequence that runs the count from T&#8722;180 seconds through engine
+          start, liftoff and orbital insertion.
+        </p>
+        <p>
+          The console is operated by two men &#8212; the sequencer officer and
+          the propellant officer &#8212; but one trained operator may run the
+          drill alone. The machine is deliberately interlocked: the count will
+          not pass an unsafe condition. It holds itself, aborts itself, and
+          waits to be told why. Your work between those events is the drill this
+          manual teaches: load her, pressurise her, align her, start the
+          sequence, and answer every red lamp before the clock answers for you.
+        </p>
+        <p>
+          A wall periscope beside the desk shows the pad looking east. The count
+          clock above the periscope is the master clock; nothing else on the
+          panel tells time.
+        </p>
+      </section>
+
+      <section id="controls">
+        <h2>Controls</h2>
+        <table class="ctl-table">
+          <thead>
+            <tr>
+              <th>Control</th>
+              <th>Type</th>
+              <th>Positions / action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CONTROL BUS KEY</td>
+              <td>Key switch</td>
+              <td>OFF / ON. Energises the console and all sequencing logic.</td>
+            </tr>
+            <tr>
+              <td>PAD CLEAR KEY</td>
+              <td>Key switch</td>
+              <td>
+                OUT / CLEAR. Certifies the pad evacuated; required for transfer
+                and count.
+              </td>
+            </tr>
+            <tr>
+              <td>SERVICE ARMS</td>
+              <td>Bat toggle</td>
+              <td>
+                CONNECT / RETRACT. Retract before sequence start; the count
+                auto-holds at T&#8722;60 if either arm is still mated.
+              </td>
+            </tr>
+            <tr>
+              <td>LAMPS TEST</td>
+              <td>Push</td>
+              <td>
+                Lights every annunciator window, jewel and clock segment. Press
+                again to release.
+              </td>
+            </tr>
+            <tr>
+              <td>PROPELLANT SELECTOR</td>
+              <td>Rotary, 4-position</td>
+              <td>
+                OFF / LOAD / TOP OFF / PRESS. LOAD and TOP OFF transfer
+                propellant (pad clear required); PRESS builds ullage pressure
+                from the helium bottle.
+              </td>
+            </tr>
+            <tr>
+              <td>LOX VENT VALVE</td>
+              <td>Bat toggle</td>
+              <td>
+                OPEN / SHUT. Open while loading to carry boil-off; shut before
+                PRESS or the tanks will never take pressure.
+              </td>
+            </tr>
+            <tr>
+              <td>DELUGE PUMP</td>
+              <td>Bat toggle</td>
+              <td>
+                RUN / OFF. Builds flame-deflector water pressure; ignition is
+                inhibited below 50 psi.
+              </td>
+            </tr>
+            <tr>
+              <td>HELIUM REPRESS</td>
+              <td>Guarded push</td>
+              <td>
+                Lift the cover and press for a 2-second emergency helium pulse
+                into both tanks. Each pulse draws roughly 110 psi from the
+                bottle.
+              </td>
+            </tr>
+            <tr>
+              <td>GUIDANCE MODE</td>
+              <td>Rotary, 4-position</td>
+              <td>
+                OFF / WARM UP / ALIGN / FLY. Warm-up takes 5 seconds minimum;
+                ALIGN drives alignment to 100 pct at 4 pct per second; FLY hands
+                the loop to the vehicle.
+              </td>
+            </tr>
+            <tr>
+              <td>GUIDANCE RESET</td>
+              <td>Push</td>
+              <td>
+                Restarts the computer cold: alignment falls to zero, warm-up
+                restarts. Used after a computer dropout.
+              </td>
+            </tr>
+            <tr>
+              <td>RECYCLE SELECTOR</td>
+              <td>Rotary, 4-position</td>
+              <td>
+                RUN / T&#8722;180 / T&#8722;60 / T&#8722;31. Turning to a mark
+                rewinds the clock to that mark and returns the sequencer to
+                READY. No recycle in flight.
+              </td>
+            </tr>
+            <tr>
+              <td>COUNT HOLD</td>
+              <td>Push</td>
+              <td>
+                Stops the clock at the displayed second; press again to resume a
+                manual hold. Interlock holds release themselves when their cause
+                clears.
+              </td>
+            </tr>
+            <tr>
+              <td>SEQUENCE START</td>
+              <td>Red-collared key</td>
+              <td>
+                Lift the collar and press to run the GO check and start the
+                automatic sequence. A NO-GO condition is named on the clock
+                caption line.
+              </td>
+            </tr>
+            <tr>
+              <td>ABORT RESET</td>
+              <td>Push</td>
+              <td>
+                Clears the AUTO ABORT latch once the causing failure is
+                corrected; returns the sequencer to READY at the selected mark.
+              </td>
+            </tr>
+            <tr>
+              <td>ALARM ACK</td>
+              <td>Push</td>
+              <td>
+                Acknowledges the annunciator wave: stops the flash and the horn.
+                Lamps stay lit until the cause clears.
+              </td>
+            </tr>
+            <tr>
+              <td>PANEL RESET</td>
+              <td>Push</td>
+              <td>
+                Returns the entire installation to its cold, alarm-free state
+                without removing power from the room.
+              </td>
+            </tr>
+            <tr>
+              <td>FAULT TEST SWITCHES</td>
+              <td>Guarded toggle bank</td>
+              <td>
+                Lift the striped cover. Three switches inject service failures
+                for drills: PRESS LOSS, GUID DROP, DELUGE LOSS. Deselect after
+                each drill.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="normal-operation">
+        <h2>Normal Operation</h2>
+        <p>
+          Cold start to orbital insertion. Times assume nominal rates and no
+          test faults.
+        </p>
+        <ol>
+          <li>
+            Turn CONTROL BUS KEY to ON. BUS ENERGISED lights; the clock reads
+            T&#8722;03:00.
+          </li>
+          <li>
+            Turn PROPELLANT SELECTOR to LOAD, open LOX VENT VALVE (lever up),
+            and turn PAD CLEAR KEY to CLEAR. Transfer begins; watch LOX LOAD and
+            RP-1 LOAD climb.
+          </li>
+          <li>
+            While the tanks load, start DELUGE PUMP (RUN) and let deflector
+            pressure build past 85 psi. DELUGE READY lights.
+          </li>
+          <li>
+            When RP-1 reaches 98.0 pct, turn PROPELLANT SELECTOR to TOP OFF and
+            let LOX creep onto 99.0 pct or better.
+          </li>
+          <li>
+            Shut LOX VENT VALVE, then turn PROPELLANT SELECTOR to PRESS. Bring
+            LOX ULLAGE into the green band (14&#8211;22 psi) and RP-1 ULLAGE
+            likewise (11&#8211;19 psi).
+          </li>
+          <li>
+            Set GUIDANCE MODE to WARM UP, press GUIDANCE RESET, wait 5 seconds,
+            then set ALIGN. Hold alignment at 100 pct; the meter carries a green
+            band above 95.
+          </li>
+          <li>
+            Throw SERVICE ARMS to RETRACT. ARMS RETRACTED lights; both swing
+            arms swing clear on the periscope.
+          </li>
+          <li>
+            Check the board: every status jewel green, no red windows, clock at
+            MARK T&#8722;180 READY. Lift the red collar and press SEQUENCE
+            START. The caption reads TERMINAL COUNT RUNNING.
+          </li>
+          <li>
+            Mind the count. The sequencer auto-holds at T&#8722;60 for connected
+            arms and at T&#8722;31 for unaligned guidance; it aborts itself at
+            T&#8722;3.5 if ullage pressure is lost. Answer any window before
+            continuing.
+          </li>
+          <li>
+            At T&#8722;03 the engines light. Liftoff follows at T&#43;00:02.5.
+            Watch ALT and VEL on the down-range counter and the vehicle climb
+            away on the periscope.
+          </li>
+          <li>
+            At about T&#43;02:45 insertion is confirmed: the clock caption reads
+            INSERTION CONFIRMED and SEQUENCE burns green. The drill is complete;
+            press PANEL RESET to make the console cold again.
+          </li>
+        </ol>
+      </section>
+
+      <section id="alarms">
+        <h2>Alarms</h2>
+        <table class="alm-table">
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Colour</th>
+              <th>Meaning</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TANK PRESSURE LOW</td>
+              <td>Red</td>
+              <td>A loaded tank cannot hold ullage pressure.</td>
+              <td>
+                Select PRESS (vent shut); if pressure still falls, lift the
+                HELIUM REPRESS cover and pulse. Do not enter the last minute
+                below limits.
+              </td>
+            </tr>
+            <tr>
+              <td>HELIUM RESERVE LOW</td>
+              <td>Amber</td>
+              <td>Bottle below 800 psi.</td>
+              <td>
+                Stop avoidable draw (leave PRESS only as long as needed). If the
+                bottle empties mid-count, expect the abort.
+              </td>
+            </tr>
+            <tr>
+              <td>GUIDANCE FAILURE</td>
+              <td>Red</td>
+              <td>Computer heartbeat lost or alignment decayed.</td>
+              <td>
+                Before start: GUIDANCE RESET, warm-up, realign, resume. In
+                flight: nothing &#8212; see Faults and recovery.
+              </td>
+            </tr>
+            <tr>
+              <td>ARM INTERLOCK</td>
+              <td>Amber</td>
+              <td>Count holding at T&#8722;60 with a service arm mated.</td>
+              <td>
+                Throw SERVICE ARMS to RETRACT; the count resumes by itself.
+              </td>
+            </tr>
+            <tr>
+              <td>DELUGE WATER LOSS</td>
+              <td>Red</td>
+              <td>Deflector water below usable pressure.</td>
+              <td>
+                Confirm DELUGE PUMP RUN; ignition is inhibited below 50 psi.
+              </td>
+            </tr>
+            <tr>
+              <td>AUTO ABORT</td>
+              <td>Red</td>
+              <td>The sequencer has cut the count (latch set).</td>
+              <td>
+                Note the caption reason, correct the cause, then ABORT RESET,
+                recycle, and start over.
+              </td>
+            </tr>
+            <tr>
+              <td>RANGE DESTRUCT</td>
+              <td>Red</td>
+              <td>The vehicle has been destroyed by range safety.</td>
+              <td>
+                None recoverable. Acknowledge the horn; PANEL RESET makes the
+                board cold for the next drill.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The diamond flag at the right end of the annunciator strip rings with
+          the horn while an unacknowledged alarm stands. Press ALARM ACK to
+          silence; the windows stay lit while their causes stand.
+        </p>
+      </section>
+
+      <section id="faults">
+        <h2>Faults and recovery</h2>
+        <p>
+          Inject these only through the guarded FAULT TEST SWITCHES during
+          blockhouse drills. Each is written up exactly as the panel presents
+          it.
+        </p>
+
+        <h3>tank pressurisation loss</h3>
+        <p class="fault-symptom">
+          <b>You see:</b> TANK PRESSURE LOW and HELIUM RESERVE LOW; both ullage
+          gauges sag despite the selector at PRESS; the bottle needle drains
+          abnormally fast. If it stands at T&#8722;3.5 the count aborts itself
+          (AUTO ABORT).
+        </p>
+        <p>
+          <b>To clear:</b> deselect the PRESS LOSS test switch (regulator
+          restored), keep the vent shut, select PRESS, and nurse both gauges
+          back into their green bands &#8212; use HELIUM REPRESS pulses if the
+          bottle is low. When pressures hold, press ABORT RESET, recycle with
+          RECYCLE SELECTOR to T&#8722;60 or T&#8722;31, and re-run SEQUENCE
+          START. If the bottle is spent, PANEL RESET restores it.
+        </p>
+
+        <h3>guidance computer dropout</h3>
+        <p class="fault-symptom">
+          <b>You see:</b> GUIDANCE FAILURE; the alignment meter collapses; a
+          running count holds itself at T&#8722;31. If the computer dies after
+          liftoff the attitude error grows and range safety destroys the vehicle
+          (RANGE DESTRUCT).
+        </p>
+        <p>
+          <b>To clear:</b> deselect the GUID DROP test switch, press GUIDANCE
+          RESET, set GUIDANCE MODE to WARM UP, wait out the 5-second warm-up,
+          select ALIGN, ride the meter to 95 pct or better, set FLY, and resume
+          or restart the count. There is no recovery in flight; acknowledge the
+          horn and PANEL RESET.
+        </p>
+
+        <h3>deluge water loss</h3>
+        <p class="fault-symptom">
+          <b>You see:</b> DELUGE WATER LOSS; the deflector pressure gauge runs
+          away to zero even with the pump running; ignition is inhibited near
+          T&#8722;04 and the count aborts.
+        </p>
+        <p>
+          <b>To clear:</b> cycle DELUGE PUMP OFF then RUN after deselecting the
+          DELUGE LOSS test switch; let pressure rebuild past 85 psi, confirm
+          DELUGE READY lit, press ABORT RESET, recycle to T&#8722;31 or
+          T&#8722;60, and start the sequence again.
+        </p>
+      </section>
+
+      <section id="specifications">
+        <h2>Specifications</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <th>Console supply</th>
+              <td>28 V DC control bus, 400 Hz instrument reference</td>
+            </tr>
+            <tr>
+              <th>Count length</th>
+              <td>
+                T&#8722;180 s terminal count; marks at T&#8722;60 and T&#8722;31
+              </td>
+            </tr>
+            <tr>
+              <th>LOX load, GO limit</th>
+              <td>97.0 pct minimum at sequence start</td>
+            </tr>
+            <tr>
+              <th>RP-1 load, GO limit</th>
+              <td>98.0 pct minimum at sequence start</td>
+            </tr>
+            <tr>
+              <th>LOX ullage, GO band</th>
+              <td>14&#8211;22 psi (abort limit 14 psi at T&#8722;3.5)</td>
+            </tr>
+            <tr>
+              <th>RP-1 ullage, GO band</th>
+              <td>11&#8211;19 psi (abort limit 11 psi at T&#8722;3.5)</td>
+            </tr>
+            <tr>
+              <th>Helium bottle</th>
+              <td>
+                3,000 psi nominal; reserve alarm at 800 psi; repress pulse 110
+                psi
+              </td>
+            </tr>
+            <tr>
+              <th>Guidance alignment</th>
+              <td>
+                95 pct minimum; 4 pct per second in ALIGN after 5 s warm-up
+              </td>
+            </tr>
+            <tr>
+              <th>Deflector water</th>
+              <td>50 psi minimum for ignition; 85 psi for DELUGE READY</td>
+            </tr>
+            <tr>
+              <th>Arm interlock</th>
+              <td>Auto-hold at T&#8722;60 until both service arms retract</td>
+            </tr>
+            <tr>
+              <th>Attitude error limit</th>
+              <td>14 deg; range safety acts beyond it in powered flight</td>
+            </tr>
+            <tr>
+              <th>Insertion conditions</th>
+              <td>185 km circular &#183; 7,793 m/s at approx. T&#43;02:46</td>
+            </tr>
+            <tr>
+              <th>Ambient limits</th>
+              <td>
+                Console rated 0&#8211;40 &#176;C; humidity to 95 pct
+                non-condensing
+              </td>
+            </tr>
+            <tr>
+              <th>Periscope</th>
+              <td>Fixed wall sight, magnification 6&#215;, image upright</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="man-foot">
+        <span
+          >GM-412/S-TO&#8209;2 &#183; CHANGE 3 &#183; FOR BLOCKHOUSE USE</span
+        >
+        <a href="./">RETURN TO CONSOLE</a> <i>|</i>
+        <a href="../../">CATALOGUE</a>
+      </footer>
+    </div>
+  </body>
+</html>
