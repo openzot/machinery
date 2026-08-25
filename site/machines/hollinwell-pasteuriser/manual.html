@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operating Manual HP/93 — HTST Pasteuriser Panel No. 2</title>
+    <meta
+      name="description"
+      content="Works operating manual for Hollinwell Dairies HTST Pasteuriser Panel No. 2: controls, normal operation, alarms, faults and recovery, specifications."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <div class="manual-sheet">
+      <header class="manual-head">
+        <p class="manual-ref">
+          MANUAL HP/93 · ISSUE 4 · AMENDED TO SL. 1993/887
+        </p>
+        <h1>HOLLINWELL DAIRIES<br />HTST PASTEURISER — PANEL NO. 2</h1>
+        <p class="manual-sub">
+          PROCESS HALL NO. 2 · LEGAL PASTEURISATION LINE A · WORKS USE
+        </p>
+        <p class="manual-control-copy">
+          CONTROLLED COPY No. 3 OF 5 — DO NOT REMOVE FROM THE PANEL ROOM.<br />
+          Amendments are on Dymo tape and initialled. If this copy disagrees
+          with the plant, stop and telephone the works engineer.
+        </p>
+      </header>
+
+      <nav class="manual-nav">
+        <a href="./">&lt;&lt; BACK TO THE PANEL</a>
+        <a href="../../">&lt;&lt; PROCESS HALL INDEX (CATALOGUE)</a>
+      </nav>
+
+      <h2>Overview</h2>
+      <p>
+        This panel governs the Line A high-temperature short-time (HTST)
+        pasteuriser: a balance tank of raw chilled milk, a feed pump, a
+        regeneration set, a hot-water heater section, a legal holding tube of
+        84.5 litres, and a fail-safe flow-diversion valve (the FDV). Milk leaves
+        for the fillers only when it has held at or above
+        <strong>71.7&nbsp;°C for not less than fifteen seconds</strong>. The FDV
+        enforces that arithmetic without your help: anything under temperature,
+        or moving too fast to hold its fifteen seconds, is turned back over the
+        divert line into the balance tank.
+      </p>
+      <p>
+        The Panelman's job is therefore not to make milk safe — the valve does
+        that — but to keep the plant <em>running forward</em>: keep the tank
+        fed, keep the hot water up, keep the plates clean, and answer every lamp
+        before it costs a vat. The panel was built and wired by the Hollinwell
+        engineering department; treat it accordingly. The circular chart is a
+        legal record: do not run with the drive off.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="spec">
+        <tr>
+          <th>Control</th>
+          <th>Kind</th>
+          <th>Positions / range</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>MODE SELECTOR</td>
+          <td>rotary switch, plum knob</td>
+          <td>OFF · WASH · SANITISE · PRODUCE</td>
+          <td>
+            OFF isolates the pump and shuts steam to the water set. WASH
+            circulates caustic for cleaning the plate pack — fouling clears only
+            above 70&nbsp;°C wash water. SANITISE recirculates water at
+            82&nbsp;°C. PRODUCE draws raw milk from the tank through the plant
+            to the fillers.
+          </td>
+        </tr>
+        <tr>
+          <td>PUMP SPEED</td>
+          <td>notched lever, 0–10</td>
+          <td>each notch ≈ 2 000 L/h; notch 10 = 20 000 L/h</td>
+          <td>
+            Sets the feed pump. Residence in the holding tube falls as speed
+            rises: at notch 10 the tube holds 15.2&nbsp;s — barely legal — so
+            never raise speed with the hot water down. Below about 6 % tank
+            level the pump starves and will trip.
+          </td>
+        </tr>
+        <tr>
+          <td>HOT WATER SET</td>
+          <td>knob, 62–85 °C</td>
+          <td>setpoint of the hot-water set</td>
+          <td>
+            Water-set temperature. 76.5–78&nbsp;°C carries notch 8 comfortably;
+            higher speeds need more. Above 86&nbsp;°C the HOT WATER HIGH lamp
+            burns, and holding above 89&nbsp;°C for twenty seconds trips the
+            water set until the knob is brought below 85&nbsp;°C again.
+          </td>
+        </tr>
+        <tr>
+          <td>DIVERT TEST LEVER</td>
+          <td>guarded lever, lead seal</td>
+          <td>FORWARD (up) — DIVERT (held down)</td>
+          <td>
+            Hold to stroke the FDV to DIVERT against its solenoid; release and
+            the weight must return it FORWARD inside three seconds. This proves
+            the spring return, and one full stroke-and-return also frees a
+            sticking seat. Break the seal only on a written order.
+          </td>
+        </tr>
+        <tr>
+          <td>ALARM ACK</td>
+          <td>mushroom push</td>
+          <td>—</td>
+          <td>
+            Steadies any burning annunciator window you have seen. It silences
+            nothing that is still true: a cleared condition extinguishes; an
+            uncleared one stays lit, steady.
+          </td>
+        </tr>
+        <tr>
+          <td>CHART DRIVE</td>
+          <td>toggle</td>
+          <td>ON / OFF</td>
+          <td>
+            Turns the circular chart and its clock. Pen 1 (red) records
+            pasteurisation temperature, pen 2 (blue) records flow. Leave ON
+            whenever the plant is running.
+          </td>
+        </tr>
+        <tr>
+          <td>RESET</td>
+          <td>red mushroom, collared</td>
+          <td>—</td>
+          <td>
+            Returns the panel cold: pump stopped, mode OFF, every alarm, fault
+            and trip cleared. For starting over after a shutdown — not for
+            dodging an alarm you dislike.
+          </td>
+        </tr>
+        <tr>
+          <td>MAINTENANCE flap</td>
+          <td>hinged flap over test toggles</td>
+          <td>FOUL PLATE PACK · STICK FDV SEAT · EXERCISE VALVE</td>
+          <td>
+            Test injection for trade tests and training. The left toggle fouls
+            the plate pack; the right sticks the FDV seat; EXERCISE VALVE
+            strokes the divert-test lever for you. Switch a toggle out again
+            when the test is done.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol>
+        <li>
+          Panel cold: MODE SELECTOR at OFF, PUMP SPEED at 0, no windows burning.
+          Switch CHART DRIVE ON and check both pens write and the chart clock
+          runs.
+        </li>
+        <li>
+          MODE SELECTOR to SANITISE. Raise HOT WATER SET toward 82&nbsp;°C and
+          let the water set come up. Circulate not less than two minutes.
+        </li>
+        <li>
+          Check the balance tank sight glass: the float should hold level near
+          four-fifths glass. Prove the FDV with one stroke on the DIVERT TEST
+          LEVER — press, release, watch it come back smartly.
+        </li>
+        <li>
+          MODE SELECTOR to PRODUCE. Advance PUMP SPEED notch by notch to 8.
+          Watch TIC·1: pasteurisation temperature must settle at 72&nbsp;°C or
+          better, and the FDV node on the mimic must show FORWARD with the green
+          lens lit.
+        </li>
+        <li>
+          Trim HOT WATER SET (76.5–78&nbsp;°C serves notch 8) until TIC·1 holds
+          steady above 71.8&nbsp;°C. Check FIC·2 reads the speed you asked for
+          and RESIDENCE shows better than fifteen seconds.
+        </li>
+        <li>
+          Watch the tank. At notch 8 the raw supply keeps pace; at notch 10 it
+          does not — expect LEVEL LOW long before the glass empties, and ease
+          off in time.
+        </li>
+        <li>
+          To finish: take PUMP SPEED to 0, MODE SELECTOR to SANITISE for two
+          minutes, then to OFF. Leave CHART DRIVE ON until the pens run off the
+          record, then sign the chart.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="spec">
+        <tr>
+          <th>Window</th>
+          <th>Colour</th>
+          <th>Meaning</th>
+          <th>Do this</th>
+        </tr>
+        <tr>
+          <td>PAST. TEMP LOW</td>
+          <td>red</td>
+          <td>
+            Milk at the valve is under 71.6&nbsp;°C. The FDV has already
+            diverted — the plant is safe, the product is not going forward.
+          </td>
+          <td>
+            Ease PUMP SPEED one notch or raise HOT WATER SET. When TIC·1
+            recovers past 72&nbsp;°C the valve returns FORWARD by itself. Expect
+            the tank to warm while the divert runs — see TANK OVERHEAT.
+          </td>
+        </tr>
+        <tr>
+          <td>RESIDENCE SHORT</td>
+          <td>red</td>
+          <td>
+            Flow is fast enough that the holding tube gives under fifteen
+            seconds. Diverted.
+          </td>
+          <td>
+            Reduce PUMP SPEED until RESIDENCE reads above 15&nbsp;s. Never
+            defeat this by raising temperature alone — the chart would show an
+            illegal hold.
+          </td>
+        </tr>
+        <tr>
+          <td>TANK LEVEL LOW</td>
+          <td>amber</td>
+          <td>
+            Balance tank below 18 %. At about 6 % the pump begins to starve.
+          </td>
+          <td>
+            Check the raw supply; reduce PUMP SPEED until the float recovers the
+            level above 20 %.
+          </td>
+        </tr>
+        <tr>
+          <td>TANK OVERHEAT</td>
+          <td>red</td>
+          <td>
+            Diverted hot milk has warmed the vat past 24&nbsp;°C. Past
+            31&nbsp;°C the raw milk is spoiled: the panel latches spoilage,
+            forces OFF and refuses PRODUCE.
+          </td>
+          <td>
+            Stop the diverting early (fix temperature or speed). Once latched,
+            the only way back is drain, refill and a full hot WASH — see Faults
+            and recovery.
+          </td>
+        </tr>
+        <tr>
+          <td>HOT WATER HIGH</td>
+          <td>amber</td>
+          <td>
+            Water set above 86&nbsp;°C. Twenty seconds over 89&nbsp;°C trips the
+            set off.
+          </td>
+          <td>
+            Bring HOT WATER SET below 85&nbsp;°C. After a trip, wait for the
+            water to fall under 87&nbsp;°C; the set relights once the knob is
+            honest.
+          </td>
+        </tr>
+        <tr>
+          <td>OUTLET WARM</td>
+          <td>amber</td>
+          <td>
+            Milk leaving the cooler is over 6.5&nbsp;°C — usually warm milk
+            returned by a long divert has loaded the cooling section.
+          </td>
+          <td>
+            Recover temperature first; the cooler follows. If it persists at low
+            speed, have the ice-water supply checked.
+          </td>
+        </tr>
+        <tr>
+          <td>MAINTENANCE FAULT</td>
+          <td>amber</td>
+          <td>A test injection is switched in at the maintenance flap.</td>
+          <td>
+            Finish your test and switch the toggle out. The plant behind it may
+            still need the recovery procedure below.
+          </td>
+        </tr>
+        <tr>
+          <td>FLOW TRIP</td>
+          <td>red</td>
+          <td>
+            The pump ran starved more than six seconds and tripped to protect
+            itself.
+          </td>
+          <td>
+            Restore the level above 12 %; the trip releases itself once suction
+            is proven. Restart per Normal operation from step 4.
+          </td>
+        </tr>
+      </table>
+
+      <h2>Faults and recovery</h2>
+
+      <h3>Plate pack fouling</h3>
+      <p>
+        <strong>What you see.</strong> TIC·1 sags even with an honest water set;
+        the regen figure on the mimic falls away; the FDV cycles to DIVERT and
+        PAST. TEMP LOW burns, with product lost down the divert line on every
+        cycle. Trade tests may inject this state from the MAINTENANCE flap.
+      </p>
+      <p>
+        <strong>Recovery.</strong> The plates are blinded and no amount of knob
+        will carry them:
+      </p>
+      <ol>
+        <li>Take PUMP SPEED to 0 and MODE SELECTOR to WASH.</li>
+        <li>
+          Raise HOT WATER SET so the wash water stands at 75&nbsp;°C or better —
+          caustic under 70&nbsp;°C cleans nothing.
+        </li>
+        <li>
+          Circulate. Watch the regen figure climb; allow not less than three
+          minutes of hot circulation for a working set.
+        </li>
+        <li>
+          Return via SANITISE two minutes, then PRODUCE per Normal operation
+          step 4.
+        </li>
+      </ol>
+
+      <h3>FDV seat sticking</h3>
+      <p>
+        <strong>What you see.</strong> The valve refuses its order: the mimic
+        node holds whatever position it had, the FDV caption reads STUCK, and
+        the line lamps lie about the true state of the milk. Worst case is
+        FORWARD while under temperature — the green lens burns over illegal
+        milk. Trade tests may inject this from the MAINTENANCE flap.
+      </p>
+      <p><strong>Recovery.</strong> The seat wants exercising, not nursing:</p>
+      <ol>
+        <li>
+          Take PUMP SPEED to 0 so there is nothing passing through the valve.
+        </li>
+        <li>
+          Give the DIVERT TEST LEVER one full stroke: press to DIVERT, hold a
+          moment, release, and watch the spindle come back smartly. One
+          stroke-and-return frees the seat; the STUCK caption clears when it
+          moves again.
+        </li>
+        <li>
+          If you cannot reach the lever, the EXERCISE VALVE push inside the
+          maintenance flap strokes it for you.
+        </li>
+        <li>
+          Prove it before returning product: run PRODUCE, chill the water set
+          until you see a deliberate DIVERT, raise it again and watch the valve
+          return FORWARD.
+        </li>
+      </ol>
+
+      <h3>Raw spoilage latch — the cost of ignoring TANK OVERHEAT</h3>
+      <p>
+        <strong>What you see.</strong> Mode forced to OFF and selecting PRODUCE
+        snaps back out again. The vat smells of cream cooked on a radiator,
+        which is what it is.
+      </p>
+      <p>
+        <strong>Recovery.</strong> No shortcut exists: drain and refill the
+        tank, then run a full hot WASH — three minutes above 70&nbsp;°C — to
+        satisfy the latch before PRODUCE is released. Enter the loss in the
+        waste book with the cause.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="spec">
+        <tr>
+          <th colspan="2">
+            Plant, as built by Hollinwell Engineering Co., 1993
+          </th>
+        </tr>
+        <tr>
+          <td>Duty</td>
+          <td>20 000 L/h maximum, whole milk, HTST</td>
+        </tr>
+        <tr>
+          <td>Legal pasteurisation</td>
+          <td>71.7 °C minimum · 15.0 s minimum hold</td>
+        </tr>
+        <tr>
+          <td>Holding tube</td>
+          <td>84.5 L · 15.2 s at 20 000 L/h</td>
+        </tr>
+        <tr>
+          <td>Feed pump</td>
+          <td>10 notches × 2 000 L/h · cavitation trip below 6 % tank level</td>
+        </tr>
+        <tr>
+          <td>Balance tank</td>
+          <td>
+            1 000 L working · float supply 18 000 L/h · spoilage latch at 31 °C
+          </td>
+        </tr>
+        <tr>
+          <td>Hot-water set</td>
+          <td>
+            settable 62–85 °C · HIGH alarm 86 °C · self-trip 89 °C after 20 s
+          </td>
+        </tr>
+        <tr>
+          <td>Regeneration</td>
+          <td>
+            94 % clean, falling with plate fouling · CIP restores above 70 °C
+            caustic
+          </td>
+        </tr>
+        <tr>
+          <td>FDV</td>
+          <td>
+            fail-safe, weight-and-spring return within 3 s · divert cut-out 71.8
+            °C
+          </td>
+        </tr>
+        <tr>
+          <td>Cooler</td>
+          <td>ice-water · outlet duty 4.5 °C at notch 8 · WARM alarm 6.5 °C</td>
+        </tr>
+        <tr>
+          <td>Chart</td>
+          <td>
+            circular · one revolution per 240 simulated seconds · red temp 60–85
+            °C · blue flow 0–20 000 L/h
+          </td>
+        </tr>
+        <tr>
+          <td>Supply</td>
+          <td>240 V · 50 Hz · panel type HP/93/HTST · licence HD-2044</td>
+        </tr>
+      </table>
+
+      <footer class="manual-foot">
+        <p>
+          HOLLINWELL ENGINEERING CO. — ISSUED BY THE WORKS ENGINEER, PROCESS
+          HALL NO. 2<br />
+          Read with Manual HP/91 (Cleaning-in-Place) and the Dairy Hygiene
+          Notice displayed at the door.
+        </p>
+        <p class="manual-links">
+          <a href="./">&lt;&lt; BACK TO THE PANEL</a> ·
+          <a href="../../">PROCESS HALL INDEX</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hollinwell Dairies — HTST Pasteuriser Panel No. 2</title>
+    <meta
+      name="description"
+      content="Operating panel for a 1993 high-temperature short-time milk pasteuriser: balance tank, regeneration, hot-water set, legal holding tube and the fail-safe flow diversion valve."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="panel" data-state="cold">
+      <!-- ============ header plate ============ -->
+      <header class="head">
+        <div class="head-title">
+          <h1>HTST PASTEURISER — PANEL NO. 2</h1>
+          <p class="head-sub">
+            HOLLINWELL DAIRIES · PROCESS HALL NO. 2 · LEGAL PASTEURISATION LINE
+            A
+          </p>
+        </div>
+        <div class="head-lamps" aria-hidden="true">
+          <span class="lens run" id="lamp-run"></span>
+          <span class="lens divert" id="lamp-divert"></span>
+        </div>
+        <nav class="head-links">
+          <button type="button" class="card-pocket" data-action="manual">
+            OPERATING MANUAL
+          </button>
+          <a class="hall-link" href="../../">&lt;&lt; PROCESS HALL INDEX</a>
+        </nav>
+      </header>
+
+      <!-- ============ annunciator strip ============ -->
+      <section class="annunciator" aria-label="Alarm annunciator">
+        <span class="ann-window" id="ann-pastlow"><i></i>PAST. TEMP LOW</span>
+        <span class="ann-window" id="ann-residence"
+          ><i></i>RESIDENCE SHORT</span
+        >
+        <span class="ann-window" id="ann-tanklow"><i></i>TANK LEVEL LOW</span>
+        <span class="ann-window" id="ann-tankhot"><i></i>TANK OVERHEAT</span>
+        <span class="ann-window" id="ann-warm"><i></i>OUTLET WARM</span>
+        <span class="ann-window" id="ann-maint"><i></i>MAINTENANCE FAULT</span>
+        <span class="ann-window" id="ann-trip"><i></i>FLOW TRIP</span>
+        <button
+          type="button"
+          class="ann-ack"
+          data-control="ALARM ACK"
+          id="btn-ack"
+          aria-label="Acknowledge alarms"
+        >
+          ACK
+        </button>
+      </section>
+
+      <!-- ============ process mimic ============ -->
+      <section class="mimic-wrap" aria-label="Process mimic diagram">
+        <svg
+          class="mimic"
+          viewBox="0 0 1000 300"
+          role="img"
+          aria-label="Mimic of the pasteurisation line: balance tank, feed pump, regenerator, hot-water heater, holding tube, diversion valve, cooler, to fillers; the divert return line runs back over the top to the balance tank."
+        >
+          <!-- divert return line (over the top) -->
+          <path
+            id="path-divert"
+            class="pipe pipe-alt"
+            d="M660 92 L660 40 L120 40 L120 96"
+          />
+          <!-- forward line -->
+          <path id="path-line" class="pipe" d="M120 150 L120 190 L952 190" />
+
+          <path class="pipe pipe-thin" d="M164 150 L164 190" />
+
+          <!-- balance tank + sight glass -->
+          <g id="m-tank">
+            <rect
+              x="76"
+              y="96"
+              width="88"
+              height="108"
+              rx="8"
+              class="tank-body"
+            />
+            <clipPath id="clip-tank">
+              <rect x="80" y="100" width="80" height="100" rx="6" />
+            </clipPath>
+            <rect
+              id="tank-fill"
+              x="80"
+              y="150"
+              width="80"
+              height="50"
+              clip-path="url(#clip-tank)"
+            />
+            <rect
+              x="80"
+              y="100"
+              width="80"
+              height="100"
+              rx="6"
+              fill="none"
+              stroke="#5b656a"
+              stroke-width="3"
+            />
+            <text x="112" y="222" class="lbl">BALANCE TANK</text>
+            <!-- sight glass -->
+            <rect x="172" y="104" width="14" height="92" rx="4" class="sight" />
+            <circle
+              id="sight-float"
+              cx="179"
+              cy="182"
+              r="5.5"
+              class="float-ball"
+            />
+            <text x="194" y="116" class="lbl lbl-s">LEVEL</text>
+          </g>
+
+          <!-- pump -->
+          <g id="m-pump">
+            <circle cx="290" cy="190" r="26" class="stage-body" />
+            <polygon
+              points="278,178 302,202 302,178 278,202"
+              class="pump-vane"
+              id="pump-vane"
+            />
+            <text x="290" y="232" class="lbl">FEED PUMP</text>
+          </g>
+
+          <!-- regeneration set -->
+          <g id="m-regen">
+            <rect x="342" y="152" width="76" height="76" class="plate-pack" />
+            <path
+              d="M350 158v64M360 158v64M370 158v64M380 158v64M390 158v64M400 158v64M410 158v64"
+              class="plate-lines"
+            />
+            <text x="380" y="248" class="lbl">REGEN SET</text>
+            <text x="380" y="144" class="lbl lbl-val" id="regen-eff">— %</text>
+          </g>
+
+          <!-- hot water heater -->
+          <g id="m-heater">
+            <rect
+              x="446"
+              y="152"
+              width="66"
+              height="76"
+              rx="10"
+              class="heater-body"
+            />
+            <circle
+              cx="479"
+              cy="190"
+              r="17"
+              class="heater-eye"
+              id="heater-eye"
+            />
+          <div class="quadrant-scale" aria-hidden="true"><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span></div>
+
+            <text x="479" y="144" class="lbl lbl-val" id="hw-temp-mimic">
+              — °C
+            </text>
+          </g>
+
+          <!-- holding tube coil -->
+          <g id="m-hold">
+            <path
+              class="hold-coil"
+              d="M600 216 c0 -56 56 -56 56 -12 c0 44 56 44 56 0 c0 -44 56 -44 56 0 l0 32 l-26 0"
+            />
+            <text x="684" y="248" class="lbl">HOLDING TUBE</text>
+            <text x="684" y="144" class="lbl lbl-val" id="residence-read">
+              — s
+            </text>
+          </g>
+
+          <!-- FDV node -->
+          <g id="m-fdv">
+            <rect x="792" y="168" width="36" height="44" class="fdv-body" />
+            <path id="fdv-spindle" d="M810 210 L810 180" class="fdv-spindle" />
+            <circle
+              id="fdv-node"
+              cx="810"
+              cy="190"
+              r="7"
+              class="node node-shut"
+            />
+            <text x="810" y="248" class="lbl">FDV</text>
+            <text x="810" y="262" class="lbl lbl-s" id="fdv-state">SHUT</text>
+          </g>
+
+          <!-- cooler -->
+          <g id="m-cool">
+            <rect x="886" y="160" width="58" height="60" class="cooler-body" />
+            <path
+              d="M892 174h46M892 186h46M892 206h46M892 218h46"
+              class="cool-lines"
+            />
+            <text x="915" y="248" class="lbl">COOLER</text>
+          </g>
+          <text x="946" y="176" class="lbl lbl-s">TO</text>
+          <text x="946" y="188" class="lbl lbl-s">FILLERS</text>
+          <text x="360" y="52" class="lbl lbl-s">DIVERT RETURN</text>
+        </svg>
+      </section>
+
+      <!-- ============ lower deck: controllers / controls / recorder ============ -->
+      <section class="deck">
+        <div class="bay bay-controllers">
+          <div class="loop-controller">
+            <header>TIC · 1 &nbsp;PAST. TEMP °C</header>
+            <div class="lcd lcd-big">
+              <canvas
+                class="segs"
+                data-segs="past-pv"
+                aria-hidden="true"
+              ></canvas
+              ><span class="lcd-tag">PV</span>
+            </div>
+            <div class="lcd lcd-small">
+              <canvas
+                class="segs"
+                data-segs="past-sp"
+                aria-hidden="true"
+              ></canvas
+              ><span class="lcd-tag">SP&nbsp;71.7</span>
+            </div>
+          </div>
+          <div class="loop-controller">
+            <header>FIC · 2 &nbsp;FLOW ×1000 L/h</header>
+            <div class="lcd lcd-big">
+              <canvas
+                class="segs"
+                data-segs="flow-pv"
+                aria-hidden="true"
+              ></canvas
+              ><span class="lcd-tag">PV</span>
+            </div>
+            <div class="lcd lcd-small">
+              <canvas
+                class="segs"
+                data-segs="flow-sp"
+                aria-hidden="true"
+              ></canvas
+              ><span class="lcd-tag">SP</span>
+            </div>
+          </div>
+          <div class="loop-controller">
+            <header>TIC · 3 &nbsp;HOT WATER °C</header>
+            <div class="lcd lcd-big">
+              <canvas class="segs" data-segs="hw-pv" aria-hidden="true"></canvas
+              ><span class="lcd-tag">PV</span>
+            </div>
+            <div class="lcd lcd-small">
+              <canvas class="segs" data-segs="hw-sp" aria-hidden="true"></canvas
+              ><span class="lcd-tag">SP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bay bay-controls">
+          <div class="control-block mode-block">
+            <span class="engraved">MODE SELECTOR</span>
+            <div class="mode-dial" data-control="MODE SELECTOR">
+              <input
+                type="radio"
+                name="mode"
+                id="m-off"
+                value="OFF"
+                checked
+                aria-label="Mode OFF"
+              />
+              <input
+                type="radio"
+                name="mode"
+                id="m-wash"
+                value="WASH"
+                aria-label="Mode WASH"
+              />
+              <input
+                type="radio"
+                name="mode"
+                id="m-san"
+                value="SANITISE"
+                aria-label="Mode SANITISE"
+              />
+              <input
+                type="radio"
+                name="mode"
+                id="m-prod"
+                value="PRODUCE"
+                aria-label="Mode PRODUCE"
+              />
+              <div class="dial-face" aria-hidden="true">
+                <label for="m-off" style="--a: -135deg">OFF</label>
+                <label for="m-wash" style="--a: -45deg">WASH</label>
+                <label for="m-san" style="--a: 45deg">SANITISE</label>
+                <label for="m-prod" style="--a: 135deg">PRODUCE</label>
+              </div>
+              <div class="dial-knob" aria-hidden="true">
+                <i class="pointer"></i>
+              </div>
+            </div>
+            <span class="sub-caption" id="mode-caption">PANEL ISOLATED AT OFF</span>
+
+          </div>
+
+          <div class="control-block lever-block">
+            <span class="engraved">PUMP SPEED</span>
+            <div class="lever-quadrant">
+              <input
+                type="range"
+                min="0"
+                max="10"
+                step="1"
+                value="0"
+                data-control="PUMP SPEED"
+                id="in-pump"
+                class="lever-range"
+                aria-label="Feed pump speed, 0 to 10 notches. Use arrow keys."
+              />
+              <div class="quadrant-scale" aria-hidden="true">
+                <span>10</span><span>8</span><span>6</span><span>4</span
+                ><span>2</span><span>0</span>
+              </div>
+            </div>
+            <span class="sub-caption">×1000 L/h AT NOTCH 10</span>
+          </div>
+
+          <div class="control-block hw-block">
+            <span class="engraved">HOT WATER SET</span>
+            <input
+              type="range"
+              min="62"
+              max="85"
+              step="0.5"
+              value="74.5"
+              data-control="HOT WATER SET"
+              id="in-hw"
+              class="knob-range"
+              aria-label="Hot water setpoint, 62 to 85 degrees Celsius. Use arrow keys."
+            />
+            <span class="sub-caption"
+              >SET <output id="hw-set-read">74.5 °C</output></span
+            >
+          </div>
+
+          <div class="control-block fdv-block">
+            <span class="engraved engraved-red">DIVERT TEST LEVER</span>
+            <button
+              type="button"
+              data-control="DIVERT TEST LEVER"
+              id="btn-fdv-test"
+              class="test-lever"
+              aria-label="Divert test lever: press and hold to stroke the FDV to DIVERT; release and the weight must return it FORWARD"
+            >
+              <span class="lever-arm" aria-hidden="true"></span>
+              <span class="lever-marks" aria-hidden="true"
+                ><em>FORWARD</em><em>DIVERT</em></span
+              >
+              <span class="seal-wire" aria-hidden="true"></span>
+            </button>
+            <span class="sub-caption">BREAK SEAL ONLY FOR TEST</span>
+          </div>
+        </div>
+
+        <div class="bay bay-recorder">
+          <div class="recorder">
+            <header>
+              CIRCULAR CHART · PEN 1 TEMP (RED) · PEN 2 FLOW (BLUE)
+            </header>
+            <canvas
+              id="chart"
+              width="330"
+              height="330"
+              role="img"
+              aria-label="Circular chart recorder carrying the pasteuriser temperature and flow traces"
+            ></canvas>
+            <footer>
+              <label class="chart-drive" data-control="CHART DRIVE">
+                <input type="checkbox" id="in-chart" checked />
+                <span class="toggle-body" aria-hidden="true"><i></i></span>
+                CHART DRIVE
+              </label>
+
+              <span class="chart-clock" id="chart-clock">00:00</span>
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ footer rail ============ -->
+      <section class="foot">
+        <div class="maint-flap">
+          <button
+            type="button"
+            class="flap-tab"
+            id="flap-tab"
+            aria-expanded="false"
+            aria-controls="flap-inner"
+          >
+            MAINTENANCE ▾
+          </button>
+          <div class="flap-inner" id="flap-inner" hidden>
+            <span class="flap-note">TEST INJECTION · WORKS USE ONLY</span>
+            <label class="inject-toggle"
+              ><input
+                type="checkbox"
+                data-inject="plate pack fouling"
+                aria-label="Inject test fault: plate pack fouling"
+              /><span class="toggle-body small" aria-hidden="true"><i></i></span
+              >FOUL PLATE PACK</label
+            >
+            <label class="inject-toggle"
+              ><input
+                type="checkbox"
+                data-inject="FDV seat sticking"
+                aria-label="Inject test fault: FDV seat sticking"
+              /><span class="toggle-body small" aria-hidden="true"><i></i></span
+              >STICK FDV SEAT</label
+            >
+            <button
+              type="button"
+              class="reseats"
+              id="btn-reseat"
+              aria-label="Exercise the diversion valve to free a sticking seat"
+            >
+              EXERCISE VALVE
+            </button>
+          </div>
+        </div>
+
+        <address class="maker-plate">
+          HOLLINWELL ENGINEERING CO. · PANEL 2 OF LINE A · TYPE HP/93/HTST<br />
+          SUPPLY 240 V 50 Hz · MAX 20 000 L/h · HOLD 15.2 s MIN · LIC. No.
+          HD-2044
+        </address>
+
+        <div class="foot-right">
+          <button
+            type="button"
+            class="reset-mush"
+            data-control="RESET"
+            id="btn-reset"
+            aria-label="Reset the panel cold and clear every alarm"
+          >
+            <span></span>RESET
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="dialog-bar">
+        <span>OPERATING MANUAL · HP/93 · CONTROLLED COPY</span>
+        <button
+          type="button"
+          class="dialog-close"
+          data-action="close-manual"
+          aria-label="Close the operating manual"
+        >
+          CLOSE ✕
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual for HTST Pasteuriser Panel No. 2"
+      ></iframe>
+    </dialog>
+    <script src="machine.js"></script>
+  </body>
+</html>
