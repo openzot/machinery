@@ -1117,5 +1117,33 @@
     ],
     "tagline": "Water may come back with the rain - gas never comes back at all.",
     "created": "2026-08-25"
+  },
+  {
+    "slug": "peregrine-wxr-91",
+    "name": "Peregrine WXR-91 - Doppler Weather Radar Signal Console",
+    "kind": "pulsed-Doppler weather-radar signal-data console",
+    "domain": "weather",
+    "era": "1990s",
+    "design": "putty-grey office desk with charcoal crinkle RF modules, screen-printed condensed legends, slate label strips, guarded milspec toggles, amber P7 phosphor plan-position display and rectangular LED annunciators",
+    "interaction": "guarded HV pair brought up in sequence, a five-position scan-mode rotary driving the volume scans, and a draggable azimuth handwheel that slews the antenna only in MANUAL",
+    "palette": [
+      "#beb9ac",
+      "#ffb000",
+      "#d42a1a"
+    ],
+    "controls": [
+      "MAINS POWER",
+      "TRANSMITTER HV",
+      "SCAN MODE",
+      "AZIMUTH SLEW",
+      "FAULT INJECT"
+    ],
+    "faults": [
+      "transmitter arcing",
+      "pedestal drive stall",
+      "waveguide pressure loss"
+    ],
+    "tagline": "The storm is twenty miles out and building - keep the tube turning and the collector cool.",
+    "created": "2026-08-25"
   }
 ]

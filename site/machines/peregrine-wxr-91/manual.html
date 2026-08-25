@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WXR-91 Operating Instructions · PXW-91-OPS-2 Rev C</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <header class="man-head">
+      <p class="mh-brand">
+        PEREGRINE AVIONICS SYSTEMS&nbsp;&nbsp;·&nbsp;&nbsp;ELECTRONIC SYSTEMS
+        GROUP&nbsp;&nbsp;·&nbsp;&nbsp;WICHITA FALLS, TEXAS
+      </p>
+      <h1>
+        Operating Instructions<span>Signal Data Console WXR&#8209;91</span>
+      </h1>
+      <p class="mh-doc">
+        DOCUMENT PXW-91-OPS-2&nbsp;&nbsp;&nbsp;REVISION C&nbsp;&nbsp;&nbsp;1
+        MARCH 1991&nbsp;&nbsp;&nbsp;SUPERSEDES REVISION
+        B&nbsp;&nbsp;&nbsp;APPROVED&nbsp;<b>RLM/jw</b>
+      </p>
+    </header>
+
+    <nav class="man-links">
+      <a href="./">&larr;&nbsp;Return to the console</a>
+      <a href="../../">Machinery catalogue&nbsp;&rarr;</a>
+    </nav>
+
+    <p class="amendment">
+      WEATHER SERVICE AMENDMENT 91-2&nbsp;&nbsp;—&nbsp;&nbsp;Insert this sheet
+      before Section&nbsp;1. Field experience shows collector overtemperature on
+      continuous SEVERE operation above 27&deg;/s with a wet guide. If REFLECTED
+      POWER is showing, do not hold SEVERE; drop to PRECIPITATION until the
+      guide dries. — R.O., Regional Electronics Branch.
+    </p>
+
+    <h2>Overview</h2>
+    <p>
+      The WXR-91 is the operator position for a pulsed-Doppler weather radar
+      working in S-band. One cabinet does three jobs: it conditions and monitors
+      the klystron transmitter, it drives the azimuth-elevation pedestal through
+      selectable volume scan patterns, and it turns the returning echoes into
+      the plan-position display you see on the cathode-ray tube. The console was
+      derived from an airborne fire-control processor; where that set hunted
+      aircraft, this one watches thunderstorms. It is built to military drawing
+      practice because it has to run unattended through a night of hail, but it
+      lives in an office, so it is dressed like office furniture. Treat it as
+      both.
+    </p>
+    <p>
+      The tube uses a long-persistence P7 phosphor. A cell painted by the sweep
+      fades over several seconds; the picture you see is the last two minutes of
+      sky, brightest where the beam last passed. When the high voltage is off
+      the antenna still turns, but the tube paints only receiver noise — a faint
+      grain, no weather. That is the fastest health check you have.
+    </p>
+
+    <h2>Controls</h2>
+    <p>
+      Every operating control is on the desk surface. Guarded switches carry a
+      clear flip-up cover; nothing under a guard can be moved by a sleeve.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Control</th>
+          <th>Type</th>
+          <th>Positions</th>
+          <th>Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MAINS POWER</td>
+          <td>guarded toggle</td>
+          <td>ON / OFF</td>
+          <td>
+            Desk and transmitter primary power. Lifting the guard is deliberate;
+            closing the guard trips the switch off.
+          </td>
+        </tr>
+        <tr>
+          <td>TRANSMITTER HV</td>
+          <td>guarded toggle</td>
+          <td>ON / OFF</td>
+          <td>
+            Klystron beam high voltage. Closes only when FILAMENT is lit and any
+            arc timer has expired. Dropping it clears the arc detector.
+          </td>
+        </tr>
+        <tr>
+          <td>SCAN MODE</td>
+          <td>rotary selector</td>
+          <td>STANDBY / CLEAR-AIR / PRECIP / SEVERE / MANUAL</td>
+          <td>
+            Selects the volume coverage pattern: antenna rate and elevation cut
+            sequence. MANUAL hands the antenna to the handwheel.
+          </td>
+        </tr>
+        <tr>
+          <td>AZIMUTH SLEW</td>
+          <td>handwheel</td>
+          <td>continuous, ±140&deg;/s</td>
+          <td>
+            Drives the antenna by hand in MANUAL mode. Spinning it in any other
+            mode moves nothing; the SLEW INHIBIT lamp tells you so.
+          </td>
+        </tr>
+        <tr>
+          <td>STC RANGE</td>
+          <td>lever slider</td>
+          <td>MIN – MAX</td>
+          <td>
+            Sensitivity time control: near-range gain. Raise until close-in
+            clutter sits mid-scale, no higher.
+          </td>
+        </tr>
+        <tr>
+          <td>WG PURGE</td>
+          <td>momentary button, hold</td>
+          <td>held / released</td>
+          <td>
+            Runs the dry-air compressor hard. Hold three seconds to seal a guide
+            leak and repack pressure.
+          </td>
+        </tr>
+        <tr>
+          <td>PEDESTAL RESET</td>
+          <td>pushbutton</td>
+          <td>press</td>
+          <td>
+            Recloses the pedestal breaker after an overload trip, once drive
+            load is back under 80&nbsp;%.
+          </td>
+        </tr>
+        <tr>
+          <td>ACK</td>
+          <td>pushbutton</td>
+          <td>press</td>
+          <td>
+            Stops annunciator flash and the audible chirp. Lit tiles stay lit
+            while the condition stands.
+          </td>
+        </tr>
+        <tr>
+          <td>FAULT INJECT</td>
+          <td>keyswitch</td>
+          <td>OFF / TX ARC / PED STALL / WG LEAK</td>
+          <td>
+            Maintenance test positions. TX ARC and PED STALL are momentary — the
+            key springs back to OFF and the injected line drops out, leaving
+            whatever damage it did. WG LEAK is maintained: the leak stays until
+            you return the key to OFF.
+          </td>
+        </tr>
+        <tr>
+          <td>SIM RESET</td>
+          <td>pushbutton</td>
+          <td>press</td>
+          <td>
+            Returns the entire simulation to cold and alarm-free without
+            reloading the page.
+          </td>
+        </tr>
+        <tr>
+          <td>SOUND</td>
+          <td>pushbutton</td>
+          <td>SOUND OFF / SOUND ON</td>
+          <td>
+            Enables the relay clacks, blower hum and alarm chirp. Silent until
+            you ask.
+          </td>
+        </tr>
+        <tr>
+          <td>MANUAL</td>
+          <td>pushbutton</td>
+          <td>press</td>
+          <td>Opens this document over the console.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Normal operation</h2>
+    <p>
+      From cold to painting weather takes about half a minute. Follow the order;
+      each step earns the next.
+    </p>
+    <ol>
+      <li>Press MANUAL if you want this document open beside the desk.</li>
+      <li>
+        Lift the MAINS POWER guard and switch ON. The blower starts, the lamps
+        prove themselves, and FILAMENT begins warming.
+      </li>
+      <li>
+        Wait for FILAMENT to turn green — roughly six seconds. HV READY lights
+        beside it when the transmitter may be energised.
+      </li>
+      <li>
+        Turn SCAN MODE to PRECIPITATION for routine surveillance. The antenna
+        leaves the brake and settles onto its first cut at 0.5&deg;.
+      </li>
+      <li>
+        Lift the TRANSMITTER HV guard and switch ON. FWD POWER climbs to about
+        750 kW and the tube paints its first sweep.
+      </li>
+      <li>
+        Raise STC RANGE until ground clutter within 40 km sits mid-scale and the
+        storm structure beyond stays clean.
+      </li>
+      <li>
+        Watch the annunciator column through the first full volume scan. One
+        steady amber tile is information; a flashing red tile is an instruction.
+      </li>
+      <li>
+        For convection, select SEVERE — faster turns, five cuts to 2.8&deg;. For
+        dawn insect clears, CLEAR-AIR. For a single slow look, MANUAL and the
+        AZIMUTH SLEW wheel.
+      </li>
+    </ol>
+    <p>
+      To shut down: TRANSMITTER HV OFF, SCAN MODE to STANDBY, let the collector
+      run below 60&nbsp;&deg;C, then MAINS POWER OFF and close both guards.
+    </p>
+
+    <h2>Alarms</h2>
+    <p>
+      Annunciator tiles light amber for a caution and red for an alarm, flashing
+      until acknowledged. An unheeded red tile always ends the same way: the
+      equipment protects itself and you lose the data.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tile</th>
+          <th>Colour</th>
+          <th>Means</th>
+          <th>Do this</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ARC DETECTED</td>
+          <td>red</td>
+          <td>
+            An RF arc struck in the tube or guide. High voltage has already
+            dropped out.
+          </td>
+          <td>
+            Let the 25-second arc timer expire, recycle TRANSMITTER HV. Find the
+            cause below before holding SEVERE again.
+          </td>
+        </tr>
+        <tr>
+          <td>KLYSTRON TEMP</td>
+          <td>red</td>
+          <td>
+            Collector above 92&nbsp;&deg;C. Above 104&nbsp;&deg;C the tube will
+            arc and trip itself.
+          </td>
+          <td>
+            Drop to a slower pattern or STANDBY. Ignoring it costs you the
+            transmitter, mid-storm, on purpose.
+          </td>
+        </tr>
+        <tr>
+          <td>REFLECTED POWER</td>
+          <td>amber</td>
+          <td>
+            More than 6&nbsp;% of forward power coming back — usually standing
+            water in the guide.
+          </td>
+          <td>
+            Check GUIDE PRESSURE, purge the guide, ease the scan rate. Reflected
+            power heats the collector.
+          </td>
+        </tr>
+        <tr>
+          <td>PEDESTAL LOAD</td>
+          <td>red</td>
+          <td>Drive current above 84&nbsp;%, or the breaker has tripped.</td>
+          <td>
+            Slow or stop the scan, let load fall under 80&nbsp;%, press PEDESTAL
+            RESET.
+          </td>
+        </tr>
+        <tr>
+          <td>GUIDE PRESSURE</td>
+          <td>amber</td>
+          <td>
+            Dry-air pressure below 8 psig. Moisture ingress follows, echoes
+            fade, arcs follow that.
+          </td>
+          <td>
+            Hold WG PURGE three seconds once the leak is sealed. Keep scanning
+            meanwhile if you must.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Faults and recovery</h2>
+    <p>
+      Three faults account for nearly every lost hour on this set. Each is
+      reproducible from the FAULT INJECT keyswitch for training; the recoveries
+      below are the real ones.
+    </p>
+
+    <h3>transmitter arcing</h3>
+    <p>
+      <b>You see:</b> ARC DETECTED flashing red, FWD POWER collapsed to zero,
+      the sweep still turning but painting nothing but grain.<br />
+      <b>Cause:</b> collector overheated, wet guide, or a gassy tube. The arc
+      detector has latched and dumped high voltage.<br />
+      <b>Recover:</b>
+    </p>
+    <ol>
+      <li>
+        Leave the guard up and switch TRANSMITTER HV OFF. This clears the latch
+        and resets the arcing tendency.
+      </li>
+      <li>
+        Correct the cause: KLYSTRON TEMP falling, GUIDE PRESSURE above 10 psig.
+      </li>
+      <li>
+        After the 25-second arc timer expires, switch TRANSMITTER HV ON. Watch
+        one full sweep before leaving the desk.
+      </li>
+    </ol>
+
+    <h3>pedestal drive stall</h3>
+    <p>
+      <b>You see:</b> PEDESTAL LOAD pinned near 100&nbsp;%, azimuth frozen, then
+      the breaker dropping out with a clack; DRIVE LOAD falls but the antenna is
+      dead.<br />
+      <b>Cause:</b> bearing seizure, icing, or a stalled servo stage. The
+      breaker has done its job.<br />
+      <b>Recover:</b>
+    </p>
+    <ol>
+      <li>
+        Take SCAN MODE to STANDBY and return the FAULT INJECT keyswitch to OFF
+        if it is engaged.
+      </li>
+      <li>Wait for drive load under 80&nbsp;% on the meter.</li>
+      <li>
+        Press PEDESTAL RESET. Restore your scan mode; listen for the brake
+        release.
+      </li>
+    </ol>
+
+    <h3>waveguide pressure loss</h3>
+    <p>
+      <b>You see:</b> GUIDE PRESSURE amber, the pressure readout sagging toward
+      1 psig, REFLECTED POWER following, storms on the tube growing dim and
+      ragged as receiver noise climbs.<br />
+      <b>Cause:</b> a split radome flange or failed seal letting the dry air out
+      — and the spring rain in.<br />
+      <b>Recover:</b>
+    </p>
+    <ol>
+      <li>
+        Return the FAULT INJECT keyswitch to OFF if it stands at WG LEAK. If
+        MAINS POWER is off, switch it on; the compressor needs the desk bus.
+      </li>
+      <li>
+        Hold WG PURGE for three seconds to seal the leak path and run the
+        compressor hard.
+      </li>
+      <li>
+        Confirm pressure recovering toward 12 psig and both GUIDE PRESSURE and
+        REFLECTED POWER extinguishing. If the tile returns within the hour,
+        write it up; the leak is real.
+      </li>
+    </ol>
+
+    <h2>Specifications</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>Transmitter</th>
+          <td>
+            klystron VKS-8325, air-cooled; peak power 500 kW (CLEAR-AIR) / 750
+            kW; forced-arc trip at 104&nbsp;&deg;C collector; arc lockout 25 s
+          </td>
+        </tr>
+        <tr>
+          <th>Frequency</th>
+          <td>2880 MHz nominal, S-band</td>
+        </tr>
+        <tr>
+          <th>Pulse</th>
+          <td>1.6 &micro;s, PRF 320–450 Hz by mode</td>
+        </tr>
+        <tr>
+          <th>Antenna</th>
+          <td>4.3 m paraboloid, beamwidth 1.9&deg;, gain 38 dB</td>
+        </tr>
+        <tr>
+          <th>Scan patterns</th>
+          <td>
+            CLEAR-AIR 9&deg;/s, 3 cuts to 1.3&deg;; PRECIP 17&deg;/s, 3 cuts to
+            2.5&deg;; SEVERE 27&deg;/s, 5 cuts to 2.8&deg;; MANUAL by handwheel
+            to ±140&deg;/s
+          </td>
+        </tr>
+        <tr>
+          <th>Display</th>
+          <td>
+            PPI, 30 cm CRT, P7 phosphor, 150 km range scale, 2&deg; × 2.3 km
+            resolution elements
+          </td>
+        </tr>
+        <tr>
+          <th>Receiver</th>
+          <td>
+            noise floor &minus;113 dBm nominal, rising 0.4 dB per lost psig of
+            guide pressure; STC range 0–35 dB
+          </td>
+        </tr>
+        <tr>
+          <th>Pedestal</th>
+          <td>
+            drive load limit 84&nbsp;% continuous, breaker at 88&nbsp;% after 6
+            s; wind loading 0.85 %/kt added
+          </td>
+        </tr>
+        <tr>
+          <th>Guide pressurisation</th>
+          <td>
+            dry air, 12 psig nominal, low alarm 8 psig, purge rate 13.5 psig
+            held
+          </td>
+        </tr>
+        <tr>
+          <th>Power</th>
+          <td>208 V three-phase, 4.6 kW running, 7.1 kW purge</td>
+        </tr>
+        <tr>
+          <th>Environment</th>
+          <td>
+            office 10–32&nbsp;&deg;C; radome &minus;40 to +50&nbsp;&deg;C, winds
+            to 110 kt survival
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer class="man-foot">
+      <span
+        >PEREGRINE AVIONICS SYSTEMS&nbsp;&nbsp;·&nbsp;&nbsp;PXW-91-OPS-2 REV
+        C</span
+      >
+      <span
+        >Property of the issuing weather office — bolt this document to the
+        cabinet when you are done reading.</span
+      >
+      <a href="./">Return to the console&nbsp;&larr;</a>
+    </footer>
+  </body>
+</html>

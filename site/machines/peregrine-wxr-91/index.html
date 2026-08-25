@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Peregrine WXR-91 — Doppler Weather Radar Signal Console</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="desk">
+      <header class="head">
+        <div class="makerplate">
+          <span class="maker"
+            >PEREGRINE AVIONICS SYSTEMS&nbsp;·&nbsp;ELECTRONIC SYSTEMS
+            GROUP</span
+          >
+          <h1>WXR&#8209;91 SIGNAL DATA CONSOLE</h1>
+          <span class="sub"
+            >PULSED-DOPPLER WEATHER RADAR&nbsp;&nbsp;S-BAND
+            2.88&nbsp;GHz&nbsp;&nbsp;CONTRACT 89-DWS-114&nbsp;&nbsp;SER&nbsp;NO
+            0047</span
+          >
+        </div>
+        <div class="head-actions">
+          <button type="button" class="pb" data-action="manual">MANUAL</button>
+          <button
+            type="button"
+            class="pb pb-sound"
+            id="sound-btn"
+            data-control="SOUND"
+            aria-pressed="false"
+          >
+            SOUND&nbsp;OFF
+          </button>
+        </div>
+      </header>
+
+      <section class="row">
+        <!-- ==================== TRANSMITTER MODULE ==================== -->
+        <section class="module tx-module" aria-label="Transmitter module">
+          <h2 class="strip">TRANSMITTER&nbsp;&nbsp;KLYSTRON VKS-8325</h2>
+
+          <div class="tx-meters">
+            <div class="meter-block">
+              <span class="m-label">FWD POWER</span>
+              <span class="readout big" id="fwd-readout">000</span>
+              <span class="m-unit">kW PEAK</span>
+              <div class="ledbar" id="fwd-bar" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i>
+              </div>
+            </div>
+            <div class="meter-block">
+              <span class="m-label">REFLECTED</span>
+              <span class="readout" id="ref-readout">0.0</span>
+              <span class="m-unit">% OF FWD</span>
+              <div class="ledbar amber" id="ref-bar" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="arcgauge-block">
+            <div
+              class="arc-gauge"
+              id="kly-gauge"
+              role="img"
+              aria-label="Klystron collector temperature gauge"
+            >
+              <div class="ag-face">
+                <div class="ag-ticks"></div>
+                <div class="ag-redline"></div>
+                <div class="ag-needle" id="kly-needle"></div>
+                <div class="ag-hub"></div>
+              </div>
+              <div class="ag-scale">
+                <span>0</span><span>75</span><span>150&nbsp;°C</span>
+              </div>
+            </div>
+            <span class="m-label ag-title">COLLECTOR TEMP</span>
+          </div>
+
+          <div class="tx-controls">
+            <div class="gt" data-control="MAINS POWER">
+              <span class="gt-legend">MAINS<br />POWER</span>
+              <div class="gt-body" id="gt-mains">
+                <button
+                  type="button"
+                  class="guard"
+                  aria-label="Lift MAINS POWER guard cover"
+                ></button>
+                <button
+                  type="button"
+                  class="toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="MAINS POWER"
+                ></button>
+              </div>
+            </div>
+            <div class="status-lamps">
+              <span class="lamp lamp-green" id="lamp-filament"
+                ><i></i>FILAMENT</span
+              >
+              <span class="lamp lamp-green" id="lamp-hvready"
+                ><i></i>HV READY</span
+              >
+            </div>
+            <div class="gt" data-control="TRANSMITTER HV">
+              <span class="gt-legend">TRANSMITTER<br />HV</span>
+              <div class="gt-body" id="gt-hv">
+                <button
+                  type="button"
+                  class="guard"
+                  aria-label="Lift TRANSMITTER HV guard cover"
+                ></button>
+                <button
+                  type="button"
+                  class="toggle"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="TRANSMITTER HV"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== SCOPE BAY ==================== -->
+        <section class="scope-bay" aria-label="Plan position indicator">
+          <div class="annun-col" id="annunciators">
+            <span class="ann-title">ANNUNCIATOR</span>
+            <span class="ann" data-ann="ARC DETECTED"
+              ><i></i>ARC<br />DETECTED</span
+            >
+            <span class="ann" data-ann="KLYSTRON TEMP"
+              ><i></i>KLYSTRON<br />TEMP</span
+            >
+            <span class="ann" data-ann="REFLECTED POWER"
+              ><i></i>REFLECTED<br />POWER</span
+            >
+            <span class="ann" data-ann="PEDESTAL LOAD"
+              ><i></i>PEDESTAL<br />LOAD</span
+            >
+            <span class="ann" data-ann="GUIDE PRESSURE"
+              ><i></i>GUIDE<br />PRESSURE</span
+            >
+            <button type="button" class="pb pb-ack" id="ack-btn">ACK</button>
+          </div>
+
+          <figure class="crt">
+            <div class="crt-bezel">
+              <canvas id="ppi" width="560" height="560"></canvas>
+              <canvas id="overlay" width="560" height="560"></canvas>
+              <span class="crt-tag"
+                >PLAN POSITION INDICATOR&nbsp;&nbsp;RNG 150 KM&nbsp;&nbsp;P7
+                PHOSPHOR</span
+              >
+            </div>
+            <figcaption class="crt-foot">
+              <span class="readout ro-inline" id="mode-readout">STANDBY</span>
+              <span class="ro-caption">VCP</span>
+              <span class="readout ro-inline dim" id="noise-readout"
+                >&minus;113.4 dBm</span
+              >
+              <span class="ro-caption">NOISE FLOOR</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- ==================== PEDESTAL MODULE ==================== -->
+        <section class="module ped-module" aria-label="Antenna pedestal module">
+          <h2 class="strip">ANTENNA PEDESTAL&nbsp;&nbsp;AZ-EL DRIVE</h2>
+
+          <div class="ped-readouts">
+            <div class="pr">
+              <span class="m-label">AZIMUTH</span>
+              <span class="readout huge" id="az-readout">000.0&deg;</span>
+            </div>
+            <div class="pr pr-el">
+              <span class="m-label">ELEV</span>
+              <span class="readout" id="el-readout">0.50&deg;</span>
+            </div>
+            <div class="pr pr-wind">
+              <span class="m-label">WIND</span>
+              <span class="readout" id="wind-readout">14 KT</span>
+            </div>
+          </div>
+
+          <div
+            class="loadmeter"
+            id="ped-meter"
+            role="img"
+            aria-label="Pedestal drive load meter"
+          >
+            <div class="lm-face">
+              <div class="lm-ticks"></div>
+              <div class="lm-redline"></div>
+              <div class="lm-needle" id="ped-needle"></div>
+              <div class="lm-hub"></div>
+            </div>
+            <span class="m-label lm-title">DRIVE LOAD %</span>
+          </div>
+
+          <div class="wheel-zone">
+            <div class="wheel-wrap" data-control="AZIMUTH SLEW">
+              <div
+                class="wheel"
+                id="az-wheel"
+                tabindex="0"
+                role="slider"
+                aria-label="Azimuth slew handwheel — drag or use arrow keys; effective in MANUAL scan mode"
+                aria-valuemin="0"
+                aria-valuemax="359"
+                aria-valuenow="137"
+              >
+                <div class="wheel-disc">
+                  <span class="spoke s1"></span><span class="spoke s2"></span
+                  ><span class="spoke s3"></span>
+                  <span class="handle"></span>
+                </div>
+              </div>
+              <span class="wheel-cap">AZIMUTH SLEW</span>
+            </div>
+            <div class="ped-buttons">
+              <span class="lamp lamp-amber" id="lamp-manual"
+                ><i></i>MANUAL</span
+              >
+              <span class="lamp lamp-red" id="lamp-inhibit"
+                ><i></i>SLEW&nbsp;INHIBIT</span
+              >
+              <button type="button" class="pb" id="pedreset-btn">
+                PEDESTAL RESET
+              </button>
+              <button type="button" class="pb" id="purge-btn">
+                WG PURGE&nbsp;&nbsp;·&nbsp;&nbsp;HOLD
+              </button>
+            </div>
+          </div>
+
+          <div class="wg-line">
+            <span class="m-label">GUIDE PRESSURE</span>
+            <span class="readout" id="wg-readout">12.0 PSIG</span>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== KEYBOARD WELL ==================== -->
+      <section class="well">
+        <div class="well-block mode-block">
+          <span class="well-title">SCAN MODE</span>
+          <div
+            class="rotary"
+            data-control="SCAN MODE"
+            role="radiogroup"
+            aria-label="Scan mode selector"
+            id="mode-rotary"
+          >
+            <div class="rot-dial">
+              <div class="rot-pointer" id="mode-pointer"></div>
+            </div>
+            <div class="rot-legend" id="mode-legend"></div>
+          </div>
+        </div>
+
+        <div class="well-block stc-block">
+          <label class="well-title" for="stc-slider"
+            >SENSITIVITY&nbsp;&nbsp;STC</label
+          >
+          <input
+            type="range"
+            id="stc-slider"
+            data-control="STC RANGE"
+            min="0"
+            max="100"
+            value="35"
+            aria-label="Sensitivity time control, near-range gain"
+          />
+          <div class="stc-scale">
+            <span>MIN</span><span>NORMAL</span><span>MAX</span>
+          </div>
+        </div>
+
+        <div class="well-block maint-block">
+          <span class="well-title maint-title"
+            >MAINTENANCE&nbsp;&nbsp;—&nbsp;&nbsp;QUALIFIED STAFF ONLY</span
+          >
+          <div class="maint-row">
+            <div
+              class="keyswitch"
+              data-control="FAULT INJECT"
+              role="radiogroup"
+              aria-label="Fault injection keyswitch"
+              id="fi-rotary"
+            >
+              <div class="ks-dial">
+                <div class="ks-pointer" id="fi-pointer"></div>
+              </div>
+              <div class="ks-legend" id="fi-legend"></div>
+            </div>
+            <button type="button" class="pb pb-sim" id="simreset-btn">
+              SIM RESET
+            </button>
+          </div>
+        </div>
+
+        <aside class="quickref" aria-label="Quick reference card">
+          <span class="qr-head"
+            >QUICK REFERENCE&nbsp;&nbsp;—&nbsp;&nbsp;TAPE CARD PXW-91-QR-4</span
+          >
+          <ol>
+            <li>MAINS POWER ON — wait FILAMENT green.</li>
+            <li>SCAN MODE to PRECIPITATION.</li>
+            <li>Lift guard, TRANSMITTER HV ON — scope paints.</li>
+            <li>Trim STC until near clutter sits mid-scale.</li>
+            <li>Any red tile: ACK, then manual section 5.</li>
+          </ol>
+        </aside>
+
+        <footer class="foot">
+          <a href="../../">&larr;&nbsp;MACHINERY CATALOGUE</a>
+          <span>PXW-91-OPS-2&nbsp;&nbsp;REV C&nbsp;&nbsp;1991</span>
+        </footer>
+      </section>
+    </main>
+
+    <dialog
+      data-manual
+      id="manual-dialog"
+      aria-label="WXR-91 operating instructions"
+    >
+      <div class="dlg-bar">
+        <span class="dlg-title"
+          >WXR-91 OPERATING INSTRUCTIONS&nbsp;&nbsp;·&nbsp;&nbsp;PXW-91-OPS-2
+          REV C</span
+        >
+        <button type="button" class="pb" data-action="close-manual">
+          CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Peregrine WXR-91 operating instructions"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
