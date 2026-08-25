@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wrenford Vale Radio - Studio B Continuity Desk</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="desk">
+      <!-- ======================= MASTHEAD ======================= -->
+      <header class="masthead">
+        <div class="nameplate">
+          <span class="np-station">Wrenford Vale Radio</span>
+          <span class="np-sub"
+            >Studio B &middot; Continuity &amp; Self-Op Desk &middot; Type
+            CB/2</span
+          >
+          <span class="np-maker"
+            >Aveling Broadcast Installations &middot; Reading &middot;
+            1983</span
+          >
+        </div>
+
+        <div class="onair-block">
+          <span class="lightbox onair" data-ro="onAirLight">ON&nbsp;AIR</span>
+          <span class="lightbox offair" data-ro="offAirLight"
+            >OFF&nbsp;AIR</span
+          >
+        </div>
+
+        <div class="clockunit">
+          <svg class="clock" viewBox="0 0 120 120" aria-label="Studio clock">
+            <circle cx="60" cy="60" r="57" class="clock-face"></circle>
+            <g class="clock-marks">
+              <line x1="60" y1="8" x2="60" y2="16"></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(30 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(60 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(90 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(120 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(150 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(180 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(210 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(240 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(270 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(300 60 60)"
+              ></line>
+              <line
+                x1="60"
+                y1="8"
+                x2="60"
+                y2="16"
+                transform="rotate(330 60 60)"
+              ></line>
+            </g>
+            <line
+              class="hand hour"
+              data-ro="handHour"
+              x1="60"
+              y1="64"
+              x2="60"
+              y2="36"
+            ></line>
+            <line
+              class="hand min"
+              data-ro="handMin"
+              x1="60"
+              y1="66"
+              x2="60"
+              y2="22"
+            ></line>
+            <line
+              class="hand sec"
+              data-ro="handSec"
+              x1="60"
+              y1="70"
+              x2="60"
+              y2="16"
+            ></line>
+            <circle cx="60" cy="60" r="3.4" class="clock-hub"></circle>
+          </svg>
+          <span class="datestrip lcd" data-ro="datestrip">--- --- --:--</span>
+        </div>
+
+        <button class="manualbtn" data-action="manual" type="button">
+          Operating<br />Manual&nbsp;CB/2M
+        </button>
+      </header>
+
+      <!-- ======================= CONSOLE ======================= -->
+      <main class="console">
+        <!-- ============ SOURCES ============ -->
+        <section class="area sources" aria-label="Sources">
+          <h2 class="areatitle">Programme Sources</h2>
+
+          <div class="cartdeck">
+            <div class="cartwall">
+              <button
+                type="button"
+                class="bay"
+                data-bay="0"
+                aria-label="Select cartridge 1, Open Theme, 28 seconds"
+              >
+                <span class="bay-strip" data-c="tangerine">OPEN THEME</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="0a"></i
+                  ><i class="hub" data-hub="0b"></i
+                ></span>
+                <span class="bay-num">1</span>
+              </button>
+              <button
+                type="button"
+                class="bay"
+                data-bay="1"
+                aria-label="Select cartridge 2, News In, 6 seconds"
+              >
+                <span class="bay-strip" data-c="teal">NEWS IN</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="1a"></i
+                  ><i class="hub" data-hub="1b"></i
+                ></span>
+                <span class="bay-num">2</span>
+              </button>
+              <button
+                type="button"
+                class="bay"
+                data-bay="2"
+                aria-label="Select cartridge 3, Weather, 12 seconds"
+              >
+                <span class="bay-strip" data-c="olive">WEATHER</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="2a"></i
+                  ><i class="hub" data-hub="2b"></i
+                ></span>
+                <span class="bay-num">3</span>
+              </button>
+              <button
+                type="button"
+                class="bay"
+                data-bay="3"
+                aria-label="Select cartridge 4, Ident B, 5 seconds"
+              >
+                <span class="bay-strip" data-c="maroon">IDENT B</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="3a"></i
+                  ><i class="hub" data-hub="3b"></i
+                ></span>
+                <span class="bay-num">4</span>
+              </button>
+              <button
+                type="button"
+                class="bay"
+                data-bay="4"
+                aria-label="Select cartridge 5, Doc Spot, 45 seconds"
+              >
+                <span class="bay-strip" data-c="navy">DOC SPOT</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="4a"></i
+                  ><i class="hub" data-hub="4b"></i
+                ></span>
+                <span class="bay-num">5</span>
+              </button>
+              <button
+                type="button"
+                class="bay"
+                data-bay="5"
+                aria-label="Select cartridge 6, Close Signal, 20 seconds"
+              >
+                <span class="bay-strip" data-c="cocoa">CLOSE SIG</span>
+                <span class="bay-window"
+                  ><i class="hub" data-hub="5a"></i
+                  ><i class="hub" data-hub="5b"></i
+                ></span>
+                <span class="bay-num">6</span>
+              </button>
+            </div>
+
+            <div class="deckrow">
+              <div
+                class="rotary sel-cart"
+                data-control="CARTRIDGE SELECTOR"
+                tabindex="0"
+                role="slider"
+                aria-label="Cartridge selector, six positions"
+                aria-valuemin="1"
+                aria-valuemax="6"
+                aria-valuenow="1"
+                aria-valuetext="Cartridge 1"
+              >
+                <i class="knob" data-ro="knobCart"><i class="knob-line"></i></i>
+                <ul class="rotscale rotscale-6">
+                  <li style="--a: -75deg">1</li>
+                  <li style="--a: -45deg">2</li>
+                  <li style="--a: -15deg">3</li>
+                  <li style="--a: 15deg">4</li>
+                  <li style="--a: 45deg">5</li>
+                  <li style="--a: 75deg">6</li>
+                </ul>
+              </div>
+
+              <div class="deckreadout lcd">
+                <span>SEL <b data-ro="selNum">1</b></span>
+                <span data-ro="deckState">READY</span>
+                <span>REM <b data-ro="deckRemain">--.-</b>s</span>
+              </div>
+
+              <button
+                type="button"
+                class="pushbar"
+                data-control="CART START"
+                data-ro="cartStartBar"
+                aria-label="Start selected cartridge"
+              >
+                <span>CART START</span>
+              </button>
+              <button
+                type="button"
+                class="pb stopcue"
+                data-control="CART STOP CUE"
+                aria-label="Stop and cue cartridge deck"
+              >
+                STOP&nbsp;&middot;&nbsp;CUE
+              </button>
+            </div>
+            <span class="decknote lg"
+              >NAB Type A &middot; primary EOM 1&nbsp;kHz</span
+            >
+          </div>
+
+          <div class="srcpair">
+            <div class="netblock">
+              <h3 class="blocktitle">Network Line</h3>
+              <span class="lamp" data-ro="netOk"><i></i>LINE OK</span>
+              <div class="minibar" aria-hidden="true">
+                <i data-ro="netBar"></i>
+              </div>
+              <div
+                class="rotary sel-net"
+                data-control="NETWORK SELECTOR"
+                tabindex="0"
+                role="slider"
+                aria-label="Network selector: main line, standby feed, off"
+                aria-valuemin="0"
+                aria-valuemax="2"
+                aria-valuenow="0"
+                aria-valuetext="Main line"
+              >
+                <i class="knob" data-ro="knobNet"><i class="knob-line"></i></i>
+                <ul class="rotscale rotscale-3">
+                  <li style="--a: -56deg">MAIN</li>
+                  <li style="--a: 0deg">STDY</li>
+                  <li style="--a: 56deg">OFF</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="micblock">
+              <h3 class="blocktitle">Studio Microphone</h3>
+              <span class="lamp" data-ro="micLive"><i></i>MIC LIVE</span>
+              <span class="guardwrap">
+                <i
+                  class="guardcover"
+                  data-ro="micGuard"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Mic key guard - press to lift"
+                  aria-expanded="false"
+                ></i>
+                <label class="toggle">
+                  <input
+                    type="checkbox"
+                    id="ctl-mic"
+                    data-control="MIC KEY"
+                    disabled
+                  />
+                  <i class="bat"></i>
+                  <span class="lg">MIC&nbsp;KEY</span>
+                </label>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FADERS ============ -->
+        <section class="area faders" aria-label="Fader bank">
+          <h2 class="areatitle">Fader Bank &middot; 100&thinsp;mm</h2>
+          <div class="bank">
+            <div
+              class="fader"
+              data-control="CART WALL FADER"
+              data-fader="cart"
+              tabindex="0"
+              role="slider"
+              aria-label="Cart wall fader"
+              aria-valuemin="0"
+              aria-valuemax="10"
+              aria-valuenow="0"
+              aria-orientation="vertical"
+            >
+              <span class="fscale" aria-hidden="true"
+                ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i><i></i
+              ></span>
+              <span class="fslot"><i class="fhandle"></i></span>
+              <span class="fname lg">CART<br />WALL</span>
+            </div>
+            <div
+              class="fader"
+              data-control="NETWORK FADER"
+              data-fader="network"
+              tabindex="0"
+              role="slider"
+              aria-label="Network fader"
+              aria-valuemin="0"
+              aria-valuemax="10"
+              aria-valuenow="0"
+              aria-orientation="vertical"
+            >
+              <span class="fscale" aria-hidden="true"
+                ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i><i></i
+              ></span>
+              <span class="fslot"><i class="fhandle"></i></span>
+              <span class="fname lg">NET</span>
+            </div>
+            <div
+              class="fader"
+              data-control="MIC FADER"
+              data-fader="mic"
+              tabindex="0"
+              role="slider"
+              aria-label="Microphone fader"
+              aria-valuemin="0"
+              aria-valuemax="10"
+              aria-valuenow="0"
+              aria-orientation="vertical"
+            >
+              <span class="fscale" aria-hidden="true"
+                ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i><i></i
+              ></span>
+              <span class="fslot"><i class="fhandle"></i></span>
+              <span class="fname lg">MIC</span>
+            </div>
+          </div>
+          <div class="monitorrow">
+            <span class="lg mini">MONITOR</span>
+            <div
+              class="rotary sel-mon"
+              data-control="MONITOR SELECTOR"
+              tabindex="0"
+              role="slider"
+              aria-label="Monitor selector: audition, air, cue"
+              aria-valuemin="0"
+              aria-valuemax="2"
+              aria-valuenow="0"
+              aria-valuetext="Audition"
+            >
+              <i class="knob" data-ro="knobMon"><i class="knob-line"></i></i>
+              <ul class="rotscale rotscale-3">
+                <li style="--a: -56deg">AUDN</li>
+                <li style="--a: 0deg">AIR</li>
+                <li style="--a: 56deg">CUE</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PROGRAMME BUS ============ -->
+        <section class="area programme" aria-label="Programme bus">
+          <h2 class="areatitle">Programme Metering</h2>
+
+          <div class="vubridge">
+            <svg
+              class="vu"
+              viewBox="0 0 460 250"
+              role="img"
+              aria-label="Programme volume unit meter"
+            >
+              <rect
+                x="6"
+                y="6"
+                width="448"
+                height="238"
+                rx="6"
+                class="vu-face"
+              ></rect>
+              <path
+                d="M 66.7 151 A 235 235 0 0 1 221.8 85.1"
+                class="vu-arc-black"
+              ></path>
+              <path
+                d="M 221.8 85.1 A 235 235 0 0 1 343.9 114.5"
+                class="vu-arc-red"
+              ></path>
+              <g class="vu-ticks">
+                <line x1="73.7" y1="158.2" x2="61.2" y2="145.2"></line>
+                <line x1="114.1" y1="127.1" x2="104.9" y2="111.7"></line>
+                <line x1="145.7" y1="111.4" x2="139.0" y2="94.7"></line>
+                <line x1="171.8" y1="102.7" x2="167.1" y2="85.3"></line>
+                <line x1="202.6" y1="96.7" x2="200.4" y2="78.8"></line>
+                <line x1="222.1" y1="95.1" x2="221.5" y2="77.2"></line>
+                <line x1="265.2" y1="97.8" x2="268.0" y2="80.0"></line>
+                <line x1="303.3" y1="107.3" x2="309.1" y2="90.3"></line>
+                <line x1="339.1" y1="114.4" x2="347.8" y2="107.5"></line>
+              </g>
+              <g class="vu-labels">
+                <text x="46" y="140" text-anchor="end">-20</text>
+                <text x="93" y="106" text-anchor="end">-10</text>
+                <text x="130" y="87" text-anchor="end">-7</text>
+                <text x="159" y="74" text-anchor="end">-5</text>
+                <text x="193" y="62" text-anchor="end">-3</text>
+                <text x="216" y="58" text-anchor="middle">-2</text>
+                <text x="222" y="52" text-anchor="middle">-1</text>
+                <text x="248" y="54" text-anchor="middle">0</text>
+                <text x="284" y="66" text-anchor="start">+2</text>
+                <text x="330" y="92" text-anchor="start">+3</text>
+                <text x="230" y="130" text-anchor="middle" class="vu-vu">
+                  VU
+                </text>
+              </g>
+              <g data-ro="needle" transform="rotate(-44 230 320)">
+                <line x1="230" y1="320" x2="230" y2="92"></line>
+              </g>
+              <circle cx="230" cy="320" r="17" class="vu-pivot"></circle>
+            </svg>
+            <span class="lamp peaklamp" data-ro="peakLamp"><i></i>PEAK</span>
+          </div>
+
+          <div class="busreadout lcd">
+            BUS <b data-ro="busDb">&minus;60.0</b>&thinsp;dB
+          </div>
+
+          <div class="pgroup delaygrp">
+            <h3 class="blocktitle">Profanity Delay</h3>
+            <div class="delayrow">
+              <label class="toggle sm">
+                <input
+                  type="checkbox"
+                  id="ctl-delayarm"
+                  data-control="DELAY ARM"
+                />
+                <i class="bat"></i>
+                <span class="lg">ARM</span>
+              </label>
+              <button
+                type="button"
+                class="dumpbar"
+                data-control="DELAY DUMP"
+                aria-label="Dump profanity delay"
+              >
+                DUMP
+              </button>
+            </div>
+            <span class="field lcd"
+              >HOLD <b data-ro="delaySec">0.0</b>&thinsp;s
+              <i class="delfill" data-ro="delayFill"></i
+            ></span>
+          </div>
+
+          <div class="pgroup silgrp">
+            <h3 class="blocktitle">Silence Sensor</h3>
+            <span class="lamp" data-ro="silLamp"><i></i>SILENCE SENSE</span>
+            <span class="field lcd"
+              >TIMER <b data-ro="silTimer">0.0</b>/<b>12.0</b>&thinsp;s</span
+            >
+            <div class="minibar wide" aria-hidden="true">
+              <i data-ro="silBar"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TRANSMITTER REMOTE ============ -->
+        <section class="area tx" aria-label="Transmitter remote">
+          <h2 class="areatitle">
+            Transmitter Remote &middot; WRO Little Welford
+          </h2>
+
+          <div class="gaugerow">
+            <figure class="dial">
+              <svg
+                viewBox="0 0 220 175"
+                role="img"
+                aria-label="Forward power gauge, zero to five kilowatts"
+              >
+                <circle cx="110" cy="150" r="104" class="dial-face"></circle>
+                <path
+                  d="M 33.4 85.7 A 104 104 0 0 1 186.6 85.7"
+                  class="dial-arc"
+                ></path>
+                <g class="dial-ticks">
+                  <line x1="33.4" y1="85.7" x2="24.2" y2="78.0"></line>
+                  <line x1="60.0" y1="63.4" x2="54.0" y2="53.0"></line>
+                  <line x1="92.6" y1="51.5" x2="90.6" y2="39.7"></line>
+                  <line x1="127.4" y1="51.5" x2="129.4" y2="39.7"></line>
+                  <line x1="160.0" y1="63.4" x2="166.0" y2="53.0"></line>
+                  <line x1="186.6" y1="85.7" x2="195.8" y2="78.0"></line>
+                </g>
+                <g class="dial-labels">
+                  <text x="20" y="68" text-anchor="end">0</text>
+                  <text x="47" y="43" text-anchor="end">1</text>
+                  <text x="88" y="27" text-anchor="end">2</text>
+                  <text x="134" y="27" text-anchor="start">3</text>
+                  <text x="175" y="43" text-anchor="start">4</text>
+                  <text x="201" y="68" text-anchor="start">5</text>
+                </g>
+                <g data-ro="needleFwd" transform="rotate(-50 110 150)">
+                  <line x1="110" y1="150" x2="110" y2="52"></line>
+                </g>
+                <circle cx="110" cy="150" r="11" class="dial-pivot"></circle>
+                <text x="110" y="122" text-anchor="middle" class="dial-cap">
+                  FORWARD kW
+                </text>
+              </svg>
+              <figcaption class="lcd">
+                FWD <b data-ro="fwdKw">0.00</b>&thinsp;kW
+              </figcaption>
+            </figure>
+
+            <figure class="dial">
+              <svg
+                viewBox="0 0 220 175"
+                role="img"
+                aria-label="Reflected power gauge, zero to five hundred watts"
+              >
+                <circle cx="110" cy="150" r="104" class="dial-face"></circle>
+                <path
+                  d="M 33.4 85.7 A 104 104 0 0 1 186.6 85.7"
+                  class="dial-arc"
+                ></path>
+                <g class="dial-ticks">
+                  <line x1="33.4" y1="85.7" x2="24.2" y2="78.0"></line>
+                  <line x1="60.0" y1="63.4" x2="54.0" y2="53.0"></line>
+                  <line x1="92.6" y1="51.5" x2="90.6" y2="39.7"></line>
+                  <line x1="127.4" y1="51.5" x2="129.4" y2="39.7"></line>
+                  <line x1="160.0" y1="63.4" x2="166.0" y2="53.0"></line>
+                  <line x1="186.6" y1="85.7" x2="195.8" y2="78.0"></line>
+                </g>
+                <g class="dial-labels">
+                  <text x="20" y="68" text-anchor="end">0</text>
+                  <text x="47" y="43" text-anchor="end">100</text>
+                  <text x="88" y="27" text-anchor="end">200</text>
+                  <text x="134" y="27" text-anchor="start">300</text>
+                  <text x="175" y="43" text-anchor="start">400</text>
+                  <text x="201" y="68" text-anchor="start">500</text>
+                </g>
+                <g data-ro="needleRefl" transform="rotate(-50 110 150)">
+                  <line x1="110" y1="150" x2="110" y2="52"></line>
+                </g>
+                <circle cx="110" cy="150" r="11" class="dial-pivot"></circle>
+                <text x="110" y="122" text-anchor="middle" class="dial-cap">
+                  REFLECTED W
+                </text>
+              </svg>
+              <figcaption class="lcd">
+                REFL <b data-ro="reflW">0</b>&thinsp;W
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="txrow">
+            <div
+              class="thermo"
+              role="img"
+              aria-label="Power amplifier temperature"
+            >
+              <span class="lg mini tcap">PA&nbsp;TEMP</span>
+              <span class="tslot"><i data-ro="tempFill"></i></span>
+              <span class="tmarks" aria-hidden="true"
+                ><b>40</b><b>80</b><b>95</b></span
+              >
+            </div>
+            <div class="txlamps">
+              <span class="lamp" data-ro="txReady"><i></i>TX READY</span>
+              <span class="lamp" data-ro="txFold"><i></i>FOLDBACK</span>
+              <span class="lamp" data-ro="txTripLamp"><i></i>TX TRIP</span>
+            </div>
+          </div>
+
+          <div class="txkeys">
+            <button
+              type="button"
+              class="pb raise"
+              data-control="TX RAISE"
+              aria-label="Raise transmitter power"
+            >
+              RAISE
+            </button>
+            <button
+              type="button"
+              class="pb lower"
+              data-control="TX LOWER"
+              aria-label="Lower transmitter power"
+            >
+              LOWER
+            </button>
+            <button
+              type="button"
+              class="pb resetkey"
+              data-control="TX RESET"
+              aria-label="Reset transmitter trip"
+            >
+              TX&nbsp;RESET
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <!-- ======================= ALARM RAIL ======================= -->
+      <footer class="alarmrail" aria-label="Alarm annunciators and maintenance">
+        <div class="annunc">
+          <span class="ann" data-alarm="SILENCE">SILENCE</span>
+          <span class="ann" data-alarm="NET FAIL">NET FAIL</span>
+          <span class="ann" data-alarm="CART JAM">CART JAM</span>
+          <span class="ann" data-alarm="PA TEMP">PA TEMP</span>
+          <span class="ann" data-alarm="TX TRIP">TX TRIP</span>
+          <span class="ann" data-alarm="OFF AIR">OFF AIR</span>
+        </div>
+
+        <div class="railkeys">
+          <button
+            type="button"
+            class="pb"
+            data-control="ALARM ACCEPT"
+            aria-label="Accept alarms"
+          >
+            ALARM&nbsp;ACCEPT
+          </button>
+          <button
+            type="button"
+            class="pb"
+            data-control="LAMPS TEST"
+            aria-label="Lamps test, hold down"
+          >
+            LAMPS&nbsp;TEST
+          </button>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="ctl-mains"
+              data-control="CONSOLE MAINS"
+            />
+            <i class="bat"></i>
+            <span class="lg">CONSOLE&nbsp;MAINS</span>
+          </label>
+        </div>
+
+        <div class="maint" data-ro="maintBox">
+          <i
+            class="maintlid"
+            data-ro="maintLid"
+            tabindex="0"
+            role="button"
+            aria-label="Maintenance panel - press to lift lid"
+            aria-expanded="false"
+          >
+            <span>MAINTENANCE</span><span class="mini">LIFT&nbsp;LID</span>
+          </i>
+          <div class="maintkeys">
+            <button
+              type="button"
+              class="pb test"
+              data-control="TEST CART JAM"
+              aria-label="Inject fault: cart jam"
+            >
+              CART&nbsp;JAM
+            </button>
+            <button
+              type="button"
+              class="pb test"
+              data-control="TEST NETWORK LOSS"
+              aria-label="Inject fault: network loss"
+            >
+              NET&nbsp;LOSS
+            </button>
+            <button
+              type="button"
+              class="pb test"
+              data-control="TEST TX OVERLOAD"
+              aria-label="Inject fault: transmitter overload"
+            >
+              TX&nbsp;OVERLD
+            </button>
+            <button
+              type="button"
+              class="pb tone"
+              data-control="TEST TONE"
+              aria-label="Test tone, hold down"
+            >
+              1&thinsp;kHz&nbsp;TONE
+            </button>
+            <button
+              type="button"
+              class="keysw"
+              data-control="CONSOLE RESET"
+              aria-label="Console reset key"
+            >
+              <i class="keybarrel" data-ro="keyBarrel"></i
+              ><span class="mini">RESET</span>
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <p class="shelflink"><a href="../../">&#8592; Machinery catalogue</a></p>
+    </div>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual class="manualdlg" aria-label="Operating manual CB/2M">
+      <div class="manualchrome">
+        <header class="manualhead">
+          <span class="mh-title lg"
+            >Wrenford Vale Radio &middot; Manual CB/2M &middot; Studio B
+            Continuity Desk</span
+          >
+          <button type="button" class="mh-close pb" data-action="close-manual">
+            CLOSE
+          </button>
+        </header>
+        <iframe src="manual.html" title="Operating manual CB/2M"></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
