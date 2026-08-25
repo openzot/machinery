@@ -505,7 +505,7 @@
  },
  {
   "slug": "vindskaer-nacelle-controller",
-  "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
+  "name": "Vindskær V-62 - Nacelle Service Controller",
   "kind": "grid wind turbine nacelle service controller",
   "domain": "energy",
   "era": "2000s",
@@ -623,7 +623,7 @@
  },
  {
   "slug": "hogfors-ice-plant",
-  "name": "H\u00f6gfors Isstadion - Ice Plant Machine Room",
+  "name": "Högfors Isstadion - Ice Plant Machine Room",
   "kind": "municipal ice-rink refrigeration machine room",
   "domain": "cold-chain",
   "era": "1970s",
@@ -854,6 +854,42 @@
    "make-up valve passing"
   ],
   "tagline": "Fourteen bar outside; mind your oxygen like it is the last litre.",
+  "created": "2026-08-25"
+ },
+ {
+  "slug": "marlpit-retort-bench",
+  "name": "Marlpit Gas Works - Retort House Stoking Bench No. 4",
+  "kind": "town-gas retort-house stoking bench",
+  "domain": "chemical",
+  "era": "1920s",
+  "design": "blackleaded cast-iron fascia bolted over a white glazed-brick back panel, transfer-printed buff legends and engraved brass data plates, drop-shutter annunciators, lit by roof-louvres daylight and its own fire",
+  "interaction": "charging retorts by pull lever off a swinging coal spout, trimming the producer firing valve and damper against a pyrometer, holding the hydraulic main at an inch of water on the exhauster governor handwheel, and working the stoking rake in full strokes through the open door",
+  "palette": [
+   "#2e3236",
+   "#e3cfa0",
+   "#c23a1e"
+  ],
+  "controls": [
+   "CHARGE LEVER",
+   "RETORT SELECTOR",
+   "RETORT DOOR",
+   "PRODUCER DAMPER",
+   "FIRING VALVE",
+   "STOKING RAKE",
+   "SEAL WATER COCK",
+   "EXHAUSTER GOVERNOR",
+   "TEST BURNER COCK",
+   "ALARM ACCEPT",
+   "LAMPS TEST",
+   "TRIP RESET",
+   "FAULT TEST SWITCHES"
+  ],
+  "faults": [
+   "water seal blown",
+   "flue clinker fouling",
+   "exhauster overload trip"
+  ],
+  "tagline": "Charge her easy, keep the main at an inch, and never let the seal run dry.",
   "created": "2026-08-25"
  }
 ]

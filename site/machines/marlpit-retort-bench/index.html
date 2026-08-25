@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marlpit Gas Works — Retort House Stoking Bench No. 4</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <header class="works-head">
+        <div class="works-name">
+          MARLPIT&nbsp;GAS&nbsp;WORKS
+          <em>&middot;</em> RETORT&nbsp;HOUSE&nbsp;No.&nbsp;2
+          <em>&middot;</em> STOKERS&rsquo; SIDE
+        </div>
+        <nav class="works-nav">
+          <a href="../../">&larr; Machinery catalogue</a>
+        </nav>
+      </header>
+
+      <main class="bench">
+        <!-- ============ top rail : title, annunciators, operation ============ -->
+        <section class="toprail">
+          <div class="titleplate">
+            <h1>MARLPIT GAS WORKS</h1>
+            <p>
+              RETORT HOUSE STOKING BENCH No.&nbsp;4<br />FIVE-RETORT SETTING
+              &mdash; 1926
+            </p>
+          </div>
+
+          <div
+            class="annunciator"
+            role="group"
+            aria-label="Alarm annunciator windows"
+          >
+            <span class="shutter" data-alarm="SAFETY LIFTS"
+              ><i></i><b>SAFETY&nbsp;LIFTS</b></span
+            >
+            <span class="shutter" data-alarm="MAIN SUCTION"
+              ><i></i><b>MAIN&nbsp;SUCTION</b></span
+            >
+            <span class="shutter" data-alarm="OVERHEAT"
+              ><i></i><b>OVERHEAT</b></span
+            >
+            <span class="shutter" data-alarm="GAS ESCAPE"
+              ><i></i><b>GAS&nbsp;ESCAPE</b></span
+            >
+            <span class="shutter" data-alarm="LOW GAS MAKE"
+              ><i></i><b>LOW&nbsp;MAKE</b></span
+            >
+            <span class="shutter" data-alarm="HOLDER FULL"
+              ><i></i><b>HOLDER&nbsp;FULL</b></span
+            >
+            <span class="shutter" data-alarm="HOLDER LOW"
+              ><i></i><b>HOLDER&nbsp;LOW</b></span
+            >
+            <span class="shutter" data-alarm="EXHAUSTER TRIP"
+              ><i></i><b>EXHTRIP</b></span
+            >
+            <span class="shutter" data-alarm="FLAME FAILURE"
+              ><i></i><b>FLAME&nbsp;FAIL</b></span
+            >
+          </div>
+
+          <div class="toprail-right">
+            <div class="jewelrow">
+              <span class="jewel" data-jewel="fires"></span
+              ><span class="jewel-label">FIRES</span>
+              <span class="jewel" data-jewel="exhauster"></span
+              ><span class="jewel-label">EXHTR</span>
+              <button type="button" class="manual-plaque" data-action="manual">
+                OPERATING MANUAL
+              </button>
+            </div>
+            <div class="opsrow">
+              <button
+                type="button"
+                class="pushbtn accept"
+                data-control="ALARM ACCEPT"
+                aria-label="Alarm accept — steady the dropped shutters"
+              >
+                ACCEPT
+              </button>
+              <button
+                type="button"
+                class="pushbtn lamps"
+                data-control="LAMPS TEST"
+                aria-label="Lamps test — hold down to prove every window"
+              >
+                LAMPS
+              </button>
+              <button
+                type="button"
+                class="pushbtn reset"
+                data-control="TRIP RESET"
+                aria-label="Trip reset — restart the exhauster and relight after a trip"
+              >
+                RESET
+              </button>
+              <div
+                class="faultgroup"
+                data-control="FAULT TEST SWITCHES"
+                role="group"
+                aria-label="Maintenance fault test switches — press to inject, press again to withdraw"
+              >
+                <span class="fglabel">FAULT TEST SWITCHES</span>
+                <span class="fswitches">
+                  <button
+                    type="button"
+                    class="fsw"
+                    data-fault="water seal blown"
+                    aria-pressed="false"
+                    aria-label="Inject fault: water seal blown"
+                  >
+                    SEAL
+                  </button>
+                  <button
+                    type="button"
+                    class="fsw"
+                    data-fault="flue clinker fouling"
+                    aria-pressed="false"
+                    aria-label="Inject fault: flue clinker fouling"
+                  >
+                    CLINKER
+                  </button>
+                  <button
+                    type="button"
+                    class="fsw"
+                    data-fault="exhauster overload trip"
+                    aria-pressed="false"
+                    aria-label="Inject fault: exhauster overload trip"
+                  >
+                    EXHTRIP
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ the setting : cutaway elevation mimic ============ -->
+        <section class="settingwrap">
+          <div
+            class="setting"
+            role="img"
+            aria-label="Cutaway elevation of the retort setting: coal hopper, five retort mouths over firing flues, ascension pipes to the water-sealed hydraulic main, exhauster with governor, pipe to the gasholder, and the test burner."
+          >
+            <div class="arch"></div>
+
+            <!-- coal hopper + swinging spout -->
+            <div class="hopper">
+              <div class="hopbody"></div>
+              <div class="hopband">COAL</div>
+              <div class="spout" data-spout></div>
+            </div>
+
+            <!-- five retort bays -->
+            <div class="bay" data-r="1">
+              <div class="stencil">1</div>
+              <div class="doorpane">
+                <div class="glow"></div>
+                <div class="door"></div>
+              </div>
+              <div class="riser"></div>
+            </div>
+            <div class="bay" data-r="2">
+              <div class="stencil">2</div>
+              <div class="doorpane">
+                <div class="glow"></div>
+                <div class="door"></div>
+              </div>
+              <div class="riser"></div>
+            </div>
+            <div class="bay" data-r="3">
+              <div class="stencil">3</div>
+              <div class="doorpane">
+                <div class="glow"></div>
+                <div class="door"></div>
+              </div>
+              <div class="riser"></div>
+            </div>
+            <div class="bay" data-r="4">
+              <div class="stencil">4</div>
+              <div class="doorpane">
+                <div class="glow"></div>
+                <div class="door"></div>
+              </div>
+              <div class="riser"></div>
+            </div>
+            <div class="bay" data-r="5">
+              <div class="stencil">5</div>
+              <div class="doorpane">
+                <div class="glow"></div>
+                <div class="door"></div>
+              </div>
+              <div class="riser"></div>
+            </div>
+
+            <!-- firing flues -->
+            <div class="flues">
+              <i class="flame f1"></i><i class="flame f2"></i
+              ><i class="flame f3"></i> <i class="flame f4"></i
+              ><i class="flame f5"></i><i class="flame f6"></i>
+              <i class="flame f7"></i><i class="flame f8"></i>
+              <div class="baffle b1"></div>
+              <div class="baffle b2"></div>
+              <div class="baffle b3"></div>
+              <div class="baffle b4"></div>
+              <div class="baffle b5"></div>
+            </div>
+
+            <!-- stoking rake rod -->
+            <div class="rakerod" data-rakerod></div>
+
+            <!-- hydraulic main trough -->
+            <div class="maintrough">
+              <div class="troughwater" data-troughwater></div>
+              <div class="dip dyp1"></div>
+              <div class="dip dyp2"></div>
+              <div class="dip dyp3"></div>
+              <div class="dip dyp4"></div>
+              <div class="dip dyp5"></div>
+              <div class="lid lid-a" data-lid-a></div>
+              <div class="lid lid-b" data-lid-b></div>
+              <div class="sealglass"><i data-sealcolumn></i></div>
+              <div class="bubbles" data-bubbles></div>
+            </div>
+            <div class="troughlegend">HYDRAULIC MAIN</div>
+
+            <!-- pipes to exhauster and holder -->
+            <div class="pipe pmain"></div>
+            <div class="pipe pexh"></div>
+
+            <!-- exhauster -->
+            <div class="exhaustor">
+              <div class="volute"><i class="vane" data-vane></i></div>
+              <div class="exhleg legl"></div>
+              <div class="exhleg legr"></div>
+            </div>
+
+            <!-- gasholder -->
+            <div class="holderframe">
+              <div class="holdersheet" data-holdersheet></div>
+              <div class="holdercrown"></div>
+            </div>
+            <div class="holderlegend">HOLDER</div>
+
+            <!-- test burner -->
+            <div class="testburner">
+              <div class="tbstem"></div>
+              <div class="tbcollar"></div>
+              <div class="scribe"></div>
+              <div class="tbflame" data-tbflame><i></i></div>
+            </div>
+            <div class="tblegend">TEST BURNER</div>
+
+            <!-- charging cascade flash -->
+            <div class="cascade" data-cascade></div>
+          </div>
+        </section>
+
+        <!-- ============ gauge rail ============ -->
+        <section class="gaugerail">
+          <div class="instrument manometer-inst">
+            <svg viewBox="0 0 150 168" aria-hidden="true">
+              <text x="75" y="14" class="dialtitle">HYDRAULIC MAIN</text>
+              <text x="75" y="26" class="dialsub">INCHES W.G.</text>
+              <path
+                class="utube"
+                d="M63 44 h10 v74 a7 7 0 0 0 14 0 V44 h-10 v74 a-7 -7 0 0 1 -14 0 Z"
+              />
+              <rect
+                class="mwater"
+                data-mwater-left
+                x="63"
+                y="118"
+                width="10"
+                height="0"
+              />
+              <rect
+                class="mwater"
+                data-mwater-right
+                x="77"
+                y="44"
+                width="10"
+                height="0"
+              />
+              <g class="ticks">
+                <line x1="46" y1="52" x2="60" y2="52" />
+                <text x="43" y="55" text-anchor="end">3</text>
+                <line x1="46" y1="73" x2="60" y2="73" />
+                <text x="43" y="76" text-anchor="end">2</text>
+                <line x1="46" y1="94" x2="60" y2="94" />
+                <text x="43" y="97" text-anchor="end">1</text>
+                <line x1="46" y1="115" x2="60" y2="115" />
+                <text x="43" y="118" text-anchor="end">0</text>
+                <line x1="46" y1="136" x2="60" y2="136" />
+                <text x="43" y="139" text-anchor="end">&#8722;1</text>
+              </g>
+              <circle cx="112" cy="115" r="3.5" class="conn" />
+              <text x="112" y="132" class="dialfoot">TO MAIN</text>
+            </svg>
+          </div>
+
+          <div class="instrument pyro-inst">
+            <svg viewBox="0 0 150 150" aria-hidden="true">
+              <text x="75" y="18" class="dialtitle">BENCH PYROMETER</text>
+              <text x="75" y="30" class="dialsub">DEG. FAHR.</text>
+              <g class="pyroticks" data-pyroticks></g>
+              <path class="redarc" data-redarc />
+              <line
+                class="needle"
+                data-pyroneedle
+                x1="75"
+                y1="82"
+                x2="75"
+                y2="30"
+              />
+              <circle cx="75" cy="82" r="5" class="hub" />
+              <text x="28" y="122" class="dialfoot">800</text>
+              <text x="75" y="136" class="dialfoot">1600</text>
+              <text x="120" y="122" class="dialfoot">2400</text>
+            </svg>
+          </div>
+
+          <div class="instrument holder-inst">
+            <svg viewBox="0 0 150 110" aria-hidden="true">
+              <text x="75" y="16" class="dialtitle">GASHOLDER No. 1</text>
+              <text x="75" y="28" class="dialsub">PER CENT FULL</text>
+              <path class="sector" d="M25 92 A55 55 0 0 1 125 92" />
+              <g class="secticks" data-secticks></g>
+              <line
+                class="needle sm"
+                data-holderneedle
+                x1="75"
+                y1="92"
+                x2="75"
+                y2="48"
+              />
+              <circle cx="75" cy="92" r="4.5" class="hub" />
+              <text x="20" y="105" class="dialfoot">0</text>
+              <text x="126" y="105" class="dialfoot">100</text>
+            </svg>
+          </div>
+
+          <div class="cardstack">
+            <div class="card">
+              <label>GAS MAKE</label>
+              <output data-make>&ndash;</output>
+              <small>THOUSAND CU.&nbsp;FT. PER HOUR</small>
+            </div>
+            <div class="card">
+              <label>EXHAUSTER</label>
+              <output data-rpm>&ndash;</output>
+              <small>REVOLUTIONS PER MINUTE</small>
+            </div>
+            <div class="card">
+              <label>SHIFT CLOCK</label>
+              <output data-clock>06:00</output>
+              <small>WORKING SHIFT</small>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ process controls ============ -->
+        <section class="controls">
+          <div class="cgroup">
+            <h2 class="gname">CHARGING</h2>
+            <div class="crow">
+              <div class="ctl">
+                <button
+                  type="button"
+                  class="chargelever"
+                  data-control="CHARGE LEVER"
+                  aria-label="Charge lever — pull to drop a charge into the selected retort"
+                >
+                  <i></i>
+                </button>
+                <span class="legend"
+                  >CHARGE LEVER<small>PULL &amp; LET FALL</small></span
+                >
+              </div>
+              <div class="ctl">
+                <div
+                  class="rotary selector"
+                  data-control="RETORT SELECTOR"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Retort selector, retorts one to five"
+                  aria-valuemin="1"
+                  aria-valuemax="5"
+                  aria-valuenow="1"
+                >
+                  <i class="selknob"><b></b></i>
+                  <span class="seltick t1">1</span
+                  ><span class="seltick t2">2</span
+                  ><span class="seltick t3">3</span>
+                  <span class="seltick t4">4</span
+                  ><span class="seltick t5">5</span>
+                </div>
+                <span class="legend"
+                  >RETORT SELECTOR<small>CLICK OR ARROWS</small></span
+                >
+              </div>
+              <div class="ctl">
+                <button
+                  type="button"
+                  class="sliding-toggle door-toggle"
+                  data-control="RETORT DOOR"
+                  aria-pressed="false"
+                  aria-label="Retort door — open or close the selected retort"
+                >
+                  <i class="dt-knob"></i><span class="dt-open">OPEN</span
+                  ><span class="dt-shut">SHUT</span>
+                </button>
+                <span class="legend"
+                  >RETORT DOOR<small>SELECTED RETORT</small></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cgroup">
+            <h2 class="gname">FIRING</h2>
+            <div class="crow">
+              <div class="ctl">
+                <div
+                  class="vertslider damper"
+                  data-control="PRODUCER DAMPER"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Producer air damper, nought to ten"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                >
+                  <i class="vs-track"></i
+                  ><i class="vs-handle" data-damperhandle></i>
+                  <span class="vs-max">10</span><span class="vs-min">0</span>
+                </div>
+                <span class="legend"
+                  >PRODUCER DAMPER<small>AIR TO THE FIRES</small></span
+                >
+              </div>
+              <div class="ctl">
+                <div
+                  class="rotary valve"
+                  data-control="FIRING VALVE"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Producer gas firing valve, nought to eight quarter-turns"
+                  aria-valuemin="0"
+                  aria-valuemax="8"
+                  aria-valuenow="0"
+                >
+                  <i class="valveknob" data-valveknob></i>
+                  <span class="vtick v0"></span><span class="vtick v2"></span
+                  ><span class="vtick v4"></span> <span class="vtick v6"></span
+                  ><span class="vtick v8"></span>
+                </div>
+                <span class="legend"
+                  >FIRING VALVE<small>QUARTER TURNS</small></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cgroup cg-main">
+            <h2 class="gname">MAIN &amp; SEAL</h2>
+            <div class="crow">
+              <div class="ctl rakewrap">
+                <div
+                  class="rakeslot"
+                  data-control="STOKING RAKE"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Stoking rake — work full strokes with the retort door open"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                >
+                  <i class="rakebar" data-rakebar></i>
+                  <span class="raketick rt-a">IN</span
+                  ><span class="raketick rt-b">OUT</span>
+                </div>
+                <span class="legend"
+                  >STOKING RAKE<small>FULL STROKES, DOOR OPEN</small></span
+                >
+              </div>
+              <div class="ctl">
+                <button
+                  type="button"
+                  class="cock"
+                  data-control="SEAL WATER COCK"
+                  aria-label="Seal water cock — hold open to run water into the hydraulic main"
+                >
+                  <i class="cockcross"></i>
+                </button>
+                <span class="legend"
+                  >SEAL WATER COCK<small>HOLD TO POUR</small></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cgroup">
+            <h2 class="gname">DRAW</h2>
+            <div class="crow">
+              <div class="ctl">
+                <div
+                  class="handwheel"
+                  data-control="EXHAUSTER GOVERNOR"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Exhauster governor, nought to ten"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                >
+                  <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <g data-wheelg>
+                      <circle cx="50" cy="50" r="40" class="wrim" />
+                      <circle cx="50" cy="50" r="9" class="whub" />
+                      <line x1="50" y1="12" x2="50" y2="41" class="wspoke" />
+                      <line x1="50" y1="59" x2="50" y2="88" class="wspoke" />
+                      <line x1="12" y1="50" x2="41" y2="50" class="wspoke" />
+                      <line x1="59" y1="50" x2="88" y2="50" class="wspoke" />
+                      <line x1="23" y1="23" x2="43" y2="43" class="wspoke" />
+                      <line x1="57" y1="57" x2="77" y2="77" class="wspoke" />
+                      <line x1="77" y1="23" x2="57" y2="43" class="wspoke" />
+                      <line x1="43" y1="57" x2="23" y2="77" class="wspoke" />
+                    </g>
+                  </svg>
+                  <span class="gwmark gwplus">+</span
+                  ><span class="gwmark gwminus">&minus;</span>
+                </div>
+                <span class="legend"
+                  >EXHAUSTER GOVERNOR<small>LEFT &minus;, RIGHT +</small></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cgroup">
+            <h2 class="gname">SAMPLING</h2>
+            <div class="crow">
+              <div class="ctl">
+                <button
+                  type="button"
+                  class="sliding-toggle tb-cock"
+                  data-control="TEST BURNER COCK"
+                  aria-pressed="false"
+                  aria-label="Test burner cock — draw a sample to the test burner"
+                >
+                  <i class="dt-knob"></i><span class="dt-open">ON</span
+                  ><span class="dt-shut">OFF</span>
+                </button>
+                <span class="legend"
+                  >TEST BURNER COCK<small>KEEP FLAME ON SCRIBE</small></span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="bench-foot">
+          <p class="makerplate">
+            MARLPIT IRONWORKS &amp; BOILER Co. &nbsp;&middot;&nbsp; ERECTED 1926
+            &nbsp;&middot;&nbsp; WORKS No. 214
+          </p>
+          <p class="careplate">
+            KEEP THE SEAL WET &mdash; KEEP THE MAIN AT AN INCH &mdash; NEVER
+            LEAVE A DOOR OPEN IDLE
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <header class="manual-head">
+          <b>MARLPIT GAS WORKS</b>
+          <span>OPERATING MANUAL No.&nbsp;14 &mdash; BENCH No.&nbsp;4</span>
+          <button type="button" class="manual-close" data-action="close-manual">
+            CLOSE
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Marlpit Gas Works operating manual"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
