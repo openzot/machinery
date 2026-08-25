@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Calderbridge Corporation Master Clock No. 1 and Impulse Switchboard — an electrically driven master clock feeding forty slave dials across the borough."
+    />
+    <title>Calderbridge Master Clock No. 1 — Impulse Switchboard</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <header class="head">
+        <div class="maker" aria-hidden="true">
+          ASHWORTH &amp; PYE LTD · MANCHESTER&nbsp;&nbsp;·&nbsp;&nbsp;No
+          8814&nbsp;&nbsp;·&nbsp;&nbsp;1926
+        </div>
+        <div class="titles">
+          <h1>CALDERBRIDGE CORPORATION</h1>
+          <p>
+            MASTER CLOCK No. 1 &nbsp;&amp;&nbsp; IMPULSE SWITCHBOARD ·
+            ELECTRICALLY DRIVEN CLOCKS
+          </p>
+        </div>
+        <nav class="head-actions">
+          <button
+            class="plate-btn"
+            type="button"
+            data-action="manual"
+            aria-haspopup="dialog"
+          >
+            INSTRUCTION BOOK
+          </button>
+          <a class="plate-link" href="../../">MACHINE SHOP</a>
+        </nav>
+      </header>
+
+      <main class="bench">
+        <!-- ================= THE LONG-CASE CLOCK ================= -->
+        <section class="case-col" aria-label="Master clock case">
+          <div class="case">
+            <div class="hood">
+              <span class="hood-ear left" aria-hidden="true"></span>
+              <span class="hood-ear right" aria-hidden="true"></span>
+              <div class="bezel">
+                <div class="dial" id="dial">
+                  <svg
+                    id="dialSvg"
+                    viewBox="-100 -100 200 200"
+                    aria-hidden="true"
+                  ></svg>
+                  <span class="dial-name" aria-hidden="true"
+                    >ASHWORTH &amp; PYE</span
+                  >
+                  <span class="glass" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="hood-plate" aria-hidden="true">
+                <span>MASTER CLOCK No. 1</span>
+                <span class="hp-sub">MINUTE IMPULSE · FORTY SLAVE DIALS</span>
+              </div>
+            </div>
+
+            <div class="trunk">
+              <div class="door-knob" aria-hidden="true"></div>
+              <div class="movement" aria-hidden="true">
+                <div class="suspension"></div>
+                <div class="anchor-wheel" id="anchorWheel"></div>
+                <div class="pendulum" id="pendulum">
+                  <span class="rod"></span>
+                  <span class="bob"></span>
+                  <span class="rating-nut"></span>
+                </div>
+                <div class="drum">
+                  <span class="drum-body"></span>
+                  <span class="drum-wheel" id="drumWheel"></span>
+                </div>
+                <div class="weight-slot">
+                  <span class="cable" id="cable"></span>
+                  <span class="weight" id="weight"><b></b></span>
+                </div>
+                <div class="trunk-shadow" aria-hidden="true"></div>
+              </div>
+
+              <!-- case-mounted operating fittings -->
+              <div class="case-controls">
+                <div
+                  class="ctl crank-unit"
+                  id="crank"
+                  data-control="WINDING CRANK"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Winding crank — hold to wind the driving weight"
+                >
+                  <span class="crank-boss" aria-hidden="true"
+                    ><span class="crank-arm" id="crankArm"
+                      ><i class="crank-handle"></i></span
+                  ></span>
+                  <span class="ctl-label">WINDING<br />CRANK</span>
+                  <span class="ctl-note" aria-hidden="true">HOLD TO WIND</span>
+                </div>
+
+                <div
+                  class="ctl lever-unit"
+                  id="leverStart"
+                  data-control="PENDULUM START LEVER"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Pendulum start lever — give the pendulum a gentle start"
+                >
+                  <span class="lever-slot" aria-hidden="true"
+                    ><span class="lever-handle" id="startHandle"></span
+                  ></span>
+                  <span class="ctl-label">PENDULUM<br />START</span>
+                </div>
+
+                <div
+                  class="ctl knob-unit"
+                  id="knobRating"
+                  data-control="RATING KNOB"
+                  tabindex="0"
+                  role="slider"
+                  aria-label="Rating knob — rate in seconds per day"
+                  aria-valuemin="-6"
+                  aria-valuemax="6"
+                  aria-valuenow="0"
+                  aria-valuetext="0 seconds per day"
+                >
+                  <span class="knob-card" aria-hidden="true"
+                    ><em>SLOW</em><em>FAST</em></span
+                  >
+                  <span class="knob knurled" id="rateKnob" aria-hidden="true"
+                    ><i class="ptr" id="ratePtr"></i
+                  ></span>
+                  <span class="ctl-label">RATING</span>
+                  <span class="readout" id="rateVal">0 s/day</span>
+                </div>
+
+                <div
+                  class="ctl knob-unit"
+                  id="knobHands"
+                  data-control="HANDS KNOB"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Hands knob — advance the master hands thirty seconds, forward only"
+                >
+                  <span class="knob knurled small" aria-hidden="true"
+                    ><i class="ptr"></i
+                  ></span>
+                  <span class="ctl-label">HANDS</span>
+                  <span class="ctl-note" aria-hidden="true">FORWARD ONLY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="plinth" aria-hidden="true">
+              <span>AMPEX GRAVE REGULATOR · TWO SECONDS BEAT</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= THE SLATE IMPULSE BOARD ================= -->
+        <section class="board-col">
+          <div class="board" aria-label="Impulse switchboard">
+            <div class="board-rail">
+              <span>IMPULSE BOARD No. 1</span>
+              <span class="rail-sub"
+                >TWO-VOLT PRIMARY CELLS · ONE MINUTE IMPULSE</span
+              >
+            </div>
+
+            <div class="board-top">
+              <div class="meter-block">
+                <div class="meter" id="meterV" aria-hidden="true"></div>
+                <span class="meter-name">LINE&nbsp;VOLTS</span>
+              </div>
+              <div
+                class="flag-column"
+                role="list"
+                aria-label="Annunciator drop-flags"
+              >
+                <div class="flag" data-flag="TIME ERROR" role="listitem">
+                  <span class="flag-win"
+                    ><span class="face-up" aria-hidden="true"></span
+                    ><span class="face-drop" aria-hidden="true"
+                      >TIME ERROR</span
+                    ></span
+                  >
+                  <span class="flag-tag">TIME ERROR</span>
+                </div>
+                <div class="flag" data-flag="BATTERY LOW" role="listitem">
+                  <span class="flag-win"
+                    ><span class="face-up" aria-hidden="true"></span
+                    ><span class="face-drop" aria-hidden="true"
+                      >BATTERY LOW</span
+                    ></span
+                  >
+                  <span class="flag-tag">BATTERY LOW</span>
+                </div>
+                <div class="flag" data-flag="LINE FAULT" role="listitem">
+                  <span class="flag-win"
+                    ><span class="face-up" aria-hidden="true"></span
+                    ><span class="face-drop" aria-hidden="true"
+                      >LINE FAULT</span
+                    ></span
+                  >
+                  <span class="flag-tag">LINE FAULT</span>
+                </div>
+                <div class="flag" data-flag="CLOCK STOPPED" role="listitem">
+                  <span class="flag-win"
+                    ><span class="face-up" aria-hidden="true"></span
+                    ><span class="face-drop" aria-hidden="true"
+                      >STOPPED</span
+                    ></span
+                  >
+                  <span class="flag-tag">CLOCK STOPPED</span>
+                </div>
+              </div>
+              <div class="meter-block">
+                <div class="meter" id="meterMA" aria-hidden="true"></div>
+                <span class="meter-name">IMPULSE&nbsp;mA</span>
+              </div>
+            </div>
+
+            <div class="board-mid">
+              <div
+                class="knife-bank"
+                role="group"
+                aria-label="Slave circuit knife switches"
+              >
+                <div
+                  class="knife"
+                  id="kA"
+                  data-control="CIRCUIT A SWITCH"
+                  tabindex="0"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Circuit A switch — Post Office, ten dials"
+                >
+                  <span class="knife-clip l" aria-hidden="true"></span
+                  ><span class="knife-clip r" aria-hidden="true"></span>
+                  <span class="blade" id="bladeA" aria-hidden="true"></span>
+                  <span class="knife-stud" aria-hidden="true"></span>
+                  <span class="ctl-label">A<br />POST&nbsp;OFFICE</span>
+                </div>
+                <div
+                  class="knife"
+                  id="kB"
+                  data-control="CIRCUIT B SWITCH"
+                  tabindex="0"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Circuit B switch — Town Hall, ten dials"
+                >
+                  <span class="knife-clip l" aria-hidden="true"></span
+                  ><span class="knife-clip r" aria-hidden="true"></span>
+                  <span class="blade" id="bladeB" aria-hidden="true"></span>
+                  <span class="knife-stud" aria-hidden="true"></span>
+                  <span class="ctl-label">B<br />TOWN&nbsp;HALL</span>
+                </div>
+                <div
+                  class="knife"
+                  id="kC"
+                  data-control="CIRCUIT C SWITCH"
+                  tabindex="0"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Circuit C switch — Police, eight dials"
+                >
+                  <span class="knife-clip l" aria-hidden="true"></span
+                  ><span class="knife-clip r" aria-hidden="true"></span>
+                  <span class="blade" id="bladeC" aria-hidden="true"></span>
+                  <span class="knife-stud" aria-hidden="true"></span>
+                  <span class="ctl-label">C<br />POLICE</span>
+                </div>
+                <div
+                  class="knife"
+                  id="kD"
+                  data-control="CIRCUIT D SWITCH"
+                  tabindex="0"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Circuit D switch — Schools, twelve dials"
+                >
+                  <span class="knife-clip l" aria-hidden="true"></span
+                  ><span class="knife-clip r" aria-hidden="true"></span>
+                  <span class="blade" id="bladeD" aria-hidden="true"></span>
+                  <span class="knife-stud" aria-hidden="true"></span>
+                  <span class="ctl-label">D<br />SCHOOLS</span>
+                </div>
+              </div>
+
+              <div class="mid-side">
+                <div
+                  class="ctl selector-unit"
+                  id="selUnit"
+                  data-control="BATTERY SELECTOR"
+                  tabindex="0"
+                  role="slider"
+                  aria-label="Battery selector — OFF, CELL I, CELL II"
+                  aria-valuemin="0"
+                  aria-valuemax="2"
+                  aria-valuenow="0"
+                  aria-valuetext="OFF"
+                >
+                  <span class="sel-card" aria-hidden="true"
+                    ><em>OFF</em><em>I</em><em>II</em></span
+                  >
+                  <span class="knob" aria-hidden="true"
+                    ><i class="ptr" id="selPtr"></i
+                  ></span>
+                  <span class="ctl-label">BATTERY<br />SELECTOR</span>
+                </div>
+
+                <div
+                  class="ctl bell-unit"
+                  id="bellKnife"
+                  data-control="ALARM BELL SWITCH"
+                  tabindex="0"
+                  role="switch"
+                  aria-checked="true"
+                  aria-label="Alarm bell switch — closed rings the trembler bell on a fault"
+                >
+                  <span class="knife-clip l" aria-hidden="true"></span
+                  ><span class="knife-clip r" aria-hidden="true"></span>
+                  <span class="blade" id="bladeBell" aria-hidden="true"></span>
+                  <span class="ctl-label">ALARM<br />BELL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="board-low">
+              <div class="fuse-row" role="group" aria-label="Circuit fuses">
+                <div class="fuse" data-fuse="A" aria-hidden="true">
+                  <span class="carrier"><i class="link"></i></span
+                  ><span class="fuse-tag">A</span>
+                </div>
+                <div class="fuse" data-fuse="B" aria-hidden="true">
+                  <span class="carrier"><i class="link"></i></span
+                  ><span class="fuse-tag">B</span>
+                </div>
+                <div class="fuse" data-fuse="C" aria-hidden="true">
+                  <span class="carrier"><i class="link"></i></span
+                  ><span class="fuse-tag">C</span>
+                </div>
+                <div class="fuse" data-fuse="D" aria-hidden="true">
+                  <span class="carrier"><i class="link"></i></span
+                  ><span class="fuse-tag">D</span>
+                </div>
+              </div>
+              <div class="low-side">
+                <button
+                  class="push"
+                  type="button"
+                  id="btnFuse"
+                  data-control="FUSE RESTORE"
+                  aria-label="Fuse restore — fit fresh fuse wire to any blown carrier"
+                >
+                  <span aria-hidden="true"></span>FUSE RESTORE
+                </button>
+                <div
+                  class="ctl lever-unit slim"
+                  id="leverFlags"
+                  data-control="FLAG RESTORE"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Flag restore — lift restored annunciator flags"
+                >
+                  <span class="lever-slot horiz" aria-hidden="true"
+                    ><span class="lever-handle" id="flagsHandle"></span
+                  ></span>
+                  <span class="ctl-label">FLAG<br />RESTORE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="battery-shelf">
+              <div class="jars" role="group" aria-label="Primary battery cells">
+                <div class="jar" data-cell="1">
+                  <span class="fluid" id="jarFluid1" aria-hidden="true"></span>
+                  <span class="plates" aria-hidden="true"></span>
+                  <span class="jar-tag">CELL I</span>
+                </div>
+                <div class="jar" data-cell="2">
+                  <span class="fluid" id="jarFluid2" aria-hidden="true"></span>
+                  <span class="plates" aria-hidden="true"></span>
+                  <span class="jar-tag">CELL II</span>
+                </div>
+              </div>
+              <div class="replace-wrap" data-control="REPLACE CELLS">
+                <span class="replace-tag">REPLACE CELLS</span>
+                <button
+                  class="push small"
+                  type="button"
+                  id="btnCell1"
+                  aria-label="Fit a fresh Cell I"
+                >
+                  CELL I
+                </button>
+                <button
+                  class="push small"
+                  type="button"
+                  id="btnCell2"
+                  aria-label="Fit a fresh Cell II"
+                >
+                  CELL II
+                </button>
+              </div>
+            </div>
+
+            <div class="tray" id="tray" data-control="MAINTENANCE TESTS">
+              <button
+                class="tray-head"
+                type="button"
+                id="trayHead"
+                aria-expanded="false"
+                aria-controls="trayBody"
+              >
+                MAINTENANCE TESTS<span class="chev" aria-hidden="true"
+                  >&#9650;</span
+                >
+              </button>
+              <div class="tray-body" id="trayBody" hidden>
+                <button
+                  class="test-toggle"
+                  type="button"
+                  id="tCell"
+                  aria-pressed="false"
+                >
+                  TEST CELL EXHAUSTION
+                </button>
+                <button
+                  class="test-toggle"
+                  type="button"
+                  id="tLine"
+                  aria-pressed="false"
+                >
+                  TEST LINE SHORT
+                </button>
+                <button
+                  class="test-toggle"
+                  type="button"
+                  id="tStop"
+                  aria-pressed="false"
+                >
+                  TEST PENDULUM STOP
+                </button>
+                <p class="tray-note">
+                  Engineer's trial keys. Restore the plant after any trial — see
+                  the instruction book.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= THE BOROUGH DIAGRAM ================= -->
+        <section class="borough-col" aria-label="Borough slave dial system">
+          <div class="card">
+            <div class="card-head">
+              <span class="ch1">CALDERBRIDGE BOROUGH</span>
+              <span class="ch2"
+                >SLAVE DIAL SYSTEM · FORTY DIALS IN FOUR CIRCUITS</span
+              >
+            </div>
+            <svg class="map" viewBox="0 0 300 210" aria-hidden="true">
+              <path id="wire-A" class="wire" d="M28 118 C70 108 92 74 132 62" />
+              <path
+                id="wire-B"
+                class="wire"
+                d="M28 122 C86 122 120 116 158 114"
+              />
+              <path
+                id="wire-C"
+                class="wire"
+                d="M28 126 C76 138 104 160 138 168"
+              />
+              <path
+                id="wire-D"
+                class="wire"
+                d="M28 130 C96 152 176 150 240 128"
+              />
+              <circle class="hub" cx="28" cy="124" r="5" />
+            </svg>
+            <div class="clusters">
+              <div class="route" id="route-A" data-route="A">
+                <span class="route-tag">A · POST OFFICE · TEN DIALS</span>
+                <span class="lag" data-lag="A" hidden>LAG 0 MIN</span>
+                <div class="cluster" id="cl-A"></div>
+              </div>
+              <div class="route" id="route-B" data-route="B">
+                <span class="route-tag">B · TOWN HALL · TEN DIALS</span>
+                <span class="lag" data-lag="B" hidden>LAG 0 MIN</span>
+                <div class="cluster" id="cl-B"></div>
+              </div>
+              <div class="route" id="route-C" data-route="C">
+                <span class="route-tag">C · POLICE · EIGHT DIALS</span>
+                <span class="lag" data-lag="C" hidden>LAG 0 MIN</span>
+                <div class="cluster" id="cl-C"></div>
+              </div>
+              <div class="route" id="route-D" data-route="D">
+                <span class="route-tag">D · SCHOOLS · TWELVE DIALS</span>
+                <span class="lag" data-lag="D" hidden>LAG 0 MIN</span>
+                <div class="cluster" id="cl-D"></div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div
+                class="ctl lever-unit"
+                id="leverCatch"
+                data-control="CATCH-UP LEVER"
+                tabindex="0"
+                role="button"
+                aria-label="Catch-up lever — step every connected circuit forward one minute toward the master"
+              >
+                <span class="lever-slot" aria-hidden="true"
+                  ><span class="lever-handle" id="catchHandle"></span
+                ></span>
+                <span class="ctl-label">CATCH-UP<br />LEVER</span>
+                <span class="ctl-note" aria-hidden="true"
+                  >ONE PULL · ONE MINUTE</span
+                >
+              </div>
+              <p class="card-note">
+                Dials step at each minute impulse. Circuits off-switch, fused or
+                starved fall behind and must be caught up by hand.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <span
+          >The property of the Corporation of Calderbridge · Electric Light
+          &amp; Clocks Department</span
+        >
+        <span id="soundNote"
+          >Sound: escapement and fault bell, after first touch.</span
+        >
+      </footer>
+    </div>
+
+    <dialog class="manual-dialog" data-manual aria-label="Instruction book">
+      <div class="dialog-chrome">
+        <header class="dialog-head">
+          <span>INSTRUCTION BOOK · FORM E.41</span>
+          <button class="plate-btn" type="button" data-action="close-manual">
+            CLOSE BOOK
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Calderbridge Master Clock — Instruction Book"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

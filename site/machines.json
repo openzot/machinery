@@ -1,895 +1,933 @@
 [
- {
-  "slug": "penarrow-signal-box",
-  "name": "Penarrow Junction Signal Box",
-  "kind": "mechanical railway signal box lever frame",
-  "domain": "rail",
-  "era": "1920s",
-  "design": "polished-oak fascia over a cast-iron six-lever interlocking frame, cream enamel legend plates and brass roundels, a black-steel mimic diagram with incandescent track-circuit jewels, daylight lit with no glow at all",
-  "interaction": "six levers pulled against a self-locking interlock in bell-offered sequence, with a single block-bell plunger to accept trains and obtain line clear",
-  "palette": [
-   "#5f452c",
-   "#c29a3b",
-   "#b3201c"
-  ],
-  "controls": [
-   "UP HOME LEVER",
-   "UP DISTANT LEVER",
-   "MAIN STARTER LEVER",
-   "POINT LOCK LEVER",
-   "LOOP POINTS LEVER",
-   "LOOP STARTER LEVER",
-   "LINE BELL PLUNGER",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "points out of correspondence",
-   "track circuit failure",
-   "signal wire fracture"
-  ],
-  "tagline": "Six levers, one bell, and four minutes between trains.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "halberd-fire-director",
-  "name": "Halberd Fire Director Mk. IV",
-  "kind": "coastal artillery fire-director computer",
-  "domain": "military",
-  "era": "1940s",
-  "design": "olive-grey hammer-finish enamel over riveted steel, stencilled white capitals and engraved brass data plates, incandescent jewel lamps on a daylight panel, ivory counter drums and a nickelled tracking bench",
-  "interaction": "twin spoked handwheels that hold an optical reticle on a moving ship until the amber match lamp burns steady, then a brass fire key under a red collar and an overheat interlock",
-  "palette": [
-   "#55604a",
-   "#e8e0c6",
-   "#c23a24"
-  ],
-  "controls": [
-   "MOTOR-GENERATOR SWITCH",
-   "GYRO CAGE SWITCH",
-   "MODE SELECTOR",
-   "AZIMUTH HANDWHEEL",
-   "RANGE HANDWHEEL",
-   "FIRE KEY",
-   "ALARM SILENCE",
-   "GYRO DRIFT TEST",
-   "GENERATOR OVERLOAD TEST",
-   "RANGE SERVO TEST"
-  ],
-  "faults": [
-   "gyro drift",
-   "generator overload",
-   "range transmission failure"
-  ],
-  "tagline": "Keep the cross on her funnel and the drums will do the arithmetic.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "verity-anaesthetic-apparatus",
-  "name": "Verity Anaesthetic Apparatus Mk. II",
-  "kind": "operating-theatre anaesthetic gas apparatus",
-  "domain": "medical",
-  "era": "1950s",
-  "design": "polished-nickel trolley with white vitreous legend plates, black bakelite knobs and knurled skirts, tapered-glass rotameters with steel bobbins, a leather-edged rebreathing bag, lit by daylight alone",
-  "interaction": "trim two multi-turn needle valves until the floats sit on their scribe lines, set the halothane percent dial, ride the pop-off against the manometer and watch the bag breathe",
-  "palette": [
-   "#b6bbbd",
-   "#1d5c50",
-   "#d0342c"
-  ],
-  "controls": [
-   "MAINS SWITCH",
-   "YOKE CHANGEOVER LEVER",
-   "OXYGEN NEEDLE VALVE",
-   "NITROUS OXIDE NEEDLE VALVE",
-   "HALOTHANE PERCENT DIAL",
-   "POP-OFF VALVE",
-   "EMERGENCY OXYGEN FLUSH",
-   "CANISTER SWING BOLTS",
-   "WORKS TEST SWITCHES",
-   "ALARM WHISTLE CUTOUT"
-  ],
-  "faults": [
-   "oxygen cylinder depletion",
-   "vaporizer leak",
-   "soda lime exhaustion"
-  ],
-  "tagline": "Two floats on the line, one and a half percent, and the bag breathes itself.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "corriedhu-gsp",
-  "name": "Corriedhu Grid Supply Point - 132/33 kV Control Panel",
-  "kind": "grid substation control and mimic panel",
-  "domain": "power-grid",
-  "era": "1990s",
-  "design": "light-grey powder-coat steel with slate-blue fascia band, engraved traffolyte legends, LED indication centres, a mosaic single-line mimic with moving-iron dials, and a green-phosphor RTU screen as the only glow in the room",
-  "interaction": "spring-return rotary control switches worked against a live synchroscope for the reclose, twin OLTC rockers balanced by an AUTO regulator, and an eight-window annunciator that must be accepted before it is believed",
-  "palette": [
-   "#d6d8d3",
-   "#27518d",
-   "#c8102e"
-  ],
-  "controls": [
-   "LAMPS TEST PUSHBUTTON",
-   "SYNCHRO-CHECK SELECTOR",
-   "TEINDLAND CONTROL SWITCH",
-   "CAIRNBEATH CONTROL SWITCH",
-   "TX1 CONTROL SWITCH",
-   "TX2 CONTROL SWITCH",
-   "33kV BUS SECTION CONTROL SWITCH",
-   "FEEDER 1 CONTROL SWITCH",
-   "FEEDER 2 CONTROL SWITCH",
-   "FEEDER 3 CONTROL SWITCH",
-   "FEEDER 4 CONTROL SWITCH",
-   "FEEDER 5 CONTROL SWITCH",
-   "FEEDER 6 CONTROL SWITCH",
-   "TX1 OLTC RAISE-LOWER",
-   "TX2 OLTC RAISE-LOWER",
-   "VOLTAGE REGULATOR SELECTOR",
-   "ALARM ACCEPT PUSHBUTTON",
-   "ALARM RESET PUSHBUTTON",
-   "HORN SILENCE PUSHBUTTON",
-   "TELEMETRY ISOLATION KEY",
-   "FAULT TEST BUTTONS"
-  ],
-  "faults": [
-   "transformer gas accumulation",
-   "tap changer mechanism jam",
-   "incomer line trip"
-  ],
-  "tagline": "Close her on the synchroscope, not on hope.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "kettleby-winder",
-  "name": "Kettleby Colliery No. 2 Winder - Driver's Console",
-  "kind": "colliery mine winder driver's console",
-  "domain": "mining",
-  "era": "1980s",
-  "design": "riveted black-iron plate with machined bright edges, safety-yellow lever handles and quadrant, engraved white-on-black traffolyte plates, incandescent wedge-lens annunciators, a drawn shaft section with friction wheel as the centrepiece, lit by caged strip light",
-  "interaction": "two-hand driving: left palm on a bail brake lever pulled to release, right hand walking a notched bidirectional power quadrant, landing the cage by eye on the depth counter and rope drum",
-  "palette": [
-   "#26282b",
-   "#e8b31a",
-   "#cf2b1e"
-  ],
-  "controls": [
-   "MASTER KEY",
-   "MODE SELECTOR",
-   "POWER QUADRANT",
-   "BRAKE LEVER",
-   "BELL PLUNGER",
-   "BANK CALL",
-   "SURFACE CALL",
-   "ALARM ACCEPT",
-   "HORN CUT",
-   "TRIP RESET",
-   "MAINTENANCE TESTS"
-  ],
-  "faults": [
-   "brake hydraulic leak",
-   "rope slip",
-   "motor overtemperature"
-  ],
-  "tagline": "Left hand brake, right hand power, eyes on the drum.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "pillaton-switchboard",
-  "name": "Pillaton Manual Exchange - Position No. 1",
-  "kind": "manual telephone exchange switchboard position",
-  "domain": "telecom",
-  "era": "1960s",
-  "design": "petrol-blue crystalline-enamel steel over an oak-edged writing shelf, transfer-printed cream legends, a brass lamp-and-jack multiple worked by cloth-braided cords, tungsten ivory lamp caps in a daylight room with one amber rectifier neon",
-  "interaction": "lift a cord pair's plugs from their wells, seat them front-and-rear across the twelve-line multiple and throw the pair's RING-TALK lever key against a flywheel ring generator while the ticket pad writes itself",
-  "palette": [
-   "#1d4e57",
-   "#8a3b2a",
-   "#ea7d1a"
-  ],
-  "controls": [
-   "CORD PAIR 1",
-   "CORD PAIR 2",
-   "CORD PAIR 3",
-   "PAIR KEYS",
-   "RING GENERATOR SELECTOR",
-   "HAND CRANK",
-   "NIGHT SERVICE KEY",
-   "BUZZER CUT-OFF",
-   "SPARE FUSE CLIP",
-   "BELT TENSION LEVER",
-   "LAMPS TEST",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "generator belt slip",
-   "battery fuse blown",
-   "reversed cord pair"
-  ],
-  "tagline": "Answer inside forty seconds, or the supervisor reads about it.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "coralline-cargo-console",
-  "name": "Coralline Cargo Control - Crude Oil Discharge Console",
-  "kind": "tanker crude-oil cargo discharge console",
-  "domain": "marine",
-  "era": "1970s",
-  "design": "warm buff epoxy-painted steel with engraved traffolyte legends, backlit amber film cells behind quarter-turn cargo valves, etched tank sight-glasses, a printed hull-stress card with a brass pointer, incandescent jewels under daylight bridge lighting",
-  "interaction": "lining up a backlit cargo valve matrix and easing three notched steam throttles against a live hull-bending curve while holding the inert oxygen under eight percent",
-  "palette": [
-   "#d9cfb8",
-   "#c65a1c",
-   "#c22013"
-  ],
-  "controls": [
-   "VENT SELECTOR",
-   "SEALINE VALVE",
-   "RISER VALVE",
-   "TANK V1 SUCTION",
-   "TANK V3 SUCTION",
-   "TANK V5 SUCTION",
-   "PUMP 1 THROTTLE",
-   "PUMP 2 THROTTLE",
-   "PUMP 3 THROTTLE",
-   "BALLAST SELECTOR",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "PUMP RESET",
-   "CONSOLE RESET",
-   "FAULT TEST SWITCHES",
-   "EMERGENCY DROP VALVE"
-  ],
-  "faults": [
-   "cargo pump cavitation",
-   "valve actuator jam",
-   "inert gas generator failure"
-  ],
-  "tagline": "Empty her flat and easy - the hull bends before the gauges tell you.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "ferriday-9f",
-  "name": "Ferriday 9/F Process Computer - Operator's Front Panel",
-  "kind": "process-control minicomputer front panel",
-  "domain": "data-centre",
-  "era": "1970s",
-  "design": "warm brown crinkle-enamel chassis with brushed-aluminium trim, white silk-screened condensed capitals, frosted amber register lamps in chrome rims, four glowing orange nixie clusters, backlit annunciator lens strips, a cream-faced moving-coil meter pair and a hinged fault-injector tray, lit entirely by room light except the machine's own tubes",
-  "interaction": "twelve-paddle ADDRESS and DATA banks worked with ADDRESS LOAD, EXAMINE and DEPOSIT keys against live nixie readouts, freed by a guarded START and traded against core-stack heat on a CLOCK RATE knob, single-stepped in MAINT",
-  "palette": [
-   "#5a4b3e",
-   "#fb7d1c",
-   "#e03a28"
-  ],
-  "controls": [
-   "MAINS BREAKER",
-   "MODE SELECTOR",
-   "CLOCK RATE",
-   "ADDRESS SWITCHES",
-   "DATA SWITCHES",
-   "ADDRESS LOAD",
-   "EXAMINE",
-   "DEPOSIT",
-   "CLEAR",
-   "START",
-   "STOP",
-   "SINGLE STEP",
-   "BLOWER",
-   "ALARM ACKNOWLEDGE",
-   "LAMPS TEST",
-   "MAINTENANCE TESTS"
-  ],
-  "faults": [
-   "core memory parity error",
-   "power supply undervoltage",
-   "blower failure"
-  ],
-  "tagline": "Set twelve bits, press DEPOSIT, and keep the core stack under sixty-five.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "hawthorne-dimmer-board",
-  "name": "Hawthorne Grand Theatre - Dimmer Board No. 1",
-  "kind": "theatre resistance-dimmer stage-lighting board",
-  "domain": "theatre",
-  "era": "1940s",
-  "design": "forest-green crackle-finish steel with copper dimmer arcs, engraved ivory enamel legend plates, tungsten jewel annunciators, liquid cage thermometers and a live proscenium mimic, lit by daylight from the fly-floor louvres",
-  "interaction": "six cranked handles walked along resistance arcs against a full-width counterweighted grandmaster lever, dipping the whole stage by hand while watching two cage thermometers and a hot-iron ammeter",
-  "palette": [
-   "#17382e",
-   "#c07a3e",
-   "#d33a26"
-  ],
-  "controls": [
-   "SUPPLY SELECTOR",
-   "MAINS BREAKER",
-   "GRANDMASTER",
-   "DIMMER 1",
-   "DIMMER 2",
-   "DIMMER 3",
-   "DIMMER 4",
-   "DIMMER 5",
-   "DIMMER 6",
-   "SPARE FEED",
-   "THERMAL RESET",
-   "WORKING LIGHT",
-   "LAMPS TEST",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "dimmer bank overheat",
-   "mains overload trip",
-   "stage circuit failure"
-  ],
-  "tagline": "Dips on the grandmaster, never by walking the arcs.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "skerravy-light",
-  "name": "Skerravy Light - Optic Driving & Fog-Signal Machinery",
-  "kind": "rock lighthouse optic-drive and fog-signal machine room",
-  "domain": "marine",
-  "era": "1920s",
-  "design": "white-enamelled cast-iron frame with engraved brass roman-cap plates and a verdigris copper hood, glazed slate tower-section mimic with falling weight and revolving lens drum, brass-bezel Bourdon dials, drop-flag annunciators, lit by daylight with only the beam itself for glow",
-  "interaction": "hoisting the driving weight by hand at a two-hand winding crank while the governor trims flash period, running lamp-cell changeovers on a five-position carousel selector and speaking the fog trumpet through a three-position air cock",
-  "palette": [
-   "#ece7d8",
-   "#3e7c66",
-   "#bf2b1d"
-  ],
-  "controls": [
-   "WINDING CRANK",
-   "DRIVE CLUTCH",
-   "GOVERNOR",
-   "OPTIC CELL SELECTOR",
-   "FOG AIR COCK",
-   "FAULT TEST SWITCHES",
-   "BELL SILENCE"
-  ],
-  "faults": [
-   "governor slip",
-   "filament burnout",
-   "air main leak"
-  ],
-  "tagline": "Wind her to the top, keep her at forty-five, and let the trumpet do the talking.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "trenoweth-facsimile",
-  "name": "Trenoweth Weather Office - Facsimile Chart Receiver",
-  "kind": "weather-chart facsimile recorder position",
-  "domain": "weather",
-  "era": "1950s",
-  "design": "baked-ivory enamel office machine with oxblood two-tone skirt and bezels, nickelled trim and black bakelite knobs, transfer-printed grotesque legends, flip-flag annunciators, a daylight bench whose only glow is one amber neon sync eye",
-  "interaction": "raise gain until the signal needle stands in the band, rock the centre-zero phase knob against the tearing drum until the neon eye burns steady, drop the clutch lever and nurse density against the stylus thermometer",
-  "palette": [
-   "#e9dfc6",
-   "#7c2d26",
-   "#c22a1e"
-  ],
-  "controls": [
-   "POWER SWITCH",
-   "CIRCUIT SELECTOR",
-   "GAIN CONTROL",
-   "PHASE CONTROL",
-   "INDEX SELECTOR",
-   "CLUTCH LEVER",
-   "DENSITY CONTROL",
-   "CHART LEVER",
-   "STYLUS CLEANER",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "FAULT TEST SWITCHES",
-   "CONSOLE RESET"
-  ],
-  "faults": [
-   "line dropout",
-   "stylus burnout",
-   "drive belt slip"
-  ],
-  "tagline": "Rock her onto phase before the drum tears the front off a depression.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "haverbrack-transmitter",
-  "name": "Haverbrack Transmitting Station - Transmitter No. 2",
-  "kind": "short-wave broadcast transmitter control panel",
-  "domain": "broadcast",
-  "era": "1940s",
-  "design": "polished black Vitrolite panels in a riveted steel angle frame with engraved cream-filled condensed legends, brass bezels and exposed copper busbars, ivory moving-coil meter faces, opal incandescent jewels, and twin mercury-arc rectifier columns burning cold blue-violet as the only glow in a daylight hall",
-  "interaction": "sequence breaker, blower and filaments, then lift a brass guard to raise eleven thousand volts and hunt resonance by hand on a flywheel tuning crank against a dipping anode ammeter, loading the feeder notch by notch until the aerial ammeter sits in its green sector",
-  "palette": [
-   "#17181b",
-   "#c8a558",
-   "#d22b1e"
-  ],
-  "controls": [
-   "MAIN BREAKER",
-   "BLOWER SWITCH",
-   "FILAMENT SWITCH",
-   "STANDBY PUMP SWITCH",
-   "HT START",
-   "HT TRIP RESET",
-   "RECTIFIER RESTORE",
-   "TANK TUNING CRANK",
-   "ANTENNA LOADING LEVER",
-   "DRIVE CONTROL",
-   "AERIAL SELECTOR",
-   "WAVECHANGE SELECTOR",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "MASTER RESET",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "rectifier arc-back",
-   "cooling water flow loss",
-   "main feeder fault"
-  ],
-  "tagline": "Tune for the dip of the anode, load for the lift of the aerial.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "fenn-crossroads",
-  "name": "Fenn Crossroads Automatic Signal Controller Mk III",
-  "kind": "electromechanical traffic-signal controller",
-  "domain": "road",
-  "era": "1950s",
-  "design": "grey-green stove-enamel steel in a borough street cabinet, bright chromate-zinc mechanism plate, screen-printed cream condensed capitals, incandescent jewels and glowing signal lenses under daylight, three re-timeable cams on an open camshaft",
-  "interaction": "pull-and-turn cam clutch drums to retime the greens while the synchronous motor keeps cycling, a folding hand crank and police pushbutton to walk intervals at HAND",
-  "palette": [
-   "#687065",
-   "#cf7a10",
-   "#bf2318"
-  ],
-  "controls": [
-   "MAINS ISOLATOR",
-   "MODE SELECTOR",
-   "INTERVAL CRANK",
-   "MAIN GREEN CAM",
-   "SIDE GREEN CAM",
-   "WALK CAM",
-   "POLICE PUSHBUTTON",
-   "EMERGENCY FLASH KEY",
-   "TREADLE TEST",
-   "LAMP RESTORE",
-   "BELL CUT",
-   "MAINTENANCE TESTS",
-   "PLANT RESET"
-  ],
-  "faults": [
-   "signal lamp failure",
-   "cam clutch slip",
-   "treadle stuck closed"
-  ],
-  "tagline": "Thirty for Fenn Road, twenty for Carrow Lane - timed by cams, kept by mercury.",
-  "created": "2026-08-23"
- },
- {
-  "slug": "netherford-zero-energy-pile",
-  "name": "Netherford Zero-Energy Pile No. 2 - Start-up Console",
-  "kind": "zero-energy research pile start-up console",
-  "domain": "nuclear",
-  "era": "1960s",
-  "design": "pale sage-green stove-enamel steel with brushed-brass bezels and screen-printed ivory condensed legends, mirror-scale moving-coil meters, amber counting neons and a paper pen-recorder, a daylight instrument hall where only the instruments are alight",
-  "interaction": "walking the shim rod out by a braked handwheel against a centre-zero reactivity meter while keeping the period needle out of its red sector, freed by a full-width red scram bar within reach of both hands",
-  "palette": [
-   "#a7b295",
-   "#b98a3c",
-   "#c22e20"
-  ],
-  "controls": [
-   "MAINS BREAKER",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "CHART MOTOR",
-   "DETECTOR SELECTOR",
-   "DETECTOR HT",
-   "MODE SELECTOR",
-   "SHIM ROD HANDWHEEL",
-   "DRIVE CLUTCH",
-   "REGULATING CRANK",
-   "COOLING VALVE",
-   "SCRAM BAR",
-   "TRIP RESET",
-   "COLD RESET",
-   "MAINTENANCE TESTS"
-  ],
-  "faults": [
-   "detector high-voltage failure",
-   "control-rod clutch slip",
-   "coolant flow loss"
-  ],
-  "tagline": "Withdraw by tens, keep the period long, and never trust a meter you have not lamp-tested.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "vindskaer-nacelle-controller",
-  "name": "Vindskær V-62 - Nacelle Service Controller",
-  "kind": "grid wind turbine nacelle service controller",
-  "domain": "energy",
-  "era": "2000s",
-  "design": "off-white gelcoat-and-galvanised steel door panel, screen-printed charcoal DIN legends, safety-orange accents and hazard yellow, one amber-backlit character LCD, LED stack light, moving-needle gauges over a drivetrain mimic, cool nacelle strip light",
-  "interaction": "three-position mode key with guarded grid-contactor push, pitch jogged against its dial by a rocker, yaw walked off a cable-twist counter and the rotor secured on a yellow lock pin",
-  "palette": [
-   "#e9e6dd",
-   "#e07b12",
-   "#c22013"
-  ],
-  "controls": [
-   "MODE KEY",
-   "HYD PUMP",
-   "ROTOR LOCK PIN",
-   "ROTOR BRAKE",
-   "GRID CONTACTOR",
-   "PITCH JOG",
-   "YAW JOG",
-   "COOLING SELECTOR",
-   "SENSOR HEATER",
-   "ALARM ACK",
-   "LAMP TEST",
-   "SERVICE TESTS",
-   "RESET",
-   "EMERGENCY STOP"
-  ],
-  "faults": [
-   "anemometer icing",
-   "gearbox oil overheating",
-   "yaw cable twist"
-  ],
-  "tagline": "Feather before the gust - the anemometer lies when it ices.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "wrayburn-vacuum-bench",
-  "name": "Wrayburn High-Vacuum Evaporating Bench Mk. III",
-  "kind": "laboratory high-vacuum metal-evaporation coating bench",
-  "domain": "laboratory",
-  "era": "1940s",
-  "design": "slate-blue stove-enamel instrument steel with patinated bronze fittings and black phenolic legend plates, engraved ivory-filled small-cap legends, serif-numeral mirror dials, a glass bell jar lit only by its own filament and a cherry-red heater viewer under north skylight",
-  "interaction": "tilt the McLeod by hand to prove the vacuum, walk the pump selector through roughing and backing, ease the geared baffle and boiler up against the Pirani needle, then open the shutter on a white-hot filament while the optical monitor climbs",
-  "palette": [
-   "#77879a",
-   "#7d6134",
-   "#b02c20"
-  ],
-  "controls": [
-   "MAINS SWITCH",
-   "COOLING WATER COCK",
-   "PUMP SELECTOR",
-   "BAFFLE VALVE",
-   "AIR ADMIT VALVE",
-   "DIFFUSION PUMP HEATER",
-   "FILAMENT CURRENT",
-   "SHUTTER LEVER",
-   "MCLEOD TILT LEVER",
-   "ALARM ACCEPT",
-   "INDICATOR LAMPS TEST",
-   "FAULT TEST SWITCHES",
-   "REPAIR ACTIONS",
-   "MASTER RESET"
-  ],
-  "faults": [
-   "bell jar crack",
-   "foreline valve passing",
-   "filament burnout"
-  ],
-  "tagline": "Prove the vacuum before you flash the filament - air eats them in four seconds.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "carselby-elevator",
-  "name": "Carselby Co-operative Elevator - Leg House Control",
-  "kind": "country grain elevator leg-house control panel",
-  "domain": "agriculture",
-  "era": "1950s",
-  "design": "machine-green baked porcelain-enamel steel in a black-iron angle frame, stencilled paper-white condensed legends and a brass maker's plate, incandescent jewel lamps under prairie daylight, a living cutaway mimic of pit, leg and six annex bins trimmed in harvest gold",
-  "interaction": "notching the pit-gate lever against boot flood while sending the electric distributor spout bin to bin on its position bell, winding the belt take-up by hand when the leg runs slack, and nursing the burner valve onto grade",
-  "palette": [
-   "#294a34",
-   "#f2efe2",
-   "#c9251b",
-   "#e0a32e"
-  ],
-  "controls": [
-   "MAIN BREAKER",
-   "LEG MOTOR START",
-   "LEG MOTOR STOP",
-   "PIT GATE",
-   "DISTRIBUTOR SELECTOR",
-   "CYCLONE FAN",
-   "BURNER VALVE",
-   "BURNER IGNITER",
-   "FLAME EYE CLEAN",
-   "ALARM ACCEPT",
-   "HORN CUT",
-   "LAMPS TEST",
-   "PLANT RESET",
-   "BELT TAKE-UP",
-   "BOOT KNOCKER",
-   "OIL CUP",
-   "MAINTENANCE TESTS",
-   "TEST BELT SLIP",
-   "TEST HOT BEARING",
-   "TEST FLAME SCAN"
-  ],
-  "faults": [
-   "leg belt slip",
-   "hot head-shaft bearing",
-   "dryer flame failure"
-  ],
-  "tagline": "Feed her easy, keep the dust down, and mind the boot - the leg tells you everything twice.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "hogfors-ice-plant",
-  "name": "Högfors Isstadion - Ice Plant Machine Room",
-  "kind": "municipal ice-rink refrigeration machine room",
-  "domain": "cold-chain",
-  "era": "1970s",
-  "design": "chalk-white stove-enamel steel with brushed-aluminium bezels, silk-screened petrol-blue legends, incandescent jewels under daylight louvres, one red seven-segment panel meter, a living top-view ice slab with growing frost blooms and a 24-hour chart recorder",
-  "interaction": "notched capacity slide lever worked against motor amps while a guarded defrost key diverts hot gas under the slab and a resurfacer call dumps warm water across the ice",
-  "palette": [
-   "#edeff0",
-   "#17879e",
-   "#cf2a1c"
-  ],
-  "controls": [
-   "COMPRESSOR START",
-   "COMPRESSOR STOP",
-   "COMPRESSOR SELECTOR",
-   "CAPACITY LEVER",
-   "BRINE PUMP SELECTOR",
-   "DEFROST KEY",
-   "RESURFACER CALL",
-   "ALARM ACCEPT",
-   "HORN CUT",
-   "LAMPS TEST",
-   "TRIP RESET",
-   "TEST REFRIGERANT LEAK",
-   "TEST BRINE FLOW LOSS",
-   "TEST COMPRESSOR KNOCK",
-   "ISOLATE LEAK",
-   "TOP UP CHARGE"
-  ],
-  "faults": [
-   "refrigerant leak",
-   "brine flow loss",
-   "compressor knock"
-  ],
-  "tagline": "Minus twelve on the brine, frost under ten millimetres, defrost between periods.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "deeping-filter-gallery",
-  "name": "Deeping Valley Water Board - Filter Gallery Control Bench No. 2",
-  "kind": "rapid gravity water-treatment filter gallery control bench",
-  "domain": "water",
-  "era": "1960s",
-  "design": "seafoam glazed-tile fascia with transfer-printed legends and satin-bronze angles, chrome-bezel dry-dial gauges, inclined mercury manometers, effluent sight glasses and a chlorine residual colour comparator in a daylight gallery",
-  "interaction": "isolate a blinding bed on multi-turn handwheels and a quarter-turn waste cock, then wind the cam-timer crank spring through drain, air scour, water wash and refill while three beds carry the town against the rate quadrant",
-  "palette": [
-   "#aabfb6",
-   "#86652e",
-   "#b81f2d"
-  ],
-  "controls": [
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "BED 1 INLET",
-   "BED 1 WASTE",
-   "BED 1 OUTLET",
-   "BED 2 INLET",
-   "BED 2 WASTE",
-   "BED 2 OUTLET",
-   "BED 3 INLET",
-   "BED 3 WASTE",
-   "BED 3 OUTLET",
-   "BED 4 INLET",
-   "BED 4 WASTE",
-   "BED 4 OUTLET",
-   "WASH TIMER CRANK",
-   "BLOWER START",
-   "BLOWER RESET",
-   "CHLORINE DOSE",
-   "EJECTOR SELECTOR",
-   "RATE LEVER",
-   "FAULT TEST SWITCHES",
-   "GALLERY RESET"
-  ],
-  "faults": [
-   "filter bed breakthrough",
-   "chlorine ejector vacuum loss",
-   "backwash blower overload"
-  ],
-  "tagline": "Two turns open, two metres to the wash, and never a drop without her residual.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "aldersund-planetarium",
-  "name": "Aldersund Planetarium - Projector Console No. 1",
-  "kind": "opto-mechanical planetarium projector lecture console",
-  "domain": "theatre",
-  "era": "1960s",
-  "design": "oxblood-brown moulded bakelite in a brushed-aluminium frame, engraved ivory-filled condensed legends, tungsten-lit key roundels and amber pilot neons, backlit drum counters, a fisheye dome port with a living star field, dark until the arc is struck",
-  "interaction": "walking the carbon arc onto thirty amperes in its green field, then re-caging the drum gears at six hours west under a red guard while the latitude crank tips the whole star cage live in the port",
-  "palette": [
-   "#5e2b22",
-   "#f2e3b0",
-   "#d0342a"
-  ],
-  "controls": [
-   "MAINS SWITCH",
-   "BLOWER SWITCH",
-   "LAMP CURRENT",
-   "RATE SELECTOR",
-   "LATITUDE CRANK",
-   "RE-CAGE LEVER",
-   "SHUTTER KEYS",
-   "HOUSE LIGHTS",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "FAULT TESTS",
-   "TRIP RESET",
-   "CONSOLE RESET"
-  ],
-  "faults": [
-   "blower failure",
-   "arc instability",
-   "gear train jam"
-  ],
-  "tagline": "Keep the needle in the green field and cage her drums at six hours west.",
-  "created": "2026-08-24"
- },
- {
-  "slug": "merrowgate-driving-console",
-  "name": "Corvedale 1973 Stock - Driving Console",
-  "kind": "deep-tube electric train driving console",
-  "domain": "rail",
-  "era": "1970s",
-  "design": "scuffed transit-grey painted steel desk with silkscreened cream condensed legends, tungsten indicator windows on a plywood backing, ivory gauge dials and a living tunnel bore in the windscreen",
-  "interaction": "a spring dead-man grip that must be held and eased every forty seconds while a notched traction-brake controller is worked against the speedometer between trainstop-protected signals",
-  "palette": [
-   "#7a7772",
-   "#1c3f94",
-   "#d0342c"
-  ],
-  "controls": [
-   "MASTER CONTROLLER",
-   "DEAD-MAN GRIP",
-   "DOOR SELECTOR",
-   "DOOR OPEN",
-   "DOOR CLOSE",
-   "AUXILIARIES",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "TRIPCOCK RESET",
-   "LEAK ISOLATION COCK",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "main reservoir leak",
-   "door interlock failure",
-   "trainstop trip (SPAD)"
-  ],
-  "tagline": "Hold her alive, roll to the marker, and never argue with a red.",
-  "created": "2026-08-25"
- },
- {
-  "slug": "wrenford-continuity",
-  "name": "Wrenford Vale Radio - Studio B Continuity Desk",
-  "kind": "radio continuity suite self-op on-air desk",
-  "domain": "broadcast",
-  "era": "1980s",
-  "design": "oatmeal vinyl-faced plywood console with walnut cheeks and brushed-aluminium fascia, screen-printed black condensed legends, tungsten pilot lamps and backlit switchcaps under room light, a red ON AIR lightbox above a cream VU meter bridge",
-  "interaction": "three long-throw faders riding carts, network line and microphone onto a live programme bus while a silence sensor counts down to a transmitter auto-drop and an eight-second profanity delay is armed and dumped",
-  "palette": [
-   "#cfc5ae",
-   "#4a3526",
-   "#c22419"
-  ],
-  "controls": [
-   "CONSOLE MAINS",
-   "MONITOR SELECTOR",
-   "NETWORK SELECTOR",
-   "CARTRIDGE SELECTOR",
-   "CART START",
-   "CART STOP CUE",
-   "CART WALL FADER",
-   "NETWORK FADER",
-   "MIC FADER",
-   "MIC KEY",
-   "DELAY ARM",
-   "DELAY DUMP",
-   "TX RAISE",
-   "TX LOWER",
-   "TX RESET",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "TEST CART JAM",
-   "TEST NETWORK LOSS",
-   "TEST TX OVERLOAD",
-   "TEST TONE",
-   "CONSOLE RESET"
-  ],
-  "faults": [
-   "cart jam",
-   "network line loss",
-   "transmitter overload"
-  ],
-  "tagline": "Faders at seven for the join, delay armed before the mic, and nothing dead on the line.",
-  "created": "2026-08-25"
- },
- {
-  "slug": "dunlin-saturation",
-  "name": "Dunlin Sentinel - Saturation Control Console",
-  "kind": "saturation diving life-support control console",
-  "domain": "deep-sea",
-  "era": "1980s",
-  "design": "international-orange painted steel over black instrument bays, stencilled condensed legends with Dymo amendments, backlit milk-glass gauges, twin LED oxygen bargraphs, one amber neon and a chamber CCTV porthole under fluorescent shack light",
-  "interaction": "walking the guarded quad-bank selector against falling bank needles while trimming an oxygen micrometer by eighths of a turn and holding a mushroom bypass to walk the depth needle onto its yellow ghost",
-  "palette": [
-   "#c24910",
-   "#ece5da",
-   "#d81f1a"
-  ],
-  "controls": [
-   "MAINS ISOLATOR",
-   "QUAD SELECTOR",
-   "O2 INJECT",
-   "MAKE-UP ISOLATOR",
-   "MAKE-UP BYPASS",
-   "CHAMBER VENT",
-   "DEPTH SET",
-   "SCRUBBER FANS",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "TRIP RESET",
-   "PANEL RESET",
-   "FAULT TESTS"
-  ],
-  "faults": [
-   "scrubber fan stall",
-   "quad bank depletion",
-   "make-up valve passing"
-  ],
-  "tagline": "Fourteen bar outside; mind your oxygen like it is the last litre.",
-  "created": "2026-08-25"
- },
- {
-  "slug": "marlpit-retort-bench",
-  "name": "Marlpit Gas Works - Retort House Stoking Bench No. 4",
-  "kind": "town-gas retort-house stoking bench",
-  "domain": "chemical",
-  "era": "1920s",
-  "design": "blackleaded cast-iron fascia bolted over a white glazed-brick back panel, transfer-printed buff legends and engraved brass data plates, drop-shutter annunciators, lit by roof-louvres daylight and its own fire",
-  "interaction": "charging retorts by pull lever off a swinging coal spout, trimming the producer firing valve and damper against a pyrometer, holding the hydraulic main at an inch of water on the exhauster governor handwheel, and working the stoking rake in full strokes through the open door",
-  "palette": [
-   "#2e3236",
-   "#e3cfa0",
-   "#c23a1e"
-  ],
-  "controls": [
-   "CHARGE LEVER",
-   "RETORT SELECTOR",
-   "RETORT DOOR",
-   "PRODUCER DAMPER",
-   "FIRING VALVE",
-   "STOKING RAKE",
-   "SEAL WATER COCK",
-   "EXHAUSTER GOVERNOR",
-   "TEST BURNER COCK",
-   "ALARM ACCEPT",
-   "LAMPS TEST",
-   "TRIP RESET",
-   "FAULT TEST SWITCHES"
-  ],
-  "faults": [
-   "water seal blown",
-   "flue clinker fouling",
-   "exhauster overload trip"
-  ],
-  "tagline": "Charge her easy, keep the main at an inch, and never let the seal run dry.",
-  "created": "2026-08-25"
- }
+  {
+    "slug": "penarrow-signal-box",
+    "name": "Penarrow Junction Signal Box",
+    "kind": "mechanical railway signal box lever frame",
+    "domain": "rail",
+    "era": "1920s",
+    "design": "polished-oak fascia over a cast-iron six-lever interlocking frame, cream enamel legend plates and brass roundels, a black-steel mimic diagram with incandescent track-circuit jewels, daylight lit with no glow at all",
+    "interaction": "six levers pulled against a self-locking interlock in bell-offered sequence, with a single block-bell plunger to accept trains and obtain line clear",
+    "palette": [
+      "#5f452c",
+      "#c29a3b",
+      "#b3201c"
+    ],
+    "controls": [
+      "UP HOME LEVER",
+      "UP DISTANT LEVER",
+      "MAIN STARTER LEVER",
+      "POINT LOCK LEVER",
+      "LOOP POINTS LEVER",
+      "LOOP STARTER LEVER",
+      "LINE BELL PLUNGER",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "points out of correspondence",
+      "track circuit failure",
+      "signal wire fracture"
+    ],
+    "tagline": "Six levers, one bell, and four minutes between trains.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "halberd-fire-director",
+    "name": "Halberd Fire Director Mk. IV",
+    "kind": "coastal artillery fire-director computer",
+    "domain": "military",
+    "era": "1940s",
+    "design": "olive-grey hammer-finish enamel over riveted steel, stencilled white capitals and engraved brass data plates, incandescent jewel lamps on a daylight panel, ivory counter drums and a nickelled tracking bench",
+    "interaction": "twin spoked handwheels that hold an optical reticle on a moving ship until the amber match lamp burns steady, then a brass fire key under a red collar and an overheat interlock",
+    "palette": [
+      "#55604a",
+      "#e8e0c6",
+      "#c23a24"
+    ],
+    "controls": [
+      "MOTOR-GENERATOR SWITCH",
+      "GYRO CAGE SWITCH",
+      "MODE SELECTOR",
+      "AZIMUTH HANDWHEEL",
+      "RANGE HANDWHEEL",
+      "FIRE KEY",
+      "ALARM SILENCE",
+      "GYRO DRIFT TEST",
+      "GENERATOR OVERLOAD TEST",
+      "RANGE SERVO TEST"
+    ],
+    "faults": [
+      "gyro drift",
+      "generator overload",
+      "range transmission failure"
+    ],
+    "tagline": "Keep the cross on her funnel and the drums will do the arithmetic.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "verity-anaesthetic-apparatus",
+    "name": "Verity Anaesthetic Apparatus Mk. II",
+    "kind": "operating-theatre anaesthetic gas apparatus",
+    "domain": "medical",
+    "era": "1950s",
+    "design": "polished-nickel trolley with white vitreous legend plates, black bakelite knobs and knurled skirts, tapered-glass rotameters with steel bobbins, a leather-edged rebreathing bag, lit by daylight alone",
+    "interaction": "trim two multi-turn needle valves until the floats sit on their scribe lines, set the halothane percent dial, ride the pop-off against the manometer and watch the bag breathe",
+    "palette": [
+      "#b6bbbd",
+      "#1d5c50",
+      "#d0342c"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "YOKE CHANGEOVER LEVER",
+      "OXYGEN NEEDLE VALVE",
+      "NITROUS OXIDE NEEDLE VALVE",
+      "HALOTHANE PERCENT DIAL",
+      "POP-OFF VALVE",
+      "EMERGENCY OXYGEN FLUSH",
+      "CANISTER SWING BOLTS",
+      "WORKS TEST SWITCHES",
+      "ALARM WHISTLE CUTOUT"
+    ],
+    "faults": [
+      "oxygen cylinder depletion",
+      "vaporizer leak",
+      "soda lime exhaustion"
+    ],
+    "tagline": "Two floats on the line, one and a half percent, and the bag breathes itself.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "corriedhu-gsp",
+    "name": "Corriedhu Grid Supply Point - 132/33 kV Control Panel",
+    "kind": "grid substation control and mimic panel",
+    "domain": "power-grid",
+    "era": "1990s",
+    "design": "light-grey powder-coat steel with slate-blue fascia band, engraved traffolyte legends, LED indication centres, a mosaic single-line mimic with moving-iron dials, and a green-phosphor RTU screen as the only glow in the room",
+    "interaction": "spring-return rotary control switches worked against a live synchroscope for the reclose, twin OLTC rockers balanced by an AUTO regulator, and an eight-window annunciator that must be accepted before it is believed",
+    "palette": [
+      "#d6d8d3",
+      "#27518d",
+      "#c8102e"
+    ],
+    "controls": [
+      "LAMPS TEST PUSHBUTTON",
+      "SYNCHRO-CHECK SELECTOR",
+      "TEINDLAND CONTROL SWITCH",
+      "CAIRNBEATH CONTROL SWITCH",
+      "TX1 CONTROL SWITCH",
+      "TX2 CONTROL SWITCH",
+      "33kV BUS SECTION CONTROL SWITCH",
+      "FEEDER 1 CONTROL SWITCH",
+      "FEEDER 2 CONTROL SWITCH",
+      "FEEDER 3 CONTROL SWITCH",
+      "FEEDER 4 CONTROL SWITCH",
+      "FEEDER 5 CONTROL SWITCH",
+      "FEEDER 6 CONTROL SWITCH",
+      "TX1 OLTC RAISE-LOWER",
+      "TX2 OLTC RAISE-LOWER",
+      "VOLTAGE REGULATOR SELECTOR",
+      "ALARM ACCEPT PUSHBUTTON",
+      "ALARM RESET PUSHBUTTON",
+      "HORN SILENCE PUSHBUTTON",
+      "TELEMETRY ISOLATION KEY",
+      "FAULT TEST BUTTONS"
+    ],
+    "faults": [
+      "transformer gas accumulation",
+      "tap changer mechanism jam",
+      "incomer line trip"
+    ],
+    "tagline": "Close her on the synchroscope, not on hope.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "kettleby-winder",
+    "name": "Kettleby Colliery No. 2 Winder - Driver's Console",
+    "kind": "colliery mine winder driver's console",
+    "domain": "mining",
+    "era": "1980s",
+    "design": "riveted black-iron plate with machined bright edges, safety-yellow lever handles and quadrant, engraved white-on-black traffolyte plates, incandescent wedge-lens annunciators, a drawn shaft section with friction wheel as the centrepiece, lit by caged strip light",
+    "interaction": "two-hand driving: left palm on a bail brake lever pulled to release, right hand walking a notched bidirectional power quadrant, landing the cage by eye on the depth counter and rope drum",
+    "palette": [
+      "#26282b",
+      "#e8b31a",
+      "#cf2b1e"
+    ],
+    "controls": [
+      "MASTER KEY",
+      "MODE SELECTOR",
+      "POWER QUADRANT",
+      "BRAKE LEVER",
+      "BELL PLUNGER",
+      "BANK CALL",
+      "SURFACE CALL",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "TRIP RESET",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "brake hydraulic leak",
+      "rope slip",
+      "motor overtemperature"
+    ],
+    "tagline": "Left hand brake, right hand power, eyes on the drum.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "pillaton-switchboard",
+    "name": "Pillaton Manual Exchange - Position No. 1",
+    "kind": "manual telephone exchange switchboard position",
+    "domain": "telecom",
+    "era": "1960s",
+    "design": "petrol-blue crystalline-enamel steel over an oak-edged writing shelf, transfer-printed cream legends, a brass lamp-and-jack multiple worked by cloth-braided cords, tungsten ivory lamp caps in a daylight room with one amber rectifier neon",
+    "interaction": "lift a cord pair's plugs from their wells, seat them front-and-rear across the twelve-line multiple and throw the pair's RING-TALK lever key against a flywheel ring generator while the ticket pad writes itself",
+    "palette": [
+      "#1d4e57",
+      "#8a3b2a",
+      "#ea7d1a"
+    ],
+    "controls": [
+      "CORD PAIR 1",
+      "CORD PAIR 2",
+      "CORD PAIR 3",
+      "PAIR KEYS",
+      "RING GENERATOR SELECTOR",
+      "HAND CRANK",
+      "NIGHT SERVICE KEY",
+      "BUZZER CUT-OFF",
+      "SPARE FUSE CLIP",
+      "BELT TENSION LEVER",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "generator belt slip",
+      "battery fuse blown",
+      "reversed cord pair"
+    ],
+    "tagline": "Answer inside forty seconds, or the supervisor reads about it.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "coralline-cargo-console",
+    "name": "Coralline Cargo Control - Crude Oil Discharge Console",
+    "kind": "tanker crude-oil cargo discharge console",
+    "domain": "marine",
+    "era": "1970s",
+    "design": "warm buff epoxy-painted steel with engraved traffolyte legends, backlit amber film cells behind quarter-turn cargo valves, etched tank sight-glasses, a printed hull-stress card with a brass pointer, incandescent jewels under daylight bridge lighting",
+    "interaction": "lining up a backlit cargo valve matrix and easing three notched steam throttles against a live hull-bending curve while holding the inert oxygen under eight percent",
+    "palette": [
+      "#d9cfb8",
+      "#c65a1c",
+      "#c22013"
+    ],
+    "controls": [
+      "VENT SELECTOR",
+      "SEALINE VALVE",
+      "RISER VALVE",
+      "TANK V1 SUCTION",
+      "TANK V3 SUCTION",
+      "TANK V5 SUCTION",
+      "PUMP 1 THROTTLE",
+      "PUMP 2 THROTTLE",
+      "PUMP 3 THROTTLE",
+      "BALLAST SELECTOR",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "PUMP RESET",
+      "CONSOLE RESET",
+      "FAULT TEST SWITCHES",
+      "EMERGENCY DROP VALVE"
+    ],
+    "faults": [
+      "cargo pump cavitation",
+      "valve actuator jam",
+      "inert gas generator failure"
+    ],
+    "tagline": "Empty her flat and easy - the hull bends before the gauges tell you.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "ferriday-9f",
+    "name": "Ferriday 9/F Process Computer - Operator's Front Panel",
+    "kind": "process-control minicomputer front panel",
+    "domain": "data-centre",
+    "era": "1970s",
+    "design": "warm brown crinkle-enamel chassis with brushed-aluminium trim, white silk-screened condensed capitals, frosted amber register lamps in chrome rims, four glowing orange nixie clusters, backlit annunciator lens strips, a cream-faced moving-coil meter pair and a hinged fault-injector tray, lit entirely by room light except the machine's own tubes",
+    "interaction": "twelve-paddle ADDRESS and DATA banks worked with ADDRESS LOAD, EXAMINE and DEPOSIT keys against live nixie readouts, freed by a guarded START and traded against core-stack heat on a CLOCK RATE knob, single-stepped in MAINT",
+    "palette": [
+      "#5a4b3e",
+      "#fb7d1c",
+      "#e03a28"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "MODE SELECTOR",
+      "CLOCK RATE",
+      "ADDRESS SWITCHES",
+      "DATA SWITCHES",
+      "ADDRESS LOAD",
+      "EXAMINE",
+      "DEPOSIT",
+      "CLEAR",
+      "START",
+      "STOP",
+      "SINGLE STEP",
+      "BLOWER",
+      "ALARM ACKNOWLEDGE",
+      "LAMPS TEST",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "core memory parity error",
+      "power supply undervoltage",
+      "blower failure"
+    ],
+    "tagline": "Set twelve bits, press DEPOSIT, and keep the core stack under sixty-five.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "hawthorne-dimmer-board",
+    "name": "Hawthorne Grand Theatre - Dimmer Board No. 1",
+    "kind": "theatre resistance-dimmer stage-lighting board",
+    "domain": "theatre",
+    "era": "1940s",
+    "design": "forest-green crackle-finish steel with copper dimmer arcs, engraved ivory enamel legend plates, tungsten jewel annunciators, liquid cage thermometers and a live proscenium mimic, lit by daylight from the fly-floor louvres",
+    "interaction": "six cranked handles walked along resistance arcs against a full-width counterweighted grandmaster lever, dipping the whole stage by hand while watching two cage thermometers and a hot-iron ammeter",
+    "palette": [
+      "#17382e",
+      "#c07a3e",
+      "#d33a26"
+    ],
+    "controls": [
+      "SUPPLY SELECTOR",
+      "MAINS BREAKER",
+      "GRANDMASTER",
+      "DIMMER 1",
+      "DIMMER 2",
+      "DIMMER 3",
+      "DIMMER 4",
+      "DIMMER 5",
+      "DIMMER 6",
+      "SPARE FEED",
+      "THERMAL RESET",
+      "WORKING LIGHT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "dimmer bank overheat",
+      "mains overload trip",
+      "stage circuit failure"
+    ],
+    "tagline": "Dips on the grandmaster, never by walking the arcs.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "skerravy-light",
+    "name": "Skerravy Light - Optic Driving & Fog-Signal Machinery",
+    "kind": "rock lighthouse optic-drive and fog-signal machine room",
+    "domain": "marine",
+    "era": "1920s",
+    "design": "white-enamelled cast-iron frame with engraved brass roman-cap plates and a verdigris copper hood, glazed slate tower-section mimic with falling weight and revolving lens drum, brass-bezel Bourdon dials, drop-flag annunciators, lit by daylight with only the beam itself for glow",
+    "interaction": "hoisting the driving weight by hand at a two-hand winding crank while the governor trims flash period, running lamp-cell changeovers on a five-position carousel selector and speaking the fog trumpet through a three-position air cock",
+    "palette": [
+      "#ece7d8",
+      "#3e7c66",
+      "#bf2b1d"
+    ],
+    "controls": [
+      "WINDING CRANK",
+      "DRIVE CLUTCH",
+      "GOVERNOR",
+      "OPTIC CELL SELECTOR",
+      "FOG AIR COCK",
+      "FAULT TEST SWITCHES",
+      "BELL SILENCE"
+    ],
+    "faults": [
+      "governor slip",
+      "filament burnout",
+      "air main leak"
+    ],
+    "tagline": "Wind her to the top, keep her at forty-five, and let the trumpet do the talking.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "trenoweth-facsimile",
+    "name": "Trenoweth Weather Office - Facsimile Chart Receiver",
+    "kind": "weather-chart facsimile recorder position",
+    "domain": "weather",
+    "era": "1950s",
+    "design": "baked-ivory enamel office machine with oxblood two-tone skirt and bezels, nickelled trim and black bakelite knobs, transfer-printed grotesque legends, flip-flag annunciators, a daylight bench whose only glow is one amber neon sync eye",
+    "interaction": "raise gain until the signal needle stands in the band, rock the centre-zero phase knob against the tearing drum until the neon eye burns steady, drop the clutch lever and nurse density against the stylus thermometer",
+    "palette": [
+      "#e9dfc6",
+      "#7c2d26",
+      "#c22a1e"
+    ],
+    "controls": [
+      "POWER SWITCH",
+      "CIRCUIT SELECTOR",
+      "GAIN CONTROL",
+      "PHASE CONTROL",
+      "INDEX SELECTOR",
+      "CLUTCH LEVER",
+      "DENSITY CONTROL",
+      "CHART LEVER",
+      "STYLUS CLEANER",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "line dropout",
+      "stylus burnout",
+      "drive belt slip"
+    ],
+    "tagline": "Rock her onto phase before the drum tears the front off a depression.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "haverbrack-transmitter",
+    "name": "Haverbrack Transmitting Station - Transmitter No. 2",
+    "kind": "short-wave broadcast transmitter control panel",
+    "domain": "broadcast",
+    "era": "1940s",
+    "design": "polished black Vitrolite panels in a riveted steel angle frame with engraved cream-filled condensed legends, brass bezels and exposed copper busbars, ivory moving-coil meter faces, opal incandescent jewels, and twin mercury-arc rectifier columns burning cold blue-violet as the only glow in a daylight hall",
+    "interaction": "sequence breaker, blower and filaments, then lift a brass guard to raise eleven thousand volts and hunt resonance by hand on a flywheel tuning crank against a dipping anode ammeter, loading the feeder notch by notch until the aerial ammeter sits in its green sector",
+    "palette": [
+      "#17181b",
+      "#c8a558",
+      "#d22b1e"
+    ],
+    "controls": [
+      "MAIN BREAKER",
+      "BLOWER SWITCH",
+      "FILAMENT SWITCH",
+      "STANDBY PUMP SWITCH",
+      "HT START",
+      "HT TRIP RESET",
+      "RECTIFIER RESTORE",
+      "TANK TUNING CRANK",
+      "ANTENNA LOADING LEVER",
+      "DRIVE CONTROL",
+      "AERIAL SELECTOR",
+      "WAVECHANGE SELECTOR",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "MASTER RESET",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "rectifier arc-back",
+      "cooling water flow loss",
+      "main feeder fault"
+    ],
+    "tagline": "Tune for the dip of the anode, load for the lift of the aerial.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "fenn-crossroads",
+    "name": "Fenn Crossroads Automatic Signal Controller Mk III",
+    "kind": "electromechanical traffic-signal controller",
+    "domain": "road",
+    "era": "1950s",
+    "design": "grey-green stove-enamel steel in a borough street cabinet, bright chromate-zinc mechanism plate, screen-printed cream condensed capitals, incandescent jewels and glowing signal lenses under daylight, three re-timeable cams on an open camshaft",
+    "interaction": "pull-and-turn cam clutch drums to retime the greens while the synchronous motor keeps cycling, a folding hand crank and police pushbutton to walk intervals at HAND",
+    "palette": [
+      "#687065",
+      "#cf7a10",
+      "#bf2318"
+    ],
+    "controls": [
+      "MAINS ISOLATOR",
+      "MODE SELECTOR",
+      "INTERVAL CRANK",
+      "MAIN GREEN CAM",
+      "SIDE GREEN CAM",
+      "WALK CAM",
+      "POLICE PUSHBUTTON",
+      "EMERGENCY FLASH KEY",
+      "TREADLE TEST",
+      "LAMP RESTORE",
+      "BELL CUT",
+      "MAINTENANCE TESTS",
+      "PLANT RESET"
+    ],
+    "faults": [
+      "signal lamp failure",
+      "cam clutch slip",
+      "treadle stuck closed"
+    ],
+    "tagline": "Thirty for Fenn Road, twenty for Carrow Lane - timed by cams, kept by mercury.",
+    "created": "2026-08-23"
+  },
+  {
+    "slug": "netherford-zero-energy-pile",
+    "name": "Netherford Zero-Energy Pile No. 2 - Start-up Console",
+    "kind": "zero-energy research pile start-up console",
+    "domain": "nuclear",
+    "era": "1960s",
+    "design": "pale sage-green stove-enamel steel with brushed-brass bezels and screen-printed ivory condensed legends, mirror-scale moving-coil meters, amber counting neons and a paper pen-recorder, a daylight instrument hall where only the instruments are alight",
+    "interaction": "walking the shim rod out by a braked handwheel against a centre-zero reactivity meter while keeping the period needle out of its red sector, freed by a full-width red scram bar within reach of both hands",
+    "palette": [
+      "#a7b295",
+      "#b98a3c",
+      "#c22e20"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "CHART MOTOR",
+      "DETECTOR SELECTOR",
+      "DETECTOR HT",
+      "MODE SELECTOR",
+      "SHIM ROD HANDWHEEL",
+      "DRIVE CLUTCH",
+      "REGULATING CRANK",
+      "COOLING VALVE",
+      "SCRAM BAR",
+      "TRIP RESET",
+      "COLD RESET",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "detector high-voltage failure",
+      "control-rod clutch slip",
+      "coolant flow loss"
+    ],
+    "tagline": "Withdraw by tens, keep the period long, and never trust a meter you have not lamp-tested.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "vindskaer-nacelle-controller",
+    "name": "Vindskær V-62 - Nacelle Service Controller",
+    "kind": "grid wind turbine nacelle service controller",
+    "domain": "energy",
+    "era": "2000s",
+    "design": "off-white gelcoat-and-galvanised steel door panel, screen-printed charcoal DIN legends, safety-orange accents and hazard yellow, one amber-backlit character LCD, LED stack light, moving-needle gauges over a drivetrain mimic, cool nacelle strip light",
+    "interaction": "three-position mode key with guarded grid-contactor push, pitch jogged against its dial by a rocker, yaw walked off a cable-twist counter and the rotor secured on a yellow lock pin",
+    "palette": [
+      "#e9e6dd",
+      "#e07b12",
+      "#c22013"
+    ],
+    "controls": [
+      "MODE KEY",
+      "HYD PUMP",
+      "ROTOR LOCK PIN",
+      "ROTOR BRAKE",
+      "GRID CONTACTOR",
+      "PITCH JOG",
+      "YAW JOG",
+      "COOLING SELECTOR",
+      "SENSOR HEATER",
+      "ALARM ACK",
+      "LAMP TEST",
+      "SERVICE TESTS",
+      "RESET",
+      "EMERGENCY STOP"
+    ],
+    "faults": [
+      "anemometer icing",
+      "gearbox oil overheating",
+      "yaw cable twist"
+    ],
+    "tagline": "Feather before the gust - the anemometer lies when it ices.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "wrayburn-vacuum-bench",
+    "name": "Wrayburn High-Vacuum Evaporating Bench Mk. III",
+    "kind": "laboratory high-vacuum metal-evaporation coating bench",
+    "domain": "laboratory",
+    "era": "1940s",
+    "design": "slate-blue stove-enamel instrument steel with patinated bronze fittings and black phenolic legend plates, engraved ivory-filled small-cap legends, serif-numeral mirror dials, a glass bell jar lit only by its own filament and a cherry-red heater viewer under north skylight",
+    "interaction": "tilt the McLeod by hand to prove the vacuum, walk the pump selector through roughing and backing, ease the geared baffle and boiler up against the Pirani needle, then open the shutter on a white-hot filament while the optical monitor climbs",
+    "palette": [
+      "#77879a",
+      "#7d6134",
+      "#b02c20"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "COOLING WATER COCK",
+      "PUMP SELECTOR",
+      "BAFFLE VALVE",
+      "AIR ADMIT VALVE",
+      "DIFFUSION PUMP HEATER",
+      "FILAMENT CURRENT",
+      "SHUTTER LEVER",
+      "MCLEOD TILT LEVER",
+      "ALARM ACCEPT",
+      "INDICATOR LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "REPAIR ACTIONS",
+      "MASTER RESET"
+    ],
+    "faults": [
+      "bell jar crack",
+      "foreline valve passing",
+      "filament burnout"
+    ],
+    "tagline": "Prove the vacuum before you flash the filament - air eats them in four seconds.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "carselby-elevator",
+    "name": "Carselby Co-operative Elevator - Leg House Control",
+    "kind": "country grain elevator leg-house control panel",
+    "domain": "agriculture",
+    "era": "1950s",
+    "design": "machine-green baked porcelain-enamel steel in a black-iron angle frame, stencilled paper-white condensed legends and a brass maker's plate, incandescent jewel lamps under prairie daylight, a living cutaway mimic of pit, leg and six annex bins trimmed in harvest gold",
+    "interaction": "notching the pit-gate lever against boot flood while sending the electric distributor spout bin to bin on its position bell, winding the belt take-up by hand when the leg runs slack, and nursing the burner valve onto grade",
+    "palette": [
+      "#294a34",
+      "#f2efe2",
+      "#c9251b",
+      "#e0a32e"
+    ],
+    "controls": [
+      "MAIN BREAKER",
+      "LEG MOTOR START",
+      "LEG MOTOR STOP",
+      "PIT GATE",
+      "DISTRIBUTOR SELECTOR",
+      "CYCLONE FAN",
+      "BURNER VALVE",
+      "BURNER IGNITER",
+      "FLAME EYE CLEAN",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "LAMPS TEST",
+      "PLANT RESET",
+      "BELT TAKE-UP",
+      "BOOT KNOCKER",
+      "OIL CUP",
+      "MAINTENANCE TESTS",
+      "TEST BELT SLIP",
+      "TEST HOT BEARING",
+      "TEST FLAME SCAN"
+    ],
+    "faults": [
+      "leg belt slip",
+      "hot head-shaft bearing",
+      "dryer flame failure"
+    ],
+    "tagline": "Feed her easy, keep the dust down, and mind the boot - the leg tells you everything twice.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "hogfors-ice-plant",
+    "name": "Högfors Isstadion - Ice Plant Machine Room",
+    "kind": "municipal ice-rink refrigeration machine room",
+    "domain": "cold-chain",
+    "era": "1970s",
+    "design": "chalk-white stove-enamel steel with brushed-aluminium bezels, silk-screened petrol-blue legends, incandescent jewels under daylight louvres, one red seven-segment panel meter, a living top-view ice slab with growing frost blooms and a 24-hour chart recorder",
+    "interaction": "notched capacity slide lever worked against motor amps while a guarded defrost key diverts hot gas under the slab and a resurfacer call dumps warm water across the ice",
+    "palette": [
+      "#edeff0",
+      "#17879e",
+      "#cf2a1c"
+    ],
+    "controls": [
+      "COMPRESSOR START",
+      "COMPRESSOR STOP",
+      "COMPRESSOR SELECTOR",
+      "CAPACITY LEVER",
+      "BRINE PUMP SELECTOR",
+      "DEFROST KEY",
+      "RESURFACER CALL",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "LAMPS TEST",
+      "TRIP RESET",
+      "TEST REFRIGERANT LEAK",
+      "TEST BRINE FLOW LOSS",
+      "TEST COMPRESSOR KNOCK",
+      "ISOLATE LEAK",
+      "TOP UP CHARGE"
+    ],
+    "faults": [
+      "refrigerant leak",
+      "brine flow loss",
+      "compressor knock"
+    ],
+    "tagline": "Minus twelve on the brine, frost under ten millimetres, defrost between periods.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "deeping-filter-gallery",
+    "name": "Deeping Valley Water Board - Filter Gallery Control Bench No. 2",
+    "kind": "rapid gravity water-treatment filter gallery control bench",
+    "domain": "water",
+    "era": "1960s",
+    "design": "seafoam glazed-tile fascia with transfer-printed legends and satin-bronze angles, chrome-bezel dry-dial gauges, inclined mercury manometers, effluent sight glasses and a chlorine residual colour comparator in a daylight gallery",
+    "interaction": "isolate a blinding bed on multi-turn handwheels and a quarter-turn waste cock, then wind the cam-timer crank spring through drain, air scour, water wash and refill while three beds carry the town against the rate quadrant",
+    "palette": [
+      "#aabfb6",
+      "#86652e",
+      "#b81f2d"
+    ],
+    "controls": [
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "BED 1 INLET",
+      "BED 1 WASTE",
+      "BED 1 OUTLET",
+      "BED 2 INLET",
+      "BED 2 WASTE",
+      "BED 2 OUTLET",
+      "BED 3 INLET",
+      "BED 3 WASTE",
+      "BED 3 OUTLET",
+      "BED 4 INLET",
+      "BED 4 WASTE",
+      "BED 4 OUTLET",
+      "WASH TIMER CRANK",
+      "BLOWER START",
+      "BLOWER RESET",
+      "CHLORINE DOSE",
+      "EJECTOR SELECTOR",
+      "RATE LEVER",
+      "FAULT TEST SWITCHES",
+      "GALLERY RESET"
+    ],
+    "faults": [
+      "filter bed breakthrough",
+      "chlorine ejector vacuum loss",
+      "backwash blower overload"
+    ],
+    "tagline": "Two turns open, two metres to the wash, and never a drop without her residual.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "aldersund-planetarium",
+    "name": "Aldersund Planetarium - Projector Console No. 1",
+    "kind": "opto-mechanical planetarium projector lecture console",
+    "domain": "theatre",
+    "era": "1960s",
+    "design": "oxblood-brown moulded bakelite in a brushed-aluminium frame, engraved ivory-filled condensed legends, tungsten-lit key roundels and amber pilot neons, backlit drum counters, a fisheye dome port with a living star field, dark until the arc is struck",
+    "interaction": "walking the carbon arc onto thirty amperes in its green field, then re-caging the drum gears at six hours west under a red guard while the latitude crank tips the whole star cage live in the port",
+    "palette": [
+      "#5e2b22",
+      "#f2e3b0",
+      "#d0342a"
+    ],
+    "controls": [
+      "MAINS SWITCH",
+      "BLOWER SWITCH",
+      "LAMP CURRENT",
+      "RATE SELECTOR",
+      "LATITUDE CRANK",
+      "RE-CAGE LEVER",
+      "SHUTTER KEYS",
+      "HOUSE LIGHTS",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TESTS",
+      "TRIP RESET",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "blower failure",
+      "arc instability",
+      "gear train jam"
+    ],
+    "tagline": "Keep the needle in the green field and cage her drums at six hours west.",
+    "created": "2026-08-24"
+  },
+  {
+    "slug": "merrowgate-driving-console",
+    "name": "Corvedale 1973 Stock - Driving Console",
+    "kind": "deep-tube electric train driving console",
+    "domain": "rail",
+    "era": "1970s",
+    "design": "scuffed transit-grey painted steel desk with silkscreened cream condensed legends, tungsten indicator windows on a plywood backing, ivory gauge dials and a living tunnel bore in the windscreen",
+    "interaction": "a spring dead-man grip that must be held and eased every forty seconds while a notched traction-brake controller is worked against the speedometer between trainstop-protected signals",
+    "palette": [
+      "#7a7772",
+      "#1c3f94",
+      "#d0342c"
+    ],
+    "controls": [
+      "MASTER CONTROLLER",
+      "DEAD-MAN GRIP",
+      "DOOR SELECTOR",
+      "DOOR OPEN",
+      "DOOR CLOSE",
+      "AUXILIARIES",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TRIPCOCK RESET",
+      "LEAK ISOLATION COCK",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "main reservoir leak",
+      "door interlock failure",
+      "trainstop trip (SPAD)"
+    ],
+    "tagline": "Hold her alive, roll to the marker, and never argue with a red.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "wrenford-continuity",
+    "name": "Wrenford Vale Radio - Studio B Continuity Desk",
+    "kind": "radio continuity suite self-op on-air desk",
+    "domain": "broadcast",
+    "era": "1980s",
+    "design": "oatmeal vinyl-faced plywood console with walnut cheeks and brushed-aluminium fascia, screen-printed black condensed legends, tungsten pilot lamps and backlit switchcaps under room light, a red ON AIR lightbox above a cream VU meter bridge",
+    "interaction": "three long-throw faders riding carts, network line and microphone onto a live programme bus while a silence sensor counts down to a transmitter auto-drop and an eight-second profanity delay is armed and dumped",
+    "palette": [
+      "#cfc5ae",
+      "#4a3526",
+      "#c22419"
+    ],
+    "controls": [
+      "CONSOLE MAINS",
+      "MONITOR SELECTOR",
+      "NETWORK SELECTOR",
+      "CARTRIDGE SELECTOR",
+      "CART START",
+      "CART STOP CUE",
+      "CART WALL FADER",
+      "NETWORK FADER",
+      "MIC FADER",
+      "MIC KEY",
+      "DELAY ARM",
+      "DELAY DUMP",
+      "TX RAISE",
+      "TX LOWER",
+      "TX RESET",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TEST CART JAM",
+      "TEST NETWORK LOSS",
+      "TEST TX OVERLOAD",
+      "TEST TONE",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "cart jam",
+      "network line loss",
+      "transmitter overload"
+    ],
+    "tagline": "Faders at seven for the join, delay armed before the mic, and nothing dead on the line.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "dunlin-saturation",
+    "name": "Dunlin Sentinel - Saturation Control Console",
+    "kind": "saturation diving life-support control console",
+    "domain": "deep-sea",
+    "era": "1980s",
+    "design": "international-orange painted steel over black instrument bays, stencilled condensed legends with Dymo amendments, backlit milk-glass gauges, twin LED oxygen bargraphs, one amber neon and a chamber CCTV porthole under fluorescent shack light",
+    "interaction": "walking the guarded quad-bank selector against falling bank needles while trimming an oxygen micrometer by eighths of a turn and holding a mushroom bypass to walk the depth needle onto its yellow ghost",
+    "palette": [
+      "#c24910",
+      "#ece5da",
+      "#d81f1a"
+    ],
+    "controls": [
+      "MAINS ISOLATOR",
+      "QUAD SELECTOR",
+      "O2 INJECT",
+      "MAKE-UP ISOLATOR",
+      "MAKE-UP BYPASS",
+      "CHAMBER VENT",
+      "DEPTH SET",
+      "SCRUBBER FANS",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TRIP RESET",
+      "PANEL RESET",
+      "FAULT TESTS"
+    ],
+    "faults": [
+      "scrubber fan stall",
+      "quad bank depletion",
+      "make-up valve passing"
+    ],
+    "tagline": "Fourteen bar outside; mind your oxygen like it is the last litre.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "marlpit-retort-bench",
+    "name": "Marlpit Gas Works - Retort House Stoking Bench No. 4",
+    "kind": "town-gas retort-house stoking bench",
+    "domain": "chemical",
+    "era": "1920s",
+    "design": "blackleaded cast-iron fascia bolted over a white glazed-brick back panel, transfer-printed buff legends and engraved brass data plates, drop-shutter annunciators, lit by roof-louvres daylight and its own fire",
+    "interaction": "charging retorts by pull lever off a swinging coal spout, trimming the producer firing valve and damper against a pyrometer, holding the hydraulic main at an inch of water on the exhauster governor handwheel, and working the stoking rake in full strokes through the open door",
+    "palette": [
+      "#2e3236",
+      "#e3cfa0",
+      "#c23a1e"
+    ],
+    "controls": [
+      "CHARGE LEVER",
+      "RETORT SELECTOR",
+      "RETORT DOOR",
+      "PRODUCER DAMPER",
+      "FIRING VALVE",
+      "STOKING RAKE",
+      "SEAL WATER COCK",
+      "EXHAUSTER GOVERNOR",
+      "TEST BURNER COCK",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TRIP RESET",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "water seal blown",
+      "flue clinker fouling",
+      "exhauster overload trip"
+    ],
+    "tagline": "Charge her easy, keep the main at an inch, and never let the seal run dry.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "calderbridge-master-clock",
+    "name": "Calderbridge Corporation - Master Clock No. 1 & Impulse Switchboard",
+    "kind": "master clock and slave-dial impulse switchboard",
+    "domain": "civic",
+    "era": "1920s",
+    "design": "ebonised mahogany long-case with gilt bead lines, silvered dials and blued-steel hands over a black slate switchboard carrying copper knife switches, engraved white serif legends, red enamel drop-flag annunciators and fluted glass battery jars, daylight-lit with no lamps at all",
+    "interaction": "wind the driving weight by hand crank, trim the rate on the rating knob, push the hands forward only, and work slate knife switches to keep forty borough dials stepping on the minute impulse",
+    "palette": [
+      "#2e211a",
+      "#ccd2d6",
+      "#b32014"
+    ],
+    "controls": [
+      "WINDING CRANK",
+      "PENDULUM START LEVER",
+      "RATING KNOB",
+      "HANDS KNOB",
+      "BATTERY SELECTOR",
+      "CIRCUIT A SWITCH",
+      "CIRCUIT B SWITCH",
+      "CIRCUIT C SWITCH",
+      "CIRCUIT D SWITCH",
+      "FUSE RESTORE",
+      "ALARM BELL SWITCH",
+      "FLAG RESTORE",
+      "REPLACE CELLS",
+      "CATCH-UP LEVER",
+      "MAINTENANCE TESTS"
+    ],
+    "faults": [
+      "battery cell exhausted",
+      "slave line short circuit",
+      "pendulum stoppage"
+    ],
+    "tagline": "Two volts, one pendulum, forty dials - keep the whole town on the minute.",
+    "created": "2026-08-25"
+  }
 ]
