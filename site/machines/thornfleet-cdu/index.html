@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thornfleet Refinery - Crude Unit No. 2 Control Board</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="board" aria-label="Crude Unit No. 2 pneumatic control board">
+      <!-- ============ top rail: name plates + annunciator ============ -->
+      <header class="top-rail">
+        <div class="nameplate-block">
+          <p class="np-owner">THORNFLEET REFINERY &middot; ESSEX</p>
+          <h1 class="np-title">CRUDE UNIT No.&thinsp;2<br />CONTROL BOARD</h1>
+          <p class="np-sub">
+            PNEUMATIC PATTERN&nbsp;7 &middot; 3&ndash;15&thinsp;LB/IN&sup2;
+          </p>
+        </div>
+
+        <section class="annunciator" aria-label="Alarm annunciator">
+          <div class="tiles">
+            <span class="tile" data-alarm-tile="FLAME FAILURE"
+              ><i class="lamp"></i>FLAME FAILURE</span
+            >
+            <span class="tile" data-alarm-tile="OUTLET TEMP HIGH"
+              ><i class="lamp"></i>OUTLET TEMP HIGH</span
+            >
+            <span class="tile" data-alarm-tile="COLUMN PRESS HIGH"
+              ><i class="lamp"></i>COLN PRESS HIGH</span
+            >
+            <span class="tile" data-alarm-tile="RELIEF LIFTED"
+              ><i class="lamp"></i>RELIEF LIFTED</span
+            >
+            <span class="tile" data-alarm-tile="REFLUX FLOW LOW"
+              ><i class="lamp"></i>REFLUX FLOW LOW</span
+            >
+            <span class="tile" data-alarm-tile="TC CELL FAULT"
+              ><i class="lamp"></i>TC CELL FAULT</span
+            >
+            <span class="tile" data-alarm-tile="INSTRUMENT AIR LOW"
+              ><i class="lamp"></i>INSTR AIR LOW</span
+            >
+            <span class="tile" data-alarm-tile="INSTRUMENT AIR LOW"
+              ><i class="lamp"></i>INSTR AIR LOW</span
+            >
+          </div>
+          <div class="ann-buttons">
+            <button
+              type="button"
+              class="push dark"
+              data-control="ALARM ACCEPT"
+              aria-label="Accept alarm"
+            >
+              ACCEPT
+            </button>
+            <button
+              type="button"
+              class="push dark"
+              data-control="LAMPS TEST"
+              aria-label="Test lamps"
+            >
+              LAMPS TEST
+            </button>
+            <a
+              class="manual-link push brassish"
+              href="../../"
+              aria-label="Back to the machine catalogue"
+              >CATALOGUE</a
+            >
+            <button
+              type="button"
+              class="push brassish"
+              data-action="manual"
+              aria-label="Open the operating manual"
+            >
+              OPERATING MANUAL
+            </button>
+          </div>
+        </section>
+      </header>
+
+      <!-- ============ controller bank + chart recorder ============ -->
+
+      <section class="mid-rail">
+        <article
+          class="station case"
+          id="station-tic"
+          aria-label="TIC 1 outlet temperature controller"
+        >
+          <header class="st-head">
+            <span class="loop-tag">TIC&middot;1</span>
+            <span class="st-name">OUTLET TEMPERATURE</span>
+            <span class="st-range">&deg;C</span>
+          </header>
+          <svg
+            class="st-scale"
+            viewBox="0 0 220 118"
+            role="img"
+            aria-label="Outlet temperature scale 300 to 600 degrees Celsius with measurement needle and setpoint index"
+          >
+            <g class="scale-face"></g>
+            <path class="pv-needle" id="tic-pv" d="M110 106 L110 22" />
+            <path class="sp-index" id="tic-sp" d="M104 96 L110 86 L116 96 Z" />
+            <text x="24" y="114" class="tick-num">300</text>
+            <text x="196" y="114" class="tick-num">600</text>
+          </svg>
+          <div class="st-lower">
+            <div class="mini-gauge">
+              <svg
+                viewBox="0 0 80 52"
+                role="img"
+                aria-label="Balance gauge, setpoint against measurement"
+              >
+                <path class="mg-arc" d="M12 46 A34 34 0 0 1 68 46" />
+                <line class="mg-zero" x1="40" y1="44" x2="40" y2="30" />
+                <path class="bal-needle" id="tic-bal" d="M40 48 L40 18" />
+              </svg>
+              <span class="mg-label">BALANCE</span>
+            </div>
+            <div class="knob-wrap">
+              <div
+                class="knob"
+                id="tic-knob"
+                tabindex="0"
+                role="slider"
+                aria-label="TIC 1 setpoint, or manual output in MANUAL"
+                aria-valuemin="300"
+                aria-valuemax="600"
+                aria-valuenow="500"
+              >
+                <i></i>
+              </div>
+              <span class="knob-label">SET&nbsp;PT / OUTPUT</span>
+            </div>
+            <button
+              type="button"
+              class="xfer auto"
+              id="tic-xfer"
+              data-control="TIC-1 AUTO/MANUAL"
+              aria-label="TIC 1 transfer, automatic or manual"
+              aria-pressed="true"
+            >
+              <b>AUTO</b><b>MAN</b><i class="xfer-knob"></i>
+            </button>
+          </div>
+          <footer class="st-foot">
+            <svg
+              class="out-gauge"
+              viewBox="0 0 90 56"
+              role="img"
+              aria-label="Controller output, 3 to 15 pounds per square inch"
+            >
+              <path class="og-arc" d="M14 50 A36 36 0 0 1 76 50" />
+              <path class="og-needle" id="tic-out-n" d="M45 52 L45 20" />
+              <text x="10" y="54" class="tick-num sm">3</text>
+              <text x="70" y="54" class="tick-num sm">15</text>
+            </svg>
+            <span class="mode-window" id="tic-mode">AUTO</span>
+          </footer>
+        </article>
+
+        <article
+          class="station case"
+          id="station-pic"
+          aria-label="PIC 2 column pressure controller"
+        >
+          <header class="st-head">
+            <span class="loop-tag">PIC&middot;2</span>
+            <span class="st-name">COLUMN PRESSURE</span>
+            <span class="st-range">LB/IN&sup2;G</span>
+          </header>
+          <svg
+            class="st-scale"
+            viewBox="0 0 220 118"
+            role="img"
+            aria-label="Column pressure scale nought to three pounds per square inch gauge with measurement needle and setpoint index"
+          >
+            <g class="scale-face"></g>
+            <path class="pv-needle" id="pic-pv" d="M110 106 L110 22" />
+            <path class="sp-index" id="pic-sp" d="M104 96 L110 86 L116 96 Z" />
+            <text x="26" y="114" class="tick-num">0</text>
+            <text x="192" y="114" class="tick-num">3.0</text>
+          </svg>
+          <div class="st-lower">
+            <div class="mini-gauge">
+              <svg
+                viewBox="0 0 80 52"
+                role="img"
+                aria-label="Balance gauge, setpoint against measurement"
+              >
+                <path class="mg-arc" d="M12 46 A34 34 0 0 1 68 46" />
+                <line class="mg-zero" x1="40" y1="44" x2="40" y2="30" />
+                <path class="bal-needle" id="pic-bal" d="M40 48 L40 18" />
+              </svg>
+              <span class="mg-label">BALANCE</span>
+            </div>
+            <div class="knob-wrap">
+              <div
+                class="knob"
+                id="pic-knob"
+                tabindex="0"
+                role="slider"
+                aria-label="PIC 2 setpoint, or manual output in MANUAL"
+                aria-valuemin="0"
+                aria-valuemax="3"
+                aria-valuenow="1.2"
+              >
+                <i></i>
+              </div>
+              <span class="knob-label">SET&nbsp;PT / OUTPUT</span>
+            </div>
+            <button
+              type="button"
+              class="xfer auto"
+              id="pic-xfer"
+              data-control="PIC-2 AUTO/MANUAL"
+              aria-label="PIC 2 transfer, automatic or manual"
+              aria-pressed="true"
+            >
+              <b>AUTO</b><b>MAN</b><i class="xfer-knob"></i>
+            </button>
+          </div>
+          <footer class="st-foot">
+            <svg
+              class="out-gauge"
+              viewBox="0 0 90 56"
+              role="img"
+              aria-label="Controller output, 3 to 15 pounds per square inch"
+            >
+              <path class="og-arc" d="M14 50 A36 36 0 0 1 76 50" />
+              <path class="og-needle" id="pic-out-n" d="M45 52 L45 20" />
+              <text x="10" y="54" class="tick-num sm">3</text>
+              <text x="70" y="54" class="tick-num sm">15</text>
+            </svg>
+            <span class="mode-window" id="pic-mode">AUTO</span>
+          </footer>
+        </article>
+
+        <article
+          class="station case"
+          id="station-fic"
+          aria-label="FIC 3 reflux flow controller"
+        >
+          <header class="st-head">
+            <span class="loop-tag">FIC&middot;3</span>
+            <span class="st-name">TOP REFLUX FLOW</span>
+            <span class="st-range">M&sup3;/H</span>
+          </header>
+          <svg
+            class="st-scale"
+            viewBox="0 0 220 118"
+            role="img"
+            aria-label="Reflux flow scale nought to ninety cubic metres per hour with measurement needle and setpoint index"
+          >
+            <g class="scale-face"></g>
+            <path class="pv-needle" id="fic-pv" d="M110 106 L110 22" />
+            <path class="sp-index" id="fic-sp" d="M104 96 L110 86 L116 96 Z" />
+            <text x="26" y="114" class="tick-num">0</text>
+            <text x="188" y="114" class="tick-num">90</text>
+          </svg>
+          <div class="st-lower">
+            <div class="mini-gauge">
+              <svg
+                viewBox="0 0 80 52"
+                role="img"
+                aria-label="Balance gauge, setpoint against measurement"
+              >
+                <path class="mg-arc" d="M12 46 A34 34 0 0 1 68 46" />
+                <line class="mg-zero" x1="40" y1="44" x2="40" y2="30" />
+                <path class="bal-needle" id="fic-bal" d="M40 48 L40 18" />
+              </svg>
+              <span class="mg-label">BALANCE</span>
+            </div>
+            <div class="knob-wrap">
+              <div
+                class="knob"
+                id="fic-knob"
+                tabindex="0"
+                role="slider"
+                aria-label="FIC 3 setpoint, or manual output in MANUAL"
+                aria-valuemin="0"
+                aria-valuemax="90"
+                aria-valuenow="45"
+              >
+                <i></i>
+              </div>
+              <span class="knob-label">SET&nbsp;PT / OUTPUT</span>
+            </div>
+            <button
+              type="button"
+              class="xfer auto"
+              id="fic-xfer"
+              data-control="FIC-3 AUTO/MANUAL"
+              aria-label="FIC 3 transfer, automatic or manual"
+              aria-pressed="true"
+            >
+              <b>AUTO</b><b>MAN</b><i class="xfer-knob"></i>
+            </button>
+          </div>
+          <footer class="st-foot">
+            <svg
+              class="out-gauge"
+              viewBox="0 0 90 56"
+              role="img"
+              aria-label="Controller output, 3 to 15 pounds per square inch"
+            >
+              <path class="og-arc" d="M14 50 A36 36 0 0 1 76 50" />
+              <path class="og-needle" id="fic-out-n" d="M45 52 L45 20" />
+              <text x="10" y="54" class="tick-num sm">3</text>
+              <text x="70" y="54" class="tick-num sm">15</text>
+            </svg>
+            <span class="mode-window" id="fic-mode">AUTO</span>
+          </footer>
+        </article>
+
+        <article
+          class="recorder case"
+          aria-label="Two-pen circular chart recorder"
+        >
+          <header class="rc-head">
+            <span class="loop-tag">CRR&middot;4</span>
+            <span class="st-name">CIRCULAR CHART</span>
+            <button
+              type="button"
+              class="toggle"
+              id="chart-motor"
+              data-control="CHART MOTOR"
+              aria-label="Chart motor on or off"
+              aria-pressed="false"
+            >
+              <i></i><span>MOTOR</span>
+            </button>
+          </header>
+          <canvas
+            id="chart"
+            width="290"
+            height="290"
+            aria-label="Twenty-four hour chart, outlet temperature in red ink and column pressure in blue ink"
+          ></canvas>
+          <footer class="rc-foot">
+            <span class="pen pen-red"></span>OUTLET &deg;C<span
+              class="pen pen-blue"
+            ></span
+            >PRESSURE
+          </footer>
+        </article>
+      </section>
+
+      <!-- ============ open process panel: the mimic ============ -->
+      <section
+        class="process-panel"
+        aria-label="Process mimic, charge through heater and column to storage"
+      >
+        <svg
+          id="mimic"
+          viewBox="0 0 1180 330"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <defs>
+            <radialGradient id="flameGrad" cx="50%" cy="65%" r="60%">
+              <stop offset="0%" stop-color="#ffe9a8" />
+              <stop offset="45%" stop-color="#f5a623" />
+              <stop offset="80%" stop-color="#c33d12" />
+              <stop offset="100%" stop-color="#c33d1200" />
+            </radialGradient>
+            <radialGradient id="flareGrad" cx="50%" cy="70%" r="60%">
+              <stop offset="0%" stop-color="#fff3c4" />
+              <stop offset="55%" stop-color="#ef7b1c" />
+              <stop offset="100%" stop-color="#bf231400" />
+            </radialGradient>
+            <pattern
+              id="hatch"
+              width="6"
+              height="6"
+              patternTransform="rotate(45)"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect width="6" height="6" fill="#0e4c58" />
+              <rect width="3" height="6" fill="#12586a" />
+            </pattern>
+          </defs>
+
+          <!-- lines drawn first -->
+          <g class="pipe">
+            <path id="p-charge" d="M96 208 L96 258 L150 258" />
+            <path id="p-pumpout" d="M186 250 L186 190 L258 190" />
+            <path id="p-transfer" d="M356 96 L356 66 L432 66 L432 128" />
+            <path id="p-top" d="M472 60 L472 30 L588 30" />
+            <path id="p-cond" d="M588 30 L588 96 L648 96 L648 130" />
+            <path
+              id="p-reflux"
+              d="M648 214 L648 252 L610 252 L610 286 L520 286 L520 150 L496 150"
+            />
+            <path id="p-product" d="M712 160 L836 160" />
+            <path id="p-bottoms" d="M472 300 L472 316 L700 316" />
+            <path id="p-relief" d="M492 60 L492 14 L1058 14 L1058 44" />
+            <path id="p-fuel" d="M292 258 L292 216" />
+          </g>
+          <g class="pipe ghost">
+            <path d="M836 160 L900 160" />
+            <path d="M700 316 L764 316" />
+          </g>
+
+          <!-- arrows / destinations -->
+          <g class="dest">
+            <path d="M900 148 L938 160 L900 172 Z" class="dest-arrow" />
+            <text x="906" y="138">STORAGE</text>
+            <path d="M764 306 L800 316 L764 326 Z" class="dest-arrow" />
+            <text x="756" y="300">BTMS</text>
+          </g>
+
+          <!-- charge drum -->
+          <g class="vessel">
+            <rect x="58" y="140" width="76" height="68" rx="10" />
+            <rect x="62" y="144" width="68" height="60" rx="8" class="shell" />
+            <rect
+              id="charge-level"
+              x="62"
+              y="164"
+              width="68"
+              height="40"
+              rx="6"
+              class="liquid"
+            />
+            <circle cx="96" cy="132" r="5" class="fitting" />
+            <text x="96" y="126">CHARGE DRUM</text>
+          </g>
+
+          <!-- charge pump -->
+          <g class="rotite" id="pump-charge" transform="translate(168 258)">
+            <circle r="17" class="body" />
+            <circle r="6" class="hub" />
+            <path
+              class="vane"
+              d="M0 -13 A13 13 0 0 1 11 6 L4 3 A6 6 0 0 0 0 -6 Z"
+            />
+            <text x="-2" y="42">CHARGE PUMP</text>
+            <text x="-2" y="56" class="sub" id="pump-rate">0 M&sup3;/H</text>
+          </g>
+
+          <!-- fired heater -->
+          <g class="vessel heater">
+            <rect
+              x="256"
+              y="60"
+              width="104"
+              height="158"
+              rx="4"
+              class="shell thick"
+            />
+            <rect
+              x="264"
+              y="150"
+              width="88"
+              height="60"
+              rx="3"
+              class="firebox"
+            />
+            <circle id="sight-port" cx="308" cy="180" r="16" class="port" />
+            <ellipse
+              id="flame"
+              cx="308"
+              cy="186"
+              rx="11"
+              ry="16"
+              fill="url(#flameGrad)"
+              opacity="0"
+            />
+            <rect x="288" y="8" width="20" height="52" fill="url(#hatch)" />
+            <text x="298" y="52" class="stack-smoke">&#9650;</text>
+            <rect
+              x="270"
+              y="222"
+              width="76"
+              height="12"
+              rx="2"
+              class="burner-bar"
+            />
+            <text x="308" y="252">HEATER H·1</text>
+            <text x="308" y="278" class="sub" id="coil-temp">
+              COIL 15&deg;C
+            </text>
+          </g>
+          <!-- fuel cock symbol + register -->
+          <g transform="translate(292 258)">
+            <path
+              class="bowtie"
+              id="fuel-bowtie"
+              d="M-9 -7 L0 0 L-9 7 Z M9 -7 L0 0 L9 7 Z"
+            />
+            <text x="0" y="22" class="sub">FG</text>
+          </g>
+
+          <!-- column -->
+          <g class="vessel column">
+            <rect
+              x="432"
+              y="60"
+              width="80"
+              height="240"
+              rx="14"
+              class="shell thick"
+            />
+            <g class="trays">
+              <line x1="440" y1="100" x2="504" y2="100" />
+              <line x1="440" y1="130" x2="504" y2="130" />
+              <line x1="440" y1="160" x2="504" y2="160" />
+              <line x1="440" y1="190" x2="504" y2="190" />
+              <line x1="440" y1="220" x2="504" y2="220" />
+              <line x1="440" y1="250" x2="504" y2="250" />
+            </g>
+            <rect
+              id="sump-level"
+              x="436"
+              y="272"
+              width="72"
+              height="24"
+              rx="8"
+              class="liquid"
+            />
+            <text x="472" y="52">COLUMN C·1</text>
+            <text x="472" y="292" class="sub on-dark" id="col-press-txt">
+              1.20 PSIG
+            </text>
+          </g>
+
+          <!-- relief valve -->
+          <g class="psv" transform="translate(492 60)">
+            <path class="bowtie tri" d="M-7 6 L7 6 L0 -6 Z" />
+            <text x="12" y="-2" class="sub" id="psv-tag">PSV·2 SET 2.6</text>
+          </g>
+
+          <!-- condenser -->
+          <g class="condenser" transform="translate(588 30)">
+            <path
+              class="fins"
+              d="M-6 12 h12 M-6 24 h12 M-6 36 h12 M-6 48 h12 M-6 60 h12"
+            />
+            <text x="16" y="70" class="sub">CONDENSER E·2</text>
+          </g>
+
+          <!-- reflux drum -->
+          <g class="vessel drum">
+            <rect
+              x="600"
+              y="130"
+              width="96"
+              height="84"
+              rx="16"
+              class="shell"
+            />
+            <clipPath id="drumClip">
+              <rect x="604" y="134" width="88" height="76" rx="12" />
+            </clipPath>
+            <rect
+              id="drum-level"
+              x="604"
+              y="176"
+              width="88"
+              height="34"
+              clip-path="url(#drumClip)"
+              class="liquid"
+            />
+            <text x="648" y="124">REFLUX DRUM</text>
+          </g>
+
+          <!-- reflux pump -->
+          <g class="rotite" id="pump-reflux" transform="translate(610 286)">
+            <circle r="15" class="body" />
+            <circle r="5" class="hub" />
+            <path
+              class="vane"
+              d="M0 -11 A11 11 0 0 1 9 5 L3 2 A5 5 0 0 0 0 -5 Z"
+            />
+            <text x="-64" y="34" class="sub">P·3 REFUX</text>
+          </g>
+
+          <g class="flare">
+            <rect x="1052" y="44" width="12" height="230" fill="url(#hatch)" />
+            <ellipse
+              id="flare-flame"
+              cx="1058"
+              cy="34"
+              rx="10"
+              ry="20"
+              fill="url(#flareGrad)"
+              opacity="0"
+            />
+            <text x="1030" y="292">FLARE</text>
+          </g>
+        </svg>
+        <button
+          type="button"
+          class="push tiny vent-btn"
+          id="vent-reflux"
+          data-control="REFLUX PUMP VENT"
+          aria-label="Vent the reflux pump to clear vapour lock"
+        >
+          VENT&nbsp;P·3
+        </button>
+      </section>
+
+      <!-- ============ operating shelf ============ -->
+      <section class="shelf">
+        <fieldset class="bay air-bay">
+          <legend>INSTRUMENT AIR</legend>
+          <div class="dial-wrap">
+            <svg
+              viewBox="0 0 110 78"
+              role="img"
+              aria-label="Instrument air header gauge, nought to thirty pounds per square inch"
+            >
+              <path class="dial-arc" d="M14 66 A44 44 0 0 1 96 66" />
+              <path class="dial-redzone" d="M14.8 63.5 A41 41 0 0 1 30 30" />
+              <line
+                class="dial-needle"
+                id="air-needle"
+                x1="55"
+                y1="66"
+                x2="55"
+                y2="26"
+              />
+              <text x="12" y="76" class="tick-num sm">0</text>
+              <text x="92" y="76" class="tick-num sm">30</text>
+            </svg>
+            <span class="dial-caption">HEADER&nbsp;PSI</span>
+          </div>
+          <button
+            type="button"
+            class="push small"
+            id="compressor-reset"
+            data-control="AIR COMPRESSOR RESET"
+            aria-label="Restart the instrument air compressor"
+          >
+            COMPRESSOR RESET
+          </button>
+          <p class="bay-note" id="air-note">COMPRESSOR RUNNING</p>
+        </fieldset>
+
+        <fieldset class="bay burner-bay">
+          <legend>BURNER MANAGEMENT · HEATER H·1</legend>
+          <div class="cock-wrap">
+            <div
+              class="quadrant"
+              id="fuel-cock"
+              data-control="FUEL GAS COCK"
+              tabindex="0"
+              role="slider"
+              aria-label="Fuel gas cock: closed, light, or open"
+              aria-valuemin="0"
+              aria-valuemax="2"
+              aria-valuenow="0"
+            >
+              <ol class="quad-marks">
+                <li>CLOSED</li>
+                <li>LIGHT</li>
+                <li>OPEN</li>
+              </ol>
+              <i class="cock-handle" id="cock-handle"></i>
+            </div>
+            <span class="knob-label">FUEL GAS COCK</span>
+          </div>
+          <div class="knob-wrap">
+            <div
+              class="knob"
+              id="register-knob"
+              data-control="AIR REGISTER"
+              tabindex="0"
+              role="slider"
+              aria-label="Combustion air register, percent open"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <i></i>
+            </div>
+            <span class="knob-label" id="register-read">AIR 0%</span>
+          </div>
+          <button
+            type="button"
+            class="push momentary"
+            id="pilot-test"
+            data-control="PILOT TEST"
+            aria-label="Hold to test and light the pilot burner"
+          >
+            PILOT TEST<br /><span>HOLD TO LIGHT</span>
+          </button>
+          <span class="eye" id="flame-eye" aria-label="Flame eye"
+            ><i></i>FLAME EYE</span
+          >
+        </fieldset>
+
+        <fieldset class="bay pumps-bay">
+          <legend>CHARGE PUMP P·1</legend>
+          <button
+            type="button"
+            class="mushroom green"
+            id="pump-start"
+            data-control="CHARGE PUMP START"
+            aria-label="Start charge pump"
+          >
+            START
+          </button>
+          <button
+            type="button"
+            class="mushroom red"
+            id="pump-stop"
+            data-control="CHARGE PUMP STOP"
+            aria-label="Stop charge pump"
+          >
+            STOP
+          </button>
+          <span class="bay-note" id="pump-note">STOPPED</span>
+        </fieldset>
+
+        <fieldset class="bay tc-bay">
+          <legend>THERMOCOUPLE SERVICE · TIC·1</legend>
+          <div class="sel-wrap">
+            <div
+              class="selector"
+              id="tc-selector"
+              data-control="TC SELECTOR"
+              tabindex="0"
+              role="slider"
+              aria-label="Thermocouple selector: run, duplex standby, or check"
+              aria-valuemin="0"
+              aria-valuemax="2"
+              aria-valuenow="0"
+            >
+              <ol class="sel-marks">
+                <li class="pos-a">RUN</li>
+                <li class="pos-b">DUPLEX</li>
+                <li class="pos-c">CHECK</li>
+              </ol>
+              <i class="sel-pointer" id="tc-pointer"></i>
+            </div>
+            <span class="knob-label">CELL SELECTOR</span>
+          </div>
+          <div class="guard" id="trip-guard">
+            <span class="guard-lid" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="push key"
+              id="trip-reset-btn"
+              data-control="HI-TEMP TRIP RESET"
+              aria-label="Reset the high temperature trip"
+              disabled
+            >
+              HI-TEMP TRIP RESET
+            </button>
+          </div>
+
+          <p class="bay-note" id="trip-note">TRIP HEALTHY</p>
+        </fieldset>
+
+        <fieldset class="bay test-bay">
+          <legend>
+            MAINTENANCE TESTS &middot; DO NOT TURN WITHOUT AUTHORITY
+          </legend>
+          <div class="sel-wrap">
+            <div
+              class="selector wide"
+              id="test-selector"
+              data-control="MAINTENANCE TESTS"
+              tabindex="0"
+              role="slider"
+              aria-label="Works test selector: off, instrument air failure, thermocouple drift, or reflux cavitation"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="0"
+            >
+              <ol class="sel-marks four">
+                <li class="pos-a">OFF</li>
+                <li class="pos-b">AIR FAIL</li>
+                <li class="pos-c">TC DRIFT</li>
+                <li class="pos-d">CAVIT&#8209;ATION</li>
+              </ol>
+              <i class="sel-pointer" id="test-pointer"></i>
+            </div>
+            <span class="knob-label">WORKS TESTS</span>
+          </div>
+          <button
+            type="button"
+            class="push small"
+            id="unit-reset"
+            data-control="UNIT RESET"
+            aria-label="Return the whole unit to cold and clear"
+          >
+            UNIT RESET
+          </button>
+          <p class="bay-note" id="test-note">NO TEST SELECTED</p>
+        </fieldset>
+      </section>
+
+      <footer class="board-foot">
+        <span
+          >THORNFLEET OIL WORKS &middot; INSTRUMENT SCHOOL PATTERN 7 &middot;
+          1957</span
+        >
+        <span
+          >SHEET 1 OF 1 &middot; KEEP CHARTS INKED &middot; MIND YOUR AIR</span
+        >
+      </footer>
+    </main>
+
+    <dialog data-manual id="manual-dialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="mc-title"
+          >CRUDE UNIT No.2 &mdash; OPERATING MANUAL M/7</span
+        >
+        <button type="button" class="push brassish" data-action="close-manual">
+          CLOSE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Crude Unit No. 2 control board"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

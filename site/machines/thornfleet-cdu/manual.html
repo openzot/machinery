@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Manual M/7 - Crude Unit No.2 Control Board - Thornfleet Refinery
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-page">
+    <div class="manual-sheet">
+      <header class="man-cover">
+        <p class="man-house">THORNFLEET OIL WORKS &middot; INSTRUMENT SCHOOL</p>
+        <h1>
+          OPERATING MANUAL M/7<br />CRUDE UNIT No.&thinsp;2 &mdash; PNEUMATIC
+          CONTROL BOARD
+        </h1>
+        <p class="man-meta">
+          Pattern&nbsp;7 board &middot; 3&ndash;15&nbsp;lb/in&sup2; instrument
+          air &middot; Heater H&middot;1, Column C&middot;1, PSV&middot;2<br />
+          Issued 1957 &middot; Amendment 2 &middot; To be kept in the rack
+          beside the board
+        </p>
+      </header>
+
+      <nav class="man-links">
+        <a href="./">&larr; Back to the board</a>
+        <a href="../../">Machine catalogue</a>
+      </nav>
+
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          This board holds Crude Unit No.&thinsp;2 on its toes. Charge is pumped
+          from the drum through the pre-exchange and into fired heater
+          H&middot;1; the coil outlet, part vaporised, enters atmospheric column
+          C&middot;1 part way up. Overhead vapour is condensed, collected in the
+          reflux drum, and pumped back by P&middot;3 as top reflux, with the
+          balance drawn to storage. Bottoms run off to the vizor breaker.
+        </p>
+        <p>
+          Three pneumatic controllers do the steady work:
+          <b>TIC&middot;1</b> throttles the fuel gas to hold the coil outlet
+          temperature, <b>PIC&middot;2</b> works the condensing (reverse acting:
+          more output, more condensing, lower pressure), and
+          <b>FIC&middot;3</b> sets the reflux flow. Each controller is a
+          square-cased receiver instrument working on
+          3&ndash;15&nbsp;lb/in&sup2; of instrument air from the header in the
+          bay below. The twin-pen circular chart keeps the shift's record: red
+          ink for the coil outlet, blue for column pressure.
+        </p>
+        <p>
+          The board is honest but it is not clever. It does exactly what the
+          needles say and nothing the charts do not show. Keep the air up, keep
+          the pens inked, and answer every lamp before it answers you.
+        </p>
+      </section>
+
+      <section id="controls">
+        <h2>Controls</h2>
+        <dl class="ctl-list">
+          <dt>ALARM ACCEPT</dt>
+          <dd>
+            Pushbutton on the annunciator rail. Turns the flashing lamps to
+            steady and silences the horn for a new alarm. A condition that
+            clears puts its lamp out; a condition that persists stays lit until
+            it is put right.
+          </dd>
+
+          <dt>LAMPS TEST</dt>
+          <dd>
+            Pushbutton. Lights every annunciator lamp, the flame eye and the
+            mode windows so dead bulbs are found before they matter.
+          </dd>
+
+          <dt>CHART MOTOR</dt>
+          <dd>
+            Toggle on the recorder. Starts and stops the chart drive. Pens lift
+            when the motor is stopped; no turn, no record.
+          </dd>
+
+          <dt>TIC&middot;1 SET POINT / OUTPUT</dt>
+          <dd>
+            Bakelite knob on the temperature station. In AUTO it sets the outlet
+            temperature set point against its scale. In MANUAL the same knob is
+            the valve position, 0&ndash;100% of the fuel range. The amber
+            BALANCE needle shows how far knob sits from measurement while in
+            MANUAL.
+          </dd>
+
+          <dt>TIC-1 AUTO/MANUAL</dt>
+          <dd>
+            Lever on the temperature station. Swapping to MANUAL drives the knob
+            to the present output (no bump); swapping to AUTO hands the loop
+            back from where it stands. The window shows which master holds the
+            valve.
+          </dd>
+
+          <dt>PIC-2 SET POINT / OUTPUT and PIC-2 AUTO/MANUAL</dt>
+          <dd>
+            The same pair on the pressure station, working column pressure in
+            lb/in&sup2; gauge. Remember PIC&middot;2 is reverse acting: raising
+            the output condenses harder and brings the pressure down.
+          </dd>
+
+          <dt>FIC-3 SET POINT / OUTPUT and FIC-3 AUTO/MANUAL</dt>
+          <dd>
+            The same pair on the flow station, working top reflux in m&sup3;/h
+            against P&middot;3's discharge.
+          </dd>
+
+          <dt>FUEL GAS COCK</dt>
+          <dd>
+            Three-position lever in the burner bay: CLOSED, LIGHT (low fire,
+            about a third open) and OPEN. It passes nothing until TIC&middot;1's
+            output is above its zero, and it is slammed shut by the protective
+            gear when the unit trips.
+          </dd>
+
+          <dt>AIR REGISTER</dt>
+          <dd>
+            Damper knob beside the cock, percent open. Fifty-five percent suits
+            the burners as commissioned; too little air smokes and starves the
+            box, too much wastes her heat up the stack.
+          </dd>
+
+          <dt>PILOT TEST</dt>
+          <dd>
+            Held pushbutton. Hold it two seconds to run the igniter and prove
+            the pilot on the flame eye; release, and the pilot stays lit until
+            the gas fails or the unit trips. Light the main cock only off a
+            proven pilot.
+          </dd>
+
+          <dt>FLAME EYE</dt>
+          <dd>
+            Amber jewel behind brass. Amber means fire in the box - pilot or
+            main. Dark means none, whatever the fuel cock says.
+          </dd>
+
+          <dt>CHARGE PUMP START / STOP</dt>
+          <dd>
+            Mushroom heads on the operating shelf. P&middot;1 takes a few
+            seconds to come onto the line; watch the rate climb under the dial.
+          </dd>
+
+          <dt>CELL SELECTOR (TC SELECTOR)</dt>
+          <dd>
+            Rotary switch by the temperature station: RUN, DUPLEX, CHECK. RUN
+            reads the working thermocouple. DUPLEX swings the indicator and the
+            trip on to the standby cell - this is also how you put a drifting
+            run cell out of service. CHECK compares the two against each other.
+          </dd>
+
+          <dt>HI-TEMP TRIP RESET</dt>
+          <dd>
+            Key under a hinged red guard. The high-temperature trip shuts the
+            fuel for keeps once it operates; lift the guard, press to reset,
+            then re-light by the procedure.
+          </dd>
+
+          <dt>AIR COMPRESSOR RESET</dt>
+          <dd>
+            Recessed pushbutton in the air bay. Restarts the instrument-air
+            compressor after it has dropped. The header rebuilds at its own
+            pace; controllers stay dead until the gauge passes ten.
+          </dd>
+
+          <dt>MAINTENANCE TESTS</dt>
+          <dd>
+            Four-position selector marked OFF, AIR FAIL, TC DRIFT and
+            CAVITATION, for proving the protective gear with the unit live. Each
+            test injects its fault exactly as the real thing would arrive.
+            Return the selector to OFF when the test is done - and mind that OFF
+            does not itself undo the fault; the proper remedy below does that.
+          </dd>
+
+          <dt>REFLUX PUMP VENT</dt>
+          <dd>
+            Held pushbutton by the mimic's P&middot;3. Hold it to blow the
+            vapour lock clear of the pump; the flow comes back as she primes.
+          </dd>
+
+          <dt>UNIT RESET</dt>
+          <dd>
+            Pushbutton, far right. Returns the whole board to cold - pumps
+            stopped, cocks closed, trips reset, lamps dark, chart cleared. For a
+            new start or after a bad shift.
+          </dd>
+        </dl>
+      </section>
+
+      <section id="normal-operation">
+        <h2>Normal operation</h2>
+        <p>
+          From cold and alarm-free to steady on-specification running. Take it
+          in order; each step depends on the one before.
+        </p>
+        <ol>
+          <li>
+            Press <b>UNIT RESET</b>. Confirm every annunciator lamp is dark and
+            the air gauge settles at twenty.
+          </li>
+          <li>Open the <b>AIR REGISTER</b> to about fifty-five percent.</li>
+          <li>
+            Switch the <b>CHART MOTOR</b> on and check both pens ride their
+            arcs.
+          </li>
+          <li>
+            Set the stations: TIC&middot;1 to five hundred five degrees,
+            PIC&middot;2 to one point two bar, FIC&middot;3 to forty-five cubic
+            metres an hour. Leave all three levers on AUTO; you will take them
+            to MANUAL as needed.
+          </li>
+          <li>
+            Press <b>CHARGE PUMP START</b> and let P&middot;1 come onto the
+            line.
+          </li>
+          <li>
+            Hold <b>PILOT TEST</b> for two seconds until the flame eye burns
+            amber, then move the <b>FUEL GAS COCK</b> to LIGHT. The eye stays
+            lit when you release.
+          </li>
+          <li>
+            Take <b>TIC-1 AUTO/MANUAL</b> to MANUAL and walk the output up.
+            Watch the coil temperature climb through four hundred; open the cock
+            to OPEN as she takes the fire comfortably.
+          </li>
+          <li>
+            Near five hundred, centre the amber BALANCE needle and transfer
+            TIC-1 back to AUTO. She should hold the line without wandering.
+          </li>
+          <li>
+            Bring reflux: take <b>FIC-3 AUTO/MANUAL</b> to MANUAL, raise the
+            output until the flow sits near forty-five, balance and return it to
+            AUTO.
+          </li>
+          <li>
+            Column pressure will settle toward one point two as the reflux
+            bites. If it hangs off, trim PIC-2 in MANUAL the same way and hand
+            it back to AUTO.
+          </li>
+          <li>
+            Stand watch a minute or two. Steady pens, no lamps, air at twenty:
+            hand her to the shift. Accept any alarm that flashes, and always for
+            a reason.
+          </li>
+        </ol>
+      </section>
+
+      <section id="alarms">
+        <h2>Alarms</h2>
+        <dl class="alm-list">
+          <dt>FLAME FAILURE <span>(flashing until accepted)</span></dt>
+          <dd>
+            The cock demands fire and the flame eye sees none. If you were
+            lighting up, wait six seconds past opening the cock before believing
+            it. If she was running, the fuel has been taken from her: find why
+            (trip, slam, or air below ten), put it right, and re-light from step
+            6 of Normal operation.
+          </dd>
+
+          <dt>OUTLET TEMP HIGH</dt>
+          <dd>
+            Coil outlet above five hundred forty-five degrees. Ease TIC&middot;1
+            - lower the set point or close the manual output - and watch the red
+            pen fall. Above five hundred eighty-five the trip acts regardless of
+            what you do.
+          </dd>
+
+          <dt>COLUMN PRESS HIGH</dt>
+          <dd>
+            Pressure above two point one. Add reflux (raise FIC&middot;3), cool
+            the top (raise PIC&middot;2 output), or cut the fire. Two point six
+            lifts PSV&middot;2.
+          </dd>
+
+          <dt>RELIEF LIFTED</dt>
+          <dd>
+            The safety valve is passing to the flare. Cut the heat at once and
+            bring the reflux up. Do not let her hang there: seventy seconds on
+            the flare slams the fuel and puts the whole unit out.
+          </dd>
+
+          <dt>REFLUX FLOW LOW</dt>
+          <dd>
+            P&middot;3 has fallen away with her discharge valve open. Suspect a
+            vapour lock; hold <b>REFLUX PUMP VENT</b> until the flow returns.
+            Meanwhile watch the pressure - it will be climbing.
+          </dd>
+
+          <dt>TC CELL FAULT</dt>
+          <dd>
+            The run thermocouple has drifted away from her standby sister. Swing
+            the <b>CELL SELECTOR</b> to DUPLEX, prove the reading against the
+            chart, and have the run cell changed at opportunity.
+          </dd>
+
+          <dt>INSTRUMENT AIR LOW</dt>
+          <dd>
+            Header below fourteen. Below ten every controller on the board is
+            dead and the outputs bleed toward zero - the fuel valve fails shut
+            and the fire goes out. Return MAINTENANCE TESTS to OFF if it was on
+            AIR FAIL, press <b>AIR COMPRESSOR RESET</b>, wait for the gauge to
+            rebuild, and re-light by the procedure.
+          </dd>
+        </dl>
+      </section>
+
+      <section id="faults-and-recovery">
+        <h2>Faults and recovery</h2>
+        <ol class="fault-list">
+          <li>
+            <h3>Instrument air failure</h3>
+            <p>
+              <b>You see:</b> the header needle sagging, INSTRUMENT AIR LOW
+              flashing, and then every mode window going DEAD as the outputs
+              bleed down. The fuel valve fails shut and FLAME FAILURE follows.
+              Nothing you do to a knob moves anything while the gauge reads
+              under ten.
+            </p>
+            <p><b>To recover:</b></p>
+            <ol>
+              <li>
+                Return <b>MAINTENANCE TESTS</b> to OFF if the test selector
+                caused it.
+              </li>
+              <li>
+                Press <b>AIR COMPRESSOR RESET</b> and watch the gauge rebuild to
+                twenty.
+              </li>
+              <li>
+                When the controllers answer again, re-light by steps 6 to 8 of
+                Normal operation. The pilot will need proving again.
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h3>Thermocouple drift</h3>
+            <p>
+              <b>You see:</b> TC CELL FAULT after a few minutes, and before that
+              a coil reading that will not sit where the fire says it should -
+              the run cell is reading cold while the metal runs hot. Chasing the
+              set point only pours it on: the red pen tells the true story if
+              the chart is turning. Left alone, the column climbs, the relief
+              lifts, and the unit slams herself out.
+            </p>
+            <p><b>To recover:</b></p>
+            <ol>
+              <li>
+                Turn the <b>CELL SELECTOR</b> to DUPLEX - the indication jumps
+                to truth and the fault clears.
+              </li>
+              <li>
+                If OUTLET TEMP HIGH shows, ease the set point until she settles.
+              </li>
+              <li>
+                If the trip has operated, lift the guard on
+                <b>HI-TEMP TRIP RESET</b>, press it, and re-light by the
+                procedure.
+              </li>
+              <li>
+                CHECK may be used at any time to compare cells; RUN returns you
+                to the drifted cell, so leave her on DUPLEX until the cell is
+                changed.
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h3>Reflux pump cavitation</h3>
+            <p>
+              <b>You see:</b> REFLUX FLOW LOW with the discharge wide open, the
+              flow needle sagging toward nothing as P&middot;3 loses her suction
+              to vapour. Column pressure follows her down inside a minute or
+              two.
+            </p>
+            <p><b>To recover:</b></p>
+            <ol>
+              <li>
+                Hold <b>REFLUX PUMP VENT</b> - a good three or four seconds'
+                hold - until the flow climbs back toward her duty.
+              </li>
+              <li>
+                If pressure has already lifted the relief, cut the fire and hold
+                reflux on MANUAL until COLUMN PRESS HIGH drops out.
+              </li>
+              <li>
+                If the unit slammed on the flare, reset the trip under its guard
+                and start again from light-up.
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="specifications">
+        <h2>Specifications</h2>
+        <table class="spec-table">
+          <caption>
+            Ratings, ranges and limits - Pattern 7 board as commissioned, 1957
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Range or rating</th>
+              <th scope="col">Remark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Instrument air header</td>
+              <td>20 lb/in&sup2;, normal</td>
+              <td>
+                Alarm at 14; controllers dead below 10; fail-shut valves
+                throughout
+              </td>
+            </tr>
+            <tr>
+              <td>Controller signal</td>
+              <td>3&ndash;15 lb/in&sup2;</td>
+              <td>3 = valve closed, 15 = wide open</td>
+            </tr>
+            <tr>
+              <td>Charge rate, P&middot;1</td>
+              <td>0&ndash;120 m&sup3;/h</td>
+              <td>Design duty 120</td>
+            </tr>
+            <tr>
+              <td>Coil outlet temperature, TIC&middot;1</td>
+              <td>300&ndash;600 &deg;C, scale</td>
+              <td>Set point 505 &deg;C; alarm 545 &deg;C; trip 585 &deg;C</td>
+            </tr>
+            <tr>
+              <td>Combustion air register</td>
+              <td>0&ndash;100%</td>
+              <td>55% nominal; efficiency falls either side</td>
+            </tr>
+            <tr>
+              <td>Fuel gas, H&middot;1</td>
+              <td>LIGHT one third, OPEN full</td>
+              <td>Fails closed on air loss, trip or slam</td>
+            </tr>
+            <tr>
+              <td>Column pressure, C&middot;1</td>
+              <td>0&ndash;3.0 lb/in&sup2; gauge, scale</td>
+              <td>Set point 1.2; alarm 2.1; PSV&middot;2 lifts 2.6</td>
+            </tr>
+            <tr>
+              <td>PSV&middot;2 flare line</td>
+              <td>Passes to flare stack</td>
+              <td>Sustained lift beyond 70 s operates the slam gear</td>
+            </tr>
+            <tr>
+              <td>Top reflux, FIC&middot;3</td>
+              <td>0&ndash;90 m&sup3;/h</td>
+              <td>Set point 45; alarm below 25 with demand above quarter</td>
+            </tr>
+            <tr>
+              <td>Thermocouple cells</td>
+              <td>Run + duplex standby</td>
+              <td>DUPLEX swings indicator and trip together; CHECK compares</td>
+            </tr>
+            <tr>
+              <td>Circular chart</td>
+              <td>One turn per four minutes at the panel</td>
+              <td>
+                Red ink coil outlet, blue ink column pressure; motor-stopped
+                pens lift
+              </td>
+            </tr>
+            <tr>
+              <td>Board supply</td>
+              <td>230 V, 50 Hz, single phase</td>
+              <td>
+                Annunciators, igniter and chart motor only - the process runs on
+                air
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="man-foot">
+        <span
+          >THORNFLEET OIL WORKS &middot; FORM M/7-2 &middot; AMENDMENT 2</span
+        >
+        <span>SUPERSEDES FORM M/7-1 WHICH IS TO BE DESTROYED</span>
+        <a href="./">Back to the board</a> &middot;
+        <a href="../../">Catalogue</a>
+      </footer>
+    </div>
+  </body>
+</html>
