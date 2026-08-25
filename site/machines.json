@@ -505,7 +505,7 @@
   },
   {
     "slug": "vindskaer-nacelle-controller",
-    "name": "Vindsk\u00e6r V-62 - Nacelle Service Controller",
+    "name": "Vindskær V-62 - Nacelle Service Controller",
     "kind": "grid wind turbine nacelle service controller",
     "domain": "energy",
     "era": "2000s",
@@ -623,7 +623,7 @@
   },
   {
     "slug": "hogfors-ice-plant",
-    "name": "H\u00f6gfors Isstadion - Ice Plant Machine Room",
+    "name": "Högfors Isstadion - Ice Plant Machine Room",
     "kind": "municipal ice-rink refrigeration machine room",
     "domain": "cold-chain",
     "era": "1970s",
@@ -1043,6 +1043,44 @@
       "float chamber flooding"
     ],
     "tagline": "Wind her past fourteen hundred, pull MESH, and mind the oil lamp - she will not warn you twice.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "redmoss-pig-receiver",
+    "name": "Redmoss Terminal - Pipeline Pig Receiver No. 1",
+    "kind": "pipeline pig receiving trap station",
+    "domain": "oil-and-gas",
+    "era": "1990s",
+    "design": "hot-dip galvanised skid panel with a navy equipment-paint band, black stencilled condensed legends over traffolyte plates, hazard-yellow lever trim, flat LED cluster lamps and one xenon beacon under open coastal daylight, with only a reflective LCD flow computer for glow",
+    "interaction": "lining up a geared mainline handwheel and quarter-turn gas levers against a live 34 km elevation profile, then freeing a ratcheted tommy-bar clamp ring on its falling-pin interlock and holding the T-bar puller to walk the pig out",
+    "palette": [
+      "#9aa2a6",
+      "#16355c",
+      "#bf2417",
+      "#e0aa18"
+    ],
+    "controls": [
+      "PANEL BREAKER",
+      "INLET VALVE",
+      "KICKER VALVE",
+      "MAINLINE VALVE",
+      "TRAP VENT VALVE",
+      "TRAP DRAIN VALVE",
+      "CLAMP RING",
+      "PIG PULLER",
+      "LAMP TEST",
+      "ALARM ACCEPT",
+      "ALARM RESET",
+      "SIGNALLER RESET",
+      "MAINTENANCE TESTS",
+      "CONSOLE RESET"
+    ],
+    "faults": [
+      "pig stalls in the line",
+      "inlet valve passing",
+      "trap inlet signaller failure"
+    ],
+    "tagline": "Zero on both needles, then swing the ring.",
     "created": "2026-08-25"
   }
 ]

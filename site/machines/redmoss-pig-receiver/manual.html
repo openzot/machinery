@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NVP/TRAP/R1 - Operating Manual - Pig Receiver No. 1</title>
+    <meta
+      name="description"
+      content="Operating manual for Redmoss Terminal Pig Receiver No. 1, panel NVP/TRAP/R1 issue 3, 1994."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <header class="man-head">
+      <div class="man-docplate">
+        <span>NORTHVALE PIPELINES PLC</span>
+        <span>DOC NVP/TRAP/R1</span>
+        <span>ISSUE 3 &mdash; AUG 1994</span>
+      </div>
+      <div>
+        <h1>PIG RECEIVER No.&nbsp;1<br />OPERATING MANUAL</h1>
+        <p class="man-sub">
+          REDMOSS TERMINAL &mdash; 36-INCH SALES GAS LINE &mdash; TRAP SKID 2
+        </p>
+      </div>
+      <nav class="man-nav">
+        <a href="./">&larr; BACK TO THE PANEL</a>
+        <a href="../../">TERMINAL DIRECTORY &uarr;</a>
+      </nav>
+    </header>
+
+    <main class="man-page">
+      <p class="man-warning">
+        <strong>NOTE.</strong> This manual is bolted to the canopy post beside
+        the panel. It is issued with the falling-pin closure and applies to
+        Receiver No. 1 only. The No. 2 trap, being older, has a swing-bolt door
+        and its own book.
+      </p>
+
+      <h2 id="overview">Overview</h2>
+      <p>
+        Pig Receiver No. 1 is the shore-end receiving trap for the 36-inch sales
+        gas line that runs 34 kilometres from the Redmoss field manifold to this
+        terminal. Cleaning and inspection pigs travel that line pushed by field
+        compression against plant sales pressure; this skid catches them, takes
+        the liquids they push ahead of them, and hands the gas to the plant
+        through the geared mainline valve.
+      </p>
+      <p>
+        A receipt has five movements: put the barrel on the line (the kicker
+        bypass comes off), let her come home easy into the arrestor, isolate the
+        barrel from the field and the plant, prove it dead and drain it, and
+        only then swing the clamp ring on its falling-pin interlock and pull the
+        pig. The interlock pin is the law here: while the barrel gauge shows
+        more than fifty millibar the pin stays in and the ring cannot leave
+        LOCKED. There is no override, and there has not needed to be one.
+      </p>
+      <p>
+        The panel is daylight plant. What you see lit is flat LED indication and
+        one xenon beacon; the flow computer LCD is reflective and reads best
+        with the sun on it.
+      </p>
+
+      <h2 id="controls">Controls</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Kind</th>
+            <th>Positions and use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PANEL BREAKER</td>
+            <td>Rocker</td>
+            <td>
+              Panel supply. OFF is down. Indication, the LCD and the beacon are
+              dead with it off; the valves remain as left.
+            </td>
+          </tr>
+          <tr>
+            <td>INLET VALVE</td>
+            <td>Quarter-turn lever</td>
+            <td>
+              Field gas into the barrel. SHUT is handle across the pipe, OPEN
+              along it.
+            </td>
+          </tr>
+          <tr>
+            <td>KICKER VALVE</td>
+            <td>Quarter-turn lever</td>
+            <td>
+              Bypass around the whole trap. OPEN sends the plant its gas without
+              entering the barrel; SHUT puts the barrel on the line.
+            </td>
+          </tr>
+          <tr>
+            <td>MAINLINE VALVE</td>
+            <td>Geared handwheel</td>
+            <td>
+              Ten turns shut to fully open. Barrel outlet to the plant. Turn it
+              with the wheel plates or the arrow keys; watch the percent on the
+              computer.
+            </td>
+          </tr>
+          <tr>
+            <td>TRAP VENT VALVE</td>
+            <td>Quarter-turn lever</td>
+            <td>
+              Barrel to the flare stack. Used to trim the pig on approach and to
+              blow the barrel down after isolation.
+            </td>
+          </tr>
+          <tr>
+            <td>TRAP DRAIN VALVE</td>
+            <td>Quarter-turn lever</td>
+            <td>
+              Barrel liquids to the drains tank. Watch the sight glass, not your
+              memory.
+            </td>
+          </tr>
+          <tr>
+            <td>CLAMP RING</td>
+            <td>Ratcheted tommy bar</td>
+            <td>
+              LOCKED &ndash; CRACKED &ndash; OPEN. Each press swings the ring
+              one sector, but only when the interlock pin is out (barrel under
+              50 mbar). Swing it back the same way to close.
+            </td>
+          </tr>
+          <tr>
+            <td>PIG PULLER</td>
+            <td>Held T-bar</td>
+            <td>
+              Hold three seconds to walk the pig out. Needs the door open, the
+              arrestor undamaged and the barrel drained below a quarter metre.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMP TEST</td>
+            <td>Pushbutton, hold</td>
+            <td>Lights every annunciator lens while held.</td>
+          </tr>
+          <tr>
+            <td>ALARM ACCEPT</td>
+            <td>Pushbutton</td>
+            <td>
+              Stops the flash and the beacon; the window stays lit while the
+              condition stands.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM RESET</td>
+            <td>Pushbutton</td>
+            <td>
+              Extinguishes windows whose condition has cleared. Will NOT clear
+              ARRESTOR DAMAGE or LIQUID SPILL - those need the CONSOLE RESET
+              after the fitters have been.
+            </td>
+          </tr>
+          <tr>
+            <td>SIGNALLER RESET</td>
+            <td>Pushbutton</td>
+            <td>
+              Drops the S1/S2 passage flags and re-arms both signaller heads
+              after a failure.
+            </td>
+          </tr>
+          <tr>
+            <td>MAINTENANCE TESTS</td>
+            <td>Guarded buttons</td>
+            <td>
+              Lift the chequer guard to reach TEST PIG STALL, TEST INLET PASSING
+              and TEST SIGNALLER FAIL. Each injects its training fault from the
+              section Faults and recovery; they are not to be used to prove
+              plant on stream. Lift, press, put the guard down after.
+            </td>
+          </tr>
+
+          <tr>
+            <td>CONSOLE RESET</td>
+            <td>Pushbutton</td>
+            <td>
+              Returns panel and plant to cold and clear: valves shut, ring
+              locked, pig back on the line, every latched trip out.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="normal-operation">Normal operation</h2>
+      <ol class="man-steps">
+        <li>
+          Cold panel. Check the mimic against the skid: kicker bypass OPEN,
+          inlet and vent and drain SHUT, mainline geared shut, ring LOCKED, door
+          shut, barrel gauge reading zero.
+        </li>
+        <li>Raise the PANEL BREAKER. POWER lights and the computer wakes.</li>
+        <li>Hold LAMP TEST; every lens burns. Let go; nothing stuck on.</li>
+        <li>
+          Line the barrel up: open the INLET VALVE, gear the MAINLINE VALVE open
+          the full ten turns, then close the KICKER VALVE. THROUGH BARREL lights
+          and the plant now takes its gas through the barrel.
+        </li>
+        <li>
+          Watch the profile strip and the RANGE drum. At two kilometres the S1
+          signaller raises its flag and APPROACH lights.
+        </li>
+        <li>
+          If she slows to a crawl in the last half kilometre, crack the TRAP
+          VENT VALVE for a few seconds to lighten the back pressure, then shut
+          it again - she coasts. Do NOT hold the vent open on top of her: the
+          arrestor takes at most fourteen kilometres an hour.
+        </li>
+        <li>
+          She hits the arrestor and PIG RECEIVED lights. Gear the MAINLINE VALVE
+          shut and close the INLET VALVE. The barrel is now trapped between two
+          shut steel gates.
+        </li>
+        <li>
+          Open the TRAP DRAIN VALVE and let the slug go to the drains tank, then
+          open the TRAP VENT VALVE and blow the barrel down to the flare. Both
+          needles fall; when the trap gauge sits at zero and the pin drops, RING
+          FREE lights.
+        </li>
+        <li>
+          Shut the vent and the drain. Swing the CLAMP RING twice - CRACKED,
+          then OPEN. The door swings. If you did not drain her, you will wear
+          the slug, and LIQUID SPILL latches for the environmental report.
+        </li>
+        <li>
+          Hold the PIG PULLER three seconds. She comes out. RECEIPT COMPLETE.
+        </li>
+        <li>SIGNALLER RESET drops both flags for the next run.</li>
+        <li>
+          To put her back on line: door shut, ring swung to LOCKED, inlet open,
+          mainline geared open, kicker shut. Leave the paperwork in the tray.
+        </li>
+      </ol>
+
+      <h2 id="alarms">Alarms</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Meaning</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>POWER (green)</td>
+            <td>Panel supply healthy.</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>THROUGH BARREL (green)</td>
+            <td>
+              Inlet open, mainline past half, plant fed through the barrel.
+            </td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>APPROACH (amber)</td>
+            <td>Pig inside the last mile and a half, or S1 fired.</td>
+            <td>Eyes on the drum; think about the vent.</td>
+          </tr>
+          <tr>
+            <td>PIG RECEIVED (green)</td>
+            <td>Pig in the arrestor.</td>
+            <td>Isolate: mainline shut, inlet shut.</td>
+          </tr>
+          <tr>
+            <td>RECEIPT COMPLETE (green)</td>
+            <td>Pig out on the rack.</td>
+            <td>Paperwork; restore the line.</td>
+          </tr>
+          <tr>
+            <td>RING FREE (green)</td>
+            <td>Interlock pin out, barrel proved under 50 mbar.</td>
+            <td>Ring may be swung.</td>
+          </tr>
+          <tr>
+            <td>LIQUIDS HIGH (amber)</td>
+            <td>
+              More than about three and a half cubic metres in the barrel.
+            </td>
+            <td>Open the drain before thinking about the door.</td>
+          </tr>
+          <tr>
+            <td>VENT TO FLARE (amber)</td>
+            <td>Gas going up the stack, by hand or by relief.</td>
+            <td>Expected while blowing down. If unexplained, find out why.</td>
+          </tr>
+          <tr>
+            <td>TRAP OVERPRESSURE (red)</td>
+            <td>Barrel above 33.5 bar. Something is feeding it.</td>
+            <td>
+              Vent to flare at once; hunt the feed. The relief lifts at 35 to
+              save the shell.
+            </td>
+          </tr>
+          <tr>
+            <td>PIG STALLED (red)</td>
+            <td>Pig stopped in the line with drive applied.</td>
+            <td>See Faults and recovery.</td>
+          </tr>
+          <tr>
+            <td>SIGNALLER FAIL (amber)</td>
+            <td>An S1/S2 head is not answering the poll.</td>
+            <td>Run on the RANGE drum, then see Faults and recovery.</td>
+          </tr>
+          <tr>
+            <td>ISOLATION LEAK (red)</td>
+            <td>Barrel pressure creeping with every valve shut.</td>
+            <td>A seat is passing. See Faults and recovery.</td>
+          </tr>
+          <tr>
+            <td>ARRESTOR DAMAGE (red, latched)</td>
+            <td>
+              She arrived over fourteen kilometres an hour and bent the fins.
+            </td>
+            <td>Stop. Report. Fitters, then CONSOLE RESET.</td>
+          </tr>
+          <tr>
+            <td>LIQUID SPILL (red, latched)</td>
+            <td>Door opened on liquid.</td>
+            <td>Drain and bund work, report, then CONSOLE RESET.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="faults-and-recovery">Faults and recovery</h2>
+      <h3>A pig stalls in the line</h3>
+      <p>
+        <em>What you see:</em> the RANGE drum stops turning, the SPEED figure
+        dies away, and inside a minute PIG STALLED flashes red with the beacon.
+        The usual cause is liquids settling under her in a dip.
+      </p>
+      <p>
+        <em>Recovery:</em> confirm the barrel is on the line (THROUGH BARREL
+        lit). Crack the TRAP VENT VALVE. Flaring drops the back pressure at the
+        pipeline end, the differential across her builds, and she breaks free -
+        the fault clears itself once she is moving again. Shut the vent as soon
+        as the drum turns, let her coast, and repeat in pulses rather than
+        riding the vent all the way home. Accept and reset the alarm.
+      </p>
+
+      <h3>An inlet valve passes</h3>
+      <p>
+        <em>What you see:</em> with the inlet, mainline, vent and drain all
+        shut, the trap gauge climbs - ISOLATION LEAK flashes red. Logged as:
+        inlet valve passing. Ignore it and the barrel will pack up to line
+        pressure, the relief will lift to flare and the pin will stay in,
+        locking the ring.
+      </p>
+      <p>
+        <em>Recovery:</em> the inlet seat is holding something off its face.
+        Open the INLET VALVE smartly and shut it again - one full stroke. That
+        usually clears the seat and the creep stops. Prove it: needles steady,
+        leak timer quiet. Then carry on with the blowdown. If a single stroke
+        does not cure it, vent to flare, keep the barrel low, and phone the
+        mechanical desk; do not force the ring.
+      </p>
+
+      <h3>A trap inlet signaller fails</h3>
+      <p>
+        <em>What you see:</em> logged as trap inlet signaller failure. SIGNALLER
+        FAIL flashes amber within the minute - the panel polls both heads
+        continuously. Neither flag will rise, and APPROACH stays dark even as
+        the drum counts down.
+      </p>
+      <p>
+        <em>Recovery:</em> run the approach on the RANGE drum alone and treat
+        the last half kilometre as live: ease her with short vent pulses and
+        take the arrival slow. Once the pig is in and things are quiet, press
+        SIGNALLER RESET - it frees the stuck head and drops the flags. The amber
+        goes out; accept and reset.
+      </p>
+
+      <h2 id="specifications">Specifications</h2>
+      <table class="man-table">
+        <tbody>
+          <tr>
+            <th>Line</th>
+            <td>
+              36 inch OD sales gas, wall 12.7 mm, 34 km from field manifold
+            </td>
+          </tr>
+          <tr>
+            <th>Maximum operating pressure</th>
+            <td>70 bar (MAOP); field normal 38 bar, plant normal 27.5 bar</td>
+          </tr>
+          <tr>
+            <th>Receiver barrel</th>
+            <td>12 cubic metres water capacity, approx 6.1 m barrel length</td>
+          </tr>
+          <tr>
+            <th>Closure</th>
+            <td>
+              Cam-sector clamp ring, ratcheted tommy bar, falling-pin pressure
+              interlock at 50 mbar
+            </td>
+          </tr>
+          <tr>
+            <th>Arrestor</th>
+            <td>Four-fin energy arrestor, capture limit 14 km/h</td>
+          </tr>
+          <tr>
+            <th>Relief</th>
+            <td>Barrel PSV to flare, set 35 bar, modulating above 34.9</td>
+          </tr>
+          <tr>
+            <th>Overpressure alarm</th>
+            <td>33.5 bar on the trap gauge</td>
+          </tr>
+          <tr>
+            <th>Signallers</th>
+            <td>S1 at 2.0 km, S2 at 0.5 km, polled continuously</td>
+          </tr>
+          <tr>
+            <th>Flare back pressure</th>
+            <td>60 mbar at the trap vent header</td>
+          </tr>
+          <tr>
+            <th>Drains tank</th>
+            <td>8 cubic metres, atmospheric, level by sight glass</td>
+          </tr>
+          <tr>
+            <th>Panel supply</th>
+            <td>240 V, 50 Hz, single phase, 6 A breaker</td>
+          </tr>
+          <tr>
+            <th>Indication</th>
+            <td>
+              Flat LED clusters; xenon rotating beacon; reflective LCD flow
+              computer
+            </td>
+          </tr>
+          <tr>
+            <th>Panel</th>
+            <td>
+              NVP/TRAP/R1, hot-dip galvanised, Issue 3, Redmoss instrument shop,
+              1994
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="man-foot">
+        <p>
+          ISSUE 3 supersedes Issue 2 entirely. The guarded test once marked TEST
+          KICKER PASSING is re-marked TEST INLET PASSING, the fault being in the
+          inlet seat; recorded here so nobody writes it on the fascia in grease
+          pencil again.
+        </p>
+        <p class="man-links">
+          <a href="./">Back to the panel</a> &middot;
+          <a href="../../">Terminal directory</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

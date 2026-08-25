@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redmoss Terminal - Pig Receiver No. 1</title>
+    <meta
+      name="description"
+      content="Working control panel for a 1990s coastal gas-terminal pipeline pig receiving trap: line-up valves, live 34 km approach profile, falling-pin clamp ring and operating manual."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <!-- ======================== masthead ======================== -->
+      <header class="masthead">
+        <div class="doc-plate" aria-hidden="true">
+          <span>NORTHVALE PIPELINES PLC</span>
+          <span>PANEL NVP/TRAP/R1</span>
+          <span>ISSUE 3 &mdash; 1994</span>
+        </div>
+        <div class="id-block">
+          <div class="beacon-rig">
+            <span class="beacon" id="beacon" aria-hidden="true"></span>
+            <span class="beacon-cap">ALARM</span>
+          </div>
+          <h1>REDMOSS TERMINAL<br />PIG RECEIVER No.&nbsp;1</h1>
+          <p class="tagline">36-INCH SALES GAS LINE &mdash; TRAP SKID 2</p>
+        </div>
+        <div class="lcd-block">
+          <div
+            class="lcd"
+            id="lcd"
+            role="status"
+            aria-label="Flow computer readout"
+          >
+            <div class="lcd-head">
+              <span>FLOW COMPUTER</span><span>TRAP 1</span>
+            </div>
+            <div class="lcd-row">
+              <em>PIG RANGE</em><span id="lcdRange">----.- KM</span>
+            </div>
+            <div class="lcd-row">
+              <em>LINE/TRAP</em><span id="lcdLineTrap">--.- / --.-- B</span>
+            </div>
+            <div class="lcd-row">
+              <em>SPEED</em><span id="lcdSpeed">--.- KMH</span>
+            </div>
+            <div class="lcd-status" id="lcdStatus">NO SUPPLY</div>
+          </div>
+        </div>
+        <div class="head-actions">
+          <button
+            class="pb pb-wide"
+            type="button"
+            data-action="manual"
+            id="btnManual"
+          >
+            OPERATING<br />MANUAL
+          </button>
+        </div>
+      </header>
+
+      <!-- ===================== annunciator strip ==================== -->
+      <section class="annstrip" aria-label="Annunciator">
+        <div class="ann" data-ann="POWER">
+          <i class="lens g"></i><span>POWER</span>
+        </div>
+        <div class="ann" data-ann="THROUGH BARREL">
+          <i class="lens g"></i><span>THROUGH BARREL</span>
+        </div>
+        <div class="ann" data-ann="APPROACH">
+          <i class="lens a"></i><span>APPROACH</span>
+        </div>
+        <div class="ann" data-ann="PIG RECEIVED">
+          <i class="lens g"></i><span>PIG RECEIVED</span>
+        </div>
+        <div class="ann" data-ann="RECEIPT COMPLETE">
+          <i class="lens g"></i><span>RECEIPT COMPLETE</span>
+        </div>
+        <div class="ann" data-ann="RING FREE">
+          <i class="lens g"></i><span>RING FREE</span>
+        </div>
+        <div class="ann" data-ann="LIQUIDS HIGH">
+          <i class="lens a"></i><span>LIQUIDS HIGH</span>
+        </div>
+        <div class="ann" data-ann="VENT TO FLARE">
+          <i class="lens a"></i><span>VENT TO FLARE</span>
+        </div>
+        <div class="ann" data-ann="TRAP OVERPRESSURE">
+          <i class="lens r"></i><span>TRAP OVERPRESSURE</span>
+        </div>
+        <div class="ann" data-ann="PIG STALLED">
+          <i class="lens r"></i><span>PIG STALLED</span>
+        </div>
+        <div class="ann" data-ann="SIGNALLER FAIL">
+          <i class="lens a"></i><span>SIGNALLER FAIL</span>
+        </div>
+        <div class="ann" data-ann="ISOLATION LEAK">
+          <i class="lens r"></i><span>ISOLATION LEAK</span>
+        </div>
+        <div class="ann" data-ann="ARRESTOR DAMAGE">
+          <i class="lens r"></i><span>ARRESTOR DAMAGE</span>
+        </div>
+        <div class="ann" data-ann="LIQUID SPILL">
+          <i class="lens r"></i><span>LIQUID SPILL</span>
+        </div>
+      </section>
+
+      <!-- =================== 34 km approach strip =================== -->
+      <section
+        class="profile-band"
+        aria-label="Pipeline approach profile, 34 kilometres"
+      >
+        <div class="drum" aria-label="Kilometres remaining">
+          <span class="drum-cap">RANGE</span>
+          <span class="digits" id="drumDigits">00.00</span>
+          <span class="drum-unit">KM&nbsp;TO&nbsp;TRAP</span>
+        </div>
+        <div class="profile-scroll">
+          <svg
+            id="profileSvg"
+            viewBox="0 0 1200 148"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Elevation profile of the 34 kilometre line with the pig marker"
+          >
+            <rect x="0" y="0" width="1200" height="148" class="sky" />
+            <polyline
+              class="terrain"
+              points="0,84 80,76 160,88 240,70 320,82 400,64 480,76 560,60 640,74 720,56 800,70 880,62 960,78 1040,68 1120,84 1200,76"
+            />
+            <g id="kmTicks" class="ticks"></g>
+            <text x="8" y="20" class="svglab">
+              FROM THE FIELD &mdash; 34 KM OF 36-INCH LINE
+            </text>
+            <text x="1192" y="20" class="svglab" text-anchor="end">
+              REDMOSS TRAP
+            </text>
+            <g id="flagS1" class="flag" transform="translate(71,0)">
+              <line x1="0" y1="0" x2="0" y2="-26" />
+              <path class="flagcloth" d="M0,-26 L16,-21 L0,-16 Z" />
+              <text x="2" y="-30" class="svgtick">S1</text>
+            </g>
+            <g id="flagS2" class="flag" transform="translate(18,0)">
+              <line x1="0" y1="0" x2="0" y2="-26" />
+              <path class="flagcloth" d="M0,-26 L16,-21 L0,-16 Z" />
+              <text x="2" y="-30" class="svgtick">S2</text>
+            </g>
+            <g id="trapGlyph" transform="translate(1176,0)">
+              <rect
+                x="-10"
+                y="-30"
+                width="26"
+                height="34"
+                rx="8"
+                class="steel2"
+              />
+              <circle cx="18" cy="-13" r="7" class="ringdisc" />
+            </g>
+            <polygon id="pigMarker" class="pigmark" points="-11,-9 9,0 -11,9" />
+            <line x1="0" y1="118" x2="1200" y2="118" class="baseline" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ====================== trap cutaway ======================= -->
+      <section class="mimic-band">
+        <h2 class="band-title">TRAP SKID &mdash; PROCESS MIMIC</h2>
+        <div class="trap-scroll">
+          <div class="trapwrap">
+            <svg
+              id="trapSvg"
+              viewBox="24 24 1200 524"
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label="Cutaway mimic of the pig trap: inlet and kicker valves, barrel with pig and liquids, vent to flare, drain to tank, arrestor and clamp-ring door"
+            >
+              <!-- ground -->
+              <rect x="0" y="470" width="1200" height="90" class="ground" />
+              <line x1="0" y1="470" x2="1200" y2="470" class="groundline" />
+
+              <!-- line-up card -->
+              <g transform="translate(36,336)">
+                <rect
+                  x="0"
+                  y="0"
+                  width="216"
+                  height="164"
+                  rx="6"
+                  class="plate"
+                />
+                <text x="108" y="20" class="svglab" text-anchor="middle">
+                  RECEIPT LINE-UP
+                </text>
+                <g class="lucard">
+                  <text x="14" y="44">INLET</text>
+                  <rect
+                    id="luInlet"
+                    x="184"
+                    y="31"
+                    width="16"
+                    height="16"
+                    class="lu-sq"
+                  />
+                  <text x="14" y="66">KICKER</text>
+                  <rect
+                    id="luKicker"
+                    x="184"
+                    y="53"
+                    width="16"
+                    height="16"
+                    class="lu-sq"
+                  />
+                  <text x="14" y="88">MAINLINE</text>
+                  <rect
+                    id="luMlv"
+                    x="184"
+                    y="75"
+                    width="16"
+                    height="16"
+                    class="lu-sq"
+                  />
+                  <text x="14" y="110">VENT</text>
+                  <rect
+                    id="luVent"
+                    x="184"
+                    y="97"
+                    width="16"
+                    height="16"
+                    class="lu-sq"
+                  />
+                  <text x="14" y="132">DRAIN</text>
+                  <rect
+                    id="luDrain"
+                    x="184"
+                    y="119"
+                    width="16"
+                    height="16"
+                    class="lu-sq"
+                  />
+                </g>
+                <text x="108" y="154" class="svgtick" text-anchor="middle">
+                  SQUARE LIT = VALVE OPEN
+                </text>
+              </g>
+
+              <!-- gauge plate -->
+              <rect
+                x="308"
+                y="52"
+                width="290"
+                height="104"
+                rx="8"
+                class="plate"
+              />
+              <g id="gLine" transform="translate(382,111)">
+                <circle r="46" class="dialface" />
+                <path d="M -32 24 A 41 41 0 0 1 -32 -24" class="dialarc" />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-36"
+                  class="needle"
+                  id="lineNeedle"
+                />
+                <circle r="4" class="hub" />
+                <text y="-16" class="dialcap">LINE b</text>
+              </g>
+              <g id="gTrap" transform="translate(524,111)">
+                <circle r="46" class="dialface" />
+                <path d="M -32 24 A 41 41 0 0 1 -32 -24" class="dialarc red" />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-36"
+                  class="needle"
+                  id="trapNeedle"
+                />
+                <circle r="4" class="hub" />
+                <text y="-16" class="dialcap">TRAP b</text>
+              </g>
+
+              <!-- kicker bypass -->
+              <path class="pipe" d="M110,300 L110,168 L1074,168 L1074,300" />
+              <path id="flowKick" class="flowline" d="M110,168 L1074,168" />
+              <text x="340" y="158" class="svglab">KICKER BYPASS</text>
+
+              <!-- header + outlet -->
+              <line x1="0" y1="300" x2="300" y2="300" class="pipel" />
+              <path class="pipe" d="M300,300 L300,300" />
+              <line x1="948" y1="300" x2="1200" y2="300" class="pipel" />
+              <path id="flowHeader" class="flowline" d="M8,300 L196,300" />
+              <path id="flowOutlet" class="flowline" d="M962,300 L1192,300" />
+              <text x="6" y="284" class="svglab">FROM FIELD</text>
+              <text x="1194" y="284" class="svglab" text-anchor="end">
+                TO PLANT
+              </text>
+
+              <!-- barrel -->
+              <rect
+                x="300"
+                y="248"
+                width="648"
+                height="104"
+                rx="30"
+                class="shell"
+              />
+              <clipPath id="boreClip">
+                <rect x="306" y="254" width="636" height="92" rx="26" />
+              </clipPath>
+              <g clip-path="url(#boreClip)">
+                <rect x="306" y="254" width="636" height="92" class="bore" />
+                <rect
+                  id="barrelLiquid"
+                  x="306"
+                  y="330"
+                  width="636"
+                  height="16"
+                  class="liquid"
+                />
+                <g id="pigBody" transform="translate(330,300)">
+                  <rect
+                    x="-58"
+                    y="-21"
+                    width="116"
+                    height="42"
+                    rx="21"
+                    class="pigcapsule"
+                  />
+                  <line x1="-30" y1="-21" x2="-30" y2="21" class="piplumb" />
+                  <line x1="6" y1="-21" x2="6" y2="21" class="piplumb" />
+                  <circle cx="40" cy="0" r="9" class="pignose" />
+                </g>
+              </g>
+              <!-- arrestor -->
+              <g class="arrestor" transform="translate(806,300)">
+                <rect x="0" y="-46" width="10" height="92" class="fin" />
+                <rect x="14" y="-46" width="10" height="92" class="fin" />
+                <rect x="28" y="-46" width="10" height="92" class="fin" />
+                <rect x="42" y="-46" width="10" height="92" class="fin" />
+                <text x="26" y="-56" class="svglab" text-anchor="middle">
+                  ARRESTOR
+                </text>
+              </g>
+              <!-- sight glass -->
+              <g transform="translate(912,254)">
+                <rect x="0" y="0" width="14" height="92" rx="4" class="glass" />
+                <rect
+                  id="glassLiquid"
+                  x="2"
+                  y="76"
+                  width="10"
+                  height="14"
+                  class="liquid"
+                />
+                <line x1="0" y1="24" x2="14" y2="24" class="grad" />
+                <line x1="0" y1="48" x2="14" y2="48" class="grad" />
+                <line x1="0" y1="72" x2="14" y2="72" class="grad" />
+                <text x="7" y="112" class="svglab" text-anchor="middle">
+                  LIQUIDS
+                </text>
+              </g>
+
+              <!-- vent riser + flare -->
+              <path class="pipe" d="M520,248 L520,120 L1152,120" />
+              <path id="flowVent" class="flowline" d="M532,120 L1140,120" />
+              <line x1="1160" y1="470" x2="1160" y2="64" class="pipel stack" />
+              <ellipse
+                id="flareFlame"
+                cx="1160"
+                cy="50"
+                rx="14"
+                ry="22"
+                class="flame"
+                opacity="0"
+              />
+              <text x="1136" y="440" class="svglab" text-anchor="end">
+                FLARE STACK
+              </text>
+
+              <!-- drain + tank -->
+              <path class="pipe" d="M560,352 L560,430 L664,430" />
+              <path
+                id="flowDrain"
+                class="flowline"
+                d="M560,364 L560,430 L652,430"
+              />
+              <rect
+                x="664"
+                y="430"
+                width="128"
+                height="40"
+                rx="4"
+                class="tank"
+              />
+              <rect
+                x="792"
+                y="430"
+                width="12"
+                height="40"
+                rx="3"
+                class="glass"
+              />
+              <rect
+                id="tankLiquid"
+                x="794"
+                y="456"
+                width="8"
+                height="12"
+                class="liquid"
+              />
+              <text x="664" y="488" class="svglab">DRAINS TANK</text>
+
+              <!-- pipeline route marker post -->
+              <g transform="translate(920,496)">
+                <line x1="10" y1="44" x2="10" y2="0" class="groundline" />
+                <line x1="160" y1="44" x2="160" y2="0" class="groundline" />
+                <rect
+                  x="0"
+                  y="0"
+                  width="170"
+                  height="42"
+                  rx="3"
+                  class="plate"
+                />
+                <text x="85" y="17" class="svglab" text-anchor="middle">
+                  PIPELINE ROUTE
+                </text>
+                <text x="85" y="34" class="svglab" text-anchor="middle">
+                  36-INCH GAS - MAOP 70 BAR
+                </text>
+              </g>
+
+              <!-- door + clamp ring -->
+              <g id="doorG" transform="translate(948,300)">
+                <rect
+                  x="-6"
+                  y="-58"
+                  width="12"
+                  height="116"
+                  rx="4"
+                  class="hinge"
+                />
+                <ellipse
+                  id="doorLeaf"
+                  cx="0"
+                  cy="0"
+                  rx="20"
+                  ry="54"
+                  class="doorleaf"
+                />
+                <g id="ringG">
+                  <circle r="66" class="ringbody" />
+                  <g class="lugs">
+                    <rect
+                      x="-7"
+                      y="-74"
+                      width="14"
+                      height="18"
+                      rx="3"
+                      class="lug"
+                    />
+                    <rect
+                      x="-7"
+                      y="56"
+                      width="14"
+                      height="18"
+                      rx="3"
+                      class="lug"
+                    />
+                    <rect
+                      x="-74"
+                      y="-7"
+                      width="18"
+                      height="14"
+                      rx="3"
+                      class="lug"
+                    />
+                    <rect
+                      x="56"
+                      y="-7"
+                      width="18"
+                      height="14"
+                      rx="3"
+                      class="lug"
+                    />
+                    <rect
+                      x="-56"
+                      y="-56"
+                      width="16"
+                      height="16"
+                      rx="3"
+                      class="lug"
+                      transform="rotate(45)"
+                    />
+                    <rect
+                      x="40"
+                      y="40"
+                      width="16"
+                      height="16"
+                      rx="3"
+                      class="lug"
+                      transform="rotate(45)"
+                    />
+                  </g>
+                  <line x1="0" y1="0" x2="98" y2="0" class="tommybar" />
+                  <circle cx="104" cy="0" r="9" class="tommyknob" />
+                  <circle r="12" class="ringhub" />
+                </g>
+                <line x1="0" y1="56" x2="0" y2="92" class="hinge" />
+                <rect
+                  id="pinRect"
+                  x="-7"
+                  y="92"
+                  width="14"
+                  height="24"
+                  rx="3"
+                  class="pin"
+                />
+                <text x="0" y="140" class="svglab" text-anchor="middle">
+                  INTERLOCK PIN
+                </text>
+              </g>
+
+              <!-- valve bodies drawn under the HTML levers -->
+              <g class="valvebody" transform="translate(210,300)">
+                <path d="M-14,-16 L14,0 L-14,16 Z" />
+              </g>
+              <g class="valvebody" transform="translate(560,168)">
+                <path d="M-14,-16 L14,0 L-14,16 Z" />
+              </g>
+              <g class="valvebody" transform="translate(760,120)">
+                <path d="M-14,-16 L14,0 L-14,16 Z" />
+              </g>
+              <g class="valvebody vert" transform="translate(560,395)">
+                <path d="M-14,-16 L14,0 L-14,16 Z" />
+              </g>
+              <g transform="translate(1010,300)">
+                <rect
+                  x="-26"
+                  y="-30"
+                  width="52"
+                  height="60"
+                  rx="6"
+                  class="gearcase"
+                />
+                <text x="0" y="-40" class="svglab" text-anchor="middle">
+                  GEARED
+                </text>
+              </g>
+
+              <!-- stencil captions -->
+              <text x="300" y="238" class="svglab">
+                RECEIVER BARREL 12 M&sup3;
+              </text>
+              <text x="300" y="382" class="svglab">
+                PIG ENTERS FROM LEFT &mdash; NOSE TO ARRESTOR
+              </text>
+            </svg>
+
+            <!-- ===== interactive hotspots laid over the mimic ===== -->
+            <button
+              type="button"
+              class="hotspot lever-hs"
+              id="hsInlet"
+              data-control="INLET VALVE"
+              aria-label="INLET VALVE - quarter-turn, press to line or shut"
+              aria-pressed="false"
+            >
+              <span class="stem"></span><span class="arm"></span>
+              <span class="hs-tag">INLET VALVE</span>
+            </button>
+            <button
+              type="button"
+              class="hotspot lever-hs"
+              id="hsKicker"
+              data-control="KICKER VALVE"
+              aria-label="KICKER VALVE - quarter-turn bypass, press to line or shut"
+              aria-pressed="true"
+            >
+              <span class="stem"></span><span class="arm"></span>
+              <span class="hs-tag">KICKER VALVE</span>
+            </button>
+            <button
+              type="button"
+              class="hotspot lever-hs"
+              id="hsVent"
+              data-control="TRAP VENT VALVE"
+              aria-label="TRAP VENT VALVE - quarter-turn to flare, press to open or shut"
+              aria-pressed="false"
+            >
+              <span class="stem"></span><span class="arm"></span>
+              <span class="hs-tag">TRAP VENT VALVE</span>
+            </button>
+            <button
+              type="button"
+              class="hotspot lever-hs"
+              id="hsDrain"
+              data-control="TRAP DRAIN VALVE"
+              aria-label="TRAP DRAIN VALVE - quarter-turn to drains tank, press to open or shut"
+              aria-pressed="false"
+            >
+              <span class="stem"></span><span class="arm"></span>
+              <span class="hs-tag">TRAP DRAIN VALVE</span>
+            </button>
+
+            <div
+              class="hotspot mlv-group"
+              id="wheelBox"
+              data-control="MAINLINE VALVE"
+              role="slider"
+              tabindex="0"
+              aria-label="MAINLINE VALVE - geared handwheel; arrow keys or the SHUT and OPEN plates turn the wheel"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="MAINLINE VALVE shut"
+            >
+              <button
+                type="button"
+                class="nudge nudge-shut"
+                id="nudgeShut"
+                aria-label="Turn MAINLINE VALVE one turn shut"
+              >
+                &#8630;
+              </button>
+              <span class="handwheel" id="handwheel" aria-hidden="true"></span>
+              <button
+                type="button"
+                class="nudge nudge-open"
+                id="nudgeOpen"
+                aria-label="Turn MAINLINE VALVE one turn open"
+              >
+                &#8634;
+              </button>
+              <span class="hs-tag">MAINLINE VALVE</span>
+            </div>
+
+            <button
+              type="button"
+              class="hotspot crank-hs"
+              id="crankBtn"
+              data-control="CLAMP RING"
+              aria-label="CLAMP RING - ratcheted tommy bar; press to swing the ring one sector when the interlock pin is out"
+              aria-pressed="false"
+            >
+              <span class="tommy-arm" id="tommyArm"></span>
+              <span class="crank-hub"></span>
+              <span class="hs-tag" id="ringTag">RING LOCKED</span>
+            </button>
+
+            <button
+              type="button"
+              class="hotspot puller-hs"
+              id="pullerBtn"
+              data-control="PIG PULLER"
+              aria-label="PIG PULLER - T-bar, hold down for three seconds to withdraw the pig once the door is open and the barrel drained"
+            >
+              <span class="shaft" id="pullerShaft"></span>
+              <span class="tcross"></span>
+              <span class="hs-tag">PIG PULLER &mdash; HOLD</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== lower fascia ========================= -->
+      <section class="fascia" aria-label="Electrical, alarm and test controls">
+        <div class="fgroup">
+          <h3>SUPPLY</h3>
+          <button
+            type="button"
+            class="breaker"
+            id="swBreaker"
+            data-control="PANEL BREAKER"
+            role="switch"
+            aria-checked="false"
+            aria-label="PANEL BREAKER - panel supply"
+          >
+            <span class="b-body"><span class="b-rocker"></span></span>
+            <span class="b-cap">PANEL BREAKER</span>
+          </button>
+        </div>
+        <div class="fgroup">
+          <h3>ALARM FACE</h3>
+          <button
+            type="button"
+            class="pb"
+            id="btnLampTest"
+            data-control="LAMP TEST"
+          >
+            LAMP TEST
+          </button>
+          <div class="pair">
+            <button
+              type="button"
+              class="pb pb-amber"
+              id="btnAccept"
+              data-control="ALARM ACCEPT"
+            >
+              ALARM ACCEPT
+            </button>
+            <button
+              type="button"
+              class="pb pb-red"
+              id="btnReset"
+              data-control="ALARM RESET"
+            >
+              ALARM RESET
+            </button>
+          </div>
+        </div>
+        <div class="fgroup">
+          <h3>FIELD RESETS</h3>
+          <button
+            type="button"
+            class="pb"
+            id="btnSignaller"
+            data-control="SIGNALLER RESET"
+          >
+            SIGNALLER RESET
+          </button>
+          <button
+            type="button"
+            class="pb pb-navy"
+            id="btnConsole"
+            data-control="CONSOLE RESET"
+          >
+            CONSOLE RESET
+          </button>
+        </div>
+        <div
+          class="fgroup fgroup-tests"
+          id="testGroup"
+          data-control="MAINTENANCE TESTS"
+        >
+          <h3>MAINTENANCE TESTS</h3>
+          <div class="guardbox">
+            <span
+              class="guard"
+              tabindex="0"
+              role="button"
+              aria-label="Lift guard over TEST PIG STALL"
+            ></span>
+            <button type="button" class="pb pb-red pb-test" id="testStall">
+              TEST PIG STALL
+            </button>
+          </div>
+          <div class="guardbox">
+            <span
+              class="guard"
+              tabindex="0"
+              role="button"
+              aria-label="Lift guard over TEST INLET PASSING"
+            ></span>
+            <button type="button" class="pb pb-red pb-test" id="testInlet">
+              TEST INLET PASSING
+            </button>
+          </div>
+
+          <div class="guardbox">
+            <span
+              class="guard"
+              tabindex="0"
+              role="button"
+              aria-label="Lift guard over TEST SIGNALLER FAIL"
+            ></span>
+            <button type="button" class="pb pb-red pb-test" id="testSignaller">
+              TEST SIGNALLER FAIL
+            </button>
+          </div>
+        </div>
+        <div class="fgroup fgroup-docs">
+          <h3>DOCUMENTS</h3>
+          <button type="button" class="pb pb-wide" data-action="manual">
+            OPERATING MANUAL
+          </button>
+          <a class="pb pb-link" href="../../">TERMINAL DIRECTORY</a>
+          <p class="fineprint">
+            NVP/TRAP/R1 &mdash; ISSUE 3 &mdash; REDMOSS INSTRUMENT SHOP, 1994
+          </p>
+        </div>
+      </section>
+
+      <footer class="colophon">
+        <p>
+          REDMOSS TERMINAL &mdash; PIG RECEIVER No. 1 &mdash; PANEL NVP/TRAP/R1
+          &mdash; DAYLIGHT PLANT, NO GLOW BUT THE FLARE
+        </p>
+      </footer>
+    </main>
+
+    <!-- ======================== manual dialog ======================= -->
+    <dialog data-manual id="manualDlg" aria-label="Operating manual">
+      <div class="dlg-bar">
+        <span>NVP/TRAP/R1 &mdash; OPERATING MANUAL &mdash; RECEIVER No. 1</span>
+        <button
+          type="button"
+          class="pb"
+          id="btnCloseManual"
+          data-action="close-manual"
+        >
+          CLOSE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Redmoss Terminal Pig Receiver No. 1"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
