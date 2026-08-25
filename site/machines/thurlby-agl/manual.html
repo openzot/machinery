@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>APM 1174 · Operating Manual · Thurlby Fields GLR Mk. 2</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <header class="manhead">
+      <div class="manplate">
+        <p class="docref">APM&nbsp;1174</p>
+        <h1>Operating Manual</h1>
+        <p class="docsub">
+          Thurlby Fields Aerodrome — Ground-Lighting Regulator Mk.&nbsp;2<br />
+          four 6.6&nbsp;A series circuits &middot; thyristor regulators &middot;
+          standby alternator
+        </p>
+      </div>
+      <nav class="mannav">
+        <a href="./">Return to the desk</a>
+        <a href="../../">Machine catalogue</a>
+      </nav>
+    </header>
+
+    <main class="manbody">
+      <h2>Overview</h2>
+      <p>
+        This desk switches and regulates every airfield ground light at Thurlby
+        Fields: the approach centreline barrettes, the threshold wing bars, the
+        runway edge and the approach path indicator. Each group of lamps hangs
+        on its own series loop fed by a thyristor constant-current regulator;
+        the regulator holds the loop current at one of five fixed steps whatever
+        the lamp load, and the intensity you select is therefore a current, not
+        a dimmer setting. The field itself is shown under the smoked hood in the
+        middle of the desk. Judge colour there, with the room lights down —
+        never by leaning out of the window.
+      </p>
+      <p>
+        Mains comes from the aerodrome ring main; if it fails, a 40&nbsp;kVA
+        diesel alternator picks the bus up automatically in about two seconds.
+        The alternator is smaller than the mains, and it will sag if you demand
+        crash-max from it. Treat it as a torch, not a power station.
+      </p>
+      <p class="mannote">
+        Foster &amp; Braithwaite Ltd, Reading — works № 1184 — commissioned
+        4&nbsp;May&nbsp;1974. Amendments are taped on the works-test panel; do
+        not remove them.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="ctltable">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Type</th>
+            <th>Action and positions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>APPROACH INTENSITY</td>
+            <td>Rotary selector</td>
+            <td>
+              OFF, then steps 1&ndash;5 for the centreline barrettes (48, 64,
+              77, 89, 100&nbsp;% of 6.6&nbsp;A). Click right half to advance,
+              left half to ease; arrow keys work the same.
+            </td>
+          </tr>
+          <tr>
+            <td>THRESHOLD INTENSITY</td>
+            <td>Rotary selector</td>
+            <td>OFF, steps 1&ndash;5 for the threshold bar and wing bars.</td>
+          </tr>
+          <tr>
+            <td>EDGE INTENSITY</td>
+            <td>Rotary selector</td>
+            <td>OFF, steps 1&ndash;5 for the runway edge loop.</td>
+          </tr>
+          <tr>
+            <td>PAPI INTENSITY</td>
+            <td>Rotary selector</td>
+            <td>
+              OFF, steps 1&ndash;5 for the approach path indicator. Step 5 is
+              the survey setting; colour grading is done at it.
+            </td>
+          </tr>
+          <tr>
+            <td>APPROACH ISOLATOR</td>
+            <td>Rotary selector</td>
+            <td>
+              NORMAL, or BYPASS A&ndash;D. Each position bridges one quarter of
+              the centreline loop round a damaged section. Used to clear an
+              earth fault; see Faults and recovery.
+            </td>
+          </tr>
+          <tr>
+            <td>REGULATOR BLOWERS</td>
+            <td>Bat toggle</td>
+            <td>
+              Starts the regulator bay fans. Any circuit above about half
+              current without airflow will overheat and trip.
+            </td>
+          </tr>
+          <tr>
+            <td>CRASH MAX SWITCH</td>
+            <td>Guarded bat toggle</td>
+            <td>
+              Under the red lift-up guard. Throws all four selectors to step 5
+              regardless of where they stood; lowering it restores what was set
+              before. For an emergency only — see Alarms.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM ACCEPT</td>
+            <td>Pushbutton</td>
+            <td>
+              Stops the flash and the horn on a new alarm; the window stays lit
+              while the cause remains.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM RESET</td>
+            <td>Pushbutton</td>
+            <td>
+              Extinguishes windows whose cause has cleared, and re-closes a
+              tripped regulator once its temperature is below 88&nbsp;°C.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMP TEST</td>
+            <td>Pushbutton</td>
+            <td>
+              Proves every filament, neon and annunciation window at full
+              brilliance for about a second and a half.
+            </td>
+          </tr>
+          <tr>
+            <td>INSULATION TEST</td>
+            <td>Pushbutton</td>
+            <td>
+              Reads the approach-loop insulation onto the kΩ reel. A healthy
+              loop holds 999&nbsp;kΩ; a damaged one reads tens or single digits.
+            </td>
+          </tr>
+          <tr>
+            <td>WORKS TEST PANEL</td>
+            <td>Recessed test bay</td>
+            <td>
+              Three spring-return buttons that imitate the three standing faults
+              — BARRETTE FAIL, BLOWER-side thermal runaway (OVERHEAT), and MAINS
+              FAIL — plus the COLD START key and the INSULATION TEST button.
+              Engineering use only; log every press.
+            </td>
+          </tr>
+          <tr>
+            <td>COLD START KEY</td>
+            <td>Key switch</td>
+            <td>
+              Turns the whole desk cold and alarm-free: selectors to OFF, fans
+              off, guard state kept, counters zeroed after lamp replacement.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="proc">
+        <li>
+          Confirm the MAINS ON pilot is lit and the bus voltmeter reads
+          240&nbsp;V (nothing below 235&nbsp;V).
+        </li>
+        <li>Switch REGULATOR BLOWERS ON and leave it on for the watch.</li>
+        <li>
+          Set APPROACH INTENSITY to step&nbsp;3. The approach ammeter settles on
+          the amber 77&nbsp;% arc inside a few seconds.
+        </li>
+        <li>Set THRESHOLD INTENSITY to step&nbsp;3 (77&nbsp;% arc).</li>
+        <li>
+          Set EDGE INTENSITY to step&nbsp;4 (amber 89&nbsp;% arc). With the fans
+          running the COOLING AIR window stays dark.
+        </li>
+        <li>
+          Set PAPI INTENSITY to step&nbsp;5 — the red 100&nbsp;% arc. Confirm
+          the PAPI head shows two white over two red.
+        </li>
+        <li>
+          Look under the hood: green threshold bar and wing bars, white
+          centreline with the sequenced flasher running toward the threshold,
+          white edge, red end lights.
+        </li>
+        <li>
+          Read the lamp-out counters (zero on a good night), the insulation reel
+          (999&nbsp;kΩ) and the annunciator (all windows dark). The desk is now
+          on watch; temperatures should sit between 40 and 70&nbsp;°C.
+        </li>
+      </ol>
+      <p class="manwarn">
+        Do not raise the crash guard except on the crash bell. Crash-max draws
+        the four loops at full current together; on the standby alternator it
+        will drag the bus below 208&nbsp;volts and the desk will begin shedding
+        circuits for you.
+      </p>
+
+      <h2>Alarms</h2>
+      <table class="alarmtable">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Means</th>
+            <th>Do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LAMP FAILURE</td>
+            <td>
+              Filaments are out and the counters have counted them. With EARTH
+              FAULT it is a damaged section, not old lamps.
+            </td>
+            <td>
+              Note the counters; see Faults and recovery if EARTH FAULT shows.
+            </td>
+          </tr>
+          <tr>
+            <td>EARTH FAULT</td>
+            <td>
+              Approach-loop insulation has fallen (INSULATION TEST reads single
+              digits instead of 999&nbsp;kΩ).
+            </td>
+            <td>
+              Fit the correct bypass on APPROACH ISOLATOR, then ALARM RESET.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERTEMP</td>
+            <td>A regulator winding has passed 95&nbsp;°C.</td>
+            <td>
+              Ease the steps and confirm the blowers run; a trip follows at
+              105&nbsp;°C.
+            </td>
+          </tr>
+          <tr>
+            <td>REGULATOR TRIP</td>
+            <td>
+              The thermal contactor has opened a loop. Its lamps are dark.
+            </td>
+            <td>
+              Find why (OVERTEMP, LOW VOLTAGE), let the strip fall below
+              88&nbsp;°C, then ALARM RESET to re-close.
+            </td>
+          </tr>
+          <tr>
+            <td>COOLING AIR</td>
+            <td>More than half current flowing with the fan bank off.</td>
+            <td>
+              Switch REGULATOR BLOWERS on. Do not ignore it: the next window is
+              OVERTEMP.
+            </td>
+          </tr>
+          <tr>
+            <td>STANDBY SUPPLY</td>
+            <td>Mains lost; the alternator is carrying the field.</td>
+            <td>
+              Ease every selector one step. Expect the bus to sag if you do not.
+            </td>
+          </tr>
+          <tr>
+            <td>LOW VOLTAGE</td>
+            <td>Bus below 208&nbsp;V — overload on the alternator.</td>
+            <td>
+              Ease steps at once. Sustained sag trips the heaviest circuit after
+              about twelve seconds.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        New alarms flash and sound the horn until ALARM ACCEPT is pressed;
+        accepted alarms burn steady until the cause clears and ALARM RESET is
+        pressed. LAMP FAILURE alone (counters moving, insulation healthy) is a
+        maintenance note, not a night-stoppage: fly on.
+      </p>
+
+      <h2>Faults and recovery</h2>
+      <section class="fault">
+        <h3>approach barrette failure</h3>
+        <p>
+          <strong>You see:</strong> two adjacent centreline barrettes dark under
+          the hood, LAMP FAILURE and EARTH FAULT flashing together, the
+          insulation reel falling to 008&nbsp;kΩ on test, the approach ammeter
+          sitting below its arc.
+        </p>
+        <p>
+          <strong>To clear:</strong> rotate APPROACH ISOLATOR from NORMAL
+          through BYPASS A, B, C, D — watching the EARTH FAULT window. When you
+          pass the position that bridges the damaged quarter, the window stops
+          flashing and the rest of the centreline relights. Press ALARM RESET.
+          The failed barrettes stay dark until the lamps are changed at
+          servicing; the counters keep the figure. COLD START after the lamp van
+          returns the desk to new.
+        </p>
+      </section>
+      <section class="fault">
+        <h3>regulator overheat</h3>
+        <p>
+          <strong>You see:</strong> the edge regulator's temperature strip
+          climbing quickly whatever the load — a thyristor has welded through
+          and is heating the stack from inside. OVERTEMP flashes around
+          95&nbsp;°C; at 105&nbsp;°C the REGULATOR TRIP window follows and the
+          edge loop goes dark.
+        </p>
+        <p>
+          <strong>To clear:</strong> nothing at the desk cures a welded stack —
+          easing the selector will not help. Let it trip. When the strip has
+          fallen below 88&nbsp;°C, ALARM RESET re-closes the contactor and the
+          lamps return, but the climb will begin again: that is the fault
+          repeating itself, not your handling. Keep the re-close for essential
+          movements, note the time in the log, and telephone the contractor. The
+          COLD START key returns the desk cold with the condition cleared for
+          the bench test.
+        </p>
+      </section>
+      <section class="fault">
+        <h3>mains supply failure</h3>
+        <p>
+          <strong>You see:</strong> the voltmeter sagging to nothing, the MAINS
+          ON pilot out, STANDBY SUPPLY flashing; about two seconds later the
+          STANDBY RUN pilot lights as the alternator picks up the bus.
+        </p>
+        <p>
+          <strong>To clear:</strong> nothing you do restores the mains — ease
+          every selector one step and carry on reduced. If crash-max was held
+          through the changeover, LOW VOLTAGE flashes and the desk sheds its
+          heaviest circuit after some seconds; let it, then ALARM RESET and
+          rebuild gently. When the mains returns the MAINS ON pilot relights;
+          ALARM RESET extinguishes the standby windows. COLD START resets the
+          desk after a full drill.
+        </p>
+      </section>
+
+      <h2>Specifications</h2>
+
+      <table class="spectable">
+        <tbody>
+          <tr>
+            <th>Supply</th>
+            <td>240&nbsp;V, 50&nbsp;Hz, single phase, aerodrome ring main</td>
+          </tr>
+          <tr>
+            <th>Standby supply</th>
+            <td>
+              40&nbsp;kVA diesel alternator, automatic pickup ≈ 2&nbsp;s,
+              sustained sag below 208&nbsp;V sheds load
+            </td>
+          </tr>
+          <tr>
+            <th>Circuits</th>
+            <td>
+              4 series loops: approach centreline, threshold, runway edge, PAPI
+            </td>
+          </tr>
+          <tr>
+            <th>Regulators</th>
+            <td>
+              F/B·CCR·4 thyristor constant-current, 6.6&nbsp;A full rating
+            </td>
+          </tr>
+          <tr>
+            <th>Intensity steps</th>
+            <td>48 / 64 / 77 / 89 / 100&nbsp;% of rated current</td>
+          </tr>
+          <tr>
+            <th>Thermal trip</th>
+            <td>105&nbsp;°C winding, re-close permitted below 88&nbsp;°C</td>
+          </tr>
+          <tr>
+            <th>Earth monitoring</th>
+            <td>
+              Injection type, alarmed below 50&nbsp;kΩ; damaged loop typically
+              reads ≈ 8&nbsp;kΩ
+            </td>
+          </tr>
+          <tr>
+            <th>Centreline</th>
+            <td>
+              14 barrettes × 5 lamps, cross type, 60&nbsp;m spacing, sequenced
+              flasher fitted
+            </td>
+          </tr>
+          <tr>
+            <th>Threshold</th>
+            <td>6-lume bar and twin 5-lamp wing bars, green</td>
+          </tr>
+          <tr>
+            <th>Edge</th>
+            <td>15 pairs elevated white, 60&nbsp;m spacing</td>
+          </tr>
+          <tr>
+            <th>PAPI</th>
+            <td>
+              4-unit, survey setting at step&nbsp;5, on-grade 3.0°,
+              two-white-two-red band 2.8°–3.2°
+            </td>
+          </tr>
+          <tr>
+            <th>Mimic hood</th>
+            <td>Smoked acrylic, hinge at top; judge colour with hood down</td>
+          </tr>
+          <tr>
+            <th>Works reference</th>
+            <td>F&amp;B 1184-2, APM&nbsp;1174, amendment TB/74</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="manfoot">
+      <p>
+        FOSTER &amp; BRAITHWAITE LTD · READING · for the Thurlby Fields
+        Aerodrome Authority · 1974
+      </p>
+    </footer>
+  </body>
+</html>

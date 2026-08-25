@@ -929,5 +929,41 @@
     ],
     "tagline": "Two volts, one pendulum, forty dials - keep the whole town on the minute.",
     "created": "2026-08-25"
+  },
+  {
+    "slug": "thurlby-agl",
+    "name": "Thurlby Fields Aerodrome Ground-Lighting Regulator Mk. 2",
+    "kind": "aerodrome ground-lighting regulator desk",
+    "domain": "aviation",
+    "era": "1970s",
+    "design": "putty-grey enamel desk with chocolate plinth and a brushed-aluminium hood bezel, screen-printed brown condensed legends, traffolyte data plates, a smoked-acrylic mimic whose hundred tungsten lamps are the only light in the room, moving-coil ammeters carrying step arcs and two amber pilot neons",
+    "interaction": "four detented intensity selectors worked against their ammeter arcs while the airfield under the hood dims and brightens live, an isolator bypass walked round a damaged series loop, and a red-guarded crash switch that throws the whole field to maximum",
+    "palette": [
+      "#a89a86",
+      "#b85c14",
+      "#d3301f"
+    ],
+    "controls": [
+      "APPROACH INTENSITY",
+      "THRESHOLD INTENSITY",
+      "EDGE INTENSITY",
+      "PAPI INTENSITY",
+      "APPROACH ISOLATOR",
+      "REGULATOR BLOWERS",
+      "CRASH MAX SWITCH",
+      "ALARM ACCEPT",
+      "ALARM RESET",
+      "LAMP TEST",
+      "INSULATION TEST",
+      "WORKS TEST PANEL",
+      "COLD START KEY"
+    ],
+    "faults": [
+      "approach barrette failure",
+      "regulator overheat",
+      "mains supply failure"
+    ],
+    "tagline": "Judge the colour under the hood, not over your shoulder.",
+    "created": "2026-08-25"
   }
 ]

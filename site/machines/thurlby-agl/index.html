@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Thurlby Fields Aerodrome ground-lighting regulator - a 1974 control desk for four 6.6 A airfield lighting circuits."
+    />
+    <title>Thurlby Fields - Ground-Lighting Regulator Mk. 2</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="desk">
+      <header class="toprail">
+        <p class="maker">
+          Foster &amp; Braithwaite Ltd · Reading · Works № 1184
+        </p>
+        <div class="titleplate">
+          <h1>Thurlby Fields Aerodrome</h1>
+          <p class="sub">
+            Ground-Lighting Regulator Mk.&nbsp;2 — series-circuit control
+          </p>
+        </div>
+        <nav class="rails">
+          <a class="catalogue" href="../../">Catalogue</a>
+          <button type="button" class="push manualbtn" data-action="manual">
+            Operating Manual
+          </button>
+        </nav>
+      </header>
+
+      <div class="deck">
+        <!-- ==================== SUPPLY ==================== -->
+        <section class="bay supply" aria-label="Electrical supply bay">
+          <h2 class="baytitle">Supply</h2>
+
+          <div class="meter bigmeter" data-meter="volts">
+            <span class="mlabel">Bus volts</span>
+            <span class="msub">240 V · 50 Hz nominal</span>
+          </div>
+
+          <div class="pilots">
+            <span class="unit">
+              <span class="neon amber" data-pilot="mains"></span>
+              <span class="ptag">Mains on</span>
+            </span>
+            <span class="unit">
+              <span class="neon red" data-pilot="standby"></span>
+              <span class="ptag">Standby run</span>
+            </span>
+          </div>
+
+          <div class="toggleline">
+            <button
+              type="button"
+              class="toggle"
+              role="switch"
+              aria-checked="false"
+              data-control="REGULATOR BLOWERS"
+            >
+              <span class="bat"></span>
+              <span class="tmark on">On</span>
+              <span class="tmark off">Off</span>
+            </button>
+            <span class="tagline">Regulator blowers</span>
+          </div>
+
+          <div class="dataplate">
+            <p>Foster &amp; Braithwaite Ltd, Reading</p>
+            <p>Type F/B·CCR·4 · 240 V 50 Hz · 6.6 A per circuit</p>
+            <p>Serial 1184 · commissioned 4 May 1974</p>
+          </div>
+
+          <div class="vent" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span
+            ><span></span><span></span>
+          </div>
+        </section>
+
+        <!-- ==================== REGULATORS ==================== -->
+        <section class="bay regs" aria-label="Constant-current regulator bay">
+          <h2 class="baytitle">
+            Regulators — set intensity, watch current &amp; temperature
+          </h2>
+
+          <div class="chan" data-chan="approach">
+            <div
+              class="knob"
+              role="slider"
+              tabindex="0"
+              data-control="APPROACH INTENSITY"
+              aria-label="Approach centreline intensity selector"
+              aria-valuemin="0"
+              aria-valuemax="5"
+              aria-valuenow="0"
+              aria-valuetext="Off"
+            >
+              <span class="skirt"></span><span class="cap"></span
+              ><span class="pointer"></span>
+            </div>
+            <ol class="knobmarks" aria-hidden="true">
+              <li>Off</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ol>
+
+            <span class="legend">Approach<br />centreline</span>
+            <div class="meter ammeter" data-meter="approach"></div>
+            <div class="tempstrip" data-temp="approach">
+              <span class="tfill"></span><span class="tred"></span>
+              <span class="ttag">°C</span>
+            </div>
+          </div>
+
+          <div class="isoline">
+            <div
+              class="knob small"
+              role="slider"
+              tabindex="0"
+              data-control="APPROACH ISOLATOR"
+              aria-label="Approach circuit isolation selector - bypass failed barrette groups"
+              aria-valuemin="0"
+              aria-valuemax="4"
+              aria-valuenow="0"
+              aria-valuetext="Normal"
+            >
+              <span class="skirt"></span><span class="cap"></span
+              ><span class="pointer"></span>
+            </div>
+            <span class="isolegend"
+              >Approach isolator — bypass groups A&ndash;D</span
+            >
+          </div>
+
+          <div class="chan" data-chan="threshold">
+            <div
+              class="knob"
+              role="slider"
+              tabindex="0"
+              data-control="THRESHOLD INTENSITY"
+              aria-label="Threshold wing bar intensity selector"
+              aria-valuemin="0"
+              aria-valuemax="5"
+              aria-valuenow="0"
+              aria-valuetext="Off"
+            >
+              <span class="skirt"></span><span class="cap"></span
+              ><span class="pointer"></span>
+            </div>
+            <ol class="knobmarks" aria-hidden="true">
+              <li>Off</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ol>
+            <span class="legend">Threshold<br />wing bars</span>
+            <div class="meter ammeter" data-meter="threshold"></div>
+            <div class="tempstrip" data-temp="threshold">
+              <span class="tfill"></span><span class="tred"></span>
+              <span class="ttag">°C</span>
+            </div>
+          </div>
+
+          <div class="chan" data-chan="edge">
+            <div
+              class="knob"
+              role="slider"
+              tabindex="0"
+              data-control="EDGE INTENSITY"
+              aria-label="Runway edge intensity selector"
+              aria-valuemin="0"
+              aria-valuemax="5"
+              aria-valuenow="0"
+              aria-valuetext="Off"
+            >
+              <span class="skirt"></span><span class="cap"></span
+              ><span class="pointer"></span>
+            </div>
+            <ol class="knobmarks" aria-hidden="true">
+              <li>Off</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ol>
+            <span class="legend">Runway<br />edge</span>
+            <div class="meter ammeter" data-meter="edge"></div>
+            <div class="tempstrip" data-temp="edge">
+              <span class="tfill"></span><span class="tred"></span>
+              <span class="ttag">°C</span>
+            </div>
+          </div>
+
+          <div class="chan" data-chan="papi">
+            <div
+              class="knob"
+              role="slider"
+              tabindex="0"
+              data-control="PAPI INTENSITY"
+              aria-label="PAPI intensity selector"
+              aria-valuemin="0"
+              aria-valuemax="5"
+              aria-valuenow="0"
+              aria-valuetext="Off"
+            >
+              <span class="skirt"></span><span class="cap"></span
+              ><span class="pointer"></span>
+            </div>
+            <ol class="knobmarks" aria-hidden="true">
+              <li>Off</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ol>
+            <span class="legend">Approach<br />path indicator</span>
+            <div class="papiboxes" data-papi>
+              <span class="papilamp"></span><span class="papilamp"></span
+              ><span class="papilamp"></span><span class="papilamp"></span>
+            </div>
+            <span class="glidewin"><span data-glide>—</span>° glide</span>
+          </div>
+        </section>
+
+        <!-- ==================== THE FIELD ==================== -->
+        <section class="field" aria-label="Airfield lighting mimic under hood">
+          <h2 class="baytitle hoodtitle">The field — viewed under the hood</h2>
+          <figure class="hood">
+            <div
+              class="mimic"
+              id="mimic"
+              role="img"
+              aria-label="Plan of the approach and runway; lamps light at the selected step, failed barrettes show dark"
+            >
+              <div class="grass"></div>
+              <div class="runway"></div>
+              <div class="rwytext">09</div>
+              <div class="smoke"></div>
+            </div>
+            <figcaption>
+              Smoked hood down — dim the room to judge colour &middot; lamp-out
+              counters below
+            </figcaption>
+          </figure>
+
+          <div class="counters">
+            <span class="counter">
+              <span class="cname">App lamps out</span>
+              <span class="reel" data-counter="approach"
+                ><b>0</b><b>0</b><b>0</b></span
+              >
+            </span>
+            <span class="counter">
+              <span class="cname">Thr lamps out</span>
+              <span class="reel" data-counter="threshold"
+                ><b>0</b><b>0</b><b>0</b></span
+              >
+            </span>
+            <span class="counter">
+              <span class="cname">Edge lamps out</span>
+              <span class="reel" data-counter="edge"
+                ><b>0</b><b>0</b><b>0</b></span
+              >
+            </span>
+            <span class="counter">
+              <span class="cname">Insulation kΩ</span>
+              <span class="reel insul" data-counter="insulation"
+                ><b>9</b><b>9</b><b>9</b></span
+              >
+            </span>
+          </div>
+        </section>
+
+        <!-- ==================== SUPERVISION ==================== -->
+        <section class="bay superv" aria-label="Supervision bay">
+          <h2 class="baytitle">Supervision</h2>
+
+          <div class="annunciator" data-annunciator>
+            <span class="annwin" data-alarm="LAMP FAILURE">Lamp failure</span>
+            <span class="annwin" data-alarm="EARTH FAULT">Earth fault</span>
+            <span class="annwin" data-alarm="OVERTEMP">Overtemp</span>
+            <span class="annwin" data-alarm="REGULATOR TRIP"
+              >Regulator trip</span
+            >
+            <span class="annwin" data-alarm="COOLING AIR">Cooling air</span>
+
+            <span class="annwin" data-alarm="STANDBY SUPPLY"
+              >Standby supply</span
+            >
+            <span class="annwin" data-alarm="LOW VOLTAGE">Low voltage</span>
+          </div>
+
+          <div class="pushrow">
+            <button type="button" class="push grey" data-control="ALARM ACCEPT">
+              Alarm accept
+            </button>
+            <button type="button" class="push grey" data-control="ALARM RESET">
+              Alarm reset
+            </button>
+            <button type="button" class="push grey" data-control="LAMP TEST">
+              Lamp test
+            </button>
+          </div>
+
+          <div class="works" data-control="WORKS TEST PANEL">
+            <p class="workstitle">Works test — engineering use only</p>
+            <div class="testrow">
+              <button
+                type="button"
+                class="push black"
+                data-inject="approach barrette failure"
+              >
+                Barrette fail
+              </button>
+              <button
+                type="button"
+                class="push black"
+                data-inject="regulator overheat"
+              >
+                Overheat
+              </button>
+              <button
+                type="button"
+                class="push black"
+                data-inject="mains supply failure"
+              >
+                Mains fail
+              </button>
+            </div>
+            <div class="worksrow">
+              <button
+                type="button"
+                class="keyswitch"
+                data-control="COLD START KEY"
+                aria-label="Cold start key - turn to reset the desk cold and alarm-free"
+              >
+                <span class="key"></span><span class="kmark">Cold start</span>
+              </button>
+              <button
+                type="button"
+                class="push grey smallpush"
+                data-control="INSULATION TEST"
+              >
+                Insulation test
+              </button>
+            </div>
+            <p class="dymo">
+              amend. TB/74 — do not energise field with hood raised
+            </p>
+          </div>
+
+          <div class="crashassembly">
+            <div class="guarded" data-guard>
+              <button
+                type="button"
+                class="guardlid"
+                aria-expanded="false"
+                aria-label="Raise the crash switch guard"
+              >
+                <span class="grip"></span>
+                <span class="guardtext">Raise guard</span>
+              </button>
+              <button
+                type="button"
+                class="toggle crash"
+                role="switch"
+                aria-checked="false"
+                data-control="CRASH MAX SWITCH"
+              >
+                <span class="bat red"></span>
+                <span class="crashtag">Crash max — all circuits full</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="plinth">
+        <p>
+          Supply 240&nbsp;V 50&nbsp;Hz &middot; four thyristor regulators,
+          6.6&nbsp;A series loops &middot; standby alternator 40&nbsp;kVA
+          &middot; AGL/74 spec
+        </p>
+        <p class="fine">
+          Keep hood lowered when judging lamp colour &middot; F&amp;B Ref 1184-2
+        </p>
+      </footer>
+    </main>
+
+    <dialog data-manual aria-label="Operating manual">
+      <div class="manualchrome">
+        <header class="manualbar">
+          <span>APM 1174 · operating manual · Thurlby Fields GLR Mk. 2</span>
+          <button
+            type="button"
+            class="push grey closebtn"
+            data-action="close-manual"
+          >
+            Close
+          </button>
+        </header>
+        <iframe
+          src="manual.html"
+          title="Operating manual, Thurlby Fields GLR Mk. 2"
+        ></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
