@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corvedale Transport Board — 1973 Stock Driving Console</title>
+    <meta
+      name="description"
+      content="Driver's console of a 1973 deep-tube electric multiple unit: traction, air brakes, doors and trainstop protection on the Merrowgate Deep Line."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="wall">
+      <!-- ============================================================
+           CAB HEADER: builder's plate, destination blind, book & sound
+           ============================================================ -->
+      <header class="head">
+        <div class="head-brand">
+          <span class="brand-roundel">CTB</span>
+          <span class="brand-text"
+            >Corvedale Transport Board &mdash; Merrowgate Deep Line</span
+          >
+        </div>
+        <div class="blind" id="dest-blind" aria-label="destination blind">
+          <span class="blind-glass"
+            >1973 STOCK&nbsp;&middot;&nbsp;SET 3541</span
+          >
+        </div>
+        <nav class="head-actions">
+          <button
+            type="button"
+            class="spk"
+            id="sound-toggle"
+            data-control="CAB SOUND"
+            role="switch"
+            aria-checked="false"
+            aria-label="cab speaker: off"
+          >
+            SPEAKER
+          </button>
+          <button type="button" class="book" data-action="manual">
+            DRIVING MANUAL
+          </button>
+          <a class="cat-link" href="../../" title="Machine catalogue"
+            >CATALOGUE</a
+          >
+        </nav>
+      </header>
+
+      <!-- ============================================================
+           THE WINDOW: track ahead, signals, platforms (canvas scenery)
+           ============================================================ -->
+      <section class="windshield" aria-label="track ahead view">
+        <canvas id="view" width="1520" height="236"></canvas>
+        <div class="mask-top"></div>
+        <div class="mask-bottom"></div>
+        <div class="glass-fleck"></div>
+        <p class="ws-note" id="ws-note">
+          MERROWGATE LOOP &mdash; 9.6 KM &mdash; EIGHT STATIONS
+        </p>
+      </section>
+
+      <!-- ============================================================
+           THE DESK
+           ============================================================ -->
+      <main class="desk">
+        <!-- ---- left wing: air and current ---- -->
+        <section class="wing wing-air" aria-label="air and electrical gauges">
+          <h2 class="zone-title">AIR &amp; LINE</h2>
+
+          <div class="gauge-row">
+            <figure class="gauge">
+              <svg
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="main reservoir pressure gauge"
+              >
+                <g class="dial-face">
+                  <circle cx="50" cy="50" r="48" />
+                  <path d="M17 78 A44 44 0 1 1 83 78" fill="none" />
+                  <text x="50" y="34" class="dg-sub">LB/IN&#178;</text>
+                  <text x="50" y="88" class="dg-name">MAIN RES</text>
+                  <g class="ticks-major" data-gauge="res"></g>
+                  <g class="nums" data-gauge="res-nums"></g>
+                </g>
+                <line
+                  class="needle"
+                  id="n-res"
+                  x1="50"
+                  y1="54"
+                  x2="50"
+                  y2="13"
+                />
+                <circle class="boss" cx="50" cy="50" r="4" />
+              </svg>
+              <figcaption>MAIN RESERVOIR</figcaption>
+            </figure>
+
+            <figure class="gauge">
+              <svg
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="brake cylinder pressure gauge"
+              >
+                <g class="dial-face">
+                  <circle cx="50" cy="50" r="48" />
+                  <path d="M17 78 A44 44 0 1 1 83 78" fill="none" />
+                  <text x="50" y="34" class="dg-sub">LB/IN&#178;</text>
+                  <text x="50" y="88" class="dg-name">BRAKE CYL</text>
+                  <g class="ticks-major" data-gauge="bcy"></g>
+                  <g class="nums" data-gauge="bcy-nums"></g>
+                </g>
+                <line
+                  class="needle"
+                  id="n-bcy"
+                  x1="50"
+                  y1="54"
+                  x2="50"
+                  y2="13"
+                />
+                <circle class="boss" cx="50" cy="50" r="4" />
+              </svg>
+              <figcaption>BRAKE CYLINDERS</figcaption>
+            </figure>
+
+            <figure class="gauge">
+              <svg
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="line voltage meter"
+              >
+                <g class="dial-face">
+                  <circle cx="50" cy="50" r="48" />
+                  <path d="M17 78 A44 44 0 1 1 83 78" fill="none" />
+                  <text x="50" y="34" class="dg-sub">VOLTS</text>
+                  <text x="50" y="88" class="dg-name">LINE</text>
+                  <g class="ticks-major" data-gauge="volts"></g>
+                  <g class="nums" data-gauge="volts-nums"></g>
+                </g>
+                <line
+                  class="needle"
+                  id="n-volts"
+                  x1="50"
+                  y1="54"
+                  x2="50"
+                  y2="13"
+                />
+                <circle class="boss" cx="50" cy="50" r="4" />
+              </svg>
+              <figcaption>LINE VOLTS</figcaption>
+            </figure>
+
+            <figure class="gauge">
+              <svg
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="motor current ammeter, centre zero"
+              >
+                <g class="dial-face">
+                  <circle cx="50" cy="50" r="48" />
+                  <path d="M17 78 A44 44 0 1 1 83 78" fill="none" />
+                  <text x="50" y="34" class="dg-sub">AMPS</text>
+                  <text x="50" y="88" class="dg-name">MOTORS</text>
+                  <g class="ticks-major" data-gauge="amps"></g>
+                  <g class="nums" data-gauge="amps-nums"></g>
+                </g>
+                <line
+                  class="needle"
+                  id="n-amps"
+                  x1="50"
+                  y1="54"
+                  x2="50"
+                  y2="13"
+                />
+                <circle class="boss" cx="50" cy="50" r="4" />
+              </svg>
+              <figcaption>MOTOR CURRENT</figcaption>
+            </figure>
+          </div>
+
+          <div class="lost-box">
+            <span class="lost-label">TIME LOST</span>
+            <span class="lost-count" id="late-min">+0</span>
+            <span class="lost-unit">MIN</span>
+          </div>
+        </section>
+
+        <!-- ---- centre: speedometer, controller, dead-man grip ---- -->
+        <section class="wing wing-drive" aria-label="driving controls">
+          <figure class="gauge g-speed">
+            <svg
+              viewBox="0 0 200 130"
+              role="img"
+              aria-label="speedometer, miles per hour"
+            >
+              <g class="dial-face">
+                <rect x="2" y="2" width="196" height="126" rx="6" />
+                <text x="100" y="24" class="dg-name">MILES PER HOUR</text>
+                <g class="ticks-major" data-gauge="spd"></g>
+                <g class="nums" data-gauge="spd-nums"></g>
+                <path class="limit-arc" data-gauge="spd-limit" />
+                <g class="marker-stop" data-gauge="spd-mark"></g>
+                <text x="100" y="122" class="dg-sub" id="spd-kmh">0 KM/H</text>
+              </g>
+              <line
+                class="needle needle-big"
+                id="n-spd"
+                x1="100"
+                y1="72"
+                x2="100"
+                y2="22"
+              />
+              <circle class="boss boss-big" cx="100" cy="72" r="7" />
+            </svg>
+            <figcaption class="sr-only">speedometer</figcaption>
+          </figure>
+
+          <div class="controller-rig">
+            <div
+              class="controller"
+              id="controller"
+              data-control="MASTER CONTROLLER"
+            >
+              <ol class="detents" id="detents"></ol>
+              <div class="quadrant">
+                <div class="slot"></div>
+                <button
+                  type="button"
+                  class="handle"
+                  id="handle"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="master controller"
+                  aria-valuemin="-7"
+                  aria-valuemax="4"
+                  aria-valuenow="0"
+                  aria-valuetext="OFF"
+                  aria-orientation="vertical"
+                >
+                  <span class="handle-shank"></span>
+                  <span class="handle-knob"></span>
+                </button>
+              </div>
+              <span class="ctrl-plate">MASTER<br />CONTROLLER</span>
+            </div>
+
+            <div class="grip-rig">
+              <div class="grip-collar" id="grip-lamp" title="dead-man grip">
+                <button
+                  type="button"
+                  class="grip"
+                  id="grip"
+                  data-control="DEAD-MAN GRIP"
+                  aria-label="dead-man grip: squeeze and hold; release briefly every half-minute"
+                  aria-pressed="false"
+                >
+                  <span class="grip-ribs"></span>
+                  <span class="grip-word">SQUEEZE</span>
+                </button>
+              </div>
+              <span class="grip-caption"
+                >DEAD-MAN GRIP<em
+                  >hold to live &mdash; ease off when the lamp demands</em
+                ></span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- right wing: doors, annunciators, switches ---- -->
+        <section class="wing wing-doors" aria-label="doors and indicators">
+          <div
+            class="annunciator"
+            id="annunciator"
+            aria-label="indicator windows"
+          >
+            <div class="ann" data-ann="doors-closed">
+              <i></i><span>DOORS CLOSED</span>
+            </div>
+            <div class="ann" data-ann="interlock">
+              <i></i><span>INTERLOCK</span>
+            </div>
+            <div class="ann" data-ann="compressor">
+              <i></i><span>COMPRESSOR</span>
+            </div>
+            <div class="ann" data-ann="linelow">
+              <i></i><span>LINE VOLTS LOW</span>
+            </div>
+            <div class="ann" data-ann="overspeed">
+              <i></i><span>OVERSPEED</span>
+            </div>
+            <div class="ann" data-ann="lowair">
+              <i></i><span>LOW MAIN RES</span>
+            </div>
+            <div class="ann" data-ann="deadman">
+              <i></i><span>DEAD-MAN</span>
+            </div>
+            <div class="ann" data-ann="tripcock">
+              <i></i><span>TRIPCOCK</span>
+            </div>
+          </div>
+
+          <div class="door-bench">
+            <div class="rotary-rig">
+              <span class="rotary-cap">DOOR SELECTOR</span>
+              <div
+                class="rotary"
+                id="door-select"
+                data-control="DOOR SELECTOR"
+                role="radiogroup"
+                aria-label="door selector: left, off, right"
+              >
+                <button
+                  type="button"
+                  class="stop"
+                  data-pos="left"
+                  aria-pressed="false"
+                >
+                  LEFT
+                </button>
+                <button
+                  type="button"
+                  class="stop"
+                  data-pos="off"
+                  aria-pressed="true"
+                >
+                  OFF
+                </button>
+                <button
+                  type="button"
+                  class="stop"
+                  data-pos="right"
+                  aria-pressed="false"
+                >
+                  RIGHT
+                </button>
+                <span class="rot-knob" id="rot-knob"><i></i></span>
+              </div>
+            </div>
+            <div class="door-keys">
+              <button
+                type="button"
+                class="key key-green"
+                id="door-open"
+                data-control="DOOR OPEN"
+              >
+                DOOR OPEN
+              </button>
+              <button
+                type="button"
+                class="key key-black"
+                id="door-close"
+                data-control="DOOR CLOSE"
+              >
+                DOOR CLOSE
+              </button>
+            </div>
+          </div>
+
+          <div class="switch-bench">
+            <label class="toggle" id="aux-wrap">
+              <input type="checkbox" id="aux" data-control="AUXILIARIES" />
+              <span class="tog-track"><i></i></span>
+              <span class="tog-word">AUXILIARIES</span>
+            </label>
+            <button
+              type="button"
+              class="key key-small"
+              id="accept"
+              data-control="ALARM ACCEPT"
+            >
+              ALARM ACCEPT
+            </button>
+            <button
+              type="button"
+              class="key key-small"
+              id="lampstest"
+              data-control="LAMPS TEST"
+            >
+              LAMPS TEST
+            </button>
+            <div class="guarded" id="trip-reset-wrap">
+              <button
+                type="button"
+                class="guard-flap"
+                id="trip-guard"
+                aria-expanded="false"
+                aria-label="lift tripcock reset guard"
+              >
+                <span>LIFT</span>
+              </button>
+              <button
+                type="button"
+                class="keysw"
+                id="trip-reset"
+                data-control="TRIPCOCK RESET"
+                disabled
+                aria-label="tripcock reset key"
+              >
+                <i></i>
+              </button>
+              <span class="guarded-word">TRIPCOCK RESET</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- bottom shelf: fault bay, isolation, reset, plate ---- -->
+        <section class="shelf" aria-label="fault test bay and isolation">
+          <div class="bay" id="bay">
+            <button
+              type="button"
+              class="bay-cover"
+              id="bay-cover"
+              data-control="FAULT TEST SWITCHES"
+              aria-expanded="false"
+              aria-label="fault test switches: open cover"
+            >
+              <span>FAULT TEST SWITCHES</span>
+              <em>workshop use &mdash; close cover before service</em>
+            </button>
+            <div class="bay-inner" id="bay-inner" hidden>
+              <label class="toggle tog-mini">
+                <input
+                  type="checkbox"
+                  id="ft-leak"
+                  data-control="TEST RESERVOIR LEAK"
+                />
+                <span class="tog-track"><i></i></span>
+                <span class="tog-word">TEST LEAK</span>
+              </label>
+              <label class="toggle tog-mini">
+                <input
+                  type="checkbox"
+                  id="ft-interlock"
+                  data-control="TEST INTERLOCK"
+                />
+                <span class="tog-track"><i></i></span>
+                <span class="tog-word">TEST INTERLOCK</span>
+              </label>
+              <label class="toggle tog-mini">
+                <input
+                  type="checkbox"
+                  id="ft-trip"
+                  data-control="TEST TRAINSTOP"
+                />
+                <span class="tog-track"><i></i></span>
+                <span class="tog-word">TEST TRAINSTOP</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="iso-rig">
+            <button
+              type="button"
+              class="cock"
+              id="leak-cock"
+              data-control="LEAK ISOLATION COCK"
+              aria-pressed="false"
+              aria-label="leak isolation cock: OPEN (turn to shut)"
+            >
+              <i></i><span class="cock-word">OPEN</span>
+            </button>
+            <span class="iso-caption">LEAK ISOLATION<br />COCK</span>
+          </div>
+
+          <button
+            type="button"
+            class="key key-reset"
+            id="desk-reset"
+            data-control="DESK RESET"
+          >
+            DESK RESET
+          </button>
+
+          <div class="dat-plate" aria-hidden="true">
+            <strong>CORVEDALE TRANSPORT BOARD</strong>
+            <span>1973 STOCK &middot; DRIVING CONSOLE &middot; TYPE DM-73</span>
+            <span
+              >SERIAL 3541 &middot; WORKS FITTED WOLVERTON &middot; 630 V
+              DC</span
+            >
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================================
+         MANUAL DIALOG
+         ============================================================ -->
+    <dialog data-manual id="manual-dialog" aria-label="driving manual">
+      <div class="dlg-chrome">
+        <span class="dlg-title">DRIVING MANUAL &mdash; DM/73</span>
+        <button type="button" class="dlg-close" data-action="close-manual">
+          CLOSE BOOK
+        </button>
+      </div>
+      <iframe src="manual.html" title="Driving manual, DM/73 stock"></iframe>
+    </dialog>
+
+    <p class="back-row">
+      <a href="../../">&larr; Back to the machine catalogue</a>
+    </p>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

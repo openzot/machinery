@@ -740,5 +740,39 @@
     ],
     "tagline": "Keep the needle in the green field and cage her drums at six hours west.",
     "created": "2026-08-24"
+  },
+  {
+    "slug": "merrowgate-driving-console",
+    "name": "Corvedale 1973 Stock - Driving Console",
+    "kind": "deep-tube electric train driving console",
+    "domain": "rail",
+    "era": "1970s",
+    "design": "scuffed transit-grey painted steel desk with silkscreened cream condensed legends, tungsten indicator windows on a plywood backing, ivory gauge dials and a living tunnel bore in the windscreen",
+    "interaction": "a spring dead-man grip that must be held and eased every forty seconds while a notched traction-brake controller is worked against the speedometer between trainstop-protected signals",
+    "palette": [
+      "#7a7772",
+      "#1c3f94",
+      "#d0342c"
+    ],
+    "controls": [
+      "MASTER CONTROLLER",
+      "DEAD-MAN GRIP",
+      "DOOR SELECTOR",
+      "DOOR OPEN",
+      "DOOR CLOSE",
+      "AUXILIARIES",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TRIPCOCK RESET",
+      "LEAK ISOLATION COCK",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "main reservoir leak",
+      "door interlock failure",
+      "trainstop trip (SPAD)"
+    ],
+    "tagline": "Hold her alive, roll to the marker, and never argue with a red.",
+    "created": "2026-08-25"
   }
 ]
