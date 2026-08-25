@@ -1082,5 +1082,40 @@
     ],
     "tagline": "Zero on both needles, then swing the ring.",
     "created": "2026-08-25"
+  },
+  {
+    "slug": "cardington-r108",
+    "name": "Cardington Royal Airship Works - R.108 Ballast, Trim & Valve Board",
+    "kind": "rigid airship ballast and trim control board",
+    "domain": "aviation",
+    "era": "1920s",
+    "design": "riveted duralumin bulkhead plate with engraved alloy legends in black paint fill, ivory dial faces under blued-steel hands, crimson-lake lever fittings and Admiralty shutter annunciators, a live hull-section mimic, lit by shed daylight alone",
+    "interaction": "walking water fore and aft on a braced three-position trim pump lever while feeding dump valves by the turn against a live inclinometer, then lifting a guard to valve cell groups only when the balance reads light",
+    "palette": [
+      "#bcc0be",
+      "#921f4e",
+      "#c8281e",
+      "#efe9da"
+    ],
+    "controls": [
+      "FORE BALLAST DUMP VALVE",
+      "AFT BALLAST DUMP VALVE",
+      "TRIM PUMP LEVER",
+      "GAS CELL SELECTOR",
+      "GAS VENT LEVER",
+      "ELEVATOR HANDWHEEL",
+      "ENGINE TELEGRAPH",
+      "ALARM BELL CUT",
+      "LAMPS TEST",
+      "MAINTENANCE TESTS",
+      "COLD RESET"
+    ],
+    "faults": [
+      "gas cell puncture",
+      "forward dump valve passing",
+      "trim pump overload"
+    ],
+    "tagline": "Water may come back with the rain - gas never comes back at all.",
+    "created": "2026-08-25"
   }
 ]

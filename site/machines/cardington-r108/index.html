@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>R.108 — Ballast, Trim &amp; Valve Board</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="board">
+      <!-- ============ header rail ============ -->
+      <header class="head-rail">
+        <div class="maker-plate">
+          <span class="maker-royal">ROYAL AIRSHIP WORKS · CARDINGTON</span>
+          <h1>AIRSHIP R.108 — BALLAST, TRIM &amp; VALVE BOARD</h1>
+          <span class="maker-sub"
+            >FLIGHT ENGINEER'S AFT STATION · ADMIRALTY PATTERN W.4172 ·
+            1929</span
+          >
+        </div>
+        <div class="head-gear">
+          <span
+            class="jewel"
+            id="jewelPilot"
+            role="img"
+            aria-label="Board alive pilot lamp"
+          ></span>
+          <a class="cat-link plate-btn" href="../../">CATALOGUE</a>
+          <button
+            class="plate-btn"
+            type="button"
+            data-control="LAMPS TEST"
+            id="btnLamps"
+          >
+            LAMPS TEST
+          </button>
+          <button
+            class="plate-btn"
+            type="button"
+            data-control="COLD RESET"
+            id="btnReset"
+          >
+            COLD RESET
+          </button>
+          <button
+            class="plate-btn accent"
+            type="button"
+            data-action="manual"
+            id="btnManual"
+          >
+            HANDBOOK
+          </button>
+        </div>
+      </header>
+
+      <!-- ============ working face ============ -->
+      <section class="face">
+        <!-- LEFT: weight -->
+        <section class="bay bay-weight" aria-label="Weight and buoyancy">
+          <h2 class="bay-title">WEIGHT &amp; LIFT</h2>
+
+          <div class="glass-pair">
+            <figure class="sight-glass">
+              <figcaption>FORE BALLAST<br />LB</figcaption>
+              <div class="glass-tube">
+                <div class="glass-water" id="waterFore"></div>
+                <div class="glass-grad" aria-hidden="true"></div>
+              </div>
+              <output id="txtFore">3200</output>
+            </figure>
+            <figure class="sight-glass">
+              <figcaption>AFT BALLAST<br />LB</figcaption>
+              <div class="glass-tube">
+                <div class="glass-water" id="waterAft"></div>
+                <div class="glass-grad" aria-hidden="true"></div>
+              </div>
+              <output id="txtAft">3200</output>
+            </figure>
+            <figure class="sight-glass fuel">
+              <figcaption>PETROL<br />GAL</figcaption>
+              <div class="glass-tube">
+                <div class="glass-water petrol" id="waterFuel"></div>
+                <div class="glass-grad" aria-hidden="true"></div>
+              </div>
+              <output id="txtFuel">1800</output>
+            </figure>
+          </div>
+
+          <div class="valve-row">
+            <div class="wheel-block">
+              <div
+                class="hand-wheel"
+                id="wheelFore"
+                data-control="FORE BALLAST DUMP VALVE"
+                role="slider"
+                tabindex="0"
+                aria-label="FORE BALLAST DUMP VALVE — turns open"
+                aria-valuemin="0"
+                aria-valuemax="6"
+                aria-valuenow="0"
+                aria-valuetext="0 turns open"
+              >
+                <div class="wheel-spokes"><i></i><i></i><i></i></div>
+                <div class="wheel-hub"></div>
+              </div>
+              <label>FORE DUMP<br />TURNS OPEN</label>
+              <output id="turnsFore">0.0</output>
+            </div>
+            <div class="wheel-block">
+              <div
+                class="hand-wheel"
+                id="wheelAft"
+                data-control="AFT BALLAST DUMP VALVE"
+                role="slider"
+                tabindex="0"
+                aria-label="AFT BALLAST DUMP VALVE — turns open"
+                aria-valuemin="0"
+                aria-valuemax="6"
+                aria-valuenow="0"
+                aria-valuetext="0 turns open"
+              >
+                <div class="wheel-spokes"><i></i><i></i><i></i></div>
+                <div class="wheel-hub"></div>
+              </div>
+              <label>AFT DUMP<br />TURNS OPEN</label>
+              <output id="turnsAft">0.0</output>
+            </div>
+          </div>
+
+          <div class="gas-bay">
+            <div class="selector-block">
+              <div
+                class="selector-knob"
+                id="selKnob"
+                data-control="GAS CELL SELECTOR"
+                role="slider"
+                tabindex="0"
+                aria-label="GAS CELL SELECTOR — group led to the vent"
+                aria-valuemin="0"
+                aria-valuemax="3"
+                aria-valuenow="0"
+                aria-valuetext="VENT SHUT"
+              >
+                <div class="sel-pointer"></div>
+              </div>
+              <ul class="sel-scale" aria-hidden="true">
+                <li>SHUT</li>
+                <li>BOW</li>
+                <li>MID</li>
+                <li>STERN</li>
+              </ul>
+            </div>
+            <div class="vent-block">
+              <button
+                class="guard-flip"
+                type="button"
+                id="guardBtn"
+                aria-pressed="false"
+                aria-label="Gas vent guard — lift to arm vent lever"
+              >
+                GUARD
+              </button>
+              <button
+                class="vent-lever"
+                type="button"
+                id="ventBtn"
+                data-control="GAS VENT LEVER"
+                disabled
+                aria-pressed="false"
+                aria-label="GAS VENT LEVER — latch open to valve gas"
+              >
+                VENT
+              </button>
+              <p class="vent-note">VALVING GAS IS NOT RECOVERED IN FLIGHT</p>
+            </div>
+            <div class="press-dials">
+              <figure class="dial small">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="ticks" data-dial="pressF"></g>
+                  <path class="needle" id="nPressF" d="M50 54 L50 14" />
+                  <circle class="boss" cx="50" cy="52" r="5" />
+                </svg>
+                <figcaption>CELL PRESSURE FORE · MM</figcaption>
+              </figure>
+              <figure class="dial small">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <g class="ticks" data-dial="pressA"></g>
+                  <path class="needle" id="nPressA" d="M50 54 L50 14" />
+                  <circle class="boss" cx="50" cy="52" r="5" />
+                </svg>
+                <figcaption>CELL PRESSURE AFT · MM</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- CENTRE: attitude -->
+        <section class="bay bay-attitude" aria-label="Attitude and trim">
+          <h2 class="bay-title">TRIM &amp; ATTITUDE</h2>
+
+          <figure
+            class="hull-mimic"
+            aria-label="Ship section: hull, cells, tanks, pitch"
+          >
+            <svg viewBox="0 0 920 250" id="hullSvg">
+              <defs>
+                <linearGradient id="envGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#efe9da" />
+                  <stop offset=".55" stop-color="#ddd5c2" />
+                  <stop offset="1" stop-color="#b7ae99" />
+                </linearGradient>
+              </defs>
+              <rect id="skyRect" x="0" y="0" width="920" height="250" />
+              <g id="cloudA" opacity=".55">
+                <ellipse cx="120" cy="60" rx="46" ry="10" />
+                <ellipse cx="700" cy="40" rx="60" ry="12" />
+                <ellipse cx="420" cy="86" rx="38" ry="8" />
+              </g>
+              <g id="groundGroup">
+                <rect id="groundRect" x="-20" y="230" width="980" height="30" />
+                <line id="groundLine" x1="-20" y1="230" x2="940" y2="230" />
+                <g id="mastGroup">
+                  <rect x="84" y="198" width="7" height="32" />
+                  <circle cx="87.5" cy="192" r="7" />
+                  <path d="M60 230 L84 214 L91 214 L115 230 Z" />
+                </g>
+              </g>
+              <g id="ladder"></g>
+              <polygon id="altMark" points="858,0 866,-5 866,5" />
+              <g id="shipLift">
+                <g id="shipGroup">
+                  <path
+                    id="envelopePath"
+                    d="M40 96 C130 34 300 18 470 22 C640 26 800 58 884 108 C800 150 640 178 470 180 C300 182 130 162 40 118 Z"
+                    fill="url(#envGrad)"
+                  />
+                  <path id="seamA" d="M200 27 C240 70 240 132 202 176" />
+                  <path id="seamB" d="M380 21 C420 68 420 134 382 181" />
+                  <path id="seamC" d="M560 28 C600 72 600 128 562 174" />
+                  <path id="seamD" d="M720 44 C752 76 752 116 724 152" />
+                  <ellipse
+                    id="cellForeShape"
+                    cx="290"
+                    cy="101"
+                    rx="105"
+                    ry="62"
+                  />
+                  <ellipse
+                    id="cellMidShape"
+                    cx="480"
+                    cy="101"
+                    rx="98"
+                    ry="66"
+                  />
+                  <ellipse
+                    id="cellAftShape"
+                    cx="660"
+                    cy="104"
+                    rx="92"
+                    ry="56"
+                  />
+                  <circle id="patchMark" cx="290" cy="101" r="12" />
+                  <g id="carGroup">
+                    <rect x="398" y="176" width="164" height="34" rx="4" />
+                    <rect
+                      x="410"
+                      y="184"
+                      width="140"
+                      height="12"
+                      rx="2"
+                      id="carWindows"
+                    />
+                    <rect
+                      x="430"
+                      y="208"
+                      width="26"
+                      height="16"
+                      id="tankForeDraw"
+                    />
+                    <rect
+                      x="500"
+                      y="208"
+                      width="26"
+                      height="16"
+                      id="tankAftDraw"
+                    />
+                  </g>
+                  <g id="finGroup">
+                    <path d="M836 84 C878 74 900 84 906 104 L848 112 Z" />
+                    <path d="M836 128 C878 138 900 128 906 110 L848 102 Z" />
+                  </g>
+                </g>
+              </g>
+              <text id="mimicTag" x="16" y="24">
+                SECTION · LOOKING TO STARBOARD
+              </text>
+            </svg>
+          </figure>
+
+          <div class="attitude-row">
+            <figure class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <g class="ticks" data-dial="inclin"></g>
+                <path class="needle long" id="nInclin" d="M50 56 L50 12" />
+                <circle class="boss" cx="50" cy="52" r="5" />
+              </svg>
+              <figcaption>PITCH · INCLINOMETER · DEG</figcaption>
+              <output id="txtPitch">0.0°</output>
+            </figure>
+
+            <div class="balance-block">
+              <div class="balance-scale">
+                <span class="bal-end">HEAVY</span>
+                <div class="balance-track">
+                  <div class="balance-zero" aria-hidden="true"></div>
+                  <div class="balance-pointer" id="balPtr"></div>
+                </div>
+                <span class="bal-end">LIGHT</span>
+              </div>
+              <label>STATIC CONDITION · LB</label>
+              <output id="txtBal">00000</output>
+              <p class="bal-note">
+                HEAVY SINKS THE SHIP · LIGHT RISES AGAINST THE WIRES
+              </p>
+            </div>
+
+            <div class="elevator-block">
+              <div
+                class="elev-wheel"
+                id="elevWheel"
+                data-control="ELEVATOR HANDWHEEL"
+                role="slider"
+                tabindex="0"
+                aria-label="ELEVATOR HANDWHEEL — elevator angle degrees"
+                aria-valuemin="-25"
+                aria-valuemax="25"
+                aria-valuenow="0"
+                aria-valuetext="0 degrees, amidships"
+              >
+                <div class="elev-rim"><i></i><i></i><i></i><i></i></div>
+                <div class="elev-spoke-v"></div>
+              </div>
+              <label>ELEVATOR HANDWHEEL</label>
+              <output id="txtElev">AMIDSHIPS</output>
+            </div>
+
+            <div class="pump-block">
+              <div
+                class="pump-quadrant"
+                id="pumpQuadrant"
+                data-control="TRIM PUMP LEVER"
+                role="slider"
+                tabindex="0"
+                aria-label="TRIM PUMP LEVER — water transfer direction"
+                aria-valuemin="-1"
+                aria-valuemax="1"
+                aria-valuenow="0"
+                aria-valuetext="HOLD"
+              >
+                <div class="pump-lever" id="pumpLever">
+                  <span class="lever-grip"></span>
+                </div>
+                <ol class="pump-marks" aria-hidden="true">
+                  <li>FORE</li>
+                  <li>HOLD</li>
+                  <li>AFT</li>
+                </ol>
+              </div>
+              <label>TRIM PUMP LEVER</label>
+              <output id="txtPump">HOLD</output>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: progress -->
+        <section class="bay bay-progress" aria-label="Engines and progress">
+          <h2 class="bay-title">ENGINES &amp; PROGRESS</h2>
+
+          <div class="telegraph-block">
+            <div
+              class="tg-face"
+              data-control="ENGINE TELEGRAPH"
+              role="group"
+              aria-label="ENGINE TELEGRAPH — order to the mechanics"
+            >
+              <div class="tg-pointer" id="tgOrder"></div>
+              <div class="tg-pointer answer" id="tgAnswer"></div>
+              <button
+                type="button"
+                class="tg-detent"
+                data-order="SLOW"
+                style="--a: -44deg"
+              >
+                SLOW
+              </button>
+              <button
+                type="button"
+                class="tg-detent"
+                data-order="HALF"
+                style="--a: 0deg"
+              >
+                HALF
+              </button>
+              <button
+                type="button"
+                class="tg-detent"
+                data-order="FULL"
+                style="--a: 44deg"
+              >
+                FULL
+              </button>
+            </div>
+            <label>ENGINE TELEGRAPH</label>
+            <output id="txtTelegraph">ORDER HALF · ANSWER HALF</output>
+          </div>
+
+          <div class="progress-dials">
+            <figure class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <g class="ticks" data-dial="speed"></g>
+                <path class="needle" id="nSpeed" d="M50 54 L50 14" />
+                <circle class="boss" cx="50" cy="52" r="5" />
+              </svg>
+              <figcaption>AIR SPEED · KNOTS</figcaption>
+            </figure>
+            <figure class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <g class="ticks" data-dial="alt"></g>
+                <path class="needle long" id="nAlt" d="M50 56 L50 12" />
+                <circle class="boss" cx="50" cy="52" r="5" />
+              </svg>
+              <figcaption>ALTITUDE · FEET ×100</figcaption>
+            </figure>
+            <figure class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <g class="ticks" data-dial="superheat"></g>
+                <path class="needle" id="nSuperheat" d="M50 54 L50 14" />
+                <circle class="boss" cx="50" cy="52" r="5" />
+              </svg>
+              <figcaption>SUPERHEAT · Δ°F</figcaption>
+            </figure>
+          </div>
+          <div class="drum-strip">
+            <div class="drum-counter">
+              <label>ALTITUDE FT</label>
+              <span class="drums" id="cntAlt" aria-live="off"
+                ><b>0</b><b>0</b><b>0</b><b>0</b></span
+              >
+            </div>
+            <div class="drum-counter">
+              <label>PETROL GAL</label>
+              <span class="drums" id="cntFuelDrum" aria-live="off"
+                ><b>0</b><b>0</b><b>0</b><b>0</b></span
+              >
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ============ bottom rail ============ -->
+      <footer class="bottom-rail">
+        <div class="annunciators" role="list" aria-label="Annunciator shutters">
+          <div class="flag" role="listitem" data-flag="STATIC HEAVY">
+            <span>STATIC<br />HEAVY</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="STATIC LIGHT">
+            <span>STATIC<br />LIGHT</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="TRIM LIMIT">
+            <span>TRIM<br />LIMIT</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="GAS PRESSURE">
+            <span>GAS<br />PRESSURE</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="BALLAST LOW">
+            <span>BALLAST<br />LOW</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="PUMP TRIP">
+            <span>PUMP<br />TRIP</span>
+          </div>
+          <div class="flag" role="listitem" data-flag="GROUND CONTACT">
+            <span>GROUND<br />CONTACT</span>
+          </div>
+        </div>
+
+        <div class="bell-strip">
+          <button
+            class="round-btn"
+            type="button"
+            data-control="ALARM BELL CUT"
+            id="btnBellCut"
+            aria-label="ALARM BELL CUT — silence the alarm bell"
+          >
+            BELL<br />CUT
+          </button>
+        </div>
+
+        <details
+          class="maint-tray"
+          data-control="MAINTENANCE TESTS"
+          id="maintTray"
+        >
+          <summary>MAINTENANCE TESTS</summary>
+          <div class="tray-grid">
+            <div class="tray-col">
+              <span class="tray-head">INJECT</span>
+              <button type="button" id="btnTestCell">TEST CELL PUNCTURE</button>
+              <button type="button" id="btnTestValve">
+                TEST VALVE PASSING
+              </button>
+              <button type="button" id="btnTestPump">TEST PUMP OVERLOAD</button>
+            </div>
+            <div class="tray-col">
+              <span class="tray-head">REPAIR</span>
+              <button type="button" id="btnFixCell" class="fix" disabled>
+                PATCH CELL
+              </button>
+              <button type="button" id="btnFixValve" class="fix" disabled>
+                RESEAT VALVE
+              </button>
+              <button type="button" id="btnFixPump" class="fix" disabled>
+                RESET PUMP BREAKER
+              </button>
+            </div>
+          </div>
+        </details>
+      </footer>
+
+      <p class="plate-foot">
+        THE STATIC CONDITION OF THE SHIP IS THE WHOLE ART — VALVE GAS AND SHE
+        STAYS HEAVY FOR EVER · DROP WATER AND MIND YOUR HEAD
+      </p>
+    </main>
+
+    <!-- ============ manual dialog ============ -->
+    <dialog data-manual id="manualDialog" aria-label="Operating handbook">
+      <div class="manual-chrome">
+        <div class="manual-bar">
+          <span>R.108 · OPERATING HANDBOOK · R.A.W. FORM T/29</span>
+          <button
+            class="plate-btn accent"
+            type="button"
+            data-action="close-manual"
+            id="btnCloseManual"
+          >
+            CLOSE
+          </button>
+        </div>
+        <iframe src="manual.html" title="R.108 operating handbook"></iframe>
+      </div>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
