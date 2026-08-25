@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pulmore Type W Respirator — Iron Lung Control End</title>
+    <meta
+      name="description"
+      content="Control end of a Pulmore Type W 'iron lung' respirator, isolation block of a municipal fever hospital, England, 1934."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="machine" aria-label="Pulmore Type W respirator control end">
+      <!-- ==================== title rail ==================== -->
+      <header class="titlerail">
+        <div class="makerplate">
+          <span class="maker">PULMORE PNEUMATIC ENGINEERING CO. LTD · ACTON · LONDON W.3</span>
+          <span class="plantno">PLANT No. W-1134 · TYPE W · 1934</span>
+        </div>
+        <div class="titleblock">
+          <p class="overtitle">ISOLATION BLOCK · RESPIRATOR BAY No. 2</p>
+          <h1>RESPIRATOR CONTROL END</h1>
+        </div>
+        <nav class="titleright" aria-label="Documents">
+          <button type="button" class="doctab" data-action="manual">
+            INSTRUCTION BOOK&nbsp;W/34
+          </button>
+          <a class="catlink" href="../../">WARD RETURNS</a>
+        </nav>
+      </header>
+
+      <!-- ==================== annunciator rail ==================== -->
+      <section class="annunciator" aria-label="Alarm annunciator">
+        <ol class="windows">
+          <li data-lamp="mains"><i></i><span>MAINS FAIL</span></li>
+          <li data-lamp="drive"><i></i><span>DRIVE SLIP</span></li>
+          <li data-lamp="seal"><i></i><span>CUFF LEAK</span></li>
+          <li data-lamp="overheat"><i></i><span>MOTOR HOT</span></li>
+          <li data-lamp="patient"><i></i><span>PATIENT</span></li>
+        </ol>
+        <div class="jewels" aria-hidden="true">
+          <span class="jewel" data-jewel="supply"><i></i>SUPPLY</span>
+          <span class="jewel" data-jewel="cycle"><i></i>CYCLING</span>
+          <span class="jewel hot" data-jewel="hot"><i></i>HOT</span>
+        </div>
+        <div class="annbtns">
+          <button type="button" class="push small" data-control="BELL CUT" aria-pressed="false">
+            <i class="cap"></i>BELL CUT
+          </button>
+          <button type="button" class="push small" data-control="LAMPS TEST">
+            <i class="cap"></i>LAMPS TEST
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== the respirator itself ==================== -->
+      <section class="bedrail" aria-label="Respirator bed unit">
+        <!-- head end: manometer, collar -->
+        <div class="headend">
+          <div class="collarplate">
+            <span class="plate-title">COLLAR</span>
+            <div class="collar-gland" data-sealgland>
+              <i class="gasket"></i>
+              <span class="gasketlabel">SEAL</span>
+            </div>
+          </div>
+          <figure class="manometer" aria-label="Mercury manometer, chamber pressure in centimetres of water">
+            <figcaption class="plate">CHAMBER PRESSURE<br />CM H₂O</figcaption>
+            <svg viewBox="0 0 120 190" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#f4f6f2" />
+                  <stop offset=".5" stop-color="#dde3d6" />
+                  <stop offset="1" stop-color="#eef1ea" />
+                </linearGradient>
+              </defs>
+              <!-- scale plate -->
+              <rect x="8" y="10" width="104" height="168" rx="4" fill="#f6f3ea" stroke="#b9b39c" />
+              <rect x="26" y="26" width="24" height="132" fill="#20301f" opacity=".85" />
+              <rect x="70" y="26" width="24" height="132" fill="#20301f" opacity=".85" />
+              <!-- target band -18..-22 on left limb -->
+              <rect x="24" y="46" width="28" height="16" fill="#2f5b33" opacity=".9" />
+              <rect x="68" y="46" width="28" height="16" fill="#2f5b33" opacity=".9" />
+              <!-- zero line -->
+              <line x1="20" y1="112" x2="100" y2="112" stroke="#96742e" stroke-width="1.5" />
+              <text x="102" y="115" font-size="9" fill="#4a4433" text-anchor="end">0</text>
+              <!-- columns (JS-driven heights) -->
+              <rect data-col="left" x="27" y="112" width="22" height="0" fill="#c9331f" />
+              <rect data-col="right" x="71" y="112" width="22" height="0" fill="#c9331f" />
+            </svg>
+          </figure>
+        </div>
+
+        <!-- drum: patient chamber -->
+        <div class="drumwrap">
+          <div class="drum" data-drum>
+            <div class="observerstrip" aria-hidden="true">
+              <div class="obs-glass"></div>
+              <div class="patient" data-patient>
+                <svg viewBox="0 0 420 120" preserveAspectRatio="xMidYMax meet">
+                  <rect x="0" y="86" width="420" height="34" fill="#7a8471" />
+                  <g data-chest transform-origin="210 108">
+                    <path
+                      d="M52 106 C58 74 84 56 128 54 L292 54 C336 56 362 74 368 106 Z"
+                      fill="#cfc4a6"
+                    />
+                    <path
+                      d="M52 106 C58 84 84 66 128 64 L292 64 C336 66 362 84 368 106 L368 110 L52 110 Z"
+                      fill="#bdb08e"
+                    />
+                    <rect x="196" y="40" width="28" height="26" rx="10" fill="#cdbfa4" />
+                    <ellipse cx="210" cy="38" rx="17" ry="13" fill="#d6c9ae" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="portrow" aria-hidden="true">
+              <span class="port"><i class="rimglass"></i><b class="armlet"></b></span>
+              <span class="port wide"><i class="rimglass"></i><b class="torsoleaf"></b></span>
+              <span class="port"><i class="rimglass"></i><b class="armlet"></b></span>
+            </div>
+            <div class="hatchplate" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <em data-strokedrum>000000</em>
+              <label>STROKES</label>
+            </div>
+          </div>
+          <p class="bedtag" aria-hidden="true">
+            PULMORE TYPE W · NEGATIVE-PRESSURE CHAMBER · DO NOT OPEN UNDER STROKE
+          </p>
+        </div>
+
+        <!-- drive end: belt, motor instruments -->
+        <div class="driveend">
+          <figure class="beltguard" aria-label="Belt guard viewing window">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="4" y="4" width="142" height="122" rx="6" fill="#15150f" stroke="#3c3a30" />
+              <circle cx="48" cy="48" r="26" fill="#22211a" stroke="#5a5644" />
+              <g data-pulley="big">
+                <circle cx="48" cy="48" r="26" fill="none" stroke="#8c8672" stroke-width="2" />
+                <line x1="48" y1="24" x2="48" y2="72" stroke="#8c8672" stroke-width="2" />
+                <line x1="24" y1="48" x2="72" y2="48" stroke="#8c8672" stroke-width="2" />
+              </g>
+              <circle cx="108" cy="92" r="13" fill="#22211a" stroke="#5a5644" />
+              <g data-pulley="small">
+                <circle cx="108" cy="92" r="13" fill="none" stroke="#8c8672" stroke-width="2" />
+                <line x1="108" y1="80" x2="108" y2="104" stroke="#8c8672" stroke-width="2" />
+                <line x1="96" y1="92" x2="120" y2="92" stroke="#8c8672" stroke-width="2" />
+              </g>
+              <path
+                data-belt
+                d="M48 21 A27 27 0 1 0 61 71 L97 103 A14 14 0 1 0 108 79 L48 75 A27 27 0 0 1 48 21 Z"
+                fill="none"
+                stroke="#4d4a3a"
+                stroke-width="5"
+                opacity=".9"
+              />
+            </svg>
+            <figcaption class="plate">DRIVE</figcaption>
+          </figure>
+          <figure class="dial amps" aria-label="Motor ammeter">
+            <svg viewBox="0 0 100 66" aria-hidden="true">
+              <rect x="2" y="2" width="96" height="62" rx="5" fill="#f6f3ea" stroke="#b9b39c" />
+              <path d="M18 52 A34 34 0 0 1 82 52" fill="none" stroke="#4a4433" stroke-width="2" />
+              <text x="50" y="60" font-size="9" fill="#4a4433" text-anchor="middle">AMPS</text>
+              <text x="16" y="56" font-size="8" fill="#4a4433">0</text>
+              <text x="76" y="56" font-size="8" fill="#4a4433">8</text>
+              <line data-needle="amps" x1="50" y1="52" x2="50" y2="20" stroke="#c9331f" stroke-width="2" transform="rotate(-90 50 52)" />
+              <circle cx="50" cy="52" r="4" fill="#4a4433" />
+            </svg>
+          </figure>
+          <figure class="dial heat" aria-label="Motor temperature gauge, degrees Celsius">
+            <svg viewBox="0 0 100 66" aria-hidden="true">
+              <rect x="2" y="2" width="96" height="62" rx="5" fill="#f6f3ea" stroke="#b9b39c" />
+              <path d="M18 52 A34 34 0 0 1 82 52" fill="none" stroke="#4a4433" stroke-width="2" />
+              <path d="M64 23 A34 34 0 0 1 82 52" fill="none" stroke="#c9331f" stroke-width="5" />
+              <text x="50" y="60" font-size="9" fill="#4a4433" text-anchor="middle">°C</text>
+              <text x="14" y="56" font-size="8" fill="#4a4433">20</text>
+              <text x="74" y="56" font-size="8" fill="#4a4433">120</text>
+              <line data-needle="heat" x1="50" y1="52" x2="50" y2="20" stroke="#4a4433" stroke-width="2" transform="rotate(-90 50 52)" />
+              <circle cx="50" cy="52" r="4" fill="#4a4433" />
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ==================== control apron ==================== -->
+      <section class="apron" aria-label="Control apron">
+        <!-- electrical -->
+        <fieldset class="group electrical">
+          <legend>ELECTRICAL</legend>
+          <div class="control mains" data-knob-wrap>
+            <span class="scale" aria-hidden="true"><em>OFF</em><em>ON</em></span>
+            <button
+              type="button"
+              class="knob mainsknob"
+              data-control="MAINS SWITCH"
+              aria-pressed="false"
+              aria-label="Mains switch, off or on"
+            ></button>
+            <span class="ctlname">MAINS<br />SWITCH</span>
+          </div>
+          <button type="button" class="push starter" data-control="STARTER PUSH">
+            <i class="cap"></i>STARTER
+          </button>
+          <button type="button" class="push small" data-control="RESET">
+            <i class="cap"></i>RESET
+          </button>
+        </fieldset>
+
+        <!-- breath -->
+        <fieldset class="group breath">
+          <legend>AIRWAY &amp; DRIVE</legend>
+          <div class="control selector">
+            <span class="ctlname">MODE</span>
+            <div class="selectorface" role="radiogroup" aria-label="Mode selector">
+              <label><input type="radio" name="mode" value="off" checked /><span>OFF</span></label>
+              <label><input type="radio" name="mode" value="standby" /><span>STANDBY</span></label>
+              <label><input type="radio" name="mode" value="cycle" /><span>CYCLE</span></label>
+              <label><input type="radio" name="mode" value="manual" /><span>HAND</span></label>
+            </div>
+            <button type="button" class="selectorghost" data-control="MODE SELECTOR" aria-hidden="true" tabindex="-1"></button>
+          </div>
+          <div class="control ratereg">
+            <span class="ctlname">RATE<br />STROKES/MIN</span>
+            <div class="leverarc" aria-hidden="true">
+              <ol class="ticks">
+                <li>8</li><li>12</li><li>16</li><li>20</li><li>24</li>
+              </ol>
+              <i class="leverstick" data-leverstick></i>
+            </div>
+            <input
+              type="range"
+              min="8"
+              max="24"
+              step="1"
+              value="8"
+              data-control="RATE LEVER"
+              aria-label="Rate lever, strokes per minute, 8 to 24"
+            />
+          </div>
+          <div class="control relief" data-knob-wrap>
+            <span class="ctlname">RELIEF<br />LOADING</span>
+            <div class="reliefscale" aria-hidden="true"><em>-30</em><em>-20</em><em>-10 CM H₂O</em></div>
+            <button
+              type="button"
+              class="knob reliefknob"
+              data-control="RELIEF VALVE"
+              aria-label="Relief valve loading, minus 30 to minus 10 centimetres of water"
+            ></button>
+          </div>
+        </fieldset>
+
+        <!-- emergency -->
+        <fieldset class="group emergency">
+          <legend>EMERGENCY &amp; MAINTENANCE</legend>
+          <div class="control crankbox">
+            <span class="ctlname">HAND<br />CRANK</span>
+            <button
+              type="button"
+              class="crank"
+              data-control="HOLD CRANK"
+              aria-label="Hand crank, hold to turn"
+            >
+              <i class="arm" data-crankarm></i>
+              <i class="grip"></i>
+            </button>
+            <span class="sublabel" data-crankrpm>0 RPM</span>
+          </div>
+          <div class="control collar">
+            <span class="ctlname">COLLAR<br />CLAMP</span>
+            <button
+              type="button"
+              class="clamplever"
+              data-control="COLLAR CLAMP"
+              aria-pressed="true"
+              aria-label="Collar clamp, clamped or open"
+            >
+              <i class="stem"></i><i class="handle"></i>
+              <span class="pos clamped">CLAMPED</span>
+              <span class="pos open">OPEN</span>
+            </button>
+          </div>
+          <div class="control takeup">
+            <span class="ctlname">BELT<br />TAKE-UP</span>
+            <div class="wheelplate" aria-hidden="true"><i class="pointer" data-takeupptr></i></div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="5"
+              value="80"
+              data-control="BELT TAKE-UP"
+              aria-label="Belt take-up handwheel, percent tension"
+            />
+          </div>
+        </fieldset>
+
+        <!-- fault tests -->
+        <fieldset class="group tests">
+          <legend>FAULT TESTS · ENGINEER ONLY</legend>
+          <button
+            type="button"
+            class="tests-guard-btn"
+            data-control="FAULT TESTS"
+            aria-expanded="false"
+            aria-label="Open the fault test guard"
+          >
+            GUARD
+          </button>
+          <div class="testbank" data-testbank hidden>
+            <label class="testsw"
+              ><input type="checkbox" data-test="drive belt slip" /><i></i><span>DRIVE BELT SLIP</span></label
+            >
+            <label class="testsw"
+              ><input type="checkbox" data-test="cuff seal leak" /><i></i><span>CUFF SEAL LEAK</span></label
+            >
+            <label class="testsw"
+              ><input type="checkbox" data-test="mains power failure" /><i></i><span>MAINS FAILURE</span></label
+            >
+          </div>
+        </fieldset>
+      </section>
+
+      <!-- ==================== skirt ==================== -->
+      <footer class="skirt">
+        <span class="stamp">HOSPITAL ENGINEER · AMENDMENT No. 3 · MARCH 1934</span>
+        <button type="button" class="doctab smalltab" data-action="manual">
+          INSTRUCTION BOOK
+        </button>
+        <a class="catlink" href="../../index.html">CATALOGUE</a>
+      </footer>
+
+      <!-- ==================== manual dialog ==================== -->
+      <dialog data-manual aria-label="Instruction book W/34">
+        <div class="manualchrome">
+          <span class="manualtitle">INSTRUCTION BOOK W/34 — TYPE W RESPIRATOR</span>
+          <button type="button" class="push small" data-action="close-manual">
+            <i class="cap"></i>CLOSE
+          </button>
+        </div>
+        <iframe src="manual.html" title="Instruction book W/34"></iframe>
+      </dialog>
+    </main>
+    <script src="machine.js"></script>
+  </body>
+</html>
