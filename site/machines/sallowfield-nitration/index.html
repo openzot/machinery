@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nitration House No. 3 — Sallowfield Works</title>
+    <meta
+      name="description"
+      content="Operating bench for a 1920s explosives-works nitration house: glycerine feed, brine cooling, air-lift agitation, and the drowning-tank dump lever."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="bench">
+      <header class="headrail">
+        <div class="maker-plate">
+          <span class="maker-line">Sallowfield Explosives Co. Ltd</span>
+          <h1>Nitration House No.&nbsp;3 — Watch Bench</h1>
+          <span class="maker-line maker-sub"
+            >Glycerine nitration · one charge · drowning tank provided</span
+          >
+        </div>
+        <nav class="head-actions">
+          <button
+            type="button"
+            class="brass-push head-manual"
+            data-action="manual"
+          >
+            OPERATING BOOK
+          </button>
+          <a class="head-link" href="../../">CATALOGUE</a>
+        </nav>
+      </header>
+
+      <section class="flagstrip" aria-label="Mechanical alarm flags">
+        <div class="flag" data-flag="TEMP HIGH">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">TEMP&nbsp;HIGH</span>
+        </div>
+        <div class="flag" data-flag="AIR LOW">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">AIR&nbsp;LOW</span>
+        </div>
+        <div class="flag" data-flag="BRINE LOW">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">BRINE&nbsp;LOW</span>
+        </div>
+        <div class="flag" data-flag="FEED EXCESS">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">FEED&nbsp;EXCESS</span>
+        </div>
+        <div class="flag" data-flag="DRAUGHT LOST">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">DRAUGHT&nbsp;LOST</span>
+        </div>
+        <div class="flag" data-flag="FUMED OUT">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">FUMED&nbsp;OUT</span>
+        </div>
+        <div class="flag flag-wide" data-flag="HOUSE LOST">
+          <span class="flag-window"><span class="flag-disc"></span></span>
+          <span class="flag-name">HOUSE&nbsp;LOST</span>
+        </div>
+        <div class="flagstrip-tools">
+          <button type="button" class="brass-push" data-control="FLAGS RESET">
+            FLAGS RESET
+          </button>
+          <button type="button" class="brass-push" data-control="FLAG PROOF">
+            PROVE
+          </button>
+          <button
+            type="button"
+            class="brass-push latch"
+            aria-pressed="false"
+            data-control="ALARM BELL CUT"
+          >
+            BELL CUT
+          </button>
+        </div>
+      </section>
+
+      <main class="fascia">
+        <!-- ================= LEFT COLUMN : air and feed ================= -->
+        <section
+          class="col col-left"
+          aria-label="Air and glycerine feed station"
+        >
+          <div class="slate-panel">
+            <h2 class="panel-title">AIR PLANT</h2>
+            <div class="knife-row">
+              <button
+                type="button"
+                class="knife-switch"
+                data-control="AIR COMPRESSOR SWITCH"
+                aria-label="Air compressor switch, OFF — press to switch ON"
+                aria-pressed="false"
+              >
+                <span class="knife-base">
+                  <span class="knife-terms"><i></i><i></i></span>
+                  <span class="knife-blade"></span>
+                </span>
+                <span class="knife-legend"><b>OFF</b><b>ON</b></span>
+              </button>
+              <div class="knife-note">
+                <span class="engraved">COMPRESSOR</span>
+                <span class="stencil-small">LINE SHAFT DRIVE</span>
+              </div>
+            </div>
+
+            <div class="gauge-block">
+              <svg
+                viewBox="0 0 120 120"
+                class="bourdon"
+                role="img"
+                aria-label="Air receiver pressure gauge, 0 to 60 pounds per square inch"
+              >
+                <circle cx="60" cy="60" r="56" class="dial-rim" />
+                <circle cx="60" cy="60" r="49" class="dial-face" />
+                <g class="dial-ticks" id="airTicks"></g>
+                <text x="60" y="38" class="dial-brand">AIR</text>
+                <text x="60" y="50" class="dial-unit">LB PER SQ IN</text>
+                <text x="60" y="96" class="dial-red">45 WORKING</text>
+                <g id="airNeedle" class="needle">
+                  <path d="M60 60 L60 18" />
+                  <circle cx="60" cy="60" r="5" />
+                </g>
+              </svg>
+              <div class="readout-col">
+                <span class="readout-label">RECEIVER</span>
+                <span class="readout-big"
+                  ><b id="tAir">0</b>&nbsp;<small>lb/in²</small></span
+                >
+                <span class="readout-label">AGITATOR</span>
+                <span class="readout-big"
+                  ><b id="tAgit">0.0</b>&nbsp;<small>turns</small></span
+                >
+              </div>
+            </div>
+
+            <div class="control-row">
+              <button
+                type="button"
+                class="rotary-valve"
+                data-control="AGITATION AIR VALVE"
+                aria-label="Agitation air valve, regulating rotary — use arrow keys"
+                aria-valuemin="0"
+                aria-valuemax="5"
+                aria-valuenow="0"
+                aria-valuetext="0 turns open"
+              >
+                <span class="rot-wheel"
+                  ><i class="spoke"></i><i class="spoke"></i
+                  ><i class="spoke"></i><span class="rot-index"></span
+                ></span>
+              </button>
+              <div class="control-note">
+                <span class="engraved">AGITATION AIR VALVE</span>
+                <span class="stencil-small">TWO TURNS FOR THE CHARGE</span>
+              </div>
+            </div>
+
+            <div class="rule-strip" aria-hidden="true"></div>
+            <h2 class="panel-title">GLYCERINE FEED</h2>
+            <div class="control-row">
+              <button
+                type="button"
+                class="needle-valve"
+                data-control="GLYCERINE FEED VALVE"
+                aria-label="Glycerine feed needle valve, multi-turn — arrows or wheel"
+                aria-valuemin="0"
+                aria-valuemax="4"
+                aria-valuenow="0"
+                aria-valuetext="0 turns open"
+              >
+                <span class="nv-body"><span class="nv-spindle"></span></span>
+                <span class="nv-count" id="tFeedTurns">SHUT</span>
+              </button>
+              <div class="control-note">
+                <span class="engraved">GLYCERINE FEED VALVE</span>
+                <span class="stencil-small">EASE IN QUARTER TURNS</span>
+              </div>
+            </div>
+            <div class="feed-card">
+              <span class="readout-label">FED THIS CHARGE</span>
+              <span class="readout-big"
+                ><b id="tFed">0</b>&nbsp;<small>lb of 120</small></span
+              >
+              <span class="readout-label">FEED RATE</span>
+              <span class="readout-mid"
+                ><b id="tRate">0</b>&nbsp;<small>lb/min</small></span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CENTRE : the plant, drawn ================= -->
+        <section
+          class="mimic-wrap"
+          aria-label="Mimic diagram of the nitration house"
+        >
+          <svg
+            viewBox="0 0 980 540"
+            class="mimic"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <linearGradient id="slateGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#565e59" />
+                <stop offset="1" stop-color="#454c48" />
+              </linearGradient>
+              <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#dfe7df" stop-opacity="0.55" />
+                <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.06" />
+                <stop offset="1" stop-color="#c9d4cc" stop-opacity="0.35" />
+              </linearGradient>
+              <linearGradient id="brassPipe" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d9c07a" />
+                <stop offset="0.5" stop-color="#9c8148" />
+                <stop offset="1" stop-color="#6d5a30" />
+              </linearGradient>
+              <clipPath id="levelClip">
+                <rect x="463" y="162" width="16" height="188" rx="3" />
+              </clipPath>
+              <clipPath id="potClip">
+                <path d="M362 168 h116 l10 176 q-68 22 -136 0 Z" />
+              </clipPath>
+              <marker
+                id="arrowDump"
+                viewBox="0 0 10 10"
+                refX="8"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto-start-reverse"
+              >
+                <path d="M0 0 L10 5 L0 10 Z" fill="#b3261a" />
+              </marker>
+            </defs>
+
+            <!-- shed floor line -->
+            <line x1="20" y1="512" x2="960" y2="512" class="floor-line" />
+
+            <!-- ======== drowning tank & pit, beneath the nitrator ======== -->
+            <g id="pitGroup">
+              <path d="M300 448 h300 v54 h-300 Z" class="pit-wall" />
+              <rect
+                x="308"
+                y="456"
+                width="284"
+                height="38"
+                class="drown-water"
+              />
+              <rect
+                id="drownFill"
+                x="308"
+                y="494"
+                width="284"
+                height="0"
+                class="drown-fill"
+              />
+              <path
+                id="dumpPath"
+                d="M413 386 L413 456"
+                class="dump-route"
+                marker-end="url(#arrowDump)"
+              />
+              <text x="450" y="478" class="etched etched-red">
+                DROWNING TANK
+              </text>
+              <text x="450" y="492" class="etched etched-small">
+                WATER — KEEP FULL
+              </text>
+            </g>
+
+            <!-- ======== nitrator vessel ======= -->
+            <g id="potGroup">
+              <path
+                d="M362 168 h116 l10 176 q-68 22 -136 0 Z"
+                class="pot-body"
+              />
+              <path
+                d="M370 176 h100 l8 162 q-58 18 -116 0 Z"
+                class="jacket-inner"
+              />
+              <g clip-path="url(#potClip)">
+                <rect
+                  id="emulLiq"
+                  x="356"
+                  y="500"
+                  width="128"
+                  height="0"
+                  class="liq-emulsion"
+                />
+                <g id="settleLayers" opacity="0">
+                  <rect
+                    id="acidLiq"
+                    x="356"
+                    y="500"
+                    width="128"
+                    height="0"
+                    class="liq-acid"
+                  />
+                  <rect
+                    id="ngLiq"
+                    x="356"
+                    y="500"
+                    width="128"
+                    height="0"
+                    class="liq-ng"
+                  />
+                  <line
+                    id="ifaceLine"
+                    x1="356"
+                    x2="484"
+                    y1="500"
+                    y2="500"
+                    class="liq-iface"
+                  />
+                </g>
+                <circle id="bub1" cx="392" cy="340" r="2.4" class="bubble" />
+                <circle id="bub2" cx="418" cy="344" r="1.8" class="bubble" />
+                <circle id="bub3" cx="444" cy="341" r="2.1" class="bubble" />
+                <circle id="bub4" cx="406" cy="346" r="1.5" class="bubble" />
+                <circle id="bub5" cx="430" cy="343" r="2.6" class="bubble" />
+              </g>
+              <path
+                d="M362 168 h116 l10 176 q-68 22 -136 0 Z"
+                class="pot-outline"
+              />
+              <!-- jacket coil hints -->
+              <path d="M358 208 q70 14 132 0" class="coil-hint" />
+              <path d="M356 240 q74 14 138 0" class="coil-hint" />
+              <!-- feet onto plinth -->
+              <path d="M372 352 l-8 26 M470 352 l8 26" class="pipe-brass" />
+              <!-- bottom dump plug -->
+              <path
+                id="dumpPlug"
+                d="M406 372 l14 0 l-7 12 Z"
+                class="dump-plug"
+              />
+              <!-- lid & nozzles -->
+              <path d="M358 168 q62 -20 124 0" class="pot-outline" />
+              <text x="420" y="196" class="etched">NITRATOR No.3</text>
+              <text x="420" y="210" class="etched etched-small">
+                MIXED ACID — 950 LB
+              </text>
+            </g>
+
+            <!-- ======== pot sight glass, right side of the vessel ======== -->
+            <g id="sightGroup">
+              <rect
+                x="461"
+                y="158"
+                width="20"
+                height="196"
+                rx="9"
+                class="thermo-case"
+              />
+              <rect
+                x="465"
+                y="164"
+                width="12"
+                height="184"
+                rx="3"
+                class="thermo-tube"
+              />
+              <g clip-path="url(#levelClip)">
+                <rect
+                  id="sgAcid"
+                  x="463"
+                  y="500"
+                  width="16"
+                  height="0"
+                  class="liq-acid"
+                />
+                <rect
+                  id="sgNg"
+                  x="463"
+                  y="500"
+                  width="16"
+                  height="0"
+                  class="liq-ng"
+                />
+                <line
+                  id="sgIface"
+                  x1="463"
+                  x2="479"
+                  y1="500"
+                  y2="500"
+                  class="liq-iface"
+                />
+              </g>
+              <rect
+                x="465"
+                y="164"
+                width="12"
+                height="184"
+                rx="3"
+                fill="url(#glassGrad)"
+              />
+              <g id="sightScale"></g>
+              <text x="471" y="150" class="etched etched-centre etched-small">
+                POT CONTENTS
+              </text>
+              <text x="492" y="200" class="scale-note">1070</text>
+              <text x="492" y="345" class="scale-note">0</text>
+            </g>
+
+            <!-- ======== thermometer well, left of pot ======== -->
+            <g id="thermoGroup">
+              <rect
+                x="292"
+                y="118"
+                width="26"
+                height="266"
+                rx="13"
+                class="thermo-case"
+              />
+              <rect
+                x="301"
+                y="130"
+                width="8"
+                height="238"
+                rx="4"
+                class="thermo-tube"
+              />
+              <rect
+                x="301"
+                y="130"
+                width="8"
+                height="238"
+                rx="4"
+                fill="url(#glassGrad)"
+              />
+              <rect
+                id="dangerBand"
+                x="299"
+                y="217"
+                width="12"
+                height="39"
+                class="thermo-danger"
+              />
+              <rect
+                id="mercury"
+                x="302"
+                y="360"
+                width="6"
+                height="8"
+                class="thermo-mercury"
+              />
+              <circle cx="305" cy="374" r="7" class="thermo-bulb" />
+              <g class="thermo-scale" id="thermoScale"></g>
+              <text x="305" y="108" class="etched etched-centre">
+                CHARGE °F
+              </text>
+              <text x="286" y="222" text-anchor="end" class="scale-note scale-red">RUN · DUMP</text>
+              <text x="286" y="260" text-anchor="end" class="scale-note">FLAG</text>
+            </g>
+
+            <!-- ======== glycerine bubbler above the pot ======== -->
+            <g id="bubblerGroup">
+              <path d="M392 44 l36 0 l-12 22 l-12 0 Z" class="glass-fitting" />
+              <rect x="405" y="66" width="10" height="52" class="thermo-tube" />
+              <rect
+                x="405"
+                y="66"
+                width="10"
+                height="52"
+                fill="url(#glassGrad)"
+              />
+              <circle
+                id="glyDrop"
+                cx="410"
+                cy="70"
+                r="3.4"
+                class="gly-drop"
+                opacity="0"
+              />
+              <rect
+                x="399"
+                y="84"
+                width="22"
+                height="14"
+                rx="2"
+                class="valve-body"
+              />
+              <path d="M410 98 q0 26 -34 34" class="pipe-brass" />
+              <text x="432" y="94" class="etched etched-small">GLYCERINE</text>
+              <text x="432" y="106" class="etched etched-small">DRIP BULB</text>
+            </g>
+
+            <!-- ======== vent duct & stack, right of pot ======== -->
+            <g id="ventGroup">
+              <path d="M462 152 L462 92 L700 92" class="duct" />
+              <rect
+                id="ventGate"
+                x="560"
+                y="86"
+                width="26"
+                height="12"
+                class="vent-gate"
+              />
+              <rect x="556" y="82" width="34" height="20" class="vent-frame" />
+              <path d="M700 92 L700 30" class="stack" />
+              <path d="M692 30 h16 M690 24 h20" class="stack-cap" />
+              <g id="wisps" opacity="0">
+                <path d="M697 20 q-4 -10 2 -18 q5 -7 1 -14" class="wisp" />
+                <path d="M705 18 q4 -12 -2 -20" class="wisp" />
+              </g>
+              <g id="draughtGauge">
+                <rect
+                  x="480"
+                  y="104"
+                  width="72"
+                  height="34"
+                  rx="4"
+                  class="u-gauge"
+                />
+                <path d="M492 126 h18 M542 126 h-18" class="u-gauge-legs" />
+                <rect
+                  id="draughtCol"
+                  x="510"
+                  y="114"
+                  width="12"
+                  height="18"
+                  class="draught-liquid"
+                />
+                <text x="516" y="150" class="etched etched-small etched-centre">
+                  DRAUGHT
+                </text>
+              </g>
+            </g>
+
+            <!-- ======== brine circuit, far right ======== -->
+            <g id="brineGroup">
+              <rect
+                x="800"
+                y="150"
+                width="120"
+                height="86"
+                rx="6"
+                class="cooler-box"
+              />
+              <g class="cooler-fins">
+                <path
+                  d="M812 162 v62 M828 162 v62 M844 162 v62 M860 162 v62 M876 162 v62 M892 162 v62 M908 162 v62"
+                />
+              </g>
+              <text x="860" y="256" class="etched etched-centre">
+                BRINE COOLER
+              </text>
+              <!-- warm return, jacket top to cooler -->
+              <path
+                d="M480 204 H612 Q628 204 628 188 V172 H798"
+                class="pipe-return"
+                id="brineReturn"
+              />
+              <!-- cold supply, cooler down and along to the jacket -->
+              <path
+                d="M812 236 V308 H552 Q526 308 506 330 L498 342"
+                class="pipe-cold"
+                id="brineSupply"
+              />
+              <g id="brineSight">
+                <rect
+                  x="594"
+                  y="280"
+                  width="14"
+                  height="66"
+                  rx="7"
+                  class="thermo-tube"
+                />
+                <rect
+                  x="594"
+                  y="280"
+                  width="14"
+                  height="66"
+                  rx="7"
+                  fill="url(#glassGrad)"
+                />
+                <line
+                  id="brineDash"
+                  x1="601"
+                  y1="288"
+                  x2="601"
+                  y2="340"
+                  class="brine-flow"
+                />
+                <text x="618" y="294" class="etched etched-small">BRINE</text>
+                <text x="618" y="306" class="etched etched-small">SIGHT</text>
+              </g>
+            </g>
+
+            <!-- ======== compressor, left (drawn under the pot) ======== -->
+            <g id="compressorGroup">
+              <rect
+                x="52"
+                y="330"
+                width="120"
+                height="64"
+                rx="8"
+                class="receiver"
+              />
+              <ellipse cx="172" cy="362" rx="10" ry="32" class="receiver-end" />
+              <text x="112" y="366" class="etched etched-centre etched-small">
+                RECEIVER
+              </text>
+              <g id="flyWheel">
+                <circle cx="112" cy="290" r="30" class="fly-rim" />
+                <path
+                  d="M112 260 v60 M82 290 h60 M91 269 l42 42 M133 269 l-42 42"
+                  class="fly-spokes"
+                />
+                <circle cx="112" cy="290" r="5" class="fly-hub" />
+              </g>
+              <path d="M112 320 v12" class="pipe-brass" />
+              <path
+                d="M174 352 C240 328 320 320 370 334"
+                class="pipe-air"
+                id="airLine"
+              />
+              <text x="96" y="418" class="etched etched-centre etched-small">
+                AIR COMPRESSOR
+              </text>
+              <text x="96" y="430" class="etched etched-centre etched-small">
+                BELT FROM LINE SHAFT
+              </text>
+            </g>
+          </svg>
+
+          <div class="mimic-caption">
+            <span id="tPhase" class="phase-word">COLD — ACID STANDING</span>
+            <span class="phase-sep" aria-hidden="true"></span>
+            <span id="tBatch" class="batch-clock">00:00</span>
+          </div>
+        </section>
+
+        <!-- ================= RIGHT COLUMN : cooling, vent, books ================= -->
+        <section
+          class="col col-right"
+          aria-label="Cooling water, vent and drawing station"
+        >
+          <div class="slate-panel">
+            <h2 class="panel-title">BRINE &amp; VENT</h2>
+            <div class="control-row">
+              <button
+                type="button"
+                class="plug-cock"
+                data-control="BRINE COCK"
+                aria-label="Brine cooling cock, quarter-turn — press to open or shut"
+                aria-pressed="false"
+              >
+                <span class="cock-body"
+                  ><span class="cock-flats"></span
+                  ><span class="cock-lever"></span
+                ></span>
+                <span class="cock-mark">OPEN ⟳ SHUT</span>
+              </button>
+              <div class="control-note">
+                <span class="engraved">BRINE COCK</span>
+                <span class="stencil-small">FULL OPEN BEFORE FEEDING</span>
+              </div>
+            </div>
+            <div class="control-row">
+              <button
+                type="button"
+                class="plug-cock cock-acid"
+                data-control="SPENT ACID COCK"
+                aria-label="Spent acid draw-off cock, quarter-turn — press to open or shut"
+                aria-pressed="false"
+              >
+                <span class="cock-body"
+                  ><span class="cock-flats"></span
+                  ><span class="cock-lever"></span
+                ></span>
+                <span class="cock-mark">DRAW ⟳ SHUT</span>
+              </button>
+              <div class="control-note">
+                <span class="engraved">SPENT ACID COCK</span>
+                <span class="stencil-small">AFTER SETTLING ONLY</span>
+              </div>
+            </div>
+
+            <div class="damper-row">
+              <div
+                class="slide-damper"
+                role="slider"
+                tabindex="0"
+                data-control="VENT DAMPER"
+                aria-label="Vent damper, sliding — arrow keys to move"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-valuetext="Damper shut"
+              >
+                <span class="damper-slot"
+                  ><span class="damper-handle"></span
+                ></span>
+                <span class="damper-scale" aria-hidden="true"
+                  ><b>SHUT</b><b>OPEN</b></span
+                >
+              </div>
+              <div class="control-note">
+                <span class="engraved">VENT DAMPER</span>
+                <span class="readout-mid"
+                  ><b id="tDraught">0.00</b>&nbsp;<small>in. water</small></span
+                >
+              </div>
+            </div>
+
+            <div class="rule-strip" aria-hidden="true"></div>
+
+            <div class="temp-card">
+              <span class="readout-label">CHARGE TEMPERATURE</span>
+              <span class="readout-xl"
+                ><b id="tTemp">60</b><small>°F</small></span
+              >
+              <span class="temp-targets"
+                >HOLD 72 – 75 · FLAG AT 79 · RUN AT 86</span
+              >
+              <span class="readout-label">CHARGE IN POT</span>
+              <span class="readout-mid"
+                ><b id="tLevel">950</b>&nbsp;<small>lb</small></span
+              >
+            </div>
+          </div>
+
+          <aside class="instruction-card">
+            <h2 class="card-title">STANDING INSTRUCTIONS</h2>
+            <ol class="card-list">
+              <li>AIR ON — forty-five pounds.</li>
+              <li>DAMPER OPEN — draught steady.</li>
+              <li>BRINE ON before the first drop.</li>
+              <li>Feed to hold 72–75&nbsp;°F.</li>
+              <li>Rising past 79&nbsp;°F — prepare to dump.</li>
+              <li>Past 86&nbsp;°F — DUMP, without argument.</li>
+            </ol>
+          </aside>
+        </section>
+      </main>
+
+      <!-- ================= BOTTOM RAIL : dump lever, tests, maintenance ================= -->
+      <section class="rail" aria-label="Emergency dump, tests and maintenance">
+        <div class="dump-station" id="dumpStation">
+          <div class="dump-quadrant">
+            <span class="quadrant-arc" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="dump-lever"
+              data-control="DUMP LEVER"
+              aria-label="Charge dump lever — press once to break the seal and lift the guard, press again to pull and dump the charge"
+            >
+              <span class="dump-guard"><i class="guard-seal"></i></span>
+              <span class="dump-arm"><span class="dump-crossbar"></span></span>
+            </button>
+          </div>
+          <div class="dump-notes">
+            <span class="engraved">CHARGE DUMP LEVER</span>
+            <span class="stencil stencil-red"
+              >PULL SMARTLY — WHOLE CHARGE TO THE DROWNING TANK</span
+            >
+          </div>
+        </div>
+
+        <div class="test-board">
+          <h2 class="board-title">
+            PROVING TESTS — BREAK SEALS ONLY WHEN THE HOUSE IS CLEAR
+          </h2>
+          <div class="board-grid">
+            <button
+              type="button"
+              class="test-toggle"
+              data-control="TEST BRINE LOSS"
+              aria-pressed="false"
+              aria-label="Test switch: brine cooling loss"
+            >
+              <span class="tt-lever"></span
+              ><span class="tt-name">TEST<br />BRINE LOSS</span>
+            </button>
+            <button
+              type="button"
+              class="test-toggle"
+              data-control="TEST AIR FAILURE"
+              aria-pressed="false"
+              aria-label="Test switch: agitation air failure"
+            >
+              <span class="tt-lever"></span
+              ><span class="tt-name">TEST<br />AIR FAILURE</span>
+            </button>
+            <button
+              type="button"
+              class="test-toggle"
+              data-control="TEST FEED OVERRUN"
+              aria-pressed="false"
+              aria-label="Test switch: glycerine feed overrun"
+            >
+              <span class="tt-lever"></span
+              ><span class="tt-name">TEST<br />FEED OVERRUN</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="maint-tray">
+          <h2 class="board-title">MAINTENANCE — FITTERS ONLY</h2>
+          <div class="board-grid">
+            <button
+              type="button"
+              class="brass-push maint"
+              data-control="RESTORE BRINE"
+            >
+              RESTORE BRINE
+            </button>
+            <button
+              type="button"
+              class="brass-push maint"
+              data-control="FREE AGITATOR"
+            >
+              FREE AGITATOR
+            </button>
+            <button
+              type="button"
+              class="brass-push maint"
+              data-control="RESET FEED LIMITER"
+            >
+              RESET FEED LIMITER
+            </button>
+            <button
+              type="button"
+              class="brass-push maint maint-reset"
+              data-control="RESET CHARGE"
+            >
+              RESET CHARGE — RE-ARM HOUSE
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footrail">
+        <span
+          >SALLOWFIELD EXPLOSIVES Co. Ltd — BENCH No. N-1927-03 — KEEP THIS BOOK
+          IN THE CABINET</span
+        >
+        <a href="../../">← BACK TO THE CATALOGUE</a>
+      </footer>
+    </div>
+
+    <dialog data-manual class="manual-dialog" aria-label="Operating book">
+      <div class="manual-chrome">
+        <button type="button" class="brass-push" data-action="close-manual">
+          SHUT THE BOOK
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Nitration House No. 3 operating book"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
