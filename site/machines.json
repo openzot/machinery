@@ -1146,4 +1146,41 @@
     "tagline": "The storm is twenty miles out and building - keep the tube turning and the collector cool.",
     "created": "2026-08-25"
   }
+,  {
+    "slug": "redbourne-irradiator",
+    "name": "Redbourne Irradiation Services - Co-60 Cell No. 1 Source & Product Control Desk",
+    "kind": "cobalt-60 gamma irradiation cell control desk",
+    "domain": "nuclear",
+    "era": "1980s",
+    "design": "pearl-ivory powder-coat desk with espresso trim and brushed-aluminium bezels, engraved black-on-white traffolyte plates, magenta-on-yellow trefoil signage, incandescent indicator windows, one log-scale ratemeter needle, a flashing transit beacon and a typed QA shift-log under office strip light",
+    "interaction": "turn a three-position key through a search-proved interlock chain, then walk the cobalt rack up its guides on a notched hoist lever under four metres of water while a dwell timer indexes tote boxes around a ten-station maze and a held valve tops up the shielding",
+    "palette": [
+      "#e8e2d2",
+      "#29241f",
+      "#cf2318"
+    ],
+    "controls": [
+      "CONTROL KEY",
+      "SEARCH BUTTON",
+      "SOURCE HOIST LEVER",
+      "EMERGENCY SOURCE DROP",
+      "CONVEYOR SELECTOR",
+      "DWELL TIMER",
+      "PRODUCT INDEX",
+      "JAM CLEAR ROCKER",
+      "TRIP RESET",
+      "WATER TOP-UP VALVE",
+      "AREA MONITOR SELECTOR",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES"
+    ],
+    "faults": [
+      "source rack jams in transit",
+      "pool water leak",
+      "product jam in the maze"
+    ],
+    "tagline": "Keep your water above the line, your sweep honest, and never hold RAISE against a stall.",
+    "created": "2026-08-25"
+  }
 ]

@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Redbourne Co-60 Irradiation Cell No. 1 — Source &amp; Product Control Desk
+    </title>
+    <meta
+      name="description"
+      content="Control desk for a 1980s cobalt-60 panoramic wet-source-storage gamma irradiation cell: raise the rack, run the maze, mind your water."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="desk">
+      <!-- ======================= HEADER PLATE ======================= -->
+      <header class="head">
+        <div class="maker">
+          <span class="firm">REDBOURNE IRRADIATION SERVICES LTD.</span>
+          <span class="cellref"
+            >CO-60 CELL No.&nbsp;1 &mdash; SOURCE &amp; PRODUCT CONTROL</span
+          >
+        </div>
+        <div class="datarow">
+          <span class="dataplate"
+            >PANEL&nbsp;QP-1&nbsp;/&nbsp;SHEET&nbsp;1</span
+          >
+          <span class="dataplate">LICENCE&nbsp;RSA-17/114</span>
+          <a class="indexlink" href="../../">&#9668;&nbsp;PLANT&nbsp;INDEX</a>
+        </div>
+        <div class="radplate" aria-hidden="true">
+          <svg viewBox="0 0 44 44" class="trefoil"><use href="#tf" /></svg>
+          <span>CAUTION<br />RADIOACTIVE</span>
+        </div>
+        <button type="button" class="manualbtn" data-action="manual">
+          OPERATING&nbsp;MANUAL
+        </button>
+      </header>
+
+      <!-- ======================= LEFT BAY : CELL MIMIC ======================= -->
+      <section class="bay bay-mimic" aria-label="Cell cross-section mimic">
+        <svg
+          class="mimic"
+          viewBox="0 0 480 566"
+          role="img"
+          aria-label="Cross-section of the irradiation cell: pool with source rack, product maze conveyor, loading door and stack"
+        >
+          <defs>
+            <pattern
+              id="conc"
+              width="9"
+              height="9"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect width="9" height="9" fill="#b9b3a2" />
+              <path d="M0 9L9 0" stroke="#8f887a" stroke-width="1.4" />
+            </pattern>
+            <g id="tf">
+              <circle cx="22" cy="22" r="21" fill="#e3b419" />
+              <circle cx="22" cy="22" r="3.2" fill="#93245f" />
+              <path
+                d="M22 22 L22 3.5 A18.5 18.5 0 0 1 38 13 Z"
+                fill="#93245f"
+              />
+              <path d="M22 22 L38 31 A18.5 18.5 0 0 1 6 31 Z" fill="#93245f" />
+              <path d="M22 22 L6 31 A18.5 18.5 0 0 1 6 13 Z" fill="#93245f" />
+            </g>
+            <linearGradient id="wglass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2e7d78" />
+              <stop offset="1" stop-color="#175a56" />
+            </linearGradient>
+          </defs>
+
+          <!-- concrete shell -->
+          <rect
+            x="8"
+            y="46"
+            width="464"
+            height="500"
+            fill="url(#conc)"
+            stroke="#5c564a"
+            stroke-width="3"
+          />
+          <rect
+            x="30"
+            y="68"
+            width="420"
+            height="460"
+            fill="#efece2"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+
+          <!-- roof plug + stack -->
+          <rect
+            x="60"
+            y="52"
+            width="150"
+            height="18"
+            fill="#8f887a"
+            stroke="#5c564a"
+          />
+          <rect
+            x="352"
+            y="20"
+            width="34"
+            height="48"
+            fill="#9a937f"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+          <text x="369" y="14" class="mlabel">STACK</text>
+          <g id="fanblades">
+            <circle cx="369" cy="44" r="11" fill="#dcd6c6" stroke="#5c564a" />
+            <path
+              d="M369 44 L369 34 M369 44 L378 49 M369 44 L360 49"
+              stroke="#5c564a"
+              stroke-width="2.4"
+              fill="none"
+            />
+          </g>
+
+          <!-- beacon dome -->
+          <g id="beaconG">
+            <path
+              d="M96 52 A16 16 0 0 1 128 52 Z"
+              fill="#7e1f16"
+              stroke="#4c120c"
+            />
+            <g id="beaconcone" opacity="0">
+              <path d="M112 40 L74 6 L150 6 Z" fill="#ff5039" opacity=".33" />
+            </g>
+          </g>
+          <text x="112" y="76" class="mlabel">BEACON</text>
+
+          <!-- pool -->
+          <rect
+            x="52"
+            y="118"
+            width="216"
+            height="410"
+            fill="#d7d2c0"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+          <g id="waterclip">
+            <rect
+              id="waterRect"
+              x="54"
+              y="176"
+              width="212"
+              height="350"
+              fill="url(#wglass)"
+              opacity=".92"
+            />
+          </g>
+          <line
+            id="surfline"
+            x1="54"
+            y1="176"
+            x2="266"
+            y2="176"
+            stroke="#bfe8e2"
+            stroke-width="2"
+          />
+          <!-- depth ruler -->
+          <g
+            font-family="Arial,Helvetica,sans-serif"
+            font-size="10"
+            fill="#4c463a"
+            text-anchor="start"
+          >
+            <g stroke="#4c463a" stroke-width="1">
+              <line x1="256" y1="176" x2="264" y2="176" />
+              <line x1="256" y1="238" x2="264" y2="238" />
+              <line x1="256" y1="300" x2="264" y2="300" />
+              <line x1="256" y1="362" x2="264" y2="362" />
+              <line x1="256" y1="424" x2="264" y2="424" />
+              <line x1="256" y1="486" x2="264" y2="486" />
+            </g>
+            <text x="236" y="180">1m</text>
+            <text x="236" y="242">2m</text>
+            <text x="236" y="304">3m</text>
+            <text x="236" y="366">4m</text>
+            <text x="236" y="428">5m</text>
+            <text x="236" y="490">6m</text>
+          </g>
+          <text x="60" y="132" class="mlabel">POOL &#183; DEIONISED WATER</text>
+          <text x="160" y="522" class="mlabel">SUMP</text>
+
+          <!-- hoist cable + winch -->
+          <rect
+            x="104"
+            y="84"
+            width="72"
+            height="16"
+            fill="#6f695c"
+            stroke="#4c463a"
+          />
+          <circle id="winchDrum" cx="140" cy="92" r="6" fill="#3d3a32" />
+          <line
+            id="cableLine"
+            x1="140"
+            y1="98"
+            x2="140"
+            y2="440"
+            stroke="#33302a"
+            stroke-width="3"
+          />
+
+          <!-- source rack -->
+          <g id="rackG">
+            <rect
+              x="106"
+              y="0"
+              width="68"
+              height="86"
+              rx="3"
+              fill="#8b8574"
+              stroke="#4c463a"
+              stroke-width="2"
+            />
+            <g fill="#5f5a4d" stroke="#33302a">
+              <rect x="113" y="7" width="9" height="72" rx="4" />
+              <rect x="126" y="7" width="9" height="72" rx="4" />
+              <rect x="139" y="7" width="9" height="72" rx="4" />
+              <rect x="152" y="7" width="9" height="72" rx="4" />
+            </g>
+            <rect
+              x="106"
+              y="-8"
+              width="68"
+              height="10"
+              fill="#6f695c"
+              stroke="#4c463a"
+            />
+          </g>
+
+          <!-- maze conveyor -->
+          <text x="292" y="132" class="mlabel">PRODUCT MAZE</text>
+          <polyline
+            points="300,196 300,470 428,470 428,196 348,196"
+            fill="none"
+            stroke="#8a8474"
+            stroke-width="7"
+            stroke-linejoin="round"
+          />
+          <polyline
+            points="300,196 300,470 428,470 428,196 348,196"
+            fill="none"
+            stroke="#57524a"
+            stroke-width="2"
+            stroke-dasharray="7 9"
+            class="chaindash"
+            id="chainPath"
+          />
+          <circle
+            cx="300"
+            cy="196"
+            r="9"
+            fill="#dcd6c6"
+            stroke="#57524a"
+            stroke-width="2"
+          />
+          <circle
+            cx="300"
+            cy="470"
+            r="9"
+            fill="#dcd6c6"
+            stroke="#57524a"
+            stroke-width="2"
+          />
+          <circle
+            cx="428"
+            cy="470"
+            r="9"
+            fill="#dcd6c6"
+            stroke="#57524a"
+            stroke-width="2"
+          />
+          <circle
+            cx="428"
+            cy="196"
+            r="9"
+            fill="#dcd6c6"
+            stroke="#57524a"
+            stroke-width="2"
+          />
+          <g id="stationDots" fill="#8a8474">
+            <circle cx="300" cy="196" r="2.5" />
+            <circle cx="300" cy="288" r="2.5" />
+            <circle cx="300" cy="380" r="2.5" />
+            <circle cx="300" cy="470" r="2.5" />
+            <circle cx="364" cy="470" r="2.5" />
+            <circle cx="428" cy="470" r="2.5" />
+            <circle cx="428" cy="380" r="2.5" />
+            <circle cx="428" cy="288" r="2.5" />
+            <circle cx="428" cy="196" r="2.5" />
+            <circle cx="348" cy="196" r="2.5" />
+          </g>
+          <g id="boxesG"></g>
+          <!-- irradiation window through pool wall -->
+          <rect
+            x="266"
+            y="300"
+            width="36"
+            height="64"
+            fill="#efece2"
+            stroke="#5c564a"
+          />
+          <text x="284" y="296" class="mlabel" transform="rotate(-90 284 296)">
+            WINDOW
+          </text>
+
+          <!-- loading door + interlock -->
+          <rect
+            x="330"
+            y="512"
+            width="90"
+            height="42"
+            fill="#c9c3ae"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+          <text x="375" y="538" class="mlabel" text-anchor="middle">DOOR</text>
+          <circle
+            cx="320"
+            cy="533"
+            r="5"
+            fill="none"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+          <circle
+            cx="334"
+            cy="533"
+            r="5"
+            fill="none"
+            stroke="#5c564a"
+            stroke-width="2"
+          />
+
+          <!-- signage -->
+          <g transform="translate(64,84) scale(.62)"><use href="#tf" /></g>
+          <g transform="translate(392,516) scale(.5)"><use href="#tf" /></g>
+
+          <!-- top-up pipe -->
+          <g id="fillpipe" opacity=".35">
+            <path
+              d="M268 168 h44 v-14"
+              fill="none"
+              stroke="#175a56"
+              stroke-width="5"
+            />
+            <path
+              id="flowline"
+              d="M268 168 h44 v-14"
+              fill="none"
+              stroke="#7fd4cb"
+              stroke-width="2"
+              stroke-dasharray="5 7"
+            />
+          </g>
+          <text x="292" y="560" class="mnote">
+            SCHEMATIC ONLY &#8212; NOT TO SCALE &#8212; QP-1/3
+          </text>
+        </svg>
+
+        <div class="mimic-foot">
+          <span class="mini-lamp" id="lampChain"><i></i>CHAIN MADE UP</span>
+          <span class="mini-lamp" id="lampFill"><i></i>MAKE-UP WATER</span>
+          <span class="mini-lamp" id="lampFan"><i></i>CELL VENT FAN</span>
+        </div>
+      </section>
+
+      <!-- ======================= CENTRE BAY : INSTRUMENTS ======================= -->
+      <section class="bay bay-inst" aria-label="Instruments">
+        <div class="annunciator" role="list" aria-label="Annunciator">
+          <div class="ann" data-alarm="SOURCE TRANSIT FAULT" role="listitem">
+            <i></i><span>SOURCE<br />TRANSIT</span>
+          </div>
+          <div class="ann" data-alarm="POOL LEVEL LOW" role="listitem">
+            <i></i><span>POOL<br />LEVEL</span>
+          </div>
+          <div class="ann ann-red" data-alarm="HIGH RADIATION" role="listitem">
+            <i></i><span>HIGH<br />RADIATION</span>
+          </div>
+          <div class="ann" data-alarm="PRODUCT JAM" role="listitem">
+            <i></i><span>PRODUCT<br />JAM</span>
+          </div>
+          <div
+            class="ann ann-red"
+            data-alarm="OVERDOSE DAMAGED"
+            role="listitem"
+          >
+            <i></i><span>OVERDOSE<br />DAMAGED</span>
+          </div>
+          <div class="ann" data-alarm="INTERLOCK OPEN" role="listitem">
+            <i></i><span>INTERLOCK<br />OPEN</span>
+          </div>
+        </div>
+
+        <div class="instrow">
+          <figure class="ratemeter">
+            <svg
+              id="rateSvg"
+              viewBox="0 0 250 158"
+              role="img"
+              aria-label="Log-scale radiation ratemeter, microsieverts per hour"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="246"
+                height="154"
+                rx="8"
+                fill="#efece2"
+                stroke="#4c463a"
+                stroke-width="2"
+              />
+              <g id="rateScale"></g>
+              <line
+                id="rateNeedle"
+                x1="125"
+                y1="138"
+                x2="125"
+                y2="34"
+                stroke="#20140e"
+                stroke-width="2.6"
+              />
+              <circle cx="125" cy="138" r="6" fill="#3d3a32" />
+              <text x="125" y="152" text-anchor="middle" class="dialcap">
+                &micro;Sv/h &#183; LOG
+              </text>
+            </svg>
+            <figcaption class="monread">
+              <span class="monname" id="monName">POOL TOP</span>
+              <span class="monval"
+                ><output id="monVal">0.04</output>&nbsp;&micro;Sv/h</span
+              >
+            </figcaption>
+          </figure>
+
+          <div class="sourcecol">
+            <h3 class="baytitle">SOURCE POSITION</h3>
+            <div class="track">
+              <div class="zone z-top">
+                <span>IRRADIATE</span><em>COVER 2.1 m MIN</em>
+              </div>
+              <div class="zone z-mid"><span>TRANSIT</span></div>
+              <div class="zone z-bot">
+                <span>STORAGE</span><em>RACK DOWN &#183; SHIELDED</em>
+              </div>
+              <div class="pointer" id="srcPointer"></div>
+            </div>
+            <div class="covert">
+              <span>WATER OVER RACK</span>
+              <output id="covVal">5.0 m</output>
+            </div>
+          </div>
+
+          <div class="counters">
+            <h3 class="baytitle">PRODUCT RECORD</h3>
+            <div class="counter">
+              <label>DOSE&nbsp;PER&nbsp;BOX</label>
+              <div class="drum" id="doseDrum" data-digits="4" data-decimal="1">
+                <span class="unit">kGy</span>
+              </div>
+            </div>
+            <div class="counter">
+              <label>BOXES&nbsp;OUT</label>
+              <div class="drum" id="outDrum" data-digits="4">
+                <span class="unit">TOT</span>
+              </div>
+            </div>
+            <div class="counter">
+              <label>SCRAPPED</label>
+              <div class="drum drum-scrapped" id="scrapDrum" data-digits="2">
+                <span class="unit">BOX</span>
+              </div>
+            </div>
+            <div class="thermo">
+              <label>POOL&nbsp;TEMP</label>
+              <div class="tbar">
+                <i id="tempBar"></i><b id="tempVal">18&deg;</b>
+              </div>
+            </div>
+            <div class="runtime">
+              <label>RUN&nbsp;HOURS</label>
+              <div
+                class="drum drum-hours"
+                id="hourDrum"
+                data-digits="3"
+                data-decimal="1"
+              >
+                <span class="unit">h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shiftlog">
+          <span class="logtitle">SHIFT LOG &#183; FORM QP-45</span>
+          <pre class="loglines" id="logList">
+&#8212; no entries this shift &mdash;</pre>
+        </div>
+
+        <div class="statusstrip">
+          <span class="slamp sl-white" id="lampKey"><i></i>KEY OPERATE</span>
+          <span class="slamp sl-green" id="lampReady"><i></i>READY</span>
+          <span class="slamp sl-amber" id="lampUp"><i></i>SOURCE UP</span>
+          <span class="slamp sl-amber" id="lampTransit"><i></i>IN TRANSIT</span>
+          <span class="slamp sl-red" id="lampEdrop"><i></i>DROP USED</span>
+          <span class="slamp sl-red" id="lampTrip"><i></i>TRIP</span>
+          <span class="slamp sl-amber" id="lampHorn"><i></i>HORN</span>
+        </div>
+      </section>
+
+      <!-- ======================= RIGHT BAY : OPERATOR CONTROLS ======================= -->
+      <section class="bay bay-ops" aria-label="Operator controls">
+        <h2 class="baytitle ops-title">OPERATOR STATION</h2>
+
+        <div class="ctl ctl-keyswitch">
+          <button
+            type="button"
+            class="keysw"
+            id="keySw"
+            data-control="CONTROL KEY"
+            aria-label="CONTROL KEY: OFF, STANDBY, OPERATE. Press to turn the key clockwise."
+          >
+            <span class="keybarrel"
+              ><i class="keysleeve" id="keySleeve"></i
+            ></span>
+            <span class="keylegend"
+              >OFF&nbsp;&#183;&nbsp;STANDBY&nbsp;&#183;&nbsp;<b
+                >OPERATE</b
+              ></span
+            >
+          </button>
+          <span class="ctllabel">CONTROL KEY</span>
+        </div>
+
+        <div class="ctl ctl-search">
+          <button
+            type="button"
+            class="roundpush push-search"
+            id="searchBtn"
+            data-control="SEARCH BUTTON"
+            aria-label="SEARCH BUTTON: starts the ten second cell search sweep"
+          >
+            <span class="cap"></span>
+          </button>
+          <span class="ctllabel"
+            >SEARCH BUTTON<small>10 s SWEEP BEFORE START</small></span
+          >
+          <output class="miniread" id="searchRead">&#8212;</output>
+        </div>
+
+        <div class="ctl ctl-conveyor">
+          <button
+            type="button"
+            class="rotary rot-conveyor"
+            id="convSel"
+            data-control="CONVEYOR SELECTOR"
+            aria-label="CONVEYOR SELECTOR: OFF, SINGLE STEP, AUTO CYCLE. Press to advance."
+          >
+            <i class="knobface" id="convKnob"><b></b></i>
+          </button>
+          <span class="rotonlabels"
+            ><em>OFF</em><em>STEP</em><em>AUTO</em></span
+          >
+          <span class="ctllabel">CONVEYOR SELECTOR</span>
+        </div>
+
+        <div class="ctl ctl-dwell">
+          <button
+            type="button"
+            class="rotary rot-dwell"
+            id="dwellKnob"
+            data-control="DWELL TIMER"
+            aria-label="DWELL TIMER: seconds per station, six to sixty. Press for plus two, shift-press for minus two, arrow keys to trim."
+          >
+            <i class="knobface knob-dwell" id="dwellFace"><b></b></i>
+          </button>
+          <span class="dwellscale" aria-hidden="true"
+            >6 &#8212;&#8212;&#8212; 60 s</span
+          >
+          <span class="ctllabel"
+            >DWELL TIMER<small id="dwellRead">12 s / STATION</small></span
+          >
+        </div>
+
+        <div class="ctl ctl-index">
+          <button
+            type="button"
+            class="squarepush"
+            id="indexBtn"
+            data-control="PRODUCT INDEX"
+            aria-label="PRODUCT INDEX: advance the maze one station"
+          >
+            <span class="cap">INDEX</span>
+          </button>
+          <span class="ctllabel"
+            >PRODUCT INDEX<small>ONE STATION PER PRESS</small></span
+          >
+        </div>
+
+        <div class="ctl ctl-jam">
+          <div
+            class="rocker"
+            id="jamRocker"
+            data-control="JAM CLEAR ROCKER"
+            role="group"
+            aria-label="JAM CLEAR ROCKER: hold REVERSE to back the train up"
+          >
+            <button
+              type="button"
+              class="rock rock-rev"
+              id="jamRev"
+              aria-label="Hold REVERSE: back the train one station"
+            >
+              REV
+            </button>
+            <button
+              type="button"
+              class="rock rock-nrm"
+              id="jamNrm"
+              aria-label="NORMAL position (released)"
+              tabindex="-1"
+            >
+              NORM
+            </button>
+          </div>
+          <span class="ctllabel"
+            >JAM CLEAR ROCKER<small>HOLD REV 3 s TO BACK OUT</small></span
+          >
+        </div>
+
+        <div class="ctl ctl-tripreset">
+          <button
+            type="button"
+            class="squarepush push-dark"
+            id="tripReset"
+            data-control="TRIP RESET"
+            aria-label="TRIP RESET: clears hoist overload and conveyor trips"
+          >
+            <span class="cap">RESET</span>
+          </button>
+          <span class="ctllabel"
+            >TRIP RESET<small>HOIST &#183; CONVEYOR</small></span
+          >
+        </div>
+
+        <div class="hoistblock">
+          <button
+            type="button"
+            class="hoist"
+            id="hoistLever"
+            data-control="SOURCE HOIST LEVER"
+            aria-label="SOURCE HOIST LEVER: RAISE, HOLD or LOWER. Up arrow raises, down arrow lowers."
+            role="slider"
+            aria-valuemin="0"
+            aria-valuemax="2"
+            aria-valuenow="1"
+            aria-valuetext="HOLD"
+          >
+            <span class="slot">
+              <span class="notch n-ra">RAISE</span>
+              <span class="notch n-hd">HOLD</span>
+              <span class="notch n-lo">LOWER</span>
+              <i class="handle" id="hoistHandle"></i>
+            </span>
+            <span class="hoistplate">SOURCE HOIST LEVER</span>
+          </button>
+
+          <button
+            type="button"
+            class="edrop"
+            id="edropBtn"
+            data-control="EMERGENCY SOURCE DROP"
+            aria-label="EMERGENCY SOURCE DROP: press to drop the rack to storage"
+          >
+            <span class="collar" aria-hidden="true"></span>
+            <span class="mush" aria-hidden="true"></span>
+            <span class="edropplate">EMERGENCY<br />SOURCE DROP</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ======================= BASE RAIL : UTILITIES & TESTS ======================= -->
+      <footer class="rail">
+        <button
+          type="button"
+          class="leverhold"
+          id="fillValve"
+          data-control="WATER TOP-UP VALVE"
+          aria-label="WATER TOP-UP VALVE: hold open to fill the pool"
+        >
+          <span class="vlvr"><i></i></span>
+          <span class="ctllabel"
+            >WATER TOP-UP VALVE<small>HOLD OPEN</small></span
+          >
+        </button>
+
+        <div class="ctl ctl-monitor">
+          <button
+            type="button"
+            class="rotary rot-mon"
+            id="monSel"
+            data-control="AREA MONITOR SELECTOR"
+            aria-label="AREA MONITOR SELECTOR: POOL TOP, MAZE DOOR, STACK. Press to change detector."
+          >
+            <i class="knobface" id="monKnob"><b></b></i>
+          </button>
+          <span class="rotonlabels rotonlabels-sm"
+            ><em>TOP</em><em>DOOR</em><em>STACK</em></span
+          >
+          <span class="ctllabel">AREA MONITOR SELECTOR</span>
+        </div>
+
+        <button
+          type="button"
+          class="rectpush"
+          id="alarmAccept"
+          data-control="ALARM ACCEPT"
+          aria-label="ALARM ACCEPT: silence the horn and steady the windows"
+        >
+          ALARM&nbsp;ACCEPT
+        </button>
+
+        <button
+          type="button"
+          class="rectpush"
+          id="lampsTest"
+          data-control="LAMPS TEST"
+          aria-label="LAMPS TEST: light every indicator window for four seconds"
+        >
+          LAMPS&nbsp;TEST
+        </button>
+
+        <div class="testtray" id="faultTray" data-control="FAULT TEST SWITCHES">
+          <span class="trayhead"
+            >MAINTENANCE &#8212; FAULT TEST SWITCHES<small
+              >authorised persons</small
+            ></span
+          >
+          <div class="trayswitches">
+            <label class="tog"
+              ><input type="checkbox" id="ftTransit" /><i></i
+              >TRANSIT&nbsp;JAM</label
+            >
+            <label class="tog"
+              ><input type="checkbox" id="ftLeak" /><i></i>POOL&nbsp;LEAK</label
+            >
+            <label class="tog"
+              ><input type="checkbox" id="ftJam" /><i></i>MAZE&nbsp;JAM</label
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual class="manualdlg" aria-label="Operating manual">
+      <div class="dlgbar">
+        <span
+          >REDBOURNE IRRADIATION SERVICES &#8212; QP-107 REV C &#8212; OPERATING
+          MANUAL</span
+        >
+        <button type="button" class="closebtn" data-action="close-manual">
+          CLOSE&nbsp;&#9656;
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Redbourne Co-60 Cell No. 1 operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QP-107 Rev C — Operating Manual — Co-60 Cell No. 1</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <div class="man-sheet">
+      <header class="man-head">
+        <div class="man-links">
+          <a href="./">&#9668; CONTROL DESK</a>
+          <a href="../../">PLANT INDEX &#9658;</a>
+        </div>
+        <table class="titleblock">
+          <tbody>
+            <tr>
+              <th rowspan="3" class="tb-firm">
+                REDBOURNE<br />IRRADIATION<br />SERVICES LTD.
+              </th>
+              <td colspan="3" class="tb-title">OPERATING MANUAL</td>
+            </tr>
+            <tr>
+              <td colspan="3" class="tb-sub">
+                COBALT-60 CELL No.&nbsp;1 &mdash; SOURCE &amp; PRODUCT CONTROL
+                DESK, PANEL&nbsp;QP-1
+              </td>
+            </tr>
+            <tr>
+              <td>DOCUMENT&nbsp;QP-107</td>
+              <td>REVISION&nbsp;C</td>
+              <td>ISSUED&nbsp;03&#8209;06&#8209;1985</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="man-stamp">
+          APPROVED: E.&nbsp;HALLIWELL, RPS &nbsp;&#183;&nbsp; AMENDMENTS BY HAND
+          TO THE RPS ONLY &nbsp;&#183;&nbsp; KEEP IN POCKET BESIDE THE KEY
+        </p>
+      </header>
+
+      <h2>Overview</h2>
+      <p>
+        Cell No.&nbsp;1 disinfects medical packs and spices by gamma radiation.
+        Ninety-six cobalt-60 pencils stand in a stainless rack at the bottom of
+        a six-metre deionised-water pool. When the rack is down, five metres of
+        water sit between you and it, and you may work beside the pool in
+        shirtsleeves. When the rack is up &mdash; still under more than two
+        metres of water &mdash; product totes ride the maze past the window and
+        take their dose.
+      </p>
+      <p>
+        The desk before you does four things and is forgiven for nothing else:
+        it raises and lowers the rack on its hoist; it walks totes around the
+        ten-station maze against a dwell timer; it watches the water, the
+        temperature and three area monitors; and it drops the rack at the first
+        sign that any of those duties are being neglected. There is no button on
+        this panel that moves gamma rays faster than water can stop them.
+        Remember that the other way round, too.
+      </p>
+      <p class="man-rule">
+        THE THREE RULES. One: never less than 5.35&nbsp;m of water over a raised
+        rack. Two: nobody in the cell during a search sweep or a transit &mdash;
+        the beacon and the horn say so. Three: an alarm you do not understand is
+        a shutdown, not a puzzle.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="spec">
+        <thead>
+          <tr>
+            <th>CONTROL</th>
+            <th>KIND</th>
+            <th>POSITIONS / USE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CONTROL KEY</td>
+            <td>keyswitch</td>
+            <td>
+              OFF &mdash; everything dark, rack held down. STANDBY &mdash;
+              monitors, vent fan and interlock chain live. OPERATE &mdash;
+              permits the hoist. Turns only through the order
+              OFF&nbsp;&rarr;&nbsp;STANDBY&nbsp;&rarr;&nbsp;OPERATE; press the
+              barrel to step it.
+            </td>
+          </tr>
+          <tr>
+            <td>SEARCH BUTTON</td>
+            <td>illuminated push</td>
+            <td>
+              Starts the ten-second search sweep with the rack down and the maze
+              off. The window counts SWEEP&nbsp;10&hellip;1, then READY lights.
+              OPERATE refuses without READY.
+            </td>
+          </tr>
+          <tr>
+            <td>SOURCE HOIST LEVER</td>
+            <td>three-notch maintained lever</td>
+            <td>
+              RAISE &mdash; rack travels up in 24&nbsp;s, beacon turning. HOLD
+              &mdash; motion stops, rack stays. LOWER &mdash; controlled descent
+              in 14&nbsp;s. Arrow keys work the notches.
+            </td>
+          </tr>
+          <tr>
+            <td>EMERGENCY SOURCE DROP</td>
+            <td>guarded red mushroom</td>
+            <td>
+              Lift the yellow collar, strike the mushroom: gravity takes the
+              rack to storage inside six seconds. Lights DROP USED; TRIP RESET
+              and a fresh search are wanted before OPERATE again.
+            </td>
+          </tr>
+          <tr>
+            <td>CONVEYOR SELECTOR</td>
+            <td>rotary, three positions</td>
+            <td>
+              OFF &mdash; maze parked. SINGLE STEP &mdash; each PRODUCT INDEX
+              press advances the train one station. AUTO CYCLE &mdash; the maze
+              indexes itself every DWELL TIMER interval. Indexing is locked
+              while the rack is in transit.
+            </td>
+          </tr>
+          <tr>
+            <td>DWELL TIMER</td>
+            <td>graduated knob, 6&ndash;60&nbsp;s</td>
+            <td>
+              Seconds the train waits per station. Press for +2&nbsp;s,
+              shift-press for &minus;2&nbsp;s, arrow keys to trim. Licence dwell
+              for medical packs: 12&nbsp;s (&asymp;2.5&nbsp;kGy in four passes).
+            </td>
+          </tr>
+          <tr>
+            <td>PRODUCT INDEX</td>
+            <td>amber push</td>
+            <td>
+              Advances the maze one station in SINGLE STEP; refused during
+              transit, a jam or a conveyor trip.
+            </td>
+          </tr>
+          <tr>
+            <td>JAM CLEAR ROCKER</td>
+            <td>two-way rocker</td>
+            <td>
+              Hold REV for three seconds to back the train one station off a
+              wedge. NORM is the rest position.
+            </td>
+          </tr>
+          <tr>
+            <td>TRIP RESET</td>
+            <td>grey push</td>
+            <td>
+              Clears the hoist thermal overload (only once it has cooled, about
+              forty seconds), the conveyor trip, and the DROP USED latch.
+            </td>
+          </tr>
+          <tr>
+            <td>WATER TOP-UP VALVE</td>
+            <td>hold-open lever</td>
+            <td>
+              Mains make-up into the pool. Hold open and watch the level climb;
+              the MAKE-UP WATER lamp burns while filling.
+            </td>
+          </tr>
+          <tr>
+            <td>AREA MONITOR SELECTOR</td>
+            <td>rotary, three positions</td>
+            <td>
+              Chooses which detector feeds the log ratemeter: POOL TOP, MAZE
+              DOOR or STACK. The digital window under the dial echoes the
+              choice.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM ACCEPT</td>
+            <td>push</td>
+            <td>
+              Silences the horn and stops the windows flashing. It accepts
+              nothing away: a lit window stays lit until the condition is
+              genuinely cured.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMPS TEST</td>
+            <td>push</td>
+            <td>
+              Lights every indicator window on the desk for four seconds. Do it
+              at STANDBY, every shift.
+            </td>
+          </tr>
+          <tr>
+            <td>FAULT TEST SWITCHES</td>
+            <td>three maintained toggles under the rail</td>
+            <td>
+              Maintenance only: TRANSIT JAM, POOL LEAK and MAZE JAM inject the
+              corresponding plant fault so the interlocks may be proved. Each is
+              released automatically when its recovery procedure has actually
+              been carried out.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="proc">
+        <li>
+          Desk cold, key at OFF. On the mimic confirm the pointer at STORAGE and
+          the cover reading 5.0&nbsp;m or better; on the record confirm POOL
+          TEMP below 30&nbsp;&deg;C.
+        </li>
+        <li>
+          Turn the CONTROL KEY to STANDBY. CHAIN MADE UP and CELL VENT FAN
+          light; the ratemeter needle wakes to the pool-top background, about
+          0.04&nbsp;&micro;Sv/h.
+        </li>
+        <li>
+          Press LAMPS TEST. Every window on the desk must burn for four seconds.
+          Any dead window: stop, call maintenance.
+        </li>
+        <li>
+          Check the annunciator strip is dark &mdash; no POOL LEVEL, no TRANSIT,
+          no RADIATION.
+        </li>
+        <li>
+          Press the SEARCH BUTTON. The sweep counts ten seconds. Stand where you
+          can see the door stays shut. READY lights at the end.
+        </li>
+        <li>
+          Turn the CONTROL KEY to OPERATE. (It refuses, and INTERLOCK OPEN
+          flashes, if READY is missing.)
+        </li>
+        <li>
+          Put the SOURCE HOIST LEVER to RAISE. The beacon turns, IN TRANSIT
+          burns, and twenty-four seconds later the pointer sits at IRRADIATE and
+          SOURCE UP lights. The lever returns itself to HOLD at the top.
+        </li>
+        <li>
+          Read the desk: cover 2.1&nbsp;m or more; POOL TOP monitor no more than
+          3&nbsp;&micro;Sv/h; POOL TEMP beginning its slow climb towards thirty.
+        </li>
+        <li>
+          Set the DWELL TIMER to the licensed dwell &mdash; 12&nbsp;s for
+          medical packs.
+        </li>
+        <li>
+          Put the CONVEYOR SELECTOR to AUTO CYCLE. The maze begins indexing once
+          per dwell; totes load at the left tower and discharge at the top
+          return. DOSE PER BOX reads the last tote to leave &mdash; 2.4 to
+          2.7&nbsp;kGy is grade.
+        </li>
+        <li>
+          Hourly: level 5.8&nbsp;m, temp below 34&nbsp;&deg;C, strip dark,
+          counters moving.
+        </li>
+        <li>
+          To shut down: CONVEYOR SELECTOR OFF, let the maze empty, then SOURCE
+          HOIST LEVER to LOWER. Fourteen seconds later the pointer rests at
+          STORAGE, SOURCE UP goes dark; turn the key to OFF.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="spec">
+        <thead>
+          <tr>
+            <th>WINDOW</th>
+            <th>MEANING</th>
+            <th>WHAT TO DO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SOURCE TRANSIT</td>
+            <td>
+              Rack stalled part-way on its guides; hoist current pegged. A
+              stalled motor cooks: the TRIP lamp follows within forty-five
+              seconds.
+            </td>
+            <td>
+              Leave the lever at HOLD. When tripped, wait the cooldown, press
+              TRIP RESET, put the lever to LOWER and let her walk to the bottom
+              &mdash; the fouler drops into the basket. Search again, raise
+              again.
+            </td>
+          </tr>
+          <tr>
+            <td>POOL LEVEL</td>
+            <td>
+              Water below 5.35&nbsp;m with a leak somewhere below the liner
+              flange. Cover is being eaten.
+            </td>
+            <td>
+              Hold the WATER TOP-UP VALVE and keep her above the line; send a
+              fitter to the culvert. Do not raise the rack with this window lit
+              &mdash; the key logic already agrees.
+            </td>
+          </tr>
+          <tr>
+            <td>HIGH RADIATION</td>
+            <td>
+              A monitor past its limit (pool top 25, door 10, stack
+              2&nbsp;&micro;Sv/h). The desk has already dropped the rack on its
+              own authority.
+            </td>
+            <td>
+              Stand clear until the pointer reads STORAGE. Telephone the RPS,
+              ext&nbsp;271. Then TRIP RESET, search, and only then consider
+              restarting &mdash; after finding why the water went thin.
+            </td>
+          </tr>
+          <tr>
+            <td>PRODUCT JAM</td>
+            <td>The maze has wedged a tote and the train cannot advance.</td>
+            <td>
+              Hold the JAM CLEAR ROCKER at REV for three seconds &mdash; the
+              train backs one station. Resume with PRODUCT INDEX or AUTO CYCLE.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERDOSE DAMAGED</td>
+            <td>
+              A tote stood at the window past 4.0&nbsp;kGy. It has been
+              quarantined for assay and the conveyor tripped. SCRAPPED has
+              counted it.
+            </td>
+            <td>
+              Clear the jam first (REV), then TRIP RESET, then re-select AUTO
+              CYCLE. Find what stopped the train before you blame the timer.
+            </td>
+          </tr>
+          <tr>
+            <td>INTERLOCK OPEN</td>
+            <td>
+              You asked for a stage out of order &mdash; OPERATE without READY,
+              RAISE without the key, indexing during transit &mdash; or the
+              emergency drop has been used.
+            </td>
+            <td>
+              Nothing is broken. Put the sequence right; after a drop, TRIP
+              RESET and a fresh search are wanted.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Faults and recovery</h2>
+      <h3>source rack jams in transit</h3>
+      <p>
+        <b>You see:</b> SOURCE TRANSIT flashing, the pointer frozen between
+        zones, the winch straining on the mimic; after forty-five seconds of
+        trying, TRIP lights and the lever goes dead.<br />
+        <b>Why:</b> a pencil sleeve has fouled the guide shoe.<br />
+        <b>Recovery:</b> hands off &mdash; never hold RAISE against a stall.
+        Wait the thermal cooldown (forty seconds), press TRIP RESET, put the
+        lever to LOWER and let the rack walk down in its own time; at the bottom
+        the fouling piece drops into the guide basket, SOURCE TRANSIT goes dark,
+        and the maintenance toggle releases itself. Prove the run: search,
+        raise, watch her pass the old height smartly.
+      </p>
+      <h3>pool water leak</h3>
+      <p>
+        <b>You see:</b> POOL LEVEL flashing inside a minute of the breach, the
+        surface line on the mimic sinking, cover falling at roughly a centimetre
+        every ninety seconds; ignore it long enough and HIGH RADIATION drops the
+        rack for you.<br />
+        <b>Why:</b> liner seep, usually at the north flange.<br />
+        <b>Recovery:</b> hold the WATER TOP-UP VALVE and keep the level
+        climbing; when she stands at 5.6&nbsp;m or better the seep is considered
+        found and sealed &mdash; POOL LEVEL goes dark and the maintenance toggle
+        releases. If HIGH RADIATION dropped the rack meanwhile: TRIP RESET,
+        search, raise, and write it in the log regardless.
+      </p>
+      <h3>product jam in the maze</h3>
+      <p>
+        <b>You see:</b> PRODUCT JAM flashing, the chain dashed lines on the
+        mimic stopped, PRODUCT INDEX refused; a tote cooking at the window
+        &mdash; at the 12&nbsp;s dwell she gains a kilogray every ten seconds
+        she sits there, and at 4.0&nbsp;kGy OVERDOSE DAMAGED quarantines her and
+        trips the line.<br />
+        <b>Why:</b> a swollen corner or a stray strap.<br />
+        <b>Recovery:</b> hold the JAM CLEAR ROCKER at REV a full three seconds
+        &mdash; the train steps back one station and the wedged tote falls free;
+        PRODUCT JAM goes dark. Then TRIP RESET to clear the overdose trip, and
+        CONVEYOR SELECTOR back to AUTO CYCLE. The scrapped tally keeps the loss
+        honest.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="spec">
+        <tbody>
+          <tr>
+            <th>Source</th>
+            <td>
+              Cobalt-60, 96 pencils in a stainless rack, 148&nbsp;PBq
+              (4.0&nbsp;kCi) at installation, half-life 5.27 years
+            </td>
+          </tr>
+          <tr>
+            <th>Pool</th>
+            <td>
+              6.0&nbsp;m deep, deionised water, conductivity below
+              10&nbsp;&micro;S/cm; nominal level 5.80&nbsp;m; low alarm
+              5.35&nbsp;m
+            </td>
+          </tr>
+          <tr>
+            <th>Rack travel</th>
+            <td>
+              2.9&nbsp;m; up 24&nbsp;s, down 14&nbsp;s, emergency drop within
+              6&nbsp;s by gravity
+            </td>
+          </tr>
+          <tr>
+            <th>Hoist</th>
+            <td>
+              2.2&nbsp;kW drum winch, thermal overload class 20, cooldown
+              40&nbsp;s
+            </td>
+          </tr>
+          <tr>
+            <th>Maze</th>
+            <td>
+              10 stations, four effective passes; dwell 6&ndash;60&nbsp;s per
+              station; throughput &asymp;30 totes per hour at 12&nbsp;s
+            </td>
+          </tr>
+          <tr>
+            <th>Dose</th>
+            <td>
+              Nominal 2.5&nbsp;kGy per tote at 12&nbsp;s dwell, uniformity
+              1.3:1; quarantine threshold 4.0&nbsp;kGy
+            </td>
+          </tr>
+          <tr>
+            <th>Area monitors</th>
+            <td>
+              Log ratemeter 0.1&nbsp;&micro;Sv/h to 100&nbsp;k&nbsp;&micro;Sv/h;
+              limits &mdash; pool top 25, maze door 10, stack
+              2&nbsp;&micro;Sv/h; any exceedance drives the automatic drop
+            </td>
+          </tr>
+          <tr>
+            <th>Decay heat</th>
+            <td>
+              Pool water 18&nbsp;&deg;C cold, settles near 34&nbsp;&deg;C with
+              the rack up, alarm-free limit 40&nbsp;&deg;C
+            </td>
+          </tr>
+          <tr>
+            <th>Supplies</th>
+            <td>
+              240&nbsp;V 50&nbsp;Hz mains; panel QP-1; drop gear on its own
+              battery
+            </td>
+          </tr>
+          <tr>
+            <th>Licence</th>
+            <td>
+              RSA-17/114; dwell changes only with RPS countersignature on form
+              QP-31
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="man-foot">
+        <p>
+          IF IN DOUBT, SHUT THE SOURCE DOWN AND TELEPHONE THE RPS &mdash;
+          EXTENSION 271.
+        </p>
+        <p>
+          QP-107 REV C &nbsp;&#183;&nbsp; next review 03&#8209;12&#8209;85
+          &nbsp;&#183;&nbsp; copies uncontrolled when removed from the pocket
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
