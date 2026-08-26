@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Koegors Crossing — Tunnel Ventilation &amp; Incident Control</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <header class="titlebar">
+        <div class="maker-plate">
+          <h1>KOEGORS CROSSING</h1>
+          <p>
+            TUNNEL No.&nbsp;1 · VENTILATION, DRAINAGE &amp; INCIDENT CONTROL<br />
+            PROVINCIALE WERKEN VAARDERLAND · PLANT ROOM NOORD · BUILT 1983
+          </p>
+        </div>
+        <div class="clock-block">
+          <div class="clock mono" id="clock">06:00:00</div>
+          <div class="clock-cap">PLANT ROOM TIME · SHIFT HANDOVER 06:00</div>
+        </div>
+        <div class="title-actions">
+          <button type="button" class="btn btn-plate" data-action="manual">
+            OPERATING<br />MANUAL
+          </button>
+        </div>
+      </header>
+
+      <!-- ==================== THE BORE MIMIC ==================== -->
+      <section class="mimic-frame" aria-label="Tunnel elevation mimic">
+        <div class="frame-tag tag-left">
+          BEELDSCHERM / MIMIC — BORE ELEVATION, LOOKING EAST
+        </div>
+        <svg
+          id="mimic"
+          viewBox="0 0 1420 356"
+          role="img"
+          aria-label="Live elevation of the Koegors bore: canal above, twin-lane tunnel below with eight jet fans, lighting zones, portal signals and drainage sump"
+        >
+          <defs>
+            <pattern
+              id="hatch"
+              width="8"
+              height="8"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <rect width="8" height="8" fill="#d8cba4"></rect>
+              <line
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="8"
+                stroke="#a89468"
+                stroke-width="1.6"
+              ></line>
+            </pattern>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5b7f86"></stop>
+              <stop offset="1" stop-color="#39555e"></stop>
+            </linearGradient>
+          </defs>
+
+          <!-- canal above -->
+          <rect x="0" y="10" width="1420" height="42" fill="url(#water)"></rect>
+          <path
+            id="canalWave"
+            d="M0 14 Q30 10 60 14 T120 14 T180 14 T240 14 T300 14 T360 14 T420 14 T480 14 T540 14 T600 14 T660 14 T720 14 T780 14 T840 14 T900 14 T960 14 T1020 14 T1080 14 T1140 14 T1200 14 T1260 14 T1320 14 T1380 14 T1440 14"
+            fill="none"
+            stroke="#9fc0c4"
+            stroke-width="2"
+          ></path>
+          <g id="barge">
+            <path d="M0 0 h64 v10 h-64 z" fill="#5d4a33"></path>
+            <rect x="10" y="-8" width="18" height="8" fill="#8a7355"></rect>
+            <rect x="36" y="-6" width="10" height="6" fill="#b09a72"></rect>
+          </g>
+          <text x="708" y="66" class="mimic-water-label">
+            KOEGORS CANAL — CLEARANCE 13·6 m
+          </text>
+
+          <!-- canal bed / structure -->
+          <rect x="0" y="52" width="1420" height="16" fill="url(#hatch)"></rect>
+          <text x="12" y="64" class="tiny-label">CANAL BED · CLAY</text>
+
+          <!-- earth -->
+          <rect x="0" y="68" width="1420" height="288" fill="#c9b98e"></rect>
+
+          <!-- approaches -->
+          <path d="M0 236 L150 236 L150 306 L0 306 Z" fill="#bfae83"></path>
+          <path
+            d="M1270 236 L1420 236 L1420 306 L1270 306 Z"
+            fill="#bfae83"
+          ></path>
+
+          <!-- ramp slopes -->
+          <path d="M96 236 L150 236 L150 306 L40 306 Z" fill="#a5946b"></path>
+          <path
+            d="M1270 236 L1324 236 L1380 306 L1270 306 Z"
+            fill="#a5946b"
+          ></path>
+
+          <!-- soil strata and engineers' notes -->
+          <path
+            d="M0 110 H1420 M0 168 H1420"
+            stroke="#b3a279"
+            stroke-width="1.5"
+            stroke-dasharray="30 22 8 22"
+            fill="none"
+          ></path>
+          <text x="210" y="128" class="soil-note">PACKED SAND · FILL 1979</text>
+          <text x="880" y="186" class="soil-note">
+            BOULDER CLAY · SHEET PILING TO −12 m
+          </text>
+          <text x="330" y="196" class="soil-note">
+            ↑ ARTESIAN SEEPAGE WATCH · LEVEL BOARD No.3
+          </text>
+
+          <!-- bore -->
+          <rect
+            id="boreWall"
+            x="150"
+            y="228"
+            width="1120"
+            height="86"
+            rx="6"
+            fill="#6d675e"
+          ></rect>
+          <rect
+            id="boreInner"
+            x="156"
+            y="234"
+            width="1108"
+            height="74"
+            rx="4"
+            fill="#3c3a37"
+          ></rect>
+          <rect
+            id="ceilingRail"
+            x="160"
+            y="235"
+            width="1100"
+            height="5"
+            fill="#7d776c"
+            stroke="#55503f"
+            stroke-width="1"
+          ></rect>
+          <rect
+            id="roadbed"
+            x="156"
+            y="296"
+            width="1108"
+            height="12"
+            fill="#565149"
+          ></rect>
+          <line
+            id="centreLine"
+            x1="156"
+            y1="271"
+            x2="1264"
+            y2="271"
+            stroke="#c8bd93"
+            stroke-width="2"
+            stroke-dasharray="18 14"
+          ></line>
+
+          <!-- smoke haze inside the bore -->
+          <clipPath id="boreClip">
+            <rect x="156" y="234" width="1108" height="74" rx="4"></rect>
+          </clipPath>
+          <g clip-path="url(#boreClip)">
+            <ellipse
+              id="smoke1"
+              cx="700"
+              cy="270"
+              rx="240"
+              ry="46"
+              fill="#b9b3a6"
+            ></ellipse>
+            <ellipse
+              id="smoke2"
+              cx="520"
+              cy="266"
+              rx="190"
+              ry="40"
+              fill="#a49d8f"
+            ></ellipse>
+            <ellipse
+              id="fireGlow"
+              cx="820"
+              cy="290"
+              rx="60"
+              ry="26"
+              fill="#ff7a1a"
+            ></ellipse>
+          </g>
+
+          <!-- refuges -->
+          <g class="refuge">
+            <rect
+              x="418"
+              y="294"
+              width="20"
+              height="14"
+              fill="#2f2d2a"
+              stroke="#6d675e"
+              stroke-width="1.5"
+            ></rect>
+            <text x="444" y="305" class="refuge-label">REFUGE 1</text>
+          </g>
+          <g class="refuge">
+            <rect
+              x="938"
+              y="294"
+              width="20"
+              height="14"
+              fill="#2f2d2a"
+              stroke="#6d675e"
+              stroke-width="1.5"
+            ></rect>
+            <text x="908" y="305" class="refuge-label">REFUGE 2</text>
+          </g>
+
+          <g
+            id="fanGroupA"
+            class="fan-group"
+            transform="translate(300,246)"
+          ></g>
+          <g
+            id="fanGroupB"
+            class="fan-group"
+            transform="translate(550,246)"
+          ></g>
+          <g
+            id="fanGroupC"
+            class="fan-group"
+            transform="translate(800,246)"
+          ></g>
+          <g
+            id="fanGroupD"
+            class="fan-group"
+            transform="translate(1050,246)"
+          ></g>
+
+          <!-- lighting zone coves, hung between the fan groups -->
+          <g id="zones">
+            <g class="zone" data-zone="0" transform="translate(172,242)">
+              <rect class="zone-lamp" x="0" y="0" width="112" height="4"></rect>
+              <text class="zone-label" x="56" y="15">ZONE 1</text>
+            </g>
+            <g class="zone" data-zone="1" transform="translate(362,242)">
+              <rect class="zone-lamp" x="0" y="0" width="172" height="4"></rect>
+              <text class="zone-label" x="86" y="15">ZONE 2</text>
+            </g>
+            <g class="zone" data-zone="2" transform="translate(612,242)">
+              <rect class="zone-lamp" x="0" y="0" width="172" height="4"></rect>
+              <text class="zone-label" x="86" y="15">ZONE 3</text>
+            </g>
+            <g class="zone" data-zone="3" transform="translate(862,242)">
+              <rect class="zone-lamp" x="0" y="0" width="172" height="4"></rect>
+              <text class="zone-label" x="86" y="15">ZONE 4</text>
+            </g>
+            <rect
+              class="zone-tail"
+              x="1112"
+              y="242"
+              width="138"
+              height="4"
+            ></rect>
+          </g>
+
+          <!-- portal signal heads -->
+          <g id="signalZuid" transform="translate(122,188) scale(1.18)">
+            <line x1="10" y1="0" x2="10" y2="40" class="signal-post"></line>
+            <circle class="aspect red" cx="10" cy="8" r="6"></circle>
+            <circle class="aspect amber" cx="10" cy="24" r="6"></circle>
+            <circle class="aspect green" cx="10" cy="40" r="6"></circle>
+            <text x="24" y="16" class="tiny-label">ZUID IN</text>
+          </g>
+          <g id="signalNoord" transform="translate(1290,188) scale(1.18)">
+            <line x1="10" y1="0" x2="10" y2="40" class="signal-post"></line>
+            <circle class="aspect red" cx="10" cy="8" r="6"></circle>
+            <circle class="aspect amber" cx="10" cy="24" r="6"></circle>
+            <circle class="aspect green" cx="10" cy="40" r="6"></circle>
+            <text x="-72" y="16" class="tiny-label">NOORD IN</text>
+          </g>
+
+          <!-- barriers -->
+          <g id="barrierZuid" transform="translate(96,236)">
+            <rect class="barrier-arm" x="0" y="0" width="76" height="6"></rect>
+            <rect
+              class="barrier-post"
+              x="0"
+              y="-2"
+              width="6"
+              height="10"
+            ></rect>
+          </g>
+          <g id="barrierNoord" transform="translate(1248,236)">
+            <rect class="barrier-arm" x="0" y="0" width="76" height="6"></rect>
+            <rect
+              class="barrier-post"
+              x="70"
+              y="-2"
+              width="6"
+              height="10"
+            ></rect>
+          </g>
+
+          <!-- queue vehicles -->
+          <g id="queueZuid"></g>
+          <g id="queueNoord"></g>
+
+          <!-- sump at low point -->
+          <g id="sump" transform="translate(660,314)">
+            <rect
+              x="0"
+              y="0"
+              width="100"
+              height="30"
+              rx="3"
+              class="sump-tank"
+            ></rect>
+            <rect
+              x="3"
+              y="3"
+              width="94"
+              height="24"
+              class="sump-water"
+              id="sumpWater"
+            ></rect>
+            <circle class="pump-dot" id="pump1" cx="116" cy="10" r="7"></circle>
+            <text x="128" y="14" class="tiny-label">P1</text>
+            <circle class="pump-dot" id="pump2" cx="116" cy="26" r="7"></circle>
+            <text x="128" y="30" class="tiny-label">P2</text>
+            <text x="50" y="44" class="tiny-label" text-anchor="middle">
+              LOW POINT SUMP · 240 m³
+            </text>
+          </g>
+
+          <!-- airflow ribbon -->
+          <g id="airflowRibbon">
+            <line
+              id="airflowLine"
+              x1="170"
+              y1="216"
+              x2="1250"
+              y2="216"
+              stroke="#efe6c8"
+              stroke-width="2.5"
+              stroke-dasharray="26 20"
+            ></line>
+            <polygon
+              id="airflowHead"
+              points="1250,209 1268,216 1250,223"
+              fill="#efe6c8"
+            ></polygon>
+            <text id="airflowText" x="170" y="208" class="ribbon-label">
+              AIRFLOW 0·0 m/s →
+            </text>
+          </g>
+
+          <!-- chainage -->
+          <g id="chainage" class="chainage-row">
+            <text x="150" y="344">0+000</text>
+            <text x="430" y="344">0+180</text>
+            <text x="700" y="344">0+360</text>
+            <text x="970" y="344">0+540</text>
+            <text x="1236" y="344">0+720</text>
+          </g>
+
+          <!-- fire marker -->
+          <g id="fireMarker" transform="translate(820,196)" class="hidden">
+            <path
+              d="M0 -18 C10 -6 14 2 10 10 C7 16 1 20 0 20 C-1 20 -7 16 -10 10 C-14 2 -10 -6 0 -18 Z"
+              fill="#e04b17"
+              stroke="#ffd9a0"
+              stroke-width="1.5"
+            ></path>
+          </g>
+
+          <!-- portal labels -->
+          <text x="152" y="222" class="portal-label" text-anchor="start">
+            ZUID PORTAL
+          </text>
+          <text x="1268" y="222" class="portal-label" text-anchor="end">
+            NOORD PORTAL
+          </text>
+        </svg>
+      </section>
+
+      <!-- ==================== ANNUNCIATOR ==================== -->
+      <section class="annunciator-strip" aria-label="Alarm annunciator">
+        <span class="strip-caption">STORENK / ANNUNCIATOR</span>
+        <div class="windows">
+          <span class="annw" data-ann="CO HIGH">CO HIGH</span>
+          <span class="annw" data-ann="VIS POOR">VIS POOR</span>
+          <span class="annw" data-ann="AIRFLOW LOW">AIRFLOW LOW</span>
+          <span class="annw" data-ann="FAN TRIP">FAN TRIP</span>
+          <span class="annw" data-ann="SUMP HIGH">SUMP HIGH</span>
+          <span class="annw" data-ann="POWER FAIL">POWER FAIL</span>
+          <span class="annw" data-ann="FIRE DETECTED">FIRE DETECTED</span>
+          <span class="annw" data-ann="AUTOMATIC CLOSURE">CLOSURE</span>
+        </div>
+      </section>
+
+      <!-- ==================== CONTROL BENCH ==================== -->
+      <section class="bench">
+        <!-- Ventilation bay -->
+        <fieldset class="bay bay-vent">
+          <legend>VENTILATIE / VENTILATION</legend>
+          <div class="row rotary-row">
+            <div class="rotary" data-control="DESK SUPPLY" id="deskSupply">
+              <span class="rotary-name">DESK SUPPLY</span>
+              <div class="knob-stage">
+                <span class="stop stop-l">OFF</span>
+                <span class="knob" data-knob
+                  ><span class="pointer"></span
+                ></span>
+                <span class="stop stop-r">ON</span>
+              </div>
+              <div class="radio-stops">
+                <label
+                  ><input
+                    type="radio"
+                    name="deskSupply"
+                    value="off"
+                    checked
+                  />OFF</label
+                >
+                <label
+                  ><input type="radio" name="deskSupply" value="on" />ON</label
+                >
+              </div>
+            </div>
+            <div class="rotary" data-control="VENTILATION MODE" id="ventMode">
+              <span class="rotary-name">VENT MODE</span>
+              <div class="knob-stage">
+                <span class="stop stop-l">OFF</span>
+                <span class="knob" data-knob
+                  ><span class="pointer"></span
+                ></span>
+                <span class="stop stop-r">TEST</span>
+              </div>
+              <div class="radio-stops four">
+                <label
+                  ><input
+                    type="radio"
+                    name="ventMode"
+                    value="off"
+                    checked
+                  />OFF</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="ventMode"
+                    value="auto"
+                  />AUTO</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="ventMode"
+                    value="hand"
+                  />HAND</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="ventMode"
+                    value="test"
+                  />TEST</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="paddle-stack">
+            <div class="paddle">
+              <span class="paddle-name">GROUP A</span>
+              <input
+                type="range"
+                min="-1"
+                max="1"
+                step="1"
+                value="0"
+                data-paddle="0"
+                data-control="FAN GROUP A"
+                aria-label="Fan group A: reverse, auto or normal"
+              />
+              <span class="paddle-scale"><i>REV</i><i>AUTO</i><i>NORM</i></span>
+            </div>
+            <div class="paddle">
+              <span class="paddle-name">GROUP B</span>
+              <input
+                type="range"
+                min="-1"
+                max="1"
+                step="1"
+                value="0"
+                data-paddle="1"
+                data-control="FAN GROUP B"
+                aria-label="Fan group B: reverse, auto or normal"
+              />
+              <span class="paddle-scale"><i>REV</i><i>AUTO</i><i>NORM</i></span>
+            </div>
+            <div class="paddle">
+              <span class="paddle-name">GROUP C</span>
+              <input
+                type="range"
+                min="-1"
+                max="1"
+                step="1"
+                value="0"
+                data-paddle="2"
+                data-control="FAN GROUP C"
+                aria-label="Fan group C: reverse, auto or normal"
+              />
+              <span class="paddle-scale"><i>REV</i><i>AUTO</i><i>NORM</i></span>
+            </div>
+            <div class="paddle">
+              <span class="paddle-name">GROUP D</span>
+              <input
+                type="range"
+                min="-1"
+                max="1"
+                step="1"
+                value="0"
+                data-paddle="3"
+                data-control="FAN GROUP D"
+                aria-label="Fan group D: reverse, auto or normal"
+              />
+              <span class="paddle-scale"><i>REV</i><i>AUTO</i><i>NORM</i></span>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-push"
+            data-control="TRIP RESET"
+            id="tripReset"
+          >
+            TRIP RESET
+          </button>
+          <div class="vent-note mono" id="ventStatus">
+            FANS STANDBY · LAW: —
+          </div>
+        </fieldset>
+
+        <!-- Services bay -->
+        <fieldset class="bay bay-services">
+          <legend>DIENSTEN / SERVICES</legend>
+          <div class="rotary small" data-control="SUMP PUMPS" id="pumpMode">
+            <span class="rotary-name">SUMP PUMPS</span>
+            <div class="knob-stage">
+              <span class="knob" data-knob><span class="pointer"></span></span>
+            </div>
+            <div class="radio-stops three">
+              <label
+                ><input type="radio" name="pumpMode" value="off" />OFF</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="pumpMode"
+                  value="auto"
+                  checked
+                />AUTO</label
+              >
+              <label
+                ><input type="radio" name="pumpMode" value="hand" />HAND</label
+              >
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-moment"
+            id="handRun"
+            data-control="SUMP HAND RUN"
+          >
+            SUMP HAND RUN — HOLD
+          </button>
+          <button
+            type="button"
+            class="btn btn-moment"
+            id="flushValve"
+            data-control="DRAIN FLUSH VALVE"
+          >
+            DRAIN FLUSH VALVE — HOLD
+          </button>
+          <div class="mini-read">
+            <span>SUMP LEVEL</span><span class="mono" id="sumpRead">12%</span>
+          </div>
+          <div class="mini-read">
+            <span>PUMP DUTY</span
+            ><span class="mono" id="pumpRead">STANDBY</span>
+          </div>
+        </fieldset>
+
+        <!-- Signals bay -->
+        <fieldset class="bay bay-signals">
+          <legend>SIGNALEN &amp; LICHT / SIGNALS &amp; LIGHTING</legend>
+          <div class="lever-block" data-control="PORTAL SIGNAL LEVER">
+            <span class="lever-name">PORTAL SIGNAL LEVER</span>
+            <div class="lever-quadrant">
+              <input
+                type="range"
+                id="signalLever"
+                min="0"
+                max="2"
+                step="1"
+                value="0"
+                aria-label="Portal signal lever: green, amber or red"
+              />
+              <div class="lever-sectors">
+                <i class="sec-green">GREEN</i><i class="sec-amber">AMBER</i
+                ><i class="sec-red">RED</i>
+              </div>
+            </div>
+            <span class="lever-note" id="signalNote"
+              >PORTALS OPEN · 3600 veh/h CAPACITY</span
+            >
+          </div>
+          <div
+            class="rocker-bank"
+            data-control="LIGHTING ZONES"
+            role="group"
+            aria-label="Lighting zones 1 to 4"
+          >
+            <span class="rocker-name">BORE LIGHTING ZONES</span>
+            <div class="rockers">
+              <label class="rocker"
+                ><input type="checkbox" data-zone-check="0" /><span
+                  >Z1</span
+                ></label
+              >
+              <label class="rocker"
+                ><input type="checkbox" data-zone-check="1" /><span
+                  >Z2</span
+                ></label
+              >
+              <label class="rocker"
+                ><input type="checkbox" data-zone-check="2" /><span
+                  >Z3</span
+                ></label
+              >
+              <label class="rocker"
+                ><input type="checkbox" data-zone-check="3" /><span
+                  >Z4</span
+                ></label
+              >
+            </div>
+            <span class="rocker-note">EMERGENCY FEED CARRIES ZONE 2 ONLY</span>
+          </div>
+        </fieldset>
+
+        <!-- Instruments bay -->
+        <fieldset class="bay bay-instruments">
+          <legend>METING / MEASUREMENT</legend>
+          <div class="drums">
+            <div class="drum-unit">
+              <span class="drum-name">CO</span>
+              <div class="drum mono" id="coDrum">
+                <span>000</span><em>ppm</em>
+              </div>
+            </div>
+            <div class="drum-unit">
+              <span class="drum-name">EXTINCTION K</span>
+              <div class="drum mono" id="visDrum">
+                <span>0·0</span><em>km⁻¹</em>
+              </div>
+            </div>
+            <div class="dial-unit">
+              <span class="dial-name">BORE AIR VELOCITY</span>
+              <div class="dial">
+                <div class="needle" id="airNeedle"></div>
+                <span class="dial-zero">0</span>
+                <span class="dial-max">12 m/s</span>
+              </div>
+            </div>
+            <div class="dial-unit">
+              <span class="dial-name">BORE TEMPERATURE</span>
+              <div class="dial">
+                <div class="needle" id="tempNeedle"></div>
+                <span class="dial-zero">10°C</span>
+                <span class="dial-max">310°C</span>
+              </div>
+            </div>
+          </div>
+          <div class="recorder-block">
+            <span class="recorder-name"
+              >TWEE-PEN REGISTRATOR · CO (RED) / K (BLUE) · 1 u/min</span
+            >
+            <canvas
+              id="recorder"
+              width="560"
+              height="150"
+              aria-label="Two-pen chart recorder tracing carbon monoxide and extinction coefficient"
+            ></canvas>
+          </div>
+          <div class="readout-row mono">
+            <span>TRAFFIC <b id="qRead">2400</b> veh/h</span>
+            <span>QUEUE <b id="queueRead">0</b></span>
+            <span>FANS <b id="kwRead">0</b> kW</span>
+            <span id="powerRead">MAINS ✓</span>
+          </div>
+        </fieldset>
+
+        <!-- Incident bay -->
+        <fieldset class="bay bay-incident">
+          <legend>STORING / INCIDENT</legend>
+          <div class="guarded-key" data-control="SMOKE CONTROL KEY">
+            <button
+              type="button"
+              class="guard"
+              id="keyGuard"
+              aria-label="Lift the smoke control key guard"
+            >
+              GUARD
+            </button>
+            <button
+              type="button"
+              class="keyswitch"
+              id="keySwitch"
+              aria-pressed="false"
+              aria-label="Turn the smoke control key"
+            >
+              <span class="key-slot"></span>
+            </button>
+            <span class="key-name">ROOKBESTRIJDING<br />SMOKE CONTROL KEY</span>
+          </div>
+
+          <div class="fault-lid-block" data-control="FAULT TEST SWITCHES">
+            <button
+              type="button"
+              class="fault-lid"
+              id="faultLid"
+              aria-expanded="false"
+            >
+              PROEFSCHAKELAARS<br />LIFT FOR FAULT TEST SWITCHES
+            </button>
+            <div class="fault-switches" id="faultSwitches">
+              <button
+                type="button"
+                role="switch"
+                aria-checked="false"
+                class="ftoggle"
+                data-fault="jet fan seizure"
+              >
+                FAN SEIZURE
+              </button>
+              <button
+                type="button"
+                role="switch"
+                aria-checked="false"
+                class="ftoggle"
+                data-fault="mains supply failure"
+              >
+                MAINS FAIL
+              </button>
+              <button
+                type="button"
+                role="switch"
+                aria-checked="false"
+                class="ftoggle"
+                data-fault="vehicle fire in bore"
+              >
+                FIRE IN BORE
+              </button>
+            </div>
+          </div>
+
+          <div class="push-row">
+            <button
+              type="button"
+              class="btn btn-push"
+              data-control="ALARM ACCEPT"
+              id="alarmAccept"
+            >
+              ALARM ACCEPT
+            </button>
+            <button
+              type="button"
+              class="btn btn-push"
+              data-control="HORN CUT"
+              id="hornCut"
+            >
+              HORN CUT
+            </button>
+            <button
+              type="button"
+              class="btn btn-push"
+              data-control="LAMP TEST"
+              id="lampTest"
+            >
+              LAMP TEST
+            </button>
+            <button
+              type="button"
+              class="btn btn-push btn-reset"
+              data-control="DESK RESET"
+              id="deskReset"
+            >
+              DESK RESET
+            </button>
+          </div>
+        </fieldset>
+      </section>
+
+      <footer class="skirt">
+        <span>SCHEMA VW-TK-1983-114 · DOOS 4 · PANNEAU 1 VAN 1</span>
+        <a href="../../"
+          >&larr; TERUG NAAR DE CATALOGUS / BACK TO THE CATALOGUE</a
+        >
+      </footer>
+    </div>
+
+    <dialog data-manual id="manualDialog" aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="manual-title"
+          >KOEGORS CROSSING — OPERATING MANUAL VW-TK-83/114</span
+        >
+        <button type="button" class="btn btn-plate" data-action="close-manual">
+          CLOSE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Koegors Crossing operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

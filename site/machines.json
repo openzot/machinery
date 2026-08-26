@@ -1412,5 +1412,46 @@
     ],
     "tagline": "Wire the board to the chart before you touch the clutch — she feeds whether or not she understands.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "koegors-tunnel",
+    "name": "Koegors Crossing Tunnel No. 1 — Ventilation & Incident Control",
+    "kind": "motorway tunnel ventilation and incident-control desk",
+    "domain": "road",
+    "era": "1980s",
+    "design": "pigeon-blue stove-enamel bench with sand-cream screen-printed condensed legends and traffolyte data plates, a living elevation mimic of the bore whose jet fans spin and smoke drifts, edge-lit CO and extinction drums, a two-pen chart recorder, incandescent-style annunciator windows under cool fluorescent plant-room light",
+    "interaction": "walking four fan-group paddles against the rising carbon-monoxide drum in AUTO law or by hand, lifting the guard to turn the red-collared rookbestrijding key that reverses the whole bore away from a fire, and dropping portal barriers on a notched quadrant lever",
+    "palette": [
+      "#4f6d95",
+      "#ecdcae",
+      "#d8351f"
+    ],
+    "controls": [
+      "DESK SUPPLY",
+      "VENTILATION MODE",
+      "FAN GROUP A",
+      "FAN GROUP B",
+      "FAN GROUP C",
+      "FAN GROUP D",
+      "TRIP RESET",
+      "SUMP PUMPS",
+      "SUMP HAND RUN",
+      "DRAIN FLUSH VALVE",
+      "PORTAL SIGNAL LEVER",
+      "LIGHTING ZONES",
+      "SMOKE CONTROL KEY",
+      "FAULT TEST SWITCHES",
+      "ALARM ACCEPT",
+      "HORN CUT",
+      "LAMP TEST",
+      "DESK RESET"
+    ],
+    "faults": [
+      "jet fan seizure",
+      "mains supply failure",
+      "vehicle fire in bore"
+    ],
+    "tagline": "Air goes towards Noord on a good day — and away from the queue on a bad one.",
+    "created": "2026-08-26"
   }
 ]
