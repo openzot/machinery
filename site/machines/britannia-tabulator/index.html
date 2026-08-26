@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Britannia Meridian IV — Card Accounting Machine, Rates Bureau</title>
+    <meta
+      name="description"
+      content="Operating panel of a Britannia Meridian IV punched-card accounting machine, county borough rates bureau, 1953."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="cabinet">
+      <!-- ============ maker plate and check-lamp rail ============ -->
+      <header class="toprail">
+        <div class="makerplate">
+          <span class="maker">Britannia</span>
+          <span class="model">Meridian IV Card Accounting Machine</span>
+          <span class="serial"
+            >No. 41258 &middot; installed 1953 &middot; Croydon, England</span
+          >
+        </div>
+        <div class="checkrail" aria-label="check lamps">
+          <span class="lamp ruby" data-lamp="feed-jam"><i></i>FEED JAM</span>
+          <span class="lamp ruby" data-lamp="read-check"
+            ><i></i>READ CHECK</span
+          >
+          <span class="lamp ruby" data-lamp="carry-check"
+            ><i></i>CARRY CHECK</span
+          >
+          <span class="lamp opal" data-lamp="motor"><i></i>MOTOR</span>
+          <span class="lamp opal" data-lamp="print-enabled"
+            ><i></i>PRINT ENABLED</span
+          >
+          <span class="lamp opal" data-lamp="power"><i></i>MAINS ON</span>
+        </div>
+        <button
+          class="platebtn"
+          type="button"
+          data-action="manual"
+          aria-label="Open the operating handbook"
+        >
+          HANDBOOK
+        </button>
+      </header>
+
+      <!-- ============ the card line: hopper to stacker ============ -->
+      <section class="cardline" aria-label="card path">
+        <figure class="screwed hopper">
+          <figcaption>HOPPER</figcaption>
+          <div class="deck" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+            ><i></i>
+          </div>
+          <output class="count" id="hopper-count">800</output>
+          <span class="sub">cards in deck</span>
+        </figure>
+
+        <figure class="screwed feedway">
+          <figcaption>FEEDWAY &amp; READING BRUSHES</figcaption>
+          <div class="throat">
+            <div class="cardstrip" aria-hidden="true">
+              <div class="movingcards" id="moving-cards"></div>
+            </div>
+            <svg
+              class="brusharm"
+              viewBox="0 0 120 60"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M2,8 L118,8" />
+              <path d="M30,8 L34,26 M50,8 L54,26 M70,8 L74,26 M90,8 L94,26" />
+            </svg>
+            <div class="readcheck" id="readcheck-meter">
+              <b id="readcheck-bar" style="width: 92%"></b>
+            </div>
+            <span class="sub"
+              >read-check registration <b id="readcheck-value">92%</b></span
+            >
+            <div class="jamflag" id="jamflag" aria-hidden="true">JAM</div>
+          </div>
+          <output class="count" id="fed-count">0</output>
+          <span class="sub">cards fed</span>
+        </figure>
+
+        <figure class="screwed counterbank">
+          <figcaption>COUNTERS</figcaption>
+          <div class="drums" role="group" aria-label="counter drum readings">
+            <div class="drumunit">
+              <span class="drumlabel">CNT 1<br />RATES</span>
+              <span class="window"
+                ><span class="drumdigits" id="cnt-1">00000000</span></span
+              >
+            </div>
+            <div class="drumunit">
+              <span class="drumlabel">CNT 2<br />WATER</span>
+              <span class="window"
+                ><span class="drumdigits" id="cnt-2">00000000</span></span
+              >
+            </div>
+            <div class="drumunit">
+              <span class="drumlabel">CNT 3<br />ACCOUNTS</span>
+              <span class="window"
+                ><span class="drumdigits" id="cnt-3">00000000</span></span
+              >
+            </div>
+            <div class="drumunit">
+              <span class="drumlabel">CNT 4<br />GROUPS</span>
+              <span class="window"
+                ><span class="drumdigits" id="cnt-4">00000000</span></span
+              >
+            </div>
+          </div>
+          <div class="selectorrow">
+            <label class="rotary">
+              <span class="rotaryface" id="counter-selector-face">
+                <i class="pointer" id="counter-selector-pointer"></i>
+              </span>
+              <span class="rotarylegend">COUNTER SELECTOR</span>
+              <button
+                type="button"
+                data-control="COUNTER SELECTOR"
+                aria-label="Counter selector: turn between counters one, two, three and four"
+                id="counter-selector-btn"
+              ></button>
+            </label>
+            <span class="sub" id="selector-readout"
+              >selected CNT 1 — RATES</span
+            >
+          </div>
+        </figure>
+
+        <figure class="screwed printer">
+          <figcaption>PRINTER &amp; STACKER</figcaption>
+          <div class="paperbay">
+            <pre
+              class="tape"
+              id="listing-tape"
+              aria-label="printed listing tape"
+            ></pre>
+          </div>
+          <div class="stacker">
+            <output class="count" id="stack-count">0</output>
+            <span class="sub">cards stacked</span>
+          </div>
+        </figure>
+      </section>
+
+      <!-- ============ plugboard centre stage ============ -->
+      <section class="plugsection" aria-label="program plugboard">
+        <div class="chart">
+          <h2>PROGRAM CHART &middot; JOB 41-R</h2>
+          <ol>
+            <li>CYCLE TAKE-OFF &rarr; PRINTER</li>
+            <li>FIELD A (COLS 12&ndash;17) &rarr; CNT 1</li>
+            <li>FIELD B (COLS 40&ndash;45) &rarr; CNT 2</li>
+            <li>GROUP BREAK &rarr; COMPARE</li>
+          </ol>
+          <p class="sub">seat every wire before engaging the feed clutch</p>
+        </div>
+        <div class="boardwrap">
+          <div class="boardeyelid">PLUGBOARD — REMOVABLE WIRES</div>
+          <div
+            class="plugboard"
+            data-control="PLUGBOARD"
+            id="plugboard"
+            role="group"
+            aria-label="Program plugboard: seat a wire by choosing its two hubs"
+          >
+            <!-- hubs injected by machine.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ operating bench ============ -->
+      <section class="bench" aria-label="operating controls">
+        <div class="screwed powerset">
+          <span class="settitle">POWER</span>
+          <label
+            class="guarded"
+            title="Guarded toggle: lift the cover before operating"
+          >
+            <span class="guard" aria-hidden="true"></span>
+            <input
+              type="checkbox"
+              id="mains-breaker"
+              data-control="MAINS BREAKER"
+              aria-label="Mains breaker"
+            />
+            <span class="togglebody"><i class="bat"></i></span>
+            <span class="legend">MAINS BREAKER</span>
+          </label>
+          <button
+            class="roundbtn"
+            type="button"
+            id="motor-starter"
+            data-control="MOTOR STARTER"
+            aria-label="Motor starter pushbutton"
+          >
+            <span>MOTOR<br />STARTER</span>
+          </button>
+        </div>
+
+        <div class="feedset">
+          <span class="settitle">CARD FEED</span>
+          <div class="clutch" id="clutch">
+            <span class="leverarm-slot" aria-hidden="true"></span>
+            <span class="quadrant">RELEASE</span>
+            <span class="quadrant">SINGLE</span>
+            <span class="quadrant">RUN</span>
+            <button
+              type="button"
+              id="feed-clutch"
+              data-control="FEED CLUTCH"
+              aria-label="Feed clutch lever: release, single cycle, run"
+            >
+              <span class="leverknob"></span>
+            </button>
+          </div>
+          <div class="smallpair">
+            <button
+              class="rectbtn"
+              type="button"
+              id="paper-feed"
+              data-control="PAPER FEED"
+              aria-label="Paper feed carriage advance"
+            >
+              PAPER FEED
+            </button>
+            <button
+              class="rectbtn stopbig"
+              type="button"
+              id="stop-btn"
+              data-control="STOP"
+              aria-label="Master stop"
+            >
+              STOP
+            </button>
+          </div>
+        </div>
+
+        <div class="screwed maintset">
+          <span class="settitle">ADJUSTMENTS</span>
+          <label class="knobctl">
+            <span class="knobface" id="brush-knobface"
+              ><i class="knobmark"></i
+            ></span>
+            <input
+              type="range"
+              id="brush-adjust"
+              data-control="BRUSH ADJUST"
+              min="0"
+              max="20"
+              value="10"
+              step="1"
+              aria-label="Brush adjust: re-register the reading brushes"
+            />
+            <span class="legend">BRUSH ADJUST</span>
+          </label>
+          <button
+            class="rectbtn warn"
+            type="button"
+            id="clear-feedway"
+            data-control="CLEAR FEEDWAY"
+            aria-label="Clear feedway lever: remove jammed cards"
+          >
+            CLEAR FEEDWAY
+          </button>
+        </div>
+
+        <div class="screwed drawerset">
+          <span class="settitle">ENGINEER'S DRAWER</span>
+          <label class="keyswitch" title="Keyed switch: engineer only">
+            <span class="keybarrel" id="key-barrel"></span>
+            <input
+              type="checkbox"
+              id="engineer-key"
+              data-control="ENGINEER KEY"
+              aria-label="Engineer key: zero set counters"
+            />
+            <span class="legend">ENGINEER KEY</span>
+          </label>
+          <fieldset class="testbank" data-control="FAULT TEST SWITCHES">
+            <legend>FAULT TESTS</legend>
+            <label><input type="checkbox" id="ft-jam" /><span>JAM</span></label>
+            <label
+              ><input type="checkbox" id="ft-misread" /><span
+                >MISREAD</span
+              ></label
+            >
+            <label
+              ><input type="checkbox" id="ft-carry" /><span>CARRY</span></label
+            >
+          </fieldset>
+          <div class="smallpair">
+            <button
+              class="rectbtn"
+              type="button"
+              id="lamps-test"
+              data-control="LAMPS TEST"
+              aria-label="Lamps test pushbutton"
+            >
+              LAMPS TEST
+            </button>
+            <button
+              class="rectbtn"
+              type="button"
+              id="sound-cut"
+              data-control="SOUND CUT"
+              aria-label="Sound cut toggle"
+              aria-pressed="false"
+            >
+              SOUND CUT
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="basement">
+        <a href="../../">&larr; catalogue of machines</a>
+        <span class="sub"
+          >Britannia Accounting Machines Ltd. &middot; form B-553 &middot; third
+          edition</span
+        >
+        <span id="statusline" class="statusline" role="status"
+          >machine cold</span
+        >
+      </footer>
+    </main>
+
+    <!-- ============ handbook dialog ============ -->
+    <dialog data-manual>
+      <div class="manualchrome">
+        <button
+          class="platebtn"
+          type="button"
+          data-action="close-manual"
+          aria-label="Close the operating handbook"
+        >
+          CLOSE HANDBOOK
+        </button>
+      </div>
+      <iframe src="manual.html" title="Meridian IV operating handbook"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

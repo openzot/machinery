@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Handbook B-553 — Britannia Meridian IV Card Accounting Machine
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual">
+    <div class="sheet">
+      <header class="manualhead">
+        <p class="formline">
+          FORM B-553 &middot; THIRD EDITION &middot; AMENDMENT No. 2
+        </p>
+        <h1>Britannia Meridian IV</h1>
+        <p class="subtitle">
+          Card Accounting Machine &mdash; Operator's Handbook
+        </p>
+        <p class="issue">
+          Britannia Accounting Machines Ltd., Croydon, England &middot; for the
+          County Borough Treasurer's Rates Bureau &middot; issued with machine
+          No. 41258, 1953
+        </p>
+      </header>
+
+      <nav class="handbooklinks">
+        <a href="./">&larr; back to the machine</a>
+        <a href="../../">all machines in the collection &uarr;</a>
+      </nav>
+
+      <h2>Overview</h2>
+      <p>
+        The Meridian IV reads punched cards at one hundred and fifty a minute,
+        adds their figures into four eight-wheel counters, and prints a listing
+        on the paper tape at the right-hand side of the cabinet. In this bureau
+        it totals the quarter's rate demands: each card carries one
+        hereditament, its rateable value in column twelve to seventeen, and its
+        water charge in column forty to forty-five. Group breaks fall every
+        twenty cards, and a final total prints when the run is stopped.
+      </p>
+      <p>
+        The job is defined on the plugboard by removable wires, exactly as the
+        program chart beside the board directs. A machine which is not wired to
+        its program feeds cards but prints nothing and accumulates nothing: the
+        PRINT ENABLED lamp tells you when the board agrees with the chart. The
+        machine is otherwise honest iron. It jams if you starve it of vacuum, it
+        misreads if the brushes drift, and its counters lose carries when a
+        carry pawl wears — every such condition announces itself on the check
+        lamps along the top rail, and each has its remedy below. Ignore a check
+        lamp and the machine does not stop being honest: torn cards, suspect
+        figures and tripped breakers are how it tells you again.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="ctl">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Kind</th>
+            <th>Positions and action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MAINS BREAKER</td>
+            <td>guarded toggle</td>
+            <td>
+              ON / OFF under a hinged cover. isolates the machine entirely.
+              after an overload trip it must not be re-closed until the motor
+              cools below 62&deg;C.
+            </td>
+          </tr>
+          <tr>
+            <td>MOTOR STARTER</td>
+            <td>pushbutton</td>
+            <td>
+              latches the contactor and brings the motor up to 1,440 r.p.m. dead
+              machine refuses nothing else until she is up to speed.
+            </td>
+          </tr>
+          <tr>
+            <td>FEED CLUTCH</td>
+            <td>three-position lever</td>
+            <td>
+              RELEASE (feed disengaged), SINGLE (one card per engagement), RUN
+              (continuous feed). arrows on the keyboard work her as well as the
+              hand.
+            </td>
+          </tr>
+          <tr>
+            <td>PLUGBOARD</td>
+            <td>sixteen removable-wire hubs</td>
+            <td>
+              seat a wire by choosing its two hubs; choose a hub twice or a
+              wired hub again to lift the wire. wires may not run within one
+              column. program per the chart: CYCLE TAKE-OFF&rarr;PRINTER, FIELD
+              A&rarr;CNT 1, FIELD B&rarr;CNT 2, GROUP BREAK&rarr;COMPARE.
+            </td>
+          </tr>
+          <tr>
+            <td>COUNTER SELECTOR</td>
+            <td>rotary, four positions</td>
+            <td>
+              selects CNT 1 RATES / CNT 2 WATER / CNT 3 ACCOUNTS / CNT 4 GROUPS.
+              also fixes which counter a CARRY CHECK test refers to.
+            </td>
+          </tr>
+          <tr>
+            <td>PAPER FEED</td>
+            <td>pushbutton</td>
+            <td>advances the carriage one line without printing.</td>
+          </tr>
+          <tr>
+            <td>STOP</td>
+            <td>mushroom</td>
+            <td>
+              first press releases the clutch; second press drops the contactor
+              and lets the motor coast.
+            </td>
+          </tr>
+          <tr>
+            <td>CLEAR FEEDWAY</td>
+            <td>warning lever-button</td>
+            <td>
+              clears a jammed or seized feedway. effective only with the clutch
+              at RELEASE.
+            </td>
+          </tr>
+          <tr>
+            <td>BRUSH ADJUST</td>
+            <td>knob, twenty points</td>
+            <td>
+              re-registers the reading brushes. watch the read-check meter in
+              the feedway panel while turning.
+            </td>
+          </tr>
+          <tr>
+            <td>ENGINEER KEY</td>
+            <td>keyed switch, spring return</td>
+            <td>
+              zero-sets all counters, resets the carry latches, cleans the air
+              filter estimate, and threads a fresh deck when the hopper stands
+              empty.
+            </td>
+          </tr>
+          <tr>
+            <td>FAULT TEST SWITCHES</td>
+            <td>toggle bank in engineer's drawer</td>
+            <td>
+              JAM / MISREAD / CARRY — force each condition for instruction and
+              test. switching off does not clear a real jam; follow the recovery
+              clauses.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMPS TEST</td>
+            <td>pushbutton</td>
+            <td>lights every lamp on the rail to prove the filaments.</td>
+          </tr>
+          <tr>
+            <td>SOUND CUT</td>
+            <td>toggle</td>
+            <td>silences the motor and card-feed sound reproduction.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol>
+        <li>
+          Walk the cabinet before power: hopper deck seated face-down, stacker
+          empty, tape roll genuine, feedway visibly clear of fragments.
+        </li>
+        <li>
+          Lift the guard and close the MAINS BREAKER. The MAINS ON lamp shows.
+        </li>
+        <li>
+          Press MOTOR STARTER once and let her come up. Wait for the MOTOR lamp;
+          do not engage the feed before it shows.
+        </li>
+        <li>
+          Wire the board to JOB 41-R exactly per the program chart. When the
+          last wire seats, the PRINT ENABLED lamp lights. A blank board wastes
+          the whole deck silently.
+        </li>
+        <li>
+          Turn the COUNTER SELECTOR to CNT 1 — RATES and confirm all four
+          counter windows read zero. If they do not, switch the ENGINEER KEY
+          before beginning.
+        </li>
+        <li>
+          Move the FEED CLUTCH to SINGLE and let one card through. Watch her
+          read: the read-check meter should stand above ninety and the first
+          listing line print true.
+        </li>
+        <li>
+          Move the FEED CLUTCH to RUN. She now takes one hundred and fifty cards
+          a minute; group totals print in red every twenty cards.
+        </li>
+        <li>
+          Mind the rail. Any check lamp demands the remedy in Alarms or Faults
+          and recovery at once — a jam ignored tears cards until the feed
+          seizes; brushes left out of register spoil the figures; heat left
+          unattended trips the breaker.
+        </li>
+        <li>
+          At the end of the quarter-deck move the clutch to RELEASE: the group
+          remainder prints, and when the deck empties the FINAL TOTAL prints
+          with the counters' verdict.
+        </li>
+        <li>
+          To close down: STOP, MOTOR coasted, MAINS BREAKER off, guard closed.
+          Lift the wires only when the board is to be re-programmed.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="alms">
+        <thead>
+          <tr>
+            <th>Lamp</th>
+            <th>Meaning</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FEED JAM (ruby)</td>
+            <td>a card has jammed in the feed throat.</td>
+            <td>clutch to RELEASE, press CLEAR FEEDWAY. see clause F1.</td>
+          </tr>
+          <tr>
+            <td>READ CHECK (ruby)</td>
+            <td>reading brushes out of register; digits are being misread.</td>
+            <td>
+              turn BRUSH ADJUST until the meter tops ninety and the lamp drops
+              out. see clause F2.
+            </td>
+          </tr>
+          <tr>
+            <td>CARRY CHECK (ruby)</td>
+            <td>a counter is losing carries; totals short.</td>
+            <td>
+              note the selector, switch the ENGINEER KEY, re-run. see clause F3.
+            </td>
+          </tr>
+          <tr>
+            <td>MOTOR OVERLOAD (ruby)</td>
+            <td>
+              motor temperature passed 88&deg;C and the breaker has come out on
+              overload.
+            </td>
+            <td>
+              leave the MAINS BREAKER off; when the temperature falls below
+              62&deg;C, close the breaker and restart with MOTOR STARTER.
+            </td>
+          </tr>
+          <tr>
+            <td>MAINS ON (opal)</td>
+            <td>breaker closed, machine live.</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>MOTOR (opal)</td>
+            <td>motor at speed; the feed may be engaged.</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>PRINT ENABLED (opal)</td>
+            <td>board agrees with the program chart.</td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Faults and recovery</h2>
+      <h3>F1. Card jam in the feed throat</h3>
+      <p>
+        <em>You see:</em> FEED JAM on the rail, the red JAM flag over the
+        throat, vacuum fallen, the listing frozen. If RUN is held, cards tear —
+        the torn count climbs and after some seconds the feed seizes altogether.
+      </p>
+      <p>
+        <em>To clear:</em> bring the FEED CLUTCH to RELEASE (never clear a live
+        feed). Press CLEAR FEEDWAY; the flag drops and the lamp goes out. Put
+        the torn cards aside for the mending bench and re-thread from the
+        hopper. The FAULT TEST SWITCH JAM forces this condition for instruction;
+        the switch itself does not clear it — the lever-button does.
+      </p>
+
+      <h3>F2. Reading-brush misregister</h3>
+      <p>
+        <em>You see:</em> READ CHECK on the rail, the read-check meter sagging
+        below ninety, and pounds, shillings and pence going quietly wrong into
+        CNT 1; the final total will be stamped FIGURES SUSPECT.
+      </p>
+      <p>
+        <em>To clear:</em> turn BRUSH ADJUST slowly, a point at a time, watching
+        the meter in the feedway panel. It climbs toward ninety-six and falls
+        away either side of true registration; find the peak. When registration
+        is exact the lamp drops out of itself. Figures accumulated while the
+        check stood are suspect: switch the ENGINEER KEY to zero-set and run the
+        batch again. The FAULT TEST SWITCH MISREAD forces the drift.
+      </p>
+
+      <h3>F3. Counter carry failure</h3>
+      <p>
+        <em>You see:</em> CARRY CHECK on the rail; the selected counter (per the
+        COUNTER SELECTOR at the moment the fault arose) loses its
+        thousands-carry and runs visibly short against the listing.
+      </p>
+      <p>
+        <em>To clear:</em> note the selector position, then switch the ENGINEER
+        KEY. All counters zero, the carry latch re-seats and the lamp goes out.
+        Thread a fresh deck with the key if the old one has run, set the
+        selector to the counter the job calls for, and re-run. The FAULT TEST
+        SWITCH CARRY forces the slip.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="specs">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Card</td>
+            <td>80-column, 7&frac38; in &times; 3&frac14; in, 0.0067 in</td>
+          </tr>
+          <tr>
+            <td>Feed speed</td>
+            <td>150 cards/minute at 1,440 r.p.m.</td>
+          </tr>
+          <tr>
+            <td>Hopper capacity</td>
+            <td>800 cards</td>
+          </tr>
+          <tr>
+            <td>Counters</td>
+            <td>four &times; 8 wheels, positive carry, zero-set by key</td>
+          </tr>
+          <tr>
+            <td>Printer</td>
+            <td>60 lines/minute, wire matrix, 88 characters</td>
+          </tr>
+          <tr>
+            <td>Vacuum, feed</td>
+            <td>10.2 in w.g. nominal; below 7 in w.g. expect skews</td>
+          </tr>
+          <tr>
+            <td>Motor</td>
+            <td>
+              &frac12; h.p. induction, 200&ndash;250 V 50 c/s, 30 A starting
+              peak
+            </td>
+          </tr>
+          <tr>
+            <td>Motor trip</td>
+            <td>overload at 88&deg;C; re-close below 62&deg;C</td>
+          </tr>
+          <tr>
+            <td>Brush registration</td>
+            <td>read-check meter to stand at 90&ndash;96 %</td>
+          </tr>
+          <tr>
+            <td>Ambient</td>
+            <td>10&ndash;32 &deg;C, relative humidity 40&ndash;60 %</td>
+          </tr>
+          <tr>
+            <td>Cabinet</td>
+            <td>
+              sea-green enamel steel, 54 in &times; 26 in &times; 44 in, 620 lb
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="manualfoot">
+        <span
+          >Britannia Accounting Machines Ltd. &middot; Croydon &middot; printed
+          in England</span
+        >
+        <a href="./">return to the machine</a>
+      </footer>
+    </div>
+  </body>
+</html>

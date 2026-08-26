@@ -1376,5 +1376,41 @@
     ],
     "tagline": "Red light only - hold her on the crosswire and let the sky do the arithmetic.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "britannia-tabulator",
+    "name": "Britannia Accounting Machines Ltd. — Meridian IV Card Accounting Machine, Rates Bureau",
+    "kind": "punched-card accounting machine installation",
+    "domain": "data-centre",
+    "era": "1950s",
+    "design": "sea-green crystalline enamel over cream cheeks with black bakelite escutcheons and nickel bezels, engraved paint-filled legends, ruby and opal jewel check lamps in office daylight, celluloid counter drums behind glass and a removable-wire plugboard under a laminated program chart",
+    "interaction": "wiring the job by seating patch cords across a sixteen-hub plugboard to the printed program chart, then walking the guarded breaker, contactor button and three-position feed clutch through their interlocks while the brushes beg registration on a meter",
+    "palette": [
+      "#2e6b64",
+      "#b4babd",
+      "#d8442c"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "MOTOR STARTER",
+      "FEED CLUTCH",
+      "PLUGBOARD",
+      "COUNTER SELECTOR",
+      "PAPER FEED",
+      "STOP",
+      "CLEAR FEEDWAY",
+      "BRUSH ADJUST",
+      "ENGINEER KEY",
+      "FAULT TEST SWITCHES",
+      "LAMPS TEST",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "card jam in the feed throat",
+      "reading-brush misregister",
+      "counter carry failure"
+    ],
+    "tagline": "Wire the board to the chart before you touch the clutch — she feeds whether or not she understands.",
+    "created": "2026-08-26"
   }
 ]
