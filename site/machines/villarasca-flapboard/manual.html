@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manuale d'uso e tenuta — Flap-Board FV/63</title>
+    <meta
+      name="description"
+      content="Operating and maintenance manual for the Villarasca Air Terminal flap-board control position, type FV/63."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <div class="sheet">
+      <header class="doc-head">
+        <div class="doc-firm">
+          <span class="doc-firm-name"
+            >C.E.L. — Costruzioni Elettromeccaniche Lodigiane · MILANO</span
+          >
+          <span class="doc-firm-sub"
+            >IMPIANTI A VENTOLA PER AEROPORTI · REPARTO TAVOLE E MANUALE</span
+          >
+        </div>
+        <div class="doc-meta">
+          <table class="doc-table">
+            <tbody>
+              <tr>
+                <th>DOC.</th>
+                <td>CEL–FV63–MC/3</td>
+              </tr>
+              <tr>
+                <th>EDIZIONE</th>
+                <td>2ª — MAGGIO 1963</td>
+              </tr>
+              <tr>
+                <th>TAVOLA</th>
+                <td>UNICA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </header>
+
+      <h1 class="doc-title">
+        MANUALE D&rsquo;USO E TENUTA<br />PUPITRE TAVOLA A VENTOLE FV/63
+      </h1>
+      <p class="doc-sub">
+        OPERATING AND MAINTENANCE MANUAL — SPLIT-FLAP BOARD CONTROL POSITION,
+        VILLARASCA AIR TERMINAL
+      </p>
+
+      <h2>Overview</h2>
+      <p>
+        The FV/63 position drives and maintains the departures board in the hall
+        of Villarasca Air Terminal: six rows of thirty-four falling flaps, moved
+        one tooth at a time by solenoid banks, fed from a motor-generator set
+        under the desk. The board is the product; the desk exists so that one
+        fitter can keep it truthful. Words are composed onto the board either
+        from the punched-tape schedule (<strong>TAPE</strong>) or by hand at the
+        selectors (<strong>HAND</strong>).
+      </p>
+      <p>
+        The machine asks little and forgives less. It steps whether or not
+        anybody reads it, a bound flap stalls the whole cascade, and the
+        windings cook quietly if the armature ammeter is ignored. Read
+        Section&nbsp;4 before your first solo shift.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Denomination</th>
+            <th>Type</th>
+            <th>Duty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CONTROL SUPPLY</td>
+            <td>toggle</td>
+            <td>
+              Mains to the desk: annunciators, starter coil, tape reader. Down
+              OFF, up ON.
+            </td>
+          </tr>
+          <tr>
+            <td>M-G SET STARTER</td>
+            <td>guarded push</td>
+            <td>
+              Starts the motor-generator set. Dead until the GUARDIA flap is
+              lifted; refuses while the breaker is tripped.
+            </td>
+          </tr>
+          <tr>
+            <td>RUN LEVER</td>
+            <td>quadrant lever</td>
+            <td>
+              FERMO/STOP — drive idle. MANUALE/HAND — compose by hand.
+              NASTRO/TAPE — the queued timetable runs out onto the board.
+            </td>
+          </tr>
+          <tr>
+            <td>ROW SELECTOR</td>
+            <td>rotary, 1–6</td>
+            <td>Chooses the board row for hand setting.</td>
+          </tr>
+          <tr>
+            <td>FIELD SELECTOR</td>
+            <td>rotary, 5 pos.</td>
+            <td>
+              Chooses the column group: DESTINATION, FLIGHT, VIA, TIME, REMARKS.
+            </td>
+          </tr>
+          <tr>
+            <td>CHARACTER SETTER</td>
+            <td>rotary, 37 pos.</td>
+            <td>
+              Selects the character: blank, A–Z, 0–9. Shown in the CELLA window.
+            </td>
+          </tr>
+          <tr>
+            <td>SET CELL</td>
+            <td>push</td>
+            <td>
+              In HAND mode, writes the selected character to the first place of
+              the selected row and field.
+            </td>
+          </tr>
+          <tr>
+            <td>TAPE FEED</td>
+            <td>push</td>
+            <td>
+              Feeds the next timetable entry into the queue. CODA drum counts
+              entries waiting; six maximum.
+            </td>
+          </tr>
+          <tr>
+            <td>JAM CLEAR CRANK</td>
+            <td>hold-and-turn</td>
+            <td>
+              Back-drives the cascade to free a bound flap. Hold roughly three
+              seconds, supply ON.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERLOAD RESET</td>
+            <td>collared push</td>
+            <td>
+              Frees the tripped breaker once the windings are below 80&nbsp;°C
+              and no flap is bound.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM ACCEPT</td>
+            <td>push</td>
+            <td>
+              Silences the horn and steadies the flashing window; the lamp stays
+              lit while the fault persists.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMP TEST</td>
+            <td>push</td>
+            <td>
+              Lights every jewel. Prove all six before trusting a dark panel.
+            </td>
+          </tr>
+          <tr>
+            <td>REINDEX</td>
+            <td>push</td>
+            <td>
+              Walks every cam stack home against the logical register. Clears an
+              index error; needs the set turning.
+            </td>
+          </tr>
+          <tr>
+            <td>FAULT SELECTOR</td>
+            <td>rotary, 4 pos., under cover</td>
+            <td>
+              Test bench: selects the injected fault. Maintenance use only.
+            </td>
+          </tr>
+          <tr>
+            <td>INJECT</td>
+            <td>push, under cover</td>
+            <td>
+              Fires the selected test fault into the drive. Never with the
+              public in the hall.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="proc">
+        <li>
+          Switch <strong>CONTROL SUPPLY</strong> ON. The SUPPLY jewel lights;
+          the horn test relay clicks once.
+        </li>
+        <li>
+          Lift the <strong>GUARDIA</strong> flap and press
+          <strong>M-G SET STARTER</strong>. The M-G SET jewel lights as the set
+          comes up to 1420 giri; the ARMATURA ammeter settles near 1 A.
+        </li>
+        <li>
+          Move the <strong>RUN LEVER</strong> to MANUALE/HAND. Compose a trial
+          word: choose ROW, FIELD and CHARACTER, press
+          <strong>SET CELL</strong>, and watch the flap fall.
+        </li>
+        <li>
+          Press <strong>TAPE FEED</strong> once for each departure to be posted.
+          Each press queues one line of the summer timetable; the CODA drum
+          counts them.
+        </li>
+        <li>
+          Move the <strong>RUN LEVER</strong> to NASTRO/TAPE. The cascade
+          empties the queue row by row; the PASSI drum totals the steps. Keep
+          feeding the queue as the afternoon fills.
+        </li>
+        <li>
+          To amend a word mid-service, bring the lever back to HAND, select the
+          row, field and character, and press <strong>SET CELL</strong>.
+        </li>
+        <li>
+          At close of traffic: lever to FERMO/STOP, then
+          <strong>CONTROL SUPPLY</strong> OFF. The board sleeps where it stands.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <p>
+        Windows flash and the horn sounds until
+        <strong>ALARM ACCEPT</strong> is pressed; accepted windows burn steady
+        while the fault remains.
+      </p>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Meaning</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OVERLOAD (red)</td>
+            <td>
+              Winding temperature above 83&nbsp;°C, or the set has tripped at
+              95&nbsp;°C. Ignored, the breaker opens and the board freezes
+              mid-word.
+            </td>
+            <td>
+              Stop stepping; let the AVVOLG. needle fall under 80&nbsp;°C; press
+              OVERLOAD RESET.
+            </td>
+          </tr>
+          <tr>
+            <td>FLAP JAM (red)</td>
+            <td>
+              The torque monitor has found a bound flap. Every attempt to step
+              heats the windings towards the trip.
+            </td>
+            <td>Crank it free (Section 5.1) before the set cooks.</td>
+          </tr>
+          <tr>
+            <td>INDEX ERR (amber)</td>
+            <td>
+              The encoder poll finds flaps sitting between teeth: the board is
+              lying to the public. TAPE mode is refused meanwhile.
+            </td>
+            <td>Run REINDEX with the set turning.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Faults and recovery</h2>
+
+      <h3>5.1 — Flap jam</h3>
+      <p>
+        <em>You see:</em> FLAP JAM flashing; one cell outlined dark red on the
+        board; the ARMATURA needle kicking towards the red arc each time the
+        cascade reaches the row; OVERLOAD following if you leave it.
+      </p>
+      <ol class="proc">
+        <li>Press ALARM ACCEPT to silence the horn.</li>
+        <li>Confirm CONTROL SUPPLY is ON (the crank needs desk power).</li>
+        <li>
+          Hold the JAM CLEAR CRANK and keep it turning about three seconds. The
+          outline clears when the flap rides free.
+        </li>
+        <li>
+          If the set has already tripped, wait for AVVOLG. under 80 °C and press
+          OVERLOAD RESET.
+        </li>
+        <li>Restart the M-G set and resume with the RUN LEVER.</li>
+      </ol>
+
+      <h3>5.2 — Motor overheating</h3>
+      <p>
+        <em>You see:</em> OVERLOAD steady or flashing; the AVVOLG. needle deep
+        in its red sector; a hot-varnish smell from the desk apron. Past
+        95&nbsp;°C the breaker opens itself, the generator voltage dies and the
+        board stands half-written.
+      </p>
+      <ol class="proc">
+        <li>
+          Bring the RUN LEVER to FERMO/STOP at once; stepping is the heat.
+        </li>
+        <li>
+          Watch the AVVOLG. needle fall below 80 °C — the fan does this in a
+          minute or two, longer if you ignored the first warning.
+        </li>
+        <li>Press OVERLOAD RESET. The window goes out.</li>
+        <li>Restart the set and return the service to TAPE or HAND.</li>
+      </ol>
+
+      <h3>5.3 — Index error</h3>
+      <p>
+        <em>You see:</em> INDEX ERR amber; stray flaps sitting a tooth off —
+        ROMA reading PONA; TAPE mode refused at the interlock though the cascade
+        itself still runs.
+      </p>
+      <ol class="proc">
+        <li>Press ALARM ACCEPT.</li>
+        <li>Be sure the M-G set is running (STARTER lit, not tripped).</li>
+        <li>
+          Press REINDEX. Every cam walks home in one sweep of a few seconds.
+        </li>
+        <li>
+          The window extinguishes; TAPE mode is released. Verify a word against
+          the tape before resuming the service.
+        </li>
+      </ol>
+
+      <h2>Specifications</h2>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Desk supply</th>
+            <td>
+              380 V three-phase, 50 Hz, plus 24 V battery for annunciators
+            </td>
+          </tr>
+          <tr>
+            <th>Motor-generator set</th>
+            <td>3 kW, 1420 giri, compound; DC side 52 V</td>
+          </tr>
+          <tr>
+            <th>Armature current</th>
+            <td>
+              1 A excitation idling; 30 A full scale; sustained above 24 A not
+              permitted
+            </td>
+          </tr>
+          <tr>
+            <th>Winding limits</th>
+            <td>alarm 83 °C, trip 95 °C, reset permitted below 80 °C</td>
+          </tr>
+          <tr>
+            <th>Board</th>
+            <td>
+              6 rows × 34 characters; fields DESTINATION 10, FLIGHT 5, VIA 6,
+              TIME 5, REMARKS 8
+            </td>
+          </tr>
+          <tr>
+            <th>Flap register</th>
+            <td>
+              37 positions: blank, A–Z, 0–9; cascade rate 42 falls a second
+            </td>
+          </tr>
+          <tr>
+            <th>Queue capacity</th>
+            <td>6 timetable entries; feed refused when full</td>
+          </tr>
+          <tr>
+            <th>Jam clearing</th>
+            <td>
+              hand crank, 3 s continuous against the drive, desk supply ON
+            </td>
+          </tr>
+          <tr>
+            <th>Ambient</th>
+            <td>0…45 °C, hall relative humidity to 85 %</td>
+          </tr>
+          <tr>
+            <th>Mass, complete console</th>
+            <td>410 kg, floor-mounted on four anti-vibration pads</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="doc-foot">
+        <span>CEL–FV63–MC/3 · ED. 2ª/1963</span>
+        <span>STAMPARE SU CARTA CANNA — DO NOT REMOVE FROM THE POSITION</span>
+        <span
+          ><a href="./">RITORNO AL PUPITRE — BACK TO THE PANEL</a> ·
+          <a href="../../">CATALOGO</a></span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

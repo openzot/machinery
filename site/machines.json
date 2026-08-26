@@ -1485,5 +1485,43 @@
     ],
     "tagline": "Crack her at ten-fifty, pour clean, and mind your kilowatts — the sun never moves but the budget does.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "villarasca-flapboard",
+    "name": "Villarasca Air Terminal — Flap-Board Control Position",
+    "kind": "split-flap departures board control and maintenance position",
+    "domain": "aviation",
+    "era": "1960s",
+    "design": "ochre stove-enamel console beneath a walnut-veneer partenze band, matte-black flap field with bone and amber letters, ivory bakelite keys, chrome bezels and incandescent jewel annunciators under cool fluorescent hall light",
+    "interaction": "typing onto the board through row, field and character rotaries against a motor-generator set that rolls every flap forward through its drum, and back-driving the whole cascade with a hand crank when a flap binds",
+    "palette": [
+      "#a8781e",
+      "#4a3422",
+      "#cf2418"
+    ],
+    "controls": [
+      "CONTROL SUPPLY",
+      "M-G SET STARTER",
+      "RUN LEVER",
+      "ROW SELECTOR",
+      "FIELD SELECTOR",
+      "CHARACTER SETTER",
+      "SET CELL",
+      "TAPE FEED",
+      "JAM CLEAR CRANK",
+      "OVERLOAD RESET",
+      "ALARM ACCEPT",
+      "LAMP TEST",
+      "REINDEX",
+      "FAULT SELECTOR",
+      "INJECT"
+    ],
+    "faults": [
+      "flap jam",
+      "motor overheating",
+      "index error"
+    ],
+    "tagline": "Feed the tape, mind the ammeter, and never let the board lie to the passengers.",
+    "created": "2026-08-26"
   }
 ]

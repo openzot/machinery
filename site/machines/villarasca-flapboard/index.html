@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Villarasca Air Terminal — Flap-Board Control Position</title>
+    <meta
+      name="description"
+      content="Control position for the Villarasca Air Terminal split-flap departures board: motor-generator set, solenoid drive, tape queue, jam crank."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <header class="nameplate">
+        <div class="np-left">
+          <span class="np-maker"
+            >C.E.L. — Costruzioni Elettromeccaniche Lodigiane · Milano</span
+          >
+          <h1>VILLARASCA AIR TERMINAL</h1>
+          <p class="np-sub">
+            FLAP-BOARD CONTROL POSITION · TYPE FV/63 · TAV. 1 DI 1
+          </p>
+        </div>
+        <div class="np-right">
+          <a class="cat-link" href="../../">&larr; CATALOGO</a>
+          <button type="button" class="btn plate-btn" data-action="manual">
+            MANUALE&nbsp;D&rsquo;USO
+          </button>
+        </div>
+      </header>
+
+      <!-- ============================ THE BOARD ============================ -->
+      <section class="board-shell" aria-label="Split-flap departures board">
+        <div class="board-band">
+          <span class="band-wood"></span>
+          <h2 class="band-title">PARTENZE &mdash; DEPARTURES</h2>
+          <span class="band-clock" data-clock>12:00</span>
+        </div>
+        <div class="board-scroll">
+          <div class="board" data-board>
+            <!-- flap rows are built by machine.js -->
+          </div>
+        </div>
+        <div class="board-skirt">
+          <span class="skirt-screw tl"></span
+          ><span class="skirt-screw tr"></span>
+          <span class="skirt-note"
+            >MOTOR-GENERATOR SET 3&nbsp;kW · AZIONAMENTO A VENTOLA · CEL
+            FV/63</span
+          >
+          <span class="skirt-screw bl"></span
+          ><span class="skirt-screw br"></span>
+        </div>
+      </section>
+
+      <!-- ============================= THE DESK ============================= -->
+      <section class="desk" aria-label="Flap-board control desk">
+        <!-- left: supplies and set -->
+        <div class="cluster cl-power">
+          <h3 class="cl-title">ALIMENTAZIONE / SUPPLY</h3>
+          <div class="switch-row">
+            <div class="toggle-wrap">
+              <button
+                type="button"
+                class="toggle"
+                data-control="CONTROL SUPPLY"
+                data-supply
+                aria-pressed="false"
+                aria-label="Control supply, off-on toggle switch"
+              >
+                <span class="t-plate">CONTROL<br />SUPPLY</span>
+                <span class="t-body"><span class="t-lever"></span></span>
+              </button>
+            </div>
+            <div class="starter-wrap">
+              <button
+                type="button"
+                class="guard-flap"
+                data-guard
+                aria-expanded="false"
+                aria-label="Lift starter guard"
+              >
+                GUARDIA
+              </button>
+              <button
+                type="button"
+                class="starter"
+                data-control="M-G SET STARTER"
+                data-starter
+                disabled
+                aria-label="Motor-generator set start button, guarded"
+              >
+                <span class="s-cap"></span>
+                <span class="s-plate">M-G SET<br />STARTER</span>
+              </button>
+            </div>
+          </div>
+          <div class="lamps" role="list" aria-label="Annunciator lamps">
+            <span class="lamp" role="listitem"
+              ><i class="jw jw-clear" data-lamp="supply"></i>SUPPLY</span
+            >
+            <span class="lamp" role="listitem"
+              ><i class="jw jw-clear" data-lamp="mgset"></i>M-G SET</span
+            >
+            <span class="lamp alarm" role="listitem"
+              ><i class="jw jw-red" data-lamp="overload"></i>OVERLOAD</span
+            >
+            <span class="lamp alarm" role="listitem"
+              ><i class="jw jw-red" data-lamp="jam"></i>FLAP JAM</span
+            >
+            <span class="lamp warnlamp" role="listitem"
+              ><i class="jw jw-amber" data-lamp="index"></i>INDEX ERR</span
+            >
+            <span class="lamp" role="listitem"
+              ><i class="jw jw-green" data-lamp="tape"></i>TAPE</span
+            >
+          </div>
+        </div>
+
+        <!-- centre: lever, meters, crank -->
+        <div class="cluster cl-run">
+          <h3 class="cl-title">MANDATA / DRIVE</h3>
+          <div class="run-row">
+            <div class="quadrant">
+              <div class="q-face">
+                <span class="q-mark q-stop">FERMO<br />STOP</span>
+                <span class="q-mark q-hand">MANUALE<br />HAND</span>
+                <span class="q-mark q-tape">NASTRO<br />TAPE</span>
+                <span class="q-arc"></span>
+                <button
+                  type="button"
+                  class="lever-knob"
+                  data-control="RUN LEVER"
+                  data-lever
+                  role="slider"
+                  aria-valuemin="0"
+                  aria-valuemax="2"
+                  aria-valuenow="0"
+                  aria-valuetext="STOP"
+                  aria-label="Run lever: stop, hand, tape"
+                ></button>
+              </div>
+              <span class="q-plate">RUN LEVER</span>
+            </div>
+
+            <div class="meters">
+              <div class="gauge g-amps">
+                <div class="g-dial">
+                  <div class="g-needle" data-needle="amps"></div>
+                  <i class="g-pivot"></i>
+                </div>
+                <span class="g-label">ARMATURA&nbsp;A</span>
+              </div>
+              <div class="gauge g-temp">
+                <div class="g-dial">
+                  <div class="g-needle" data-needle="temp"></div>
+                  <i class="g-pivot"></i>
+                </div>
+                <span class="g-label">AVVOLG.&nbsp;&deg;C</span>
+              </div>
+              <div class="drums">
+                <div class="drum">
+                  <span class="d-win" data-drum="queue">000</span>
+                  <span class="d-label">CODA&nbsp;QUEUE</span>
+                </div>
+                <div class="drum">
+                  <span class="d-win" data-drum="steps">00000</span>
+                  <span class="d-label">PASSI&nbsp;STEPS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="crank-box">
+              <div class="crank" data-crankwrap>
+                <button
+                  type="button"
+                  class="crank-arm"
+                  data-control="JAM CLEAR CRANK"
+                  data-crank
+                  aria-label="Jam clear crank: hold to turn against the drive"
+                >
+                  <span class="c-hub"></span>
+                  <span class="c-spoke"></span>
+                  <span class="c-handle"></span>
+                </button>
+              </div>
+              <span class="crank-plate">JAM CLEAR<br />CRANK</span>
+            </div>
+          </div>
+          <div class="accept-row">
+            <button
+              type="button"
+              class="btn collar"
+              data-control="OVERLOAD RESET"
+              data-resetbtn
+            >
+              <span>OVERLOAD RESET</span>
+            </button>
+            <button
+              type="button"
+              class="btn"
+              data-control="ALARM ACCEPT"
+              data-accept
+            >
+              ALARM ACCEPT
+            </button>
+          </div>
+        </div>
+
+        <!-- right: character setting -->
+        <div class="cluster cl-set">
+          <h3 class="cl-title">COMPOSIZIONE / SETTING</h3>
+          <div class="sel-grid">
+            <label class="rotary">
+              <span class="r-ring r-row"
+                ><i class="r-tick"></i><i class="r-tick"></i
+                ><i class="r-tick"></i><i class="r-tick"></i
+                ><i class="r-tick"></i><i class="r-tick"></i
+              ></span>
+              <button
+                type="button"
+                class="r-knob"
+                data-control="ROW SELECTOR"
+                data-rot="row"
+                aria-label="Row selector, rows one to six"
+              ></button>
+              <span class="r-name">ROW SELECTOR</span>
+            </label>
+            <label class="rotary">
+              <span class="r-ring r-field"
+                ><i class="r-tick"></i><i class="r-tick"></i
+                ><i class="r-tick"></i><i class="r-tick"></i
+                ><i class="r-tick"></i
+              ></span>
+              <button
+                type="button"
+                class="r-knob"
+                data-control="FIELD SELECTOR"
+                data-rot="field"
+                aria-label="Field selector: destination, flight, via, time, remarks"
+              ></button>
+              <span class="r-name">FIELD SELECTOR</span>
+            </label>
+            <label class="rotary rot-char">
+              <span class="r-ring r-chars"
+                ><!-- 37 ticks built by machine.js --></span
+              >
+              <button
+                type="button"
+                class="r-knob"
+                data-control="CHARACTER SETTER"
+                data-rot="char"
+                aria-label="Character setter: blank, A to Z, zero to nine"
+              ></button>
+              <span class="r-name">CHARACTER SETTER</span>
+            </label>
+          </div>
+          <div class="set-row">
+            <button
+              type="button"
+              class="btn key"
+              data-control="SET CELL"
+              data-setcell
+            >
+              SET CELL
+            </button>
+            <button
+              type="button"
+              class="btn key"
+              data-control="TAPE FEED"
+              data-tapefeed
+            >
+              TAPE FEED
+            </button>
+            <button
+              type="button"
+              class="btn key"
+              data-control="REINDEX"
+              data-reindex
+            >
+              REINDEX
+            </button>
+            <button
+              type="button"
+              class="btn key"
+              data-control="LAMP TEST"
+              data-lamptest
+            >
+              LAMP TEST
+            </button>
+          </div>
+          <div class="readout">
+            <span class="ro-label">CELLA / CELL</span>
+            <span class="ro-win" data-readout>R1 DEST · SPAZIO</span>
+          </div>
+        </div>
+
+        <!-- far right: maintenance under cover -->
+        <div class="cluster cl-maint">
+          <h3 class="cl-title">TENUTA / MAINTENANCE</h3>
+          <div class="maint-cover" data-maintcover>
+            <div class="maint-inner">
+              <label class="rotary rot-small">
+                <span class="r-ring r-maint"
+                  ><i class="r-tick"></i><i class="r-tick"></i
+                  ><i class="r-tick"></i><i class="r-tick"></i
+                ></span>
+                <button
+                  type="button"
+                  class="r-knob r-knob-sm"
+                  data-control="FAULT SELECTOR"
+                  data-rot="fault"
+                  aria-label="Fault selector: off, flap jam, motor overheating, index error"
+                ></button>
+                <span class="r-name">FAULT SEL.</span>
+              </label>
+              <button
+                type="button"
+                class="btn inject"
+                data-control="INJECT"
+                data-inject
+                disabled
+              >
+                INJECT
+              </button>
+            </div>
+            <button
+              type="button"
+              class="mc-latch"
+              data-maintlatch
+              aria-expanded="false"
+              aria-label="Lift maintenance cover"
+            >
+              APRIRE&nbsp;—&nbsp;LIFT&nbsp;COVER
+            </button>
+          </div>
+          <p class="maint-note">
+            PROVE DI TENUTA.<br />SOLO MANUTENTORE.<br />TEST USE ONLY.
+          </p>
+        </div>
+      </section>
+
+      <footer class="baseboard">
+        <span>CEL FV/63 · MATR. 1187 · ANNO 1963</span>
+        <span class="foot-note"
+          >Villarasca Air Terminal · fabbricato passeggeri, pianterreno</span
+        >
+        <a href="../../">CATALOGO MACHINERY</a>
+      </footer>
+    </div>
+
+    <dialog data-manual class="manual-dialog">
+      <div class="manual-frame-head">
+        <span class="mf-title"
+          >MANUALE D&rsquo;USO E TENUTA — FLAP-BOARD FV/63</span
+        >
+        <button type="button" class="btn plate-btn" data-action="close-manual">
+          CHIUDERE&nbsp;/&nbsp;CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Villarasca flap-board control position"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
