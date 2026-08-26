@@ -1558,5 +1558,39 @@
     ],
     "tagline": "Let the weight play the march - your hands are for the hours and the weather.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "strathbraan-spirit-bench",
+    "name": "Strathbraan Distillery - Spirit Still No. 2 Cutting Bench",
+    "kind": "malt whisky distillery spirit still cutting bench",
+    "domain": "chemical",
+    "era": "1960s",
+    "design": "dark walnut-oak bench under brass-edged cream sub-panels, engraved brass legends in roman capitals, verdigris-tinged copper wormwork, etched glass thermometer scales, a wax HM Excise seal, north kiln-window daylight with no glow but the amber pilot at the safe",
+    "interaction": "charge the still and ride the steam regulator against condenser water while making the cut at a glazed excise spirit safe, routing foreshots, spirit and feints on a floating parrot hydrometer",
+    "palette": [
+      "#3f2a16",
+      "#4f8069",
+      "#c22b1c"
+    ],
+    "controls": [
+      "CHARGE COCK",
+      "STEAM REGULATOR",
+      "CONDENSER WATER VALVE",
+      "STANDBY WATER COCK",
+      "SAFE TAP",
+      "RESEAL SAFE",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "RUN RESET",
+      "FAULT TEST SWITCHES",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "condenser water loss",
+      "priming carry-over",
+      "excise seal broken"
+    ],
+    "tagline": "Fire her easy, keep the worm cool, and cut on the parrot - never on the clock.",
+    "created": "2026-08-26"
   }
 ]
