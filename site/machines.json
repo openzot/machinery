@@ -1523,5 +1523,40 @@
     ],
     "tagline": "Feed the tape, mind the ammeter, and never let the board lie to the passengers.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "aldenhoorn-carillon",
+    "name": "St. Amandus Carillon Playing Cabin No. 2",
+    "kind": "carillon playing-cabin drum-and-wire transmission",
+    "domain": "civic",
+    "era": "1950s",
+    "design": "red-oxide painted steel carcass with sage-green oak keydesk and cheeks, engraved cream legend plates, oiled oak batons and brass fittings, a daylight cabin lit only through its own louvres, one ruby jewel on the trembler circuit",
+    "interaction": "thirteen batons struck against a wire transmission while a falling weight rolls the pinned playing drum under a hunting governor, with a swell-shutter quadrant and a spare-wire changeover rotary",
+    "palette": [
+      "#6b2c24",
+      "#7c9a83",
+      "#b32025"
+    ],
+    "controls": [
+      "CLAVIER",
+      "TRANSMISSION SELECTOR",
+      "WEIGHT BRAKE",
+      "REWIND CRANK",
+      "PROGRAMME SELECTOR",
+      "DRUM CLUTCH",
+      "GOVERNOR TEMPO",
+      "MEND PIN",
+      "SWELL SHUTTERS",
+      "FLAG RESET",
+      "FAULT TEST SWITCHES",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "tether wire fracture",
+      "drum pin shear",
+      "gale squall"
+    ],
+    "tagline": "Let the weight play the march - your hands are for the hours and the weather.",
+    "created": "2026-08-26"
   }
 ]

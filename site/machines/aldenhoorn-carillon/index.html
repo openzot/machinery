@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>St. Amandus Tower — Carillon Playing Cabin No. 2</title>
+    <meta
+      name="description"
+      content="Operating cabin of the Aldenhoorn carillon: baton clavier, weight-driven playing drum, wire transmission and swell shutters. Vanbeke &amp; Zonen, 1954."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="cabin">
+      <!-- ======================= top rail ======================= -->
+      <header class="top-rail">
+        <div class="maker-block">
+          <p class="maker-line">
+            VANBEKE &amp; ZONEN · KLOKKENGIETERIJ · AFDELING TORENSPIJLEN
+          </p>
+          <h1 class="cabin-title">
+            St. Amandustoren — Beiaardkamer No.&nbsp;2
+            <span class="title-en">(Carillon Playing Cabin)</span>
+          </h1>
+          <p class="serial-line">INRICHTING No. 214 · ALDENHOORN · 1954</p>
+        </div>
+
+        <nav class="rail-actions" aria-label="Documents">
+          <a class="plate-btn plate-link" href="../../">&#8592; CATALOGUE</a>
+          <button type="button" class="plate-btn" data-action="manual">
+            MANUAL
+          </button>
+        </nav>
+      </header>
+
+      <!-- ======================= flag rail ======================= -->
+      <section class="flag-rail" aria-label="Alarm flags">
+        <div class="flag-window" id="flag-weight-low">
+          <span class="flag-slot"></span>
+          <span class="flag-paddle">WEIGHT<br />LOW</span>
+          <span class="flag-caption">WEIGHT LOW</span>
+        </div>
+        <div class="flag-window" id="flag-sway-high">
+          <span class="flag-slot"></span>
+          <span class="flag-paddle">SWAY<br />HIGH</span>
+          <span class="flag-caption">SWAY HIGH</span>
+        </div>
+        <div class="flag-window" id="flag-wire-fractured">
+          <span class="flag-slot"></span>
+          <span class="flag-paddle">WIRE<br />OUT</span>
+          <span class="flag-caption">WIRE FRACTURED</span>
+        </div>
+        <div class="flag-window" id="flag-pin-sheared">
+          <span class="flag-slot"></span>
+          <span class="flag-paddle">PIN<br />OUT</span>
+          <span class="flag-caption">PIN SHEARED</span>
+        </div>
+        <div class="flag-window" id="flag-drive-stalled">
+          <span class="flag-slot"></span>
+          <span class="flag-paddle">STALL</span>
+          <span class="flag-caption">DRIVE STALLED</span>
+        </div>
+        <div class="warning-post">
+          <span class="jewel-lamp" id="jewel"></span>
+          <span class="jewel-label">TREMBLER<br />CIRCUIT</span>
+        </div>
+      </section>
+
+      <!-- ======================= bench ======================= -->
+      <div class="bench">
+        <!-- ~~~~~ LEFT BAY : driving weight, rewind, brake ~~~~~ -->
+        <section
+          class="bay drive-bay"
+          aria-label="Driving weight, rewinding and brake"
+        >
+          <h2 class="bay-head">
+            GEWICHT &amp; AANDRIJVING
+            <span class="bay-sub">WEIGHT &amp; DRIVE</span>
+          </h2>
+
+          <div class="drive-row">
+            <div class="weight-gauge">
+              <div class="gauge-scale" aria-hidden="true">
+                <span class="scale-num" style="--m: 8">8</span>
+                <span class="scale-num" style="--m: 7">7</span>
+                <span class="scale-num" style="--m: 6">6</span>
+                <span class="scale-num" style="--m: 5">5</span>
+                <span class="scale-num" style="--m: 4">4</span>
+                <span class="scale-num" style="--m: 3">3</span>
+                <span class="scale-num" style="--m: 2">2</span>
+                <span class="scale-num" style="--m: 1">1</span>
+                <span class="scale-num scale-zero" style="--m: 0">0</span>
+              </div>
+              <div class="gauge-track">
+                <div class="gauge-redline" aria-hidden="true"></div>
+                <div class="weight-block" id="weight-block">
+                  <span class="weight-text">1&#190;&nbsp;t</span>
+                </div>
+              </div>
+              <p class="gauge-note">VALHOOGTE<br /><em>metres of drop</em></p>
+            </div>
+
+            <div class="drive-controls">
+              <div class="crank-station" data-control="REWIND CRANK">
+                <svg
+                  class="crank-wheel"
+                  viewBox="0 0 100 100"
+                  aria-hidden="true"
+                >
+                  <circle cx="50" cy="50" r="42" class="wheel-rim" />
+                  <circle cx="50" cy="50" r="10" class="wheel-hub" />
+                  <rect
+                    x="46"
+                    y="10"
+                    width="8"
+                    height="18"
+                    rx="3"
+                    class="wheel-spoke"
+                  />
+                  <rect
+                    x="72"
+                    y="46"
+                    width="18"
+                    height="8"
+                    rx="3"
+                    class="wheel-spoke"
+                  />
+                  <rect
+                    x="46"
+                    y="72"
+                    width="8"
+                    height="18"
+                    rx="3"
+                    class="wheel-spoke"
+                  />
+                  <rect
+                    x="10"
+                    y="46"
+                    width="18"
+                    height="8"
+                    rx="3"
+                    class="wheel-spoke"
+                  />
+                </svg>
+                <button
+                  type="button"
+                  class="hold-btn"
+                  id="rewind-btn"
+                  aria-label="Hold to wind the driving weight up"
+                >
+                  HOLD<br />TO WIND
+                </button>
+                <p class="station-note">OPWINDKRUK<br />REWIND CRANK</p>
+              </div>
+
+              <div class="brake-station" data-control="WEIGHT BRAKE">
+                <button
+                  type="button"
+                  class="guard-flap"
+                  id="brake-guard"
+                  aria-expanded="false"
+                  aria-label="Lift the brake guard"
+                >
+                  <span>GUARD</span>
+                </button>
+                <button
+                  type="button"
+                  class="brake-lever"
+                  id="brake-lever"
+                  disabled
+                  role="switch"
+                  aria-checked="true"
+                  aria-label="Weight brake: down holds the drum, released lets it run"
+                >
+                  <span class="lever-arm"
+                    ><span class="lever-grip"></span
+                  ></span>
+                  <span class="lever-tag brake-on-tag">HOLD</span>
+                  <span class="lever-tag brake-off-tag">RELEASE</span>
+                </button>
+                <p class="station-note">
+                  REM VAN HET GEWICHT<br />WEIGHT BRAKE
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="maker-plate-rivet">INRICHTING No. 214</div>
+          <p class="bay-foot" id="stall-note">
+            The weight drives drum, transmission and clappers alike.
+          </p>
+        </section>
+
+        <!-- ~~~~~ CENTRE BAY : drum, governor, programmes, clutch ~~~~~ -->
+        <section class="bay drum-bay" aria-label="Playing drum and governor">
+          <h2 class="bay-head">
+            SPEELTROMMEL <span class="bay-sub">PLAYING DRUM</span>
+          </h2>
+
+          <div class="drum-stage">
+            <svg class="drum-disc" viewBox="0 0 200 200" aria-hidden="true">
+              <g id="disc-rot">
+                <circle cx="100" cy="100" r="88" class="drum-barrel" />
+                <circle cx="100" cy="100" r="70" class="drum-face" />
+                <g id="drum-pins"></g>
+              </g>
+              <path d="M 186 92 L 212 80 L 212 106 Z" class="drum-fan" />
+              <g id="drum-next"></g>
+            </svg>
+            <div class="drum-glass" aria-hidden="true"></div>
+          </div>
+
+          <div class="programme-strip">
+            <div class="programme-card">
+              <p class="card-no" id="tune-no">No. I</p>
+              <p class="card-title" id="tune-title">Aldenhoornsche Mars</p>
+            </div>
+            <div
+              class="prog-selector"
+              data-control="PROGRAMME SELECTOR"
+              role="radiogroup"
+              aria-label="Programme selector: six pinned marches"
+            >
+              <span class="prog-pointer" id="prog-pointer"></span>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="true"
+                data-prog="0"
+                aria-label="Programme one, Aldenhoornsche Mars"
+              >
+                I
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-prog="1"
+                aria-label="Programme two, Lied van de Toren"
+              >
+                II
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-prog="2"
+                aria-label="Programme three, Avondlied"
+              >
+                III
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-prog="3"
+                aria-label="Programme four, Gildekwartier"
+              >
+                IV
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-prog="4"
+                aria-label="Programme five, Kermiswijzer"
+              >
+                V
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-prog="5"
+                aria-label="Programme six, Stille Cantus"
+              >
+                VI
+              </button>
+            </div>
+          </div>
+
+          <div class="tempo-strip">
+            <div class="governor-figure" aria-hidden="true">
+              <svg viewBox="0 0 80 90">
+                <rect x="36" y="8" width="8" height="60" class="gov-spindle" />
+                <line
+                  id="gov-arm-l"
+                  x1="40"
+                  y1="20"
+                  x2="24"
+                  y2="44"
+                  class="gov-arm"
+                />
+                <line
+                  id="gov-arm-r"
+                  x1="40"
+                  y1="20"
+                  x2="56"
+                  y2="44"
+                  class="gov-arm"
+                />
+                <circle
+                  id="gov-ball-l"
+                  cx="24"
+                  cy="44"
+                  r="6"
+                  class="gov-ball"
+                />
+                <circle
+                  id="gov-ball-r"
+                  cx="56"
+                  cy="44"
+                  r="6"
+                  class="gov-ball"
+                />
+                <rect x="22" y="66" width="36" height="10" class="gov-base" />
+              </svg>
+              <p class="figure-note">REGELAAR</p>
+            </div>
+
+            <div class="tempo-dial" data-control="GOVERNOR TEMPO">
+              <svg viewBox="0 0 140 110" aria-hidden="true">
+                <path d="M 16 96 A 62 62 0 0 1 124 96" class="dial-arc" />
+                <text x="14" y="106" class="dial-tick">24</text>
+                <text x="64" y="30" class="dial-tick">48</text>
+                <text x="112" y="106" class="dial-tick">72</text>
+                <g id="needle-set">
+                  <line x1="70" y1="92" x2="70" y2="34" class="needle-set" />
+                </g>
+                <g id="needle-actual">
+                  <line x1="70" y1="92" x2="70" y2="34" class="needle-actual" />
+                </g>
+                <circle cx="70" cy="92" r="7" class="dial-hub" />
+              </svg>
+              <input
+                type="range"
+                id="tempo-range"
+                min="24"
+                max="72"
+                value="24"
+                step="1"
+                aria-label="Governor commanded tempo, strokes per minute"
+              />
+              <p class="dial-caption">
+                TEMPO&nbsp;<span id="tempo-readout">24</span>&nbsp;/ MIN
+              </p>
+            </div>
+
+            <div class="clutch-station" data-control="DRUM CLUTCH">
+              <button
+                type="button"
+                class="clutch-lever"
+                id="clutch-lever"
+                role="switch"
+                aria-checked="false"
+                aria-label="Drum clutch: engaged rolls the pinned drum, out frees it"
+              >
+                <span class="clutch-travel"
+                  ><span class="clutch-knob"></span
+                ></span>
+                <span class="clutch-tag tag-out">UIT · OUT</span>
+                <span class="clutch-tag tag-in">IN</span>
+              </button>
+              <p class="station-note">KOPPELING<br />DRUM CLUTCH</p>
+            </div>
+
+            <div class="mend-station" data-control="MEND PIN">
+              <button
+                type="button"
+                class="hold-btn mend-btn"
+                id="mend-btn"
+                aria-label="Hold to mend a sheared drum pin; clutch must be out"
+              >
+                HOLD<br />TO MEND
+              </button>
+              <div class="mend-progress" aria-hidden="true">
+                <span id="mend-fill"></span>
+              </div>
+              <p class="station-note">HERSTEL PEN<br />MEND PIN</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ~~~~~ FRONT BAY : baton clavier + transmission changeover ~~~~~ -->
+        <section
+          class="bay clavier-bay"
+          aria-label="Baton clavier and wire transmission"
+        >
+          <h2 class="bay-head">
+            TOETSERAFEL
+            <span class="bay-sub">BATON CLAVIER — STRIKE, DO NOT PRESS</span>
+          </h2>
+
+          <div class="clavier" data-control="CLAVIER" id="clavier">
+            <div class="baton-row row-chrom" id="row-chrom"></div>
+            <div class="baton-divider" aria-hidden="true">
+              <span>wire board &#183; draadkast</span>
+            </div>
+            <div class="baton-row row-natur" id="row-natur"></div>
+          </div>
+
+          <div class="transmission-strip">
+            <div
+              class="selector"
+              data-control="TRANSMISSION SELECTOR"
+              role="radiogroup"
+              aria-label="Transmission selector: OFF uncouples the wires, MAIN routes the main set, SPARE routes the reserve set"
+            >
+              <span class="sel-pointer" id="sel-pointer"></span>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="true"
+                data-route="off"
+              >
+                OFF
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-route="main"
+              >
+                MAIN
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-route="spare"
+              >
+                SPARE
+              </button>
+            </div>
+            <p class="transmission-note">
+              DRAADOMSCHAKELING &#183; TRANSMISSION SELECTOR &#8212; a fractured
+              wire is restored by the SPARE set
+            </p>
+            <div class="wire-board" id="wire-board" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <!-- ~~~~~ RIGHT BAY : tower elevation, shutters, tests ~~~~~ -->
+        <section
+          class="bay tower-bay"
+          aria-label="Tower elevation and station controls"
+        >
+          <h2 class="bay-head">
+            TORENBEELD <span class="bay-sub">TOWER ELEVATION</span>
+          </h2>
+
+          <div class="tower-wrap">
+            <svg class="tower-mimic" viewBox="0 0 220 430" aria-hidden="true">
+              <rect x="30" y="400" width="160" height="8" class="tw-ground" />
+              <rect x="52" y="150" width="116" height="250" class="tw-shaft" />
+              <rect x="40" y="120" width="140" height="34" class="tw-belfry" />
+              <path d="M 44 120 L 110 58 L 176 120 Z" class="tw-roof" />
+              <g id="sway-group">
+                <line x1="110" y1="70" x2="110" y2="112" class="sway-line" />
+                <circle
+                  id="sway-bob"
+                  cx="110"
+                  cy="114"
+                  r="6"
+                  class="sway-bob"
+                />
+              </g>
+              <g id="anemo-group">
+                <line x1="110" y1="58" x2="110" y2="40" class="anemo-mast" />
+                <g id="anemo-cups">
+                  <line x1="110" y1="40" x2="102" y2="33" class="anemo-arm" />
+                  <line x1="110" y1="40" x2="119" y2="36" class="anemo-arm" />
+                  <line x1="110" y1="40" x2="109" y2="30" class="anemo-arm" />
+                  <circle cx="101" cy="32" r="3" class="anemo-cup" />
+                  <circle cx="120" cy="35" r="3" class="anemo-cup" />
+                  <circle cx="109" cy="29" r="3" class="anemo-cup" />
+                </g>
+              </g>
+              <g id="louvre-l" class="louvre"></g>
+              <g id="louvre-r" class="louvre"></g>
+              <rect
+                x="66"
+                y="128"
+                width="38"
+                height="22"
+                fill="none"
+                stroke="#2e1713"
+                stroke-width="1.5"
+              />
+              <rect
+                x="116"
+                y="128"
+                width="38"
+                height="22"
+                fill="none"
+                stroke="#2e1713"
+                stroke-width="1.5"
+              />
+              <g id="bells"></g>
+            </svg>
+
+            <div class="tower-readouts">
+              <p class="readout-line">
+                WIND <span class="readout-value" id="wind-readout">0</span> m/s
+              </p>
+              <p class="readout-line">
+                SWAY <span class="readout-value" id="sway-readout">0</span> mm
+              </p>
+              <p class="readout-line readout-red" id="sway-limit">
+                RED LINE 45 mm
+              </p>
+            </div>
+          </div>
+
+          <div class="quadrant-station" data-control="SWELL SHUTTERS">
+            <div class="quadrant">
+              <svg viewBox="0 0 130 90" aria-hidden="true">
+                <path d="M 14 78 A 58 58 0 0 1 122 62" class="quad-arc" />
+                <line
+                  x1="14"
+                  y1="78"
+                  x2="122"
+                  y2="62"
+                  class="quad-base"
+                  opacity="0"
+                />
+                <g class="quad-ticks">
+                  <line x1="20" y1="74" x2="26" y2="70" />
+                  <line x1="30" y1="61" x2="37" y2="59" />
+                  <line x1="45" y1="49" x2="49" y2="54" />
+                  <line x1="65" y1="41" x2="66" y2="47" />
+                  <line x1="86" y1="40" x2="83" y2="46" />
+                  <line x1="104" y1="47" x2="99" y2="51" />
+                  <line x1="117" y1="58" x2="111" y2="60" />
+                </g>
+                <g id="shutter-arm">
+                  <line x1="68" y1="76" x2="68" y2="24" class="quad-arm" />
+                  <circle cx="68" cy="76" r="6" class="quad-hub" />
+                </g>
+              </svg>
+              <input
+                type="range"
+                id="shutter-range"
+                min="0"
+                max="100"
+                value="0"
+                step="5"
+                aria-label="Swell shutters opening, percent"
+              />
+              <p class="dial-caption">
+                LUIKEN <span id="shutter-readout">0</span>%
+              </p>
+            </div>
+            <p class="station-note">ZWELLUIKEN &#183; SWELL SHUTTERS</p>
+          </div>
+
+          <div class="tower-controls">
+            <button
+              type="button"
+              class="push-btn"
+              data-control="FLAG RESET"
+              id="flag-reset-btn"
+              aria-label="Reset alarm flags whose cause has cleared"
+            >
+              FLAG<br />RESET
+            </button>
+
+            <div class="test-cluster" data-control="FAULT TEST SWITCHES">
+              <p class="cluster-head">PROEFSTUK &#183; FAULT TEST</p>
+              <div class="test-switches">
+                <button
+                  type="button"
+                  class="test-sw"
+                  id="test-wire"
+                  aria-label="Test switch: tether wire fracture"
+                >
+                  <span class="ts-guard"></span><span class="ts-lever"></span>
+                  <span class="ts-label">WIRE</span>
+                </button>
+                <button
+                  type="button"
+                  class="test-sw"
+                  id="test-pin"
+                  aria-label="Test switch: drum pin shear"
+                >
+                  <span class="ts-guard"></span><span class="ts-lever"></span>
+                  <span class="ts-label">PIN</span>
+                </button>
+                <button
+                  type="button"
+                  class="test-sw"
+                  id="test-gale"
+                  aria-label="Test switch: gale squall"
+                >
+                  <span class="ts-guard"></span><span class="ts-lever"></span>
+                  <span class="ts-label">GALE</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="sound-station" data-control="SOUND CUT">
+              <button
+                type="button"
+                class="cut-toggle"
+                id="sound-cut"
+                role="switch"
+                aria-checked="false"
+                aria-label="Sound cut: silences the cabin loudspeaker"
+              >
+                <span class="cut-track"><span class="cut-handle"></span></span>
+                <span class="cut-label">SOUND CUT</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="skirt">
+        <p class="skirt-note">
+          Strike the batons squarely &#183; mind the weight before you wind the
+          tune &#183; never pull the heavy bells against a swaying tower.
+        </p>
+        <p class="skirt-fine">
+          Geen enkele schroef van deze kast mag losgemaakt worden zonder last
+          van de kerkenraad.
+        </p>
+      </footer>
+    </main>
+
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <div class="dialog-chrome">
+        <p class="dialog-title">
+          HANDBOEK VOOR DE BEIAARDIER &#183; OPERATING MANUAL
+        </p>
+        <button type="button" class="plate-btn" data-action="close-manual">
+          CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating manual — St. Amandus carillon playing cabin"
+        class="manual-frame"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
