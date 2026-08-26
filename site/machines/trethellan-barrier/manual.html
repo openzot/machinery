@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operating Manual · Trethellan Sound Surge Barrier</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-page">
+    <header class="man-head">
+      <div>
+        <p class="man-authority">Rosevennor Coastal Authority</p>
+        <h1>
+          Operating Manual — Trethellan Sound Surge Barrier,<br />Control Desk
+          No.&nbsp;1
+        </h1>
+        <p class="man-docref mono">
+          DOC TRB/CR1/M/2 · REV 4 · ISSUED 14 OCT 2026 · STATUTORY DOCUMENT
+        </p>
+      </div>
+      <nav class="man-nav">
+        <a href="./">← BACK TO THE PANEL</a>
+        <a href="../../">← MACHINE CATALOGUE</a>
+      </nav>
+    </header>
+
+    <main class="man-body">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          Trethellan Sound Surge Barrier spans the narrows between Rosevennor
+          Point and Carn Du. Six rising-sector gates, each twenty-four metres
+          across, lie folded in the sill on every normal tide and let the
+          estuary breathe. When the tide net telegraphs a surge, the gates are
+          walked up out of the sill and hold the sea off the river. The barrier
+          exists for perhaps forty hours a year; the other nine thousand hours
+          it is watched by one person at this desk, and that person is you.
+        </p>
+        <p>
+          The desk does three things. It passes the tide: gates down, sluice
+          shut, pumps standing. It closes the river: six gates raised in
+          sequence before high water, never against more than three metres of
+          differential, the sluice cracked whenever the upstream impoundment
+          needs relief. And it tells you honestly when something is wrong: every
+          red lamp on this panel has an entry in the Alarms section, and every
+          fault that can put the barrier out of service has a recovery written
+          here. The plant forgives patience and punishes stubbornness — close
+          her early against a small head, and let the weir and the sluice do the
+          waiting for you.
+        </p>
+      </section>
+
+      <section id="controls">
+        <h2>Controls</h2>
+        <dl class="controls-list">
+          <dt data-i="1">CONTROL SELECTOR</dt>
+          <dd>
+            Three-position selector, stepped by clicking or with Enter:
+            <b>OFF</b> (desk dead, drives and pumps inhibited),
+            <b>TEST</b> (proves every annunciator lamp for two seconds),
+            <b>OPERATE</b> (control power on; drives and pumps available). The
+            current position prefixes the status chip.
+          </dd>
+          <dt>GATE SELECTOR</dt>
+          <dd>
+            Seven-position rotary: G1…G6 selects one gate for the drive lever,
+            <b>ALL</b> couples the lever to the whole barrier. Click steps
+            clockwise; arrow keys work it too.
+          </dd>
+          <dt>GATE DRIVE LEVER</dt>
+          <dd>
+            Spring-return lever, three positions: <b>RAISE</b>,
+            <b>HOLD</b> (rest), and <b>LOWER</b>. It moves only the gate or
+            gates the selector has given it, and springs back to HOLD the moment
+            you let go. Hold ArrowUp / ArrowDown to work it from the keyboard.
+          </dd>
+          <dt>SURGE CLOSE</dt>
+          <dd>
+            Red pushbutton under an orange lifting guard. With the desk in
+            OPERATE, lift the guard and press: the barrier raises itself gate by
+            gate in overlapping pairs. The sequence is a polite subordinate —
+            whenever the differential passes three metres it holds where it is
+            until the sluice settles the levels.
+          </dd>
+          <dt>OPEN ALL</dt>
+          <dd>
+            Pushbutton. Runs the same sequence downward — gates fold away in
+            overlapping pairs, holding whenever the differential forbids motion.
+          </dd>
+          <dt>SLUICE BYPASS VALVE</dt>
+          <dd>
+            Handwheel, five turns shut to open. Passes up to 460&nbsp;m³/s
+            through the culverts to equalise the head across the gates, or to
+            relieve the impounded river while the barrier is closed. Turn
+            anticlockwise to open; the counter reads the turns off the seat.
+          </dd>
+          <dt>DUTY PUMP SWITCH</dt>
+          <dd>
+            Starts and stops HPU 1, the duty hydraulic power unit. A tripped
+            unit locks out; switching it <i>off</i> resets the lockout,
+            switching it <i>on</i> restarts.
+          </dd>
+          <dt>STANDBY PUMP SWITCH</dt>
+          <dd>
+            Starts and stops HPU 2. Either unit alone holds full pressure; both
+            together share a heavy sequence.
+          </dd>
+          <dt>TIDE DRUM</dt>
+          <dd>
+            Fifteen-day predictor roller under a fixed reading cursor. Wind it
+            with a finger drag, the mouse wheel, or the arrow keys to bring any
+            tide to the cursor; the red needle beside the cursor is the live
+            gauge. The scribed line always reads
+            <b>now</b> when the drum is centred — TO NOW recentres it.
+          </dd>
+          <dt>ALARM ACCEPT</dt>
+          <dd>
+            Steadies all flashing lamps and disarms the horn for the alarms
+            showing. New events flash and sound again.
+          </dd>
+          <dt>HORN SILENCE</dt>
+          <dd>
+            Kills the alarm horn without touching the lamps. Use it once you
+            have seen the cause.
+          </dd>
+          <dt>LAMPS TEST</dt>
+          <dd>
+            Lights every annunciator window while pressed. Dead lamp, no
+            protection — test each shift.
+          </dd>
+          <dt>TEST GATE SKEW</dt>
+          <dd>
+            Fault-test toggle behind the FAULT TEST PANEL lid. Injects a sheared
+            position pin on gate 4 exactly as the real failure presents. Used
+            for training; the recovery is the real procedure.
+          </dd>
+          <dt>TEST PUMP TRIP</dt>
+          <dd>
+            Fault-test toggle. Trips the duty HPU breaker on lockout as an
+            electrical protection operation would.
+          </dd>
+          <dt>TEST DEBRIS STRIKE</dt>
+          <dd>
+            Fault-test toggle. Arms a floating strike on gate 18&nbsp;seconds
+            ahead — enough time to be doing something else when it lands.
+          </dd>
+          <dt>SKEW RESET</dt>
+          <dd>
+            Re-seats the gate 4 position drive after a skew event. Refuses
+            unless the differential is below 1.2&nbsp;m and nothing is driving.
+          </dd>
+          <dt>DEBRIS CLEAR</dt>
+          <dd>
+            Held pushbutton — keep it down a full two seconds. Backs the gate
+            off its obstruction and restores drive.
+          </dd>
+          <dt>MAINTENANCE RESET</dt>
+          <dd>
+            Black keyswitch. Returns the whole desk to cold: gates down, pumps
+            off, selector OFF, every alarm and latch cleared. The only way back
+            after an OVERTOPPING or SCOUR DAMAGE trip.
+          </dd>
+          <dt>SOUND</dt>
+          <dd>
+            Header pushbutton. Enables the desk audio — pump hum, detent clacks
+            and the alarm horn — after your first click anywhere on the page.
+          </dd>
+        </dl>
+      </section>
+
+      <section id="normal-operation">
+        <h2>Normal operation</h2>
+        <ol class="proc">
+          <li>
+            CONTROL SELECTOR to <b>TEST</b>. Every annunciator window proves for
+            two seconds. Any lamp lit at rest is a fault — read it before going
+            further.
+          </li>
+          <li>
+            CONTROL SELECTOR to <b>OPERATE</b>. The status chip shows [OPERATE]
+            BARRIER OPEN.
+          </li>
+          <li>
+            DUTY PUMP SWITCH <b>on</b>. The accumulator needle comes up to about
+            180&nbsp;bar inside half a minute. STANDBY stays off.
+          </li>
+          <li>
+            Centre the <b>TIDE DRUM</b> on now (TO NOW), confirm the printed
+            curve against the day, and read the time of the next high water. An
+            amber SURGE AMENDMENT slip across the drum means the atmosphere
+            disagrees with the paper — believe the slip.
+          </li>
+          <li>
+            Confirm the standing state: all six gate bars at <b>0%</b>, SLUICE
+            BYPASS VALVE shut, differential needle near zero, chip BARRIER OPEN.
+            You are on duty and passing the tide.
+          </li>
+          <li>
+            On <b>SURGE FORECAST SEVERE</b>: accept the alarm, ease the SLUICE
+            BYPASS VALVE two turns, leave GATE SELECTOR at ALL, lift the guard
+            and press <b>SURGE CLOSE</b>. The gates walk up one after another;
+            watch the differential needle and hold (HOLD, or let the sequence
+            stand) if it nears the red.
+          </li>
+          <li>
+            While closed, watch the upstream pane. If the river climbs through
+            <b>6.8&nbsp;m</b>, open the sluice further — the weir at 6.0&nbsp;m
+            cannot carry a flood alone. HIGH WATER U/S at 7.2&nbsp;m means the
+            impoundment is winning; open the sluice full.
+          </li>
+          <li>
+            When the surge has passed and the falling sea brings the
+            differential under
+            <b>3&nbsp;m</b>: open the sluice fully for a minute to settle the
+            levels, then press <b>OPEN ALL</b>. Confirm every bar reads 0%.
+          </li>
+          <li>
+            Shut the SLUICE BYPASS VALVE, silence whatever needs silencing, and
+            write the closure in the log. Return to step 4 and stay awake — the
+            second event of a pair is the one that catches the unwary.
+          </li>
+        </ol>
+      </section>
+
+      <section id="alarms">
+        <h2>Alarms</h2>
+        <table class="spec-table alarm-table">
+          <thead>
+            <tr>
+              <th>Lamp</th>
+              <th>Means</th>
+              <th>Do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                SURGE FORECAST SEVERE <span class="amber-chip">AMBER</span>
+              </td>
+              <td>
+                A surge residual over 0.85&nbsp;m — or a predicted level above
+                7.6&nbsp;m — arrives within four minutes on the model run.
+              </td>
+              <td>
+                Normal operation steps 6–7. Close before the sea makes the
+                decision for you.
+              </td>
+            </tr>
+            <tr>
+              <td>HIGH WATER UPSTREAM <span class="red-chip">RED</span></td>
+              <td>
+                The impounded river has reached 7.2&nbsp;m CD against the
+                embankments.
+              </td>
+              <td>
+                Sluice full open. If the barrier is closed and the sea has
+                fallen, prepare to reopen.
+              </td>
+            </tr>
+            <tr>
+              <td>DIFFERENTIAL HEAD HIGH <span class="red-chip">RED</span></td>
+              <td>
+                More than 3&nbsp;m across the gates while driving or while the
+                automatic sequence stands held; 5&nbsp;m standing parked.
+              </td>
+              <td>
+                Stop driving. Equalise with the sluice before moving anything
+                again.
+              </td>
+            </tr>
+            <tr>
+              <td>HYD PRESSURE LOW <span class="red-chip">RED</span></td>
+              <td>
+                Duty HPU locked out, or the accumulator below 120&nbsp;bar with
+                the desk on OPERATE.
+              </td>
+              <td>Faults and recovery, “hydraulic power unit trip”.</td>
+            </tr>
+            <tr>
+              <td>GATE 4 SKEW <span class="red-chip">RED</span></td>
+              <td>
+                Gate 4’s position drive disagrees with its command; sheared pin
+                suspected.
+              </td>
+              <td>Faults and recovery, “gate skew jam”.</td>
+            </tr>
+            <tr>
+              <td>DEBRIS IMPACT <span class="red-chip">RED</span></td>
+              <td>
+                A floating object has taken gate 4; drive to that gate is cut.
+              </td>
+              <td>Faults and recovery, “floating debris strike”.</td>
+            </tr>
+            <tr>
+              <td>SCOUR DAMAGE <span class="red-chip">RED</span></td>
+              <td>
+                The sill under the gates has been worked on by driving against
+                head. The barrier is out of service.
+              </td>
+              <td>
+                Nothing at the desk. Call the civil engineer, then MAINTENANCE
+                RESET for the training rig.
+              </td>
+            </tr>
+            <tr>
+              <td>OVERTOPPING <span class="red-chip">RED</span></td>
+              <td>
+                The upstream embankment has been topped at 7.8&nbsp;m CD. The
+                barrier is out of service and the marsh behind you is drowning.
+              </td>
+              <td>
+                As above. This is the lamp that ends careers; the procedure
+                exists so you never meet it.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="man-note">
+          Ignoring HIGH WATER UPSTREAM, or leaving the gates open through a
+          surge, ends the same way: the upstream level passes 7.8&nbsp;m for
+          twenty seconds and the barrier trips to OVERTOPPING. Only MAINTENANCE
+          RESET returns the desk to cold afterwards.
+        </p>
+      </section>
+
+      <section id="faults-and-recovery">
+        <h2>Faults and recovery</h2>
+
+        <h3>Gate skew jam</h3>
+        <p>
+          <b>You see:</b> GATE 4 SKEW flashing; the SKEW flag on gate 4’s bar;
+          gate 4 frozen wherever it was while the others answer; the skew angle
+          creeping up whenever the lever insists.
+        </p>
+        <ol class="proc">
+          <li>
+            Stop driving gate 4 — lever to HOLD, or let an automatic sequence
+            stand.
+          </li>
+          <li>
+            Open the SLUICE BYPASS VALVE until the differential needle reads
+            under
+            <b>1.2&nbsp;m</b>.
+          </li>
+          <li>
+            Press <b>SKEW RESET</b>. The pin re-seats, the flag drops, gate 4
+            answers again.
+          </li>
+          <li>
+            Log it; gate 4 gets an engineering visit at the next spring low.
+          </li>
+        </ol>
+
+        <h3>Hydraulic power unit trip</h3>
+        <p>
+          <b>You see:</b> HYD PRESSURE LOW; the accumulator needle sagging
+          toward zero; gates slowing, then refusing; the DUTY HPU switch dark.
+        </p>
+        <ol class="proc">
+          <li>
+            Switch the DUTY PUMP SWITCH <b>off</b> — this resets the breaker
+            lockout — then <b>on</b> again. Pressure rebuilds in about thirty
+            seconds.
+          </li>
+          <li>
+            If the movement will not wait, STANDBY PUMP SWITCH <b>on</b> carries
+            the load alone while you sort the duty unit.
+          </li>
+          <li>
+            If it trips twice, leave it tripped and run on standby. Log both
+            events.
+          </li>
+        </ol>
+
+        <h3>Floating debris strike</h3>
+        <p>
+          <b>You see:</b> DEBRIS IMPACT, eighteen seconds after the arming
+          event; gate 4’s drive cuts and the bar freezes mid-travel.
+        </p>
+        <ol class="proc">
+          <li>Let go of everything — the gate is already held.</li>
+          <li>
+            Press and <b>hold DEBRIS CLEAR</b> for a full two seconds. Drive is
+            restored when the button lights its completion clack.
+          </li>
+          <li>
+            Finish the movement slowly and eyeball the bay at the next low
+            water.
+          </li>
+        </ol>
+      </section>
+
+      <section id="specifications">
+        <h2>Specifications</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <th>Gates</th>
+              <td>6 × rising-sector, 24.0 m span, folded in the sill</td>
+            </tr>
+            <tr>
+              <th>Gate travel</th>
+              <td>
+                sill to raised in 26 s at full flow; the automatic sequence
+                works in overlapping pairs
+              </td>
+            </tr>
+            <tr>
+              <th>Design differential</th>
+              <td>±8 m standing; 3 m limit while driving</td>
+            </tr>
+            <tr>
+              <th>Tide range</th>
+              <td>MHWS +6.9 m CD, MLWS −1.9 m CD, mean level +2.5 m CD</td>
+            </tr>
+            <tr>
+              <th>Design surge residual</th>
+              <td>+2.9 m on the predicted curve</td>
+            </tr>
+            <tr>
+              <th>Upstream basin</th>
+              <td>
+                25 km² working surface; relief weir crest +6.0 m CD, 300 m³/s
+                per metre
+              </td>
+            </tr>
+            <tr>
+              <th>Levels</th>
+              <td>HIGH WATER UPSTREAM +7.2 m CD; overtopping +7.8 m CD</td>
+            </tr>
+            <tr>
+              <th>Sluice bypass</th>
+              <td>460 m³/s at five turns; equalises a 3 m head in minutes</td>
+            </tr>
+            <tr>
+              <th>Hydraulics</th>
+              <td>2 × 315 kW HPUs, 180 bar nominal, 205 bar loaded maximum</td>
+            </tr>
+            <tr>
+              <th>Closure rule</th>
+              <td>never drive against more than 3 m of differential</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="man-signatures mono">
+          <p>
+            AUTHORISED · CHIEF ENGINEER (ESTUARIES) · R. TRELOAR · 14 OCT 2026
+          </p>
+          <p>
+            AMENDMENTS ARE STRUCK THROUGH IN RED AND INITIALLED — NO OTHER
+            MARKING IS PERMITTED ON THIS DOCUMENT
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="man-foot">
+      <a href="./">← BACK TO THE PANEL</a>
+      <span class="mono">TRB/CR1/M/2 · REV 4</span>
+      <a href="../../">MACHINE CATALOGUE ←</a>
+    </footer>
+  </body>
+</html>

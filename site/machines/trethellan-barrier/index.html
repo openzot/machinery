@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trethellan Sound Surge Barrier — Control Desk No. 1</title>
+    <meta
+      name="description"
+      content="Control desk for the Trethellan Sound tidal surge barrier: six rising-sector gates, live estuary status wall, tide drum and hydraulic plant."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <svg class="crest" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="20" class="crest-ring" />
+        <path d="M8 27q7-5 14 0t14 0" class="crest-wave" />
+        <path d="M8 33q7-5 14 0t14 0" class="crest-wave" />
+        <path d="M22 6v13M16 11l6 5 6-5" class="crest-gate" />
+      </svg>
+      <div class="masthead-id">
+        <p class="authority">
+          Rosevennor Coastal Authority · Estuary &amp; Tidal Defences
+        </p>
+        <h1>Trethellan Sound Surge Barrier — Control Desk No.&nbsp;1</h1>
+        <p class="asset">
+          TRB/CR1/014 · PANEL 1 OF 2 · PENTREATH MARINE &amp; CIVIL, FALMOUTH ·
+          JOB 2241
+        </p>
+      </div>
+      <div class="masthead-status">
+        <p class="clock mono" id="clock" aria-label="shift clock">
+          DAY 1 · 05:00
+        </p>
+        <button
+          type="button"
+          class="modechip"
+          id="modeChip"
+          data-control="CONTROL SELECTOR"
+          aria-label="Control selector: OFF, TEST, OPERATE - click or press Enter to step"
+        >
+          BARRIER OPEN
+        </button>
+        <div class="masthead-buttons">
+          <a class="catalogue-link" href="../../">← CATALOGUE</a>
+          <button
+            type="button"
+            class="push push-small"
+            id="soundBtn"
+            data-control="SOUND"
+            aria-pressed="false"
+          >
+            SOUND OFF
+          </button>
+          <button
+            type="button"
+            class="push push-small push-accent"
+            data-action="manual"
+          >
+            OPERATING MANUAL
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="statuswall" aria-label="Barrier status wall">
+      <div class="wall-head">
+        <span class="wall-title">TRETHELLAN BARRIER · LIVE STATUS</span>
+        <span class="wall-feed mono" id="feedStamp"
+          >FEED RCA-TIDE-NET · LIVE</span
+        >
+        <span class="beacon" id="beacon" aria-hidden="true"></span>
+      </div>
+      <div class="wall-grid">
+        <div class="pane pane-sea">
+          <h2>SEA — TRETHELLAN SOUND</h2>
+          <p class="big mono">
+            <span id="seaLevel">2.50</span><small> m CD</small>
+          </p>
+          <p class="sub mono">
+            <span id="seaTrend">RISING</span> · PRED HW
+            <span id="predHw">--:--</span>
+          </p>
+        </div>
+        <div class="pane pane-mimic">
+          <svg
+            id="mimic"
+            viewBox="0 0 640 260"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Estuary cross-section: sea left, barrier gates centre, river right"
+          >
+            <defs>
+              <clipPath id="basin">
+                <rect x="0" y="30" width="640" height="200" />
+              </clipPath>
+            </defs>
+            <!-- bed -->
+            <path
+              d="M0 208 L120 214 L180 222 L230 232 L280 236 L330 236 L380 232 L430 224 L500 216 L580 210 L640 206 L640 260 L0 260 Z"
+              class="bed"
+            />
+            <!-- embankments -->
+            <path
+              d="M0 60 L60 92 L96 150 L110 214 L0 218 Z"
+              class="embankment"
+            />
+            <path
+              d="M640 58 L586 90 L552 148 L538 212 L640 216 Z"
+              class="embankment"
+            />
+            <g clip-path="url(#basin)">
+              <rect
+                id="seaFill"
+                x="0"
+                y="120"
+                width="320"
+                height="140"
+                class="water-sea"
+              />
+              <rect
+                id="riverFill"
+                x="320"
+                y="170"
+                width="320"
+                height="90"
+                class="water-river"
+              />
+            </g>
+            <!-- water surface lines -->
+            <line
+              id="seaLine"
+              x1="0"
+              y1="120"
+              x2="318"
+              y2="120"
+              class="surface surface-sea"
+            />
+            <line
+              id="riverLine"
+              x1="322"
+              y1="170"
+              x2="640"
+              y2="170"
+              class="surface surface-river"
+            />
+            <!-- pier -->
+            <rect x="296" y="34" width="48" height="202" class="pier" />
+            <rect
+              x="290"
+              y="26"
+              width="60"
+              height="12"
+              rx="2"
+              class="pier-cap"
+            />
+            <text x="320" y="52" class="mimic-label" text-anchor="middle">
+              TRB
+            </text>
+            <!-- six gates, hinged at the bed, rotate about their bottom edge -->
+            <g id="gateG"></g>
+            <!-- level scales -->
+            <g id="scales"></g>
+            <text x="70" y="46" class="mimic-label">SEA</text>
+            <text x="566" y="46" class="mimic-label">RIVER</text>
+            <g id="headArrows"></g>
+          </svg>
+          <div class="gate-strip" id="gateStrip"></div>
+        </div>
+        <div class="pane pane-river">
+          <h2>RIVER — TRETHELLAN U/S</h2>
+          <p class="big mono">
+            <span id="riverLevel">1.20</span><small> m CD</small>
+          </p>
+          <p class="sub mono">
+            Q <span id="riverQ">180</span> m³/s ·
+            <span id="impoundBadge">PASSING TIDE</span>
+          </p>
+        </div>
+      </div>
+      <div class="wall-chart">
+        <canvas
+          id="chartCanvas"
+          width="1160"
+          height="150"
+          aria-label="Tide chart: prediction and observed levels"
+          role="img"
+        ></canvas>
+        <div class="chart-key mono">
+          <span><i class="key key-pred"></i>PREDICTED</span>
+          <span><i class="key key-live"></i>OBSERVED</span>
+          <span><i class="key key-trig"></i>U/S HIGH WATER 7.2 m</span>
+          <span class="mono" id="chartSpan">WINDOW ±75 MIN</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="desk">
+      <!-- ============ BAY 1 : TIDE & FORECAST ============ -->
+      <section class="bay bay-tide" aria-label="Tide and forecast bay">
+        <h2 class="bay-title">TIDE &amp; FORECAST</h2>
+
+        <div class="drum-block">
+          <div class="plate-label">
+            TIDE DRUM · 15-DAY PREDICTOR
+            <button type="button" class="push push-mini" id="drumHome">
+              TO NOW
+            </button>
+          </div>
+          <div
+            class="drum-window"
+            id="drumWidget"
+            data-control="TIDE DRUM"
+            tabindex="0"
+            role="slider"
+            aria-label="Tide prediction drum: scroll or use arrow keys to wind the paper"
+            aria-valuemin="-7"
+            aria-valuemax="7"
+            aria-valuenow="0"
+            aria-valuetext="now"
+          >
+            <canvas id="drumCanvas" width="920" height="190"></canvas>
+            <div class="drum-cursor" aria-hidden="true"></div>
+            <div class="drum-needle" id="drumNeedle" aria-hidden="true">
+              <span class="mono" id="needleVal">2.50</span>
+            </div>
+          </div>
+          <p class="plate-micro">
+            WIND WITH FINGERTIP OR ◀ ▶ · CURSOR = NOW · NEEDLE = GAUGE
+          </p>
+          <div class="amend-slip" id="amendSlip" hidden>
+            SURGE AMENDMENT ATTACHED — PREDICTION UNRELIABLE
+          </div>
+        </div>
+
+        <div class="annunciator" role="group" aria-label="Alarm annunciator">
+          <div class="ann" data-ann="SURGE FORECAST SEVERE">
+            <span class="lamp"></span>SURGE FORECAST
+          </div>
+          <div class="ann" data-ann="HIGH WATER UPSTREAM">
+            <span class="lamp"></span>HIGH WATER U/S
+          </div>
+          <div class="ann" data-ann="DIFFERENTIAL HEAD HIGH">
+            <span class="lamp"></span>DIFFERENTIAL HEAD
+          </div>
+          <div class="ann" data-ann="HYD PRESSURE LOW">
+            <span class="lamp"></span>HYD PRESSURE LOW
+          </div>
+          <div class="ann" data-ann="GATE 4 SKEW">
+            <span class="lamp"></span>GATE 4 SKEW
+          </div>
+          <div class="ann" data-ann="DEBRIS IMPACT">
+            <span class="lamp"></span>DEBRIS IMPACT
+          </div>
+          <div class="ann ann-damage" data-ann="SCOUR DAMAGE">
+            <span class="lamp"></span>SCOUR DAMAGE
+          </div>
+          <div class="ann ann-damage" data-ann="OVERTOPPING">
+            <span class="lamp"></span>OVERTOPPING
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button
+            type="button"
+            class="push"
+            id="acceptBtn"
+            data-control="ALARM ACCEPT"
+          >
+            ALARM ACCEPT
+          </button>
+          <button
+            type="button"
+            class="push"
+            id="hornBtn"
+            data-control="HORN SILENCE"
+          >
+            HORN SILENCE
+          </button>
+          <button
+            type="button"
+            class="push"
+            id="lampsBtn"
+            data-control="LAMPS TEST"
+          >
+            LAMPS TEST
+          </button>
+        </div>
+        <p class="plate-micro">
+          NEW ALARMS FLASH AND SOUND THE HORN UNTIL ACCEPTED
+        </p>
+      </section>
+
+      <!-- ============ BAY 2 : BARRIER DRIVE ============ -->
+      <section class="bay bay-drive" aria-label="Barrier drive bay">
+        <h2 class="bay-title">BARRIER DRIVE</h2>
+
+        <div class="drive-top">
+          <figure class="gauge gauge-head">
+            <svg viewBox="0 0 120 78" aria-hidden="true">
+              <path d="M14 66 A48 48 0 0 1 106 66" class="dial-arc" />
+              <path d="M14 66 A48 48 0 0 1 37 25" class="dial-red" />
+              <path d="M83 25 A48 48 0 0 1 106 66" class="dial-red" />
+              <line
+                id="headNeedle"
+                x1="60"
+                y1="66"
+                x2="60"
+                y2="24"
+                class="dial-needle"
+              />
+              <circle cx="60" cy="66" r="5" class="dial-hub" />
+              <text x="18" y="76" class="dial-tick">-4</text>
+              <text x="95" y="76" class="dial-tick">+4</text>
+            </svg>
+            <figcaption class="plate-label">DIFFERENTIAL HEAD · m</figcaption>
+          </figure>
+
+          <div class="selector-block">
+            <div
+              class="rotary"
+              id="gateSelector"
+              data-control="GATE SELECTOR"
+              tabindex="0"
+              role="slider"
+              aria-label="Gate selector: choose which gate the drive lever works"
+              aria-valuemin="0"
+              aria-valuemax="6"
+              aria-valuenow="6"
+              aria-valuetext="ALL"
+            >
+              <span class="rotary-knob" id="gateSelectorKnob"><i></i></span>
+              <span class="rotary-read mono" id="gateSelectorRead">ALL</span>
+            </div>
+            <p class="plate-label">GATE SELECTOR</p>
+            <p class="plate-micro">CLICK STEPS · ◀ ▶ SELECTS</p>
+          </div>
+
+          <div class="lever-block">
+            <div
+              class="quadrant"
+              id="driveLever"
+              data-control="GATE DRIVE LEVER"
+            >
+              <span class="quad-hazard" aria-hidden="true"></span>
+              <button
+                type="button"
+                class="quad-zone quad-up"
+                id="leverRaise"
+                aria-label="Drive lever to RAISE"
+              >
+                RAISE
+              </button>
+              <button
+                type="button"
+                class="quad-zone quad-mid is-active"
+                id="leverHold"
+                aria-label="Drive lever to HOLD"
+              >
+                HOLD
+              </button>
+              <button
+                type="button"
+                class="quad-zone quad-down"
+                id="leverLower"
+                aria-label="Drive lever to LOWER"
+              >
+                LOWER
+              </button>
+              <span
+                class="lever-handle"
+                id="leverHandle"
+                aria-hidden="true"
+              ></span>
+            </div>
+            <p class="plate-label">GATE DRIVE LEVER</p>
+            <p class="plate-micro">
+              SPRING RETURNS TO HOLD · ▲▼ WORKS SELECTED GATE
+            </p>
+          </div>
+
+          <div class="close-block">
+            <div
+              class="guard"
+              id="surgeGuard"
+              tabindex="0"
+              role="button"
+              aria-label="SURGE CLOSE guarded switch: lift cover, then press"
+            >
+              <span class="guard-cover" aria-hidden="true"
+                ><b>SURGE CLOSE</b></span
+              >
+              <button
+                type="button"
+                class="push push-guard"
+                id="surgeCloseBtn"
+                data-control="SURGE CLOSE"
+                disabled
+              >
+                SURGE<br />CLOSE
+              </button>
+            </div>
+            <button
+              type="button"
+              class="push push-wide"
+              id="openAllBtn"
+              data-control="OPEN ALL"
+            >
+              OPEN ALL
+            </button>
+          </div>
+        </div>
+
+        <div class="drive-bottom">
+          <div class="sluice-block">
+            <div class="valve-wheel-wrap">
+              <svg
+                class="valve-wheel"
+                id="sluiceWheel"
+                viewBox="0 0 100 100"
+                data-control="SLUICE BYPASS VALVE"
+                tabindex="0"
+                role="slider"
+                aria-label="Sluice bypass valve handwheel: turn anticlockwise to open, clockwise to close"
+                aria-valuemin="0"
+                aria-valuemax="5"
+                aria-valuenow="0"
+                aria-valuetext="shut"
+              >
+                <g id="sluiceWheelSpin">
+                  <circle cx="50" cy="50" r="42" class="wheel-rim" />
+                  <circle cx="50" cy="50" r="10" class="wheel-hub" />
+                  <path
+                    d="M50 10 v22 M50 68 v22 M10 50 h22 M68 50 h22 M22 22 l16 16 M62 62 l16 16 M78 22 l-16 16 M38 62 l-16 16"
+                    class="wheel-spokes"
+                  />
+                </g>
+              </svg>
+            </div>
+            <p class="plate-label">SLUICE BYPASS VALVE</p>
+            <p class="plate-micro mono">
+              OPEN <span id="sluiceTurns">0.0</span> TURN / 5 · EQUALISES HEAD
+            </p>
+          </div>
+
+          <div
+            class="gatebars"
+            id="gateBars"
+            aria-label="Gate position indicators"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ============ BAY 3 : HYDRAULICS & MAINTENANCE ============ -->
+      <section class="bay bay-hyd" aria-label="Hydraulics and maintenance bay">
+        <h2 class="bay-title">HYDRAULICS &amp; MAINTENANCE</h2>
+
+        <div class="hyd-row">
+          <figure class="gauge gauge-pressure">
+            <svg viewBox="0 0 120 78" aria-hidden="true">
+              <path d="M14 66 A48 48 0 0 1 106 66" class="dial-arc" />
+              <path d="M14 66 A48 48 0 0 1 30 38" class="dial-red" />
+              <line
+                id="pressNeedle"
+                x1="60"
+                y1="66"
+                x2="24"
+                y2="40"
+                class="dial-needle"
+              />
+              <circle cx="60" cy="66" r="5" class="dial-hub" />
+              <text x="12" y="76" class="dial-tick">0</text>
+              <text x="94" y="76" class="dial-tick">250</text>
+            </svg>
+            <figcaption class="plate-label">ACCUMULATOR · bar</figcaption>
+          </figure>
+          <div class="pump-col">
+            <button
+              type="button"
+              class="switch"
+              id="dutyPump"
+              data-control="DUTY PUMP SWITCH"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="switch-led" aria-hidden="true"></span>DUTY HPU 1
+            </button>
+            <button
+              type="button"
+              class="switch"
+              id="standbyPump"
+              data-control="STANDBY PUMP SWITCH"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="switch-led" aria-hidden="true"></span>STANDBY HPU 2
+            </button>
+            <p class="plate-micro">180 bar NOMINAL · LOCKOUT RESETS OFF→ON</p>
+          </div>
+        </div>
+
+        <div class="testpanel is-open" id="testPanel">
+          <button
+            type="button"
+            class="testpanel-lid"
+            id="testPanelLid"
+            aria-expanded="true"
+          >
+            FAULT TEST PANEL — AUTHORITY USE
+          </button>
+          <div class="testpanel-switches">
+            <button
+              type="button"
+              class="switch switch-test"
+              id="testSkew"
+              data-control="TEST GATE SKEW"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="switch-led" aria-hidden="true"></span>GATE SKEW
+            </button>
+            <button
+              type="button"
+              class="switch switch-test"
+              id="testPump"
+              data-control="TEST PUMP TRIP"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="switch-led" aria-hidden="true"></span>HPU TRIP
+            </button>
+            <button
+              type="button"
+              class="switch switch-test"
+              id="testDebris"
+              data-control="TEST DEBRIS STRIKE"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="switch-led" aria-hidden="true"></span>DEBRIS HIT
+            </button>
+          </div>
+        </div>
+
+        <div class="maint-row">
+          <button
+            type="button"
+            class="push"
+            id="skewResetBtn"
+            data-control="SKEW RESET"
+          >
+            SKEW RESET
+          </button>
+          <button
+            type="button"
+            class="push"
+            id="debrisClearBtn"
+            data-control="DEBRIS CLEAR"
+          >
+            DEBRIS CLEAR (HOLD)
+          </button>
+          <button
+            type="button"
+            class="keyreset"
+            id="maintenanceReset"
+            data-control="MAINTENANCE RESET"
+          >
+            <span class="keyreset-key" aria-hidden="true"></span>MAINTENANCE
+            RESET
+          </button>
+        </div>
+
+        <aside class="orders-card" aria-label="Standing orders quick reference">
+          <h3>STANDING ORDERS — SHIFT CARD 7</h3>
+          <ol>
+            <li>Selector TEST then OPERATE before any drive.</li>
+            <li>
+              Close before predicted high water; never against more than
+              3&nbsp;m of head.
+            </li>
+            <li>Crack the sluice if the river climbs past 6.8&nbsp;m.</li>
+            <li>An unaccepted red lamp outranks the telephone.</li>
+          </ol>
+        </aside>
+
+        <p class="plate-micro maker-line">
+          DANGER — MOVING MACHINERY · PERMIT TO WORK REQUIRED BEYOND THIS POINT
+          · RCA SAFE SYSTEM OF WORKS SSW/TB/09
+        </p>
+      </section>
+    </main>
+
+    <dialog class="manual-dialog" data-manual aria-label="Operating manual">
+      <div class="manual-chrome">
+        <p class="manual-title">OPERATING MANUAL · TRB/CR1</p>
+        <button
+          type="button"
+          class="push push-small push-accent"
+          data-action="close-manual"
+        >
+          CLOSE MANUAL
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Trethellan Sound Surge Barrier operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

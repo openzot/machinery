@@ -1145,8 +1145,8 @@
     ],
     "tagline": "The storm is twenty miles out and building - keep the tube turning and the collector cool.",
     "created": "2026-08-25"
-  }
-,  {
+  },
+  {
     "slug": "redbourne-irradiator",
     "name": "Redbourne Irradiation Services - Co-60 Cell No. 1 Source & Product Control Desk",
     "kind": "cobalt-60 gamma irradiation cell control desk",
@@ -1181,6 +1181,48 @@
       "product jam in the maze"
     ],
     "tagline": "Keep your water above the line, your sweep honest, and never hold RAISE against a stall.",
+    "created": "2026-08-25"
+  },
+  {
+    "slug": "trethellan-barrier",
+    "name": "Trethellan Sound Surge Barrier - Control Desk No. 1",
+    "kind": "tidal-surge barrier control desk",
+    "domain": "water",
+    "era": "2020s",
+    "design": "pearl-grey architectural composite desk with heather-claret hardware, laser-etched condensed legends, safety-orange guards and one emissive estuary status wall under cool office light",
+    "interaction": "winding a fifteen-day paper tide drum to the reading cursor, then walking six rising-sector gates up in sequence against the differential needle while cracking the sluice to keep the impounded river off the embankments",
+    "palette": [
+      "#eae8e0",
+      "#8a4a72",
+      "#d0342a"
+    ],
+    "controls": [
+      "CONTROL SELECTOR",
+      "TIDE DRUM",
+      "ALARM ACCEPT",
+      "HORN SILENCE",
+      "LAMPS TEST",
+      "GATE SELECTOR",
+      "GATE DRIVE LEVER",
+      "SURGE CLOSE",
+      "OPEN ALL",
+      "SLUICE BYPASS VALVE",
+      "DUTY PUMP SWITCH",
+      "STANDBY PUMP SWITCH",
+      "TEST GATE SKEW",
+      "TEST PUMP TRIP",
+      "TEST DEBRIS STRIKE",
+      "SKEW RESET",
+      "DEBRIS CLEAR",
+      "MAINTENANCE RESET",
+      "SOUND"
+    ],
+    "faults": [
+      "gate skew jam",
+      "hydraulic power unit trip",
+      "floating debris strike"
+    ],
+    "tagline": "Close her early against a small head - the river behind you cannot be put back.",
     "created": "2026-08-25"
   }
 ]
