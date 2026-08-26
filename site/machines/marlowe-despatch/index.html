@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Marlowe &amp; Dunn Ltd. — Pneumatic Despatch Control Position No. 1
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="room">
+      <!-- ======================= MAKER'S PLATE / HEADER ======================= -->
+      <header class="crest">
+        <div class="monogram" aria-hidden="true">
+          <svg
+            viewBox="0 0 64 64"
+            role="img"
+            aria-label="Marlowe and Dunn monogram"
+          >
+            <ellipse cx="32" cy="32" rx="29" ry="29" class="mono-ring" />
+            <text x="32" y="41" class="mono-m">M</text>
+            <text x="32" y="27" class="mono-d">D</text>
+            <path d="M12 50 h40" class="mono-rule" />
+          </svg>
+        </div>
+        <div class="crest-plate">
+          <span class="cp-title">MARLOWE &amp; DUNN LTD.</span>
+          <span class="cp-sub"
+            >PNEUMATIC DESPATCH · CONTROL POSITION No. 1 · CASH &amp; ENQUIRY
+            OFFICE</span
+          >
+          <span class="cp-maker"
+            >ALBION PNEUMATIC DESPATCH CO. LTD · MANCHESTER · SER N<sup>o</sup>
+            MD/29/0117 · INSTALLED 1929</span
+          >
+        </div>
+        <div class="crest-cluster">
+          <button
+            type="button"
+            class="sound-cut"
+            id="soundBtn"
+            data-control="SOUND CUT"
+            aria-pressed="false"
+          >
+            <span class="sc-lamp" aria-hidden="true"></span>
+            <span class="sc-legend">SOUND&nbsp;CUT</span>
+          </button>
+          <button
+            type="button"
+            class="manual-btn"
+            id="manualBtn"
+            data-action="manual"
+          >
+            OPERATING<br />INSTRUCTIONS
+          </button>
+          <a class="directory-link" href="../../">CATALOGUE</a>
+        </div>
+      </header>
+
+      <!-- =========================== THE LINE MIMIC ========================== -->
+      <section
+        class="mimic-case"
+        aria-label="Line diagram: out and return runs with eight departments"
+      >
+        <div class="mimic-head">
+          <span class="mh-left"
+            >LINE DIAGRAM — MAIN &amp; RETURN · 315 FEET</span
+          >
+          <span class="mh-right"
+            >LACES · MILLINERY · FURS · BOOKS · SILKS · TOYS · CHEMIST ·
+            ENQUIRIES</span
+          >
+        </div>
+        <svg
+          class="mimic"
+          viewBox="0 0 1000 208"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <!-- walnut inner frame -->
+          <rect x="2" y="2" width="996" height="204" class="mm-frame" />
+
+          <!-- OUT run -->
+          <text x="34" y="46" class="mm-runlabel">OUT</text>
+          <path d="M60 62 H 964" class="mm-tube" />
+          <path d="M60 57 H 964" class="mm-tube-glint" />
+          <!-- RETURN run -->
+          <text x="34" y="150" class="mm-runlabel">RET</text>
+          <path d="M964 136 H 60" class="mm-tube" />
+          <path d="M964 141 H 60" class="mm-tube-glint" />
+          <!-- bends joining the runs at each end -->
+          <path d="M60 62 A 37 37 0 0 0 60 136" class="mm-tube" />
+          <!-- direction of travel -->
+          <g class="mm-chev">
+            <path d="M210 56 l10 6 l-10 6" />
+            <path d="M480 56 l10 6 l-10 6" />
+            <path d="M750 56 l10 6 l-10 6" />
+            <path d="M770 130 l-10 6 l10 6" />
+            <path d="M500 130 l-10 6 l10 6" />
+            <path d="M230 130 l-10 6 l10 6" />
+          </g>
+          <g id="breechCarrier">
+            <rect
+              x="24"
+              y="89"
+              width="28"
+              height="20"
+              rx="9"
+              class="carrier felt"
+            />
+            <rect x="35" y="89" width="5" height="20" class="carrier-band" />
+          </g>
+
+          <!-- glass glare over the case -->
+          <path d="M2 2 L330 2 L96 206 L2 206 Z" class="mm-glare" />
+
+          <!-- stations -->
+          <g id="stationRow"></g>
+          <!-- distance scale -->
+
+          <g id="scaleRow" class="mm-scale"></g>
+          <!-- travelling carrier (moved by machine.js) -->
+          <g id="flyer" class="mm-flyer">
+            <rect
+              x="-16"
+              y="-9"
+              width="32"
+              height="18"
+              rx="8"
+              class="carrier felt"
+            />
+            <rect x="-10" y="-9" width="4" height="18" class="carrier-band" />
+          </g>
+          <!-- whoosh puff -->
+          <g id="puff" opacity="0"><circle r="10" class="puff-c" /></g>
+        </svg>
+        <div class="mimic-foot">
+          <span class="mf-item"
+            ><i class="jewel demo-jewel" aria-hidden="true"></i> DEPARTMENT CALL
+            LAMPS</span
+          >
+          <span class="mf-item"
+            >CARRIERS IN CIRCULATION : <b id="circCount">1</b></span
+          >
+          <span class="mf-item">DUTY CLOCK <b id="dutyClock">09:00</b></span>
+        </div>
+      </section>
+
+      <!-- ============================= THREE BAYS ============================ -->
+      <div class="bays">
+        <!-- ===================== LEFT BAY : AIR PLANT ===================== -->
+        <section class="bay bay-air" aria-label="Air plant">
+          <h2 class="bay-title">AIR PLANT</h2>
+
+          <div class="ctl ctl-starter">
+            <span class="ctl-name">EXHAUSTER SET</span>
+            <button
+              type="button"
+              class="rotary"
+              id="motorStarter"
+              data-control="MOTOR STARTER"
+              aria-label="Motor starter: rotate between OFF, AUTO and RUN"
+            >
+              <span class="rot-face" aria-hidden="true">
+                <span class="rot-pointer"></span>
+              </span>
+            </button>
+            <span class="rot-scale" aria-hidden="true">
+              <b>OFF</b><b>AUTO</b><b>RUN</b>
+            </span>
+            <span class="plate-note">DOL STARTER · 5 H.P.</span>
+          </div>
+
+          <div class="gauges">
+            <figure class="dial dial-receiver">
+              <svg
+                viewBox="0 0 120 84"
+                role="img"
+                aria-label="Receiver pressure gauge"
+              >
+                <circle cx="60" cy="66" r="54" class="dial-bezel" />
+                <circle cx="60" cy="66" r="47" class="dial-face" />
+                <g id="recvTicks"></g>
+                <g id="recvLabels"></g>
+                <line
+                  id="recvNeedle"
+                  x1="60"
+                  y1="66"
+                  x2="60"
+                  y2="24"
+                  class="needle"
+                />
+                <circle cx="60" cy="66" r="5" class="needle-hub" />
+                <text x="60" y="80" class="dial-caption">RECEIVER</text>
+              </svg>
+              <figcaption>LBS / SQ INCH</figcaption>
+            </figure>
+            <figure class="dial dial-line">
+              <svg
+                viewBox="0 0 120 84"
+                role="img"
+                aria-label="Main line pressure gauge"
+              >
+                <circle cx="60" cy="66" r="54" class="dial-bezel" />
+                <circle cx="60" cy="66" r="47" class="dial-face" />
+                <g id="lineTicks"></g>
+                <g id="lineLabels"></g>
+                <line
+                  id="lineNeedle"
+                  x1="60"
+                  y1="66"
+                  x2="60"
+                  y2="24"
+                  class="needle needle-red"
+                />
+                <circle cx="60" cy="66" r="5" class="needle-hub" />
+                <text x="60" y="80" class="dial-caption">MAIN</text>
+              </svg>
+              <figcaption>LBS / SQ INCH</figcaption>
+            </figure>
+          </div>
+
+          <div class="ctl ctl-regulator">
+            <span class="ctl-name">PRESSURE REGULATOR</span>
+            <div class="reg-row">
+              <span class="reg-mark">LO</span>
+              <input
+                type="range"
+                id="regulatorInput"
+                data-control="PRESSURE REGULATOR"
+                min="12"
+                max="34"
+                step="1"
+                value="26"
+                aria-label="Pressure regulator: set working pressure of the main, 12 to 34 pounds per square inch"
+              />
+
+              <span class="reg-mark">HI</span>
+            </div>
+            <span class="plate-note">REDUCE TO LO TO VENT THE MAIN</span>
+          </div>
+
+          <div class="thermo">
+            <span class="ctl-name">EXHAUSTER HEAD</span>
+            <div class="thermo-tube" aria-hidden="true">
+              <div class="thermo-fill" id="thermoFill"></div>
+              <div class="thermo-flag" id="tripFlag">TRIP</div>
+            </div>
+            <span class="thermo-read"><b id="tempRead">22</b>&nbsp;°C</span>
+          </div>
+        </section>
+
+        <!-- ==================== CENTRE BAY : DESPATCH BENCH ==================== -->
+        <section class="bay bench" aria-label="Despatch bench">
+          <h2 class="bay-title">DESPATCH BENCH</h2>
+
+          <div class="ctl ctl-selector">
+            <span class="ctl-name">STATION SELECTOR</span>
+            <button
+              type="button"
+              class="drum"
+              id="stationDrum"
+              data-control="STATION SELECTOR"
+              aria-label="Station selector: press or use arrow keys to choose a department"
+            >
+              <span class="drum-knob" aria-hidden="true"
+                ><span class="drum-index"></span
+              ></span>
+              <span class="drum-window" id="stationWindow">LACES</span>
+            </button>
+            <span class="plate-note">EIGHT DEPARTMENTS · ONE AT A TIME</span>
+          </div>
+
+          <div class="gate-row">
+            <div class="ctl ctl-gate">
+              <span class="ctl-name">SLEEVE GATE</span>
+              <button
+                type="button"
+                class="guard-toggle"
+                id="gateToggle"
+                data-control="SLEEVE GATE"
+                aria-pressed="false"
+                aria-label="Sleeve gate: lift guard and flip to open the breech"
+              >
+                <span class="guard" aria-hidden="true"></span>
+                <span class="gt-body">
+                  <span class="gt-slot"></span>
+                  <span class="gt-legend gt-open">OPEN</span>
+                  <span class="gt-legend gt-shut">SHUT</span>
+                </span>
+              </button>
+              <span class="plate-note">SEAT CARRIER BEFORE CLOSING</span>
+            </div>
+            <div class="breech-window" id="breechWindow" aria-hidden="true">
+              <span class="bw-carrier"></span>
+              <span class="bw-tag" id="breechTag">CARRIER SEATED</span>
+            </div>
+          </div>
+
+          <div class="lever-row">
+            <div class="quadrant">
+              <svg viewBox="0 0 168 158" class="q-arc" aria-hidden="true">
+                <path d="M16 117.6 A 68 68 0 0 1 152 117.6" class="qa-line" />
+                <path d="M34 118.3 A 50 50 0 0 1 134 118.3" class="qa-inner" />
+              </svg>
+              <span class="q-legend q-vent" aria-hidden="true">VENT</span>
+              <span class="q-legend q-hold" aria-hidden="true">HOLD</span>
+              <span class="q-legend q-despatch" aria-hidden="true"
+                >DESPATCH</span
+              >
+              <span class="quadrant-hub" aria-hidden="true"></span>
+              <button
+                type="button"
+                class="despatch-lever"
+                id="despatchLever"
+                data-control="DESPATCH LEVER"
+                aria-label="Despatch lever: press and hold to despatch, release for hold; arrow down vents the line"
+              >
+                <span class="lv-arm" aria-hidden="true"
+                  ><span class="lv-knob"></span
+                ></span>
+              </button>
+            </div>
+
+            <div class="door-col">
+              <span class="ctl-name">RECEIVE DOOR</span>
+              <button
+                type="button"
+                class="round-push"
+                id="receiveDoor"
+                data-control="RECEIVE DOOR"
+                aria-label="Receive door: release an arrived carrier into the tray"
+              >
+                <span class="rp-cap" aria-hidden="true"></span>
+              </button>
+              <span class="tray-read">IN TRAY <b id="trayCount">0</b></span>
+              <span class="box-read" id="boxRead">BOX EMPTY</span>
+            </div>
+
+            <div class="ctl ctl-purge">
+              <span class="ctl-name">REVERSE PURGE</span>
+              <button
+                type="button"
+                class="rotary rotary-small"
+                id="purgeValve"
+                data-control="REVERSE PURGE"
+                aria-pressed="false"
+                aria-label="Reverse purge: turn to suck a stalled carrier back to the breech"
+              >
+                <span class="rot-face" aria-hidden="true"
+                  ><span class="rot-pointer"></span
+                ></span>
+              </button>
+              <span class="rot-scale rot-scale-v" aria-hidden="true"
+                ><b>SHUT</b><b>PURGE</b></span
+              >
+              <span class="plate-note"
+                >LEVER AT HOLD · GATE SHUT · SHUT WHEN CLEAR</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= RIGHT BAY : ANNUNCIATOR AND TEST ================= -->
+        <section class="bay bay-test" aria-label="Annunciator and test">
+          <h2 class="bay-title">ANNUNCIATOR</h2>
+
+          <div class="annunciator" role="list" aria-label="Alarm windows">
+            <span class="ann" id="annLow" role="listitem"
+              >LINE PRESSURE LOW</span
+            >
+            <span class="ann" id="annJam" role="listitem"
+              >CARRIER JAMMED IN LINE</span
+            >
+            <span class="ann" id="annLeak" role="listitem"
+              >AIR MAIN LEAKING</span
+            >
+            <span class="ann" id="annHeat" role="listitem"
+              >EXHAUSTER OVERHEAT</span
+            >
+            <span class="ann" id="annRelief" role="listitem"
+              >RELIEF VALVE LIFTED</span
+            >
+          </div>
+
+          <div class="push-row">
+            <button
+              type="button"
+              class="rect-push"
+              id="acceptBtn"
+              data-control="ALARM ACCEPT"
+            >
+              ALARM<br />ACCEPT
+            </button>
+            <button
+              type="button"
+              class="rect-push"
+              id="lampsBtn"
+              data-control="LAMPS TEST"
+            >
+              LAMPS<br />TEST
+            </button>
+            <button
+              type="button"
+              class="rect-push rect-push-red"
+              id="resetBtn"
+              data-control="PLANT RESET"
+            >
+              PLANT<br />RESET
+            </button>
+          </div>
+
+          <div class="fault-bank-wrap">
+            <span class="ctl-name">FAULT TEST SWITCHES</span>
+            <div
+              class="fault-bank"
+              id="faultBank"
+              data-control="FAULT TEST SWITCHES"
+              role="group"
+              aria-label="Fault test switches under a lifting cover"
+            >
+              <span class="fb-guard" aria-hidden="true">LIFT</span>
+              <button
+                type="button"
+                class="fb-switch"
+                id="ftJam"
+                aria-pressed="false"
+              >
+                <span class="fb-lens" aria-hidden="true"></span>JAM
+              </button>
+              <button
+                type="button"
+                class="fb-switch"
+                id="ftLeak"
+                aria-pressed="false"
+              >
+                <span class="fb-lens" aria-hidden="true"></span>GASKET
+              </button>
+              <button
+                type="button"
+                class="fb-switch"
+                id="ftHeat"
+                aria-pressed="false"
+              >
+                <span class="fb-lens" aria-hidden="true"></span>HEAT
+              </button>
+            </div>
+            <span class="plate-note"
+              >MAINTAINED · SPRINGS OFF AT PLANT RESET</span
+            >
+          </div>
+
+          <div class="plant-notes">
+            <span class="pn-line" id="noteLine"
+              >PLANT AT REST — SET EXHAUSTER TO RUN</span
+            >
+          </div>
+        </section>
+      </div>
+
+      <footer class="skirt">
+        <span
+          >DO NOT DESPATCH AGAINST A FALLING MAIN — A COLD CARRIER IS A JAMMED
+          CARRIER</span
+        >
+        <a href="../../">BACK TO THE CATALOGUE</a>
+      </footer>
+    </div>
+
+    <!-- ============================== MANUAL =============================== -->
+    <dialog
+      class="manual-dialog"
+      data-manual
+      aria-label="Operating instructions"
+    >
+      <div class="md-chrome">
+        <span class="md-title"
+          >OPERATING INSTRUCTIONS — PNEUMATIC DESPATCH</span
+        >
+        <button
+          type="button"
+          class="md-close"
+          id="manualClose"
+          data-action="close-manual"
+        >
+          CLOSE BOOK
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Marlowe and Dunn pneumatic despatch operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

@@ -1260,5 +1260,40 @@
     ],
     "tagline": "Charge her dry, snap the valve, and sweep the wing before the tanks breathe out.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "marlowe-despatch",
+    "name": "Marlowe & Dunn Ltd. — Pneumatic Despatch Control Position No. 1",
+    "kind": "department-store pneumatic message-despatch control position",
+    "domain": "telecom",
+    "era": "1920s",
+    "design": "delft-blue vitreous-enamel iron over riveted steel angles, polished-brass bezels and rails, engraved ivory legend plates in spaced geometric capitals, walnut-framed glass line mimic with flying carriers, ruby and opal jewel lamps under warm basement daylight",
+    "interaction": "set an eight-way station drum, seat the felted carrier behind a guarded sleeve gate and snap the long brass despatch lever home, watching her fly the glass mimic while the receiver needle falls",
+    "palette": [
+      "#35506b",
+      "#a9713a",
+      "#c2231c"
+    ],
+    "controls": [
+      "MOTOR STARTER",
+      "PRESSURE REGULATOR",
+      "STATION SELECTOR",
+      "SLEEVE GATE",
+      "DESPATCH LEVER",
+      "RECEIVE DOOR",
+      "REVERSE PURGE",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "PLANT RESET",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "carrier jammed in the line",
+      "air main gasket leak",
+      "exhauster overheat"
+    ],
+    "tagline": "Twenty-six pounds on the main, one carrier at a time, and never against a falling needle.",
+    "created": "2026-08-26"
   }
 ]
