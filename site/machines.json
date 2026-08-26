@@ -1592,5 +1592,43 @@
     ],
     "tagline": "Fire her easy, keep the worm cool, and cut on the parrot - never on the clock.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "tarskerry-hydrogen-shed",
+    "name": "Tarskerry Upper-Air Station - Hydrogen Shed & Sounding Position No. 1",
+    "kind": "radiosonde hydrogen-generation and balloon-launch shed",
+    "domain": "weather",
+    "era": "1960s",
+    "design": "whitewashed timber shed boarding over black slate instrument fascias, transfer-printed cream condensed legends and engraved brass plates, brass drop-flag annunciators, ivory dial faces under island daylight, a growing latex balloon as the only moving mass",
+    "interaction": "seat the balloon neck on the brass nozzle, pull the filling valve against the counterweighted balance to eight hundred grams free lift, then turn the guarded release key inside the ninety-second window and follow her on the theodolite crank until she bursts",
+    "palette": [
+      "#e6e1d2",
+      "#c9a94e",
+      "#a72c1e"
+    ],
+    "controls": [
+      "GENERATOR SWITCH",
+      "FIELD RHEOSTAT",
+      "CELL BANK SELECTOR",
+      "COOLING WATER COCK",
+      "PURGE VALVE",
+      "HOLDER VENT LEVER",
+      "FILLING VALVE",
+      "NECK CLAMP",
+      "NEW BALLOON",
+      "BALANCE CRANK",
+      "RELEASE KEY",
+      "TRACKING CRANK",
+      "ALARM FLAG RESET",
+      "WORKS TEST SWITCHES",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "oxygen crossover",
+      "cooling water failure",
+      "balloon neck slips off the nozzle"
+    ],
+    "tagline": "Eight hundred grams free lift, purity above ninety-eight, and never a naked flame.",
+    "created": "2026-08-26"
   }
 ]

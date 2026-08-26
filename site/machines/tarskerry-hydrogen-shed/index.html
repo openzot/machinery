@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Tarskerry Upper-Air Station — Hydrogen Shed &amp; Sounding Position No. 1
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="shed">
+      <header class="headerboard">
+        <div class="hb-title">
+          <p class="hb-over">
+            MET OFFICE · ENGINEERING BRANCH · TRAINING RIG 61/4
+          </p>
+          <h1>
+            TARSKERRY UPPER-AIR STATION<span class="hb-sub"
+              >HYDROGEN SHED — SOUNDING POSITION No.&nbsp;1</span
+            >
+          </h1>
+        </div>
+        <div class="hb-tools">
+          <button
+            class="flagreset"
+            data-control="ALARM FLAG RESET"
+            data-action="flags"
+            type="button"
+          >
+            <span class="fr-lever" aria-hidden="true"></span>ALARM FLAG RESET
+          </button>
+          <button class="manualbtn" data-action="manual" type="button">
+            OPERATING MANUAL&nbsp;M.61
+          </button>
+          <label class="soundcut" data-control="SOUND CUT">
+            <input type="checkbox" id="soundcut" checked />
+            <span class="sc-toggle" aria-hidden="true"></span>
+            <span class="sc-name">SOUND CUT</span>
+          </label>
+          <a class="catalogue-link" href="../../">CATALOGUE</a>
+        </div>
+        <ul class="flagrail" aria-label="Annunciator flags">
+          <li class="flag" id="flag-explosive">
+            <i></i><b>EXPLOSIVE<br />MIXTURE</b>
+          </li>
+          <li class="flag" id="flag-overheat">
+            <i></i><b>STACK<br />OVERHEAT</b>
+          </li>
+          <li class="flag" id="flag-water">
+            <i></i><b>WATER MAINS<br />OFF</b>
+          </li>
+          <li class="flag" id="flag-neck">
+            <i></i><b>NECK<br />SLIPPED</b>
+          </li>
+          <li class="flag" id="flag-holder">
+            <i></i><b>HOLDER<br />OVERFULL</b>
+          </li>
+          <li class="flag" id="flag-missed">
+            <i></i><b>SOUNDING<br />MISSED</b>
+          </li>
+        </ul>
+        <div class="works" data-control="WORKS TEST SWITCHES">
+          <span class="wk-title">WORKS TEST SWITCHES</span>
+          <label
+            ><input type="checkbox" data-test="oxygen crossover" /><span
+              >CROSSOVER</span
+            ></label
+          >
+          <label
+            ><input type="checkbox" data-test="cooling water failure" /><span
+              >WATER LOSS</span
+            ></label
+          >
+          <label
+            ><input
+              type="checkbox"
+              data-test="balloon neck slips off the nozzle"
+            /><span>NECK SLIP</span></label
+          >
+        </div>
+      </header>
+
+      <main class="bench">
+        <!-- ==================== MAKE : the generator slate ==================== -->
+        <section class="bay bay-make" aria-label="Hydrogen generator panel">
+          <h2 class="bayname"><span>MAKE</span>HYDROGEN GENERATOR</h2>
+
+          <button
+            class="knife"
+            id="gen-switch"
+            data-control="GENERATOR SWITCH"
+            type="button"
+            aria-pressed="false"
+            aria-label="Generator switch: off or running"
+          >
+            <span class="knife-frame"
+              ><i class="knife-blade"></i><em class="k-off">OFF</em
+              ><em class="k-on">ON</em></span
+            >
+            <span class="ctlname">GENERATOR<br />SWITCH</span>
+          </button>
+
+          <div class="locklamp-wrap">
+            <span class="locklamp" id="locklamp" title="Purge interlock"></span>
+            <span class="lockname">LOCKED OUT<br />PURGE TO CLEAR</span>
+          </div>
+
+          <div class="knob-block">
+            <div
+              class="knob crank"
+              id="rheostat"
+              data-control="FIELD RHEOSTAT"
+              role="slider"
+              tabindex="0"
+              aria-label="Field rheostat, stack current in amperes"
+              aria-valuemin="0"
+              aria-valuemax="480"
+              aria-valuenow="0"
+              aria-orientation="vertical"
+            >
+              <span class="knob-face"
+                ><i class="knob-pointer"></i><u></u><u></u><u></u><u></u><u></u
+                ><u></u><u></u><u></u><u></u><u></u><u></u><u></u
+              ></span>
+            </div>
+            <span class="knob-scale"
+              ><b>0</b><b>120</b><b>240</b><b>360</b><b>480A</b></span
+            >
+            <span class="ctlname">FIELD<br />RHEOSTAT</span>
+          </div>
+
+          <div class="selector-block">
+            <div
+              class="selector"
+              id="cellsel"
+              data-control="CELL BANK SELECTOR"
+              role="slider"
+              tabindex="0"
+              aria-label="Cell bank selector: banks out, one bank, two banks"
+              aria-valuemin="0"
+              aria-valuemax="2"
+              aria-valuenow="0"
+            >
+              <span class="sel-dial"><i class="sel-pointer"></i></span>
+              <span class="sel-names"
+                ><b>BANKS OUT</b><b>ONE BANK</b><b>TWO BANKS</b></span
+              >
+            </div>
+            <span class="ctlname">CELL BANK<br />SELECTOR</span>
+          </div>
+
+          <div class="dial dial-amps">
+            <div class="dial-face">
+              <span class="needle" data-needle="current"></span>
+              <ol class="ticks" aria-hidden="true">
+                <li>0</li>
+                <li>12</li>
+                <li>24</li>
+                <li>36</li>
+                <li>48</li>
+              </ol>
+              <b class="dial-label">STACK CURRENT · ×10 A</b>
+            </div>
+          </div>
+          <div class="dial dial-temp">
+            <div class="dial-face">
+              <span class="needle" data-needle="temp"></span>
+              <ol class="ticks ticks-temp" aria-hidden="true">
+                <li>15</li>
+                <li>40</li>
+                <li>65</li>
+                <li>90</li>
+              </ol>
+              <b class="dial-label">STACK °C</b>
+            </div>
+          </div>
+
+          <div class="cock-block">
+            <button
+              class="cock"
+              id="water-cock"
+              data-control="COOLING WATER COCK"
+              type="button"
+              aria-label="Cooling water cock: shut"
+              data-pos="0"
+            >
+              <span class="cock-body"
+                ><i class="cock-lever"></i><u class="c-shut">SHUT</u
+                ><u class="c-half">½</u><u class="c-open">OPEN</u></span
+              >
+              <span class="ctlname">COOLING WATER<br />COCK</span>
+            </button>
+            <span class="sightglass" aria-hidden="true"
+              ><i class="sg-water"></i><i class="sg-bubbles"></i
+            ></span>
+          </div>
+
+          <button
+            class="push momentary"
+            id="purge-btn"
+            data-control="PURGE VALVE"
+            type="button"
+            aria-label="Purge valve, hold to purge"
+          >
+            <span class="push-cap"></span
+            ><span class="ctlname">PURGE VALVE<br />HOLD 5 s</span>
+          </button>
+        </section>
+
+        <!-- ==================== STORE : the gas holder ========================= -->
+        <section class="bay bay-store" aria-label="Gas holder column">
+          <h2 class="bayname"><span>STORE</span>GAS HOLDER &amp; SEALS</h2>
+          <div class="holder">
+            <div class="holder-tank">
+              <span class="bell" id="holder-bell"></span>
+              <ol class="holder-scale" aria-hidden="true">
+                <li>2·5</li>
+                <li>1·9</li>
+                <li>1·2</li>
+                <li>0·6</li>
+                <li>0 m³</li>
+              </ol>
+              <span class="h2-stencil" aria-hidden="true">H₂</span>
+            </div>
+            <div class="ugauge" aria-hidden="true">
+              <span class="ug-tube"
+                ><i class="ug-left" id="ug-left"></i
+                ><i class="ug-right" id="ug-right"></i
+              ></span>
+              <b class="ug-label">DRAUGHT mm W.G.</b>
+            </div>
+          </div>
+          <button
+            class="lever lever-vent"
+            id="vent-lever"
+            data-control="HOLDER VENT LEVER"
+            type="button"
+            aria-pressed="false"
+            aria-label="Holder vent lever, vent to atmosphere"
+          >
+            <span class="lever-slot"
+              ><i class="lever-handle"></i><u class="lv-shut">SEALED</u
+              ><u class="lv-open">TO AIR</u></span
+            >
+            <span class="ctlname">HOLDER VENT<br />LEVER</span>
+          </button>
+        </section>
+
+        <!-- ==================== FILL : balloon on the hatch ==================== -->
+        <section
+          class="stage"
+          aria-label="Balloon filling stage and launch hatch"
+        >
+          <div class="wallcard">
+            <p class="stencil-hazard">DANGER — HYDROGEN — NO NAKED FLAME</p>
+            <div class="clockface">
+              <span class="cf-hand cf-hour" id="clk-hour"></span>
+              <span class="cf-hand cf-min" id="clk-min"></span>
+              <i class="cf-pin"></i>
+            </div>
+            <p class="nextsounding">
+              NEXT SOUNDING<b id="next-window">14·00 GMT</b
+              ><span id="window-state">WINDOW SHUT</span>
+            </p>
+          </div>
+
+          <div class="hatch" aria-hidden="true">
+            <i class="leaf leaf-l"></i><i class="leaf leaf-r"></i
+            ><u class="hatch-line"></u>
+          </div>
+
+          <div class="balloonwrap">
+            <span class="neckline" id="neckline"></span>
+            <div class="balloon" id="balloon" aria-hidden="true">
+              <i class="bl-highlight"></i>
+            </div>
+            <span class="nozzlestand"
+              ><i class="ns-nozzle"></i><u class="ns-post"></u
+            ></span>
+          </div>
+
+          <div class="balance">
+            <div class="dial balance-dial">
+              <div class="dial-face face-balance">
+                <span class="needle" data-needle="lift"></span>
+                <ol class="ticks ticks-balance" aria-hidden="true">
+                  <li>400</li>
+                  <li>600</li>
+                  <li>800</li>
+                  <li>1000</li>
+                  <li>1200 g</li>
+                </ol>
+                <b class="target-index" id="target-index">▼ TARGET</b>
+                <b class="dial-label">FREE LIFT · GRAMS</b>
+              </div>
+            </div>
+            <div
+              class="knob small-crank"
+              id="balance-crank"
+              data-control="BALANCE CRANK"
+              role="slider"
+              tabindex="0"
+              aria-label="Balance target free lift in grams"
+              aria-valuemin="700"
+              aria-valuemax="900"
+              aria-valuenow="800"
+              aria-orientation="horizontal"
+            >
+              <span class="knob-face kf-small"
+                ><i class="knob-pointer"></i
+              ></span>
+            </div>
+            <span class="ctlname">BALANCE CRANK<br />TARGET FREE LIFT</span>
+          </div>
+
+          <div class="fillstation">
+            <button
+              class="lever lever-fill"
+              id="fill-valve"
+              data-control="FILLING VALVE"
+              type="button"
+              aria-pressed="false"
+              aria-label="Filling valve: shut or filling"
+            >
+              <span class="quadrant"
+                ><i class="lever-handle lh-fill"></i><u class="fv-shut">SHUT</u
+                ><u class="fv-fill">FILLING</u></span
+              >
+              <span class="ctlname">FILLING VALVE</span>
+            </button>
+            <button
+              class="tclamp"
+              id="neck-clamp"
+              data-control="NECK CLAMP"
+              type="button"
+              aria-pressed="false"
+              aria-label="Neck clamp screw: unclamped or clamped"
+            >
+              <span class="tc-handle"><i></i></span
+              ><span class="ctlname">NECK CLAMP</span>
+            </button>
+            <button
+              class="push plunger"
+              id="new-balloon"
+              data-control="NEW BALLOON"
+              type="button"
+              aria-label="Fit a new balloon to the nozzle"
+            >
+              <span class="push-cap cap-brass"></span
+              ><span class="ctlname">NEW BALLOON</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ==================== SEND : window, key, theodolite ================ -->
+        <section
+          class="bay bay-send"
+          aria-label="Launch control and theodolite"
+        >
+          <h2 class="bayname"><span>SEND</span>SOUNDING POSITION</h2>
+
+          <div class="keyblock">
+            <span class="guard" id="key-guard">RELEASE</span>
+            <button
+              class="release-key"
+              id="release-key"
+              data-control="RELEASE KEY"
+              type="button"
+              aria-label="Release key: turn to launch when the window is open"
+              disabled
+            >
+              <span class="rk-collar"></span
+              ><span class="rk-barrel"><i></i></span>
+            </button>
+            <span class="ctlname">RELEASE KEY<br />LIFT GUARD · TURN</span>
+          </div>
+
+          <div class="theodolite">
+            <div class="thd-face" id="thd-face">
+              <span class="thd-cross"
+                ><i class="cx-v"></i><i class="cx-h"></i
+              ></span>
+              <span class="thd-dot" id="thd-dot" hidden></span>
+              <span class="thd-north">N</span><span class="thd-south">S</span>
+              <span class="thd-east">E</span><span class="thd-west">W</span>
+            </div>
+            <div
+              class="knob track-crank"
+              id="track-crank"
+              data-control="TRACKING CRANK"
+              role="slider"
+              tabindex="0"
+              aria-label="Tracking crank, follow the balloon bearing"
+              aria-valuemin="-60"
+              aria-valuemax="60"
+              aria-valuenow="0"
+              aria-orientation="horizontal"
+            >
+              <span class="knob-face kf-small"
+                ><i class="knob-pointer"></i
+              ></span>
+            </div>
+            <span class="ctlname">TRACKING<br />CRANK</span>
+          </div>
+
+          <div class="sendmeters">
+            <div class="dial dial-signal">
+              <div class="dial-face">
+                <span class="needle" data-needle="signal"></span>
+                <ol class="ticks ticks-signal" aria-hidden="true">
+                  <li>0</li>
+                  <li>5</li>
+                  <li>10</li>
+                </ol>
+                <b class="dial-label">SONDE SIGNAL · µV ×10</b>
+              </div>
+            </div>
+            <dl class="counters">
+              <dt>ALTITUDE</dt>
+              <dd><span id="ctr-alt">—</span> km</dd>
+              <dt>RANGE</dt>
+              <dd><span id="ctr-range">—</span> km</dd>
+              <dt>ON TARGET</dt>
+              <dd><span id="ctr-on">—</span>%</dd>
+              <dt>RESULT</dt>
+              <dd class="result" id="ctr-result">—</dd>
+            </dl>
+          </div>
+        </section>
+      </main>
+
+      <footer class="skirt">
+        <span class="makerplate"
+          >CLYDE VALLEY ELECTROLYTIC CO·MOTHERWELL — No 61/0489 — FOR THE
+          INSTRUCTION OF OBSERVERS · MET OFFICE · LONDON · MCMLXI</span
+        >
+        <span class="skirt-note"
+          >TRAINING USE ONLY — FAST-TIME ASCENT FITTED</span
+        >
+      </footer>
+    </div>
+
+    <dialog data-manual aria-label="Operating manual M.61">
+      <div class="dlg-chrome">
+        <span class="dlg-title">MANUAL M.61 — HYDROGEN SHED</span>
+        <button class="dlg-close" data-action="close-manual" type="button">
+          CLOSE MANUAL ✕
+        </button>
+      </div>
+      <iframe src="manual.html" title="Operating manual M.61"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
