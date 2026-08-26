@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RCA/TUN/1 - Supersonic Tunnel No. 1 - Operating Manual</title>
+    <meta
+      name="description"
+      content="Operating manual for the Ransdale College of Aeronautics supersonic blowdown tunnel, Works Dept 1957."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="doc">
+    <div class="doc-inner">
+      <div class="doc-headbox">
+        <p class="doc-college">Ransdale College of Aeronautics</p>
+        <h1>Supersonic Tunnel No. 1</h1>
+        <p class="doc-meta">
+          Operating Manual RCA/TUN/1 &middot; Amendment 3 &middot; October 1957
+        </p>
+        <p class="doc-meta">
+          Works Department &middot; Drawing T/157 &middot; Machine Serial 2
+        </p>
+        <span class="doc-stamp">For works use</span>
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        Tunnel No.&nbsp;1 is an intermittent (blowdown) supersonic wind tunnel.
+        A two-stage compressor charges a bank of two steel bottles with dry air;
+        a quick-opening run valve releases this charge through an
+        interchangeable nozzle block to give steady flow at Mach&nbsp;1.6, 2.0,
+        2.5 or 3.0 past a wing model carried on an articulated sting. A pair of
+        Schlieren mirrors makes the density gradients visible at the
+        test-section window, so the bow shock and expansion fan are seen live
+        while a twin wire balance reads lift and drag beneath the bench.
+      </p>
+      <p>
+        The air is used straight from storage: a full charge gives roughly fifty
+        seconds at Mach&nbsp;3 or a minute and a half at Mach&nbsp;1.6, and then
+        the tanks must be recharged. Two things ruin runs and neither forgives
+        carelessness. Moisture condenses in the working section when the air is
+        cold and wet, and it fouls the Schlieren optics for the rest of the
+        shift. And beyond its critical incidence the model buffets; hold it
+        there and the sting will fatigue, dump your charge through the exhaust
+        and spend a fortnight in the fitters' shop. Keep the air dry, keep the
+        shocks where they belong, and she will pay her way.
+      </p>
+      <p>
+        The desk is arranged along the air path, left to right across the top
+        diagram: compressor, dryer, tank bank, settling chamber, test section,
+        diffuser, exhaust. Start-up runs down the left-hand sequence rail;
+        readings sit under your right hand.
+      </p>
+
+      <h2>Controls</h2>
+      <table>
+        <tr>
+          <th>Control</th>
+          <th>Type and positions</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><code>MAIN BREAKER</code></td>
+          <td>Rotary handle, OFF / ON.</td>
+          <td>
+            Isolates the desk supply. Powers the compressor, dryer heater,
+            annunciator, lamps and Schlieren spark. The pneumatic run valve
+            remains mechanical.
+          </td>
+        </tr>
+        <tr>
+          <td><code>AIR DRYER HEATER</code></td>
+          <td>Toggle, OFF / ON, amber pilot.</td>
+          <td>
+            Regenerates the silica-gel dryer and pre-heats charge air. Leave ON
+            during recharge; the DRYER WET window must be dark before a run.
+          </td>
+        </tr>
+        <tr>
+          <td><code>COMPRESSOR MOTOR</code></td>
+          <td>Heavy toggle, STOP / START.</td>
+          <td>
+            Drives the two-stage compressor. Refuses to start while a thermal
+            latch or winding fault stands.
+          </td>
+        </tr>
+        <tr>
+          <td><code>MACH BLOCK SELECTOR</code></td>
+          <td>Four-position rotary: 1.6 / 2.0 / 2.5 / 3.0.</td>
+          <td>
+            Selects the nozzle block in circuit. The blocks are bolted: the
+            selector is dead while flow is established.
+          </td>
+        </tr>
+        <tr>
+          <td><code>DIFFUSER BLEED</code></td>
+          <td>Micrometer knob, SHUT to OPEN, percent window.</td>
+          <td>
+            Sets secondary bleed into the diffuser. Open it generously to start,
+            trim back for running; too little bleed at high Mach swallows the
+            shock (UNSTART).
+          </td>
+        </tr>
+        <tr>
+          <td><code>RUN VALVE</code></td>
+          <td>Snap lever, SHUT / OPEN with red open zone.</td>
+          <td>
+            Quick-opening gate between tank bank and nozzle. Throw it fully open
+            in one motion - half-open seats buzz and heat. It locks after an
+            emergency dump until TRIP RESET releases it.
+          </td>
+        </tr>
+        <tr>
+          <td><code>ANGLE OF ATTACK HANDWHEEL</code></td>
+          <td>Six-spoke handwheel, &minus;5&deg; to +15&deg; incidence.</td>
+          <td>
+            Sweeps the model on its sting. Read incidence on the drum beneath
+            the window. Dead after STING DMG until the trip is reset.
+          </td>
+        </tr>
+        <tr>
+          <td><code>ALARM ACCEPT</code></td>
+          <td>Pushbutton.</td>
+          <td>
+            Steadies flashing windows and silences the buzzer. Windows remain
+            lit while their condition stands.
+          </td>
+        </tr>
+        <tr>
+          <td><code>LAMPS TEST</code></td>
+          <td>Pushbutton.</td>
+          <td>
+            Lights every jewel and annunciator window while held for two
+            seconds.
+          </td>
+        </tr>
+        <tr>
+          <td><code>TRIP RESET</code></td>
+          <td>Red-capped pushbutton.</td>
+          <td>
+            Releases latched trips (motor overload, unstart lock, sting damage,
+            fouled optics) once the underlying condition has been put right. It
+            refuses, politely, if you have not.
+          </td>
+        </tr>
+        <tr>
+          <td><code>COLD RESET</code></td>
+          <td>Keyswitch, quarter turn.</td>
+          <td>Returns the whole machine to cold, clear of alarms and trips.</td>
+        </tr>
+        <tr>
+          <td><code>FAULT TEST SWITCHES</code></td>
+          <td>Three guarded toggles under a hinged cover.</td>
+          <td>
+            Injects MOISTURE INGRESS, STING OSCILLATION or MOTOR OVERLOAD for
+            proving the alarm chain. Lift the cover before testing.
+          </td>
+        </tr>
+        <tr>
+          <td><code>SOUND CUT</code></td>
+          <td>Pushbutton, pressed = silent.</td>
+          <td>Cuts the valve clack, airflow rush and buzzer loudspeaker.</td>
+        </tr>
+      </table>
+      <p>
+        For demonstration purposes the desk may also be worked entirely from a
+        keyboard: every control takes Tab focus, rotary and knob controls answer
+        to the arrow keys (Home and End travel to their stops, Shift speeds the
+        handwheel), and pushbuttons answer Space or Enter.
+      </p>
+
+      <h2>Normal operation</h2>
+      <ol>
+        <li>
+          Turn <code>MAIN BREAKER</code> to ON. The POWER jewel lights and the
+          annunciator lamps prove dark.
+        </li>
+        <li>
+          Press <code>LAMPS TEST</code>; every window and jewel must light.
+          Accept the test with <code>ALARM ACCEPT</code>.
+        </li>
+        <li>
+          Switch <code>AIR DRYER HEATER</code> ON. If DRYER WET shows, wait for
+          regeneration - the gel needs about a minute of heating.
+        </li>
+        <li>
+          Start <code>COMPRESSOR MOTOR</code> and charge the tanks. Watch the
+          motor temperature: above 90&deg;C give the motor a rest. Charge to at
+          least 210&nbsp;bar until TANKS CHARGED burns.
+        </li>
+        <li>
+          Stop the compressor before a run, and confirm DRYER WET is dark.
+        </li>
+        <li>
+          With no flow, select the nozzle block on
+          <code>MACH BLOCK SELECTOR</code>.
+        </li>
+        <li>
+          Set <code>DIFFUSER BLEED</code> generous for starting: about 60% at
+          Mach&nbsp;2, nearer 80% at Mach&nbsp;3.
+        </li>
+        <li>Bring <code>ANGLE OF ATTACK HANDWHEEL</code> to zero incidence.</li>
+        <li>
+          Throw the <code>RUN VALVE</code> fully OPEN in one motion. Settling
+          pressure will stand near tank pressure less ten percent; the Mach drum
+          counts up to its block value and RUNNING lights blue.
+        </li>
+        <li>
+          Trim <code>DIFFUSER BLEED</code> down towards the blue band on the
+          diffuser gauge while UNSTART stays dark. This lengthens the useful
+          charge.
+        </li>
+        <li>
+          Sweep the <code>ANGLE OF ATTACK HANDWHEEL</code> slowly, reading lift
+          and drag and watching the shocks cross the window. Keep BUFFET dark;
+          the boundary sits near 11&deg; at Mach&nbsp;2 and falls as Mach rises.
+        </li>
+        <li>
+          Close the <code>RUN VALVE</code> when TANK LOW flashes (40&nbsp;bar)
+          or your readings are complete. Record run time from the drum.
+        </li>
+        <li>
+          For further runs, restart the compressor with the heater ON and repeat
+          from step 5. At end of shift: valve SHUT, motor STOP, heater OFF,
+          breaker OFF.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table>
+        <tr>
+          <th>Window</th>
+          <th>Meaning</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>TANK LOW</td>
+          <td>Charge below 40&nbsp;bar while flowing.</td>
+          <td>Shut the run valve; recharge before the next run.</td>
+        </tr>
+        <tr>
+          <td>DRYER WET</td>
+          <td>Silica gel saturated past 85%.</td>
+          <td>Heater ON with breaker ON; wait for regeneration.</td>
+        </tr>
+        <tr>
+          <td>MOISTURE</td>
+          <td>
+            Condensation forming in the nozzle: stagnation temperature below the
+            dewline marked on the thermometer.
+          </td>
+          <td>
+            Shut down at once or the optics foul. See Faults and recovery.
+          </td>
+        </tr>
+        <tr>
+          <td>BUFFET</td>
+          <td>Model shaking on the sting beyond the buffet boundary.</td>
+          <td>Ease incidence immediately; see Faults and recovery.</td>
+        </tr>
+        <tr>
+          <td>UNSTART</td>
+          <td>Diffuser has swallowed the shock. Latched.</td>
+          <td>
+            Automatic emergency dump has already shut the valve. Put bleed and
+            incidence right, then TRIP RESET to free the valve.
+          </td>
+        </tr>
+        <tr>
+          <td>COMP HOT</td>
+          <td>Compressor motor at or above 95&deg;C, or a winding fault.</td>
+          <td>Stop the motor, cool below 70&deg;C, TRIP RESET.</td>
+        </tr>
+        <tr>
+          <td>STING DMG</td>
+          <td>Sting fatigued by sustained buffet. Latched; drive broken.</td>
+          <td>See Faults and recovery.</td>
+        </tr>
+        <tr>
+          <td>OPTICS</td>
+          <td>Schlieren windows fouled by condensed moisture. Latched.</td>
+          <td>See Faults and recovery.</td>
+        </tr>
+      </table>
+      <p>
+        Jewels: POWER (white, supply alive), TANKS CHARGED (amber neon, 200
+        bar), RUNNING (blue, supersonic flow established), FAULT (red, any
+        window standing; flashes until accepted).
+      </p>
+
+      <h2>Faults and recovery</h2>
+      <h3>Nozzle condensation</h3>
+      <p>
+        <span class="alarmref">You see:</span> DRYER WET or MOISTURE showing; a
+        milky fog rolling through the Schlieren view; the stagnation thermometer
+        fallen below its dewline mark. Ignored, the moisture plates itself on
+        the windows and OPTICS latches - the view is lost for the rest of the
+        shift.
+      </p>
+      <p>
+        <span class="alarmref">Recovery:</span> shut the <code>RUN VALVE</code>.
+        With <code>MAIN BREAKER</code> ON, leave
+        <code>AIR DRYER HEATER</code> ON until DRYER WET goes dark and the gel
+        reads well below saturation. When the dryer has recovered, press
+        <code>TRIP RESET</code>: OPTICS clears and the windows polish up. Warm
+        the charge with the heater before the next run - it exists for exactly
+        this reason. Test the chain with the FAULT TEST SWITCHES
+        MOISTURE&nbsp;INGRESS toggle.
+      </p>
+      <h3>Sting buffet oscillation</h3>
+      <p>
+        <span class="alarmref">You see:</span> BUFFET flashing, the model
+        trembling in the window, the balance needles hunting. Held above the
+        boundary for more than about six seconds the sting fatigues: STING DMG
+        latches, the handwheel dies in your hands and the charge dumps itself
+        through the exhaust.
+      </p>
+      <p>
+        <span class="alarmref">Recovery:</span> shut the
+        <code>RUN VALVE</code> and bring
+        <code>ANGLE OF ATTACK HANDWHEEL</code> back to zero. Press
+        <code>TRIP RESET</code>: the drive engages again, STING DMG and BUFFET
+        clear. Next run, sweep more slowly and respect the boundary - it falls
+        with Mach. Test the chain with the FAULT TEST SWITCHES
+        STING&nbsp;OSCILLATION toggle; note the fault stands until you stop the
+        flow and reset.
+      </p>
+      <h3>Compressor overheat</h3>
+      <p>
+        <span class="alarmref">You see:</span> COMP HOT showing, motor
+        temperature needle past 95&deg;C, compressor stopped dead by its thermal
+        latch (or seized hot if the overload came from a winding fault).
+        Charging halts until cleared.
+      </p>
+      <p>
+        <span class="alarmref">Recovery:</span> leave
+        <code>COMPRESSOR MOTOR</code> STOPPED and let the motor cool below
+        70&deg;C on the thermometer. Then press <code>TRIP RESET</code>, start
+        the motor again and continue charging in shorter bursts - she heats
+        about ninety degrees a minute of hard running. Test the chain with the
+        FAULT TEST SWITCHES MOTOR&nbsp;OVERLOAD toggle.
+      </p>
+      <p>
+        Diffuser unstart is not a stored fault but it dumps your charge just the
+        same: UNSTART latches and the valve locks. Correct bleed or incidence,
+        then <code>TRIP RESET</code>. <code>COLD RESET</code> returns everything
+        to cold at any point, clearing every alarm, latch and injected fault.
+      </p>
+
+      <h2>Specifications</h2>
+      <table>
+        <tr>
+          <th colspan="2">Supersonic Tunnel No. 1 - ratings and limits</th>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>Intermittent (blowdown), dry air, Schlieren-equipped</td>
+        </tr>
+        <tr>
+          <td>Test section</td>
+          <td>10 in &times; 10 in, closed</td>
+        </tr>
+        <tr>
+          <td>Mach number</td>
+          <td>1.6 / 2.0 / 2.5 / 3.0 by interchangeable blocks</td>
+        </tr>
+        <tr>
+          <td>Run duration (full charge)</td>
+          <td>
+            approx. 130 s at M1.6; 100 s at M2.0; 70 s at M2.5; 50 s at M3.0
+          </td>
+        </tr>
+        <tr>
+          <td>Tank bank</td>
+          <td>
+            2 &times; 0.28 m&sup3;, charged to 250 bar max, 210 bar working
+          </td>
+        </tr>
+        <tr>
+          <td>Settling pressure</td>
+          <td>93% of tank pressure; TANK LOW alarm at 40 bar</td>
+        </tr>
+        <tr>
+          <td>Stagnation temperature</td>
+          <td>+55&deg;C with heater; dewline 34 &minus; 15&times;M &deg;C</td>
+        </tr>
+        <tr>
+          <td>Air quality</td>
+          <td>
+            Dewpoint &minus;40&deg;C or better; dryer regenerates in ~60 s
+          </td>
+        </tr>
+        <tr>
+          <td>Compressor</td>
+          <td>
+            Two-stage, 55 kW; 30&rarr;210 bar in ~1 minute; thermal trip
+            105&deg;C, alarm 95&deg;C
+          </td>
+        </tr>
+        <tr>
+          <td>Incidence range</td>
+          <td>
+            &minus;5&deg; to +15&deg;; drive rate 7&deg;/s; buffet boundary
+            approx. 17 &minus; 3&times;M degrees
+          </td>
+        </tr>
+        <tr>
+          <td>Balance</td>
+          <td>Twin wire, lift and drag, 200 kgf each</td>
+        </tr>
+        <tr>
+          <td>Schlieren</td>
+          <td>4 in mirror pair, spark source, knife-edge</td>
+        </tr>
+        <tr>
+          <td>Built</td>
+          <td>Works Dept, 1957; DWG T/157; Serial 2</td>
+        </tr>
+      </table>
+
+      <div class="doc-links">
+        <a href="./">Return to the control desk</a>
+        <a href="../../">College equipment catalogue</a>
+      </div>
+    </div>
+  </body>
+</html>

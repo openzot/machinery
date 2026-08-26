@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Ransdale College of Aeronautics - Supersonic Tunnel No. 1 - Control Desk
+    </title>
+    <meta
+      name="description"
+      content="Control desk for an intermittent supersonic blowdown wind tunnel, built by the Ransdale College works department, 1957."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="desk" id="desk">
+      <!-- ======================= TITLE BAR ======================= -->
+      <header class="titlebar">
+        <div class="titleblock">
+          <p class="tb-college">Ransdale College of Aeronautics</p>
+          <h1 class="tb-name">Supersonic Tunnel No.&nbsp;1</h1>
+          <p class="tb-sub">
+            BLOWDOWN TYPE &middot; WORKS DEPT 1957 &middot; TEST SECTION
+            10&Prime; &times; 10&Prime;
+          </p>
+        </div>
+        <div
+          class="jewel-cluster"
+          role="img"
+          aria-label="Panel condition jewels"
+        >
+          <span class="jewel" data-jewel="power"><i></i><em>POWER</em></span>
+          <span class="jewel neon" data-jewel="charged"
+            ><i></i><em>TANKS CHARGED</em></span
+          >
+          <span class="jewel blue" data-jewel="running"
+            ><i></i><em>RUNNING</em></span
+          >
+          <span class="jewel red" data-jewel="fault"
+            ><i></i><em>FAULT</em></span
+          >
+        </div>
+        <nav class="head-actions">
+          <button type="button" class="pb pb-dark" data-action="manual">
+            Operating Manual
+          </button>
+          <a class="catlink" href="../../">Catalogue</a>
+        </nav>
+      </header>
+
+      <!-- ======================= AIR PATH DIAGRAM ======================= -->
+      <section class="airpath" aria-label="Air path diagram">
+        <div class="ap-station" data-ap="compressor">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <circle cx="12" cy="13" r="9" />
+            <path d="M12 6v14M6.5 9.5l11 7M17.5 9.5l-11 7" />
+            <path d="M23 13h13m-5-4 5 4-5 4" />
+          </svg>
+          <span class="ap-lamp" data-aplamp="compressor"></span>
+          <span class="ap-name">Compressor</span>
+        </div>
+        <div class="ap-station" data-ap="dryer">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <rect x="4" y="6" width="16" height="14" />
+            <path d="M7 16l3-6 3 6 4-6" />
+            <path d="M23 13h13m-5-4 5 4-5 4" />
+          </svg>
+          <span class="ap-lamp" data-aplamp="dryer"></span>
+          <span class="ap-name">Dryer</span>
+        </div>
+        <div class="ap-station" data-ap="tanks">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <rect x="3" y="7" width="13" height="12" rx="6" />
+            <rect x="18" y="7" width="13" height="12" rx="6" />
+            <path d="M33 13h3m-4-4 4 4-4 4" />
+          </svg>
+          <span class="ap-lamp neonlamp" data-aplamp="tanks"></span>
+          <span class="ap-name">Tank bank</span>
+        </div>
+        <div class="ap-station" data-ap="settle">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <path d="M6 6h10v14H6z" />
+            <circle cx="11" cy="13" r="3.4" />
+            <path d="M23 13h13m-5-4 5 4-5 4" />
+          </svg>
+          <span class="ap-lamp" data-aplamp="settle"></span>
+          <span class="ap-name">Settling</span>
+        </div>
+        <div class="ap-station wide" data-ap="test">
+          <svg viewBox="0 0 56 26" aria-hidden="true">
+            <path
+              d="M4 4l10 5h14l12-5v18l-12-5H14l-10 5zM44 13h8m-4-4 4 4-4 4"
+            />
+          </svg>
+          <span class="ap-lamp" data-aplamp="test"></span>
+          <span class="ap-name">Nozzle &amp; test section</span>
+        </div>
+        <div class="ap-station" data-ap="diffuser">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <path d="M5 8h8l10-4v18l-10-4H5z" />
+            <path d="M27 13h9m-4-4 4 4-4 4" />
+          </svg>
+          <span class="ap-lamp" data-aplamp="diffuser"></span>
+          <span class="ap-name">Diffuser</span>
+        </div>
+        <div class="ap-station" data-ap="exhaust">
+          <svg viewBox="0 0 40 26" aria-hidden="true">
+            <path d="M6 13h20m-6-6 6 6-6 6" />
+            <path d="M31 8c3 2 3 8 0 10m4-14c5 4 5 14 0 18" />
+          </svg>
+          <span class="ap-lamp" data-aplamp="exhaust"></span>
+          <span class="ap-name">Exhaust</span>
+        </div>
+      </section>
+
+      <!-- ======================= BENCH ======================= -->
+      <section class="bench">
+        <!-- left rail: the start-up sequence reads downwards -->
+        <aside class="rail rail-sequence">
+          <h2 class="rail-title">Start-up Sequence</h2>
+
+          <div class="ctl ctl-breaker">
+            <span class="ctl-name">Main Breaker</span>
+            <button
+              type="button"
+              class="breaker"
+              id="breaker"
+              data-control="MAIN BREAKER"
+              role="switch"
+              aria-checked="false"
+              aria-label="Main breaker, OFF / ON"
+            >
+              <span class="breaker-plate">
+                <span class="bk-mark bk-off">OFF</span>
+                <span class="bk-mark bk-on">ON</span>
+                <span class="breaker-handle"></span>
+              </span>
+            </button>
+          </div>
+
+          <label class="ctl ctl-toggle">
+            <input
+              type="checkbox"
+              id="heater"
+              data-control="AIR DRYER HEATER"
+            />
+            <span class="tg" aria-hidden="true"><i></i></span>
+            <span class="ctl-name">Air Dryer Heater</span>
+            <span class="pilot" data-pilot="heater"></span>
+          </label>
+
+          <label class="ctl ctl-toggle">
+            <input type="checkbox" id="comp" data-control="COMPRESSOR MOTOR" />
+            <span class="tg tg-heavy" aria-hidden="true"><i></i></span>
+            <span class="ctl-name">Compressor Motor</span>
+            <span class="pilot" data-pilot="comp"></span>
+          </label>
+
+          <div class="thermo" data-thermo="comp">
+            <span class="thermo-scale">
+              <b style="--y: 4%">120&deg;</b>
+              <b style="--y: 32%">90&deg;</b>
+              <b style="--y: 60%">60&deg;</b>
+              <b style="--y: 88%">30&deg;</b>
+            </span>
+            <span class="thermo-tube"><i class="thermo-fluid"></i></span>
+            <span class="thermo-name">Motor temp</span>
+          </div>
+
+          <p class="note-plate">
+            Charge tanks to 210&nbsp;bar.<br />
+            Stop motor before a run.<br />
+            Regenerate dryer before<br />
+            every shift.
+          </p>
+        </aside>
+
+        <!-- centre: the test-section schlieren viewport -->
+        <section class="viewport-block">
+          <div class="viewport-hood">
+            <span class="hood-plate">Test Section &middot; Schlieren View</span>
+            <span class="hood-arrow" aria-hidden="true">FLOW &#8594;</span>
+          </div>
+          <div class="viewport-bezel">
+            <canvas
+              id="schlieren"
+              aria-label="Schlieren image of the test section"
+            ></canvas>
+            <span class="vp-screw s1"></span><span class="vp-screw s2"></span
+            ><span class="vp-screw s3"></span><span class="vp-screw s4"></span>
+          </div>
+          <div class="drumrow">
+            <div class="drum-unit">
+              <span class="drum-label">Mach No.</span>
+              <span class="drum" data-drum="mach"><i class="strip"></i></span>
+            </div>
+            <div class="drum-unit">
+              <span class="drum-label">Incidence</span>
+              <span class="drum" data-drum="aoa"><i class="strip"></i></span>
+            </div>
+            <div class="drum-unit">
+              <span class="drum-label">Run time</span>
+              <span class="drum" data-drum="time"><i class="strip"></i></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- right rail: the reading instruments -->
+        <aside class="rail rail-instruments">
+          <h2 class="rail-title">Readings</h2>
+          <div class="dialpair">
+            <figure class="dial">
+              <canvas width="168" height="168" data-dial="settle"></canvas>
+              <figcaption>Settling pr.</figcaption>
+            </figure>
+            <figure class="dial">
+              <canvas width="168" height="168" data-dial="diffuser"></canvas>
+              <figcaption>Diffuser pr.</figcaption>
+            </figure>
+          </div>
+          <div class="dialpair small">
+            <figure class="dial">
+              <canvas width="118" height="118" data-dial="lift"></canvas>
+              <figcaption>Lift kg</figcaption>
+            </figure>
+            <figure class="dial">
+              <canvas width="118" height="118" data-dial="drag"></canvas>
+              <figcaption>Drag kg</figcaption>
+            </figure>
+          </div>
+          <div class="thermo thermo-wide" data-thermo="stag">
+            <span class="thermo-scale">
+              <b style="--y: 6%">+60&deg;</b>
+              <b style="--y: 30%">+20&deg;</b>
+              <b style="--y: 54%">&minus;20&deg;</b>
+              <b style="--y: 78%">&minus;60&deg;</b>
+            </span>
+            <span class="thermo-tube"><i class="thermo-fluid"></i></span>
+            <span class="thermo-mark" data-dewmark>&nbsp;</span>
+            <span class="thermo-name">Stagnation temp &middot; dewline</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ======================= BOTTOM RAIL ======================= -->
+      <section class="bottomrail">
+        <!-- flow controls -->
+        <fieldset class="group group-flow">
+          <legend>Flow Controls</legend>
+
+          <div class="ctl ctl-valve">
+            <span class="ctl-name">Run Valve</span>
+            <button
+              type="button"
+              class="runvalve"
+              id="runvalve"
+              data-control="RUN VALVE"
+              aria-pressed="false"
+              aria-label="Run valve, throw fully open or shut"
+            >
+              <svg viewBox="0 0 120 96" aria-hidden="true">
+                <path class="qv-quadrant" d="M18 88V30a52 52 0 0 1 84 0v58z" />
+                <path
+                  class="qv-openzone"
+                  d="M86 22a52 52 0 0 1 16 36v8h-22V30a52 52 0 0 1 6-8z"
+                />
+                <g class="qv-lever" id="qv-lever">
+                  <rect x="-7" y="-64" width="14" height="76" rx="6" />
+                  <circle cx="0" cy="0" r="15" />
+                </g>
+                <text x="24" y="80">SHUT</text>
+                <text x="78" y="80">OPEN</text>
+              </svg>
+              <span class="qv-grip" aria-hidden="true"></span>
+            </button>
+            <span class="sub-plate">Snap open in one motion</span>
+          </div>
+
+          <div class="ctl ctl-selector">
+            <span class="ctl-name">Mach Block Selector</span>
+            <div
+              class="rotary"
+              id="machsel"
+              data-control="MACH BLOCK SELECTOR"
+              role="slider"
+              tabindex="0"
+              aria-label="Mach block selector, one point six to three point zero"
+              aria-valuemin="0"
+              aria-valuemax="3"
+              aria-valuenow="1"
+              aria-valuetext="Mach 2.0"
+            >
+              <span class="rotary-face">
+                <b style="--a: -46deg">1.6</b>
+                <b style="--a: -16deg">2.0</b>
+                <b style="--a: 16deg">2.5</b>
+                <b style="--a: 46deg">3.0</b>
+                <i class="rotary-pointer"></i>
+              </span>
+            </div>
+            <span class="sub-plate">Blocks bolted - stop flow to change</span>
+          </div>
+
+          <div class="ctl ctl-knob">
+            <span class="ctl-name">Diffuser Bleed</span>
+            <div
+              class="knob"
+              id="bleed"
+              data-control="DIFFUSER BLEED"
+              role="slider"
+              tabindex="0"
+              aria-label="Diffuser bleed, percent open"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+            >
+              <span class="knob-body"><i class="knob-pointer"></i></span>
+              <span class="knob-window"><b data-bleedread>50%</b></span>
+            </div>
+            <span class="sub-plate">Open for starting</span>
+          </div>
+
+          <div class="ctl ctl-wheel">
+            <span class="ctl-name">Angle of Attack Handwheel</span>
+            <div
+              class="handwheel"
+              id="handwheel"
+              data-control="ANGLE OF ATTACK HANDWHEEL"
+              role="slider"
+              tabindex="0"
+              aria-label="Angle of attack handwheel, minus five to plus fifteen degrees"
+              aria-valuemin="-5"
+              aria-valuemax="15"
+              aria-valuenow="0"
+            >
+              <span class="hw-rim">
+                <i class="hw-spoke"></i><i class="hw-spoke"></i
+                ><i class="hw-spoke"></i><i class="hw-spoke"></i
+                ><i class="hw-spoke"></i><i class="hw-spoke"></i>
+                <b class="hw-handle"></b>
+              </span>
+            </div>
+            <span class="sub-plate">Sweep slowly past the buffet</span>
+          </div>
+        </fieldset>
+
+        <!-- annunciator -->
+        <fieldset class="group group-alarm">
+          <legend>Annunciator</legend>
+          <div class="annunciator">
+            <span class="annwin" data-win="tank">TANK LOW</span>
+            <span class="annwin" data-win="dryer">DRYER WET</span>
+            <span class="annwin" data-win="moisture">MOISTURE</span>
+            <span class="annwin" data-win="buffet">BUFFET</span>
+            <span class="annwin" data-win="unstart">UNSTART</span>
+            <span class="annwin" data-win="comphot">COMP HOT</span>
+            <span class="annwin annwin-trip" data-win="sting">STING DMG</span>
+            <span class="annwin annwin-trip" data-win="optics">OPTICS</span>
+          </div>
+          <div class="annbtns">
+            <button
+              type="button"
+              class="pb"
+              data-control="ALARM ACCEPT"
+              id="accept"
+            >
+              Alarm Accept
+            </button>
+            <button
+              type="button"
+              class="pb"
+              data-control="LAMPS TEST"
+              id="lampstest"
+            >
+              Lamps Test
+            </button>
+            <button
+              type="button"
+              class="pb pb-red"
+              data-control="TRIP RESET"
+              id="tripreset"
+            >
+              Trip Reset
+            </button>
+          </div>
+        </fieldset>
+
+        <!-- maintenance -->
+        <fieldset class="group group-maint">
+          <legend>Maintenance</legend>
+
+          <div
+            class="faultguard"
+            id="faultguard"
+            data-control="FAULT TEST SWITCHES"
+          >
+            <button
+              type="button"
+              class="fg-cover"
+              aria-expanded="false"
+              aria-label="Lift fault test cover"
+            >
+              <span>Fault Test Switches</span>
+              <em>Lift before testing</em>
+            </button>
+            <div class="fg-switches">
+              <label class="ctl ctl-guarded">
+                <input type="checkbox" data-inject="nozzle condensation" />
+                <span class="gsw gsw-a" aria-hidden="true"><i></i></span>
+                <span class="gsw-name">Moisture ingress</span>
+              </label>
+              <label class="ctl ctl-guarded">
+                <input type="checkbox" data-inject="sting buffet oscillation" />
+                <span class="gsw gsw-b" aria-hidden="true"><i></i></span>
+                <span class="gsw-name">Sting oscillation</span>
+              </label>
+              <label class="ctl ctl-guarded">
+                <input type="checkbox" data-inject="compressor overheat" />
+                <span class="gsw gsw-c" aria-hidden="true"><i></i></span>
+                <span class="gsw-name">Motor overload</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="maintrow">
+            <div class="ctl ctl-key">
+              <span class="ctl-name">Cold Reset</span>
+              <button
+                type="button"
+                class="keyswitch"
+                id="coldreset"
+                data-control="COLD RESET"
+                aria-label="Cold reset keyswitch - returns the tunnel to cold and clears every alarm"
+              >
+                <span class="key-escutcheon"><i class="key-barrel"></i></span>
+              </button>
+            </div>
+            <button
+              type="button"
+              class="pb pb-sound"
+              data-control="SOUND CUT"
+              id="soundcut"
+              aria-pressed="false"
+            >
+              Sound Cut
+            </button>
+          </div>
+
+          <p class="makerplate">
+            RCA WORKS DEPT &middot; 1957<br />
+            DWG T/157 &middot; SERIAL 2<br />
+            <a href="../../">College equipment catalogue</a>
+          </p>
+        </fieldset>
+      </section>
+
+      <footer class="deskfoot">
+        <span class="danger-plate"
+          >DANGER &middot; COMPRESSED AIR &middot; 210 bar</span
+        >
+        <span class="foot-note"
+          >Intermittent blowdown tunnel &middot; dry air only &middot; dewpoint
+          &minus;40&deg;C required</span
+        >
+      </footer>
+    </main>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <div class="md-head">
+        <span class="md-title"
+          >RCA/TUN/1 &middot; Supersonic Tunnel No. 1 &middot; Operating
+          Manual</span
+        >
+        <button type="button" class="md-close" data-action="close-manual">
+          Close
+        </button>
+      </div>
+      <iframe src="manual.html" title="Operating manual, RCA/TUN/1"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

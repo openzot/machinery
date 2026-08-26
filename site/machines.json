@@ -1224,5 +1224,41 @@
     ],
     "tagline": "Close her early against a small head - the river behind you cannot be put back.",
     "created": "2026-08-25"
+  },
+  {
+    "slug": "ransdale-tunnel",
+    "name": "Ransdale College of Aeronautics - Supersonic Tunnel No. 1",
+    "kind": "supersonic blowdown wind tunnel control desk",
+    "domain": "aerospace",
+    "era": "1950s",
+    "design": "natural rolled-aluminium desk over black wrinkle sub-panels, hand-stencilled black legends and engraved traffolyte plates, ivory scale dials and counter drums, an amber tank-charged neon and red alarm jewels in a daylight concrete hall whose only other light is the schlieren spark",
+    "interaction": "snapping a floor-length quick-opening run valve in one stroke, then sweeping the sting's angle-of-attack handwheel against a live schlieren image while trimming diffuser bleed against an unstarting shock on a draining tank bank",
+    "palette": [
+      "#b8bec2",
+      "#17181a",
+      "#d32718"
+    ],
+    "controls": [
+      "MAIN BREAKER",
+      "COMPRESSOR MOTOR",
+      "AIR DRYER HEATER",
+      "MACH BLOCK SELECTOR",
+      "DIFFUSER BLEED",
+      "RUN VALVE",
+      "ANGLE OF ATTACK HANDWHEEL",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "TRIP RESET",
+      "COLD RESET",
+      "FAULT TEST SWITCHES",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "nozzle condensation",
+      "sting buffet oscillation",
+      "compressor overheat"
+    ],
+    "tagline": "Charge her dry, snap the valve, and sweep the wing before the tanks breathe out.",
+    "created": "2026-08-26"
   }
 ]
