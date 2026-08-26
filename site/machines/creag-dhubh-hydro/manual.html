@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Operating Manual - Creag Dhubh Hydro-Electric Station, No. 1 Machine
+      Control Bench
+    </title>
+    <meta
+      name="description"
+      content="Works instruction CD/1/M for the No. 1 machine control bench, Creag Dhubh hydro-electric station: controls, starting-up procedure, alarms, faults and specifications."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body class="manual-body">
+    <header class="man-head">
+      <div>
+        <p class="man-board">
+          NORTH OF SCOTLAND HYDRO-ELECTRIC BOARD &middot; ENGINEERING DEPT
+        </p>
+        <h1>Creag Dhubh Hydro-Electric Station</h1>
+        <p class="man-sub">
+          OPERATING MANUAL &mdash; No.&nbsp;1 MACHINE CONTROL BENCH &mdash;
+          WORKS INSTRUCTION CD/1/M &mdash; THIRD EDITION, 1956
+        </p>
+      </div>
+      <nav class="man-links">
+        <a href="./">&larr; THE BENCH</a>
+        <a href="../../">&larr; CATALOGUE</a>
+      </nav>
+    </header>
+
+    <main class="man-main">
+      <h2>Overview</h2>
+      <p>
+        Creag Dhubh impounds the Dubh Water behind a concrete gravity dam and
+        delivers it to a single vertical Francis set through a low-level tunnel,
+        a surge shaft and 900 yards of 6-foot penstock. The machine drives a
+        16-pole generator at 375 rev/min and hands its power to the 33&nbsp;kV
+        board through Transformer No.&nbsp;1. This bench works the whole chain
+        from water to wire. The painted cutaway along its top is not decoration:
+        loch level, surge shaft, penstock flow and the turning runner are all
+        live, and the instruments beneath repeat them in brass and ivory.
+      </p>
+      <p>
+        The set is started by hand, synchronised by eye on the synchroscope, and
+        left to the governor once on load. Remember that water is patient and
+        heavy: move valves slowly, close them slower, and never ask the surge
+        shaft to take more than it must. A careless hand hurts the penstock long
+        before any lamp lights.
+      </p>
+
+      <h2>Controls</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Type</th>
+            <th>Action and positions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MAIN INLET VALVE</td>
+            <td>Ratchet lever</td>
+            <td>
+              One stroke, one click of five. SHUT 000 to OPEN 100 in twenty
+              clicks; the valve takes some forty-five seconds to follow the
+              drum. Closing strokes order the valve shut the same way.
+            </td>
+          </tr>
+          <tr>
+            <td>GOVERNOR CHANGE-OVER</td>
+            <td>Three-position selector</td>
+            <td>
+              OFF releases the gate, which falls shut on its weight. HAND
+              follows the SPEED CHANGER slowly. AUTO holds fifty hertz before
+              synchronising and follows the SPEED CHANGER on load.
+            </td>
+          </tr>
+          <tr>
+            <td>SPEED CHANGER</td>
+            <td>Milled handwheel</td>
+            <td>
+              Sets GATE COMMAND, 000&ndash;100 on the counter. In HAND it is the
+              gate itself; in AUTO it is the load.
+            </td>
+          </tr>
+          <tr>
+            <td>EXCITATION</td>
+            <td>Field rheostat knob</td>
+            <td>
+              FIELD current 0&ndash;10 amperes. Seven amperes gives eleven
+              kilovolts at no load. On the bus it governs reactive megavars.
+            </td>
+          </tr>
+          <tr>
+            <td>GENERATOR BREAKER</td>
+            <td>Guarded rotary control</td>
+            <td>
+              Lift the yellow GUARD, then turn to CLOSE. The handle springs back
+              to N. Turn to OPEN to take the set off the bus.
+            </td>
+          </tr>
+          <tr>
+            <td>BEARING WATER PUMP</td>
+            <td>Toggle</td>
+            <td>
+              ON circulates cooling water to the guide and thrust bearings from
+              the tailrace intake. OFF leaves a trickle only.
+            </td>
+          </tr>
+          <tr>
+            <td>ALARM ACCEPT</td>
+            <td>Pushbutton</td>
+            <td>
+              Stops the flashing of a newly-lit tile. The lamp stays lit until
+              the condition clears.
+            </td>
+          </tr>
+          <tr>
+            <td>LAMPS TEST</td>
+            <td>Pushbutton</td>
+            <td>
+              Lights every annunciator tile, pilot and jewel at once. Prove it
+              before you trust a dark panel.
+            </td>
+          </tr>
+          <tr>
+            <td>FAULT TEST SWITCHES</td>
+            <td>Lidded test bank</td>
+            <td>
+              Under the lid: GOVERNOR OIL drains the accumulator as a leak;
+              COOLING WATER cuts the bearing water supply; LOAD REJECT opens the
+              breaker at full load. Return each switch to normal after test.
+            </td>
+          </tr>
+          <tr>
+            <td>UNIT RESET</td>
+            <td>Pushbutton</td>
+            <td>
+              Clears trip lockouts and the annunciator after a shutdown and
+              restores the bench to cold positions. Use only when the levers are
+              back where the cold sheet says.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Normal operation</h2>
+      <ol class="man-steps">
+        <li>
+          Cold sheet: MAIN INLET VALVE 000, GOVERNOR CHANGE-OVER OFF, SPEED
+          CHANGER 000, EXCITATION zero, GENERATOR BREAKER open and guarded,
+          BEARING WATER PUMP off. AUX SUPPLY pilot burning white.
+        </li>
+        <li>Press LAMPS TEST and satisfy yourself every lamp answers.</li>
+        <li>
+          Switch BEARING WATER PUMP ON. The BRG WATER LOW tile must stay dark.
+        </li>
+        <li>
+          Stroke MAIN INLET VALVE up to 100, click by click. Watch PENSTOCK
+          PRESSURE climb to about 115 metres and the SURGE SHAFT settle near its
+          mark.
+        </li>
+        <li>Put GOVERNOR CHANGE-OVER to HAND.</li>
+        <li>
+          Raise the SPEED CHANGER steadily. The unit rolls; bring the large
+          meter to 375 rev/min &mdash; the HERTZ needle standing on fifty.
+        </li>
+        <li>
+          Bring EXCITATION to 7.0 amperes; MACHINE VOLTS rises to 11.0 and holds
+          inside its green sector.
+        </li>
+        <li>
+          Put GOVERNOR CHANGE-OVER to AUTO. The HERTZ needle steadies; the SERVO
+          jewel burns green while oil pressure exceeds nine bar.
+        </li>
+        <li>
+          Watch the SYNCHROSCOPE: the SLOW and FAST lamps tell you which way she
+          is drifting. As the pointer slows towards twelve o'clock and the IN
+          PHASE lamp burns, lift the GENERATOR BREAKER guard and turn to CLOSE
+          as the pointer crosses twelve. CLOSED shows red, the ON LOAD pilot
+          shows green. A closing made off the window strikes INCORRECT SYNC and
+          the breaker refuses.
+        </li>
+        <li>
+          Raise the SPEED CHANGER for eight to ten megawatts. Keep FOREBAY LEVEL
+          above four metres, GUIDE BEARING below sixty-eight degrees, and
+          GOVERNOR OIL between eighteen and twenty-one bar.
+        </li>
+        <li>
+          To shut down: unload to zero, open the GENERATOR BREAKER, put the
+          governor to OFF, let the gates fall, close MAIN INLET VALVE by
+          strokes, stop the BEARING WATER PUMP last.
+        </li>
+      </ol>
+
+      <h2>Alarms</h2>
+      <table class="man-table">
+        <thead>
+          <tr>
+            <th>Tile</th>
+            <th>Meaning</th>
+            <th>Immediate duty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FOREBAY LOW</td>
+            <td>
+              Forebay below 3.4 m; the governor caps the gate at 45 against
+              air-drawing vortices.
+            </td>
+            <td>
+              Reduce load. Below 2.0 m the intake trips the machine outright.
+            </td>
+          </tr>
+          <tr>
+            <td>SURGE HIGH</td>
+            <td>Surge shaft more than +2.2 m after a brisk gate movement.</td>
+            <td>
+              Touch nothing for two minutes and let the mass oscillate die. At
+              +3.3 m the overpressure trip acts.
+            </td>
+          </tr>
+          <tr>
+            <td>GOVERNOR OIL LOW</td>
+            <td>Accumulator below 16 bar.</td>
+            <td>
+              Find the leak. Below 9 bar the AUTO servo is dead &mdash; change
+              to HAND and hold the gate yourself.
+            </td>
+          </tr>
+          <tr>
+            <td>BRG WATER LOW</td>
+            <td>Cooling water supply lost or pump stopped.</td>
+            <td>
+              Restore supply at once; the bearing climbs towards 130&nbsp;&deg;C
+              without it.
+            </td>
+          </tr>
+          <tr>
+            <td>GUIDE BRG HOT</td>
+            <td>Bearing metal at 68&nbsp;&deg;C or worse.</td>
+            <td>
+              Verify water flow, ease the load. The temperature trip acts at
+              88&nbsp;&deg;C.
+            </td>
+          </tr>
+          <tr>
+            <td>OVERSPEED</td>
+            <td>Speed past 112 per cent.</td>
+            <td>
+              Let the governor slam the gate; the mechanical trip acts at 140
+              per cent and wrecks the run.
+            </td>
+          </tr>
+          <tr>
+            <td>LOAD REJECTION</td>
+            <td>The breaker has opened on load.</td>
+            <td>The unit races and settles; resynchronise before reloading.</td>
+          </tr>
+          <tr>
+            <td>INCORRECT SYNC</td>
+            <td>A closing was attempted outside the window.</td>
+            <td>
+              The breaker refuses. Re-trim speed and volts, wait for IN PHASE,
+              try again.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Faults and recovery</h2>
+      <h3>Governor oil pressure loss</h3>
+      <p>
+        <strong>You see:</strong> the GOVERNOR OIL LOW tile flashing; the oil
+        gauge falling half a bar a second; AUTO going lazy and then dead below
+        nine bar. This is the fault the FAULT TEST SWITCHES bank imitates with
+        its GOVERNOR OIL switch.
+      </p>
+      <p>
+        <strong>To clear:</strong> put GOVERNOR CHANGE-OVER to HAND so the servo
+        stops drinking; isolate the cause by returning the GOVERNOR OIL test
+        switch to normal; hold the gate steady by hand where the load wants it.
+        The pump recharges the accumulator; when the gauge passes seventeen bar
+        the tile goes dark and you may return to AUTO. If the machine tripped
+        meanwhile, let her settle, press UNIT RESET and begin again from the
+        cold sheet.
+      </p>
+      <h3>Bearing cooling water loss</h3>
+      <p>
+        <strong>You see:</strong> BRG WATER LOW immediately; GUIDE BRG HOT
+        within the minute on load; the temperature needle walking towards the
+        red sector. Imitated by the COOLING WATER test switch, or simply by
+        running with the BEARING WATER PUMP off.
+      </p>
+      <p>
+        <strong>To clear:</strong> restore the supply &mdash; return COOLING
+        WATER to normal or start the BEARING WATER PUMP &mdash; and the bearing
+        cools; the tile clears below sixty-eight degrees. If the eighty-eight
+        degree trip has acted, wait until the needle falls under seventy, press
+        UNIT RESET, and restart by the Normal operation sheet. Running her hot
+        twice bends the shaft.
+      </p>
+      <h3>Load rejection</h3>
+      <p>
+        <strong>You see:</strong> a bang along the penstock, the surge column
+        leaping, LOAD REJECTION lit, the breaker OPEN and the unit racing with
+        OVERSPEED close behind if the governor is weak. Imitated by the LOAD
+        REJECT test push, best tried at eight megawatts.
+      </p>
+      <p>
+        <strong>To recover:</strong> leave the governor alone &mdash; in AUTO
+        with oil above nine bar it slams the gate itself, else close it by HAND.
+        When the HERTZ needle is back on fifty, trim volts, watch IN PHASE, and
+        reclose the GENERATOR BREAKER as before. The tile clears when the
+        breaker closes below 105 per cent speed; reload gently and mind the
+        surge shaft on the way.
+      </p>
+
+      <h2>Specifications</h2>
+      <table class="man-table man-spec">
+        <tbody>
+          <tr>
+            <th>Turbine</th>
+            <td>Vertical Francis, single runner, steel spiral case</td>
+          </tr>
+          <tr>
+            <th>Rated output</th>
+            <td>12 MW at 118 m net head</td>
+          </tr>
+          <tr>
+            <th>Gross head</th>
+            <td>120 m at mean loch level (6.2 m on the forebay gauge)</td>
+          </tr>
+          <tr>
+            <th>Rated discharge</th>
+            <td>12 m&sup3;/s</td>
+          </tr>
+          <tr>
+            <th>Rated speed</th>
+            <td>375 rev/min, 16 poles, 50 Hz</td>
+          </tr>
+          <tr>
+            <th>Overspeed alarms</th>
+            <td>112 % annunciated; 140 % (525 rev/min) mechanical trip</td>
+          </tr>
+          <tr>
+            <th>Generator</th>
+            <td>11 kV, three-phase, 14 MVA, 0.86 power factor</td>
+          </tr>
+          <tr>
+            <th>Excitation</th>
+            <td>0&ndash;10 A field; 7.0 A for 11 kV at no load</td>
+          </tr>
+          <tr>
+            <th>Main inlet valve</th>
+            <td>Ratchet-operated butterfly, 20 clicks of 5 %, ~45 s travel</td>
+          </tr>
+          <tr>
+            <th>Governor oil</th>
+            <td>21 bar nominal; alarm 16 bar; servo dead below 9 bar</td>
+          </tr>
+          <tr>
+            <th>Bearing temperatures</th>
+            <td>
+              Alarm 68 &deg;C; trip 88 &deg;C; uncooled equilibrium 130 &deg;C
+            </td>
+          </tr>
+          <tr>
+            <th>Surge shaft</th>
+            <td>Alarm +2.2 m; overpressure trip +3.3 m</td>
+          </tr>
+          <tr>
+            <th>Forebay limits</th>
+            <td>
+              Alarm 3.4 m; gate cap at the vortex limit; intake trip 2.0 m
+            </td>
+          </tr>
+          <tr>
+            <th>Transformers</th>
+            <td>No.&nbsp;1, 11 / 33 kV, ONAN, 15 MVA</td>
+          </tr>
+          <tr>
+            <th>Commissioned</th>
+            <td>1956; bench drawing H/2149, Gourock Works</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="man-colophon">
+        N.S.H.E.B. Works Instruction CD/1/M, third edition. Amendments in red
+        ink are to be initialled by the resident engineer.
+      </p>
+    </main>
+  </body>
+</html>

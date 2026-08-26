@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Creag Dhubh Hydro-Electric Station - No. 1 Machine Control Bench
+    </title>
+    <meta
+      name="description"
+      content="Control bench for a 1950s Highland hydro-electric powerhouse: dam, surge shaft, Francis turbine and generator, worked from pink-granite marble under North of Scotland Hydro-Electric Board daylight."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <main class="bench" id="bench">
+      <!-- ======================= HEADER ======================= -->
+      <header class="headband">
+        <div class="maker" aria-hidden="true">
+          NORTH OF SCOTLAND HYDRO-ELECTRIC BOARD<br />
+          ENGINEERING DEPT &middot; GOUROCK WORKS &middot; 1956<br />
+          BENCH No. CD/1 &middot; DRAWING H/2149
+        </div>
+        <div class="nameplate">
+          <h1>Creag Dhubh Hydro-Electric Station</h1>
+          <p>NO.&nbsp;1 MACHINE &mdash; CONTROL BENCH</p>
+        </div>
+        <div class="headside">
+          <span class="pilot" data-pilot="aux"
+            ><i></i><em>AUX&nbsp;SUPPLY</em></span
+          >
+          <span class="pilot" data-pilot="onload"
+            ><i></i><em>ON&nbsp;LOAD</em></span
+          >
+          <span class="pilot pilot-red" data-pilot="trip"
+            ><i></i><em>TRIP</em></span
+          >
+          <button type="button" class="manual-btn" data-action="manual">
+            OPERATOR&rsquo;S MANUAL
+          </button>
+        </div>
+      </header>
+
+      <!-- ======================= ANNUNCIATOR ======================= -->
+      <section class="annunciator" aria-label="Alarm annunciator">
+        <div class="tiles">
+          <span class="tile" data-alarm="FOREBAY LOW"
+            ><i></i><em>FOREBAY<br />LOW</em></span
+          >
+          <span class="tile" data-alarm="SURGE HIGH"
+            ><i></i><em>SURGE<br />HIGH</em></span
+          >
+          <span class="tile" data-alarm="GOVERNOR OIL LOW"
+            ><i></i><em>OIL<br />LOW</em></span
+          >
+          <span class="tile" data-alarm="BRG WATER LOW"
+            ><i></i><em>BRG&nbsp;WATER<br />LOW</em></span
+          >
+          <span class="tile" data-alarm="GUIDE BRG HOT"
+            ><i></i><em>GUIDE&nbsp;BRG<br />HOT</em></span
+          >
+          <span class="tile" data-alarm="OVERSPEED"
+            ><i></i><em>OVER<br />SPEED</em></span
+          >
+          <span class="tile" data-alarm="LOAD REJECTION"
+            ><i></i><em>LOAD<br />REJECTION</em></span
+          >
+          <span class="tile" data-alarm="INCORRECT SYNC"
+            ><i></i><em>BAD<br />SYNC</em></span
+          >
+        </div>
+        <button
+          type="button"
+          class="pb pb-accept"
+          data-control="ALARM ACCEPT"
+          id="accept-btn"
+        >
+          ALARM<br />ACCEPT
+        </button>
+      </section>
+
+      <!-- ======================= MIMIC ======================= -->
+      <section class="mimicwrap" aria-label="Water conductor system mimic">
+        <svg
+          class="mimic"
+          viewBox="0 0 1160 296"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Painted cutaway of loch, dam, intake, surge shaft, penstock, turbine hall and bus"
+        >
+          <rect class="mm-backdrop" x="0" y="0" width="1160" height="296" />
+          <!-- hillside -->
+          <g clip-path="url(#lochclip)">
+            <rect class="mm-lochbed" x="0" y="40" width="250" height="120" />
+            <g id="loch-move">
+              <path
+                id="loch-water"
+                class="mm-water"
+                d="M0,86 C90,72 170,78 246,88 L246,170 L0,170 Z"
+              />
+              <path
+                id="loch-wave"
+                class="mm-wave"
+                d="M4,84 q14,-5 28,0 t28,0 t28,0 t28,0 t28,0 t28,0 t28,0 t28,0"
+              />
+            </g>
+          </g>
+          <!-- dam -->
+
+          <!-- dam -->
+
+          <path
+            class="mm-dam"
+            d="M188,296 L188,74 L196,60 L232,60 L244,86 L244,296 Z"
+          />
+          <path
+            class="mm-damface"
+            d="M188,296 L188,74 L196,60 L206,60 L200,296 Z"
+          />
+          <rect class="mm-damcrest" x="192" y="52" width="44" height="10" />
+          <g class="mm-parapet">
+            <line x1="192" y1="49" x2="236" y2="49" />
+            <line x1="192" y1="46" x2="236" y2="46" />
+          </g>
+          <text class="stl stl-sm" x="150" y="42">LOCH DUBH</text>
+          <text class="stl stl-tiny" x="146" y="284">DAM CREST 921&#8242;</text>
+
+          <!-- spill -->
+          <text class="stl stl-tiny" x="252" y="70">INTAKE</text>
+          <!-- intake tower -->
+          <rect class="mm-intake" x="246" y="76" width="34" height="220" />
+          <g class="mm-trash">
+            <line x1="252" y1="96" x2="252" y2="270" />
+            <line x1="258" y1="96" x2="258" y2="270" />
+            <line x1="264" y1="96" x2="264" y2="270" />
+            <line x1="270" y1="96" x2="270" y2="270" />
+            <line x1="276" y1="96" x2="276" y2="270" />
+          </g>
+          <!-- low-level conduit -->
+          <rect
+            id="conduit-body"
+            class="mm-pipe"
+            x="280"
+            y="216"
+            width="330"
+            height="22"
+          />
+          <!-- surge shaft -->
+          <rect class="mm-shaftwall" x="392" y="60" width="26" height="164" />
+          <rect class="mm-shaftcavity" x="398" y="66" width="14" height="152" />
+          <rect
+            id="surge-water"
+            class="mm-water"
+            x="398"
+            y="120"
+            width="14"
+            height="98"
+          />
+          <line class="mm-mark" x1="388" y1="82" x2="422" y2="82" />
+          <text class="stl stl-tiny" x="368" y="52">SURGE SHAFT</text>
+          <!-- penstock incline -->
+          <path
+            id="penstock-path"
+            class="mm-pipe"
+            d="M610,216 L726,236 L726,262 L604,238 Z"
+          />
+          <g class="mm-flange">
+            <line x1="632" y1="219" x2="628" y2="239" />
+            <line x1="668" y1="225" x2="664" y2="245" />
+            <line x1="700" y1="230" x2="697" y2="252" />
+          </g>
+          <text class="stl stl-tiny" x="600" y="204">
+            PENSTOCK 6&#8242; DIA
+          </text>
+          <!-- powerhouse -->
+          <rect class="mm-hall" x="720" y="120" width="210" height="176" />
+          <rect class="mm-hallroof" x="714" y="108" width="222" height="16" />
+          <g class="mm-crane">
+            <line x1="720" y1="136" x2="930" y2="136" />
+            <line x1="736" y1="132" x2="914" y2="132" />
+          </g>
+          <g class="mm-windows">
+            <rect x="846" y="150" width="70" height="34" />
+            <line x1="869" y1="150" x2="869" y2="184" />
+            <line x1="893" y1="150" x2="893" y2="184" />
+          </g>
+          <text class="stl stl-sm" x="756" y="102">POWERHOUSE No.&nbsp;1</text>
+
+          <!-- spiral case + runner -->
+
+          <circle class="mm-case" cx="792" cy="238" r="34" />
+          <circle class="mm-caseinner" cx="792" cy="238" r="26" />
+          <g id="runner" class="mm-runner">
+            <line x1="792" y1="216" x2="792" y2="260" />
+            <line x1="770" y1="238" x2="814" y2="238" />
+            <line x1="777" y1="223" x2="807" y2="253" />
+            <line x1="807" y1="223" x2="777" y2="253" />
+          </g>
+          <circle class="mm-cap" cx="792" cy="238" r="5" />
+          <!-- shaft + generator -->
+          <rect class="mm-shaft" x="788" y="168" width="8" height="46" />
+          <rect class="mm-gen" x="762" y="130" width="64" height="40" />
+          <g class="mm-winding">
+            <line x1="768" y1="138" x2="820" y2="138" />
+            <line x1="768" y1="145" x2="820" y2="145" />
+            <line x1="768" y1="152" x2="820" y2="152" />
+            <line x1="768" y1="159" x2="820" y2="159" />
+          </g>
+          <text class="stl stl-tiny" x="834" y="146">GENERATOR</text>
+          <text class="stl stl-tiny" x="834" y="158">11&#8202;kV</text>
+          <!-- draft tube + tailrace -->
+          <path
+            class="mm-draft"
+            d="M792,272 C792,290 810,292 830,292 L870,292 L870,296 L760,296 L760,282 Z"
+          />
+          <rect
+            id="tailrace-water"
+            class="mm-water"
+            x="758"
+            y="284"
+            width="120"
+            height="12"
+          />
+          <!-- transformer -->
+          <g class="mm-tx">
+            <circle cx="992" cy="208" r="22" />
+            <circle cx="1012" cy="208" r="22" />
+            <line x1="984" y1="188" x2="984" y2="172" />
+            <line x1="1010" y1="188" x2="1010" y2="172" />
+          </g>
+          <text class="stl stl-tiny" x="956" y="246">TX No.1</text>
+          <text class="stl stl-tiny" x="948" y="258">11 / 33&#8202;kV</text>
+          <!-- connections generator -> tx -> bus -->
+          <polyline class="mm-cable" points="826,150 880,150 880,190 970,190" />
+          <polyline class="mm-cable" points="1034,208 1064,208" />
+          <!-- bus -->
+          <line class="mm-bus" x1="1064" y1="184" x2="1146" y2="184" />
+          <line class="mm-bus" x1="1064" y1="232" x2="1146" y2="232" />
+          <g id="bus-dots" class="mm-busdots"></g>
+          <text class="stl stl-tiny" x="1064" y="174">33&#8202;kV BUS</text>
+          <text class="stl stl-tiny" x="1072" y="250">TO GRID</text>
+          <!-- flow dashes -->
+          <path
+            id="flow-loch"
+            class="mm-flow"
+            d="M212,120 C240,124 258,150 262,196"
+          />
+          <path id="flow-conduit" class="mm-flow" d="M286,227 L606,227" />
+          <path id="flow-penstock" class="mm-flow" d="M618,228 L716,246" />
+          <path id="flow-tailrace" class="mm-flow" d="M800,290 L866,290" />
+          <!-- floor line -->
+          <line class="mm-floor" x1="0" y1="295.5" x2="1160" y2="295.5" />
+        </svg>
+      </section>
+
+      <!-- ======================= CONTROL SECTIONS ======================= -->
+      <div class="sections">
+        <!-- ~~~~ WATER ~~~~ -->
+        <section class="sec" aria-labelledby="h-water">
+          <h2 class="sechead" id="h-water">WATER SYSTEM</h2>
+          <div class="dialrow">
+            <div class="dialbox" data-dial="forebay"></div>
+            <div class="dialbox" data-dial="surge"></div>
+            <div class="dialbox" data-dial="press"></div>
+          </div>
+          <div
+            class="ratchet"
+            data-control="MAIN INLET VALVE"
+            id="miv"
+            role="slider"
+            tabindex="0"
+            aria-label="Main inlet valve opening, percent"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-orientation="vertical"
+          >
+            <div class="rq-quadrant"></div>
+            <div class="rq-teeth"></div>
+            <div class="rq-lever" id="miv-lever">
+              <span class="rq-grip"></span>
+            </div>
+            <div class="rq-pivot"></div>
+            <div class="rq-pawl"></div>
+            <div class="rq-plate">
+              <em>MAIN INLET VALVE</em>
+              <output class="drum" id="miv-drum" for="miv">000</output>
+              <span class="rq-note"
+                >RATCHET LEVER &mdash; ONE STROKE PER CLICK</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ~~~~ GOVERNOR ~~~~ -->
+        <section class="sec" aria-labelledby="h-gov">
+          <h2 class="sechead" id="h-gov">GOVERNOR</h2>
+          <div
+            class="sel3"
+            data-control="GOVERNOR CHANGE-OVER"
+            role="radiogroup"
+            aria-label="Governor change-over"
+            id="gov-sel"
+          >
+            <button
+              type="button"
+              role="radio"
+              aria-checked="true"
+              data-pos="OFF"
+              tabindex="0"
+            >
+              OFF
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              data-pos="HAND"
+              tabindex="-1"
+            >
+              HAND
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              data-pos="AUTO"
+              tabindex="-1"
+            >
+              AUTO
+            </button>
+            <div class="sel-face">
+              <span class="sel-pointer" id="gov-pointer"></span>
+            </div>
+          </div>
+          <div
+            class="wheelbox"
+            data-control="SPEED CHANGER"
+            id="speed-changer"
+            role="slider"
+            tabindex="0"
+            aria-label="Speed changer, gate command percent"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <svg class="wheel" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="wh-rim" cx="50" cy="50" r="40" />
+              <g class="wh-spokes">
+                <line x1="50" y1="12" x2="50" y2="88" />
+                <line x1="12" y1="50" x2="88" y2="50" />
+                <line x1="23" y1="23" x2="77" y2="77" />
+                <line x1="77" y1="23" x2="23" y2="77" />
+              </g>
+              <circle class="wh-hub" cx="50" cy="50" r="10" />
+              <rect class="wh-mark" x="48" y="8" width="4" height="12" />
+            </svg>
+            <div class="wb-readout">
+              <em>GATE COMMAND</em>
+              <output class="drum" id="sc-drum">000</output>
+            </div>
+          </div>
+          <div class="dialrow">
+            <div class="dialbox" data-dial="oil"></div>
+            <span class="jewel" data-jewel="servo"><i></i><em>SERVO</em></span>
+          </div>
+        </section>
+
+        <!-- ~~~~ UNIT ~~~~ -->
+        <section class="sec sec-wide" aria-labelledby="h-unit">
+          <h2 class="sechead" id="h-unit">NO.&nbsp;1 MACHINE</h2>
+          <div class="unitrow">
+            <div class="bigdial" data-dial="tacho"></div>
+            <div class="syncbox">
+              <div class="syncscope" id="synchroscope">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="sy-face" cx="60" cy="60" r="52" />
+                  <line class="sy-top" x1="60" y1="8" x2="60" y2="22" />
+                  <g id="sy-pointer">
+                    <path
+                      class="sy-needle"
+                      d="M60,60 L60,16 L64,26 L60,60 L56,26 Z"
+                    />
+                  </g>
+                  <circle class="sy-cap" cx="60" cy="60" r="6" />
+                </svg>
+                <em>SYNCHROSCOPE</em>
+              </div>
+              <span class="lamppair">
+                <span class="slamp" id="lamp-slow"><i></i>SLOW</span>
+                <span class="slamp" id="lamp-fast"><i></i>FAST</span>
+              </span>
+            </div>
+            <div class="dialcol">
+              <div class="dialbox" data-dial="volts"></div>
+              <div
+                class="knob"
+                data-control="EXCITATION"
+                id="exc-knob"
+                role="slider"
+                tabindex="0"
+                aria-label="Excitation field current, amperes"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+              >
+                <div class="kn-face" id="knob-face">
+                  <span class="kn-line"></span>
+                </div>
+                <div class="kn-readout">
+                  <em>FIELD</em
+                  ><output class="drum drum-sm" id="exc-drum">0.0</output>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ~~~~ OUTPUT ~~~~ -->
+        <section class="sec" aria-labelledby="h-out">
+          <h2 class="sechead" id="h-out">OUTPUT &amp; BREAKER</h2>
+          <div class="dialrow">
+            <div class="dialbox" data-dial="mw"></div>
+            <div class="dialbox" data-dial="gridhz"></div>
+          </div>
+          <div
+            class="brkrbox"
+            data-control="GENERATOR BREAKER"
+            id="breaker-box"
+          >
+            <span class="blamps">
+              <span class="blamp" id="lamp-inwindow"><i></i>IN&nbsp;PHASE</span>
+              <span class="blamp blamp-on" id="lamp-closed"><i></i>CLOSED</span>
+            </span>
+            <div class="brkr">
+              <button
+                type="button"
+                class="brkr-guard"
+                id="brkr-guard"
+                aria-expanded="false"
+                aria-label="Breaker guard - lift before operating"
+              >
+                GUARD
+              </button>
+              <button
+                type="button"
+                class="brkr-handle"
+                id="brkr-handle"
+                disabled
+                aria-label="Generator breaker control"
+              >
+                <span class="bh-plate">OPEN &middot; N &middot; CLOSE</span>
+                <span class="bh-pointer" id="brkr-pointer"></span>
+              </button>
+            </div>
+            <em class="brkr-name">GENERATOR BREAKER 11&#8202;kV</em>
+          </div>
+        </section>
+
+        <!-- ~~~~ AUX & TEST ~~~~ -->
+        <section class="sec" aria-labelledby="h-aux">
+          <h2 class="sechead" id="h-aux">AUXILIARIES &amp; TESTS</h2>
+          <div class="dialrow">
+            <div class="dialbox" data-dial="temp"></div>
+          </div>
+          <div class="auxrow">
+            <button
+              type="button"
+              class="toggle"
+              data-control="BEARING WATER PUMP"
+              id="pump-toggle"
+              role="switch"
+              aria-checked="false"
+            >
+              <span class="tg-slot"><span class="tg-lever"></span></span>
+              <em>BEARING WATER PUMP</em>
+            </button>
+            <div class="pbstack">
+              <button
+                type="button"
+                class="pb"
+                id="lamp-test-btn"
+                data-control="LAMPS TEST"
+              >
+                LAMPS TEST
+              </button>
+              <button
+                type="button"
+                class="pb"
+                id="reset-btn"
+                data-control="UNIT RESET"
+              >
+                UNIT RESET
+              </button>
+            </div>
+          </div>
+          <div
+            class="testcover"
+            id="test-cover"
+            data-control="FAULT TEST SWITCHES"
+          >
+            <button
+              type="button"
+              class="tc-lid"
+              id="tc-lid"
+              aria-expanded="false"
+            >
+              FAULT TEST SWITCHES &mdash; LIFT LID
+            </button>
+            <div class="tc-switches" id="tc-switches">
+              <button
+                type="button"
+                class="ftoggle"
+                id="ft-oil"
+                role="switch"
+                aria-checked="false"
+              >
+                <span class="ft-slot"><span class="ft-lever"></span></span
+                >GOVERNOR OIL
+              </button>
+              <button
+                type="button"
+                class="ftoggle"
+                id="ft-cooling"
+                role="switch"
+                aria-checked="false"
+              >
+                <span class="ft-slot"><span class="ft-lever"></span></span
+                >COOLING WATER
+              </button>
+              <button
+                type="button"
+                class="ftoggle ft-momentary"
+                id="ft-reject"
+                role="switch"
+                aria-checked="false"
+              >
+                <span class="ft-slot"><span class="ft-lever"></span></span>LOAD
+                REJECT
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ======================= FOOTER ======================= -->
+      <footer class="footband">
+        <span class="serial" aria-hidden="true">
+          SET: FRANCIS VERTICAL &middot; 12&#8202;MW &middot; 375&#8202;REV/MIN
+          &middot; 16 POLE &middot; HEAD 120&#8202;M &middot; COMMISSIONED 1956
+        </span>
+        <a class="catlink" href="../../">&larr; STATION CATALOGUE</a>
+      </footer>
+    </main>
+
+    <!-- ======================= MANUAL DIALOG ======================= -->
+    <dialog data-manual class="manual-dialog" aria-label="Operating manual">
+      <header class="md-head">
+        <span>OPERATING MANUAL &mdash; CREAG DHUBH No.&nbsp;1 BENCH</span>
+        <button type="button" class="md-close" data-action="close-manual">
+          CLOSE
+        </button>
+      </header>
+      <iframe
+        src="manual.html"
+        title="Operating manual, Creag Dhubh No. 1 control bench"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
