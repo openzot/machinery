@@ -1337,5 +1337,44 @@
     ],
     "tagline": "Vacuum first, voltage second, filament last — the column forgives nothing out of order.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "carnllwyd-desk",
+    "name": "Carn Llwyd Observatory - Drive & Dome Desk No. 2",
+    "kind": "optical telescope dome drive and guiding desk",
+    "domain": "laboratory",
+    "era": "1960s",
+    "design": "matte-black wrinkle-enamel steel with brushed-aluminium bezels and silvered scales, engraved legends filled with dull luminous red for night vision, ruby pilot glow, a brass maker's plate and one live guiding eyepiece, dark until the observer works",
+    "interaction": "holding a guide star on an illuminated crosswire with an RA trim handwheel and spring guide toggles while jogging the dome slit onto the axis against the interlock, trimming focus micrometer and mirror float pressure in red light",
+    "palette": [
+      "#202327",
+      "#8fa3b5",
+      "#ff4433"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "DRIVE CLUTCH",
+      "RA TRIM HANDWHEEL",
+      "DOME MODE SELECTOR",
+      "DOME JOG",
+      "DOME BREAKER",
+      "FOCUS MICROMETER",
+      "GUIDE N-S",
+      "GUIDE E-W",
+      "FLOAT CHARGE VALVE",
+      "WORKING LIGHT",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "FAULT TEST SWITCHES",
+      "ENGINEER RESET",
+      "SOUND CUT"
+    ],
+    "faults": [
+      "clock-drive governor hunt",
+      "mirror-support air leak",
+      "dome shutter drive runaway"
+    ],
+    "tagline": "Red light only - hold her on the crosswire and let the sky do the arithmetic.",
+    "created": "2026-08-26"
   }
 ]

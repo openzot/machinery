@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carn Llwyd Observatory — Drive, Dome &amp; Guiding Desk No. 2</title>
+    <meta
+      name="description"
+      content="Operating desk for the Carn Llwyd 36-inch reflector: clock drive, dome shutters, mirror float services and photometer integration."
+    />
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="desk">
+      <header class="head">
+        <div class="head-id">
+          <p class="maker">
+            HALSWELL OPTICAL ENGINEERING CO. LTD &middot; CARDIFF &middot; WORKS
+            No. 1187 &middot; 1961
+          </p>
+          <h1>CARN LLWYD OBSERVATORY</h1>
+          <p class="sub">
+            36-INCH REFLECTOR &middot; DOME No. 2 &middot; DRIVE, SLIT &amp;
+            GUIDING DESK
+          </p>
+        </div>
+        <div class="head-tools">
+          <div class="sid-clock">
+            <span class="lbl">SIDEREAL TIME</span>
+            <span
+              class="drum drum-clock"
+              id="sidClock"
+              aria-label="Sidereal time"
+              >02&thinsp;14&thinsp;05</span
+            >
+          </div>
+          <button
+            class="book"
+            type="button"
+            data-action="manual"
+            aria-label="Open the operating handbook"
+          >
+            <span class="book-spine" aria-hidden="true"></span>
+            OPERATING<br />HANDBOOK
+          </button>
+        </div>
+      </header>
+
+      <main class="face">
+        <!-- ==================== LEFT BAY: CLOCK DRIVE ==================== -->
+        <section class="bay bay-drive" aria-label="Clock drive bay">
+          <h2 class="bay-title">CLOCK DRIVE</h2>
+
+          <div class="ctl-row">
+            <div class="ctl-block">
+              <span class="ctl-name">MAINS BREAKER</span>
+              <button
+                type="button"
+                class="guarded"
+                id="mainsCtl"
+                data-control="MAINS BREAKER"
+                aria-label="MAINS BREAKER: lift guard, then throw breaker"
+                aria-pressed="false"
+              >
+                <span class="guard-flap" aria-hidden="true"></span>
+                <span class="guard-slot" aria-hidden="true"
+                  ><span class="guard-lever" aria-hidden="true"></span
+                ></span>
+              </button>
+              <span class="ctl-note">GUARD &rarr; THROW</span>
+            </div>
+
+            <div class="ctl-block grow">
+              <span class="ctl-name">DRIVE CLUTCH</span>
+              <button
+                type="button"
+                class="clutch"
+                id="clutchCtl"
+                data-control="DRIVE CLUTCH"
+                aria-label="DRIVE CLUTCH: engage to OUT (disengaged) or IN (sidereal drive)"
+                aria-pressed="false"
+              >
+                <span class="clutch-quadrant" aria-hidden="true">
+                  <span class="clutch-arm" aria-hidden="true"
+                    ><i class="clutch-grip"></i
+                  ></span>
+                </span>
+                <span class="clutch-marks" aria-hidden="true"
+                  ><b>OUT</b><b>IN</b></span
+                >
+              </button>
+            </div>
+          </div>
+
+          <div class="meter-duo">
+            <figure class="meter">
+              <figcaption>RA ERROR &mdash; SECONDS OF ARC</figcaption>
+              <svg
+                viewBox="0 0 220 132"
+                role="img"
+                aria-label="Right ascension tracking error meter, minus thirty to plus thirty arcseconds"
+              >
+                <path class="dial-face" d="M18 118 A92 92 0 0 1 202 118 Z" />
+                <path
+                  class="zone warn"
+                  d="M52.9 44.4 A92 92 0 0 1 84.5 27.9 L88.9 36.8 A81 81 0 0 0 61.9 51.4 Z"
+                />
+                <path
+                  class="zone warn"
+                  d="M167.1 44.4 A92 92 0 0 0 135.5 27.9 L131.1 36.8 A81 81 0 0 1 158.1 51.4 Z"
+                />
+                <line class="tickmajor" x1="110" y1="26" x2="110" y2="38" />
+                <text class="num" x="110" y="54">0</text>
+                <text class="num" x="38" y="96">30&#8242;</text>
+                <text class="num" x="168" y="96">30&#8242;</text>
+                <g id="raNeedle">
+                  <polygon points="108,118 112,118 110.8,32 109.2,32" />
+                </g>
+                <circle class="pivot" cx="110" cy="118" r="7" />
+              </svg>
+              <span class="readout"
+                ><output id="raErrOut">0.0&Prime;</output></span
+              >
+            </figure>
+
+            <figure class="meter">
+              <figcaption>NIGHT AIR</figcaption>
+              <div class="thermo" aria-hidden="true">
+                <div class="thermo-tube">
+                  <div class="thermo-col" id="thermoCol"></div>
+                </div>
+                <div class="thermo-scale">
+                  <b>10&deg;</b><b>7&deg;</b><b>4&deg;</b>
+                </div>
+              </div>
+              <span class="readout"
+                ><output id="tempOut">7.5&deg;C</output></span
+              >
+            </figure>
+          </div>
+
+          <div class="ctl-row wheelrow">
+            <div class="ctl-block grow">
+              <span class="ctl-name">RA TRIM HANDWHEEL</span>
+              <button
+                type="button"
+                class="handwheel"
+                id="raWheel"
+                data-control="RA TRIM HANDWHEEL"
+                aria-label="RA trim handwheel: turn to bring the star back onto the crosswire. Arrow keys work."
+              >
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <g id="raWheelRot">
+                    <circle class="hw-rim" cx="60" cy="60" r="46" />
+                    <line class="hw-spoke" x1="60" y1="16" x2="60" y2="104" />
+                    <line class="hw-spoke" x1="16" y1="60" x2="104" y2="60" />
+                    <line class="hw-spoke" x1="29" y1="29" x2="91" y2="91" />
+                    <line class="hw-spoke" x1="91" y1="29" x2="29" y2="91" />
+                    <circle class="hw-hub" cx="60" cy="60" r="12" />
+                  </g>
+                  <rect
+                    class="hw-handle"
+                    x="98"
+                    y="53"
+                    width="14"
+                    height="14"
+                    rx="4"
+                  />
+                </svg>
+              </button>
+              <span class="ctl-note">HOLD STAR ON CROSS</span>
+            </div>
+          </div>
+          <div class="dataplate">
+            <p class="dp-line">
+              H.O.E. SERIES GM-2 &middot; SYNCHRONOUS DRIVE, GOVERNED TO
+              15&Prime;/s
+            </p>
+            <p class="dp-line">
+              DO NOT OIL THE WORM &middot; FLOAT CHARGE 12 lb/in&sup2; &middot;
+              SLIT INTERLOCK 15&deg;
+            </p>
+          </div>
+        </section>
+
+        <!-- ==================== CENTRE BAY: THE GUIDING EYE ==================== -->
+        <section class="bay bay-eye" aria-label="Guiding eyepiece bay">
+          <h2 class="bay-title">GUIDING EYE &mdash; f/14 CASSEGRAIN FOCUS</h2>
+
+          <div class="eyepiece-wrap">
+            <div class="eyepiece">
+              <svg
+                viewBox="0 0 320 320"
+                id="eyeSvg"
+                role="img"
+                aria-label="Guiding eyepiece field: illuminated crosswire with the guide star"
+              >
+                <defs>
+                  <radialGradient id="fieldGlow" cx="50%" cy="50%" r="62%">
+                    <stop offset="0%" stop-color="#3d1410" />
+                    <stop offset="55%" stop-color="#210a08" />
+                    <stop offset="100%" stop-color="#0c0404" />
+                  </radialGradient>
+                  <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffe9df" />
+                    <stop offset="30%" stop-color="#ffb49b" />
+                    <stop offset="100%" stop-color="rgba(255,90,60,0)" />
+                  </radialGradient>
+                </defs>
+                <circle cx="160" cy="160" r="152" fill="url(#fieldGlow)" />
+                <g id="fieldStars"></g>
+                <g id="crosswire" stroke-linecap="round">
+                  <line x1="14" y1="160" x2="306" y2="160" />
+                  <line x1="160" y1="14" x2="160" y2="306" />
+                  <circle cx="160" cy="160" r="58" />
+                </g>
+                <g id="starGroup">
+                  <circle
+                    id="starHalo"
+                    cx="160"
+                    cy="160"
+                    r="17"
+                    fill="url(#starGlow)"
+                  />
+                  <circle
+                    id="starCore"
+                    cx="160"
+                    cy="160"
+                    r="3.4"
+                    fill="#fff1ea"
+                  />
+                </g>
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="151"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="4"
+                />
+              </svg>
+            </div>
+            <p class="ep-caption">
+              GUIDE STAR &mdash; BD +28&deg;1947 &middot; FIELD 42&Prime;
+            </p>
+          </div>
+
+          <div class="eye-controls">
+            <div class="ctl-block">
+              <span class="ctl-name">FOCUS MICROMETER</span>
+              <button
+                type="button"
+                class="knob focus-knob"
+                id="focusKnob"
+                data-control="FOCUS MICROMETER"
+                aria-label="Focus micrometer: turn to sharpen the image. Arrow keys work. Drag works."
+              >
+                <span class="knob-face" aria-hidden="true"
+                  ><span class="knob-index"></span
+                ></span>
+                <span class="knob-flutes" aria-hidden="true"></span>
+              </button>
+              <span class="readout small"
+                ><output id="focusOut">&plusmn;0</output>&thinsp;&mu;m</span
+              >
+            </div>
+
+            <figure class="meter eye-meter">
+              <figcaption>SEEING &amp; SIGNAL</figcaption>
+              <svg
+                viewBox="0 0 220 132"
+                role="img"
+                aria-label="Photometer signal meter, zero to one hundred microamps"
+              >
+                <path class="dial-face" d="M18 118 A92 92 0 0 1 202 118 Z" />
+                <path
+                  class="zone good"
+                  d="M110 26 A92 92 0 0 1 158.1 51.4 L152.1 59.4 A81 81 0 0 0 110 37 Z"
+                />
+                <text class="num" x="110" y="56">80</text>
+                <text class="num" x="34" y="102">0</text>
+                <text class="unit" x="176" y="106">&mu;A</text>
+                <g id="sigNeedle">
+                  <polygon points="108,118 112,118 110.8,34 109.2,34" />
+                </g>
+                <circle class="pivot" cx="110" cy="118" r="7" />
+              </svg>
+              <span class="readout"
+                ><output id="seeingOut">1.4&Prime;</output> IMAGE</span
+              >
+            </figure>
+
+            <div class="guide-cluster">
+              <div class="ctl-block">
+                <span class="ctl-name">GUIDE N-S</span>
+                <div
+                  class="jog-pair guide-pair"
+                  role="group"
+                  aria-label="Declination guide toggles"
+                >
+                  <button
+                    type="button"
+                    class="guide-btn"
+                    id="guideN"
+                    data-control="GUIDE N-S"
+                    aria-label="Guide north — hold"
+                  >
+                    N
+                  </button>
+                  <button
+                    type="button"
+                    class="guide-btn"
+                    id="guideS"
+                    data-control="GUIDE N-S"
+                    aria-label="Guide south — hold"
+                  >
+                    S
+                  </button>
+                </div>
+                <span class="ctl-note">SPRING RETURN</span>
+              </div>
+
+              <div class="ctl-block">
+                <span class="ctl-name">GUIDE E-W</span>
+                <div
+                  class="jog-pair guide-pair"
+                  role="group"
+                  aria-label="Right ascension guide toggles"
+                >
+                  <button
+                    type="button"
+                    class="guide-btn"
+                    id="guideW"
+                    data-control="GUIDE E-W"
+                    aria-label="Guide west — hold"
+                  >
+                    W
+                  </button>
+                  <button
+                    type="button"
+                    class="guide-btn"
+                    id="guideE"
+                    data-control="GUIDE E-W"
+                    aria-label="Guide east — hold"
+                  >
+                    E
+                  </button>
+                </div>
+                <span class="ctl-note">SPRING RETURN</span>
+              </div>
+            </div>
+
+            <div class="integ-block">
+              <span class="ctl-name">INTEGRATION</span>
+              <span
+                class="drum drum-integ"
+                id="integDrum"
+                aria-label="Integrated seconds toward the measurement"
+                >0000</span
+              >
+              <span class="ctl-note"
+                >OF 0900&thinsp;s &mdash; 21 CM DOUBLET</span
+              >
+              <span class="lamp lamp-gold" id="lampDone" data-lamp="MEASUREMENT"
+                ><i></i>MEASUREMENT</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== RIGHT BAY: DOME & MIRROR ==================== -->
+        <section class="bay bay-dome" aria-label="Dome and mirror services bay">
+          <h2 class="bay-title">DOME &amp; MIRROR SERVICES</h2>
+
+          <figure class="meter wide-meter">
+            <figcaption>SLIT &mdash; TELESCOPE ALIGNMENT</figcaption>
+            <svg
+              viewBox="0 0 220 132"
+              role="img"
+              aria-label="Slit alignment meter, twenty degrees either side of the telescope axis"
+            >
+              <path class="dial-face" d="M18 118 A92 92 0 0 1 202 118 Z" />
+              <path
+                class="zone warn"
+                d="M33.4 66.5 A92 92 0 0 1 61.9 51.4 L66.6 60.2 A81 81 0 0 0 41.7 73.6 Z"
+              />
+              <path
+                class="zone bad"
+                d="M23.5 79.9 A92 92 0 0 1 41.7 73.6 L45.1 83.1 A81 81 0 0 0 29.2 88.3 Z"
+              />
+              <path
+                class="zone warn"
+                d="M186.6 66.5 A92 92 0 0 0 158.1 51.4 L153.4 60.2 A81 81 0 0 1 178.3 73.6 Z"
+              />
+              <path
+                class="zone bad"
+                d="M196.5 79.9 A92 92 0 0 0 178.3 73.6 L174.9 83.1 A81 81 0 0 1 190.8 88.3 Z"
+              />
+              <line class="tickmajor" x1="110" y1="26" x2="110" y2="38" />
+              <text class="num" x="110" y="54">0</text>
+              <text class="num" x="30" y="100">L 20&deg;</text>
+              <text class="num" x="156" y="100">R 20&deg;</text>
+              <g id="slitNeedle">
+                <polygon points="108,118 112,118 110.8,34 109.2,34" />
+              </g>
+              <circle class="pivot" cx="110" cy="118" r="7" />
+            </svg>
+            <span class="readout"
+              ><output id="slitOut">+6.0&deg;</output> OFFSET</span
+            >
+          </figure>
+
+          <div class="ctl-row">
+            <div class="ctl-block grow">
+              <span class="ctl-name">DOME MODE SELECTOR</span>
+              <button
+                type="button"
+                class="selector"
+                id="modeSel"
+                data-control="DOME MODE SELECTOR"
+                aria-label="Dome mode selector: OFF, MANUAL, FOLLOW. Arrow keys work."
+                aria-value="OFF"
+              >
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="sel-plate" cx="60" cy="60" r="44" />
+                  <text class="sel-txt" x="60" y="24">OFF</text>
+                  <text class="sel-txt" x="103" y="72">MAN</text>
+                  <text class="sel-txt" x="17" y="72">FOLL</text>
+                  <g id="modePointer">
+                    <line class="sel-point" x1="60" y1="60" x2="60" y2="22" />
+                    <circle class="sel-hub" cx="60" cy="60" r="9" />
+                  </g>
+                </svg>
+              </button>
+            </div>
+
+            <div class="ctl-block">
+              <span class="ctl-name">DOME JOG</span>
+              <div
+                class="jog-pair"
+                role="group"
+                aria-label="Dome jog, clockwise and anticlockwise"
+              >
+                <button
+                  type="button"
+                  class="jog"
+                  id="jogCCW"
+                  data-control="DOME JOG"
+                  aria-label="Dome jog anticlockwise — hold"
+                >
+                  <span class="jog-arrow left" aria-hidden="true"></span>CCW
+                </button>
+                <button
+                  type="button"
+                  class="jog"
+                  id="jogCW"
+                  data-control="DOME JOG"
+                  aria-label="Dome jog clockwise — hold"
+                >
+                  CW<span class="jog-arrow right" aria-hidden="true"></span>
+                </button>
+              </div>
+              <button
+                type="button"
+                class="pushbtn dome-brk"
+                id="domeBrk"
+                data-control="DOME BREAKER"
+                aria-label="Dome breaker: press to reset the shutter motor circuit"
+              >
+                <span class="pb-cap" aria-hidden="true"></span>DOME BREAKER
+              </button>
+            </div>
+          </div>
+
+          <div class="ctl-row">
+            <figure class="meter">
+              <figcaption>MIRROR FLOAT &mdash; lb/in&sup2;</figcaption>
+              <svg
+                viewBox="0 0 170 170"
+                role="img"
+                aria-label="Mirror air float pressure gauge, zero to twenty pounds per square inch"
+              >
+                <circle class="dial-round" cx="85" cy="85" r="76" />
+                <path
+                  class="zone good"
+                  d="M85 21 A64 64 0 0 1 133.7 47.4 L124.9 55.3 A52 52 0 0 0 85 33 Z"
+                />
+                <line class="tickmajor" x1="85" y1="17" x2="85" y2="29" />
+                <text class="num" x="85" y="46">12</text>
+                <text class="num" x="24" y="128">0</text>
+                <text class="num" x="128" y="128">20</text>
+                <g id="floatNeedle">
+                  <polygon points="82.8,85 87.2,85 85.8,25 84.2,25" />
+                </g>
+                <circle class="pivot" cx="85" cy="85" r="6.5" />
+              </svg>
+              <span class="readout"
+                ><output id="floatOut">12.0</output> psi</span
+              >
+            </figure>
+
+            <div class="ctl-block">
+              <span class="ctl-name">FLOAT CHARGE VALVE</span>
+              <button
+                type="button"
+                class="valve"
+                id="chargeValve"
+                data-control="FLOAT CHARGE VALVE"
+                aria-label="Float charge valve: hold open to recharge the mirror air pad"
+              >
+                <svg viewBox="0 0 110 96" aria-hidden="true">
+                  <rect class="v-body" x="44" y="58" width="22" height="26" />
+                  <line class="v-stem" x1="55" y1="58" x2="55" y2="30" />
+                  <g id="valveWheel" class="v-wheel">
+                    <circle cx="55" cy="24" r="19" />
+                    <line x1="55" y1="5" x2="55" y2="43" />
+                    <line x1="36" y1="24" x2="74" y2="24" />
+                  </g>
+                </svg>
+                <span class="valve-tag">HOLD OPEN</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ==================== ANNUNCIATOR STRIP ==================== -->
+      <footer class="strip">
+        <div class="lamps" role="list" aria-label="Annunciators">
+          <span class="lamp" id="lampMains" data-lamp="MAINS" role="listitem"
+            ><i></i>MAINS</span
+          >
+          <span class="lamp" id="lampDrive" data-lamp="DRIVE" role="listitem"
+            ><i></i>DRIVE</span
+          >
+          <span
+            class="lamp"
+            id="lampTrack"
+            data-lamp="TRACKING ERROR"
+            role="listitem"
+            ><i></i>TRACKING</span
+          >
+          <span
+            class="lamp"
+            id="lampSlit"
+            data-lamp="SLIT OFFSET"
+            role="listitem"
+            ><i></i>SLIT OFFSET</span
+          >
+          <span
+            class="lamp"
+            id="lampLock"
+            data-lamp="DOME INTERLOCK"
+            role="listitem"
+            ><i></i>INTERLOCK</span
+          >
+          <span
+            class="lamp"
+            id="lampFloat"
+            data-lamp="FLOAT LOW"
+            role="listitem"
+            ><i></i>FLOAT LOW</span
+          >
+          <span
+            class="lamp"
+            id="lampSeat"
+            data-lamp="MIRROR SEATED"
+            role="listitem"
+            ><i></i>MIRROR SEATED</span
+          >
+          <span
+            class="lamp"
+            id="lampWhite"
+            data-lamp="WHITE LIGHT"
+            role="listitem"
+            ><i></i>WHITE LIGHT</span
+          >
+        </div>
+
+        <div class="strip-btns">
+          <button
+            type="button"
+            class="pushbtn accept"
+            id="acceptBtn"
+            data-control="ALARM ACCEPT"
+            aria-label="Accept alarms and silence the bell"
+          >
+            <span class="pb-cap" aria-hidden="true"></span>ALARM ACCEPT
+          </button>
+          <button
+            type="button"
+            class="pushbtn lamptest"
+            id="lampTestBtn"
+            data-control="LAMPS TEST"
+            aria-label="Test all annunciator lamps — hold"
+          >
+            <span class="pb-cap" aria-hidden="true"></span>LAMPS TEST
+          </button>
+          <button
+            type="button"
+            class="bat-toggle"
+            id="whiteBtn"
+            data-control="WORKING LIGHT"
+            aria-label="Working light: white light destroys dark adaptation"
+            aria-pressed="false"
+          >
+            <span class="bat-lever" aria-hidden="true"></span>WORKING LIGHT
+          </button>
+          <button
+            type="button"
+            class="bat-toggle small-bat"
+            id="soundBtn"
+            data-control="SOUND CUT"
+            aria-label="Sound cut: silence relays and alarm bell"
+            aria-pressed="false"
+          >
+            <span class="bat-lever" aria-hidden="true"></span>SOUND CUT
+          </button>
+
+          <fieldset class="faulttests" data-control="FAULT TEST SWITCHES">
+            <legend>FAULT TESTS</legend>
+            <button
+              type="button"
+              class="mini-switch"
+              id="ftHunt"
+              data-ft="clock-drive governor hunt"
+              aria-label="Test switch: clock-drive governor hunt"
+            >
+              <i></i>GOVERNOR
+            </button>
+            <button
+              type="button"
+              class="mini-switch"
+              id="ftLeak"
+              data-ft="mirror-support air leak"
+              aria-label="Test switch: mirror-support air leak"
+            >
+              <i></i>AIR LEAK
+            </button>
+            <button
+              type="button"
+              class="mini-switch"
+              id="ftRun"
+              data-ft="dome shutter drive runaway"
+              aria-label="Test switch: dome shutter drive runaway"
+            >
+              <i></i>RUNAWAY
+            </button>
+          </fieldset>
+
+          <button
+            type="button"
+            class="keyswitch"
+            id="resetBtn"
+            data-control="ENGINEER RESET"
+            aria-label="Engineer reset: return the desk to cold, alarm-free standby"
+          >
+            <span class="key-head" aria-hidden="true"></span>ENGINEER RESET
+          </button>
+        </div>
+
+        <nav class="catlink">
+          <a href="../../" aria-label="Back to the machine catalogue"
+            >&#8592; MACHINE INDEX</a
+          >
+        </nav>
+      </footer>
+    </div>
+
+    <dialog data-manual id="manualDlg" aria-label="Operating handbook">
+      <div class="dlg-bar">
+        <span
+          >HANDBOOK &middot; CARN LLWYD DRIVE, DOME &amp; GUIDING DESK
+          No.&thinsp;2</span
+        >
+        <button type="button" class="dlg-close" data-action="close-manual">
+          CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Operating handbook — Carn Llwyd Observatory"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>
