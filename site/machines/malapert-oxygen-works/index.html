@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Malapert Oxygen Works — Reduction Reactor Console</title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <div class="bay">
+      <!-- ==================== TITLE PLATE ==================== -->
+      <header class="titlebar">
+        <div class="maker">
+          <h1>MALAPERT OXYGEN WORKS</h1>
+          <p>
+            REDUCTION REACTOR BAY · CONSOLE TB-4 · CARBOTHERMAL TRAIN
+            No.&nbsp;1<br />
+            CONSORTIUM STANDARD 88-C · SHEFFIELD WORKS LICENCE SL-2079 · BUILT
+            2081
+          </p>
+        </div>
+        <div class="site-block">
+          <p class="site-row mono">
+            <span id="site-clock">06:20:00</span>
+            <span id="site-sun">SUN EL 12.4° · ARRAY 100%</span>
+          </p>
+          <p class="site-cap">
+            SITE TIME · RIDGE “PEAK OF LIGHT” · ARRAY BUDGET 640&nbsp;kW
+          </p>
+        </div>
+        <div class="mode-block">
+          <span id="mode-lamp" class="mono">COLD</span>
+          <span class="mode-cap">TRAIN STATE</span>
+        </div>
+        <button type="button" class="plate-btn" data-action="manual">
+          OPERATING<br />MANUAL
+        </button>
+      </header>
+
+      <!-- ==================== ANNUNCIATOR ==================== -->
+      <section class="annunciator" aria-label="Alarm annunciator strip">
+        <span class="strip-tag">ANNUNCIATOR</span>
+        <ul class="strip-windows">
+          <li id="al-load" class="window">SITE LOAD HIGH</li>
+          <li id="al-dp" class="window">BED &#916;P HIGH</li>
+          <li id="al-temp" class="window">BED TEMP HIGH</li>
+          <li id="al-h2" class="window">&#120138;&#8322; PURITY LOW</li>
+          <li id="al-cast" class="window">BATH HIGH</li>
+          <li id="al-stall" class="window">TAP STALL</li>
+          <li id="al-trip" class="window">REACTOR TRIP</li>
+        </ul>
+        <button type="button" id="ack-btn" class="ack-btn">ACK</button>
+      </section>
+
+      <!-- ==================== PROCESS MIMIC ==================== -->
+      <section class="mimic-frame" aria-label="Plant process mimic">
+        <span class="frame-tag"
+          >MIMIC · TRAIN No.1 · FEED &#8594; REACTOR &#8594; GAS TRAIN &#8594;
+          PRODUCTS · LOOKING WEST</span
+        >
+        <svg
+          id="plant"
+          viewBox="0 0 1400 330"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Live mimic: regolith hopper and screen feeding the fluidised-bed reduction reactor through the preheat loop; gas train of cyclone, twin dryers and electrolyser; oxygen header and casting floor"
+        >
+          <defs>
+            <linearGradient id="vesselSheen" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#85806e"></stop>
+              <stop offset="0.18" stop-color="#cfccc0"></stop>
+              <stop offset="0.5" stop-color="#a8a294"></stop>
+              <stop offset="0.82" stop-color="#bab4a4"></stop>
+              <stop offset="1" stop-color="#6e6857"></stop>
+            </linearGradient>
+            <linearGradient id="slagGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffb45e"></stop>
+              <stop offset="0.55" stop-color="#e06a1f"></stop>
+              <stop offset="1" stop-color="#7e2d10"></stop>
+            </linearGradient>
+            <linearGradient id="pourGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd27e"></stop>
+              <stop offset="1" stop-color="#ff6d1c"></stop>
+            </linearGradient>
+          </defs>
+          <!-- the bay seen through the console cut-out -->
+          <rect
+            x="0"
+            y="0"
+            width="1400"
+            height="330"
+            rx="4"
+            class="bay-backdrop"
+          ></rect>
+          <!-- sunlight slit -->
+          <polygon
+            id="sunbeam"
+            points="-40,-40 300,-40 980,330 520,330"
+            class="sun-beam"
+          ></polygon>
+          <!-- ground line -->
+          <rect x="0" y="294" width="1400" height="36" class="bay-floor"></rect>
+          <rect x="0" y="294" width="1400" height="2" class="floor-edge"></rect>
+
+          <!-- ground shadows -->
+          <g id="ground-shadows" class="ground-shadows">
+            <ellipse cx="120" cy="138" rx="86" ry="9"></ellipse>
+            <ellipse cx="300" cy="122" rx="70" ry="8"></ellipse>
+            <ellipse cx="505" cy="264" rx="102" ry="11"></ellipse>
+            <ellipse cx="686" cy="258" rx="52" ry="7"></ellipse>
+            <ellipse cx="822" cy="132" rx="48" ry="7"></ellipse>
+            <ellipse cx="938" cy="126" rx="56" ry="7"></ellipse>
+            <ellipse cx="1071" cy="130" rx="76" ry="9"></ellipse>
+            <ellipse cx="1232" cy="90" rx="46" ry="7"></ellipse>
+          </g>
+
+          <!-- ==== feed side ==== -->
+          <g id="g-feed">
+            <text x="30" y="26" class="mimic-label">REGOLITH FEED</text>
+            <path d="M60 44 L180 44 L150 96 L90 96 Z" class="shell"></path>
+            <rect
+              id="hopper-level"
+              x="72"
+              y="46"
+              width="96"
+              height="48"
+              class="hopper-fill"
+            ></rect>
+            <path d="M60 44 L180 44 L150 96 L90 96 Z" class="shell-edge"></path>
+            <text x="196" y="66" class="mimic-tiny" id="hopper-pct">
+              HOPPER 84%
+            </text>
+            <!-- screen box -->
+            <rect
+              x="86"
+              y="104"
+              width="68"
+              height="30"
+              rx="3"
+              class="shell"
+            ></rect>
+            <line x1="94" y1="119" x2="146" y2="119" class="pipe-line"></line>
+            <text x="162" y="122" class="mimic-tiny">SCREEN 250&#181;m</text>
+            <!-- fines line up to preheat -->
+            <path
+              d="M120 134 L120 168 L300 168 L300 118"
+              class="flow-pipe"
+              id="feed-pipe"
+            ></path>
+            <path
+              d="M120 134 L120 168 L300 168 L300 118"
+              class="flow-dash"
+              id="feed-flow"
+            ></path>
+            <!-- preheat loop -->
+            <rect
+              x="252"
+              y="70"
+              width="96"
+              height="48"
+              rx="4"
+              class="shell"
+            ></rect>
+            <text x="300" y="62" class="mimic-label" text-anchor="middle">
+              PREHEAT LOOP
+            </text>
+            <circle cx="272" cy="86" r="7" class="coil" id="ph-coil-a"></circle>
+            <circle cx="300" cy="86" r="7" class="coil" id="ph-coil-b"></circle>
+            <circle cx="328" cy="86" r="7" class="coil" id="ph-coil-c"></circle>
+            <text
+              x="300"
+              y="110"
+              class="mimic-tiny"
+              text-anchor="middle"
+              id="ph-note"
+            >
+              COUNTERFLOW · OFF
+            </text>
+          </g>
+
+          <!-- ==== reactor ==== -->
+          <g id="g-reactor">
+            <text x="452" y="26" class="mimic-label">
+              FLUIDISED-BED REDUCTOR R-1
+            </text>
+            <!-- vessel -->
+            <rect
+              x="430"
+              y="40"
+              width="150"
+              height="220"
+              rx="10"
+              class="vessel"
+            ></rect>
+            <line x1="430" y1="86" x2="580" y2="86" class="flange"></line>
+            <line x1="430" y1="132" x2="580" y2="132" class="flange"></line>
+            <line x1="430" y1="178" x2="580" y2="178" class="flange"></line>
+            <!-- windbox -->
+            <rect
+              x="442"
+              y="260"
+              width="126"
+              height="26"
+              rx="4"
+              class="windbox"
+            ></rect>
+            <text x="505" y="277" class="mimic-tiny" text-anchor="middle">
+              WINDBOX
+            </text>
+            <!-- sight port -->
+            <circle cx="505" cy="112" r="21" class="port-ring"></circle>
+            <circle
+              cx="505"
+              cy="112"
+              r="16"
+              class="port-glass"
+              id="sight-port"
+            ></circle>
+            <text x="536" y="108" class="mimic-tiny">SIGHT PORT</text>
+            <text x="536" y="121" class="mimic-tiny mono" id="bed-temp-mini">
+              —°C
+            </text>
+            <!-- bed bubbles -->
+            <g id="bed-bubbles"></g>
+            <!-- heater bank marks -->
+            <g id="bank-marks">
+              <rect
+                x="592"
+                y="92"
+                width="14"
+                height="18"
+                rx="2"
+                class="bank-mark"
+                id="bm-a"
+              ></rect>
+              <rect
+                x="592"
+                y="116"
+                width="14"
+                height="18"
+                rx="2"
+                class="bank-mark"
+                id="bm-b"
+              ></rect>
+              <rect
+                x="592"
+                y="140"
+                width="14"
+                height="18"
+                rx="2"
+                class="bank-mark"
+                id="bm-c"
+              ></rect>
+              <text x="600" y="84" class="mimic-tiny" text-anchor="middle">
+                BANKS
+              </text>
+            </g>
+            <!-- h2 inlet -->
+            <path d="M700 273 L568 273" class="flow-pipe"></path>
+            <path
+              d="M700 273 L568 273"
+              class="flow-dash"
+              id="h2-in-flow"
+            ></path>
+            <text x="704" y="277" class="mimic-tiny">
+              &#120138;&#8322; RECYCLE &#8594;
+            </text>
+            <!-- offgas take-off -->
+            <path d="M580 58 L640 58" class="flow-pipe"></path>
+            <path d="M580 58 L640 58" class="flow-dash" id="offgas-flow"></path>
+            <text x="588" y="50" class="mimic-tiny">OFFGAS</text>
+            <!-- taphole -->
+            <path d="M580 244 L636 244" class="tap-channel"></path>
+            <rect
+              id="plug-pin"
+              x="600"
+              y="238"
+              width="12"
+              height="12"
+              class="plug-pin"
+            ></rect>
+            <text x="598" y="230" class="mimic-tiny">TAPHOLE</text>
+            <!-- pour stream -->
+            <path id="pour-stream" d="" class="pour"></path>
+            <!-- cast car -->
+            <g id="cast-car">
+              <rect
+                x="652"
+                y="216"
+                width="64"
+                height="34"
+                rx="3"
+                class="crucible"
+              ></rect>
+              <rect
+                id="slag-fill"
+                x="654"
+                y="248"
+                width="60"
+                height="0"
+                class="slag-fill"
+              ></rect>
+              <circle cx="666" cy="256" r="5" class="wheel"></circle>
+              <circle cx="702" cy="256" r="5" class="wheel"></circle>
+              <text
+                x="684"
+                y="210"
+                class="mimic-tiny"
+                text-anchor="middle"
+                id="cast-label"
+              >
+                CAST 00%
+              </text>
+            </g>
+            <line x1="640" y1="262" x2="760" y2="262" class="rail-line"></line>
+            <!-- brick stack -->
+            <g id="brick-stack"></g>
+            <text x="700" y="290" class="mimic-tiny" id="brick-note">
+              CASTING FLOOR · 0 BRICKS
+            </text>
+          </g>
+
+          <!-- ==== gas train ==== -->
+          <g id="g-gas">
+            <text x="800" y="26" class="mimic-label">GAS TRAIN</text>
+            <!-- cyclone -->
+            <path
+              d="M790 52 L850 52 L850 96 L820 128 L790 96 Z"
+              class="shell"
+            ></path>
+            <path
+              d="M790 52 L850 52 L850 96 L820 128 L790 96 Z"
+              class="shell-edge"
+            ></path>
+            <rect
+              id="dust-cake"
+              x="794"
+              y="100"
+              width="22"
+              height="0"
+              class="dust-fill"
+            ></rect>
+            <text
+              x="820"
+              y="142"
+              class="mimic-tiny"
+              text-anchor="middle"
+              id="dust-note"
+            >
+              CYCLONE · CLEAN
+            </text>
+            <path d="M850 74 L894 74" class="flow-pipe"></path>
+            <path d="M850 74 L894 74" class="flow-dash" id="dryer-flow"></path>
+            <!-- dryer pair -->
+            <rect
+              x="900"
+              y="46"
+              width="34"
+              height="76"
+              rx="3"
+              class="dryer"
+              id="dryer-a"
+            ></rect>
+            <rect
+              x="942"
+              y="46"
+              width="34"
+              height="76"
+              rx="3"
+              class="dryer"
+              id="dryer-b"
+            ></rect>
+            <text x="917" y="136" class="mimic-tiny" text-anchor="middle">
+              A
+            </text>
+            <text x="959" y="136" class="mimic-tiny" text-anchor="middle">
+              B
+            </text>
+            <text x="938" y="38" class="mimic-tiny" text-anchor="middle">
+              TWIN DRYERS
+            </text>
+            <path d="M976 74 L1010 74" class="flow-pipe"></path>
+            <path d="M976 74 L1010 74" class="flow-dash" id="ely-flow"></path>
+            <!-- electrolyser -->
+            <rect
+              x="1016"
+              y="44"
+              width="110"
+              height="82"
+              rx="4"
+              class="vessel thin"
+            ></rect>
+            <g id="ely-cells">
+              <line
+                x1="1032"
+                y1="52"
+                x2="1032"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <line
+                x1="1048"
+                y1="52"
+                x2="1048"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <line
+                x1="1064"
+                y1="52"
+                x2="1064"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <line
+                x1="1080"
+                y1="52"
+                x2="1080"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <line
+                x1="1096"
+                y1="52"
+                x2="1096"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <line
+                x1="1112"
+                y1="52"
+                x2="1112"
+                y2="118"
+                class="ely-plate"
+              ></line>
+              <circle
+                id="ely-bub-1"
+                r="1.6"
+                class="bubble"
+                visibility="hidden"
+              ></circle>
+              <circle
+                id="ely-bub-2"
+                r="2.1"
+                class="bubble"
+                visibility="hidden"
+              ></circle>
+              <circle
+                id="ely-bub-3"
+                r="1.4"
+                class="bubble"
+                visibility="hidden"
+              ></circle>
+            </g>
+            <text x="1071" y="140" class="mimic-tiny" text-anchor="middle">
+              ELECTROLYSER E-2
+            </text>
+            <!-- o2 header -->
+            <path d="M1126 60 L1204 60" class="flow-pipe o2"></path>
+            <path
+              d="M1126 60 L1204 60"
+              class="flow-dash o2"
+              id="o2-flow"
+            ></path>
+            <rect
+              x="1204"
+              y="34"
+              width="56"
+              height="52"
+              rx="4"
+              class="header-tank"
+            ></rect>
+            <text x="1232" y="100" class="mimic-tiny" text-anchor="middle">
+              O&#8322; HEADER
+            </text>
+            <!-- recycle back to windbox -->
+            <path
+              d="M1030 126 L1030 288 L700 288"
+              class="flow-pipe recycle"
+            ></path>
+            <path
+              d="M1030 126 L1030 288 L700 288"
+              class="flow-dash recycle"
+              id="recycle-flow"
+            ></path>
+            <text x="866" y="282" class="mimic-tiny">
+              &#120138;&#8322; RECYCLE BLOWER
+            </text>
+          </g>
+        </svg>
+
+        <!-- instrument cells bolted under the mimic -->
+        <div class="instrument-rail">
+          <div class="cell emissive">
+            <output id="r-temp" class="big mono">20</output>
+            <span class="unit">BED °C</span>
+            <span class="mini-bar"><i id="bar-temp"></i></span>
+          </div>
+          <div class="cell emissive">
+            <output id="r-dp" class="big mono">0.0</output>
+            <span class="unit">BED &#916;P kPa</span>
+            <span class="mini-bar"><i id="bar-dp"></i></span>
+          </div>
+          <div class="cell emissive">
+            <output id="r-h2" class="big mono">—</output>
+            <span class="unit">&#120138;&#8322; PURITY %</span>
+            <span class="mini-bar"><i id="bar-h2"></i></span>
+          </div>
+          <div class="cell emissive">
+            <output id="r-o2" class="big mono">0.0</output>
+            <span class="unit">O&#8322; RATE kg/h</span>
+            <span class="mini-bar"><i id="bar-o2"></i></span>
+          </div>
+          <div class="cell emissive">
+            <output id="r-kw" class="big mono">0</output>
+            <span class="unit">SITE LOAD kW</span>
+            <span class="mini-bar"><i id="bar-kw"></i></span>
+          </div>
+          <div class="cell drum-cell">
+            <span class="drums mono" id="drum-o2">0000.00</span>
+            <span class="unit">O&#8322; TOTAL · TONNES</span>
+          </div>
+          <div class="cell drum-cell">
+            <span class="drums mono" id="drum-casts">000</span>
+            <span class="unit">CASTS POURED</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== OPERATING RAIL ==================== -->
+      <section class="operating-rail" aria-label="Operating controls">
+        <!-- power -->
+        <div class="op-group" id="grp-power">
+          <h2 class="group-name">SITE POWER</h2>
+          <div class="breaker-mount">
+            <button
+              type="button"
+              id="ctl-breaker"
+              class="breaker"
+              data-control="SITE BREAKER"
+              aria-label="Site breaker, OFF"
+            >
+              <span class="breaker-face" id="breaker-face"
+                ><i class="breaker-handle" id="breaker-handle"></i
+              ></span>
+            </button>
+            <span class="legend">SITE<br />BREAKER</span>
+            <span class="breaker-legend"><b>OFF</b><b>ON</b></span>
+          </div>
+          <div class="bank-guard-wrap" data-control="HEATER BANK">
+            <button
+              type="button"
+              id="bank-guard"
+              class="guard-lid"
+              aria-label="Heater bank guard — lift cover"
+            >
+              GUARD
+            </button>
+            <div class="bank-set" id="bank-set">
+              <button
+                type="button"
+                class="toggle bank-toggle"
+                id="ctl-bank-a"
+                aria-pressed="false"
+                aria-label="Heater bank A"
+              >
+                A
+              </button>
+              <button
+                type="button"
+                class="toggle bank-toggle"
+                id="ctl-bank-b"
+                aria-pressed="false"
+                aria-label="Heater bank B"
+              >
+                B
+              </button>
+              <button
+                type="button"
+                class="toggle bank-toggle"
+                id="ctl-bank-c"
+                aria-pressed="false"
+                aria-label="Heater bank C"
+              >
+                C
+              </button>
+            </div>
+            <span class="legend">HEATER<br />BANK</span>
+          </div>
+        </div>
+
+        <!-- feed + blower -->
+        <div class="op-group" id="grp-flow">
+          <h2 class="group-name">FEED &amp; BLAST</h2>
+          <div class="rotary-mount">
+            <button
+              type="button"
+              id="ctl-feed"
+              class="rotary"
+              data-control="FEED RATE"
+              aria-label="Feed rate at CLOSED"
+            >
+              <span class="knob" id="feed-knob"
+                ><i class="knob-pointer"></i
+              ></span>
+            </button>
+            <span class="dial-scale" id="feed-scale">
+              <b>CLOSED</b><b>TRICKLE</b><b>LOW</b><b>NOMINAL</b><b>FULL</b>
+            </span>
+            <span class="legend">FEED<br />RATE</span>
+          </div>
+          <div class="lever-mount">
+            <input
+              type="range"
+              id="ctl-blower"
+              class="quadrant"
+              data-control="BLOWER"
+              min="0"
+              max="4"
+              step="1"
+              value="0"
+              aria-label="Hydrogen recycle blower, notch 0 of 4"
+            />
+            <span class="lever-scale">
+              <b>0</b><b>1</b><b>2</b><b>3</b><b>4</b>
+            </span>
+            <span class="legend">&#120138;&#8322;<br />BLOWER</span>
+          </div>
+        </div>
+
+        <!-- tap station -->
+        <div class="op-group op-tap" id="grp-tap">
+          <h2 class="group-name">TAPHOLE STATION</h2>
+          <div class="tap-station" data-control="TAPHOLE PLUG">
+            <button
+              type="button"
+              id="tap-guard"
+              class="guard-lid wide"
+              aria-label="Taphole guard — lift cover"
+            >
+              GUARD — LIVE TAPHOLE
+            </button>
+            <div class="tap-controls" id="tap-controls">
+              <div class="crack-mount">
+                <button
+                  type="button"
+                  id="ctl-crack"
+                  class="pushbtn crack"
+                  aria-label="Crack plug — hold"
+                >
+                  CRACK
+                </button>
+                <span class="legend">CRACK<br />PLUG</span>
+                <span id="crack-lamp" class="dotlamp" aria-hidden="true"></span>
+              </div>
+              <div class="taphole-state">
+                <span class="mono" id="plug-state">PLUG INTACT</span>
+              </div>
+              <div class="tap-lever-mount">
+                <input
+                  type="range"
+                  id="ctl-tap"
+                  class="tap-lever"
+                  min="0"
+                  max="3"
+                  step="1"
+                  value="0"
+                  aria-label="Tap lever, shut"
+                />
+                <span class="lever-scale tap-scale">
+                  <b>SHUT</b><b>NIP</b><b>OPEN</b><b>FULL</b>
+                </span>
+                <span class="legend">TAP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- gas train -->
+        <div class="op-group" id="grp-gas">
+          <h2 class="group-name">GAS TRAIN</h2>
+          <div class="key-mount">
+            <button
+              type="button"
+              id="ctl-dryer"
+              class="keyswitch"
+              data-control="DRYER SELECTOR"
+              aria-label="Dryer selector, column A on duty"
+            >
+              <span class="key-face" id="dryer-key"
+                ><i class="key-pointer"></i
+              ></span>
+            </button>
+            <span class="key-legend"><b>A</b><b>B</b></span>
+            <span class="legend">DRYER<br />SELECTOR</span>
+          </div>
+          <div class="purge-mount" data-control="CYCLONE PURGE">
+            <button
+              type="button"
+              id="purge-guard"
+              class="guard-lid"
+              aria-label="Purge guard — lift cover"
+            >
+              GUARD
+            </button>
+            <div class="purge-set">
+              <button
+                type="button"
+                id="ctl-purge"
+                class="pushbtn purge"
+                aria-label="Cyclone pulse purge — hold"
+              >
+                PURGE
+              </button>
+            </div>
+            <span class="legend">CYCLONE<br />PURGE</span>
+          </div>
+        </div>
+
+        <!-- fault sim -->
+        <div class="op-group op-fault" id="grp-fault">
+          <h2 class="group-name">MAINTENANCE · FAULT SIMULATION</h2>
+          <div class="rotary-mount">
+            <button
+              type="button"
+              id="ctl-faultsel"
+              class="rotary dark"
+              data-control="FAULT SELECTOR"
+              aria-label="Fault selector at OFF"
+            >
+              <span class="knob" id="fault-knob"
+                ><i class="knob-pointer"></i
+              ></span>
+            </button>
+            <span class="dial-scale" id="fault-scale">
+              <b>OFF</b><b>CYC</b><b>DRY</b><b>TAP</b>
+            </span>
+            <span class="legend">FAULT<br />SELECTOR</span>
+          </div>
+          <div class="inject-mount">
+            <button
+              type="button"
+              id="ctl-inject"
+              class="pushbtn inject"
+              data-control="FAULT INJECT"
+              aria-label="Inject selected fault"
+            >
+              INJECT
+            </button>
+            <span class="legend">INJECT</span>
+          </div>
+          <p class="maint-note">
+            SIMULATION ONLY — NO PLANT EQUIPMENT IS AFFECTED
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER PLATES ==================== -->
+      <footer class="foot-plates">
+        <span class="std-plate">
+          CONSORTIUM STANDARD 88-C · CERTIFIED FOR 5&nbsp;psi HABITAT SIDE ·
+          INTERLOCK TEST 2081-04 · NEXT 2082-04
+        </span>
+        <nav class="foot-links">
+          <a href="../../">&#8592; MACHINE CATALOGUE</a>
+        </nav>
+      </footer>
+    </div>
+
+    <!-- ==================== MANUAL DIALOG ==================== -->
+    <dialog data-manual id="manual-dialog">
+      <div class="manual-chrome">
+        <span class="mono">MANUAL M-88/1 · REDUCTION REACTOR TRAIN</span>
+        <button
+          type="button"
+          class="plate-btn small"
+          data-action="close-manual"
+        >
+          CLOSE
+        </button>
+      </div>
+      <iframe
+        src="manual.html"
+        title="Malapert Oxygen Works operating manual"
+      ></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

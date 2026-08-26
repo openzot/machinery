@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en" class="manual-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Manual M-88/1 — Malapert Oxygen Works, Reduction Reactor Train
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <header class="doc-head">
+      <p class="doc-ref">
+        MANUAL M-88/1 · REVISION C · CONSORTIUM STANDARD 88-C
+      </p>
+      <h1>MALAPERT OXYGEN WORKS</h1>
+      <p class="doc-sub">
+        REDUCTION REACTOR TRAIN No. 1 — OPERATING MANUAL<br />
+        CONSOLE TB-4 · SHEFFIELD WORKS LICENCE SL-2079 · BUILT 2081
+      </p>
+    </header>
+
+    <nav class="doc-links">
+      <a href="./">&#8592; BACK TO THE PANEL</a>
+      <a href="../../">MACHINE CATALOGUE &#8594;</a>
+    </nav>
+
+    <main class="doc-body">
+      <h2 id="overview">Overview</h2>
+      <p>
+        Train No. 1 reduces ilmenite-rich mare regolith with hot hydrogen and
+        takes its oxygen back as water. Screened fines from the hopper fall
+        through the counterflow preheat loop into fluidised-bed reductor R-1. At
+        working temperature the hydrogen strips lattice oxygen; the offgas —
+        water vapour in hydrogen — passes the cyclone, one of two twin dryer
+        columns, and the electrolyser E-2, which returns dry hydrogen to the
+        windbox and sends oxygen to the site header. Spent solids collect as a
+        bath above the taphole and are cast as bricks through the crucible car.
+      </p>
+      <p>
+        The train is rated <strong>70 kg/h of oxygen continuous</strong> at
+        NOMINAL feed, 100 kg/h short-period. The bay stands on the ridge the
+        crews call the Peak of Light: the sun does not move, but the array
+        budget does not grow either. The whole console lives inside
+        <strong>640 kW</strong>. Everything you do here is a trade between bed
+        heat, gas flow, dryer life and kilowatts.
+      </p>
+      <p>
+        The panel was built by the Consortium’s terrestrial licence partner to
+        mine-winder practice: etched ceramic legends, mechanical counters, and
+        monitoring circuits that stay alive on their own batteries when the bus
+        is down. The annunciator is therefore truthful even with the breaker
+        open.
+      </p>
+
+      <h2 id="controls">Controls</h2>
+      <dl class="ctl-list">
+        <dt>SITE BREAKER</dt>
+        <dd>
+          Sixty-millimetre rotary isolator, bottom left of SITE POWER. OFF / ON.
+          Closing it energises the heater bus and charges the recycle loop with
+          hydrogen (the purity cell reads after about three seconds). Opening it
+          drops banks, feed and blower; the bed cools on its own losses.
+        </dd>
+        <dt>HEATER BANK</dt>
+        <dd>
+          Three toggle switches A, B and C under a hinged guard — lift the cover
+          before the toggles will move. A = 120 kW, B = 140 kW, C = 160 kW. Bank
+          C is the trim bank; the site load relay will shed it automatically
+          twenty seconds into an overload, and hold it out until you acknowledge
+          and re-close.
+        </dd>
+        <dt>FEED RATE</dt>
+        <dd>
+          Five-position rotary selector: CLOSED · TRICKLE · LOW · NOMINAL ·
+          FULL, that is 0 / 6 / 14 / 22 / 30 kg/min of screened fines. Each
+          click advances one position. The hopper top-up conveyor runs itself;
+          watch its percentage on the mimic.
+        </dd>
+        <dt>&#120138;&#8322; BLOWER</dt>
+        <dd>
+          Notched quadrant lever, five positions 0–4, driving the recycle
+          circulator. Notch 2 is the working notch for TRICKLE and LOW; NOMINAL
+          feed wants notch 3. Notch 4 over-blasts the bed — the ΔP transmitter
+          will call it before the bed does.
+        </dd>
+        <dt>TAPHOLE PLUG</dt>
+        <dd>
+          The guarded station centre-right. Lift the hinged guard (this arms
+          CRACK and frees the TAP lever), press and hold <b>CRACK</b> for about
+          two seconds to break the refractory plug, then ease the notched
+          <b>TAP</b> lever through SHUT · NIP · OPEN · FULL. Closing the lever
+          lets the plug sinter over again in about six seconds while the bed is
+          hot. Closing the guard snaps the lever shut.
+        </dd>
+        <dt>DRYER SELECTOR</dt>
+        <dd>
+          Two-position key switch, columns A and B. The keyed column dries the
+          loop; the other regenerates. A saturated column needs about
+          ninety-five seconds offline to come back fresh. Change columns
+          <em>before</em> the dewpoint monitor complains, not after.
+        </dd>
+        <dt>CYCLONE PURGE</dt>
+        <dd>
+          Guarded pushbutton under GAS TRAIN. Hold it to fire plant air back up
+          the cyclone screen: dust loading falls while held, and a blinded
+          impulse line clears in fifteen to twenty seconds. It costs 70 kW and
+          it only works with the breaker closed.
+        </dd>
+        <dt>FAULT SELECTOR</dt>
+        <dd>
+          Maintenance rotary under FAULT SIMULATION: OFF · CYC · DRY · TAP.
+          Selects which simulated condition the injector applies. It affects the
+          simulation only — no plant equipment is touched.
+        </dd>
+        <dt>FAULT INJECT</dt>
+        <dd>
+          Collared momentary button beside the selector. Presses the selected
+          simulated fault into the train exactly as the real condition would
+          present: same transmitters, same annunciator windows, same recoveries
+          as Section “Faults and recovery”.
+        </dd>
+      </dl>
+      <p class="doc-note">
+        Every control works from the keyboard: TAB walks the panel, ENTER and
+        SPACE operate buttons and guards, arrow keys walk the two lever
+        quadrants.
+      </p>
+
+      <h2 id="normal-operation">Normal operation</h2>
+      <ol class="procedure">
+        <li>
+          Walk the panel: confirm all seven annunciator windows dark, FEED RATE
+          at CLOSED, BLOWER at 0, TAP lever SHUT and guarded.
+        </li>
+        <li>
+          Close the <strong>SITE BREAKER</strong>. The purity cell wakes and
+          reads about 96% once the loop charges.
+        </li>
+        <li>
+          Lift the HEATER BANK guard and switch banks <strong>A and B</strong>.
+          From cold the bed reaches 850 °C in roughly three minutes; the sight
+          port goes from black glass through deep red.
+        </li>
+        <li>
+          At or above 850 °C, run the <strong>&#120138;&#8322; BLOWER</strong>
+          to notch 2. Watch BED &#916;P settle between 11 and 14 kPa — that is
+          the bed standing up.
+        </li>
+        <li>
+          When BED °C passes 980, put <strong>FEED RATE</strong> to TRICKLE.
+          Oxygen flow should show within seconds and purity should hold near
+          96%.
+        </li>
+        <li>
+          Trim toward the money band, 1040–1095 °C. TRICKLE sits there on A+B
+          alone; for NOMINAL feed switch bank <strong>C in as well</strong>
+          (562 kW all-in — inside the budget) and take the blower to notch 3. If
+          BED TEMP climbs past 1120 you are over-banked: drop feed first, banks
+          second.
+        </li>
+        <li>
+          Watch BATH on the mimic — spent solids gather whether or not you are
+          casting. Above about 40% prepare to tap: lift the TAPHOLE PLUG guard
+          and hold <strong>CRACK</strong> until the state cell reads PLUG
+          CRACKED.
+        </li>
+        <li>
+          Ease <strong>TAP</strong> to NIP, then OPEN. At OPEN with a hot bed
+          the crucible fills in about two and a half minutes and drains the bath
+          faster than NOMINAL feed refills it. FULL pours harder than any
+          continuous feed can fill — use it to pull a high bath down.
+        </li>
+        <li>
+          At CAST 100% return the lever to SHUT at once. The car swaps in five
+          seconds, the brick count climbs by thirteen, and the hot plug sinters
+          itself over.
+        </li>
+        <li>
+          Steady state is NOMINAL feed, three banks, blower notch 3, a tap every
+          couple of minutes, and the load bar comfortably short of 640 kW. To
+          shut down: FEED CLOSED, banks off in reverse order, give the bath a
+          last full tap, then open the breaker when the sight port dims.
+        </li>
+      </ol>
+
+      <h2 id="alarms">Alarms</h2>
+      <p>
+        The annunciator is battery-backed and truthful with the breaker open.
+        Flashing means new and unacknowledged; <strong>ACK</strong> steadies
+        whatever is showing. A window that comes back flashing is a new event.
+        When REACTOR TRIP shows, ACK also resets the trip interlock after you
+        have dealt with the cause.
+      </p>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Means</th>
+            <th>Do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SITE LOAD HIGH</td>
+            <td>Console demand exceeds the 640 kW array budget.</td>
+            <td>
+              Shed load: drop the blower a notch or bank C. After 20 s the relay
+              sheds C itself; after 45 s the train trips.
+            </td>
+          </tr>
+          <tr>
+            <td>BED &#916;P HIGH</td>
+            <td>
+              Bed head above 16.5 kPa — over-blast, a loaded cyclone screen, or
+              a false head from a blinded impulse line.
+            </td>
+            <td>
+              If the blower is at 4, come back a notch. Otherwise purge (below)
+              and watch the dust note on the mimic.
+            </td>
+          </tr>
+          <tr>
+            <td>BED TEMP HIGH</td>
+            <td>Bed above 1120 °C.</td>
+            <td>
+              Cut feed, then banks. Twelve seconds over 1160 °C trips the train
+              on BED OVERTEMPERATURE.
+            </td>
+          </tr>
+          <tr>
+            <td>&#120138;&#8322; PURITY LOW</td>
+            <td>
+              Dewpoint monitor sees moisture below 88% — a saturated duty
+              column, or the loop drifting with the circulator off.
+            </td>
+            <td>
+              Change DRYER SELECTOR to the fresh column. Purity must climb back
+              through 92% before the window clears.
+            </td>
+          </tr>
+          <tr>
+            <td>BATH HIGH</td>
+            <td>
+              Bath above 88% of capacity, or slag spilling from an overfilled
+              crucible.
+            </td>
+            <td>
+              Tap now; if the crucible is full, SHUT first, let the car swap,
+              then crack and pour. Bath held above 98% trips the train in
+              fifteen seconds.
+            </td>
+          </tr>
+          <tr>
+            <td>TAP STALL</td>
+            <td>
+              The taphole plug has seized — prove circuit refuses, pour stops if
+              you were pouring.
+            </td>
+            <td>
+              Re-drill per Faults and recovery. Twenty-five seconds of lever
+              held open against a seized hole trips the train.
+            </td>
+          </tr>
+          <tr>
+            <td>REACTOR TRIP</td>
+            <td>
+              Protective trip: overtemperature, fluidisation lost, electrolyser
+              flood, overload, full bath or blocked taphole. Banks, feed and
+              blower are already dropped.
+            </td>
+            <td>
+              Read the reason on the mimic mode cell, deal with the cause, then
+              ACK to reset the interlock and restart per Normal operation.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="faults-and-recovery">Faults and recovery</h2>
+      <section class="fault-block">
+        <h3>cyclone blinding</h3>
+        <p class="see">
+          <strong>You see:</strong> BED &#916;P HIGH without touching anything;
+          the CYCLONE note walks CLEAN → LOADED → BLINDED; running, the true bed
+          head climbs until the bed channels and oxygen yield sags.
+        </p>
+        <ol>
+          <li>
+            Note the load bar. The purge draws 70 kW — shed a bank or a blower
+            notch first if you are near the budget.
+          </li>
+          <li>Lift the PURGE guard and <strong>hold CYCLONE PURGE</strong>.</li>
+          <li>
+            Hold until the note reads CLEAN and BED &#916;P returns to your
+            notch’s normal figure — typically fifteen to twenty seconds.
+          </li>
+          <li>
+            Release. If the window re-lights within the shift, suspect the feed
+            screen and drop to TRICKLE while you investigate.
+          </li>
+        </ol>
+      </section>
+      <section class="fault-block">
+        <h3>dryer breakthrough</h3>
+        <p class="see">
+          <strong>You see:</strong> the dewpoint monitor calls &#120138;&#8322;
+          PURITY LOW within seconds regardless of flow; the duty column shows
+          saturated; flowing, purity decays toward the mid-seventies and oxygen
+          yield falls away.
+        </p>
+        <ol>
+          <li>
+            Turn <strong>DRYER SELECTOR</strong> to the other column. This is
+            the whole recovery — do it early.
+          </li>
+          <li>
+            Purity recovers through 92% in a few minutes of flow and the window
+            clears.
+          </li>
+          <li>
+            The wet column regenerates offline in about ninety-five seconds and
+            may be selected again once it reads fresh.
+          </li>
+          <li>
+            Ignored below 75% purity, the electrolysers flood and the train
+            trips in forty seconds.
+          </li>
+        </ol>
+      </section>
+      <section class="fault-block">
+        <h3>tap-hole freeze</h3>
+        <p class="see">
+          <strong>You see:</strong> the state cell reads PLUG SEIZED, TAP STALL
+          lights after eight seconds, and an open pour stops dead. CRACK will
+          not take while the seizure holds.
+        </p>
+        <ol>
+          <li>
+            Return <strong>TAP to SHUT</strong>. Lever held open against a
+            seized hole trips the train after twenty-five seconds.
+          </li>
+          <li>
+            Bring the bed above 850 °C — banks A+B will hold it — a cold hole
+            re-seizes even after drilling.
+          </li>
+          <li>
+            Lift the taphole guard and
+            <strong>hold CRACK for three seconds</strong>. The state cell
+            returns to PLUG INTACT, then cracks normally.
+          </li>
+          <li>
+            Resume the tap promptly. If the alarm was raised while casting,
+            expect the first crucible to read light.
+          </li>
+        </ol>
+      </section>
+
+      <h2 id="specifications">Specifications</h2>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Oxygen output, continuous</th>
+            <td>70 kg/h at NOMINAL feed (100 kg/h short period)</td>
+          </tr>
+          <tr>
+            <th>Feed rates</th>
+            <td>CLOSED 0 · TRICKLE 6 · LOW 14 · NOMINAL 22 · FULL 30 kg/min</td>
+          </tr>
+          <tr>
+            <th>Working bed temperature band</th>
+            <td>1040–1095 °C (reduce 980–1120 °C)</td>
+          </tr>
+          <tr>
+            <th>Protection limits</th>
+            <td>alarm 1120 °C · trip 1160 °C after 12 s</td>
+          </tr>
+          <tr>
+            <th>Bed &#916;P working range</th>
+            <td>
+              10–15 kPa · alarm 16.5 · channel limit 19 kPa · minimum to
+              fluidise 6.5 kPa
+            </td>
+          </tr>
+          <tr>
+            <th>&#120138;&#8322; purity</th>
+            <td>96.5% fresh · alarm below 88% · flood trip below 75%</td>
+          </tr>
+          <tr>
+            <th>Heater banks</th>
+            <td>A 120 kW · B 140 kW · C 160 kW</td>
+          </tr>
+          <tr>
+            <th>Blower</th>
+            <td>five notches, 14–44 kW, recycle circulator</td>
+          </tr>
+          <tr>
+            <th>Site power budget</th>
+            <td>640 kW · load-shed of bank C at +20 s · trip at +45 s</td>
+          </tr>
+          <tr>
+            <th>Bath capacity</th>
+            <td>1900 kg spent solids · alarm at 88% · trip at 98%/15 s</td>
+          </tr>
+          <tr>
+            <th>Crucible</th>
+            <td>450 kg · about thirteen bricks per cast · car swap 5 s</td>
+          </tr>
+          <tr>
+            <th>Tap drain rate</th>
+            <td>up to 260 kg/min at FULL with the bed above 1000 °C</td>
+          </tr>
+          <tr>
+            <th>Dryer columns</th>
+            <td>twin, keyed duty selection · regeneration 95 s offline</td>
+          </tr>
+          <tr>
+            <th>Hopper</th>
+            <td>2400 kg · automatic top-up conveyor</td>
+          </tr>
+          <tr>
+            <th>Bay atmosphere</th>
+            <td>5 psi habitat side · monitoring circuits battery-backed</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="doc-foot">
+      <span
+        >M-88/1 REV C · MALAPERT OXYGEN WORKS · PRINTED FROM CONSOLE TB-4</span
+      >
+      <a href="./">&#8592; PANEL</a> · <a href="../../">CATALOGUE</a>
+    </footer>
+  </body>
+</html>

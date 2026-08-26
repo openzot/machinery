@@ -1453,5 +1453,37 @@
     ],
     "tagline": "Air goes towards Noord on a good day — and away from the queue on a bad one.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "malapert-oxygen-works",
+    "name": "Malapert Oxygen Works — Reduction Reactor Console",
+    "kind": "lunar regolith reduction reactor console",
+    "domain": "mining",
+    "era": "speculative",
+    "design": "cast basalt-composite fascia in moon-dust taupe with warm bone-white etched legends, consortium forest-green plates and levers, graphite emissive cells, mechanical drums, hard slanting sunlight with only molten slag for glow",
+    "interaction": "a guarded two-stage taphole station — crack the refractory plug on a held button, then ease a notched pour lever against bath level — while matching heater banks to feed inside a fixed solar kilowatt budget",
+    "palette": [
+      "#948b7c",
+      "#31502e",
+      "#d0392b"
+    ],
+    "controls": [
+      "SITE BREAKER",
+      "HEATER BANK",
+      "FEED RATE",
+      "BLOWER",
+      "TAPHOLE PLUG",
+      "DRYER SELECTOR",
+      "CYCLONE PURGE",
+      "FAULT SELECTOR",
+      "FAULT INJECT"
+    ],
+    "faults": [
+      "cyclone blinding",
+      "dryer breakthrough",
+      "tap-hole freeze"
+    ],
+    "tagline": "Crack her at ten-fifty, pour clean, and mind your kilowatts — the sun never moves but the budget does.",
+    "created": "2026-08-26"
   }
 ]
