@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Wharfedale Technical College — Naylor EM-3 Electron Microscope
+    </title>
+    <link rel="stylesheet" href="machine.css" />
+  </head>
+  <body>
+    <!-- ============================================================
+     NAYLOR EM-3 TRANSMISSION ELECTRON MICROSCOPE — OPERATING DESK
+     Wharfedale Technical College, Electron Optics Bay, 1958.
+     Plum crackle enamel, sage cheeks, nickel bezels, bone legends.
+     ============================================================ -->
+
+    <main class="desk">
+      <!-- ================= TOP RAIL ================= -->
+      <header class="rail">
+        <div class="nameplate">
+          <h1>Naylor&nbsp;EM-3</h1>
+          <p class="sub">
+            Transmission Electron Microscope &middot; Operating Desk No.&nbsp;1
+          </p>
+          <p class="works">
+            Wharfedale Technical College &middot; Electron Optics Bay
+          </p>
+        </div>
+
+        <div
+          class="annunciator-strip"
+          role="list"
+          aria-label="Annunciator strip"
+        >
+          <span class="ann" role="listitem" data-ann="vacuum"
+            ><i></i><em>COLUMN<br />VACUUM HIGH</em></span
+          >
+          <span class="ann" role="listitem" data-ann="gun"
+            ><i></i><em>GUN<br />DISCHARGE</em></span
+          >
+          <span class="ann" role="listitem" data-ann="filament"
+            ><i></i><em>FILAMENT<br />OPEN</em></span
+          >
+          <span class="ann" role="listitem" data-ann="water"
+            ><i></i><em>COOLING WATER<br />LOST</em></span
+          >
+          <span class="ann" role="listitem" data-ann="overheat"
+            ><i></i><em>OBJECTIVE<br />OVERHEAT</em></span
+          >
+          <span class="ann" role="listitem" data-ann="air"
+            ><i></i><em>COLUMN<br />LET UP TO AIR</em></span
+          >
+        </div>
+
+        <div class="rail-pilots">
+          <span class="jewel" data-jewel="mains" title="Mains on"
+            ><i></i><small>MAINS</small></span
+          >
+          <span
+            class="jewel"
+            data-jewel="diffusion"
+            title="Diffusion pump heater"
+            ><i></i><small>DIFF&#8201;PUMP</small></span
+          >
+          <button
+            type="button"
+            class="push push-small"
+            data-control="LAMPS TEST"
+            data-btn="lampstest"
+          >
+            LAMPS TEST
+          </button>
+          <button
+            type="button"
+            class="push push-small push-manual"
+            data-action="manual"
+          >
+            MANUAL
+          </button>
+        </div>
+      </header>
+
+      <!-- ================= WORKING BAYS ================= -->
+      <div class="bays">
+        <!-- ~~~~~~~~~~~~ LEFT BAY : VACUUM PLANT ~~~~~~~~~~~~ -->
+        <section class="bay bay-vacuum" aria-label="Vacuum plant">
+          <h2 class="bay-title">Vacuum Plant</h2>
+
+          <div class="control-block block-selector">
+            <span class="legend">PUMP SELECTOR</span>
+            <div
+              class="rotary"
+              id="pumpRotary"
+              data-control="PUMP SELECTOR"
+              role="radiogroup"
+              aria-label="Pump selector"
+              style="--rot: 0deg"
+            >
+              <span class="rotary-face"></span>
+              <span class="rotary-arrow"></span>
+              <button
+                type="button"
+                class="rot-stop"
+                data-pos="0"
+                role="radio"
+                aria-checked="true"
+              >
+                <i></i><em>OFF</em>
+              </button>
+              <button
+                type="button"
+                class="rot-stop"
+                data-pos="1"
+                role="radio"
+                aria-checked="false"
+              >
+                <i></i><em>ROUGH</em>
+              </button>
+              <button
+                type="button"
+                class="rot-stop"
+                data-pos="2"
+                role="radio"
+                aria-checked="false"
+              >
+                <i></i><em>BACK</em>
+              </button>
+              <button
+                type="button"
+                class="rot-stop"
+                data-pos="3"
+                role="radio"
+                aria-checked="false"
+              >
+                <i></i><em>DIFFUSION</em>
+              </button>
+              <button
+                type="button"
+                class="rot-stop"
+                data-pos="4"
+                role="radio"
+                aria-checked="false"
+              >
+                <i></i><em>AUTO</em>
+              </button>
+            </div>
+            <p class="note">
+              Interlocked: diffusion will not start above
+              5&times;10<sup>-2</sup>&nbsp;torr.
+            </p>
+          </div>
+
+          <div class="gauge-row">
+            <figure class="meter meter-vac">
+              <svg viewBox="0 0 120 84" aria-hidden="true">
+                <path class="arc" d="M7.2 58.8A54 54 0 0 1 112.8 58.8" />
+                <g class="ticks" id="vacTicks"></g>
+                <text x="60" y="30" class="scale-hi">
+                  10
+                  <tspan baseline-shift="super" font-size="7">
+                    &#8202;&#8722;&#185;
+                  </tspan>
+                </text>
+                <text x="18" y="66" class="scale-mid">10&#8315;&#179;</text>
+                <text x="88" y="66" class="scale-lo">10&#8315;&#8310;</text>
+                <line
+                  class="needle"
+                  id="vacNeedle"
+                  x1="60"
+                  y1="70"
+                  x2="60"
+                  y2="18"
+                  transform="rotate(-78 60 70)"
+                />
+                <circle class="hub" cx="60" cy="70" r="5" />
+              </svg>
+              <figcaption>COLUMN PRESSURE &middot; TORR</figcaption>
+            </figure>
+            <figure class="meter meter-fore">
+              <svg viewBox="0 0 120 84" aria-hidden="true">
+                <path class="arc" d="M7.2 58.8A54 54 0 0 1 112.8 58.8" />
+                <g class="ticks" id="foreTicks"></g>
+                <text x="14" y="64" class="scale-lo">0</text>
+                <text x="96" y="64" class="scale-lo">760</text>
+                <line
+                  class="needle needle-red"
+                  id="foreNeedle"
+                  x1="60"
+                  y1="70"
+                  x2="60"
+                  y2="22"
+                  transform="rotate(-78 60 70)"
+                />
+                <circle class="hub" cx="60" cy="70" r="5" />
+              </svg>
+              <figcaption>FORE-LINE &middot; mm Hg</figcaption>
+            </figure>
+          </div>
+
+          <div class="control-block block-valve">
+            <span class="legend">CAMERA PORT VALVE</span>
+            <button
+              type="button"
+              class="qlever"
+              id="portValve"
+              data-control="CAMERA PORT VALVE"
+              aria-label="Camera port valve — open or closed"
+              aria-pressed="true"
+              style="--turn: 90deg"
+            >
+              <span class="qlever-slot"></span
+              ><span class="qlever-arm"><i></i></span>
+            </button>
+            <p class="note">
+              <strong>OPEN</strong> lines the camera to the column.<br />Close
+              to isolate a port leak.
+            </p>
+          </div>
+
+          <div class="duo">
+            <div class="control-block block-mains">
+              <span class="legend">MAINS BREAKER</span>
+              <button
+                type="button"
+                class="bat"
+                id="mainsBat"
+                data-control="MAINS BREAKER"
+                role="switch"
+                aria-checked="false"
+                aria-label="Mains breaker"
+              >
+                <span class="bat-slot"></span>
+                <span class="bat-handle"></span>
+                <em class="bat-lab lab-off">OFF</em>
+                <em class="bat-lab lab-on">ON</em>
+              </button>
+            </div>
+
+            <div class="control-block block-trap">
+              <span class="legend">COLD TRAP</span>
+              <button
+                type="button"
+                class="push push-hold"
+                data-control="TRAP CHILL"
+                data-btn="trap"
+                aria-label="Hold to chill the cold trap with liquid nitrogen"
+              >
+                HOLD TO CHILL
+              </button>
+              <span class="trap-level" title="Cold trap charge"
+                ><i id="trapLevel"></i
+              ></span>
+              <p class="note">
+                LN&#8322; in the anticontaminator slows foil fouling.
+              </p>
+            </div>
+          </div>
+
+          <div class="plant-lines" aria-hidden="true">
+            <span class="pipe pipe-a"></span><span class="pipe pipe-b"></span
+            ><span class="pipe pipe-c"></span>
+          </div>
+        </section>
+
+        <!-- ~~~~~~~~~~~~ CENTRE : THE COLUMN ~~~~~~~~~~~~ -->
+        <section
+          class="column-bay"
+          aria-label="Microscope column and viewing chamber"
+        >
+          <div class="column-and-chamber">
+            <div class="column" id="column" aria-hidden="true">
+              <div class="col-plate col-gun">
+                <b>GUN</b><s id="colGunTip"></s>
+              </div>
+              <div class="col-gap">
+                <span class="beamseg" data-seg="gun"></span>
+              </div>
+              <div class="col-plate col-cond"><b>CONDENSERS</b></div>
+              <div class="col-gap">
+                <span class="beamseg" data-seg="cond"></span>
+              </div>
+              <div class="col-plate col-spec">
+                <b>SPECIMEN</b><s id="colSpecStage"></s>
+              </div>
+              <div class="col-gap">
+                <span class="beamseg" data-seg="spec"></span>
+              </div>
+              <div class="col-plate col-obj">
+                <b>OBJECTIVE</b><s id="colObjCoil"></s>
+              </div>
+              <div class="col-gap">
+                <span class="beamseg" data-seg="obj"></span>
+              </div>
+              <div class="col-plate col-proj"><b>PROJECTORS</b></div>
+              <div class="col-gap">
+                <span class="beamseg" data-seg="proj"></span>
+              </div>
+            </div>
+
+            <div class="chamber">
+              <div class="chamber-bezel">
+                <canvas
+                  id="phosphor"
+                  width="360"
+                  height="270"
+                  aria-label="Viewing screen: live specimen image"
+                ></canvas>
+                <span class="glass-glare" aria-hidden="true"></span>
+              </div>
+              <p class="chamber-note" id="chamberNote">CHAMBER &mdash; DARK</p>
+            </div>
+          </div>
+
+          <div class="column-controls">
+            <div class="block-lever">
+              <span class="legend">SCREEN LEVER</span>
+              <button
+                type="button"
+                class="slever"
+                id="screenLever"
+                data-control="SCREEN LEVER"
+                aria-label="Screen lever — VIEW or CAMERA"
+                aria-pressed="true"
+                style="--swing: -24deg"
+              >
+                <span class="slever-quadrant"
+                  ><em>VIEW</em><em>CAMERA</em></span
+                >
+                <span class="slever-arm"><i></i></span>
+              </button>
+            </div>
+            <div class="block-expose">
+              <span class="legend">EXPOSE</span>
+              <button
+                type="button"
+                class="plunger"
+                data-control="EXPOSE"
+                data-btn="expose"
+                aria-label="Expose photographic plate"
+              >
+                <span class="plunger-cap"></span>
+              </button>
+              <span class="counter" title="Plates exposed"
+                ><i id="plateCount">00</i><em>PLATES</em></span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ~~~~~~~~~~~~ RIGHT OF CENTRE : OPERATOR'S OPTICS ~~~~~~~~~~~~ -->
+        <section class="bay bay-optics" aria-label="Operator's optics">
+          <h2 class="bay-title">Illumination &amp; Focus</h2>
+
+          <div class="meter-row">
+            <figure class="meter">
+              <svg viewBox="0 0 120 84" aria-hidden="true">
+                <path class="arc" d="M7.2 58.8A54 54 0 0 1 112.8 58.8" />
+                <g class="ticks" id="emTicks"></g>
+                <text x="12" y="64" class="scale-lo">0</text>
+                <text x="92" y="64" class="scale-lo">50</text>
+                <text x="52" y="26" class="scale-unit">&micro;A</text>
+                <line
+                  class="needle"
+                  id="emNeedle"
+                  x1="60"
+                  y1="70"
+                  x2="60"
+                  y2="18"
+                  transform="rotate(-78 60 70)"
+                />
+                <circle class="hub" cx="60" cy="70" r="5" />
+              </svg>
+              <figcaption>FILAMENT EMISSION</figcaption>
+            </figure>
+            <figure class="meter">
+              <svg viewBox="0 0 120 84" aria-hidden="true">
+                <path class="arc" d="M7.2 58.8A54 54 0 0 1 112.8 58.8" />
+                <g class="ticks" id="hvTicks"></g>
+                <text x="12" y="64" class="scale-lo">0</text>
+                <text x="88" y="64" class="scale-lo">60</text>
+                <text x="46" y="26" class="scale-unit">kV</text>
+                <line
+                  class="needle"
+                  id="hvNeedle"
+                  x1="60"
+                  y1="70"
+                  x2="60"
+                  y2="18"
+                  transform="rotate(-78 60 70)"
+                />
+                <circle class="hub" cx="60" cy="70" r="5" />
+              </svg>
+              <figcaption>GUN HIGH TENSION</figcaption>
+            </figure>
+          </div>
+
+          <div class="knob-rack">
+            <div class="control-block block-slider">
+              <label class="legend" for="filamentSlider"
+                >FILAMENT CURRENT</label
+              >
+              <input
+                type="range"
+                class="slider slider-fil"
+                id="filamentSlider"
+                data-control="FILAMENT CURRENT"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                aria-label="Filament current, zero to three amperes"
+              />
+              <span class="readout"><i id="filReadout">0.00 A</i></span>
+            </div>
+
+            <div class="control-block block-slider">
+              <label class="legend" for="condenserSlider">CONDENSER</label>
+              <input
+                type="range"
+                class="slider slider-cond"
+                id="condenserSlider"
+                data-control="CONDENSER"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                aria-label="Condenser strength, spot size"
+              />
+              <span class="readout"><i id="condReadout">SPOT 6</i></span>
+            </div>
+
+            <div class="control-block block-slider block-focus">
+              <label class="legend" for="focusKnob">OBJECTIVE FOCUS</label>
+              <div class="microrow">
+                <button
+                  type="button"
+                  class="micro-btn"
+                  id="focusMinus"
+                  aria-label="Focus one step towards underfocus"
+                >
+                  &#8722;
+                </button>
+                <input
+                  type="range"
+                  class="slider slider-focus"
+                  id="focusKnob"
+                  data-control="OBJECTIVE FOCUS"
+                  min="-500"
+                  max="500"
+                  value="0"
+                  step="2"
+                  aria-label="Objective focus micrometer, minus five hundred to plus five hundred"
+                />
+                <button
+                  type="button"
+                  class="micro-btn"
+                  id="focusPlus"
+                  aria-label="Focus one step towards overfocus"
+                >
+                  +
+                </button>
+              </div>
+              <span class="readout"><i id="focusReadout">+000 &#181;m</i></span>
+            </div>
+          </div>
+
+          <div class="optics-lower">
+            <div class="control-block block-mag">
+              <span class="legend">MAGNIFICATION</span>
+              <div
+                class="mag-dial"
+                id="magDial"
+                data-control="MAGNIFICATION"
+                role="radiogroup"
+                aria-label="Magnification selector"
+              >
+                <span class="mag-window"
+                  ><i id="magReadout">2 000&times;</i></span
+                >
+                <button
+                  type="button"
+                  class="mag-step mag-down"
+                  data-dir="-1"
+                  aria-label="Magnification down"
+                >
+                  &#9666;
+                </button>
+                <button
+                  type="button"
+                  class="mag-step mag-up"
+                  data-dir="1"
+                  aria-label="Magnification up"
+                >
+                  &#9656;
+                </button>
+              </div>
+            </div>
+
+            <div class="control-block block-stage">
+              <span class="legend">STAGE SHIFT</span>
+              <div
+                class="stagepad"
+                id="stagePad"
+                data-control="STAGE SHIFT"
+                tabindex="0"
+                role="application"
+                aria-label="Specimen stage shift — drag or arrow keys"
+              >
+                <span class="stage-cross" id="stageCross"></span>
+                <span class="stage-dot" id="stageDot"></span>
+              </div>
+              <span class="readout readout-center"
+                ><i id="stageReadout">x+000 y+000 &mu;m</i></span
+              >
+            </div>
+
+            <div class="control-block block-wobbler">
+              <span class="legend">WOBBLER</span>
+              <div
+                class="wobbler"
+                id="wobbler"
+                data-control="WOBBLER"
+                role="group"
+                aria-label="Beam wobbler rocker, spring return to centre"
+              >
+                <button
+                  type="button"
+                  class="wob wob-under"
+                  data-wob="-1"
+                  aria-label="Wobble beam underfocus"
+                >
+                  UNDER
+                </button>
+                <span class="wob-pivot" aria-hidden="true"></span>
+                <button
+                  type="button"
+                  class="wob wob-over"
+                  data-wob="1"
+                  aria-label="Wobble beam overfocus"
+                >
+                  OVER
+                </button>
+              </div>
+              <p class="note">
+                Rock the beam through focus;<br />a still image means true
+                focus.
+              </p>
+            </div>
+          </div>
+
+          <div class="control-block block-key">
+            <span class="legend">GUN HV KEY</span>
+            <div
+              class="guard"
+              id="hvGuard"
+              data-guarded
+              data-control="GUN HV KEY"
+            >
+              <button
+                type="button"
+                class="guard-lid"
+                id="hvGuardLid"
+                aria-expanded="false"
+                aria-label="Lift the high tension guard"
+              >
+                <i></i>
+              </button>
+              <button
+                type="button"
+                class="keyswitch"
+                id="hvKey"
+                role="switch"
+                aria-checked="false"
+                aria-label="Gun high tension key — OFF or RUN"
+                disabled
+              >
+                <span class="key-barrel"
+                  ><i class="key-bit" id="hvKeyBit"></i
+                ></span>
+                <em class="key-pos off">OFF</em><em class="key-pos run">RUN</em>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ~~~~~~~~~~~~ FAR RIGHT : CAMERA, WATER, MAINTENANCE ~~~~~~~~~~~~ -->
+        <section
+          class="bay bay-maint"
+          aria-label="Camera, cooling and maintenance"
+        >
+          <h2 class="bay-title">Camera &amp; Maintenance</h2>
+
+          <div class="control-block block-water">
+            <span class="legend">COOLING WATER</span>
+            <figure class="meter meter-small">
+              <svg viewBox="0 0 120 84" aria-hidden="true">
+                <path class="arc" d="M7.2 58.8A54 54 0 0 1 112.8 58.8" />
+                <path class="arc-red" d="M77.3 18.8A54 54 0 0 1 112.8 58.8" />
+                <g class="ticks" id="waterTicks"></g>
+                <text x="12" y="64" class="scale-lo">0</text>
+                <text x="80" y="56" class="scale-lo">l/min</text>
+                <line
+                  class="needle"
+                  id="waterNeedle"
+                  x1="60"
+                  y1="70"
+                  x2="60"
+                  y2="18"
+                  transform="rotate(-78 60 70)"
+                />
+                <circle class="hub" cx="60" cy="70" r="5" />
+              </svg>
+              <figcaption>FLOW</figcaption>
+            </figure>
+            <button
+              type="button"
+              class="push"
+              data-control="WATER RESTORE"
+              data-btn="water"
+              aria-label="Restore lens cooling water supply"
+            >
+              WATER ON
+            </button>
+            <span class="temp-readout"
+              ><i id="objTemp">18&deg;C</i><em>LENS</em></span
+            >
+          </div>
+
+          <div class="control-block block-filchange">
+            <span class="legend">FILAMENT SPARES</span>
+            <div class="cover-box" id="sparesBox">
+              <button
+                type="button"
+                class="cover-lid"
+                id="sparesLid"
+                aria-expanded="false"
+                aria-label="Open the filament spares drawer"
+              >
+                <i></i>
+              </button>
+              <button
+                type="button"
+                class="push push-inbox"
+                data-control="NEW FILAMENT"
+                data-btn="newfil"
+                aria-label="Fit a new tungsten hairpin filament"
+                disabled
+              >
+                FIT NEW FILAMENT
+              </button>
+              <span class="lifebar" title="Filament life consumed"
+                ><i id="filLife"></i
+              ></span>
+            </div>
+            <p class="note">
+              Hairpin tungsten, 40&nbsp;h service life.<br />Drive gently past
+              the knee.
+            </p>
+          </div>
+
+          <div class="control-block block-tests">
+            <span class="legend">FAULT TEST SWITCHES</span>
+            <div
+              class="testbank"
+              data-control="FAULT TEST SWITCHES"
+              role="group"
+              aria-label="Fault injection test switches"
+            >
+              <button
+                type="button"
+                class="testsw"
+                data-fault="camera port leak"
+                aria-pressed="false"
+              >
+                <i></i><em>PORT<br />LEAK</em>
+              </button>
+              <button
+                type="button"
+                class="testsw"
+                data-fault="filament burnout"
+                aria-pressed="false"
+              >
+                <i></i><em>FILA&#8201;MENT</em>
+              </button>
+              <button
+                type="button"
+                class="testsw"
+                data-fault="cooling water loss"
+                aria-pressed="false"
+              >
+                <i></i><em>WATER</em>
+              </button>
+            </div>
+            <p class="note">
+              Maintenance only &mdash;<br />prove the annunciations.
+            </p>
+          </div>
+
+          <div class="notice-plate">
+            NO CHANGE TO COLUMN, GUN OR LENSES WITHOUT THE DEMONSTRATOR'S
+            SIGNATURE IN THE LOG. SHE RUNS QUIET WHEN SHE RUNS RIGHT.
+          </div>
+
+          <div class="control-block block-accept">
+            <button
+              type="button"
+              class="push push-accept"
+              data-control="ALARM ACCEPT"
+              data-btn="accept"
+              aria-label="Accept alarms"
+            >
+              ALARM ACCEPT
+            </button>
+            <button
+              type="button"
+              class="push push-resetkey"
+              data-control="MASTER RESET"
+              data-btn="reset"
+              aria-label="Master reset — cold and alarm-free"
+            >
+              <span class="reset-ring"></span>MASTER RESET
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= PLINTH ================= -->
+      <footer class="plinth">
+        <span class="maker-plate">
+          <b>NAYLOR INSTRUMENTS LTD &middot; CRAYFIELD</b>
+          <em
+            >TYPE EM-3 &middot; SERIAL 1958-041 &middot; 400 c/s SUPPLY &middot;
+            EARTHFREE</em
+          >
+        </span>
+        <span class="caution-plate"
+          >CAUTION &mdash; HIGH TENSION 60&nbsp;kV. INTERLOCKS SAVE LIFE, NOT
+          TIME.</span
+        >
+        <a class="catalogue-link" href="../../">&larr; Machinery Catalogue</a>
+      </footer>
+    </main>
+
+    <!-- ================= MANUAL DIALOG ================= -->
+    <dialog class="manual-dialog" data-manual aria-label="Operating manual">
+      <div class="manual-chrome">
+        <span class="manual-title"
+          >NAYLOR EM-3 &middot; OPERATING MANUAL &middot; M.I. PUB. No. 7B</span
+        >
+        <button
+          type="button"
+          class="push push-small"
+          data-action="close-manual"
+        >
+          CLOSE
+        </button>
+      </div>
+      <iframe src="manual.html" title="Naylor EM-3 operating manual"></iframe>
+    </dialog>
+
+    <script src="machine.js"></script>
+  </body>
+</html>

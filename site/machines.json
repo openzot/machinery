@@ -1295,5 +1295,47 @@
     ],
     "tagline": "Twenty-six pounds on the main, one carrier at a time, and never against a falling needle.",
     "created": "2026-08-26"
+  },
+  {
+    "slug": "wharfedale-em3",
+    "name": "Wharfedale Technical College — Naylor EM-3 Electron Microscope Desk",
+    "kind": "transmission electron microscope operating console",
+    "domain": "laboratory",
+    "era": "1950s",
+    "design": "plum crackle-enamel console with sage enamelled cheeks, engraved bone legends, nickel bezels, ivory meter faces carrying blued-steel needles, brass maker plates and one willemite-green viewing screen as the only glow in a north-light bay",
+    "interaction": "walking the gun up through its vacuum interlocks on a guarded key, easing a tungsten hairpin just past the saturation knee, then hunting true focus on a micrometer while the wobbler rocks the beam and the screen breathes",
+    "palette": [
+      "#4e3050",
+      "#9db38a",
+      "#d02c20"
+    ],
+    "controls": [
+      "MAINS BREAKER",
+      "PUMP SELECTOR",
+      "CAMERA PORT VALVE",
+      "TRAP CHILL",
+      "GUN HV KEY",
+      "FILAMENT CURRENT",
+      "CONDENSER",
+      "OBJECTIVE FOCUS",
+      "MAGNIFICATION",
+      "STAGE SHIFT",
+      "WOBBLER",
+      "SCREEN LEVER",
+      "EXPOSE",
+      "WATER RESTORE",
+      "NEW FILAMENT",
+      "FAULT TEST SWITCHES",
+      "ALARM ACCEPT",
+      "LAMPS TEST",
+      "MASTER RESET"
+    ],
+    "faults": [
+      "camera port leak",
+      "filament burnout",
+      "cooling water loss"
+    ],
+    "tagline": "Vacuum first, voltage second, filament last — the column forgives nothing out of order.",
+    "created": "2026-08-26"
   }
 ]
