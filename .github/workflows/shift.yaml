@@ -1,13 +1,12 @@
 # One shift of the machinery: zot makes a new machine and the workflow commits
 # it to main. Publishing is pages.yaml's job, dispatched from here - a shift
 # that is cancelled or runs out of clock must not be able to leave the site
-# stale. Runs every 30 minutes; a shift that is still going when the next is
-# due makes the next one wait.
+# stale. The experiment is over, so the half-hourly schedule is off: a shift
+# runs only when dispatched by hand, and one still going makes the next one
+# wait.
 name: shift
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 # Queue rather than skip, and never cancel. A shift takes most of an hour, so
